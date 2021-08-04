@@ -25,7 +25,9 @@ parameters:
 - default: 30000000
   description: Sweep stop Frequency
   name: stop_frequency
-  param_range: 100 to 20e6
+  param_range:
+   mokugo: 1e-3 to 20e6
+   mokupro: 1e-3 to 50e6
   type: number
   unit: Hz
 - default: 1
@@ -37,7 +39,9 @@ parameters:
 - default: 0
   description: Trigger threshold level
   name: trigger_level
-  param_range: -5 to 5
+  param_range:
+   mokugo: -5 to 5
+   mokupro: -20 to 20
   type: number
   unit: V
 - default: true

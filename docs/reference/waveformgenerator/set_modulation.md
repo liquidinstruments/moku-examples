@@ -37,9 +37,11 @@ parameters:
   unit: null
 - default: 10000000
   description: Frequency of internally-generated sine wave modulation. This parameter
-    is ignored if the source is set to ADC or DAC.
+    is is only used when the modulation source is set to internal.
   name: frequency
-  param_range: 0 to 50e6
+  param_range:
+   mokugo: 0 to 5e6
+   mokupro: 0 50 125e6
   type: number
   unit: Hz
 - default: true

@@ -58,13 +58,17 @@ parameters:
 - default: 0
   description: DC Level. (Only for DC waveform)
   name: dc_level
-  param_range: null
+  param_range:    
+   mokugo: -5 to 5
+   mokupro: -50 to 50
   type: number
   unit: null
 - default: 0
   description: Edge-time of the waveform (Only for Pulse wave)
   name: edge_time
-  param_range: 16e-9 to pulse width
+  param_range: 
+   mokugo: 16e-9 to pulse width
+   mokupro: 4e-9 to pulse width  
   type: number
   unit: null
 - default: 0

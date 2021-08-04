@@ -13,7 +13,9 @@ parameters:
 - default: 1
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: 4e-3 to 10
+  param_range: 
+   mokugo: 4e-3 to 10 
+   mokupro: 4e-3 to 100
   type: number
   unit: V
 - default: 10000

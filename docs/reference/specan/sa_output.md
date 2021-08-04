@@ -15,13 +15,17 @@ parameters:
 - default: null
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: null
+  param_range:
+   mokugo: 1e-3 to 10
+   mokupro: 1, 2, 3, 4
   type: number
   unit: null
 - default: null
-  description: Frequency of the wave
+  description: Frequency of the wave. (For sine waves with amplitude above 2Vpp, the maximum frequency is 100 MHz on Moku:Pro)
   name: frequency
-  param_range: 0 to 30e6
+  param_range: 
+   mokugo: 0 to 30e6
+   mokupro: 0 to 500e3 
   type: number
   unit: Hz
 - default: true

@@ -7,13 +7,17 @@ parameters:
 - default: null
   description: Left-most frequency
   name: frequency1
-  param_range: 0 to 30e6
+  param_range:
+   mokugo: 0 to 30e6
+   mokupro: 0 to 300e6
   type: number
   unit: Hz
 - default: null
   description: Right-most frequency
   name: frequency2
-  param_range: 0 to 30e6
+  param_range:
+   mokugo: 0 to 30e6
+   mokupro: 0 to 300e6
   type: number
   unit: Hz
 - default: true
