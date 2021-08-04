@@ -1,0 +1,79 @@
+---
+additional_doc: null
+description: Configures the burst modulation mode of a channel
+method: post
+name: burst_modulate
+parameters:
+- default: null
+  description: Target channel
+  name: channel
+  param_range:
+   mokugo: 1, 2
+   mokupro: 1, 2, 3, 4
+  type: integer
+  unit: null
+- default: null
+  description: Trigger source
+  name: trigger_source
+  param_range: 
+    mokugo: Input1, Input2
+    mokupro: Input1, Input2, Input3, Input4, External  
+  type: string
+  unit: null
+- default: null
+  description: Burst mode
+  name: trigger_mode
+  param_range: Start, NCycle
+  type: string
+  unit: null
+- default: 1
+  description: Number of cycles to generate when triggered
+  name: burst_cycles
+  param_range: 1 to 1e6
+  type: number
+  unit: null
+- default: 0
+  description: Trigger level
+  name: trigger_level
+  param_range: -5 to 5
+  type: number
+  unit: V
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
+summary: burst_modulate
+---
+
+<headers/>
+<parameters/>
+
+Usage in clients, 
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import ArbitraryWaveformGenerator
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+# Configure the output waveform in each channel
+# Set Channel 2 to burst mode
+# Burst mode triggering from Input 1 at 0.1 V
+# 3 cycles of the waveform will be generated every time it is triggered
+i.burst_modulate(2, "Input1", "NCycle", burst_cycles=3, trigger_level=0.1)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+% Configure the output waveform in each channel
+
+%% Set Channel 2 to burst mode
+% Burst mode triggering from Input 1 at 0.1 V
+% 3 cycles of the waveform will be generated every time it is triggered
+m.burst_modulate(2, "Input1", "NCycle",'burst_cycles',3,'trigger_level',0.1);
+```
+</code-block>
+</code-group>

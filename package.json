@@ -1,0 +1,22 @@
+{
+    "name": "api-documentation",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@vuepress/plugin-back-to-top": "^1.8.2",
+        "vuepress": "^1.8.2",
+        "vuepress-plugin-versioning": "github:nonebot/vuepress-plugin-versioning"
+    },
+    "dependencies": {
+        "vuepress-plugin-code-copy": "^1.0.6"
+    }
+}
