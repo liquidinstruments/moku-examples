@@ -23,13 +23,17 @@ parameters:
 - default: 0
   description: Sweep start frequency
   name: start_frequency
-  param_range: 1e-3 to 20e6
+  param_range: 
+   mokugo: 10e-3 to 20e6
+   mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
 - default: 0
   description: Sweep end frequency
   name: stop_frequency
-  param_range: 1e-3 to 20e6
+  param_range: 
+   mokugo: 10e-3 to 20e6
+   mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
 - default: 0
@@ -41,13 +45,15 @@ parameters:
 - default: 0
   description: Minimum averaging cycles per sweep point.
   name: averaging_cycles
-  param_range: 1 to 1048576
+  param_range: 1 to 1,048,576
   type: integer
   unit: null
 - default: 0
   description: Output amplitude
-  name: output_amplitude
-  param_range: 2e-3 to 10
+  name: output_amplitude (For Moku:Pro platform, the output voltage is limited to between -1V and 1V above 1MHz)
+  param_range: 
+   mokugo: 2e-3 to 10
+   mokupro: 1e-3 to 10
   type: number
   unit: Vpp
 - default: true

@@ -35,7 +35,9 @@ parameters:
 - default: 0
   description: Trigger level
   name: trigger_level
-  param_range: -5 to 5
+  param_range: 
+   mokugo: -5 to 5
+   mokupro: -20 to 20
   type: number
   unit: V
 - default: true

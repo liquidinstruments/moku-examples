@@ -13,13 +13,13 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Waveform peak-to-peak amplitude
+  description: Waveform peak-to-peak amplitude (For Moku:Pro platform, the output voltage is limited to between -1V and 1V above 1MHz)
   name: amplitude
   param_range: -5 to 5
   type: number
   unit: V
 - default: 0
-  description: DC offset applied to the waveform
+  description: DC offset applied to the waveform (For Moku:Pro platform, the output voltage is limited to between -1V and 1V above 1MHz)
   name: offset
   param_range: -5 to 5
   type: number

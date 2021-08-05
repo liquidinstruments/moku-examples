@@ -7,13 +7,17 @@ parameters:
 - default: 0
   description: Sweep start frequency
   name: start_frequency
-  param_range: 1e-3 to 20e6
+  param_range: 
+   mokugo: 10e-3 to 20e6
+   mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
 - default: 0
   description: Sweep stop frequency
   name: stop_frequency
-  param_range: 1e-3 to 20e6
+  param_range: 
+   mokugo: 10e-3 to 20e6
+   mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
 - default: 512

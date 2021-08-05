@@ -5,9 +5,11 @@ method: post
 name: set_samplerate
 parameters:
 - default: null
-  description: Target samples per second
+  description: Target samples per second (For Moku:Pro, the maximum sampling rate is limited to 5MSa/s for 2 channel logging and 1.25MSa/s for 3 and 4 channel logging)
   name: sample_rate
-  param_range: 10 to 1e6
+  param_range: 
+   mokugo: 10 to 1e6
+   mokupro: 10 to 10e6
   type: number
   unit: null
 - default: true

@@ -19,7 +19,7 @@ parameters:
   name: sample_rate
   param_range:  
    mokugo: Auto, 125, 62.5, 31.25, 15.625 
-   mokupro: Auto, 125, 62.5, 31.25 
+   mokupro: Auto, 1250, 625, 312.5 
   type: string
   unit: MS/s
 - default: null
@@ -31,11 +31,13 @@ parameters:
 - default: null
   description: Frequency of the waveform
   name: frequency
-  param_range: 1e-3 to 10e6
+  param_range: 
+   mokugo: 1e-3 to 10e6
+   mokupro: 1e-3 to 250e6
   type: number
   unit: Hz
 - default: null
-  description: Waveform peak-to-peak amplitude
+  description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to -1V to 1V with a sample rate of 1.25GSa/s)
   name: amplitude
   param_range: 4e-3 to 10
   type: number
@@ -71,10 +73,16 @@ summary: generate_waveform
 <headers/>
 
 The maximum number of points depends on the sample rate:
+For Moku:Pro
+- 16,384 at 1.25 GS/s
+- 32,768 at 625 MS/s
+- 65,536 at 312.5 MS/s
 
-- 14,384 at 1 GS/s
-- 32,768 at 500 MS/s
-- 65,536 at 250 MS/s
+For Moku:Go
+- 8,192 at 125 MS/s
+- 16,384 at 62.5 MS/s
+- 32,768 at 31.25 MS/s
+- 65,536 at 15.625 MS/s
 
 Values will be normalized to the range [-1.0, +1.0] and then scaled to the desired amplitude and offset.
 

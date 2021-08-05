@@ -20,19 +20,23 @@ parameters:
   type: string
   unit: null
 - default: 1
-  description: Waveform peak-to-peak amplitude
+  description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to between -1V and 1V above 1MHz)
   name: amplitude
-  param_range: 4e-3 to 10
+  param_range: 
+   mokugo: 2e-3 to 10
+   mokupro: 1e-3 to 10
   type: number
   unit: V
 - default: 10000
   description: Waveform frequency
   name: frequency
-  param_range: 1e-3 to 20e6
+  param_range: 
+   mokugo: 1e-3 to 20e6
+   mokupro: 1e-3 to 500e6
   type: number
   unit: Hz
 - default: 0
-  description: DC offset applied to the waveform
+  description: DC offset applied to the waveform (For Moku:Pro, the output voltage is limited to between -1V and 1V above 1MHz)
   name: offset
   param_range: -5 to 5
   type: number
@@ -64,13 +68,17 @@ parameters:
 - default: 0
   description: Edge-time of the waveform (Only for Pulse wave)
   name: edge_time
-  param_range: 16e-9 to pulse width
+  param_range: 
+   mokugo: 16e-9 to pulse width
+   mokupro: 2e-9 to pulse width
   type: number
   unit: null
 - default: 0
   description: Pulse width of the waveform (Only for Pulse wave)
   name: pulse_width
-  param_range: null
+  param_range: 
+   mokugo: 16e-9 to waveform period
+   mokupro: 2e-9 to waveform period
   type: number
   unit: null
 - default: true

@@ -9,20 +9,20 @@ parameters:
   description: Target channel
   name: channel
   param_range:
-   mokugo: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
 - default: 1
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: 4e-3 to 10
+  param_range: 
+   mokupro: 1e-3 to 10
   type: number
   unit: V
 - default: 10000
   description: Waveform frequency
   name: frequency
-  param_range: 1e-3 to 20e6
+  param_range: 1e-3 to 100e6
   type: number
   unit: Hz
 - default: 0
@@ -44,11 +44,12 @@ parameters:
   type: string
   unit: null
 - default: 0.001
-  description: Phase scaling
+  description: Phase scaling (Only used when the output signal is set to Phase)
   name: phase_scaling
-  param_range: null
+  param_range: 
+   mokupro: 10e-9 to 100e3
   type: number
-  unit: null
+  unit: V/cyc
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

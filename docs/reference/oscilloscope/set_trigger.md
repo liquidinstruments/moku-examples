@@ -22,7 +22,9 @@ parameters:
 - default: 0
   description: Trigger level
   name: level
-  param_range: -5 to 5
+  param_range:
+    mokugo: -5 to 5
+    mokupro: -20 to 20
   type: number
   unit: V
 - default: Auto
@@ -48,7 +50,9 @@ parameters:
 - default: 0.0001
   description: Width of the trigger pulse (Pulse mode only)
   name: width
-  param_range: 26e-3 to 10
+  param_range: 
+    mokugo: 480e-9 to 10
+    mokupro: 24.51e-6 to 10
   type: number
   unit: Seconds
 - default: LessThan
@@ -66,7 +70,7 @@ parameters:
 - default: 0
   description: The duration to hold-off Oscilloscope trigger post trigger event
   name: holdoff
-  param_range: 1e-9 to 10
+  param_range: 0 to 10
   type: number
   unit: Seconds
 - default: true

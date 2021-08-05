@@ -19,7 +19,7 @@ parameters:
   type: number
   unit: null
 - default: 0
-  description: Signal level during dead time
+  description: Signal level during dead time (the voltage cannot be below low level or above high level)
   name: dead_voltage
   param_range: -5 to 5
   type: number
