@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Generate a waveform on the output channels.
+description: Generate a sinewave on the output channels.
 method: post
 name: sa_output
 parameters:
@@ -13,7 +13,7 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Sinewave peak-to-peak amplitude (On Moku:Pro, the output sine wave amplitude is limited to -1V to 1V above 100 MHz)
+  description: The peak-to-peak amplitude of the output sinewave (On Moku:Pro, the output sine wave amplitude is limited to -1V to 1V above 100 MHz)
   name: amplitude
   param_range:
    mokugo: 1e-3 to 10
@@ -21,7 +21,7 @@ parameters:
   type: number
   unit: null
 - default: null
-  description: Frequency of the wave. (For sine waves with amplitude above 2Vpp, the maximum frequency is 100 MHz on Moku:Pro)
+  description: Frequency of the output sinewave. (For sine waves with amplitude above 2Vpp, the maximum frequency is 100 MHz on Moku:Pro)
   name: frequency
   param_range: 
    mokugo: 0 to 30e6
