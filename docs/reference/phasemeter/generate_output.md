@@ -8,15 +8,13 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range:
-   mokupro: 1, 2, 3, 4
+  param_range: 1, 2, 3, 4
   type: integer
   unit: null
 - default: 1
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: 
-   mokupro: 1e-3 to 10
+  param_range: 1e-3 to 10
   type: number
   unit: V
 - default: 10000
@@ -46,8 +44,7 @@ parameters:
 - default: 0.001
   description: Phase scaling (Only used when the output signal is set to Phase)
   name: phase_scaling
-  param_range: 
-   mokupro: 10e-9 to 100e3
+  param_range: 10e-9 to 100e3
   type: number
   unit: V/cyc
 - default: true

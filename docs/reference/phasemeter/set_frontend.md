@@ -7,9 +7,7 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range:
-   mokugo: 1, 2
-   mokupro: 1, 2, 3, 4
+  param_range: 1, 2, 3, 4
   type: integer
   unit: null
 - default: null
@@ -21,7 +19,7 @@ parameters:
 - default: null
   description: Input Range
   name: range
-  param_range: 10Vpp, 50Vpp
+  param_range: 400mVpp, 4Vpp, 40Vpp
   type: string
   unit: null
 - default: true
