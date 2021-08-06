@@ -13,11 +13,11 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Waveform peak-to-peak amplitude
+  description: Sinewave peak-to-peak amplitude (On Moku:Pro, the output sine wave amplitude is limited to -1V to 1V above 100 MHz)
   name: amplitude
   param_range:
    mokugo: 1e-3 to 10
-   mokupro: 1, 2, 3, 4
+   mokupro: 1e-3 to 10
   type: number
   unit: null
 - default: null
@@ -25,7 +25,7 @@ parameters:
   name: frequency
   param_range: 
    mokugo: 0 to 30e6
-   mokupro: 0 to 500e3 
+   mokupro: 0 to 500e6 
   type: number
   unit: Hz
 - default: true
