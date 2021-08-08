@@ -49,8 +49,8 @@ parameters:
   type: integer
   unit: null
 - default: 0
-  description: Output amplitude
-  name: output_amplitude (For Moku:Pro platform, the output voltage is limited to between -1V and 1V above 1MHz)
+  description: Output amplitude (For Moku:Pro, the output voltage is limited to between - 1V and 1 V above 1 MHz)
+  name: output_amplitude 
   param_range: 
    mokugo: 2e-3 to 10
    mokupro: 1e-3 to 10
