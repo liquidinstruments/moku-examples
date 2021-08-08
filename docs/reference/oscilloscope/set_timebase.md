@@ -11,14 +11,14 @@ parameters:
   name: t1
   param_range: null
   type: number
-  unit: null
+  unit: Seconds
 - default: null
   description: Time from the trigger point to the right of screen. (Must be a positive
     number, i.e. after the trigger event)
   name: t2
   param_range: null
   type: number
-  unit: null
+  unit: Seconds
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

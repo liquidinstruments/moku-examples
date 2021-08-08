@@ -21,7 +21,9 @@ parameters:
 - default: null
   description: Input Range
   name: range
-  param_range: 10Vpp, 50Vpp
+  param_range: 
+   mokugo: 10Vpp, 50Vpp
+   mokupro: 400 mVpp, 4 Vpp, 40 Vpp 
   type: string
   unit: null
 - default: true

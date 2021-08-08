@@ -11,8 +11,7 @@ parameters:
   type: string
   unit: null
 - default: Input1
-  description: Trigger Source
-      (defaults to Input1)'
+  description: Trigger channel
   name: source
   param_range: 
     mokugo: Input1, Input2, Output1, Output2, ProbeA, ProbeB
