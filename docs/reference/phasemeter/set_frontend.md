@@ -46,14 +46,14 @@ Usage in clients,
 ```python
 from moku.instruments import Oscilloscope
 i = Oscilloscope('192.168.###.###', force_connect=False)
-i.set_frontend(1, "AC", "10Vpp")
+i.set_frontend(1, "DC", "40Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuOscilloscope('192.168.###.###', true);
-m.set_frontend(1, "AC", "10Vpp");
+m.set_frontend(1, "DC", "40Vpp");
 ```
 </code-block>
 </code-group>
