@@ -13,13 +13,13 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: ADC input gain for Channel 1
+  description: ADC input gain for control loop 1
   name: input_gain1
   param_range: 0 to 20
   type: number
   unit: dB
 - default: null
-  description: ADC input gain for Channel 2
+  description: ADC input gain for control loop 2
   name: input_gain2
   param_range: 0 to 20
   type: number
