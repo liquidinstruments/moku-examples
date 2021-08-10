@@ -10,27 +10,35 @@ available_on: "mokupro"
 
 
 <headers/>
+There are 6 different acquisition speeds available in the Phasemeter instrument, the response from the Moku matches the following list:
+
+- -19 = 30 Hz
+- -17 = 120 Hz
+- -15 = 480 Hz
+- -13 = 2 kHz
+- -10 = 15 kHz
+- -7 = 122 kHz
 
 Examples,
 
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import ArbitraryWaveformGenerator
+from moku.instruments import MokuPhasemeter
 
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 
-# Here you can access the serial_number function
-i.serial_number()
+# Request the acquisition speed of the Phasemeter
+speed = i.get_acquisition_speed()
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', false);
+m = MokuPhasemeter('192.168.###.###', false);
 
-% Here you can access the serial_number function
-m.serial_number()
+% Request the acquisition speed of the Phasemeter
+speed = m.get_acquisition_speed()
 ```
 </code-block>
 </code-group>

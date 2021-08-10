@@ -47,9 +47,8 @@ Usage in clients,
 <code-group>
 <code-block title="Python">
 ```python{3}
-from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
-# Generate a waveform on output channels
+from moku.instruments import MokuPhasemeter
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Any other settings...
 logFile = i.start_logging(duration=10, comments="Sample script")
 ```
@@ -57,7 +56,7 @@ logFile = i.start_logging(duration=10, comments="Sample script")
 
 <code-block title="MATLAB">
 ```matlab{2}
-m = MokuDatalogger('192.168.###.###', true);
+m = MokuPhasemeter('192.168.###.###', true);
 % Generate a waveform on output channels
 % Any other settings...
 logFile = m.start_logging('duration', 10, 'comments', 'Sample script');

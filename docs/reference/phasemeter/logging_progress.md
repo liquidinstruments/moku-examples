@@ -31,10 +31,10 @@ Usage in clients,
 <code-group>
 <code-block title="Python">
 ```python{8-15}
-from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
-# Generate a waveform on output channels
-# Any other settings...
+from moku.instruments import MokuPhasemeter
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
+# Configure other settings...
+# Initiate a 10 seconds logging process
 logFile = i.start_logging(duration=10, comments="Sample script")
 # Track progress percentage of the data logging session
 is_logging = True
@@ -50,9 +50,9 @@ while is_logging:
 
 <code-block title="MATLAB">
 ```matlab{2}
-m = MokuDatalogger('192.168.###.###', true);
-% Generate a waveform on output channels
-% Any other settings...
+m = MokuPhasemeter('192.168.###.###', true);
+% Configure other settings...
+% Initiate a 10 seconds logging process
 logFile = m.start_logging('duration', 10, 'comments', 'Sample script');
 is_logging = false;
 while is_logging

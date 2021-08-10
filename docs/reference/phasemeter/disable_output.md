@@ -31,9 +31,9 @@ Examples,
 <code-group>
 <code-block title="Python">
 ```python{5,6}
-from moku.instruments import WaveformGenerator
+from moku.instruments import MokuPhasemeter
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
 # disable modulation on output channel 1
 i.disable_modulation(channel=1)
@@ -42,7 +42,7 @@ i.disable_modulation(channel=1)
 
 <code-block title="MATLAB">
 ```matlab{3,4}
-m = MokuWaveformGenerator('192.168.###.###', false);
+m = MokuPhasemeter('192.168.###.###', false);
 m.generate_waveform(1, 'Sine', 'amplitude', 1, 'frequency', 1e3, 'offset', 0.2);
 % disable modulation on output channel 1
 m.disable_modulation(1)

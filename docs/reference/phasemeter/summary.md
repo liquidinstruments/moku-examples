@@ -13,20 +13,15 @@ summary: summary
 <code-group>
 <code-block title="Python">
 ```python{5}
-from moku.instruments import Oscilloscope
-# Configure the instrument
-i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3);
-i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3, duty=50);
+from moku.instruments import MokuPhasemeter
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 print(i.summary())
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{5}
-m = MokuOscilloscope('192.168.###.###', true);
-%% Configure the instrument
-m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);
-m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
+m = MokuPhasemeter('192.168.###.###', true);
 disp(m.summary())
 ```
 </code-block>
@@ -35,9 +30,11 @@ disp(m.summary())
 Sample response,
 
 ```text
-Moku:Go Oscilloscope
-Channel A (Input 1) - DC coupling, 1 x probe attenuation
-Channel B (Input 2) - DC coupling, 1 x probe attenuation
-Time span 10.00 us, time offset 0.000 s, Precision acquisition mode, no averaging
-Edge trigger: Input 1, level 0.000 V, Auto mode, Rising edge, Auto sensitivity, noise reject off, HF reject off
+    'Moku:Pro Phasemeter
+     Input 1 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
+     Input 2 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
+     Input 3 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
+     Input 4 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
+     Acquisition rate: 1.4901161194e+02 Hz
+     Internal 10 MHz clock'
 ```

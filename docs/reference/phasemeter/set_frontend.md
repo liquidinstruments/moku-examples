@@ -3,6 +3,9 @@ additional_doc: null
 description: Configures the input impedance, coupling, and range for each channel
 method: post
 name: set_frontend
+summary: set_frontend
+available_on: "mokupro"
+
 parameters:
 - default: null
   description: Target channel
@@ -28,7 +31,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_frontend
+
 ---
 
 
@@ -44,15 +47,15 @@ Usage in clients,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+from moku.instruments import MokuPhasemeter
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 i.set_frontend(1, "DC", "40Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuPhasemeter('192.168.###.###', true);
 m.set_frontend(1, "DC", "40Vpp");
 ```
 </code-block>

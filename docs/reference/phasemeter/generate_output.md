@@ -68,9 +68,9 @@ Examples,
 <code-group>
 <code-block title="Python">
 ```python{4-7}
-from moku.instruments import WaveformGenerator
+from moku.instruments import MokuPhasemeter
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
 # Generate a square wave on channel 2, 1 Vpp, 1 kHz, 50% duty cycle
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
@@ -80,7 +80,7 @@ i.generate_waveform(channel=2, type='Square', amplitude=1.0, frequency=1e3, duty
 
 <code-block title="MATLAB">
 ```matlab{2-7}
-m = MokuWaveformGenerator('192.168.###.###', false);
+m = MokuPhasemeter('192.168.###.###', false);
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);

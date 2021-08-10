@@ -34,16 +34,16 @@ Usage in clients,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
-# Oscilloscope reference i is in default state
+from moku.instruments import MokuPhasemeter
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
+# Phasemeter reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
-% Oscilloscope reference m is in default state
+m = MokuPhasemeter('192.168.###.###', true);
+% Phasemeter reference m is in default state
 ```
 </code-block>
 </code-group>

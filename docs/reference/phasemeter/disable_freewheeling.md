@@ -28,9 +28,9 @@ Usage in clients,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import ArbitraryWaveformGenerator
+from moku.instruments import MokuPhasemeter
 
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Configure the output waveform in each channel
 i.enable_output(1)
 i.enable_output(2, false)
@@ -39,7 +39,7 @@ i.enable_output(2, false)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuPhasemeter('192.168.###.###', true);
 % Configure the output waveform in each channel
 m.enable_output(1);
 m.enable_output(2, 'enable','false');
