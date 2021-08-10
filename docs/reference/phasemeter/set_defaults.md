@@ -5,6 +5,7 @@ method: post
 name: set_defaults
 parameters: []
 summary: set_defaults
+available_on: "mokupro"
 ---
 
 <headers/>

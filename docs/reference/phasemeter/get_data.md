@@ -4,6 +4,7 @@ method: get
 name: get_data
 parameters: []
 summary: get_data
+available_on: "mokupro"
 ---
 
 

@@ -30,6 +30,7 @@ parameters:
   unit: null
   warning: Passing true will kill any existing data logging session with out any warning. Use with caution.
 summary: start_logging
+available_on: "mokupro"
 ---
 
 <headers/>

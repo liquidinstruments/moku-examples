@@ -5,6 +5,7 @@ method: get
 name: stop_logging
 parameters: []
 summary: stop_logging
+available_on: "mokupro"
 ---
 
 
