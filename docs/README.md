@@ -11,3 +11,14 @@ features:
   details: Moku is compatible with Python scripting and live environments, making setup easy. Take advantage of Python open-source libraries to add depth to your applications.
 footer: (c) 2021 Liquid Instruments Pty. Ltd.
 ---
+::: tip <Badge text="NEW !"/>
+
+New Python package and MATLAB toolbox are now available to install. 
+
+* To update your **python** package, run  ``` pip install moku --upgrade ```
+* Visit MATLAB Add-on manager (or) File exchange to download and install latest Moku toolbox.
+
+:::
+
+
+
