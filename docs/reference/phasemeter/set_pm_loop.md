@@ -28,7 +28,7 @@ parameters:
 - default: null
   description: Bandwidth of the phase-locked loop
   name: bandwidth
-  param_range: '10kHz', '2k5Hz', '600Hz', '150Hz', '40Hz', '10Hz'
+  param_range: 10kHz, 2k5Hz, 600Hz, 150Hz, 40Hz, 10Hz
   type: number
   unit: Hz
 - default: true
