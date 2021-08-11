@@ -18,8 +18,8 @@ parameters:
     \ chosen. This is correct in almost all circumstances."
   name: sample_rate
   param_range:  
-   mokugo: 'Auto', '125Ms', '62.5Ms', '31.25Ms', '15.625Ms' 
-   mokupro: 'Auto', '1.25Gs', '625Ms', '312.5Ms' 
+   mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms, 15.625Ms
+   mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms 
   type: string
   unit: MS/s
 - default: null
