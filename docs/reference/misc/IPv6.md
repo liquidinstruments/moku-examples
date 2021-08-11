@@ -1,4 +1,5 @@
 ---
+prev: false
 additional_doc: 
 description: 
 method: post
@@ -18,7 +19,6 @@ The syntax for connecting to your Moku is shown below:
 ```python{6,7}
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('[IPv6_address]', force_connect=False)
-
 ```
 </code-block>
 
