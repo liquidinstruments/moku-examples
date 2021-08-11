@@ -44,5 +44,4 @@ A pattern can be generated only when the state of Pin is set to 'O'.
 Refer [Pin Status Definitions](README.md) for the list of available statuses
 :::
 
-Examples,
 
