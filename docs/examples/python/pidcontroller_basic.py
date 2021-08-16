@@ -14,20 +14,36 @@ from moku.instruments import PIDController
 i = PIDController('192.168.###.###', force_connect=False)
 
 try:
-    # Configure the PID Controller using frequency response characteristics
-    # 	P = -10dB
-    #	I Crossover = 100Hz
-    # 	D Crossover = 10kHz
-    # 	I Saturation = 10dB
-    # 	D Saturation = 10dB
-    # 	Double-I = OFF
-    # Note that gains must be converted from dB first
+    # Configures the control matrix:
+    # Channel 1: input 1 gain = 1 dB, input 2 gain = 0 dB
+    # Channel 2: input 2 gain = 0 dB, input 2 gain = 1 dB
+    i.set_control_matrix(channel=1, input_gain1=1, input_gain2=0)
+    i.set_control_matrix(channel=2, input_gain1=0, input_gain2=1)
+
+    # Configure PID Control loop 1 using frequency response characteristics
+    #   P = -10dB
+    #   I Crossover = 100Hz
+    #   D Crossover = 10kHz
+    #   I Saturation = 10dB
+    #   D Saturation = 10dB
+    #   Double-I = OFF
     i.set_by_frequency(channel=1, prop_gain=-10, int_crossover=1e2,
                        diff_crossover=1e4, int_saturation=10,
                        diff_saturation=10)
-    
-    i.enable_output(1, signal=True, output=True)
 
+    #  Configure PID Control loop 2 using gain 
+    #   Proportional gain = 10
+    #   Differentiator gain = -5
+    #   Differentiator gain corner = 5 kHz
+    i.set_by_gain(channel=2, overall_gain=0, prop_gain=10, diff_gain=-5, 
+        diff_corner=5e3,)
+    
+    # Enable the inputs and outputs of the PID controller
+    i.enable_input(1, enabled=True)
+    i.enable_input(2, enabled=True)
+    i.enable_output(1, signal=True, output=True)
+    i.enable_output(2, signal=True, output=True)
+    
 except Exception as e:
     print(f'Exception occurred: {e}')
 finally:

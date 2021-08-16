@@ -13,6 +13,14 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
+- default: 1MOhm
+  description: Impedance
+  name: impedance
+  param_range:
+   mokugo: 1MOhm
+   mokupro: 50Ohm, 1MOhm
+  type: string
+  unit: null
 - default: null
   description: Input Coupling
   name: coupling
@@ -50,14 +58,14 @@ Usage in clients,
 ```python{3}
 from moku.instruments import SpectrumAnalyzer
 i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
-i.set_defaults(1, "AC", "50Vpp")
+i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{2}
 m = MokuSpectrumAnalyzer('192.168.###.###', true);
-m.set_defaults(1, 'AC', '50Vpp')
+m.set_defaults(1, '1MOhm', 'AC', '50Vpp')
 ```
 </code-block>
 </code-group>

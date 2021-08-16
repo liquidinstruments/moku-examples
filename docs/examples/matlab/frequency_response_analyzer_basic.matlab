@@ -15,9 +15,10 @@ settling_time = 1e-6;  % sec
 averaging_cycles = 1;
 settling_cycles = 1;
 
+try
 %% Connect to Moku
 % Connect to your Moku using its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+i = MokuArbitraryWaveformGenerator('192.168.###.###');
 
 %% Configure the instrument
 % Set output sweep amplitudes and offsets
@@ -35,3 +36,14 @@ i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',poin
 %% Get data from Moku
 % Get a single sweep frame from the Moku 
 data = i.get_data();
+
+catch ME
+    % End the current connection session with your Moku
+    i.relinquish_ownership();
+    rethrow(ME);
+end
+
+if ~isempty(ME)
+    % End the current connection session with your Moku
+    i.relinquish_ownership();
+end    
