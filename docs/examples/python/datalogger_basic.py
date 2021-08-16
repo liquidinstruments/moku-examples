@@ -16,8 +16,8 @@ from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 
 try:
-
-    i.set_frontend(channel=1, coupling="AC", range="10Vpp")
+    # Configure the frontend
+    i.set_frontend(channel=1, impedance='1MOhm', coupling="AC", range="10Vpp")
     # Log 100 samples per second
     i.set_samplerate(100)
 

@@ -21,6 +21,14 @@ try
     % Phase sync between the two channels
     i.sync_phase();
 
+    %% Configure modulation
+    % Amplitude modulate the Channel 1 Sinewave with another internally-
+    % generated sinewave. 50% modulation depth at 1Hz.
+    i.set_modulation(1,'Amplitude','Internal','depth',50, 'frequency',1);
+
+    % Burst modulation on Channel 2 using Output 1 as the trigger
+    i.set_burst_mode(2,'Output1','NCycle','trigger_level',0.1, 'burst_cycles',2);
+
 catch ME
     % End the current connection session with your Moku
     i.relinquish_ownership();

@@ -21,9 +21,8 @@ try:
     # Configures the control matrix:
     # Channel 1: input 1 gain = 1 dB, input 2 gain = 0 dB
     # Channel 2: input 2 gain = 0 dB, input 2 gain = 1 dB
-    # Matrix mapping will be updated in the next release
-    i.set_control_matrix(1,1,1)
-    i.set_control_matrix(2,0,0)
+    i.set_control_matrix(channel=1, input_gain1=1, input_gain2=0)
+    i.set_control_matrix(channel=2, input_gain1=0, input_gain2=1)
 
     # Configure the Channel 1 PID Controller using frequency response
     # characteristics

@@ -23,10 +23,10 @@ try:
     i.set_span(frequency1=0, frequency2=30e3)
     i.disable_output(1)
     i.set_rbw('Auto')  # Auto-mode
-    print(i.get_rbw())
+    
     # Configure ADC inputs
-    i.set_frontend(1, coupling='DC', range='10Vpp')
-    i.set_frontend(2, coupling='DC', range='10Vpp')
+    i.set_frontend(1, impedance='1MOhm', coupling='DC', range='10Vpp')
+    i.set_frontend(2, impedance='1MOhm', coupling='DC', range='10Vpp')
 
     # Set up basic plot configurations
     line1, = plt.plot([])

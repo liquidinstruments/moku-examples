@@ -13,6 +13,12 @@ parameters:
   param_range: 1, 2, 3, 4
   type: integer
   unit: null
+- default: 1MOhm
+  description: Impedance
+  name: impedance
+  param_range: 50Ohm, 1MOhm
+  type: string
+  unit: null
 - default: null
   description: Input Coupling
   name: coupling

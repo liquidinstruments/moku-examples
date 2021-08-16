@@ -12,6 +12,14 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
+- default: 1MOhm
+  description: Impedance
+  name: impedance
+  param_range:
+   mokugo: 1MOhm
+   mokupro: 50Ohm, 1MOhm
+  type: string
+  unit: null
 - default: null
   description: Input Coupling
   name: coupling
@@ -50,14 +58,14 @@ Usage in clients,
 ```python
 from moku.instruments import Oscilloscope
 i = Oscilloscope('192.168.###.###', force_connect=False)
-i.set_frontend(1, "AC", "10Vpp")
+i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuOscilloscope('192.168.###.###', true);
-m.set_frontend(1, "AC", "10Vpp");
+i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```
 </code-block>
 </code-group>
