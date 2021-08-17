@@ -61,8 +61,8 @@ i.set_frontend(1, "DC", "40Vpp")
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', true);
-m.set_frontend(1, "DC", "40Vpp");
+i = MokuPhasemeter('192.168.###.###', true);
+i.set_frontend(1, "DC", "40Vpp");
 ```
 </code-block>
 </code-group>

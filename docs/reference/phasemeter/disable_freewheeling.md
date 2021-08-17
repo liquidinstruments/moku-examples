@@ -31,18 +31,14 @@ Usage in clients,
 from moku.instruments import MokuPhasemeter
 
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
-# Configure the output waveform in each channel
-i.enable_output(1)
-i.enable_output(2, false)
+i.disable_freewheeling(disable=True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', true);
-% Configure the output waveform in each channel
-m.enable_output(1);
-m.enable_output(2, 'enable','false');
+i = MokuPhasemeter('192.168.###.###', true);
+i.disable_freewheeling('disable',true);
 ```
 </code-block>
 </code-group>

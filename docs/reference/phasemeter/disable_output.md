@@ -3,7 +3,7 @@ title: disable_output
 additional_doc: null
 description: Turn off the output channels
 method: post
-name: disable_modulation
+name: disable_output
 parameters:
 - default: null
   description: Target channel
@@ -34,18 +34,18 @@ Examples,
 from moku.instruments import MokuPhasemeter
 
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
-i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
-# disable modulation on output channel 1
-i.disable_modulation(channel=1)
+# Disable Out 1
+i.disable_output(channel=1)
+
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{3,4}
-m = MokuPhasemeter('192.168.###.###', false);
-m.generate_waveform(1, 'Sine', 'amplitude', 1, 'frequency', 1e3, 'offset', 0.2);
-% disable modulation on output channel 1
-m.disable_modulation(1)
+i = MokuPhasemeter('192.168.###.###', false);
+% Disable Out 1
+i.disable_output(1);
+
 ```
 </code-block>
 </code-group>

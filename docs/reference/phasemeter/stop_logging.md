@@ -30,11 +30,11 @@ i.stop_logging()
 
 <code-block title="MATLAB">
 ```matlab{5}
-m = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###', true);
 % Generate a waveform on output channels
 % Any other settings...
-logFile = m.start_logging('duration', 10, 'comments', 'Sample script');
-m.stop_logging()
+logFile = i.start_logging('duration', 10, 'comments', 'Sample script');
+i.stop_logging()
 ```
 </code-block>
 </code-group>

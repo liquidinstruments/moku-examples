@@ -57,10 +57,10 @@ logFile = i.start_logging(duration=10, comments="Sample script")
 
 <code-block title="MATLAB">
 ```matlab{2}
-m = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###', true);
 % Generate a waveform on output channels
 % Any other settings...
-logFile = m.start_logging('duration', 10, 'comments', 'Sample script');
+logFile = i.start_logging('duration', 10, 'comments', 'Sample script');
 ```
 </code-block>
 </code-group>

@@ -16,7 +16,7 @@ parameters:
   name: amplitude
   param_range: 1e-3 to 10
   type: number
-  unit: V
+  unit: Vpp
 - default: 10000
   description: Waveform frequency
   name: frequency
@@ -36,13 +36,13 @@ parameters:
   type: boolean
   unit: null
 - default: Sine
-  description: Type of output signal
+  description: (Upcoming) Type of output signal
   name: signal
   param_range: Sine, Phase
   type: string
   unit: null
 - default: 0.001
-  description: Phase scaling (Only used when the output signal is set to Phase)
+  description: (Upcoming) Phase scaling (only used when the output signal is set to Phase)
   name: phase_scaling
   param_range: 10e-9 to 100e3
   type: number
@@ -72,21 +72,26 @@ from moku.instruments import MokuPhasemeter
 
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
-# Generate a square wave on channel 2, 1 Vpp, 1 kHz, 50% duty cycle
-i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
-i.generate_waveform(channel=2, type='Square', amplitude=1.0, frequency=1e3, duty=50)
+# Generate a sine wave on channel 2, 1 Vpp, 1 MHz
+i.generate_output(channel=1, amplitude=0.5, frequency=5e3)
+i.generate_output(channel=2,  amplitude=1.0, frequency=1e6)
+
+i.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
 ```
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2-7}
-m = MokuPhasemeter('192.168.###.###', false);
+```matlab{2-8}
+i = MokuPhasemeter('192.168.###.###', false);
 % Generate a sine wave on Channel 1
-% 1Vpp, 10kHz, 0V offset
-m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
+% 0.5 Vpp, 10 kHz
+i.generate_output(1, 0.5, 10e3);
+
 % Generate a sine wave on Channel 2
-% 1Vpp, 10kHz, 0V offset, 50% duty cycle
-m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
+% 1 Vpp, 1 MHz
+i.generate_output(2, 1, 1e6);
+
+i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```
 </code-block>
 </code-group>

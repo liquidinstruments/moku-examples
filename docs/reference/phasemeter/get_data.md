@@ -59,8 +59,8 @@ print(data['ch1']['phase'], data['ch2']['frequency'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', false);
-data = m.get_data();
+i = MokuPhasemeter('192.168.###.###', false);
+data = i.get_data();
 
 disp(data.ch1.phase);
 disp(data.ch2.frequency);

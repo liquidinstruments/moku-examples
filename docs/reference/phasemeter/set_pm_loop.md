@@ -57,14 +57,17 @@ from moku.instruments import MokuPhasemeter
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 40 Hz.
 i.set_pm_loop(1, auto_acquire=false, frequency=1e6, bandwidth='40Hz')
+
+i.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###', true);
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 40 Hz.
-m.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
+i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
+i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```
 </code-block>
 </code-group>

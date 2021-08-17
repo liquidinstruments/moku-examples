@@ -12,12 +12,12 @@ available_on: "mokupro"
 <headers/>
 There are 6 different acquisition speeds available in the Phasemeter instrument, the response from the Moku matches the following list:
 
-- -19 = 30 Hz
-- -17 = 120 Hz
-- -15 = 480 Hz
-- -13 = 2 kHz
-- -10 = 15 kHz
-- -7 = 122 kHz
+- -19 = 37 Hz
+- -17 = 150 Hz
+- -15 = 596 Hz
+- -13 = 2.4 kHz
+- -10 = 19.1 kHz
+- -7 = 152 kHz
 
 Examples,
 
@@ -35,10 +35,10 @@ speed = i.get_acquisition_speed()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', false);
+i = MokuPhasemeter('192.168.###.###', false);
 
 % Request the acquisition speed of the Phasemeter
-speed = m.get_acquisition_speed()
+speed = i.get_acquisition_speed()
 ```
 </code-block>
 </code-group>
