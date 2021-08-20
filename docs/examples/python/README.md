@@ -104,3 +104,9 @@ modulated sine wave on Channel 2.
 
 <<< @/docs/examples/python/waveformgenerator_modulation.py
 
+## phasemeter_basic.py
+
+This script demonstrates how to use the Phasemeter instrument to 
+retrieve data from 4 channels.
+
+<<< @/docs/examples/python/Phasemeter_basic.py

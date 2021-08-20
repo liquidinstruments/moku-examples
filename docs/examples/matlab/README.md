@@ -9,7 +9,7 @@
 ## frequency_response_analyzer_plotting.m
 <<< @/docs/examples/matlab/frequency_response_analyzer_plotting.matlab
 
-## logic_analyzer_basic.m
+## logicanalyzer_basic.m
 <<< @/docs/examples/matlab/logic_analyzer_basic.matlab
 
 ## oscilloscope_basic.m
@@ -18,11 +18,14 @@
 ## oscilloscope_plotting.m
 <<< @/docs/examples/matlab/oscilloscope_plotting.matlab
 
-## spectrum_analyzer_basic.m
+## spectrumanalyzer_basic.m
 <<< @/docs/examples/matlab/spectrum_analyzer_basic.matlab
 
-## spectrum_analyzer_plotting.m
+## spectrumanalyzer_plotting.m
 <<< @/docs/examples/matlab/spectrum_analyzer_plotting.matlab
 
-# waveform_generator_basic.matlab
+## waveformgenerator_basic.m
 <<< @/docs/examples/matlab/waveform_generator_basic.matlab
+
+## phasemeter_basic.m
+<<< @/docs/examples/matlab/phasemeter_basic.matlab
