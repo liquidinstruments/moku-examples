@@ -11,7 +11,7 @@ from moku.instruments import WaveformGenerator
 
 # Connect to your Moku by its ip address using WaveformGenerator('192.168.###.###')
 # or by its serial number using WaveformGenerator(serial=123)
-i = WaveformGenerator('10.1.111.201', force_connect=True)
+i = WaveformGenerator('192.168.###.###', force_connect=False)
 
 try:
     # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz

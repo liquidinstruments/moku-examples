@@ -16,26 +16,26 @@ averaging_cycles = 1;
 settling_cycles = 1;
 
 try
-%% Connect to Moku
-% Connect to your Moku using its IP address.
-i = MokuArbitraryWaveformGenerator('192.168.###.###');
+    %% Connect to Moku
+    % Connect to your Moku using its IP address.
+    i = MokuFrequencyResponseAnalyzer('192.168.###.###');
 
-%% Configure the instrument
-% Set output sweep amplitudes and offsets
-i.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
-i.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
+    %% Configure the instrument
+    % Set output sweep amplitudes and offsets
+    i.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
+    i.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
 
-% Configure measurement mode to In/Out
-i.measurement_mode('input_only',false);
+    % Configure measurement mode to In/Out
+    i.measurement_mode('input_only',false);
 
-% Set sweep configuration
-i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
-    'averaging_time',averaging_time, 'averaging_cycles',averaging_cycles, ...
-    'settling_time', settling_time, 'settling_cycles',settling_cycles);
+    % Set sweep configuration
+    i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
+        'averaging_time',averaging_time, 'averaging_cycles',averaging_cycles, ...
+        'settling_time', settling_time, 'settling_cycles',settling_cycles);
 
-%% Get data from Moku
-% Get a single sweep frame from the Moku 
-data = i.get_data();
+    %% Get data from Moku
+    % Get a single sweep frame from the Moku 
+    data = i.get_data();
 
 catch ME
     % End the current connection session with your Moku
