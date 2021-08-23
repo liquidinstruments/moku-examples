@@ -37,7 +37,7 @@ try
     
     % Download the log file from the Moku to "Users" folder
     % Moku:Go should be downloaded from "persist" and Moku:Pro from "ssd"
-    i.download_file('persist',log_file,['C:\Users\' log_file]);
+    i.download_file2('persist',log_file,['C:\Users\' log_file]);
 
 catch ME
     % End the current connection session with your Moku
