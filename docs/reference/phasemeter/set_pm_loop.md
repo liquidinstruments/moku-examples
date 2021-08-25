@@ -1,9 +1,9 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and range for each channel
+description: Configures the phase-locked loop properties of a Phasemeter channel
 method: post
-name: set_frontend
-summary: set_frontend
+name: set_pm_loop
+summary: set_pm_loop
 available_on: "mokupro"
 
 parameters:
@@ -62,9 +62,9 @@ i.set_pm_loop(1, auto_acquire=false, frequency=1e6, bandwidth='40Hz')
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###', true);
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 40 Hz.
-m.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
+i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
 ```
 </code-block>
 </code-group>

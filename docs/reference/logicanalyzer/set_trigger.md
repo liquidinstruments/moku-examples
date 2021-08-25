@@ -3,6 +3,7 @@ additional_doc: null
 description: Sets trigger source and parameters.
 method: post
 name: set_trigger
+available_on: "mokugo"
 parameters:
 
 - default: null

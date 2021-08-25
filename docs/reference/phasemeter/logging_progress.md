@@ -5,6 +5,7 @@ method: get
 name: logging_progress
 parameters: []
 summary: logging_progress
+available_on: "mokupro"
 ---
 
 <headers/>

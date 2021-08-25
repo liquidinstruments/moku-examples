@@ -5,6 +5,7 @@ method: post
 name: start_all
 parameters: []
 summary: start_all
+available_on: "mokugo"
 ---
 
 <headers/>

@@ -5,5 +5,6 @@ module.exports = {
         ['/reference/moku/name', 'name'],
         ['/reference/moku/describe', 'describe'],
         ['/reference/moku/serial_number', 'serial_number'],
+        ['/reference/moku/relinquish_ownership', 'relinquish_ownership'],
     ]
 };

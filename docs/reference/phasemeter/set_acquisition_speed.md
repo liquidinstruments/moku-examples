@@ -1,15 +1,13 @@
 ---
 additional_doc: null
-description: Sets the sample rate of the instrument
+description: Sets the acquisition speed of the instrument
 method: post
-name: set_samplerate
+name: set_acquisition_speed
 parameters:
 - default: null
-  description: Target samples per second (For Moku:Pro, the maximum sampling rate is limited to 5MSa/s for 2 channel logging and 1.25MSa/s for 3 and 4 channel logging)
-  name: sample_rate
-  param_range: 
-   mokugo: 10 to 1e6
-   mokupro: 10 to 10e6
+  description: null
+  name: speed
+  param_range: 30Hz, 120Hz, 480Hz, 2kHz, 15kHz, 122kHz
   type: number
   unit: null
 - default: true
@@ -18,7 +16,8 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_samplerate
+summary: set_acquisition_speed
+available_on: "mokupro"
 ---
 
 
@@ -29,21 +28,19 @@ Usage in clients,
 
 <code-group>
 <code-block title="Python">
-```python{5}
+```python{4}
 from moku.instruments import MokuPhasemeter
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
-# Generate Sine wave on Output1
-# Set required sample rate
-i.set_samplerate(1e3)
+# Sets the acquisition speed to 480 Hz
+i.set_acquisition_speed(speed='480Hz')
 ```
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{8}
-m = MokuPhasemeter('192.168.###.###', true);
-% Generate a sine wave on Channel 1
-# Set required sample rate
-m.set_samplerate(1e3);
+```matlab{3}
+i = MokuPhasemeter('192.168.###.###', true);
+# Set required acquisition speed
+i.set_acquisition_speed('480Hz');
 ```
 </code-block>
 </code-group>

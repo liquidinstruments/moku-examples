@@ -43,6 +43,7 @@ parameters:
   type: boolean
   unit: null
 summary: generate_pattern
+available_on: "mokugo"
 ---
 
 <headers/>

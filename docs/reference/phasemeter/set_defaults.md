@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Reset the Oscilloscope to default state
+description: Reset the Phasemeter to default state
 method: post
 name: set_defaults
 parameters: []
@@ -12,13 +12,10 @@ available_on: "mokupro"
 
 Default state implies,
 
-- Enable both input channels
+- Enable all input channels
 - Set input coupling to DC
-- Set acquisition mode to Precision
-- Set interpolation to SinX
-- Set hysterisis mode to Absolute
-- Set absolute hysteresis to 10e3-3
-- Disable both output channels
+- Acquisition rate to 150 Hz
+- Disable all output channels
 
 
 
