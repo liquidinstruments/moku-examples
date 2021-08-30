@@ -1,24 +1,39 @@
 ---
-home: true
-title: "Moku API Reference"
-tagline: Take control of your Moku hardware with Python and MATLAB API
-actionText: Get Started →
-actionLink: /reference/
-features:
-- title: MATLAB API 
-  details: Harness the computational power of MATLAB. Integration is easy with inline documentation. 
-- title: Python API 
-  details: Moku is compatible with Python scripting and live environments, making setup easy. Take advantage of Python open-source libraries to add depth to your applications.
-footer: (c) 2021 Liquid Instruments Pty. Ltd.
+title: "Moku API Home"
 ---
-::: tip <Badge text="NEW !"/>
 
-New Python package and MATLAB toolbox are now available to install. 
+# Moku Scripting API
 
-* To update your **python** package, run  ``` pip install moku --upgrade ```
-* Visit MATLAB Add-on manager (or) File exchange to download and install latest Moku toolbox.
+The Moku device family from Liquid Instruments is the next generation of Test. With the Moku Scripting API, command and control of your test has never been easier.
 
+To start, install the API for [Python](starting-python) or [MATLAB](starting-matlab).
+
+:::warning Moku:Lab Compatibility
+The Moku Scripting API is compatible with Moku:Pro and Moku:Go only.
+
+For Moku:Lab support, please refer to our legacy APIs
+- For Python, [pymoku](https://pypi.org/project/pymoku/)
+- For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
 :::
 
+# Get Started
+## Python
+The Moku Scripting API for Python requires Python 3.5+.
+<action-button text="Start with Python" link="starting-python"/>
 
+## MATLAB
+The Moku Scripting API for MATLAB requires MATLAB 2014b.
+<action-button text="Start with MATLAB" link="starting-matlab"/>
 
+## Known Issues
+### Firmware Updates
+The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries.
+
+### File Conversion
+The LI File Converter application is available with installation of the Moku Desktop software or as a standalone application. Conversion cannot currently be done through the Scripting API.
+
+### Moku:Pro Instrument Support
+Some instruments outside the Moku:Pro Base Bundle are not currently supported by the Scripting API. We're currently working to address this, however if you have a specific need, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+
+### Other Languages
+The Moku Scripting API is built around an HTTP/REST interface. This allows easy interfacing from any programming language, however full documentation of this REST interface is still underway. If you have specific needs, again, reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
