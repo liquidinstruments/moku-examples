@@ -21,7 +21,7 @@ const miscAdmin = require('./sidebar-menus/misc')
 
 module.exports = {
     title: 'Moku API',
-    description: 'A demo documentation using VuePress',
+    description: 'Documentation for the Moku Scripting API for Python and MATLAB',
     head: [
         [
             "link",
@@ -36,6 +36,7 @@ module.exports = {
         smoothScroll: true,
         sidebarDepth: 3,
         nav: [
+            { text: 'API Home', link: '/'},
             { text: 'API Reference', link: '/reference/' },
             {
                 text: 'Examples',
@@ -64,7 +65,19 @@ module.exports = {
                 staticAdmin,
                 miscAdmin,
             ],
-            '/examples': "auto",
+            '/examples': [
+                '/',
+                '/examples/',
+                '/examples/python/',
+                '/examples/matlab/'
+            ],
+            '/': [
+                'starting-python',
+                'starting-matlab',
+                'ip-address',
+                '/reference/',
+                '/examples/'
+            ]
         }
     },
     markdown: {
