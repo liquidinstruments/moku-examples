@@ -26,9 +26,11 @@ The Moku Scripting API for MATLAB requires that it be able to access some packag
 
 Select `Set Path` from the Home > Environment tab (next to the Add-On Manager).
 
+![Search Paths](./img/starting-matlab-4.png)
+
 Ensure that there is an entry pointing to the toolbox installation location. A typical path might be `C:\Users\<username>\AppData\Roaming\Mathworks\MATLAB Add-Ons\Toolboxes\Moku-MATLAB` as shown in the image below.
 
-![Search Paths](./img/starting-matlab-4.png)
+![Search Paths](./img/starting-matlab-4a.png)
 
 ## 2. Test Installation
 
