@@ -18,11 +18,11 @@ For Moku:Lab support, please refer to our legacy APIs
 
 # Get Started
 ## Python
-The Moku Scripting API for Python requires Python 3.5+.
+The Moku Scripting API for Python requires Python 3.5 or newer.
 <action-button text="Start with Python" link="starting-python"/>
 
 ## MATLAB
-The Moku Scripting API for MATLAB requires MATLAB 2014b.
+The Moku Scripting API for MATLAB requires MATLAB 2014b or newer.
 <action-button text="Start with MATLAB" link="starting-matlab"/>
 
 ## Known Issues
