@@ -16,14 +16,28 @@ For Moku:Lab support, please refer to our legacy APIs
 - For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
 :::
 
-# Get Started
-## Python
+## Get Started
+### Python
 The Moku Scripting API for Python requires Python 3.5 or newer.
 <action-button text="Start with Python" link="starting-python"/>
 
-## MATLAB
+### MATLAB
 The Moku Scripting API for MATLAB requires MATLAB 2014b or newer.
 <action-button text="Start with MATLAB" link="starting-matlab"/>
+
+## Features
+### RESTful API
+The Moku Scripting API is built around a RESTful HTTP interface, allowing for access from a wide range of programming languages. It makes remote access easy, as the standard HTTP protocol is low bandwidth and commonly allowed to traverse firewalls.
+
+Python and MATLAB libraries are provided that wrap the RESTful API in a way that feels natural to programmers of all levels.
+
+### Moku:Pro and Moku:Go
+Support for the next generation of Moku products, with Moku:Lab support coming soon. The Scripting API supports almost all the same features of the Moku iPad and Desktop Applications; if you need something that's missing, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+
+### Seamless Application Support
+The Moku Scripting API and the Moku Desktop and iPad applications work seamlessly together. Connect to your Moku from the App for initial configuration, then switch to the API for data collection and automation.
+### Device Discovery
+The Python Scripting API comes bundled with the `moku` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations.
 
 ## Known Issues
 ### Firmware Updates
