@@ -26,7 +26,7 @@ not_sq = not_sq / max(abs(not_sq))
 # Connect to your Moku by its ip address ArbitraryWaveformGenerator('192.168.###.###')
 # or by its serial ArbitraryWaveformGenerator(serial=123)
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
-i.name()
+
 try:
     # Load and configure the waveform.
     i.generate_waveform(channel=1, sample_rate='Auto',
@@ -34,6 +34,15 @@ try:
                         amplitude=1)
     i.generate_waveform(channel=2, sample_rate='Auto', lut_data=list(not_sq),
                         frequency=10e3, amplitude=1)
+
+    # Set channel 1 to pulse mode 
+    # 2 dead cycles at 0Vpp
+    i.pulse_modulate(channel=1,dead_cycles=2,dead_voltage=0)
+
+    # Set Channel 2 to burst mode
+    # Burst mode triggering from Input 1 at 0.1 V
+    # 3 cycles of the waveform will be generated every time it is triggered
+    i.burst_modulate(channel=2, trigger_source='Input1',trigger_mode='NCycle',burst_cycles=3,trigger_level=0.1)
 
 except Exception as e:
     print(f'Exception occurred: {e}')

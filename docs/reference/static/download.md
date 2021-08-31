@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: bitstreams, logs, persist
+  param_range: bitstreams, logs, persist, ssd
   type: string
   unit: null
 - default: null
@@ -30,10 +30,14 @@ summary: download_file
 <headers/>
 
 
-User can download files from **bitstreams**, **logs** and **persist** directories.
+User can download files from **bitstreams**, **logs**, **ssd** and **persist** directories.
 
 When using either of the clients, user can access this function directly from
 instrument reference.
+
+Log files downloaded from persist (Moku:Go) or ssd (Moku:Pro) will be in *.li format, which can then be converted to *.csv, *.mat, or *.npy using LI File Converter.
+
+If you experience issues converting log files with the MATLAB API, please use **download_file2** method with the same parameters.
 
 <parameters/>
 

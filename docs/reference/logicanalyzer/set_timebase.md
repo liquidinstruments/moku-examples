@@ -31,6 +31,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_timebase
+available_on: "mokugo"
 ---
 
 

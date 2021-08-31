@@ -31,6 +31,23 @@ try
     %% Retrieve data
     % Get one frame of spectrum data
     data = i.get_data();
+    
+    % Set up the plots
+    figure
+    lh = plot(data.frequency, data.ch1, data.frequency, data.ch2);
+    xlabel(gca,'Frequency (Hz)')
+    ylabel(gca,'Amplitude (dBm)')
+    
+    %% Receive and plot new data frames
+    while 1
+        data = i.get_data();
+    
+        set(lh(1),'XData',data.frequency,'YData',data.ch1);
+        set(lh(2),'XData',data.frequency,'YData',data.ch2);
+    
+        axis tight
+        pause(0.1)
+    end
 
 catch ME
     % End the current connection session with your Moku
