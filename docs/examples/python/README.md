@@ -110,3 +110,10 @@ This script demonstrates how to use the Phasemeter instrument to
 retrieve data from 4 channels.
 
 <<< @/docs/examples/python/Phasemeter_basic.py
+
+## powersupply_basic.py
+
+This example will demonstrate how to configure the power supply 
+units of the Moku:Go.
+
+<<< @/docs/examples/python/power_supply_basic.py

@@ -3,6 +3,9 @@
 ## arbitrary_waveform_generator_basic.m
 <<< @/docs/examples/matlab/arbitrary_waveform_generator_basic.matlab
 
+## datalogger_basic.m
+<<< @/docs/examples/matlab/datalogger_basic.matlab
+
 ## frequency_response_analyzer_basic.m
 <<< @/docs/examples/matlab/frequency_response_analyzer_basic.matlab
 
@@ -27,5 +30,17 @@
 ## waveformgenerator_basic.m
 <<< @/docs/examples/matlab/waveform_generator_basic.matlab
 
+## waveformgenerator_modulation.m
+<<< @/docs/examples/matlab/waveform_generator_modulation.matlab
+
 ## phasemeter_basic.m
 <<< @/docs/examples/matlab/phasemeter_basic.matlab
+
+## pidcontroller_basic.m
+<<< @/docs/examples/matlab/pid_controller_basic.matlab
+
+## pidcontroller_plotting.m
+<<< @/docs/examples/matlab/pid_controller_plotting.matlab
+
+## powersupply_basic.m
+<<< @/docs/examples/matlab/power_supply_basic.matlab
