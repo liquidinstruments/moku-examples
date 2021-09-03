@@ -33,9 +33,6 @@ Python and MATLAB libraries are provided that wrap the RESTful API in a way that
 
 ### Moku:Pro and Moku:Go
 Support for the next generation of Moku products, with Moku:Lab support coming soon. The Scripting API supports almost all the same features of the Moku iPad and Desktop Applications; if you need something that's missing, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
-
-### Seamless Application Support
-The Moku Scripting API and the Moku Desktop and iPad applications work seamlessly together. Connect to your Moku from the App for initial configuration, then switch to the API for data collection and automation.
 ### Device Discovery
 The Python Scripting API comes bundled with the `moku` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations.
 
