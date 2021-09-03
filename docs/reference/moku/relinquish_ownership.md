@@ -4,7 +4,7 @@ description: Relinquish the ownership of the Moku.
 method: post
 name: relinquish_ownership
 summary: relinquish_ownership
-
+parameters: []
 ---
 
 <headers/>
