@@ -1,7 +1,7 @@
 ---
 next: /reference/moku/name
 ---
-# Moku API Interfaces
+# Moku API Reference
 
 You can use this API for the command, control and monitoring of
 Liquid Instruments **Moku** devices. This interface can supplement or
