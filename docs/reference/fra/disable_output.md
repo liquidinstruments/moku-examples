@@ -35,8 +35,7 @@ from moku.instruments import FrequencyResponseAnalyzer
 
 i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
 # Configure the output waveform in each channel
-i.enable_output(1)
-i.enable_output(2, false)
+i.disable_output(1)
 ```
 </code-block>
 
@@ -44,8 +43,17 @@ i.enable_output(2, false)
 ```matlab
 m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
 % Configure the output waveform in each channel
-m.enable_output(1);
-m.enable_output(2, 'enable','false');
+m.disable_output(1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1}'\
+        http://<ip>/api/fra/disable_output
+```
+</code-block>
+
 </code-group>

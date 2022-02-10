@@ -14,7 +14,7 @@ summary: sync_phase
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -33,5 +33,15 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
 m.sync_phase();
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/awg/sync_phase
+```
+</code-block>
+
 </code-group>
 

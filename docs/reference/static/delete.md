@@ -22,7 +22,10 @@ parameters:
 <headers/>
 
 
-User can delete files from **bitstreams** and **persist** directories.
+User can delete files from **ssd** and **persist** directories. If using the
+REST API directly, these directories form the group name in the URL and the filename
+follows the delete command; e.g. `/api/persist/delete/<filename>`. No Client Key is
+required (ownership doesn't need to be taken).
 
 When using either of the clients, user can access this function directly from
 instrument reference.
@@ -48,6 +51,15 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.delete_file('persist', 'sample.txt');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -X DELETE
+        http://<ip>/api/persist/delete/remotefile.txt
+```
+</code-block>
+
+
 </code-group>
 
 

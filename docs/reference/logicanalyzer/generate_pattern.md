@@ -54,11 +54,12 @@ A pattern can be generated only when the state of Pin is set to 'O'.
 Refer [Pin Status Definitions](README.md) for the list of available statuses
 :::
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
-```python{6,7}
+```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###', force_connect=False)
 i.set_pin("Pin1", "O")
@@ -70,7 +71,7 @@ i.generate_pattern("Pin1", [1, 0, 0, 0, 0, 0, 0, 0])
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5,6}
+```matlab
 m = MokuLogicAnalyzer('192.168.###.###', true);
 m.set_pin("Pin1", "O");
 m.set_pin("Pin1", "H");
@@ -79,4 +80,16 @@ m.set_pin("Pin1", 'L');
 m.generate_pattern('Pin1', [1 1 0 0]);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+# If the pattern is longer, consider putting the data in a JSON file
+# rather than passing on the command line
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"pin": "Pin1", "pattern": [1, 1, 0, 0]}'\
+        http://<ip>/api/logicanalyzer/generate_pattern
+```
+</code-block>
+
 </code-group>

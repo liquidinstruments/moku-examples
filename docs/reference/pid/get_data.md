@@ -1,10 +1,11 @@
 ---
-additional_doc: null
-description: Get 1 frame of the data from the instrument
+additional_doc: In the PID instrument, the frame comes from the Monitor subsystem. See `set_monitor`.
+description: Get a frame of the data from the instrument
 method: get
 name: get_data
 parameters: []
 summary: get_data
+group: Monitors
 ---
 
 
@@ -45,4 +46,15 @@ disp(data.ch2);
 disp(data.time);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/pid/get_data |
+        jq ".data.ch1"
+```
+</code-block>
+
 </code-group>

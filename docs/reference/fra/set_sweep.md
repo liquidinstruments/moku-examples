@@ -104,4 +104,14 @@ m.set_sweep('start_frequency', 10e6, 'stop_frequency', 100, 'num_points', 512, .
     'settling_time', 10e-3, 'settling_cycles', 1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"start_frequency": 10e6, "stop_frequency": 100, "num_points": 512, "averaging_time": 10e-3}'\
+        http://<ip>/api/fra/set_sweep
+```
+</code-block>
+
 </code-group>

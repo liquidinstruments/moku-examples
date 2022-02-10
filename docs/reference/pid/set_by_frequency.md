@@ -61,7 +61,7 @@ summary: set_by_frequency
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -81,7 +81,17 @@ m = MokuPIDController('192.168.###.###', true);
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
-m.set_by_frequency(1, 'prop_gain', -20);
+m.set_by_frequency(1, 'prop_gain', -10);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "prop_gain": -10}'\
+        http://<ip>/api/pid/set_by_frequency
+```
+</code-block>
+
 </code-group>

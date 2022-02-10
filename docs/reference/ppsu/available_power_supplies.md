@@ -11,7 +11,8 @@ available_on: "mokugo"
 
 <headers/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -32,6 +33,13 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.available_power_supplies()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl http://<ip>/api/moku/available_power_supplies
+```
+</code-block>
+
 </code-group>
 
 Sample response,

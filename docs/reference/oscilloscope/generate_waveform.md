@@ -87,13 +87,14 @@ parameters:
   type: boolean
   unit: null
 summary: generate_waveform
+group: Embedded Waveform Generator
 ---
 
 <headers/>
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -125,4 +126,14 @@ m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
 
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 2, "type": "Square", "amplitude": 1, "frequency": 20e3, "duty": 50}'\
+        http://<ip>/api/oscilloscope/generate_waveform
+```
+</code-block>
+
 </code-group>

@@ -71,8 +71,6 @@ summary: set_trigger
 ---
 
 
-
-
-
 <headers/>
 <parameters/>
+

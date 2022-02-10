@@ -31,6 +31,7 @@ parameters:
   warning: Passing true will kill any existing data logging session with out any warning. Use with caution.
 summary: start_logging
 available_on: "mokupro"
+group: Embedded Data Logger
 ---
 
 <headers/>
@@ -43,7 +44,7 @@ To ensure a complete data logging session, it is recommended to track the progre
 
 Log files can be downloaded to local machine using [download_files](../static/download.md)
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -63,6 +64,14 @@ i = MokuPhasemeter('192.168.###.###', true);
 logFile = i.start_logging('duration', 10, 'comments', 'Sample script');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"duration": 10, "comments": "Sample script"}'\
+        http://<ip>/api/phasemeter/start_logging
+```
+</code-block>
+
 </code-group>
-
-

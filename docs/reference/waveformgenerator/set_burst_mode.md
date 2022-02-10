@@ -68,7 +68,8 @@ summary: set_burst_mode
 <headers/>
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -82,7 +83,7 @@ i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
 i.generate_waveform(channel=2, type='Square', amplitude=1.0, 
                       frequency=1e3, duty=50)
 i.set_burst_mode(channel=2, source='Input1', mode='Start',
-                     trigger_level=0.4, burst_cycles=2)
+                     trigger_level=0.4)
 ```
 </code-block>
 
@@ -95,9 +96,19 @@ m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
 % Generate a sine wave on Channel 2
 % 1Vpp, 10kHz, 0V offset, 50% duty cycle
 m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
-m.set_burst_mode(2, 'Input1', 'Start', 'trigger_level', 0.4, 'burst_cycles', 2);
+m.set_burst_mode(2, 'Input1', 'Start', 'trigger_level', 0.4);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "source": "Input1", "mode": "Start", "trigger_level": 0.4}'\
+        http://<ip>/api/waveformgenerator/set_burst_mode
+```
+</code-block>
+
 </code-group>
 
 

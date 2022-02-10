@@ -1,10 +1,12 @@
 module.exports = {
-    title: 'Moku Properties',
+    title: 'Moku Device',
     collapsable: true,
     children: [
-        ['/reference/moku/name', 'name'],
+        ['/reference/moku/', 'Overview'],
+        ['/reference/moku/claim_ownership', 'claim_ownership'],
         ['/reference/moku/describe', 'describe'],
-        ['/reference/moku/serial_number', 'serial_number'],
+        ['/reference/moku/name', 'name'],
         ['/reference/moku/relinquish_ownership', 'relinquish_ownership'],
+        ['/reference/moku/serial_number', 'serial_number'],
     ]
 };

@@ -27,7 +27,8 @@ summary: disable_modulation
 <headers/>
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -49,6 +50,17 @@ m.generate_waveform(1, 'Sine', 'amplitude', 1, 'frequency', 1e3, 'offset', 0.2);
 m.disable_modulation(1)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1}'\
+        http://<ip>/api/waveformgenerator/disable_modulation
+```
+</code-block>
+
+
 </code-group>
 
 

@@ -1,5 +1,7 @@
 ---
-additional_doc: null
+additional_doc: The PID controller block in the Moku contains two cascaded sections. This function allows full
+    configuration of both sections for maximum flexibility. For a simpler interface, see `set_by_gain` and
+    `set_by_frequency`.
 description: Configure the selected PID controller and its sections using gain coefficients.
 method: post
 name: set_by_gain_and_section
@@ -43,13 +45,13 @@ parameters:
   type: number
   unit: dB
 - default: undefined
-  description: Integrator gain corner
+  description: Integrator gain saturation corner
   name: int_corner
   param_range: null
   type: number
   unit: Hz
 - default: undefined
-  description: Differentiator gain corner
+  description: Differentiator gain saturation corner
   name: diff_corner
   param_range: null
   type: number
@@ -70,7 +72,7 @@ summary: set_by_gain_and_section
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -93,4 +95,14 @@ m = MokuPIDController('192.168.###.###', true);
 m.set_by_gain_and_section(2, 1, 'overall_gain', 6.0, 'prop_gain', 20)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 2, "section": 1, "prop_gain": 20}'\
+        http://<ip>/api/pid/set_by_gain_and_section
+```
+</code-block>
+
 </code-group>

@@ -1,5 +1,5 @@
 ---
-additional_doc: When using either of the clients, user can access this function directly from
+additional_doc: When using the Python or MATLAB clients, user can access this function directly from
                 instrument reference.
 description: Returns hardware version, firmware version and API Server version
 method: get
@@ -11,7 +11,8 @@ summary: describe
 
 <headers/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -33,6 +34,13 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.describe()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl http://<ip>/api/moku/describe
+```
+</code-block>
+
 </code-group>
 
 Sample response,

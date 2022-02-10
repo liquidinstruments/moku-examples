@@ -94,11 +94,11 @@ summary: generate_waveform
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{3,4}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 # Generate Sine wave on Output1
@@ -107,7 +107,7 @@ i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2-7}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
@@ -117,6 +117,16 @@ m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
 m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency', 1e3, 'duty', 50);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel":2, "type": "Square", "amplitude": 1, "frequency": 1e3, "duty": 50}'\
+        http://<ip>/api/datalogger/generate_waveform
+```
+</code-block>
+
 </code-group>
 
 

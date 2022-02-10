@@ -32,6 +32,14 @@ m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
 disp(m.summary());
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/waveformgenerator/summary
+```
+</code-block>
+
 </code-group>
 
 Sample response,

@@ -12,7 +12,8 @@ summary: name
 
 <headers/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -34,4 +35,11 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.name()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl http://<ip>/api/moku/name
+```
+</code-block>
+
 </code-group>

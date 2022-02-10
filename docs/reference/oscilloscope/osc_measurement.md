@@ -1,5 +1,6 @@
 ---
-additional_doc: null
+additional_doc: This function is a convenience wrapper around the other functions here,
+  allowing you to set up common configurations in a single call.
 description: Sets up commonly used configurations in the Oscilloscope, including the
   time base, channel signal source, and trigger.
 method: post
@@ -53,7 +54,7 @@ summary: osc_measurement
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -70,4 +71,14 @@ m = MokuOscilloscope('192.168.###.###', true);
 m.osc_measurement(-5e-6, 5e-6, "Input1", "Rising", 1)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"t1": -5e-6, "t2": 5e-6, "trigger_source": "Input1", "edge": "Rising", "trigger_level": 1}'\
+        http://<ip>/api/oscilloscope/osc_measurement
+```
+</code-block>
+
 </code-group>

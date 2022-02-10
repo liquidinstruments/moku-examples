@@ -23,9 +23,9 @@ parameters:
   type: string
   unit: MS/s
 - default: null
-  description: Lookup table coefficients. Entries are normalized to range [-1.0, 1.0]
+  description: Lookup table coefficients. The entries of the LUT are normalized to range [-1.0, 1.0]; if the LUT entries are identically zero then it remains unchanged.
   name: lut_data
-  param_range: -1.0, 1.0
+  param_range: array of -inf, inf
   type: array
   unit: null
 - default: null
@@ -88,7 +88,7 @@ Values will be normalized to the range [-1.0, +1.0] and then scaled to the desir
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -117,4 +117,26 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
 m.generate_waveform(1, "125", square_wave, 1e6, 1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+# You should create a JSON file with the data content rather than passing
+# arguments on the CLI as the lookup data is necessarily very large
+$: cat example.json
+{
+  "channel": 1,
+  "sample_rate": "Auto",
+  "frequency": 10e3,
+  "amplitude": 1,
+  "lut_data": [
+    # a list of floats between -1 and 1
+  ]
+}
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data @example.json\
+        http://<ip>/api/awg/generate_waveform
+```
+</code-block>
+
 </code-group>

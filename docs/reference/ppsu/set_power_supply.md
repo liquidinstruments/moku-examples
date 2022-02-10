@@ -41,7 +41,8 @@ Once a load is connected, the power supply operates either at the set current or
 When using either of the clients, user can access this function directly from
 instrument reference.
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -62,4 +63,14 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.set_power_supply(1, 'enable', 'true', 'voltage', 5, 'current', 0.2)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"id": 1, "enable": true, "voltage": 5, "current": 0.2}'\
+        http://<ip>/api/datalogger/set_acquisition_mode
+```
+</code-block>
+
 </code-group>

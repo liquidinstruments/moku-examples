@@ -40,7 +40,7 @@ summary: sa_output
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -59,4 +59,15 @@ m = MokuSpectrumAnalyzer('192.168.###.###', true);
 m.sa_output(1, 0.5, 1e5)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "amplitude": 0.5, "frequency": 1e5}'\
+        http://<ip>/api/spectrumanalyzer/sa_output
+```
+</code-block>
+
+
 </code-group>

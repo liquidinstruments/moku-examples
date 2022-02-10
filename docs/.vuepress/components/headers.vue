@@ -4,13 +4,18 @@
       <warn-go v-if="$frontmatter.available_on === 'mokugo'"/>
       <warn-pro v-if="$frontmatter.available_on === 'mokupro'"/>
     </h1>
-    <h2>{{ $frontmatter.description }}</h2>
-    <span class="additional-doc">{{ $frontmatter.additional_doc }}</span>
+    <span class="description">{{ $frontmatter.description }}</span>
+    <p class="additional-doc">{{ $frontmatter.additional_doc }}</p>
   </div>
 </template>
 
 <style scoped>
+
+.description {
+  font-size: 1.4rem;
+}
+
 .additional-doc {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 </style>

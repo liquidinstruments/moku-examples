@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: bitstreams, persist
+  param_range: ssd, persist
   type: string
   unit: null
 - default: null
@@ -29,7 +29,10 @@ summary: upload_file
 <headers/>
 
 
-User can upload files to files to **persist** directory.
+User can upload files to files to **persist** or **ssd** directories. If using the
+REST API directly, these directories form the group name in the URL and the filename
+follows the upload command; e.g. `/api/persist/upload/<filename>`. No Client Key is
+required (ownership doesn't need to be taken).
 
 When using either of the clients, user can access this function directly from
 instrument reference.
@@ -55,6 +58,15 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.upload_file('persist', 'sample.txt', 'Hello world!');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl --data @localfile.txt\
+        http://<ip>/api/persist/upload/remotefile.txt
+```
+</code-block>
+
+
 </code-group>
 
 

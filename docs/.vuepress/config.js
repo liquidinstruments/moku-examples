@@ -5,12 +5,13 @@ const fraAdmin = require('./sidebar-menus/fra')
 const wgAdmin = require('./sidebar-menus/wavegen')
 const specanAdmin = require('./sidebar-menus/specan')
 const laAdmin = require('./sidebar-menus/logicanalyzer')
+const liaAdmin = require('./sidebar-menus/lockinamp')
 const dlAdmin = require('./sidebar-menus/datalogger')
 const pidAdmin = require('./sidebar-menus/pid')
 const oscAdmin = require('./sidebar-menus/oscilloscope')
 const pmAdmin = require('./sidebar-menus/phasemeter')
 const staticAdmin = require('./sidebar-menus/static')
-const miscAdmin = require('./sidebar-menus/misc')
+const { children } = require('./sidebar-menus/moku')
 
 // const dirTree = require('directory-tree');
 // const path = require('path');
@@ -51,20 +52,35 @@ module.exports = {
         ],
         sidebar: {
             '/reference': [
-                '/',
-                mokuPropAdmin,
-                powerSuppliesAdmin,
-                awgAdmin,
-                dlAdmin,
-                fraAdmin,
-                laAdmin,
-                oscAdmin,
-                pidAdmin,
-                specanAdmin,
-                wgAdmin,
-                pmAdmin,
-                staticAdmin,
-                miscAdmin,
+                ['/', "Documentation Home"],
+                {
+                    title: "Core Functions",
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [
+                        mokuPropAdmin,
+                        staticAdmin,
+                        powerSuppliesAdmin,
+                    ]
+                },
+
+                {
+                    title: "Instruments",
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [
+                        awgAdmin,
+                        dlAdmin,
+                        fraAdmin,
+                        laAdmin,
+                        liaAdmin,
+                        oscAdmin,
+                        pmAdmin,
+                        pidAdmin,
+                        specanAdmin,
+                        wgAdmin,
+                    ]
+                }
             ],
             '/examples': [
                 '/',
@@ -72,12 +88,17 @@ module.exports = {
                 '/examples/python/',
                 '/examples/matlab/'
             ],
-            '/': [
-                'starting-python',
-                'starting-matlab',
-                'ip-address',
-                '/reference/',
-                '/examples/'
+            '/': [{
+                title: 'Getting Started',
+                collapsable: false,
+                children: [
+                    'starting-python',
+                    'starting-matlab',
+                    'starting-curl',
+                    'ip-address']
+                },
+                ['/reference/', "API Reference"],
+                ['/examples/', "Examples"]
             ]
         }
     },

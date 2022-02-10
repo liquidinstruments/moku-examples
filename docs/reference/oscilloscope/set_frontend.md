@@ -31,7 +31,7 @@ parameters:
   name: range
   param_range: 
    mokugo: 10Vpp, 50Vpp
-   mokupro: 400 mVpp, 4 Vpp, 40 Vpp 
+   mokupro: 400mVpp, 4Vpp, 40Vpp 
   type: string
   unit: null
 - default: true
@@ -51,7 +51,7 @@ summary: set_frontend
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -68,4 +68,14 @@ m = MokuOscilloscope('192.168.###.###', true);
 i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "range": "10Vpp"}'\
+        http://<ip>/api/oscilloscope/set_frontend
+```
+</code-block>
+
 </code-group>

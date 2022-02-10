@@ -1,5 +1,7 @@
 ---
-additional_doc: null
+additional_doc: The PID instrument contains two cascaded PID sections. Using this function sets the overall gains of the
+    two sections in an optimal way. If you wish to set them individually, including configuring double-integrators, see
+    `set_by_gain_and_section`.
 description: Configure the selected PID controller using gain coefficients.
 method: post
 name: set_by_gain
@@ -43,13 +45,13 @@ parameters:
   type: number
   unit: dB
 - default: null
-  description: Integrator gain corner
+  description: Integrator gain saturation corner
   name: int_corner
   param_range: null
   type: number
   unit: Hz
 - default: null
-  description: Differentiator gain corner
+  description: Differentiator gain saturation corner
   name: diff_corner
   param_range: null
   type: number
@@ -61,7 +63,7 @@ summary: set_by_gain
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -84,4 +86,14 @@ m = MokuPIDController('192.168.###.###', true);
 m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 2, "prop_gain": 20}'\
+        http://<ip>/api/pid/set_by_gain
+```
+</code-block>
+
 </code-group>

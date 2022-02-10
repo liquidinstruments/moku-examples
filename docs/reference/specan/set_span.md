@@ -39,7 +39,7 @@ Rounding and quantization
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -58,5 +58,16 @@ m = MokuSpectrumAnalyzer('192.168.###.###', true);
 m.set_span(10, 10e6);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"frequency1": 10, "frequency2": 10e6}'\
+        http://<ip>/api/spectrumanalyzer/set_span
+```
+</code-block>
+
+
 </code-group>
 

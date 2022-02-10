@@ -24,7 +24,7 @@ A new reference to any instrument class will always be in its default state.
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -41,4 +41,14 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
 % AWG reference m is in default state
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/awg/set_defaults
+```
+</code-block>
+
 </code-group>

@@ -68,4 +68,14 @@ i.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
 m.set_output(2, 1)            
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "amplitude": 1}'\
+        http://<ip>/api/fra/set_output
+```
+</code-block>
+
 </code-group>

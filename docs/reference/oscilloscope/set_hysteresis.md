@@ -25,9 +25,5 @@ parameters:
 summary: set_hysteresis
 ---
 
-
-
-
-
 <headers/>
 <parameters/>

@@ -24,6 +24,7 @@ parameters:
   type: string
   unit: null
 summary: set_monitor
+group: Monitors
 ---
 
 <headers/>
@@ -42,7 +43,7 @@ Source signal can be one of,
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -72,4 +73,14 @@ m.set_monitor(1, 'Output1')
 m.set_monitor(2, 'Output2')
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "source": "Output1"}'\
+        http://<ip>/api/pid/set_monitor
+```
+</code-block>
+
 </code-group>

@@ -37,7 +37,7 @@ summary: pulse_modulate
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -58,4 +58,14 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
 m.pulse_modulate(1,'dead_cycles',2,'dead_voltage',0);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel":1, "dead_cycles": 2, "dead_voltage": 0}'\
+        http://<ip>/api/awg/pulse_modulate
+```
+</code-block>
+
 </code-group>

@@ -1,8 +1,20 @@
 ---
 description: Get single frame of the data from the instrument
-method: get
+method: post
 name: get_data
-parameters: []
+parameters:
+- default: null
+  description: Wait for a new trigger event
+  name: wait_recquire
+  param_range: null
+  type: boolean
+  unit: null
+- default: 60
+  description: Timeout for trigger event if wait_reacquire is true
+  name: timeout
+  param_range: 0 - inf
+  type: number
+  unit: Seconds
 summary: get_data
 ---
 
@@ -47,7 +59,15 @@ disp(data.time);
 
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"wait_reacquire": true, "timeout": 10}'\
+        http://<ip>/api/oscilloscope/get_data |
+        jq ".data.ch1"
+```
+</code-block>
+
 </code-group>
-
-
-

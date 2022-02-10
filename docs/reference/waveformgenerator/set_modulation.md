@@ -90,5 +90,15 @@ m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
 m.set_modulation(2, 'Frequency', 'Internal', 'depth',1e3, 'frequency', 1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "type": "Amplitude", "source": "Internal", "frequency": 1, "depth": 50}'\
+        http://<ip>/api/waveformgenerator/set_modulation
+```
+</code-block>
+
 </code-group>
 

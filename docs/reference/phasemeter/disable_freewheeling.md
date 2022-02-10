@@ -23,7 +23,7 @@ available_on: "mokupro"
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -41,5 +41,15 @@ i = MokuPhasemeter('192.168.###.###', true);
 i.disable_freewheeling('disable',true);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"disable": true}'\
+        http://<ip>/api/phasemeter/disable_freewheeling
+```
+</code-block>
+
 </code-group>
 

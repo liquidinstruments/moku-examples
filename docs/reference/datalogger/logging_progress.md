@@ -26,11 +26,11 @@ To convert .li binary formatted log files, use liconverter windows app
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{8-15}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 # Generate a waveform on output channels
@@ -49,7 +49,7 @@ while is_logging:
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 % Generate a waveform on output channels
 % Any other settings...
@@ -60,6 +60,15 @@ while is_logging
     progress = m.logging_progress();
     is_logging = progress.time_to_end > 1;
 end
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/datalogger/logging_progress
 ```
 </code-block>
 </code-group>

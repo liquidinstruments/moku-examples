@@ -61,4 +61,14 @@ m.set_source(1,'Input1');
 m.set_source(2,'Input2');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 2, "source": "Input2"}'\
+        http://<ip>/api/oscilloscope/set_source
+```
+</code-block>
+
 </code-group>
