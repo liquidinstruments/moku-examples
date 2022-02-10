@@ -14,7 +14,7 @@ summary: summary
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -31,6 +31,16 @@ m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
 disp(m.summary());
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/fra/summary
+```
+</code-block>
+
 </code-group>
 
 Sample response,

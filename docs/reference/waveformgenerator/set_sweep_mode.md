@@ -84,4 +84,14 @@ m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
 m.set_sweep_mode(1, 'Input2', 'stop_frequency', 10e6, 'sweep_time', 0.5, 'trigger_level', 0.1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "source": "Input1", "stop_frequency": 10, "sweep_time": 3.0, "trigger_level": 0.1}'\
+        http://<ip>/api/waveformgenerator/set_sweep_mode
+```
+</code-block>
+
 </code-group>

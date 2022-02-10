@@ -47,11 +47,11 @@ summary: set_frontend
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{3}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
@@ -59,9 +59,19 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel":1, "impedance": "1MOhm", "coupling": "AC", "range": "10Vpp"}'\
+        http://<ip>/api/datalogger/set_frontend
+```
+</code-block>
+
 </code-group>

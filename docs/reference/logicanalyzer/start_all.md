@@ -18,7 +18,8 @@ start_all should only be called after configuring the pin, meaning, set the stat
 Generating a pattern after **start_all()** does not reflect unless called again
 :::
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">

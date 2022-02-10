@@ -18,15 +18,61 @@ $: moku list
 ```
 
 ## USB Connection
-:::warning Moku:Go Only
+:::warning USB is Moku:Go Only
 The Moku:Pro doesn't yet support API over USB. Please connect using Ethernet or WiFi, and use one of the above methods to discover the IP address
 :::
 
-If your Moku is connected over USB, it will have a pre-determined IPv6 address based on its serial number. You can find this address by entering your serial number in to the calculator below.
+API support over the USB is possible as the USB link presents as an Ethernet interface. The interface is configured to have an IPv6 Link-Local address only, which can be found using any of the methods above. IPv6 support is limited in some environments, see below.
+
+<!-- Your Moku uses IPv6 over USB, it will have a pre-determined IPv6 address based on its serial number. You can find this address by entering your serial number in to the calculator below.
 
 The Serial Number on a Moku:Go is found in three places:
 - The six digits after the underscore on the top line of the barcode sticker underneath your Moku:Go
 - The digits after the hyphen in the device's WiFi Access Point SSID
 - In the `Device Info` drop-down when you right-click a Device Tile in "Select Device" screen of the Moku Desktop Application
 
-<ip-calculator/>
+<ip-calculator/> -->
+
+## IPv6
+:::danger IPv6 Support
+IPv6, and especially IPv6 link-local addressing as used over USB, is not universally supported. As such the API cannot be used over USB in some environments without a proxy (see below). A non-exhaustive list of limited or unsupported environments is
+- Windows Subsystem for Linux Version 2 (WSL2), as discussed with workarounds [here](https://github.com/microsoft/WSL/discussions/5855)
+- LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
+- Most [web browsers](https://support.mozilla.org/en-US/questions/1111992) (which aren't full API clients but may be occasionally useful for debugging)
+
+If you require API connectivity from these environments, you must use a proxy as below, or a network connection like Ethernet or WiFi. Ethernet may be configured as a point-to-point network with Static IPs if security is a concern.
+:::
+
+:::tip Specifying IPv6 addresses
+The above unsupported environments notwithstanding, some IPv6 errors simply come from how the address is specified. For example, in Python (and many other environments) you may need to enclose the address in square brackets.
+```python
+i = Oscilloscope('[fe80::1:2:3:4%eth0]')
+```
+
+```bash
+curl https://[fe80::7269:79ff:feb9:0000%0]/api/moku/summary
+```
+:::
+
+### Configuring a Proxy
+#### Windows
+Windows comes with a `portproxy` that can be used to listen on an IPv4 address (that your restricted environment can connect to) and forward it to an IPv6 one (like the Moku over USB).
+
+Open `Powershell` or `CMD.exe` _as Administrator_ and enter the below. Replace the `connectaddress` with the IPv6 address of your Moku's USB interface, e.g. by using the "Copy IP Address" option from the Desktop App. Remember to enclose the address in square brackets.
+
+```powershell
+PS > netsh interface portproxy set v4tov6 `
+listenport=8090 `
+connectaddress=[fe80:0000:0000:0000:7269:1234:5678:0000%0] `
+connectport=http
+```
+
+You can then use the address `localhost:8090` to connect using the API.
+
+If this command doesn't work, check that no other service is operating on port `8090`. You can change this number as required (typically a number between 1024 and 65535 on which nothing else is running), just make sure the `listenport` and the port specifier in the address match.
+
+#### Mac
+Coming Soon
+
+#### Linux
+Coming Soon

@@ -3,6 +3,8 @@ $textColor = #2c3e50
 $borderColor = #eaecef
 $codeBgColor = #282c34
 
+$sidebarWidth = 25em
+
 body 
     font-family: proxima-nova, sans-serif;
     font-weight: 300;
@@ -24,3 +26,11 @@ div[class^="language-"]::before
 	margin: 0.35rem;
 	align-self:center;
 	box-sizing: border-box;
+
+// Override some of the styling in the default theme, the original
+// opacity of subgroups was 0.5 and hard to read.
+.sidebar-group
+  &.is-sub-group
+    & > .sidebar-heading
+      &:not(.clickable)
+        opacity 0.9

@@ -25,11 +25,11 @@ summary: set_samplerate
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{5}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 # Generate Sine wave on Output1
@@ -39,11 +39,20 @@ i.set_samplerate(1e3)
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{8}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 % Generate a sine wave on Channel 1
 # Set required sample rate
 m.set_samplerate(1e3);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"sample_rate": 1e3}'\
+        http://<ip>/api/datalogger/set_samplerate
 ```
 </code-block>
 </code-group>

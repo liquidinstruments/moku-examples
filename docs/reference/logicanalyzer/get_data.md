@@ -1,9 +1,21 @@
 ---
 additional_doc: null
 description: Get current sweep data.
-method: get
+method: post
 name: get_data
-parameters: []
+parameters:
+- default: null
+  description: Wait for a new trigger event
+  name: wait_recquire
+  param_range: null
+  type: boolean
+  unit: null
+- default: 60
+  description: Timeout for trigger event if wait_reacquire is true
+  name: timeout
+  param_range: 0 - inf
+  type: number
+  unit: Seconds
 summary: get_data
 available_on: "mokugo"
 ---
@@ -33,7 +45,7 @@ Below are the examples on how to read the data frame,
 
 <code-group>
 <code-block title="Python">
-```python{9,10}
+```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###', force_connect=False)
 i.set_pin("Pin1", "O")
@@ -48,7 +60,7 @@ print(data['pin1'], data['pin2'], data['time'])
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{8-10}
+```matlab
 m = MokuLogicAnalyzer('192.168.###.###', true);
 m.set_pin("Pin1", "O");
 m.set_pin("Pin1", "H");
@@ -56,9 +68,21 @@ m.set_pin("Pin1", 'L');
 % Configure the output pattern on Pin 8 to [1 1 0 0]
 m.generate_pattern('Pin1', [1 1 0 0]);
 m.start_all()
+data = m.get_data()
 disp(data.pin1);
 disp(data.pin2);
 disp(data.time);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"wait_reacquire": true, "timeout": 10}'\
+        http://<ip>/api/logicanalyzer/get_data |
+        jq ".data.pin1"
+```
+</code-block>
+
 </code-group>

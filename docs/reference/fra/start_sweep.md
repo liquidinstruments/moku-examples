@@ -47,4 +47,14 @@ m.set_sweep('start_frequency', 10e6, 'stop_frequency', 100, 'num_points', 512, .
 m.start_sweep()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/fra/start_sweep
+```
+</code-block>
+
 </code-group>

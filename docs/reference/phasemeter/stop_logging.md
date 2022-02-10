@@ -6,6 +6,7 @@ name: stop_logging
 parameters: []
 summary: stop_logging
 available_on: "mokupro"
+group: Embedded Data Logger
 ---
 
 
@@ -14,7 +15,7 @@ available_on: "mokupro"
 
 Partial data log can still be downloaded to local machine using [download_files](../static/download.md)
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -37,4 +38,12 @@ logFile = i.start_logging('duration', 10, 'comments', 'Sample script');
 i.stop_logging()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/phasemeter/stop_logging
+```
+</code-block>
+
 </code-group>

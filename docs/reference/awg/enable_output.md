@@ -30,7 +30,7 @@ summary: enable_output
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -52,5 +52,15 @@ m.enable_output(1);
 m.enable_output(2, 'enable','false');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel":2, "enable": true}'\
+        http://<ip>/api/awg/enable_output
+```
+</code-block>
+
 </code-group>
 

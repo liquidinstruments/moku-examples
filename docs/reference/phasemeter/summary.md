@@ -26,6 +26,14 @@ m = MokuPhasemeter('192.168.###.###', true);
 disp(m.summary())
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/phasemeter/summary
+```
+</code-block>
+
 </code-group>
 
 Sample response,

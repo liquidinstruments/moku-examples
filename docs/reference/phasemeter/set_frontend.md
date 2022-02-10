@@ -48,7 +48,7 @@ parameters:
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -65,4 +65,14 @@ i = MokuPhasemeter('192.168.###.###', true);
 i.set_frontend(1, "DC", "40Vpp");
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "range": "4Vpp"}'\
+        http://<ip>/api/phasemeter/set_frontend
+```
+</code-block>
+
 </code-group>

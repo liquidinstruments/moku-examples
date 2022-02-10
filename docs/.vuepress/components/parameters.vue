@@ -1,6 +1,6 @@
 <template>
   <div v-if="$frontmatter.parameters.length">
-    <h3>Parameters: </h3>
+    <h3>Parameters</h3>
     <section class="parameters-section">
       <div v-for="p in $frontmatter.parameters">
         <div class="param-container" :id="'param-' + p.name">
@@ -43,6 +43,9 @@
 </template>
 
 <style>
+h3 {
+  margin-bottom: 0;
+}
 
 .parameter-description{
     padding-top:0.5em;

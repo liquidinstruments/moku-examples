@@ -5,10 +5,8 @@ method: post
 name: sync_output_phase
 parameters: []
 summary: sync_output_phase
+group: Embedded Waveform Generator
 ---
-
-
-
 
 
 <headers/>
@@ -44,4 +42,14 @@ m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
 m.sync_output_phase()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/oscilloscope/sync_output_phase
+```
+</code-block>
+
 </code-group>

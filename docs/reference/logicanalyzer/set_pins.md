@@ -34,11 +34,12 @@ available_on: "mokugo"
 
 Please refer to [Pin Status Definitions](README.md) for the list of available statuses
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
-```python{3-5}
+```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###', force_connect=False)
 i.set_pin("Pin1", "O")
@@ -49,7 +50,7 @@ i.get_pins()
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2-4}
+```matlab
 m = MokuLogicAnalyzer('192.168.###.###', true);
 m.set_pin("Pin1", "O");
 m.set_pin("Pin1", "H");
@@ -57,6 +58,16 @@ m.set_pin("Pin1", 'L');
 m.get_pins();
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"pin": "Pin1", "state": "O"}'\
+        http://<ip>/api/logicanalyzer/set_pins
+```
+</code-block>
+
 </code-group>
 
 :::tip Note

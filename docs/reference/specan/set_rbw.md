@@ -33,7 +33,7 @@ summary: set_rbw
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -50,4 +50,14 @@ m = MokuSpectrumAnalyzer('192.168.###.###', true);
 m.set_rbw('Auto');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"mode": "Manual", "rbw_value": 100}'\
+        http://<ip>/api/spectrumanalyzer/set_rbw
+```
+</code-block>
+
 </code-group>

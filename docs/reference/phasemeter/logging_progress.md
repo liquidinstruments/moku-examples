@@ -6,6 +6,7 @@ name: logging_progress
 parameters: []
 summary: logging_progress
 available_on: "mokupro"
+group: Embedded Data Logger
 ---
 
 <headers/>
@@ -27,7 +28,7 @@ To convert .li binary formatted log files, use liconverter windows app
 
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -63,6 +64,15 @@ while is_logging
 end
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/phasemeter/logging_progress |
+        jq ".data.time_to_end"
+```
+</code-block>
+
 </code-group>
 
 Sample response, 

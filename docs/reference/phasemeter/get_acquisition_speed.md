@@ -19,7 +19,10 @@ There are 6 different acquisition speeds available in the Phasemeter instrument,
 - -10 = 19.1 kHz
 - -7 = 152 kHz
 
-Examples,
+<parameters/>
+
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -41,8 +44,13 @@ i = MokuPhasemeter('192.168.###.###', false);
 speed = i.get_acquisition_speed()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/phasemeter/get_acquisition_speed
+```
+</code-block>
+
 </code-group>
 
-
-
-<parameters/>

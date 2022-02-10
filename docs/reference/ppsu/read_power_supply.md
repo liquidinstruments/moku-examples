@@ -22,7 +22,8 @@ available_on: "mokugo"
 
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -43,6 +44,16 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.read_power_supply(1)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"id": 1}'\
+        http://<ip>/api/moku/read_power_supply
+```
+</code-block>
+
 </code-group>
 
 

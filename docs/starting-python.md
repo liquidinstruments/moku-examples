@@ -45,12 +45,11 @@ $: moku download
 ```
 
 ### 3. Find Your IP Address
-For more detail and other options, see [Finding your IP Address](ip-address)
+For more detail and other options, see [Finding your IP Address](ip-address.html)
 
 ```
 $: moku list
 ```
-
 
 ### 4. Run Your First Program
 Use your IP address as found above in place of the one below.
@@ -105,3 +104,6 @@ On Windows (only, not Mac or Linux), the Moku requires a driver to be installed 
 The Moku API uses IPv6 to connect to the Moku over USB. If your computer does not have IPv6 enabled (e.g. disabled by an Administrator) then the USB connection will not be operable. Please reach out to our [Support Engineers](mailto:support@liquidinstruments.com) for guidance and other options.
 
 This extends to environments inside your computer where IPv6 may be limited, such as Microsoft Windows Subsystem for Linux v2 (WSL2). For information on possible workarounds for WSLv2 support, see the [original bug report](https://github.com/microsoft/WSL/issues/4518) and [this resulting discussion](https://github.com/microsoft/WSL/discussions/5855).
+
+#### IPv6 (including USB) Connection Issues
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.

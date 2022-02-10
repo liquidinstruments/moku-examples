@@ -20,12 +20,8 @@ export default {
 };
 
 function title(h, text) {
-  text = "allowed values";
+  text = "allowed values:";
   return h("span", { class: "parameter-range-title" }, text);
-}
-
-function type_heading(h, text) {
-  return h("span", { class: "parameter-range-header" }, text);
 }
 
 function type_and_range(h, title, text, className) {
@@ -37,37 +33,21 @@ function type_and_range(h, title, text, className) {
 
 </script>
 
-<style>
+<style lang="stylus">
+.param-range-container
+  display: grid
 
-.param-range-container{
-display:grid;
-}
+.parameter-range-title
+  padding-right: 0.5em
 
-.parameter-range-title {
-  padding-right: 0.5em;
-  font-weight:600;
-  text-decoration: underline;
-}
+.parameter-range-table
+  border:none
+  margin: 1em
 
-.parameter-range-header{
-  font-weight:600;
-  padding-right:0.25em;
-  content:":"
-}
-.parameter-range-header:after,
-.parameter-range-title:after
-{
-  content:":"
-}
+.tr-go td
+    background-color: lighten($accentColor, 80%)
 
-.parameter-range-table{
-  border:none;
-}
-
-.tr-go td{
-    background-color:#e7c000;
-    color:#fff;
-    font-weight:450;
-}
+.tr-pro td
+  background-color: lighten($textColor, 80%)
 
 </style>

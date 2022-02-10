@@ -31,7 +31,7 @@ summary: set_timebase
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -51,4 +51,14 @@ m = MokuOscilloscope('192.168.###.###', true);
 m.set_timebase(-1e-3, 1e-3);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"t1": -1e-3, "t2": 1e-3}'\
+        http://<ip>/api/oscilloscope/set_timebase
+```
+</code-block>
+
 </code-group>

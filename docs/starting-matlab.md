@@ -48,3 +48,5 @@ Vist our [MATLAB Examples](/examples/matlab/) for ready-to-run scripts to get st
 For a full listing of all objects and methods, with example snippets for both Python and MATLAB, see our [API Reference](/reference/).
 
 ## Troubleshooting
+#### IPv6 (including USB) Connection Issues
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.

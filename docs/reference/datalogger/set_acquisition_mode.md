@@ -22,11 +22,11 @@ summary: set_acquisition_mode
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{5}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 # Generate Sine wave on Output1
@@ -36,7 +36,7 @@ i.set_acquisition_mode(mode='Precision')
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{8}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
@@ -47,4 +47,14 @@ m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency', 1e3, 'duty', 50);
 m.set_acquisition_mode('mode', 'Precision');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"mode": "Precision"}'\
+        http://<ip>/api/datalogger/set_acquisition_mode
+```
+</code-block>
+
 </code-group>

@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: In the PID instrument, this timebase refers to the Monitor unit. See `set_monitor`.
 description: Set the left- and right-hand span for the time axis. Units are seconds
   relative to the trigger point.
 method: post
@@ -26,6 +26,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_timebase
+group: Monitors
 ---
 
 
@@ -35,7 +36,7 @@ summary: set_timebase
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -62,4 +63,15 @@ m.set_by_frequency(1, 'prop_gain', -20);
 m.set_timebase(-1e-3, 1e-3);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"t1": -1e-3, "t2": 1e-3}'\
+        http://<ip>/api/pid/set_timebase
+```
+</code-block>
+
+
 </code-group>

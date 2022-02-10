@@ -1,5 +1,7 @@
 ---
-additional_doc: null
+additional_doc: It is strongly recommended that you call this at the completion of your script, including from
+                error paths. Failure to do so means that device ownership is retained by the (finished) script
+                and future users will need to forcefully take ownership before they can proceed.
 description: Relinquish the ownership of the Moku. 
 method: post
 name: relinquish_ownership
@@ -34,4 +36,14 @@ i = MokuOscilloscope('192.168.###.###', false);
 i.relinquish_ownership()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/moku/relinquish_ownership
+```
+</code-block>
+
 </code-group>

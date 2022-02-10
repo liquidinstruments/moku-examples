@@ -26,7 +26,7 @@ summary: set_window
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -45,4 +45,15 @@ m = MokuSpectrumAnalyzer('192.168.###.###', true);
 m.set_window('BlackmanHarris')
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"window": "BlackmanHarris"}'\
+        http://<ip>/api/spectrumanalyzer/set_window
+```
+</code-block>
+
+
 </code-group>

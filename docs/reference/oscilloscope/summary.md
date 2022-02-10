@@ -30,6 +30,14 @@ m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
 disp(m.summary())
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/oscilloscope/summary
+```
+</code-block>
+
 </code-group>
 
 Sample response,

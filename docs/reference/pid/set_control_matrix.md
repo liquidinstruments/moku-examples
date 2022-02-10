@@ -1,25 +1,25 @@
 ---
-additional_doc: null
+additional_doc: NOTE Interface currently only supports using the first two PID loops which are
+    paired with the first two ADC channels, e.g. Moku:Pro's third and fourth loops and ADC3, ADC4
+    cannot yet be used through this API.
 description: Set the linear combination of ADC input signals for a given PID channel.
 method: post
 name: set_control_matrix
 parameters:
 - default: null
-  description: Target channel
+  description: Target PID controller channel
   name: channel
-  param_range:
-   mokugo: 1, 2
-   mokupro: 1, 2, 3, 4
+  param_range: 1, 2
   type: integer
   unit: null
 - default: null
-  description: ADC input gain for control loop 1
+  description: ADC Input 1 gain for this controller
   name: input_gain1
   param_range: 0 to 20
   type: number
   unit: dB
 - default: null
-  description: ADC input gain for control loop 2
+  description: ADC Input 1 gain for this controller
   name: input_gain2
   param_range: 0 to 20
   type: number
@@ -35,7 +35,7 @@ summary: set_control_matrix
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -54,4 +54,14 @@ m.set_control_matrix(1, 1, 0);
 m.set_control_matrix(2, 0, 1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "input_gain1": 1, "input_gain2": -1}'\
+        http://<ip>/api/pid/set_control_matrix
+```
+</code-block>
+
 </code-group>

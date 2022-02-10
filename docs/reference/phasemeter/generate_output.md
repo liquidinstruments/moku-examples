@@ -1,6 +1,7 @@
 ---
 title: generate_output
-additional_doc: null
+additional_doc: The available outputs are either a sine wave, optionally locked to the incoming
+  signal; or a voltage proportional to the current phase measurement value
 description: Generate a signal on the specified output channel
 method: post
 name: generate_output
@@ -58,12 +59,11 @@ available_on: "mokupro"
 ---
 
 
-
-
 <headers/>
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -94,4 +94,14 @@ i.generate_output(2, 1, 1e6);
 i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "amplitude": 1, "frequency": 20e3}'\
+        http://<ip>/api/phasemeter/generate_output
+```
+</code-block>
+
 </code-group>

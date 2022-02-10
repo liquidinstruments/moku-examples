@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: On the PID instrument, the trigger refers to the Monitor unit. See `set_monitor`.
 description: Sets trigger source and parameters.
 method: post
 name: set_trigger
@@ -97,6 +97,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_trigger
+group: Monitors
 ---
 
 
@@ -106,7 +107,7 @@ summary: set_trigger
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -133,4 +134,15 @@ m.set_by_frequency(1, 'prop_gain', -20);
 m.set_trigger('type',"Edge", 'source',"Input1", 'level', 0)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "type": "Rising", "source": "Input1", "level": 0}'\
+        http://<ip>/api/pid/set_trigger
+```
+</code-block>
+
+
 </code-group>

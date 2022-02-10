@@ -30,7 +30,10 @@ summary: download_file
 <headers/>
 
 
-User can download files from **bitstreams**, **logs**, **ssd** and **persist** directories.
+User can download files from **logs**, **ssd** and **persist** directories. If using the
+REST API directly, these directories form the group name in the URL and the filename
+follows the download command; e.g. `/api/persist/download/<filename>`. No Client Key is
+required (ownership doesn't need to be taken).
 
 When using either of the clients, user can access this function directly from
 instrument reference.
@@ -61,6 +64,14 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.download_file('persist', 'sample.txt', 'path to local directory');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl http://<ip>/api/persist/download/remotefile.txt -o localfile.txt
+```
+</code-block>
+
+
 </code-group>
 
 

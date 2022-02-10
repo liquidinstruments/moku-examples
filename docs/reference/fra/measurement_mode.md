@@ -45,4 +45,14 @@ m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
 i.measurement_mode('input_only', true)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"input_only": true}'\
+        http://<ip>/api/fra/measurement_mode
+```
+</code-block>
+
 </code-group>

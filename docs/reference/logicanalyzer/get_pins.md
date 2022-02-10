@@ -26,6 +26,16 @@ m = MokuLogicAnalyzer('192.168.###.###', true);
 m.get_pins();
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/logicanalyzer/get_pins
+```
+</code-block>
+
 </code-group>
 
 Sample response,

@@ -31,4 +31,14 @@ m = MokuLogicAnalyzer('192.168.###.###', true);
 % LogicAnalyzer reference m is in default state
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/logicanalyzer/set_defaults
+```
+</code-block>
+
 </code-group>

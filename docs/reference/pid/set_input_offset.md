@@ -34,7 +34,7 @@ summary: set_input_offset
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -45,7 +45,7 @@ i = PIDController('192.168.###.###', force_connect=False)
 #   Overall Gain = 6dB
 #   I Gain       = 20dB 
 i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
-# Set input offset to 10Vpp
+# Set input offset to 5VDC
 i.set_input_offset(1, offset=5)
 ```
 </code-block>
@@ -57,8 +57,18 @@ m = MokuPIDController('192.168.###.###', true);
 %   Overall Gain = 6dB
 %   I Gain       = 20dB 
 m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
-% Set input offset to 10Vpp
+% Set input offset to 5VDC
 m.set_input_offset(1, 'offset', 5);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "offset": 5}'\
+        http://<ip>/api/pid/set_input_offset
+```
+</code-block>
+
 </code-group>

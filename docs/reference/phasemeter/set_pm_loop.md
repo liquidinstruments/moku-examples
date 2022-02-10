@@ -2,8 +2,8 @@
 additional_doc: null
 description: Configures the input impedance, coupling, and range for each channel
 method: post
-name: set_frontend
-summary: set_frontend
+name: set_pm_loop
+summary: Sets Phasemeter loop parameters
 available_on: "mokupro"
 
 parameters:
@@ -48,7 +48,7 @@ parameters:
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -70,4 +70,14 @@ i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
 i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "auto_acquire": false, "frequency": 1e6, "bandwdith": "40Hz"}'\
+        http://<ip>/api/phasemeter/set_pm_loop
+```
+</code-block>
+
 </code-group>

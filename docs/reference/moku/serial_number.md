@@ -1,5 +1,5 @@
 ---
-additional_doc: When using either of the clients, user can access this function directly       from            instrument reference.
+additional_doc: When using Python or MATLAB clients, user can access this function directly from the instrument object.
 description: Get serial of the Moku
 method: get
 name: serial_number
@@ -10,7 +10,8 @@ summary: serial_number
 
 <headers/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -32,6 +33,13 @@ m = MokuOscilloscope('192.168.###.###', false);
 m.serial_number()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl http://<ip>/api/moku/serial_number
+```
+</code-block>
+
 </code-group>
 
 

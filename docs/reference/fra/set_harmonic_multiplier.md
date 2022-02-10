@@ -48,5 +48,15 @@ i.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
 m.set_harmonic_multiplier('multiplier', 2)                
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"multiplier": 2}'\
+        http://<ip>/api/fra/set_harmonic_multiplier
+```
+</code-block>
+
 </code-group>
 

@@ -30,7 +30,7 @@ parameters:
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -47,4 +47,12 @@ i = MokuPhasemeter('192.168.###.###', true);
 i.get_auto_acquired_frequency(1);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/phasemeter/get_auto_acquired_frequency
+```
+</code-block>
+
 </code-group>

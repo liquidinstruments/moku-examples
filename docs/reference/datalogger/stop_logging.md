@@ -13,11 +13,11 @@ summary: stop_logging
 
 Partial data log can still be downloaded to local machine using [download_files](../static/download.md)
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
-```python{6}
+```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###', force_connect=False)
 # Generate a waveform on output channels
@@ -28,7 +28,7 @@ i.stop_logging()
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5}
+```matlab
 m = MokuDatalogger('192.168.###.###', true);
 % Generate a waveform on output channels
 % Any other settings...
@@ -36,4 +36,14 @@ logFile = m.start_logging('duration', 10, 'comments', 'Sample script');
 m.stop_logging()
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/datalogger/stop_logging
+```
+</code-block>
+
 </code-group>

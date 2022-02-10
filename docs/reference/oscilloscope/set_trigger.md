@@ -104,7 +104,7 @@ summary: set_trigger
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -124,4 +124,14 @@ m = MokuOscilloscope('192.168.###.###', true);
 m.set_trigger('type',"Edge", 'source',"Input1", 'level', 0)
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"type": "Edge", "source": "Input1", "level": 0}'\
+        http://<ip>/api/oscilloscope/generate_waveform
+```
+</code-block>
+
 </code-group>

@@ -35,8 +35,32 @@ available_on: "mokugo"
 ---
 
 
-
-
-
 <headers/>
 <parameters/>
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LogicAnalyzer
+i = LogicAnalyzer('192.168.###.###', force_connect=False)
+i.set_timebase(0, 1, roll=True)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLogicAnalyzer('192.168.###.###', true);
+m.set_timebase(0, 1, 'roll', 1);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"t1": 0, "t2": 1, "roll": true}'\
+        http://<ip>/api/logicanalyzer/set_timebase
+```
+</code-block>
+
+</code-group>

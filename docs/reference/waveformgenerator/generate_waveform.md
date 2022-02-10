@@ -92,7 +92,8 @@ summary: generate_waveform
 <headers/>
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -118,4 +119,14 @@ m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
 m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "type": "Sine", "amplitude": 0.5, "frequency": 5e3}'\
+        http://<ip>/api/waveformgenerator/generate_waveform
+```
+</code-block>
+
 </code-group>

@@ -6,7 +6,7 @@ title: "Moku API Home"
 
 The Moku device family from Liquid Instruments is the next generation of Test. With the Moku Scripting API, command and control of your test has never been easier.
 
-To start, install the API for [Python](starting-python) or [MATLAB](starting-matlab).
+To start, install the API for [Python](starting-python.html) or [MATLAB](starting-matlab.html).
 
 :::warning Moku:Lab Compatibility
 The Moku Scripting API is compatible with Moku:Pro and Moku:Go only.
@@ -48,3 +48,10 @@ Some instruments outside the Moku:Pro Base Bundle are not currently supported by
 
 ### Other Languages
 The Moku Scripting API is built around an HTTP/REST interface. This allows easy interfacing from any programming language, however full documentation of this REST interface is still underway. If you have specific needs, again, reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+
+### USB and IPv6 Supported Environments
+You may wish to use IPv6 on your network, and it must be noted that the USB Connection uses IPv6 internally. IPv6 is not universally supported, and as such the API cannot be used over USB in some environments. A non-exhaustive list is
+- Windows Subsystem for Linux Version 2 (WSL2), as discussed with workarounds [here](https://github.com/microsoft/WSL/discussions/5855)
+- LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
+
+If you require API connectivity from these environments, you must use a network connection like Ethernet or WiFi, including a point-to-point network with Static IPs if security is a concern.

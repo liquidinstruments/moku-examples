@@ -47,7 +47,7 @@ summary: set_frontend
 <parameters/>
 
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -62,6 +62,15 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```matlab{2}
 i = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
 i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
+        http://<ip>/api/fra/set_frontend
 ```
 </code-block>
 </code-group>

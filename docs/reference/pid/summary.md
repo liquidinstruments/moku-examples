@@ -14,7 +14,7 @@ summary: summary
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -45,6 +45,15 @@ m.set_monitor(2, 'Output2')
 disp(m.summary())
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/pid/summary
+```
+</code-block>
+
+
 </code-group>
 Sample response,
 

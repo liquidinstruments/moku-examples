@@ -8,7 +8,7 @@ parameters:
 - default: null
   description: Target samples per second 
   name: speed
-  param_range: 30Hz, 120Hz, 480Hz, 2kHz, 15kHz, 122kHz
+  param_range: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
   type: string
   unit: null
 - default: true
@@ -24,7 +24,7 @@ summary: set_acquisition_speed
 <headers/>
 <parameters/>
 
-Usage in clients, 
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -32,7 +32,7 @@ Usage in clients,
 from moku.instruments import MokuPhasemeter
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
 # Set required acquisition speed
-i.set_acquisition_speed(speed='480Hz')
+i.set_acquisition_speed(speed='596Hz')
 ```
 </code-block>
 
@@ -40,7 +40,17 @@ i.set_acquisition_speed(speed='480Hz')
 ```matlab{8}
 i = MokuPhasemeter('192.168.###.###', true);
 # Set required acquisition speed
-i.set_acquisition_speed('480Hz');
+i.set_acquisition_speed('596Hz');
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"speed": "596Hz"}'\
+        http://<ip>/api/phasemeter/set_acquisition_speed
+```
+</code-block>
+
 </code-group>

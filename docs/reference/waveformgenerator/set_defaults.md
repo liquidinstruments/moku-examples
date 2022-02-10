@@ -41,5 +41,15 @@ m = MokuWaveformGenerator('192.168.###.###', true);
 % Variable m referring to WaveformGenerator is in default state
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/waveformgenerator/set_defaults
+```
+</code-block>
+
 </code-group>
 

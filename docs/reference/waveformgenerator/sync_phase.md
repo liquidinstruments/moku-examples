@@ -38,4 +38,12 @@ m.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3);
 m.sync_phase();
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/waveformgenerator/sync_phase
+```
+</code-block>
+
 </code-group>

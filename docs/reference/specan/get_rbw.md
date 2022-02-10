@@ -14,7 +14,8 @@ summary: get_rbw
 <parameters/>
 
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
@@ -36,4 +37,13 @@ m.sa_measurement(1, 10, 10e6, 'rbw','Auto')
 disp(m.get_rbw());
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        http://<ip>/api/spectrumanalyzer/get_rbw
+```
+</code-block>
+
+
 </code-group>

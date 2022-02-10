@@ -26,11 +26,12 @@ available_on: "mokupro"
 <headers/>
 <parameters/>
 
-Examples,
+### Examples
+
 
 <code-group>
 <code-block title="Python">
-```python{5,6}
+```python
 from moku.instruments import MokuPhasemeter
 
 i = MokuPhasemeter('192.168.###.###', force_connect=False)
@@ -41,13 +42,23 @@ i.disable_output(channel=1)
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{3,4}
+```matlab
 i = MokuPhasemeter('192.168.###.###', false);
 % Disable Out 1
 i.disable_output(1);
 
 ```
 </code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1}'\
+        http://<ip>/api/phasemeter/disable_output
+```
+</code-block>
+
 </code-group>
 
 
