@@ -22,7 +22,8 @@ const { children } = require('./sidebar-menus/moku')
 
 module.exports = {
     title: 'Moku API',
-    dest: "public",
+    dest: "public/" + (process.env.BUILD_DIR || ""),
+    base: process.env.BASE_PATH || "/",
     description: 'Documentation for the Moku Scripting API for Python and MATLAB',
     head: [
         [

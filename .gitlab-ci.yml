@@ -2,13 +2,15 @@ image: node:10.22.0
 pages:
   cache:
     paths:
-    - node_modules/
-
+      - node_modules/
   script:
-  - yarn install # npm install
-  - yarn docs:build # npm run docs:build
+    - npm install
+    - npm run docs:build
   artifacts:
     paths:
-    - public
-  only:
-  - next
+      - public
+  variables:
+    BUILD_DIR: $CI_COMMIT_BRANCH
+    BASE_PATH: "/$CI_PROJECT_NAME/$CI_COMMIT_BRANCH/"
+  except:
+    - master
