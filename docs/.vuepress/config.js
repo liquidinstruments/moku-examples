@@ -56,6 +56,7 @@ module.exports = {
         sidebar: {
             '/reference': [
                 ['/', "Documentation Home"],
+                ['/reference/', "API Reference Home"],
                 {
                     title: "Core Functions",
                     collapsable: false,

@@ -45,6 +45,11 @@ summary: set_frontend
 
 
 <headers/>
+
+:::tip Range vs Attenuation
+Data Logger is a **range** instrument. See [Range vs Attenuation](/reference/#range-versus-attenuation) for details
+:::
+
 <parameters/>
 
 ### Examples
