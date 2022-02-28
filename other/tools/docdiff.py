@@ -1,6 +1,10 @@
+import glob
 import json
 import os
+import sys
 import yaml
+
+from pprint import pprint
 
 INSTRUMENTS_MAP = dict(phasemeter="phasemeter", fra="fra",
                        logicanalyzer="logicanalyzer", lockinamp="lia",
@@ -92,5 +96,16 @@ class SpecParser:
         return result
 
 
-s = SpecParser('/Users/Sashi/workspace/rest-documentation/other/specs/spec_557.json')
-print(json.dumps(s.compare()))
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        specs = glob.glob('../specs/spec*.json')
+        specs.sort()
+        spec = specs[-1]
+        print(f"No spec given, choosing {spec}")
+    elif len(sys.argv) == 2:
+        spec = sys.argv[1]
+    else:
+        raise("Either give me a spec or leave me be")
+
+    s = SpecParser(spec)
+    pprint(s.compare())
