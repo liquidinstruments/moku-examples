@@ -1,3 +1,7 @@
+---
+pageClass: wide-page
+---
+
 # Examples for MATLAB
 
 ## arbitrary_waveform_generator_basic.m

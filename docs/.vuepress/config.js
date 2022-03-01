@@ -22,6 +22,8 @@ const { children } = require('./sidebar-menus/moku')
 
 module.exports = {
     title: 'Moku API',
+    dest: "public/" + (process.env.BUILD_DIR || ""),
+    base: process.env.BASE_PATH || "/",
     description: 'Documentation for the Moku Scripting API for Python and MATLAB',
     head: [
         [
@@ -44,7 +46,8 @@ module.exports = {
                 ariaLabel: 'Examples Menu',
                 items: [
                     { text: 'Python', link: '/examples/python/' },
-                    { text: 'Matlab', link: '/examples/matlab/' }
+                    { text: 'Matlab', link: '/examples/matlab/' },
+                    { text: 'Other Languages', link: '/examples/other-languages/' }
                 ]
             },
             { text: 'Forum', link: 'https://forum.liquidinstruments.com/' },
@@ -86,7 +89,8 @@ module.exports = {
                 '/',
                 '/examples/',
                 '/examples/python/',
-                '/examples/matlab/'
+                '/examples/matlab/',
+                '/examples/other-languages/'
             ],
             '/': [{
                 title: 'Getting Started',
@@ -94,7 +98,9 @@ module.exports = {
                 children: [
                     'starting-python',
                     'starting-matlab',
+                    'starting-labview',
                     'starting-curl',
+                    'starting-other',
                     'ip-address']
                 },
                 ['/reference/', "API Reference"],

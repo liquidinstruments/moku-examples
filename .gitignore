@@ -3,3 +3,5 @@ dist/
 
 .vscode
 .nvmrc
+.idea
+public

@@ -49,16 +49,16 @@ To ensure a complete data logging session, it is recommended to track the progre
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
-# Generate a waveform on output channels
-# Any other settings...
-logFile = i.start_logging(duration=10, comments="Sample script")
+i = Datalogger('192.168.###.###')
+# Generate a waveform on output channel
+i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
+i.start_logging(duration=10, comments="Sample_script")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###', true);
+m = MokuDatalogger('192.168.###.###');
 % Generate a waveform on output channels
 % Any other settings...
 logFile = m.start_logging('duration', 10, 'comments', 'Sample script');

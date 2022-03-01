@@ -1,3 +1,6 @@
+---
+pageClass: wide-page
+---
 # Examples for Python
 
 ## arbitrarywavegen_basic.py

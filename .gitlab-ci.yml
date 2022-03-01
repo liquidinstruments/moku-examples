@@ -1,0 +1,16 @@
+image: node:10.22.0
+pages:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run docs:build
+  artifacts:
+    paths:
+      - public
+  variables:
+    BUILD_DIR: $CI_COMMIT_BRANCH
+    BASE_PATH: "/$CI_PROJECT_NAME/$CI_COMMIT_BRANCH/"
+  except:
+    - master
