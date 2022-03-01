@@ -96,6 +96,7 @@ module.exports = {
                 children: [
                     'starting-python',
                     'starting-matlab',
+                    'starting-labview',
                     'starting-curl',
                     'ip-address']
                 },
