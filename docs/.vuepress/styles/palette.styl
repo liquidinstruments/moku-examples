@@ -34,3 +34,12 @@ div[class^="language-"]::before
     & > .sidebar-heading
       &:not(.clickable)
         opacity 0.9
+
+// Pages can specify pageClass: wide-page in their frontmatter to format
+// better for large code examples and the like, as opposed to scannable text
+.theme-container.wide-page
+  main
+    div.content__default,
+    footer.page-edit,
+    div.page-nav
+      max-width: 80%

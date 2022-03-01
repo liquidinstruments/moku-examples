@@ -46,7 +46,8 @@ module.exports = {
                 ariaLabel: 'Examples Menu',
                 items: [
                     { text: 'Python', link: '/examples/python/' },
-                    { text: 'Matlab', link: '/examples/matlab/' }
+                    { text: 'Matlab', link: '/examples/matlab/' },
+                    { text: 'Other Languages', link: '/examples/other-languages/' }
                 ]
             },
             { text: 'Forum', link: 'https://forum.liquidinstruments.com/' },
@@ -88,7 +89,8 @@ module.exports = {
                 '/',
                 '/examples/',
                 '/examples/python/',
-                '/examples/matlab/'
+                '/examples/matlab/',
+                '/examples/other-languages/'
             ],
             '/': [{
                 title: 'Getting Started',
@@ -98,6 +100,7 @@ module.exports = {
                     'starting-matlab',
                     'starting-labview',
                     'starting-curl',
+                    'starting-other',
                     'ip-address']
                 },
                 ['/reference/', "API Reference"],
