@@ -9,15 +9,21 @@ module.exports = {
         ["/reference/phasemeter/get_acquisition_speed", "get_acquisition_speed"],
         ["/reference/phasemeter/get_auto_acquired_frequency", "get_auto_acquired_frequency"],
         // ["/reference/phasemeter/get_data", "get_data"],
-        ["/reference/phasemeter/logging_progress", "logging_progress"],
         ["/reference/phasemeter/set_acquisition_speed", "set_acquisition_speed"],
         ["/reference/phasemeter/set_auto_reset", "set_auto_reset"],
         ["/reference/phasemeter/set_defaults", "set_defaults"],
         ["/reference/phasemeter/set_frontend", "set_frontend"],
         ["/reference/phasemeter/set_phase_wrap", "set_phase_wrap"],
         ["/reference/phasemeter/set_pm_loop", "set_pm_loop"],
-        ["/reference/phasemeter/start_logging", "start_logging"],
-        ["/reference/phasemeter/stop_logging", "stop_logging"],
         ["/reference/phasemeter/summary", "summary"],
+        {
+            title: 'Logger',
+            collapsable: true,
+            children: [
+                ["/reference/embedded/edl/start_logging", "start_logging"],
+                ["/reference/embedded/edl/stop_logging", "stop_logging"],
+                ["/reference/embedded/edl/logging_progress", "logging_progress"]
+            ]
+        },
     ]
 };
