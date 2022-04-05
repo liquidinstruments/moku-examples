@@ -40,6 +40,14 @@ parameters:
    mokupro: -20 to 20
   type: number
   unit: V
+- default: 10Vpp for Go and 400mVpp for Pro
+  description: Input Range
+  name: input_range
+  param_range: 
+   mokugo: 10Vpp, 50Vpp
+   mokupro: 400mVpp, 4Vpp, 40Vpp 
+  type: string
+  unit: Vpp
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

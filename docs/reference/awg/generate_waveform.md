@@ -60,6 +60,14 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: 1MOhm
+  description: Waveform load
+  name: load
+  param_range:
+   mokugo: 1MOhm
+   mokupro: 50Ohm, 1MOhm
+  type: string
+  unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
