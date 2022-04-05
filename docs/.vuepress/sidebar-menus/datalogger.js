@@ -3,6 +3,7 @@ module.exports = {
     collapsable: true,
     children: [
         ["/reference/datalogger/", "Overview"],
+        ["/reference/datalogger/disable_channel", "disable_channel"],
         ["/reference/datalogger/generate_waveform", "generate_waveform"],
         ["/reference/datalogger/logging_progress", "logging_progress"],
         ["/reference/datalogger/set_acquisition_mode", "set_acquisition_mode"],

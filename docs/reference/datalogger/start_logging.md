@@ -22,13 +22,18 @@ parameters:
   param_range: null
   type: string
   unit: null
-- default: false
-  description: Pass as true to stop any existing session and begin a new one
-  name: stop_existing
+- default: 0
+  description: Delay the logging session by 'n' seconds
+  name: delay
+  param_range: null
+  type: integer
+  unit: Seconds
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
   param_range: null
   type: boolean
   unit: null
-  warning: Passing true will kill any existing data logging session with out any warning. Use with caution.
 summary: start_logging
 ---
 
