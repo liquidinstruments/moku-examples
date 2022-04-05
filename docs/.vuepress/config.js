@@ -1,6 +1,7 @@
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const powerSuppliesAdmin = require('./sidebar-menus/powersupplies')
 const awgAdmin = require('./sidebar-menus/awg')
+const dfbAdmin = require('./sidebar-menus/dfb')
 const firAdmin = require('./sidebar-menus/fir')
 const fraAdmin = require('./sidebar-menus/fra')
 const wgAdmin = require('./sidebar-menus/wavegen')
@@ -75,6 +76,7 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [
                         awgAdmin,
+                        dfbAdmin,
                         dlAdmin,
                         firAdmin,
                         fraAdmin,
