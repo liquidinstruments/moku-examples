@@ -19,18 +19,18 @@ summary: get_rbw
 
 <code-group>
 <code-block title="Python">
-```python{5}
+```python
 from moku.instruments import SpectrumAnalyzer
 
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 i.set_rbw('Auto')  # Auto-mode
 print(i.get_rbw())
 ```
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5,6}
-m = MokuSpectrumAnalyzer('192.168.###.###', false);
+```matlab
+m = MokuSpectrumAnalyzer('192.168.###.###');
 % Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
 % auto mode, BlackmanHarris window, and no video filter
 m.sa_measurement(1, 10, 10e6, 'rbw','Auto')
@@ -47,3 +47,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 
 </code-group>
+
+### Sample response
+```json
+{
+  "mode": "Auto",
+  "value": 146.6275659824047
+}
+```

@@ -26,3 +26,40 @@ summary: set_filter
 
 <headers/>
 <parameters/>
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+i.set_filter(corner_frequency=100,slope="Slope6dB")
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLockInAmp('192.168.###.###');
+m.set_filter('corner_frequency',100,'slope','Slope6dB')
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"corner_frequency":100,"slope":"Slope6dB"}'\
+        http://<ip>/api/lockinamp/set_filter
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{
+  "corner_frequency": 99.9774868744271,
+  "slope": "Slope6dB"
+}
+```

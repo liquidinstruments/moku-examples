@@ -42,7 +42,7 @@ group: Monitors
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -54,7 +54,7 @@ i.set_timebase(-1e-3, 1e-3)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
@@ -69,9 +69,17 @@ m.set_timebase(-1e-3, 1e-3);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"t1": -1e-3, "t2": 1e-3}'\
-        http://<ip>/api/pid/set_timebase
+        http://<ip>/api/pidcontroller/set_timebase
 ```
 </code-block>
 
 
 </code-group>
+
+### Sample response
+```json
+{
+  "offset": 0.0,
+  "span": 0.002
+}
+```

@@ -1,10 +1,10 @@
 ---
 additional_doc: null
-description: Get current state of all Digital I/O pins
+description: Get current state of a Digital I/O pin
 method: post
-name: get_pins
+name: get_pin
 parameters: []
-summary: get_pins
+summary: get_pin
 available_on: "mokugo"
 ---
 
@@ -29,14 +29,14 @@ available_on: "mokugo"
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.get_pins()
+i.get_pin()
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.get_pins();
+m.get_pin();
 ```
 </code-block>
 
@@ -44,8 +44,8 @@ m.get_pins();
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{}'\
-        http://<ip>/api/logicanalyzer/get_pins
+        --data '{"pin":1}'\
+        http://<ip>/api/logicanalyzer/get_pin
 ```
 </code-block>
 
@@ -54,6 +54,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```json
-["O","H","L","I","I","I","I","I","I","I","I","I","I","I","I","I"]
+{
+  "state": "H"
+}
 ```
 

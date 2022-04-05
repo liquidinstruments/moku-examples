@@ -70,7 +70,7 @@ summary: sa_measurement
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 # Configure the instrument
 # Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
 # auto mode, BlackmanHarris window, and no video filter
@@ -80,7 +80,7 @@ i.sa_measurement(channel=1, frequency1=10, frequency2=10e6)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 %% Configure the instrument
 % Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
 % auto mode, BlackmanHarris window, and no video filter
@@ -100,3 +100,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
+### Sample response
+```json
+{
+  "frequency1": 10.0,
+  "frequency2": 10000000.0,
+  "rbw": "Auto",
+  "window": "BlackmanHarris"
+}
+```

@@ -45,15 +45,15 @@ Rounding and quantization
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 # Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
-i.set_span(10, 10e6);
+i.set_span(10, 10e6)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 % Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
 m.set_span(10, 10e6);
 ```
@@ -71,3 +71,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
+### Sample response
+```json
+{
+  "frequency1": 10.0,
+  "frequency2": 10000000.0
+}
+```

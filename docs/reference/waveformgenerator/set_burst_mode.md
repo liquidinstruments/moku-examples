@@ -73,7 +73,7 @@ summary: set_burst_mode
 
 <code-group>
 <code-block title="Python">
-```python{9,10}
+```python
 from moku.instruments import WaveformGenerator
 
 i = WaveformGenerator('192.168.###.###', force_connect=False)
@@ -88,7 +88,7 @@ i.set_burst_mode(channel=2, source='Input1', mode='Start',
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{8}
+```matlab
 m = MokuWaveformGenerator('192.168.###.###', false);
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
@@ -110,5 +110,17 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "burst_cycles": 3,
+  "burst_duration": 0.1,
+  "burst_period": 1.0,
+  "mode": "Gated",
+  "source": "Input1",
+  "trigger_level": 0.4
+}
+```
 
 

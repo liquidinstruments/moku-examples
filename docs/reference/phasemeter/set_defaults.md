@@ -32,15 +32,15 @@ Reference to any instrument object will always be in default state.
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 # Phasemeter reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPhasemeter('192.168.###.###', true);
+m = MokuPhasemeter('192.168.###.###');
 % Phasemeter reference m is in default state
 ```
 </code-block>

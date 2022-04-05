@@ -31,7 +31,7 @@ summary: set_harmonic_multiplier
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
 i.fra_measurement(1, input_only=True, start_frequency=100,
                   stop_frequency=20e6, averaging_cycles=1)
@@ -41,9 +41,9 @@ i.set_harmonic_multiplier(multiplier=2)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-i.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
+m.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
                   'stop_frequency', 20e6, 'averaging_cycles', 1)
 m.set_harmonic_multiplier('multiplier', 2)                
 ```
@@ -60,3 +60,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
+### Sample response
+```json
+{"multiplier":1}
+```

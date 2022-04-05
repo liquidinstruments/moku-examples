@@ -32,7 +32,7 @@ summary: set_window
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 # BlackmanHarris window
 i.set_window(window="BlackmanHarris")
 ```
@@ -40,9 +40,9 @@ i.set_window(window="BlackmanHarris")
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 % BlackmanHarris window
-m.set_window('BlackmanHarris')
+m.set_window('BlackmanHarris');
 ```
 </code-block>
 
@@ -57,3 +57,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 
 </code-group>
+
+### Sample response
+```json
+{
+  "window": "BlackmanHarris"
+}
+```

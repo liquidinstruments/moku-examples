@@ -27,11 +27,11 @@ parameters:
   type: string
   unit: null
 - default: null
-  description: Input Range
-  name: range
+  description: Input attenuation
+  name: attenuation
   param_range: 
-   mokugo: 10Vpp, 50Vpp
-   mokupro: 400mVpp, 4Vpp, 40Vpp 
+    mokugo: 0dB, 14dB
+    mokupro: 20dB, 40dB
   type: string
   unit: null
 - default: true
@@ -54,15 +54,15 @@ summary: set_frontend
 <code-block title="Python">
 ```python
 from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###', force_connect=False)
-i.set_frontend(1, "1MOhm", "AC", "10Vpp")
+i = LockInAmp('192.168.###.###')
+i.set_frontend(1, impedance="1MOhm", coupling="AC", attenuation="14dB")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###', true);
-i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
+m = MokuLockInAmp('192.168.###.###');
+m.set_frontend(1, 'DC', '1MOhm', '14dB');
 ```
 </code-block>
 
@@ -70,9 +70,18 @@ i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "range": "10Vpp"}'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "attenuation": "14dB"}'\
         http://<ip>/api/lockinamp/set_frontend
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "attenuation": "14dB",
+  "coupling": "AC",
+  "impedance": "1MOhm"
+}
+```

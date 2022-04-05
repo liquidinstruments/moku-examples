@@ -40,25 +40,25 @@ summary: set_input_offset
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 2 PID Controller using gain characteristics
 #   Overall Gain = 6dB
 #   I Gain       = 20dB 
 i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
-# Set input offset to 5VDC
-i.set_input_offset(1, offset=5)
+# Set input offset to 2VDC
+i.set_input_offset(1, offset=2)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 2 PID Controller using gain characteristics
 %   Overall Gain = 6dB
 %   I Gain       = 20dB 
 m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
-% Set input offset to 5VDC
-m.set_input_offset(1, 'offset', 5);
+% Set input offset to 2VDC
+m.set_input_offset(1, 'offset', 2);
 ```
 </code-block>
 
@@ -66,9 +66,16 @@ m.set_input_offset(1, 'offset', 5);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 5}'\
-        http://<ip>/api/pid/set_input_offset
+        --data '{"channel": 1, "offset": 2}'\
+        http://<ip>/api/pidcontroller/set_input_offset
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "offset": 2.0
+}
+```

@@ -113,7 +113,7 @@ group: Monitors
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -125,13 +125,13 @@ i.set_trigger(type="Edge", source="Input1", level=0)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
 m.set_by_frequency(1, 'prop_gain', -20);
 % Trigger on input Channel 1, rising edge, 0V
-m.set_trigger('type',"Edge", 'source',"Input1", 'level', 0)
+m.set_trigger('type',"Edge",'source',"Input1",'level',1);
 ```
 </code-block>
 
@@ -139,10 +139,23 @@ m.set_trigger('type',"Edge", 'source',"Input1", 'level', 0)
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "type": "Rising", "source": "Input1", "level": 0}'\
-        http://<ip>/api/pid/set_trigger
+       --data '{"type":"Edge", "source":"Input1", "level":1}'\
+        http://<ip>/api/pidcontroller/set_trigger
 ```
+
 </code-block>
 
-
 </code-group>
+
+### Sample response
+```json
+{
+  "auto_sensitivity": true,
+  "edge": "Rising",
+  "hf_reject": false,
+  "holdoff": 0.0,
+  "level": 0.0,
+  "noise_reject": false,
+  "nth_event": 1
+}
+```

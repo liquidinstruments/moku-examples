@@ -39,14 +39,14 @@ summary: set_rbw
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
-i.set_rbw('Auto');
+i = SpectrumAnalyzer('192.168.###.###')
+i.set_rbw('Auto')
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 m.set_rbw('Auto');
 ```
 </code-block>
@@ -55,9 +55,16 @@ m.set_rbw('Auto');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"mode": "Manual", "rbw_value": 100}'\
+        --data '{"mode": "Auto"}'\
         http://<ip>/api/spectrumanalyzer/set_rbw
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "mode": "Auto",
+}
+```

@@ -51,17 +51,17 @@ summary: set_frontend
 
 <code-group>
 <code-block title="Python">
-```python{3}
+```python
 from moku.instruments import FrequencyResponseAnalyzer
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2}
-i = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
-i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
+```matlab
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
+m.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```
 </code-block>
 
@@ -74,3 +74,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ```
 </code-block>
 </code-group>
+
+### Sample response
+```json
+{
+ "coupling":"DC",
+ "impedance":"1MOhm",
+ "range":"10Vpp"
+}
+```

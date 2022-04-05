@@ -16,7 +16,7 @@ Start sweeping
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
 i.fra_measurement(1, input_only=True, start_frequency=100,
                   stop_frequency=20e6, averaging_cycles=1)
@@ -35,7 +35,7 @@ i.start_sweep()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Set output sweep configuration
 % 10MHz - 100Hz, 512 sweep points
 % Logarithmic sweep ON

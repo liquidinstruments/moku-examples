@@ -67,31 +67,27 @@ available_on: "mokupro"
 
 <code-group>
 <code-block title="Python">
-```python{4-7}
-from moku.instruments import MokuPhasemeter
+```python
+from moku.instruments import Phasemeter
 
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+i = Phasemeter('192.168.###.###')
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
 # Generate a sine wave on channel 2, 1 Vpp, 1 MHz
-i.generate_output(channel=1, amplitude=0.5, frequency=5e3)
-i.generate_output(channel=2,  amplitude=1.0, frequency=1e6)
-
-i.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
+i.generate_output(channel=1, amplitude=0.5, frequency=5e3, signal='Sine')
+i.generate_output(channel=2,  amplitude=1.0, frequency=1e6, signal='Sine')
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{2-8}
-i = MokuPhasemeter('192.168.###.###', false);
+i = MokuPhasemeter('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 0.5 Vpp, 10 kHz
-i.generate_output(1, 0.5, 10e3);
+i.generate_output(1, 0.5, 10e3,'Sine');
 
 % Generate a sine wave on Channel 2
 % 1 Vpp, 1 MHz
-i.generate_output(2, 1, 1e6);
-
-i.set_frontend(1,'50Ohm','DC','4Vpp');
+i.generate_output(2, 1, 1e6,'Sine');
 ```
 </code-block>
 
@@ -99,7 +95,7 @@ i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "amplitude": 1, "frequency": 20e3}'\
+        --data '{"channel": 1, "amplitude": 1, "frequency": 20e3,"phase_locked":true,"signal":"Sine"}'\
         http://<ip>/api/phasemeter/generate_output
 ```
 </code-block>

@@ -62,10 +62,10 @@ summary: set_modulation
 
 <code-group>
 <code-block title="Python">
-```python{9,10}
+```python
 from moku.instruments import WaveformGenerator
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+i = WaveformGenerator('192.168.###.###')
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
 i.generate_waveform(channel=2, type='Sine', amplitude=1.0, frequency=1e6)
 # Configure amplitude modulation on channel 1. 
@@ -77,8 +77,8 @@ i.set_modulation(channel=1, type='Amplitude', source='Internal', depth=50,
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{10}
-m = MokuWaveformGenerator('192.168.###.###', true);
+```matlab
+m = MokuWaveformGenerator('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
@@ -102,3 +102,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
+### Sample response 
+```json
+{
+  "depth": 50,
+  "frequency": 1.0,
+  "source": "Internal",
+  "type": "Amplitude"
+}
+```

@@ -103,12 +103,9 @@ from moku.instruments import Oscilloscope
 # Configure the instrument
 # Generate a sine wave on Channel 1
 # 1Vpp, 10kHz, 0V offset
-i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3);
-
-# Generate a square wave on Channel 2
-# 1Vpp, 10kHz, 0V offset, 50% duty cycle
-i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3, duty=50);
-
+i = Oscilloscope('192.168.###.###')
+i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3)
+i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3, duty=50)
 ```
 </code-block>
 
@@ -119,11 +116,9 @@ m = MokuOscilloscope('192.168.###.###', true);
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);
-
 % Generate a square wave on Channel 2
 % 1Vpp, 10kHz, 0V offset, 50% duty cycle
 m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
-
 ```
 </code-block>
 
@@ -137,3 +132,14 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "amplitude": 0.5,
+  "frequency": 10000.0,
+  "offset": 0.0,
+  "phase": 0.0,
+  "type": "Sine"
+}
+```

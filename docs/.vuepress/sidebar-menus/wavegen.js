@@ -11,5 +11,6 @@ module.exports = {
         ["/reference/waveformgenerator/set_sweep_mode", "set_sweep_mode"],
         ["/reference/waveformgenerator/summary", "summary"],
         ["/reference/waveformgenerator/sync_phase", "sync_phase"],
+        ["/reference/waveformgenerator/output_load", "output_load"],
     ]
 };

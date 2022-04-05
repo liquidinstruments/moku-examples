@@ -30,14 +30,14 @@ A new reference to any instrument class will always be in its default state.
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 # AWG reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % AWG reference m is in default state
 ```
 </code-block>

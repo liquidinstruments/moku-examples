@@ -24,7 +24,8 @@ i = Datalogger('192.168.###.###', force_connect=False)
 # Generate a waveform on output channels
 # Any other settings...
 logFile = i.start_logging(duration=10, comments="Sample script")
-i.stop_logging()
+time.sleep(5) # Abort the logging session after 5 seconds
+i.stop_logging
 ```
 </code-block>
 

@@ -75,7 +75,7 @@ summary: set_sweep
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
 i.fra_measurement(1, input_only=True, start_frequency=100,
                   stop_frequency=20e6, averaging_cycles=1)
@@ -93,7 +93,7 @@ i.set_sweep(start_frequency=10e6, stop_frequency=100,
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Set output sweep configuration
 % 10MHz - 100Hz, 512 sweep points
 % Logarithmic sweep ON
@@ -109,9 +109,22 @@ m.set_sweep('start_frequency', 10e6, 'stop_frequency', 100, 'num_points', 512, .
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"start_frequency": 10e6, "stop_frequency": 100, "num_points": 512, "averaging_time": 10e-3}'\
+        --data '{"start_frequency": 10e6, "stop_frequency": 100, "num_points": 512, "averaging_time": 10e-3, "settling_time": 10e-3, "averaging_cycles": 1, "settling_cycles": 1}'\
         http://<ip>/api/fra/set_sweep
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "averaging_cycles":5,
+  "averaging_time":0.001,
+  "num_points":256,
+  "settling_cycles":5,
+  "settling_time":0.001,
+  "start_frequency":20000000.0,
+  "stop_frequency":100.0
+}
+```

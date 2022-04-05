@@ -46,7 +46,7 @@ summary: sa_output
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 # Generate a Sine wave on output channel 1 
 i.sa_output(channel=1, amplitude=0.5, frequency=1e5)
 ```
@@ -54,7 +54,7 @@ i.sa_output(channel=1, amplitude=0.5, frequency=1e5)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 % Generate a Sine wave on output channel 1 
 m.sa_output(1, 0.5, 1e5)
 ```
@@ -71,3 +71,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 
 </code-group>
+
+### Sample response
+```json
+{
+  "amplitude": 0.5,
+  "frequency": 100000.0
+}
+```

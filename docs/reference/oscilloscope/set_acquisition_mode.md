@@ -28,14 +28,14 @@ summary: set_acquisition_mode
 <code-block title="Python">
 ```python
 from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+i = Oscilloscope('192.168.###.###')
 i.set_acquisition_mode(mode="Precision")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuOscilloscope('192.168.###.###');
 m.set_acquisition_mode('mode', 'Precision')
 ```
 </code-block>
@@ -50,3 +50,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample reponse
+```json
+{
+  "mode": "Precision"
+}
+```

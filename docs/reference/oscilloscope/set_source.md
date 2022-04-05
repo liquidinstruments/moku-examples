@@ -34,11 +34,12 @@ summary: set_source
 
 <code-group>
 <code-block title="Python">
-```python{6-9}
+```python
 from moku.instruments import Oscilloscope
 # Configure the instrument
-i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3);
-i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3, duty=50);
+i = Oscilloscope('192.168.###.###')
+i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3)
+i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3)
 
 # Set the data source of Channel 1 to be Input 1
 i.set_source(1,'Input1')
@@ -48,7 +49,7 @@ i.set_source(2,'Input2')
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{6-10}
+```matlab
 m = MokuOscilloscope('192.168.###.###', true);
 %% Configure the instrument
 m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);
@@ -72,3 +73,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "source": "Input1"
+}
+```

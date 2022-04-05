@@ -27,9 +27,9 @@ There are 6 different acquisition speeds available in the Phasemeter instrument,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
+from moku.instruments import Phasemeter
 
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+i = Phasemeter('192.168.###.###')
 
 # Request the acquisition speed of the Phasemeter
 speed = i.get_acquisition_speed()
@@ -38,7 +38,7 @@ speed = i.get_acquisition_speed()
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', false);
+i = MokuPhasemeter('192.168.###.###');
 
 % Request the acquisition speed of the Phasemeter
 speed = i.get_acquisition_speed()

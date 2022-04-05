@@ -33,10 +33,10 @@ summary: disable_output
 
 <code-group>
 <code-block title="Python">
-```python{5,6}
+```python
 from moku.instruments import SpectrumAnalyzer
 
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 i.set_span(frequency1=0, frequency2=30e3)
 # Disable output channel 1
 i.disable_output(1)
@@ -44,8 +44,8 @@ i.disable_output(1)
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5,6}
-m = MokuSpectrumAnalyzer('192.168.###.###', false);
+```matlab
+m = MokuSpectrumAnalyzer('192.168.###.###');
 % Configure the spectrum analyzer to measure a span from 10Hz to 10MHz,
 % auto mode, BlackmanHarris window, and no video filter
 m.sa_measurement(1, 10, 10e6, 'rbw','Auto')
@@ -62,6 +62,5 @@ $: curl -H 'Moku-Client-Key: <key>'\
         http://<ip>/api/spectrumanalyzer/disable_output
 ```
 </code-block>
-
 
 </code-group>

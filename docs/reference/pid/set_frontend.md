@@ -56,7 +56,7 @@ summary: set_frontend
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
@@ -73,8 +73,17 @@ i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
-        http://<ip>/api/pid/set_frontend
+        http://<ip>/api/pidcontroller/set_frontend
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "coupling": "AC",
+  "impedance": "1MOhm",
+  "range": "10Vpp"
+}
+```

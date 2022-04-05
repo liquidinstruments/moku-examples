@@ -58,14 +58,14 @@ Data Logger is a **range** instrument. See [Range vs Attenuation](/reference/#ra
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
+i = Datalogger('192.168.###.###')
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###', true);
+m = MokuDatalogger('192.168.###.###');
 m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
 ```
 </code-block>
@@ -80,3 +80,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "coupling":"DC",
+  "impedance":"1MOhm",
+  "range":"10Vpp"
+}
+```

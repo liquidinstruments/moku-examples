@@ -29,15 +29,15 @@ summary: set_phase_wrap
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 i.set_phase_wrap(value='2pi')
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
 i.set_phase_wrap('2pi');
 ```
 </code-block>
@@ -52,3 +52,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{'Wrapping': '±2π'}
+```

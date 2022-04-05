@@ -49,20 +49,20 @@ Source signal can be one of,
 <code-block title="Python">
 ```python
 from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###', force_connect=False)
-# Set the probes to monitor Output 1 and Output 2
-i.set_monitor(1, 'Output1')
-i.set_monitor(2, 'Output2')
+i = LockInAmp('192.168.###.###')
+# Set the probes to monitor Intput 1 and Intput 2
+i.set_monitor(1, 'Input1')
+i.set_monitor(2, 'Input2')
 
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###', true);
-% Set the probes to monitor Output 1 and Output 2
-m.set_monitor(1, 'Output1')
-m.set_monitor(2, 'Output2')
+m = MokuLockInAmp('192.168.###.###');
+% Set the probes to monitor Intput 1 and Intput 2
+m.set_monitor(1, 'Input1')
+m.set_monitor(2, 'Input2')
 ```
 </code-block>
 
@@ -70,9 +70,16 @@ m.set_monitor(2, 'Output2')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "source": "Output1"}'\
+        --data '{"monitor_channel": 1, "source": "Input1"}'\
         http://<ip>/api/lockinamp/set_monitor
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "source": "Input1"
+}
+```

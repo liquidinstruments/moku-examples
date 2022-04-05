@@ -41,9 +41,6 @@ parameters:
 ---
 
 
-
-
-
 <headers/>
 <parameters/>
 
@@ -53,18 +50,17 @@ parameters:
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 # Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 40 Hz.
-i.set_pm_loop(1, auto_acquire=false, frequency=1e6, bandwidth='40Hz')
-
+i.set_pm_loop(1, auto_acquire=False, frequency=1e6, bandwidth='40Hz')
 i.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 40 Hz.
 i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','40Hz');
 i.set_frontend(1,'50Ohm','DC','4Vpp');
@@ -75,7 +71,7 @@ i.set_frontend(1,'50Ohm','DC','4Vpp');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "auto_acquire": false, "frequency": 1e6, "bandwdith": "40Hz"}'\
+        --data '{"channel": 1, "auto_acquire": false,"frequency": 1e6, "bandwidth": "10kHz"}'\
         http://<ip>/api/phasemeter/set_pm_loop
 ```
 </code-block>

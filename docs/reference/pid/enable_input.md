@@ -14,7 +14,7 @@ parameters:
   unit: null
 - default: null
   description: Enable/Disable input signal
-  name: enabled
+  name: enable
   param_range: null
   type: boolean
   unit: null
@@ -37,7 +37,7 @@ summary: enable_input
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 2 PID Controller using gain characteristics
 #   Overall Gain = 6dB
 #   I Gain       = 20dB 
@@ -49,7 +49,7 @@ i.enable_input(1, True)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 2 PID Controller using gain characteristics
 %   Overall Gain = 6dB
 %   I Gain       = 20dB 
@@ -64,8 +64,15 @@ m.enable_input(1, true)
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 2, "enabled": true}'\
-        http://<ip>/api/pid/enable_input
+        http://<ip>/api/pidcontroller/enable_input
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "enable": true
+}
+```

@@ -6,7 +6,7 @@ name: get_data
 parameters:
 - default: null
   description: Wait for a new trigger event
-  name: wait_recquire
+  name: wait_reacquire
   param_range: null
   type: boolean
   unit: null
@@ -47,12 +47,12 @@ Below are the examples on how to read the data frame,
 <code-block title="Python">
 ```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
-i.set_pin("Pin1", "O")
-i.set_pin("Pin1", "H")
-i.set_pin("Pin1", "L")
+i = LogicAnalyzer('192.168.###.###')
+i.set_pin(1, "O")
+i.set_pin(2, "H")
+i.set_pin(3, "L")
 # Configure the output pattern for Pin 1
-i.generate_pattern("Pin1", [1, 0, 0, 0, 0, 0, 0, 0])
+i.generate_pattern(pin=1, pattern=[1, 0, 0, 0, 0, 0, 0, 0])
 i.start_all()
 data = i.get_data()
 print(data['pin1'], data['pin2'], data['time'])
@@ -61,12 +61,12 @@ print(data['pin1'], data['pin2'], data['time'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLogicAnalyzer('192.168.###.###', true);
-m.set_pin("Pin1", "O");
-m.set_pin("Pin1", "H");
-m.set_pin("Pin1", 'L');
+m = MokuLogicAnalyzer('192.168.###.###');
+m.set_pin('pin',1, 'state',"O");
+m.set_pin('pin',2, 'state', "H");
+m.set_pin('pin',3, 'state', "L");
 % Configure the output pattern on Pin 8 to [1 1 0 0]
-m.generate_pattern('Pin1', [1 1 0 0]);
+m.generate_pattern('pin',1,'pattern', [1 1 0 0]);
 m.start_all()
 data = m.get_data()
 disp(data.pin1);
@@ -79,7 +79,7 @@ disp(data.time);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"wait_reacquire": true, "timeout": 10}'\
+        --data '{"wait_reacquire": false, "timeout": 10}'\
         http://<ip>/api/logicanalyzer/get_data |
         jq ".data.pin1"
 ```

@@ -7,9 +7,8 @@ parameters:
 - default: null
   description: Pin to generate pattern on
   name: pin
-  param_range: Pin1, Pin2, Pin3, Pin4, Pin5, Pin6, Pin7, Pin8, Pin9, Pin10, Pin11,
-    Pin12, Pin13, Pin14, Pin15, Pin16
-  type: string
+  param_range: 1 to 16
+  type: integer
   unit: null
 - default: null
   description: Pattern to generate, array filled with 0's and 1's. Maximum size is 1024
@@ -61,23 +60,23 @@ Refer [Pin Status Definitions](README.md) for the list of available statuses
 <code-block title="Python">
 ```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
-i.set_pin("Pin1", "O")
-i.set_pin("Pin1", "H")
-i.set_pin("Pin1", "L")
+i = LogicAnalyzer('192.168.###.###')
+i.set_pin(1, "O")
+i.set_pin(2, "H")
+i.set_pin(3, "L")
 # Configure the output pattern for Pin 1
-i.generate_pattern("Pin1", [1, 0, 0, 0, 0, 0, 0, 0])
+i.generate_pattern(pin=1, pattern=[1, 0, 0, 0, 0, 0, 0, 0])
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLogicAnalyzer('192.168.###.###', true);
-m.set_pin("Pin1", "O");
-m.set_pin("Pin1", "H");
-m.set_pin("Pin1", 'L');
+m = MokuLogicAnalyzer('192.168.###.###');
+m.set_pin('pin',1, 'state',"O");
+m.set_pin('pin',2, 'state', "H");
+m.set_pin('pin',3, 'state', "L");
 % Configure the output pattern on Pin 8 to [1 1 0 0]
-m.generate_pattern('Pin1', [1 1 0 0]);
+m.generate_pattern('pin',1,'pattern', [1 1 0 0]);
 ```
 </code-block>
 
@@ -87,9 +86,19 @@ m.generate_pattern('Pin1', [1 1 0 0]);
 # rather than passing on the command line
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"pin": "Pin1", "pattern": [1, 1, 0, 0]}'\
+        --data '{"pin": 1, "pattern": [1, 1, 0, 0]}'\
         http://<ip>/api/logicanalyzer/generate_pattern
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+
+```json
+{
+  "divider": 1,
+  "iterations": 1,
+  "repeat": true
+}
+```

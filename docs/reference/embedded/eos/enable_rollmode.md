@@ -23,3 +23,37 @@ group: Monitors
 
 <headers/>
 <parameters/>
+
+### Exmaples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+i.enable_rollmode(roll=True)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLockInAmp('192.168.###.###');
+m.enable_rollmode('roll', true)
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"roll":true}'\
+        http://<ip>/api/lockinamp/enable_rollmode
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{"Roll mode":"true"}
+```

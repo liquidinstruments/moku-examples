@@ -30,7 +30,7 @@ summary: disable_modulation
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 # Configure the output waveform in each channel
 # Configure modulation in respective channels
 
@@ -41,7 +41,7 @@ i.disable_modulation(2)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % Configure the output waveform in each channel
 % Configure modulation in respective channels
 
@@ -60,3 +60,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample Response
+```json
+{
+  "Modulation type":"Off"
+}
+```

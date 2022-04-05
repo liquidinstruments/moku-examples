@@ -16,9 +16,45 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: enable_rollmode
+summary: set_pll_bandwidth
 group: Input PLL
 ---
 
 <headers/>
 <parameters/>
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+i.set_pll_bandwidth("10kHz")
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLockInAmp('192.168.###.###');
+m.set_pll_bandwidth('bandwidth','10kHz');
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"bandwidth": "10kHz"}'\
+        http://<ip>/api/lockinamp/set_pll_bandwidth
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{
+  "bandwidth": "10kHz"
+}
+```

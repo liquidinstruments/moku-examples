@@ -22,28 +22,38 @@ Generating a pattern after **start_all()** does not reflect unless called again
 
 
 <code-group>
+
 <code-block title="Python">
-```python{8}
+```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
-i.set_pin("Pin1", "O")
-i.set_pin("Pin1", "H")
-i.set_pin("Pin1", "L")
+i = LogicAnalyzer('192.168.###.###')
+i.set_pin(1, "O")
+i.set_pin(2, "H")
+i.set_pin(3, "L")
 # Configure the output pattern for Pin 1
-i.generate_pattern("Pin1", [1, 0, 0, 0, 0, 0, 0, 0])
+i.generate_pattern(pin=1, pattern=[1, 0, 0, 0, 0, 0, 0, 0])
 i.start_all()
 ```
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{7}
-m = MokuLogicAnalyzer('192.168.###.###', true);
-m.set_pin("Pin1", "O");
-m.set_pin("Pin1", "H");
-m.set_pin("Pin1", 'L');
-% Configure the output pattern on Pin 8 to [1 1 0 0]
-m.generate_pattern('Pin1', [1 1 0 0]);
+```matlab
+m = MokuLogicAnalyzer('192.168.###.###');
+m.set_pin('pin',1, 'state',"O");
+m.set_pin('pin',2, 'state', "H");
+m.set_pin('pin',3,'state', "L");
+% Configure the output pattern on Pin 1 to [1 1 0 0]
+m.generate_pattern('pin',1,'pattern', [1 1 0 0]);
 m.start_all()
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{}'\
+        http://<ip>/api/logicanalyzer/start_all
 ```
 </code-block>
 </code-group>

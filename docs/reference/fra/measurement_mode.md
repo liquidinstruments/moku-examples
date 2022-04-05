@@ -32,7 +32,7 @@ summary: measurement_mode
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
 i.fra_measurement(input_only=True)
 ```
@@ -40,9 +40,9 @@ i.fra_measurement(input_only=True)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-i.measurement_mode('input_only', true)
+m.measurement_mode('input_only', true)
 ```
 </code-block>
 

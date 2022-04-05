@@ -28,16 +28,16 @@ available_on: "mokupro"
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
+from moku.instruments import Phasemeter
 
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+i = Phasemeter('192.168.###.###')
 i.disable_freewheeling(disable=True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
 i.disable_freewheeling('disable',true);
 ```
 </code-block>
@@ -53,3 +53,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
+### Sample response
+```json
+{"Freewheeling":"true"}
+```

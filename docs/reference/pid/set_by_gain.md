@@ -69,7 +69,7 @@ summary: set_by_gain
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 2 PID Controller using gain characteristics
 #   Overall Gain = 6dB
 #   I Gain       = 20dB 
@@ -79,7 +79,7 @@ i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 2 PID Controller using gain characteristics
 %   Overall Gain = 6dB
 %   I Gain       = 20dB 
@@ -92,8 +92,30 @@ m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 2, "prop_gain": 20}'\
-        http://<ip>/api/pid/set_by_gain
+        http://<ip>/api/pidcontroller/set_by_gain
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+[
+  {
+    "diff_corner": 100.0,
+    "diff_gain": 0.0,
+    "int_corner": 5.0,
+    "int_gain": 40.0,
+    "overall_gain": 6.0,
+    "prop_gain": 20.0
+  },
+  {
+    "diff_corner": 1000000.0,
+    "diff_gain": -60.0,
+    "int_corner": 10000.0,
+    "int_gain": 60.0,
+    "overall_gain": 6.0,
+    "prop_gain": 20.0
+  }
+]
+```

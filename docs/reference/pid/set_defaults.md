@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the PID Controller to sane defaults.
+description: Set the PID Controller to its default state.
 method: post
 name: set_defaults
 parameters: []
@@ -10,34 +10,22 @@ summary: set_defaults
 <headers/>
 <parameters/>
 
-Default state implies,
-
-- Enable output on both channels
-- Set Input Coupling to DC
-- Set Input Range to 10Vpp
-
-
-::: tip INFO
-Reference to any instrument object will always be in default state.
-:::
-
-
-
-
 ### Examples
 
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
+i.set_defaults()
 # PIDController reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
+m.set_defaults();
 % PIDController reference m is in default state
 ```
 </code-block>
@@ -47,7 +35,7 @@ m = MokuPIDController('192.168.###.###', true);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/pid/set_defaults
+        http://<ip>/api/pidcontroller/set_defaults
 ```
 </code-block>
 

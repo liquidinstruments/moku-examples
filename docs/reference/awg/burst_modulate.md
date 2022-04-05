@@ -58,7 +58,7 @@ summary: burst_modulate
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 # Configure the output waveform in each channel
 # Set Channel 2 to burst mode
 # Burst mode triggering from Input 1 at 0.1 V
@@ -69,7 +69,7 @@ i.burst_modulate(2, "Input1", "NCycle", burst_cycles=3, trigger_level=0.1)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % Configure the output waveform in each channel
 
 %% Set Channel 2 to burst mode
@@ -90,3 +90,15 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 
 </code-group>
+
+### Sample Response
+```json
+{
+  "burst_cycles":1,
+  "input_range":"10Vpp",
+  "trigger_level":0.0,
+  "trigger_mode":"Start",
+  "trigger_source":"Input1"
+}
+```
+

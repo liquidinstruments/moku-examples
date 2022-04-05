@@ -28,3 +28,37 @@ group: Monitors
 
 <headers/>
 <parameters/>
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+i.set_hysteresis("Absolute",5)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLockInAmp('192.168.###.###');
+m.set_hysteresis('hysteresis_mode', 'Absolute', 'value', 5);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"hysteresis_mode": "Absolute", "value": 5}'\
+        http://<ip>/api/lockinamp/set_hysteresis
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{"Trigger hysteresis":5,"Trigger hysteresis mode":"Absolute"}
+```

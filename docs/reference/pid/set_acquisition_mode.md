@@ -1,21 +1,14 @@
 ---
 additional_doc: null
-description: Configures the hysteresis around trigger point.
+description: Set acquisition mode
 method: post
-name: set_hysteresis
+name: set_acquisition_mode
 parameters:
-
-- default: null
-  description: Trigger sensitivity hysteresis mode
-  name: hysteresis_mode
-  param_range: Absolute, Relative
+- default: Normal
+  description: Acquisition Mode
+  name: mode
+  param_range: Normal, Precision, PeakDetect
   type: string
-  unit: null
-- default: 0
-  description: Hysteresis around trigger
-  name: value
-  param_range: null
-  type: number
   unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
@@ -23,9 +16,9 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_hysteresis
+summary: set_acquisition_mode
+group: Monitors
 ---
-
 
 <headers/>
 <parameters/>
@@ -37,14 +30,14 @@ summary: set_hysteresis
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
-i.set_hysteresis("Absolute",1)
+i.set_acquisition_mode(mode="Precision")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPIDController('192.168.###.###');
-i.set_hysteresis('Absolute',1);
+m = MokuPIDController('192.168.###.###');
+m.set_acquisition_mode('mode', 'Precision')
 ```
 </code-block>
 
@@ -52,17 +45,16 @@ i.set_hysteresis('Absolute',1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"hysteresis_mode": "Absolute", "value": 1}'\
-        http://<ip>/api/pidcontroller/set_hysteresis
+        --data '{"mode": "Normal"}'\
+        http://<ip>/api/pidcontroller/set_acquisition_mode
 ```
 </code-block>
 
 </code-group>
 
-### Sample response
+### Sample reponse
 ```json
 {
-  "hysteresis_mode": "Absolute",
-  "value": 1.0
+  "mode": "Precision"
 }
 ```

@@ -3,14 +3,22 @@ additional_doc: In the PID instrument, the frame comes from the Monitor subsyste
 description: Get a frame of the data from the instrument
 method: get
 name: get_data
-parameters: []
+parameters: 
+- default: null
+  description: Wait for a new trigger event
+  name: wait_reacquire
+  param_range: null
+  type: boolean
+  unit: null
+- default: 60
+  description: Timeout for trigger event if wait_reacquire is true
+  name: timeout
+  param_range: 0 - inf
+  type: number
+  unit: Seconds
 summary: get_data
 group: Monitors
 ---
-
-
-
-
 
 <headers/>
 <parameters/>
@@ -31,7 +39,7 @@ Below are the examples on how to read the data frame,
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 data = i.get_data()
 print(data['ch1'], data['ch2'], data['time'])
 ```
@@ -39,7 +47,7 @@ print(data['ch1'], data['ch2'], data['time'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', false);
+m = MokuPIDController('192.168.###.###');
 data = m.get_data();
 disp(data.ch1);
 disp(data.ch2);
@@ -52,7 +60,7 @@ disp(data.time);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/pid/get_data |
+        http://<ip>/api/pidcontroller/get_data |
         jq ".data.ch1"
 ```
 </code-block>

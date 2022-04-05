@@ -90,8 +90,20 @@ m.set_by_frequency(1, 'prop_gain', -10);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "prop_gain": -10}'\
-        http://<ip>/api/pid/set_by_frequency
+        http://<ip>/api/pidcontroller/set_by_frequency
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "diff_crossover": 16000.0,
+  "diff_saturation": 15.0,
+  "double_int_crossover": 31.0,
+  "int_crossover": 310.0,
+  "int_saturation": 40.0,
+  "prop_gain": -10.0
+}
+```
