@@ -12,5 +12,14 @@ module.exports = {
         ["/reference/datalogger/start_logging", "start_logging"],
         ["/reference/datalogger/stop_logging", "stop_logging"],
         ["/reference/datalogger/summary", "summary"],
+        {
+            title: 'Getters',
+            collapsable: true,
+            children: [
+                ["/reference/datalogger/get_acquisition_mode", "get_acquisition_mode"],
+                ["/reference/datalogger/get_frontend", "get_frontend"],
+                ["/reference/datalogger/get_samplerate", "get_samplerate"],
+            ]
+        }
     ]
 };
