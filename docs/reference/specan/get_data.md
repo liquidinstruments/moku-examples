@@ -28,6 +28,12 @@ parameters:
   param_range: 0 - inf
   type: number
   unit: Seconds
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
 summary: get_data
 ---
 
