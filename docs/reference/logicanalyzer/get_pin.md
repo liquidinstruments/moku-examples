@@ -3,9 +3,15 @@ additional_doc: null
 description: Get current state of a Digital I/O pin
 method: post
 name: get_pin
-parameters: []
 summary: get_pin
 available_on: "mokugo"
+parameters:
+- default: null
+  description: Target pin to get the state
+  name: pin
+  param_range: 1 to 16
+  type: integer
+  unit: null
 ---
 
 

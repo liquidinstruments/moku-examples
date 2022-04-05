@@ -7,6 +7,7 @@ module.exports = {
         ["/reference/logicanalyzer/get_data", "get_data"],
         ["/reference/logicanalyzer/get_pin", "get_pin"],
         ["/reference/logicanalyzer/get_pins", "get_pins"],
+        ["/reference/logicanalyzer/save_high_res_buffer", "save_high_res_buffer"],
         ["/reference/logicanalyzer/set_defaults", "set_defaults"],
         ["/reference/logicanalyzer/set_pin", "set_pin"],
         ["/reference/logicanalyzer/set_pins", "set_pins"],
