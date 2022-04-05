@@ -6,7 +6,7 @@ name: get_data
 parameters:
 - default: null
   description: Wait for a new trigger event
-  name: wait_recquire
+  name: wait_reacquire
   param_range: null
   type: boolean
   unit: null
