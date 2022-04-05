@@ -1,3 +1,6 @@
+const eosDefinitions = require('./eos')
+const edlDefinitions = require('./edl')
+
 module.exports = {
     title: 'PID Controller',
     collapsable: true,
@@ -11,28 +14,11 @@ module.exports = {
         ["/reference/pid/set_control_matrix", "set_control_matrix"],
         ["/reference/pid/set_defaults", "set_defaults"],
         ["/reference/pid/set_frontend", "set_frontend"],
-        ["/reference/pid/set_hysteresis", "set_hysteresis"],
         ["/reference/pid/set_input_offset", "set_input_offset"],
+        ["/reference/pid/set_monitor", "set_monitor"],
         ["/reference/pid/set_output_offset", "set_output_offset"],
         ["/reference/pid/summary", "summary"],
-        {
-            title: 'Logger',
-            collapsable: true,
-            children: [
-                ["/reference/embedded/edl/start_logging", "start_logging"],
-                ["/reference/embedded/edl/stop_logging", "stop_logging"],
-                ["/reference/embedded/edl/logging_progress", "logging_progress"]
-            ]
-        },
-        {
-            title: 'Monitors',
-            collapsable: true,
-            children: [
-                ["/reference/embedded/eos/get_data", "get_data"],
-                ["/reference/embedded/eos/set_monitor", "set_monitor"],
-                ["/reference/embedded/eos/set_timebase", "set_timebase"],
-                ["/reference/embedded/eos/set_trigger", "set_trigger"],
-            ]
-        },
+        edlDefinitions,
+        eosDefinitions,
     ]
 };
