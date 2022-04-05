@@ -1,6 +1,7 @@
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const powerSuppliesAdmin = require('./sidebar-menus/powersupplies')
 const awgAdmin = require('./sidebar-menus/awg')
+const firAdmin = require('./sidebar-menus/fir')
 const fraAdmin = require('./sidebar-menus/fra')
 const wgAdmin = require('./sidebar-menus/wavegen')
 const specanAdmin = require('./sidebar-menus/specan')
@@ -39,7 +40,7 @@ module.exports = {
         smoothScroll: true,
         sidebarDepth: 3,
         nav: [
-            { text: 'API Home', link: '/'},
+            { text: 'API Home', link: '/' },
             { text: 'API Reference', link: '/reference/' },
             {
                 text: 'Examples',
@@ -75,6 +76,7 @@ module.exports = {
                     children: [
                         awgAdmin,
                         dlAdmin,
+                        firAdmin,
                         fraAdmin,
                         laAdmin,
                         liaAdmin,
@@ -94,15 +96,16 @@ module.exports = {
                 '/examples/other-languages/'
             ],
             '/': [{
-                title: 'Getting Started',
-                collapsable: false,
-                children: [
-                    'starting-python',
-                    'starting-matlab',
-                    'starting-labview',
-                    'starting-curl',
-                    'starting-other',
-                    'ip-address']
+                    title: 'Getting Started',
+                    collapsable: false,
+                    children: [
+                        'starting-python',
+                        'starting-matlab',
+                        'starting-labview',
+                        'starting-curl',
+                        'starting-other',
+                        'ip-address'
+                    ]
                 },
                 ['/reference/', "API Reference"],
                 ['/examples/', "Examples"]
