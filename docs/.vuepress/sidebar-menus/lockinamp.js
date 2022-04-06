@@ -1,6 +1,3 @@
-const eosDefinitions = require('./eos')
-const edlDefinitions = require('./edl')
-
 module.exports = {
     title: 'Lock-In Amplifier',
     collapsable: true,
@@ -20,7 +17,27 @@ module.exports = {
         ["/reference/lia/set_polar_mode", "set_polar_mode"],
         ["/reference/lia/summary", "summary"],
         ["/reference/lia/use_pid", "use_pid"],
-        edlDefinitions,
-        eosDefinitions
+        {
+            title: 'Logger',
+            collapsable: true,
+            children: [
+                ["/reference/lia/edl/start_logging", "start_logging"],
+                ["/reference/lia/edl/stop_logging", "stop_logging"],
+                ["/reference/lia/edl/logging_progress", "logging_progress"]
+            ]
+        },
+        {
+            title: 'Monitors',
+            collapsable: true,
+            children: [
+                ["/reference/lia/eos/enable_rollmode", "enable_rollmode"],
+                ["/reference/lia/eos/get_data", "get_data"],
+                ["/reference/lia/eos/save_high_res_buffer", "save_high_res_buffer"],
+                ["/reference/lia/eos/set_acquisition_mode", "set_acquisition_mode"],
+                ["/reference/lia/eos/set_hysteresis", "set_hysteresis"],
+                ["/reference/lia/eos/set_timebase", "set_timebase"],
+                ["/reference/lia/eos/set_trigger", "set_trigger"],
+            ]
+        },
     ]
 };

@@ -1,6 +1,3 @@
-const eosDefinitions = require('./eos')
-const edlDefinitions = require('./edl')
-
 module.exports = {
     title: 'FIR Filter Builder',
     collapsable: true,
@@ -18,7 +15,27 @@ module.exports = {
         ["/reference/fir/set_input_offset", "set_input_offset"],
         ["/reference/fir/set_output_offset", "set_output_offset"],
         ["/reference/fir/summary", "summary"],
-        edlDefinitions,
-        eosDefinitions
+        {
+            title: 'Logger',
+            collapsable: true,
+            children: [
+                ["/reference/fir/edl/start_logging", "start_logging"],
+                ["/reference/fir/edl/stop_logging", "stop_logging"],
+                ["/reference/fir/edl/logging_progress", "logging_progress"]
+            ]
+        },
+        {
+            title: 'Monitors',
+            collapsable: true,
+            children: [
+                ["/reference/fir/eos/enable_rollmode", "enable_rollmode"],
+                ["/reference/fir/eos/get_data", "get_data"],
+                ["/reference/fir/eos/save_high_res_buffer", "save_high_res_buffer"],
+                ["/reference/fir/eos/set_acquisition_mode", "set_acquisition_mode"],
+                ["/reference/fir/eos/set_hysteresis", "set_hysteresis"],
+                ["/reference/fir/eos/set_timebase", "set_timebase"],
+                ["/reference/fir/eos/set_trigger", "set_trigger"],
+            ]
+        },
     ]
 };

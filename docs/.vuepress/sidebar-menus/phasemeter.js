@@ -1,5 +1,3 @@
-const edlDefinitions = require('./edl')
-
 module.exports = {
     title: 'Phasemeter',
     collapsable: true,
@@ -18,6 +16,14 @@ module.exports = {
         ["/reference/phasemeter/set_phase_wrap", "set_phase_wrap"],
         ["/reference/phasemeter/set_pm_loop", "set_pm_loop"],
         ["/reference/phasemeter/summary", "summary"],
-        edlDefinitions
+        {
+            title: 'Logger',
+            collapsable: true,
+            children: [
+                ["/reference/phasemeter/edl/start_logging", "start_logging"],
+                ["/reference/phasemeter/edl/stop_logging", "stop_logging"],
+                ["/reference/phasemeter/edl/logging_progress", "logging_progress"]
+            ]
+        },
     ]
 };
