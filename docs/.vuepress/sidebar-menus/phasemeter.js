@@ -3,12 +3,14 @@ module.exports = {
     collapsable: true,
     children: [
         ["/reference/phasemeter/", "Overview"],
-        ["/reference/phasemeter/disable_freewheeling", "disable_freewheeling"],
         ["/reference/phasemeter/disable_output", "disable_output"],
+        ["/reference/phasemeter/enable_freewheeling", "enable_freewheeling"],
+        ["/reference/phasemeter/enable_single_input", "enable_single_input"],
         ["/reference/phasemeter/generate_output", "generate_output"],
         ["/reference/phasemeter/get_acquisition_speed", "get_acquisition_speed"],
         ["/reference/phasemeter/get_auto_acquired_frequency", "get_auto_acquired_frequency"],
         // ["/reference/phasemeter/get_data", "get_data"],
+        ["/reference/phasemeter/reacquire", "reacquire"],
         ["/reference/phasemeter/set_acquisition_speed", "set_acquisition_speed"],
         ["/reference/phasemeter/set_auto_reset", "set_auto_reset"],
         ["/reference/phasemeter/set_defaults", "set_defaults"],
@@ -16,6 +18,7 @@ module.exports = {
         ["/reference/phasemeter/set_phase_wrap", "set_phase_wrap"],
         ["/reference/phasemeter/set_pm_loop", "set_pm_loop"],
         ["/reference/phasemeter/summary", "summary"],
+        ["/reference/phasemeter/getters", "Getters"],
         {
             title: 'Logger',
             collapsable: true,

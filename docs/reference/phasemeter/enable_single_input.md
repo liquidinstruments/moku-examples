@@ -1,12 +1,12 @@
 ---
 additional_doc: null
-description: Disable free wheeling.
+description: Sends the signal from the first input to all phasemeter channels
 method: post
-name: disable_freewheeling
+name: enable_single_input
 parameters:
 - default: true
-  description: Disable freewheeling
-  name: disable
+  description: Enables single input
+  name: enable
   param_range: null
   type: boolean
   unit: null
@@ -16,7 +16,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: disable_freewheeling
+summary: enable_single_input
 available_on: "mokupro"
 ---
 
@@ -31,14 +31,14 @@ available_on: "mokupro"
 from moku.instruments import Phasemeter
 
 i = Phasemeter('192.168.###.###')
-i.disable_freewheeling(disable=True)
+i.enable_single_input()
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 i = MokuPhasemeter('192.168.###.###');
-i.disable_freewheeling('disable',true);
+i.enable_single_input();
 ```
 </code-block>
 
@@ -47,13 +47,8 @@ i.disable_freewheeling('disable',true);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"disable": true}'\
-        http://<ip>/api/phasemeter/disable_freewheeling
+        http://<ip>/api/phasemeter/enable_single_input
 ```
 </code-block>
 
 </code-group>
-
-### Sample response
-```json
-{"Freewheeling":"true"}
-```
