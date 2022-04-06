@@ -14,5 +14,6 @@ module.exports = {
         ["/reference/specan/set_span", "set_span"],
         ["/reference/specan/set_window", "set_window"],
         ["/reference/specan/summary", "summary"],
+        ["/reference/specan/getters", "Getters"],
     ]
 };
