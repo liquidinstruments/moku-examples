@@ -21,6 +21,7 @@ module.exports = {
                 ["/reference/dfb/eos/set_hysteresis", "set_hysteresis"],
                 ["/reference/dfb/eos/set_timebase", "set_timebase"],
                 ["/reference/dfb/eos/set_trigger", "set_trigger"],
+                ["/reference/dfb/eos/getters", "Getters"],
             ]
         },
     ]
