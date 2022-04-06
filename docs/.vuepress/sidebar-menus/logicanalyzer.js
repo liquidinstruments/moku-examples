@@ -15,5 +15,6 @@ module.exports = {
         ["/reference/logicanalyzer/set_trigger", "set_trigger"],
         ["/reference/logicanalyzer/start_all", "start_all"],
         ["/reference/logicanalyzer/summary", "summary"],
+        ["/reference/logicanalyzer/getters", "Getters"],
     ]
 };
