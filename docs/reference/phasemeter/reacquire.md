@@ -3,7 +3,7 @@ additional_doc: null
 description: Reacquire phasemeter signals.
 method: post
 name: reacquire
-parameters: null
+parameters: []
 summary: reacquire
 available_on: "mokupro"
 ---
