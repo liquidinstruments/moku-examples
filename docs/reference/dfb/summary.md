@@ -19,7 +19,7 @@ summary: summary
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
+from moku.instruments import DigitalFilterBox
 i = PIDController('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics

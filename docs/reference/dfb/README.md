@@ -10,6 +10,6 @@ prev: false
  DigitalFilterBox includes lowpass, highpass, bandpass and bandstop filter shapes with different filter types
  including Butterworth, Chebyshev, and Elliptic
 
-If using the REST API directly, the instrument group name is `digitalfilterbox`.
+ If using the REST API directly, the instrument group name is `digitalfilterbox`.
 
 <function-index/>
