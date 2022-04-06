@@ -11,5 +11,6 @@ module.exports = {
         ['/reference/awg/set_defaults', 'set_defaults'],
         ['/reference/awg/summary', 'summary'],
         ['/reference/awg/sync_phase', 'sync_phase'],
+        ['/reference/awg/getters', 'Getters'],
     ]
 };
