@@ -28,6 +28,18 @@ parameters:
   type: boolean
   unit: null
   param_range: null
+- default: 0dB
+  description: Main output gain range
+  name: main_gain_range
+  type: string
+  unit: dB
+  param_range: 0dB, 14dB
+- default: 0dB
+  description: Aux output gain range
+  name: aux_gain_range
+  type: string
+  unit: dB
+  param_range: 0dB, 14dB
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

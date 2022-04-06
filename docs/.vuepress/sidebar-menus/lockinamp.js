@@ -17,6 +17,7 @@ module.exports = {
         ["/reference/lia/set_polar_mode", "set_polar_mode"],
         ["/reference/lia/summary", "summary"],
         ["/reference/lia/use_pid", "use_pid"],
+        ["/reference/lia/getters", "Getters"],
         {
             title: 'Logger',
             collapsable: true,
@@ -37,6 +38,7 @@ module.exports = {
                 ["/reference/lia/eos/set_hysteresis", "set_hysteresis"],
                 ["/reference/lia/eos/set_timebase", "set_timebase"],
                 ["/reference/lia/eos/set_trigger", "set_trigger"],
+                ["/reference/lia/eos/getters", "Getters"],
             ]
         },
     ]
