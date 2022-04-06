@@ -28,6 +28,18 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
+- default: Normal
+  description: Acquisition mode
+  name: mode
+  param_range: Normal, Precision, DeepMemory, PeakDetect
+  type: string
+  unit: null
+- default: 1000
+  description: Acquistion rate
+  name: rate
+  param_range: null
+  type: integer
+  unit: Hz
 summary: start_logging
 group: Logger
 
