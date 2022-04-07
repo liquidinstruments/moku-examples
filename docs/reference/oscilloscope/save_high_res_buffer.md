@@ -1,7 +1,7 @@
 ---
 additional_doc: null
-description: Save high resolution data to a file
-method: get
+description: Save the high resolution channel buffer data to a file on the Moku's internal storage
+method: post
 name: save_high_res_buffer
 parameters:
 - default: ""
@@ -15,23 +15,30 @@ group: Monitors
 ---
 <headers/>
 
+
 Once completed you can download the file from the device using [download_files](../static/download.md).
 <parameters/>
 
-Below are the examples on how to read the data frame,
+Below are the examples on how to save the high resolution data to a file,
 
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
-data = i.get_data()
-print(data['ch1'], data['ch2'], data['time'])
+import json
+from moku.instruments import Oscilloscope
+
+i = Oscilloscope('192.168.###.###')
+# Configure instrument to desired state
+response = json.loads(i.save_high_res_buffer(comments="Test"))
+file_name = response["file_name"]
+i.download("persist", file_name, "~/high_res_data.li")
+
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
+% TODO
 m = MokuPIDController('192.168.###.###', false);
 data = m.get_data();
 disp(data.ch1);
