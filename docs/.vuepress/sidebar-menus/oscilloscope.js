@@ -8,7 +8,7 @@ module.exports = {
         ["/reference/oscilloscope/generate_waveform", "generate_waveform"],
         ["/reference/oscilloscope/get_data", "get_data"],
         ["/reference/oscilloscope/osc_measurement", "osc_measurement"],
-        ["/reference/oscilloscope/save_high_res_data", "save_high_res_data"],
+        ["/reference/oscilloscope/save_high_res_buffer", "save_high_res_buffer"],
         ["/reference/oscilloscope/set_acquisition_mode", "set_acquisition_mode"],
         ["/reference/oscilloscope/set_defaults", "set_defaults"],
         ["/reference/oscilloscope/set_frontend", "set_frontend"],
