@@ -35,26 +35,18 @@ summary: set_output_offset
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
-# Configure the Channel 2 PID Controller using gain characteristics
-#   Overall Gain = 6dB
-#   I Gain       = 20dB 
-i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
-# Set output offset to 1VDC
-i.set_output_offset(1, offset=1)
+from moku.instruments import DigitalFilterBox
+i = DigitalFilterBox('192.168.###.###')
+# Set output offset to 2VDC
+i.set_output_offset(1, offset=2)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###');
-% Configure the Channel 2 PID Controller using gain characteristics
-%   Overall Gain = 6dB
-%   I Gain       = 20dB 
-m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
-% Set output offset to 1VDC
-m.set_output_offset(1, 'offset', 1);
+m = MokuDigitalFilterBox('192.168.###.###');
+% Set output offset to 2VDC
+m.set_output_offset(1, 'offset', 2);
 ```
 </code-block>
 
@@ -62,18 +54,16 @@ m.set_output_offset(1, 'offset', 1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 1}'\
-        http://<ip>/api/pidcontroller/set_output_offset
+        --data '{"channel": 1, "offset": 2}'\
+        http://<ip>/api/digitalfilterbox/set_output_offset
 ```
 </code-block>
-
 
 </code-group>
 
 ### Sample response,
-
 ```json
 {
-  "offset": 1.0
+  "offset": 2.0
 }
 ```

@@ -37,11 +37,11 @@ larger than 12-bits must be either truncated or clipped to the allowed size.
 
 Source signal can be one of,
  - Input1 : Channel 1 ADC input
- - Filter1 : PID Channel 1 input (after mixing, offset and scaling)
- - Output1 : PID Channel 1 output
+ - Filter1 : DFB Channel 1 input (after mixing, offset and scaling)
+ - Output1 : DFB Channel 1 output
  - Input2 : Channel 2 ADC Input
- - Control2 : PID Channel 2 input (after mixing, offset and scaling)
- - Output2 : PID Channel 2 output
+ - Control2 : DFB Channel 2 input (after mixing, offset and scaling)
+ - Output2 : DFB Channel 2 output
 
 <parameters/>
 
@@ -50,8 +50,8 @@ Source signal can be one of,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
+from moku.instruments import DigitalFilterBox
+i = DigitalFilterBox('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -65,7 +65,7 @@ i.set_monitor(2, 'Output2')
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###');
+m = MokuDigitalFilterBox('192.168.###.###');
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
@@ -81,7 +81,7 @@ m.set_monitor(2, 'Output2')
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "source": "Output1"}'\
-        http://<ip>/api/pidcontroller/set_monitor
+        http://<ip>/api/digitalfilterbox/set_monitor
 ```
 </code-block>
 

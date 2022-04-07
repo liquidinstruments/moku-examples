@@ -56,7 +56,7 @@ parameters:
   param_range: null
   type: number
   unit: dB
-- default: undefined
+- default: null
   description: Number of coefficients for the filter
   name: order
   param_range: null
