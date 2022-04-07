@@ -27,11 +27,11 @@ parameters:
   type: string
   unit: null
 - default: null
-  description: Input Range
-  name: range
+  description: Input attenuation
+  name: attenuation
   param_range: 
-   mokugo: 10Vpp, 50Vpp
-   mokupro: 400mVpp, 4Vpp, 40Vpp
+   mokugo: 0dB, 14dB
+   mokupro: 0dB, 20dB, 40dB
   type: string
   unit: null
 - default: true

@@ -37,6 +37,12 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: "0dB"
+  description: If applicable, enable the hardware's output gain stage (high output range)
+  name: gain_range
+  param_range: 0dB, 14dB
+  type: string
+  unit: dB
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

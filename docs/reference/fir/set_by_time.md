@@ -2,7 +2,7 @@
 additional_doc: null
 description: Configure the selected PID controller using crossover frequencies.
 method: post
-name: set_by_frequency
+name: set_by_time
 parameters:
 - default: null
   description: Target channel
@@ -26,24 +26,18 @@ parameters:
   param_range: null
   type: number
   unit: null
-- default: Lowpass
-  description: Filter shape
-  name: shape
-  param_range: Lowpass, Highpass, Bandpass, Bandstop
+- default: Sinc
+  description: Impulse response shape
+  name: response
+  param_range: Rectangular, Sinc, Triangular, Gaussian
   type: string
   unit: null
 - default: undefined
-  description: Low corner frequency
-  name: low_corner
+  description: Impulse response width
+  name: response_width
   param_range: null
   type: integer
-  unit: Hz
-- default: undefined
-  description: High corner frequency
-  name: high_corner
-  param_range: null
-  type: integer
-  unit: Hz
+  unit: null
 - default: None
   description: Window function
   name: window
@@ -68,7 +62,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_by_frequency
+summary: set_by_time
 ---
 
 <headers/>
@@ -80,16 +74,17 @@ summary: set_by_frequency
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
-i.set_by_frequency(channel=1, sample_rate="3.906MHz")
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+i.set_by_time(channel=1, sample_rate='3.906MHz', response="SinC",
+                  response_width=10)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###', true);
-m.set_by_frequency(1, "3.906MHz");
+m.set_by_time(1, '3.906MHz', 'response', 'SinC', 'response_width', 10);
 ```
 </code-block>
 
@@ -97,8 +92,8 @@ m.set_by_frequency(1, "3.906MHz");
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "sample_rate": "3.906MHz"}'\
-        http://<ip>/api/pid/set_by_frequency
+        --data '{"coefficient_count":201,"response":"Sinc","response_width":10.0,"sample_rate":"3.906MHz"}'\
+        http://<ip>/api/pid/set_by_time
 ```
 </code-block>
 
@@ -109,9 +104,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 {
    "coefficient_count":201,
    "kaiser_order":7,
-   "low_corner":0.1,
+   "response":"Sinc",
+   "response_width":10.0,
    "sample_rate":"3.906 MHz",
-   "shape":"Lowpass",
    "window":"None",
    "window_width":50.0
 }

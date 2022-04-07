@@ -1,0 +1,135 @@
+---
+additional_doc: null
+description: Set FIR filter sample rate and kernel coefficients for the specified filter channel. This will enable the specified channel output.
+method: post
+name: set_custom_kernel_coefficients
+parameters:
+- default: null
+  description: Target channel
+  name: channel
+  param_range:
+   mokugo: 1, 2
+   mokupro: 1, 2, 3, 4
+  type: integer
+  unit: null
+- default: null
+  description: Desired sample rate
+  name: sample_rate
+  type: number
+  unit: Hz
+  param_range: 
+    mokugo: 3.906MHz, 488.3kHz, 61.04kHz
+    mokupro: 39.06MHz, 4.883MHz, 305.2kHz
+- default: null
+  description: Kernel coefficients for the specified filter channel
+  name: coefficients
+  param_range: null
+  type: array
+  unit: null
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
+summary: set_custom_kernel_coefficients
+---
+
+<headers/>
+<parameters/>
+
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+filt_coefficients = [1.0 / 50.0] * 50
+i.set_custom_kernel_coefficients(channel=1,
+                                 sample_rate='3.906MHz',
+                                 coefficients=filt_coeff1)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuPIDController('192.168.###.###', true);
+m.set_custom_kernel_coefficients(1, "3.906MHz", [0.02,0.02,0.02,0.02,0.02,0.02,
+                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,
+                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02]);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "sample_rate": "3.906MHz", "coefficients": [0.02,0.02,0.02,0.02,0.02,0.02,
+                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,
+                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02]}'\
+        http://<ip>/api/pid/set_custom_kernel_coefficients
+```
+</code-block>
+
+</code-group>
+
+### Sample response,
+```json
+{
+   "customCoefficients":[
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+   ],
+   "sample_rate":"3.906 MHz"
+}
+```
