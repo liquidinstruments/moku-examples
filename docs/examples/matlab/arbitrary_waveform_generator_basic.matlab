@@ -19,11 +19,13 @@ for h=1:2:15
 end
 not_square_wave = not_square_wave / max(not_square_wave);
 
-try
-    %% Connect to your Moku
-    % Connect to your Moku by its IP address.
-    i = MokuArbitraryWaveformGenerator('192.168.###.###');
+%% Connect to your Moku
+% Connect to your Moku by its IP address.
+   
+i = MokuArbitraryWaveformGenerator('192.168.###.###');
 
+try
+ 
     % Configure the output waveform in each channel
     % Channel 1: sampling rate of 125 MSa/s, square wave, 1MHz, 2Vpp.
     i.generate_waveform(1, "125Ms", square_wave, 1e6, 2);
@@ -31,7 +33,7 @@ try
     % kHz, 1Vpp.
     i.generate_waveform(2, "Auto", not_square_wave, 10e3, 1,...
         'interpolation', true);
-
+    
     %% Set channel 1 to pulse mode 
     % 2 dead cycles at 0Vpp
     i.pulse_modulate(1,'dead_cycles',2,'dead_voltage',0);

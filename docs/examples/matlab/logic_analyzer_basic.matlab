@@ -6,10 +6,13 @@
 %
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
+    
+%% Connect to your Moku
+% Connect to your Moku by its IP address.
+i = MokuLogicAnalyzer('192.168.###.###');
+
 try
-    %% Connect to your Moku
-    % Connect to your Moku by its IP address.
-    i = MokuLogicAnalyzer('192.168.###.###');
+
     
     %% Configure the instrument
     

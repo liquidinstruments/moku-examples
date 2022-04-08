@@ -1,14 +1,16 @@
 %% Basic Phasemeter Example
 %
-%  This example demonstrates how you can configure the Phasemeter 
+%  This example demonstrates how you can configure the Phasemeter
 %  instrument to measure 4 independent signals
 %
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
+
+%% Connect to your Moku
+% Connect to your Moku and deploy the oscilloscope instrument
+i = MokuPhasemeter('192.168.###.###');
+
 try
-    %% Connect to your Moku
-    % Connect to your Moku and deploy the oscilloscope instrument
-    i = MokuPhasemeter('192.168.###.###');
     
     % Configure all Output channels to generate sine waves at 1 Vpp, 2 MHz
     i.generate_output(1,1,2e6);
@@ -32,7 +34,7 @@ try
     
     % Get all the data available from the Moku
     data = i.get_data();
-
+    
 catch ME
     % End the current connection session with your Moku
     i.relinquish_ownership();

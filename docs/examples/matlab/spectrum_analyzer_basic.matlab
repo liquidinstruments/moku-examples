@@ -7,10 +7,11 @@
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
 
+%% Connect to the Moku
+% Connect to your Moku by its IP address.
+i = MokuSpectrumAnalyzer('192.168.###.###');
+
 try
-    %% Connect to the Moku
-    % Connect to your Moku by its IP address.
-    i = MokuSpectrumAnalyzer('192.168.###.###');
     
     %% Configure the instrument
     

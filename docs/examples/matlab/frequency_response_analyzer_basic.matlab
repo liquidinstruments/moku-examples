@@ -15,10 +15,11 @@ settling_time = 1e-6;  % sec
 averaging_cycles = 1;
 settling_cycles = 1;
 
+%% Connect to Moku
+% Connect to your Moku using its IP address.
+i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+
 try
-    %% Connect to Moku
-    % Connect to your Moku using its IP address.
-    i = MokuFrequencyResponseAnalyzer('192.168.###.###');
 
     %% Configure the instrument
     % Set output sweep amplitudes and offsets

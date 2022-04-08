@@ -6,9 +6,10 @@
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
 
+% Connect to your Moku and deploy the PID controller instrument
+i = MokuPIDController('192.168.###.###');
+
 try
-    % Connect to your Moku and deploy the PID controller instrument
-    i = MokuPIDController('192.168.###.###');
     
     %% Configure the PID controller
     % Configure the control matrix
