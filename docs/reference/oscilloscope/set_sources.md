@@ -44,9 +44,16 @@ m = MokuOscilloscope('192.168.###.###', true);
 m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);
 m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
 
-% Set the data sources
-m.set_source(1,'Input1');
+% Define data source 2
+m1.channel = 1;
+m1.source = 'Input1';
 
+% Define data source 2
+m2.channel = 2;
+m2.source = 'Input2';
+
+% Set data sources
+m.set_sources([m1,m2]);
 ```
 </code-block>
 
@@ -54,9 +61,9 @@ m.set_source(1,'Input1');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 2, "sources": [{"channel": 1, "source": "Output1"},
+        --data '{"sources": [{"channel": 1, "source": "Output1"},
                 {"channel": 2, "source": "Output2"}]}'\
-        http://<ip>/api/oscilloscope/set_source
+        http://<ip>/api/oscilloscope/set_sources
 ```
 </code-block>
 
