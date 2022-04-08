@@ -69,7 +69,7 @@ i = WaveformGenerator('192.168.###.###')
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
 i.generate_waveform(channel=2, type='Sine', amplitude=1.0, frequency=1e6)
 # Configure amplitude modulation on channel 1. 
-# Use internal reference as modulation source, modulation deption 50%, 
+# Use internal reference as modulation source, modulation depth 50%, 
 # modulated at a frequency of 1Hz
 i.set_modulation(channel=1, type='Amplitude', source='Internal', depth=50,
                      frequency=1)

@@ -35,7 +35,7 @@ parameters:
   type: string
   unit: null
 - default: 1000
-  description: Acquistion rate
+  description: Acquisition rate
   name: rate
   param_range: null
   type: integer

@@ -1,5 +1,5 @@
 ---
-additional_doc: The Arbitrary Waveform Generator has the ability to insert a deadtime between cycles of  the look-up table. This time is specified in cycles of the waveform. During this time, the output will be held at the given dead_voltage. This allows the user to, for example, generate infrequent pulses without using space in the LUT to specify the time between, keeping the full LUT size to provide a high-resolution pulse shape.
+additional_doc: The Arbitrary Waveform Generator has the ability to insert a dead time between cycles of  the look-up table. This time is specified in cycles of the waveform. During this time, the output will be held at the given dead_voltage. This allows the user to, for example, generate infrequent pulses without using space in the LUT to specify the time between, keeping the full LUT size to provide a high-resolution pulse shape.
 description: Configures pulse modulation mode of a channel. 
 method: post
 name: pulse_modulate

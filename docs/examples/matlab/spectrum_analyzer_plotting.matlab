@@ -1,4 +1,4 @@
-%% Basic Spectrum Analzyer Example  
+%% Basic Spectrum Analyzer Example  
 %
 %  This example demonstrates how you can configure the Spectrum Analyzer
 %  instrument to retrieve a single spectrum data frame over a set frequency 
@@ -8,7 +8,7 @@
 %
 
 try
-    %% Conect to the Moku
+    %% Connect to the Moku
     % Connect to your Moku by its IP address.
     i = MokuSpectrumAnalyzer('192.168.###.###');
     

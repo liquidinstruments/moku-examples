@@ -25,7 +25,7 @@ group: Monitors
 <parameters/>
 
 
-### Exmaples
+### Examples
 
 <code-group>
 <code-block title="Python">

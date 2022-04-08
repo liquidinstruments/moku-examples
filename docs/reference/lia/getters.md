@@ -3,7 +3,7 @@ additional_doc: Along with regular configuration methods, Lockin Amplifier suppo
 description: Getters
 getters: 
 - summary: get_aux_output
-  description: Get the current amplitude and frequency for auxilary output
+  description: Get the current amplitude and frequency for auxiliary output
 - summary: get_pll_bandwidth
   description: Get the current PLL bandwidth
 - summary: get_filter

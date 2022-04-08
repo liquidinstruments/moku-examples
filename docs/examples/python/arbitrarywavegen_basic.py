@@ -9,7 +9,7 @@
 import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
 
-# generate a signal that the Arbitrary Waveform Genenerator should generate on the output
+# generate a signal that the Arbitrary Waveform Genenrator should generate on the output
 t = np.linspace(0, 1, 100)  # Evaluate our waveform at 100 points
 
 # Simple square wave (can also use scipy.signal)

@@ -51,7 +51,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-### Sample reponse
+### Sample response
 ```json
 {
   "mode": "Precision"

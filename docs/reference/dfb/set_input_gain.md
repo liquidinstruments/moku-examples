@@ -13,7 +13,7 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Input gaim
+  description: Input gain
   name: gain
   param_range: -20 to 20
   type: number

@@ -23,7 +23,7 @@ available_on: "mokupro"
 <headers/>
 <parameters/>
 
-Everytime the function is called, the data will be returned in the following format
+Every time the function is called, the data will be returned in the following format
 
 ```json
 {"data":{

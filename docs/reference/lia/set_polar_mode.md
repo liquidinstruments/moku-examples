@@ -22,7 +22,7 @@ summary: set_polar_mode
 <headers/>
 
 :::tip Enabling the Converter
-To enable the polar conveter, the R/Theta signals must also be selected for output from the instrument, see [set_outputs](./set_outputs.md). You should set the smallest range that accommodates your demodulated signal without saturating.
+To enable the polar converter, the R/Theta signals must also be selected for output from the instrument, see [set_outputs](./set_outputs.md). You should set the smallest range that accommodates your demodulated signal without saturating.
 :::
 
 <parameters/>

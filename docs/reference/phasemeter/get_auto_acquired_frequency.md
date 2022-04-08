@@ -58,7 +58,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-### Sample respone
+### Sample response
 ```json
 30000000
 ```

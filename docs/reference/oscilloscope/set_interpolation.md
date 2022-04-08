@@ -5,7 +5,7 @@ method: post
 name: set_interpolation
 parameters:
 - default: SinX
-  description: Set interploation mode
+  description: Set interpolation mode
   name: interpolation
   param_range: Linear, SinX, Gaussian
   type: string

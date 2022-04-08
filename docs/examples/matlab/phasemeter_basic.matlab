@@ -1,7 +1,7 @@
 %% Basic Phasemeter Example
 %
 %  This example demonstrates how you can configure the Phasemeter 
-%  instrument to measure 4 indipendent signals
+%  instrument to measure 4 independent signals
 %
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %

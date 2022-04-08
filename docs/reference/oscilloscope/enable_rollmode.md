@@ -24,7 +24,7 @@ summary: enable_rollmode
 <parameters/>
 
 
-### Exmaples
+### Examples
 
 <code-group>
 <code-block title="Python">

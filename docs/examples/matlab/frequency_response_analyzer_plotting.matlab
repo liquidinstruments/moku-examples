@@ -17,7 +17,7 @@ averaging_cycles = 1;
 settling_cycles = 1;
 
 try
-    %% Conect to the Moku
+    %% Connect to the Moku
     % Connect to your Moku by its IP address.
     i = MokuFrequencyResponseAnalyzer('192.168.###.###');
 

@@ -11,7 +11,7 @@ parameters:
   unit: dB
   param_range: null
 - default: null
-  description: Auxilliary output gain
+  description: Auxiliary output gain
   name: aux
   type: number
   unit: dB
@@ -23,7 +23,7 @@ parameters:
   unit: null
   param_range: null
 - default: false
-  description: Invert auxilary channel gain
+  description: Invert auxiliary channel gain
   name: aux_invert
   type: boolean
   unit: null

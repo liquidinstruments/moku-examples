@@ -46,10 +46,10 @@ summary: set_custom_kernel_coefficients
 ```python
 from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
-filt_coefficients = [1.0 / 50.0] * 50
+filter_coefficients = [1.0 / 50.0] * 50
 i.set_custom_kernel_coefficients(channel=1,
                                  sample_rate='3.906MHz',
-                                 coefficients=filt_coeff1)
+                                 coefficients=filter_coefficients)
 ```
 </code-block>
 

@@ -11,7 +11,7 @@ parameters:
   type: string
   unit: null
 - default: null
-  description: Source for the Auxilliary LIA output
+  description: Source for the Auxiliary LIA output
   name: aux
   param_range: Y, Theta, Demod, Aux, Offset, None
   type: string
@@ -38,7 +38,7 @@ summary: set_outputs
 <headers/>
 
 :::tip Polar converter
-If R or Theta is selected, then a Rectangular-to-Polar conveter will be engaged. The performance of this converter can be optimised by setting the expected input range, see [set_polar_mode](./set_polar_mode.md)
+If R or Theta is selected, then a Rectangular-to-Polar converter will be engaged. The performance of this converter can be optimised by setting the expected input range, see [set_polar_mode](./set_polar_mode.md)
 :::
 
 :::warning Polar/Rectangular Outputs
