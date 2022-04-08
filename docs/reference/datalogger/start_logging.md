@@ -53,22 +53,35 @@ To ensure a complete data logging session, it is recommended to track the progre
 <code-group>
 <code-block title="Python">
 ```python
+import json
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###')
-# Generate a waveform on output channel
-i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
+
+### Configure instrument to desired state
+
+# start logging session and read the file name from response
+response = json.loads(i.start_logging(duration=10))
 i.start_logging(duration=10, comments="Sample_script")
+file_name = response["file_name"]
+
+# download file to local directory
+i.download("persist", file_name, f"~/Desktop/{file_name}")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-% Generate a waveform on output channels
-% Any other settings...
-logFile = m.start_logging('duration', 10, 'comments', 'Sample script');
+
+%%% Configure instrument to desired state
+
+% start logging session and download file to local directory
+response = jsondecode(m.start_logging('duration',10));
+m.download_file('persist', response.file_name, strcat('<path to download>', ...
+    response.file_name));
 ```
 </code-block>
+
 
 <code-block title="cURL">
 ```bash
