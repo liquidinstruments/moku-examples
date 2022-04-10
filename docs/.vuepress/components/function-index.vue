@@ -27,10 +27,18 @@ export default {
             let funcs = {}
 
             for (let i = 0; i < children.length; i++) {
+                let group = "Core";
                 const child = children[i];
-                const group = child.frontmatter.group || 'Core'
+                if (child.path.includes("edl")) {
+                  group = "Data Logger";
+                } else if (child.path.includes("eos")) {
+                  group = "Oscilloscope";
+                } else if (child.frontmatter.group) {
+                  group = child.frontmatter.group;
+                }
+
                 if (!funcs[group]) {
-                    funcs[group] = []
+                  funcs[group] = [];
                 }
 
                 funcs[group].push(child)
