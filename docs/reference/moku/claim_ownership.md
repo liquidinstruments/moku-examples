@@ -4,9 +4,21 @@ description: Declare ownership of the Moku and retrieve a client key
 method: post
 name: claim_ownership
 parameters:
-- default: false
+- default: true
   description: Claim ownership even if the device is already owned
   name: force_connect
+  param_range: true, false
+  type: bool
+  unit: null
+- default: false
+  description: Ignore the state of instrument including any in progress data logging sessions and continue with the deployment
+  name: ignore_busy
+  param_range: true, false
+  type: bool
+  unit: null
+- default: false
+  description: When true, tries to retain the existing state of the instrument (if available)
+  name: persist_state
   param_range: true, false
   type: bool
   unit: null
