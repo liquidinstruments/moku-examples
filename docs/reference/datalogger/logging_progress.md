@@ -33,32 +33,39 @@ To convert .li binary formatted log files, use liconverter windows app
 ```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###')
-# Generate a waveform on output channels
-# Any other settings...
-logFile = i.start_logging(duration=10, comments="Sample_script")
-# Track progress percentage of the data logging session
+# Configure instrument to desired state
+
+# Start the logging session...
+result = json.loads(i.start_logging(duration=10))
+file_name = result['file_name']
+
+# Track the progress of data logging session
 is_logging = True
 while is_logging:
     # Wait for the logging session to progress by sleeping 0.5sec
     time.sleep(0.5)
     # Get current progress percentage and print it out
-    progress = i.logging_progress()
+    progress = json.loads(i.logging_progress())
     remaining_time = int(progress['time_to_end'])
     is_logging = remaining_time > 1
+
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-% Generate a waveform on output channels
-% Any other settings...
-logFile = m.start_logging('duration', 10, 'comments', 'Sample_script');
-is_logging = false;
+%%% Configure instrument to desired state
+
+% start logging session and download file to local directory
+m.start_logging('duration',10);
+
+% Track the progress of data logging session
+is_logging = true;
 while is_logging
-    pause(1);
-    progress = m.logging_progress();
+    progress = jsondecode(m.logging_progress());
     is_logging = progress.time_to_end > 1;
+    pause(1);
 end
 ```
 </code-block>
