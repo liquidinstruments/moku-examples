@@ -1,5 +1,5 @@
 ---
-additional_doc: NOTE Interface currently only supports using the first two PID loops which are
+additional_doc: NOTE - Interface currently only supports using the first two DFB loops which are
     paired with the first two ADC channels, e.g. Moku:Pro's third and fourth loops and ADC3, ADC4
     cannot yet be used through this API.
 description: Set the linear combination of ADC input signals for a given DFB channel.
@@ -13,13 +13,13 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: ADC Input 1 gain for this controller
+  description: ADC Input 1 gain for this channel
   name: input_gain1
   param_range: -20 to 20
   type: number
   unit: dB
 - default: null
-  description: ADC Input 1 gain for this controller
+  description: ADC Input 1 gain for this channel
   name: input_gain2
   param_range: -20 to 20
   type: number

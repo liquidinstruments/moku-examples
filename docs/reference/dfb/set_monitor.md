@@ -26,7 +26,7 @@ parameters:
   type: string
   unit: null
 summary: set_monitor
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>
@@ -52,13 +52,11 @@ Source signal can be one of,
 ```python
 from moku.instruments import DigitalFilterBox
 i = DigitalFilterBox('192.168.###.###')
-# Configure the Channel 1 PID Controller using frequency response
-# characteristics
-# 	P = -10dB
-i.set_by_frequency(channel=1, prop_gain=-10)
-# Set the probes to monitor Output 1 and Output 2
-i.set_monitor(1, 'Output1')
-i.set_monitor(2, 'Output2')
+# Following configuration produces Chebyshev type 1 IIR filter
+i.set_filter(1, "3.906MHz", shape="Lowpass", type="ChebyshevI")
+# Set the probes to monitor Filter 1 and Output 2
+i.set_monitor(1, "Filter1")
+i.set_monitor(2, "Output1")
 
 ```
 </code-block>
@@ -66,13 +64,11 @@ i.set_monitor(2, 'Output2')
 <code-block title="MATLAB">
 ```matlab
 m = MokuDigitalFilterBox('192.168.###.###');
-% Configure the Channel 1 PID Controller using frequency response
-% characteristics
-% 	P = -10dB
-m.set_by_frequency(1, 'prop_gain', -20);
-% Set the probes to monitor Output 1 and Output 2
-m.set_monitor(1, 'Output1')
-m.set_monitor(2, 'Output2')
+% Following configuration produces Chebyshev type 1 IIR filter
+m.set_filter(1, '3.906MHz', 'shape', 'Lowpass', 'type', 'ChebyshevI')
+% Set the probes to monitor Filter 1 and Output 2
+m.set_monitor(1, 'Filter1')
+m.set_monitor(2, 'Output1')
 ```
 </code-block>
 
@@ -80,7 +76,7 @@ m.set_monitor(2, 'Output2')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "source": "Output1"}'\
+        --data '{"channel": 1, "source": "Filter1"}'\
         http://<ip>/api/digitalfilterbox/set_monitor
 ```
 </code-block>

@@ -1,6 +1,6 @@
 ---
 additional_doc: To use customer coefficients see  `set_custom_filter`
-description: Configure the Infinite Impulse Response filter
+description: Configure the Infinite Impulse Response filter with one of available filter shape and type
 method: post
 name: set_filter
 parameters:
@@ -80,18 +80,18 @@ summary: set_filter
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###')
-i.set_by_frequency(prop_gain=-10)
-i.use_pid(True)
+from moku.instruments import DigitalFilterBox
+i = DigitalFilterBox('192.168.###.###')
+# Following configuration produces Chebyshev type 1 IIR filter
+i.set_filter(1, "3.906MHz", shape="Lowpass", type="ChebyshevI")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###');
-m.set_by_frequency('prop_gain', -10);
-m.use_pid(true);
+m = MokuDigitalFilterBox('192.168.###.###');
+% Following configuration produces Chebyshev type 1 IIR filter
+m.set_filter(1, '3.906MHz', 'shape', 'Lowpass', 'type', 'ChebyshevI')
 ```
 </code-block>
 
@@ -99,8 +99,8 @@ m.use_pid(true);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"prop_gain": -10}'\
-        http://<ip>/api/lockinamp/set_by_frequency
+        --data '{"channel": 1, "sample_rate":"3.906MHz", "type":"ChebyshevI", "shape":"Lowpass"}'\
+        http://<ip>/api/digitalfilterbox/set_filter
 ```
 </code-block>
 
@@ -109,10 +109,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 ```json
 {
-  "diff_crossover": 16000.0,
-  "diff_saturation": 15.0,
-  "int_crossover": 310.0,
-  "int_saturation": 40.0,
-  "prop_gain": -10.0
+  "low_pass_corner":10000.0,
+  "sample_rate":"3.9063 MHz",
+  "shape":"Lowpass"
 }
 ```
