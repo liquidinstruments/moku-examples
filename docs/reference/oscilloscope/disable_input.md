@@ -33,7 +33,7 @@ summary: disable_input
 ```python
 from moku.instruments import Oscilloscope
 
-i = Datalogger('192.168.###.###')
+i = Oscilloscope('192.168.###.###')
 # Disable channel 1
 i.disable_input(1)
 ```
