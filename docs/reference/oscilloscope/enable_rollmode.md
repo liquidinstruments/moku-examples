@@ -31,6 +31,7 @@ summary: enable_rollmode
 ```python
 from moku.instruments import Oscilloscope
 i = Oscilloscope('192.168.###.###')
+i.set_timebase(-1, 1)
 i.enable_rollmode(roll=True)
 ```
 </code-block>
@@ -38,6 +39,7 @@ i.enable_rollmode(roll=True)
 <code-block title="MATLAB">
 ```matlab
 m = MokuOscilloscope('192.168.###.###');
+m.set_timebase(-1, 1);
 m.enable_rollmode('roll', true);
 ```
 </code-block>
