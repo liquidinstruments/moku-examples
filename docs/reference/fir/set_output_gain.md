@@ -41,6 +41,7 @@ summary: set_output_gain
 ```python
 from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
+# Configure instrument to desired state
 # Set output gain to 5dB
 i.set_output_gain(1, gain=5)
 ```
@@ -49,6 +50,7 @@ i.set_output_gain(1, gain=5)
 <code-block title="MATLAB">
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###');
+% Configure instrument to desired state
 % Set output gain to 5dB
 m.set_output_offset(1, 'gain', 5);
 ```

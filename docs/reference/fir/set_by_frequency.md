@@ -80,16 +80,19 @@ summary: set_by_frequency
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
-i.set_by_frequency(channel=1, sample_rate="3.906MHz")
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###', force_connect=False)
+# Configure frequency domain with response as Lowpass filter on FIR filter 1
+i.set_by_frequency(1, "3.906MHz", coefficient_count=201,
+                   shape="Lowpass")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
-m.set_by_frequency(1, "3.906MHz");
+m = MokuFIRFilterBox('192.168.###.###', true);
+% Configure frequency domain with response as Lowpass filter on FIR filter 1
+i.set_by_frequency(1, "3.906MHz", 'coefficient_count', 201, 'shape', 'Lowpass');
 ```
 </code-block>
 
@@ -97,8 +100,8 @@ m.set_by_frequency(1, "3.906MHz");
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "sample_rate": "3.906MHz"}'\
-        http://<ip>/api/pid/set_by_frequency
+        --data '{"channel":1, "sample_rate":"3.906MHz", "coefficient_count":201, "shape":"Lowpass" }'\
+        http://<ip>/api/firfilter/set_by_frequency
 ```
 </code-block>
 

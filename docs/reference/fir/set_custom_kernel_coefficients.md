@@ -46,7 +46,10 @@ summary: set_custom_kernel_coefficients
 ```python
 from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
-filter_coefficients = [1.0 / 50.0] * 50
+# Define an array which is a simple rectangular FIR kernels with 50
+# taps. A rectangular kernel produces a sinc shaped  transfer function
+# with width inversely proportional to the length of the  kernel.
+coefficients = [1.0 / 50.0] * 50
 i.set_custom_kernel_coefficients(channel=1,
                                  sample_rate='3.906MHz',
                                  coefficients=filter_coefficients)
@@ -56,80 +59,31 @@ i.set_custom_kernel_coefficients(channel=1,
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###', true);
-m.set_custom_kernel_coefficients(1, "3.906MHz", [0.02,0.02,0.02,0.02,0.02,0.02,
-                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,
-                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02]);
+% Define an array which is a simple rectangular FIR kernels with 50
+% taps. A rectangular kernel produces a sinc shaped  transfer function
+% with width inversely proportional to the length of the  kernel.
+coefficients = zeros(1, 40)+ (1.0 / 50.0);
+m.set_custom_kernel_coefficients(1, "3.906MHz", coefficients);
 ```
 </code-block>
 
 <code-block title="cURL">
 ```bash
+$: cat coefficients.json
+  {
+   "channel":1,
+   "sample_rate":"3.906MHz",
+   "coefficients": [0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02,
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02]
+  }
+ 
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "sample_rate": "3.906MHz", "coefficients": [0.02,0.02,0.02,0.02,0.02,0.02,
-                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,
-                                  0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02]}'\
-        http://<ip>/api/pid/set_custom_kernel_coefficients
+        --data @coefficients.json
+        http://<ip>/api/firfilter/set_custom_kernel_coefficients
 ```
 </code-block>
 
 </code-group>
-
-### Sample response,
-```json
-{
-   "customCoefficients":[
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02,
-      0.02
-   ],
-   "sample_rate":"3.906 MHz"
-}
-```

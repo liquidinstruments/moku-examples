@@ -76,6 +76,7 @@ summary: set_by_time
 ```python
 from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
+# Configure time domain with Sinc as impulse response
 i.set_by_time(channel=1, sample_rate='3.906MHz', response="SinC",
                   response_width=10)
 ```
@@ -84,6 +85,7 @@ i.set_by_time(channel=1, sample_rate='3.906MHz', response="SinC",
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###', true);
+% Configure time domain with Sinc as impulse response
 m.set_by_time(1, '3.906MHz', 'response', 'SinC', 'response_width', 10);
 ```
 </code-block>

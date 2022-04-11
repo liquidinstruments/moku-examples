@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods,  FIR Filter Builder supports following getter functions.
-description: Getters
+description: FIR Filter - getter functions
+name: getters
 getters: 
 - summary: get_control_matrix
   description: Get the linear combination of ADC input signals for a given DFB channel.

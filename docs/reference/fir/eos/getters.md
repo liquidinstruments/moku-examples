@@ -1,5 +1,6 @@
 ---
 additional_doc: Along with regular configuration methods, Digital Filter Box - Monitor supports following getter functions.
+name: Osc Getters
 description: Getters
 getters: 
 - summary: get_acquisition_mode

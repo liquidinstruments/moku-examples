@@ -27,7 +27,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_monitor
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>
@@ -51,10 +51,9 @@ Source signal can be one of,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import FIR
+from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
-i.set_by_frequency(channel=1, sample_rate="3.906MHz")
-# Set the probes to monitor Output 1 and Output 2
+# Configure instrument to desired state
 i.set_monitor(1, 'Output1')
 i.set_monitor(2, 'Output2')
 
@@ -64,10 +63,7 @@ i.set_monitor(2, 'Output2')
 <code-block title="MATLAB">
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###');
-% Configure the Channel 1 PID Controller using frequency response
-% characteristics
-% 	P = -10dB
-m.set_by_frequency(1, 'sample_rate', "3.906MHz");
+% Configure instrument to desired state
 % Set the probes to monitor Output 1 and Output 2
 m.set_monitor(1, 'Output1')
 m.set_monitor(2, 'Output2')

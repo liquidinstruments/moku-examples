@@ -35,12 +35,9 @@ summary: set_output_offset
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
-# Configure the Channel 2 PID Controller using gain characteristics
-#   Overall Gain = 6dB
-#   I Gain       = 20dB 
-i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+# Configure instrument to desired state
 # Set output offset to 5VDC
 i.set_output_offset(1, offset=5)
 ```
@@ -48,11 +45,8 @@ i.set_output_offset(1, offset=5)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
-% Configure the Channel 2 PID Controller using gain characteristics
-%   Overall Gain = 6dB
-%   I Gain       = 20dB 
-m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
+m = MokuFIRFilterBox('192.168.###.###');
+% Configure instrument to desired state
 % Set output offset to 5VDC
 m.set_output_offset(1, 'offset', 5);
 ```

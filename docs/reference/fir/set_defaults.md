@@ -29,15 +29,17 @@ Reference to any instrument object will always be in default state.
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+i.set_defaults()
 # PIDController reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuFIRFilterBox('192.168.###.###', true);
+m.set_defaults();
 % PIDController reference m is in default state
 ```
 </code-block>
@@ -47,7 +49,7 @@ m = MokuPIDController('192.168.###.###', true);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/pid/set_defaults
+        http://<ip>/api/firfilter/set_defaults
 ```
 </code-block>
 

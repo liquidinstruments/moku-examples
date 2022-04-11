@@ -55,25 +55,24 @@ summary: set_frontend
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
-i.set_frontend(1, "1MOhm", "AC", "10Vpp")
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+i.set_frontend(1, "AC", "1MOhm", "14dB")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPIDController('192.168.###.###');
-i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
-```
+m = MokuFIRFilterBox('192.168.###.###');
+m.set_frontend(1, "AC", "1MOhm", "14dB");```
 </code-block>
 
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
-        http://<ip>/api/pid/set_frontend
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "14dB"}'\
+        http://<ip>/api/firfilter/set_frontend
 ```
 </code-block>
 

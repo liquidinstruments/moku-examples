@@ -41,10 +41,7 @@ summary: set_input_offset
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###', force_connect=False)
-# Configure the Channel 2 PID Controller using gain characteristics
-#   Overall Gain = 6dB
-#   I Gain       = 20dB 
-i.set_by_gain(channel=2, overall_gain=6.0, prop_gain=20)
+# Configure instrument to desired state
 # Set input offset to 5VDC
 i.set_input_offset(1, offset=5)
 ```
@@ -53,10 +50,7 @@ i.set_input_offset(1, offset=5)
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###', true);
-% Configure the Channel 2 PID Controller using gain characteristics
-%   Overall Gain = 6dB
-%   I Gain       = 20dB 
-m.set_by_gain_and_section(2, 'overall_gain', 6.0, 'prop_gain', 20)
+% Configure instrument to desired state
 % Set input offset to 5VDC
 m.set_input_offset(1, 'offset', 5);
 ```
@@ -67,7 +61,7 @@ m.set_input_offset(1, 'offset', 5);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "offset": 5}'\
-        http://<ip>/api/pid/set_input_offset
+        http://<ip>/api/firfilter/set_input_offset
 ```
 </code-block>
 
