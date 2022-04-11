@@ -11,7 +11,6 @@ parameters:
   type: string
   unit: null
 summary: save_high_res_buffer
-group: Monitors
 ---
 <headers/>
 

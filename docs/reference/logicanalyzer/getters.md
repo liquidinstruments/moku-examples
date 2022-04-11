@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Logic Analyzer supports following getter functions.
-description: Getters
+name: getters
+description: Logic Analyzer -  getter functions
 getters: 
 - summary: get_trigger
   description: Gets the current trigger configuration.

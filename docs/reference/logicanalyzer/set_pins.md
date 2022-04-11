@@ -62,10 +62,19 @@ i.set_pins(pins)
 <code-block title="MATLAB">
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_pin('pin',1, 'state',"O");
-m.set_pin('pin',2, 'state', "H");
-m.set_pin('pin',3, 'state', "L");
-m.get_pins();
+% Configure pin1 to "O"
+pin1.pin = 1;
+pin1.state = 'O';
+
+% Configure pin2 to "H"
+pin2.pin = 2;
+pin2.state = 'H';
+
+% Configure pin3 to "L"
+pin3.pin = 3;
+pin3.state = 'L';
+
+m.set_pins([pin1,pin2,pin3]);
 ```
 </code-block>
 
