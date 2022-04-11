@@ -18,7 +18,7 @@ parameters:
   type: boolean
   unit: null
 summary: enable_rollmode
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>

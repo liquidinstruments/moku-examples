@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Lockin Amplifier supports following getter functions.
-description: Getters
+name: getters
+description: Lockin Amplifier  - getter functions
 getters: 
 - summary: get_aux_output
   description: Get the current amplitude and frequency for auxiliary output
