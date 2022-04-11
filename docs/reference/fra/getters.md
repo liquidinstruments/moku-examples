@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods,  Frequency Response Analyzer supports following getter functions.
-description: Getters
+name: getters
+description: Frequency Response Analyzer  - getter functions
 getters: 
 - summary: get_harmonic_multiplier
   description: Get the current harmonic multiplier
