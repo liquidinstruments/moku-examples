@@ -37,7 +37,7 @@ i.download("persist", file_name, "~/high_res_data.li")
 
 <code-block title="MATLAB">
 ```matlab
-% TODO
+% Connect to Moku
 m = MokuPIDController('192.168.###.###', false);
 data = m.get_data();
 disp(data.ch1);
