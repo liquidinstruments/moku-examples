@@ -3,8 +3,8 @@ const fs = require('fs');
 const glob = require('glob');
 
 const subDirExpected = [
-    { name: 'edl', display: 'Logger' },
-    { name: 'eos', display: 'Monitor' }
+    { name: 'edl', display: 'Datalogger' },
+    { name: 'eos', display: 'Oscilloscope' }
 ];
 
 const isDirSupported = function(name) {
