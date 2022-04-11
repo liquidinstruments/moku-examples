@@ -11,7 +11,7 @@ summary: logging_progress
 
 This method returns a dictionary to track the progress of data logging session. Always call this method in a loop until a desired result is reached.
 
-Log files can be downloaded to local machine using [download_files](../static/download.md)
+Log files can be downloaded to local machine using [download_files](../../static/download.md)
 
 Refer to,
 - **time_to_end** → Estimated time remaining

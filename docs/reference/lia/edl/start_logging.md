@@ -39,7 +39,7 @@ summary: start_logging
 
 <headers/>
 
-Log files can be downloaded to local machine using [download_files](../static/download.md).
+Log files can be downloaded to local machine using [download_files](../../static/download.md).
 
 
 ::: warning Caution
