@@ -59,6 +59,7 @@
     "semilogx",
     "Sinc",
     "Sinewave",
+    "specan",
     "spectrumanalyzer",
     "SSID",
     "Stopband",
@@ -79,5 +80,9 @@
     "ylabel",
     "ylim"
   ],
-  "ignorePaths": ["public", "tools", "specs"]
+  "ignorePaths": [
+    "public",
+    "tools",
+    "specs"
+  ]
 }
