@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Phasemeter supports following getter functions.
-description: Getters
+name: getters
+description: Phasemeter - getter functions
 getters: 
 - summary: get_pm_loop
   description: Get phasemeter loop frequency and bandwidth
