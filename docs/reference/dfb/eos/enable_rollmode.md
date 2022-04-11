@@ -18,7 +18,6 @@ parameters:
   type: boolean
   unit: null
 summary: enable_rollmode
-group: Monitors
 ---
 
 <headers/>
@@ -29,15 +28,17 @@ group: Monitors
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###')
+from moku.instruments import DigitalFilterBox
+i = DigitalFilterBox('192.168.###.###')
+i.set_timebase(-1, 1)
 i.enable_rollmode(roll=True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###');
+m = MokuDigitalFilterBox('192.168.###.###');
+m.set_timebase(-1, 1);
 m.enable_rollmode('roll', true)
 ```
 </code-block>
@@ -47,7 +48,7 @@ m.enable_rollmode('roll', true)
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"roll":true}'\
-        http://<ip>/api/lockinamp/enable_rollmode
+        http://<ip>/api/digitalfilterbox/enable_rollmode
 ```
 </code-block>
 
@@ -55,5 +56,5 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ### Sample response
 ```json
-{"Roll mode":"true"}
+{ "roll":true }
 ```

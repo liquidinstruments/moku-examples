@@ -31,6 +31,7 @@ group: Oscilloscope
 ```python
 from moku.instruments import LockInAmp
 i = LockInAmp('192.168.###.###')
+i.set_timebase(-1, 1)
 i.enable_rollmode(roll=True)
 ```
 </code-block>
@@ -38,7 +39,8 @@ i.enable_rollmode(roll=True)
 <code-block title="MATLAB">
 ```matlab
 m = MokuLockInAmp('192.168.###.###');
-m.enable_rollmode('roll', true)
+m.set_timebase(-1,1);
+m.enable_rollmode('roll', true);
 ```
 </code-block>
 
@@ -55,5 +57,5 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ### Sample response
 ```json
-{"Roll mode":"true"}
+{"roll":"true"}
 ```

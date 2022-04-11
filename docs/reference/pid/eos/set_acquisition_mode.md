@@ -17,7 +17,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_acquisition_mode
-group: Monitors
 ---
 
 <headers/>
@@ -30,6 +29,7 @@ group: Monitors
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
+# Set instrument to desired state
 i.set_acquisition_mode(mode="Precision")
 ```
 </code-block>
@@ -37,6 +37,7 @@ i.set_acquisition_mode(mode="Precision")
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###');
+% Set instrument to desired state
 m.set_acquisition_mode('mode', 'Precision')
 ```
 </code-block>

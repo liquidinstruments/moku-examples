@@ -35,15 +35,17 @@ summary: set_hysteresis
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
+from moku.instruments import DigitalFilterBox
+i = DigitalFilterBox('192.168.###.###')
+# Set instrument to desired state
 i.set_hysteresis("Absolute",1)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPIDController('192.168.###.###');
+i = MokuDigitalFilterBox('192.168.###.###');
+% Set instrument to desired state
 i.set_hysteresis('Absolute',1);
 ```
 </code-block>
@@ -53,7 +55,7 @@ i.set_hysteresis('Absolute',1);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"hysteresis_mode": "Absolute", "value": 1}'\
-        http://<ip>/api/pidcontroller/set_hysteresis
+        http://<ip>/api/digitalfilterbox/set_hysteresis
 ```
 </code-block>
 

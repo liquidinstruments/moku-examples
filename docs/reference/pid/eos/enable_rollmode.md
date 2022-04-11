@@ -18,12 +18,11 @@ parameters:
   type: boolean
   unit: null
 summary: enable_rollmode
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>
 <parameters/>
-
 
 ### Examples
 
@@ -32,7 +31,7 @@ group: Monitors
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
-i.set_monitor(1, 'Output1')
+i.set_timebase(-1, 1)
 i.enable_rollmode(roll=True)
 ```
 </code-block>
@@ -40,7 +39,7 @@ i.enable_rollmode(roll=True)
 <code-block title="MATLAB">
 ```matlab
 m = MokuPIDController('192.168.###.###');
-m.set_monitor(1, 'Output1');
+m.set_timebase(-1,1);
 m.enable_rollmode('roll', true);
 ```
 </code-block>
@@ -57,9 +56,6 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-group>
 
 ### Sample response
-
 ```json
-{
-  "roll": true
-}
+{"roll":"true"}
 ```

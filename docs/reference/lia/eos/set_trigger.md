@@ -112,26 +112,20 @@ group: Monitors
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
-# Configure the Channel 1 PID Controller using frequency response
-# characteristics
-# 	P = -10dB
-i.set_by_frequency(channel=1, prop_gain=-10)
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+# Set instrument to desired state
 # Trigger on input Channel 1, rising edge, 0V
-i.set_trigger(type="Edge", source="Input1", level=0)
+i.set_trigger(type="Edge", source="ProbeA", level=0)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###');
-% Configure the Channel 1 PID Controller using frequency response
-% characteristics
-% 	P = -10dB
-m.set_by_frequency(1, 'prop_gain', -20);
+m = MokuLockInAmp('192.168.###.###');
+# Set instrument to desired state
 % Trigger on input Channel 1, rising edge, 0V
-m.set_trigger('type',"Edge",'source',"Input1",'level',1);
+m.set_trigger('type',"Edge",'source',"ProbeA",'level',1);
 ```
 </code-block>
 
@@ -139,8 +133,8 @@ m.set_trigger('type',"Edge",'source',"Input1",'level',1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-       --data '{"type":"Edge", "source":"Input1", "level":1}'\
-        http://<ip>/api/pidcontroller/set_trigger
+       --data '{"type":"Edge", "source":"ProbeA", "level":1}'\
+        http://<ip>/api/lockinamp/set_trigger
 ```
 
 </code-block>

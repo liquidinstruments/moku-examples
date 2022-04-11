@@ -27,15 +27,17 @@ summary: set_acquisition_mode
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###')
+# Set instrument to desired state
 i.set_acquisition_mode(mode="Precision")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuFIRFilterBox('192.168.###.###', true);
+% Set instrument to desired state
 m.set_acquisition_mode('mode', 'Precision')
 ```
 </code-block>
@@ -45,7 +47,7 @@ m.set_acquisition_mode('mode', 'Precision')
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"mode": "Normal"}'\
-        http://<ip>/api/oscilloscope/set_acquisition_mode
+        http://<ip>/api/firfilter/set_acquisition_mode
 ```
 </code-block>
 

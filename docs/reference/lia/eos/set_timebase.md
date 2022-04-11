@@ -41,12 +41,9 @@ group: Monitors
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
-# Configure the Channel 1 PID Controller using frequency response
-# characteristics
-# 	P = -10dB
-i.set_by_frequency(channel=1, prop_gain=-10)
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+# Set instrument to desired state
 # View +- 1 ms i.e. trigger in the centre
 i.set_timebase(-1e-3, 1e-3)
 ```
@@ -54,11 +51,8 @@ i.set_timebase(-1e-3, 1e-3)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###');
-% Configure the Channel 1 PID Controller using frequency response
-% characteristics
-% 	P = -10dB
-m.set_by_frequency(1, 'prop_gain', -20);
+m = MokuLockInAmp('192.168.###.###');
+% Set instrument to desired state
 % View +- 1 ms i.e. trigger in the centre
 m.set_timebase(-1e-3, 1e-3);
 ```
@@ -69,7 +63,7 @@ m.set_timebase(-1e-3, 1e-3);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"t1": -1e-3, "t2": 1e-3}'\
-        http://<ip>/api/pidcontroller/set_timebase
+        http://<ip>/api/lockinamp/set_timebase
 ```
 </code-block>
 

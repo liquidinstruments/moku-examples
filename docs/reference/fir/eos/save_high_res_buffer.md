@@ -39,11 +39,11 @@ i.download("persist", file_name, "~/high_res_data.li")
 <code-block title="MATLAB">
 ```matlab
 % TODO
-m = MokuPIDController('192.168.###.###', false);
-data = m.get_data();
-disp(data.ch1);
-disp(data.ch2);
-disp(data.time);
+m = MokuFIRFilterBox('192.168.###.###');
+% Configure instrument to desired state
+result = jsondecode(m.save_high_res_buffer());
+m.download_file('persist', response.file_name, strcat('<path to download>', ...
+    response.file_name));
 ```
 </code-block>
 
@@ -52,8 +52,7 @@ disp(data.time);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/pid/get_data |
-        jq ".data.ch1"
+        http://<ip>/api/firfilter/save_high_res_buffer 
 ```
 </code-block>
 

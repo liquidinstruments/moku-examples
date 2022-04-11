@@ -38,8 +38,8 @@ Below are the examples on how to read the data frame,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###')
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
 data = i.get_data()
 print(data['ch1'], data['ch2'], data['time'])
 ```
@@ -47,7 +47,7 @@ print(data['ch1'], data['ch2'], data['time'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###');
+m = MokuLockInAmp('192.168.###.###');
 data = m.get_data();
 disp(data.ch1);
 disp(data.ch2);
@@ -60,7 +60,7 @@ disp(data.time);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/pidcontroller/get_data |
+        http://<ip>/api/lockainamp/get_data |
         jq ".data.ch1"
 ```
 </code-block>
