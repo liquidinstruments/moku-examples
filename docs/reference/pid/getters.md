@@ -1,6 +1,7 @@
 ---
-additional_doc: Along with regular configuration methods,  Frequency Response Analyzer supports following getter functions.
-description: Getters
+additional_doc: Along with regular configuration methods,  PID Controller supports following getter functions.
+name: getters
+description: PID Controller - getter functions
 getters: 
 - summary: get_control_matrix
   description: Get the linear combination of ADC input signals for a given DFB channel.

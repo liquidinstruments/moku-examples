@@ -24,7 +24,7 @@ parameters:
   type: string
   unit: null
 summary: set_monitor
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>

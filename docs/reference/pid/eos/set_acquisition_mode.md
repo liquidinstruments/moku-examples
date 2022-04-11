@@ -17,6 +17,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_acquisition_mode
+group: Monitors
 ---
 
 <headers/>
@@ -27,15 +28,15 @@ summary: set_acquisition_mode
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+from moku.instruments import PIDController
+i = PIDController('192.168.###.###')
 i.set_acquisition_mode(mode="Precision")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 m.set_acquisition_mode('mode', 'Precision')
 ```
 </code-block>
@@ -45,8 +46,15 @@ m.set_acquisition_mode('mode', 'Precision')
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"mode": "Normal"}'\
-        http://<ip>/api/oscilloscope/set_acquisition_mode
+        http://<ip>/api/pidcontroller/set_acquisition_mode
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "mode": "Precision"
+}
+```

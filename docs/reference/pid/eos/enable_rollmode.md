@@ -24,21 +24,24 @@ group: Monitors
 <headers/>
 <parameters/>
 
+
 ### Examples
 
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###')
+from moku.instruments import PIDController
+i = PIDController('192.168.###.###')
+i.set_monitor(1, 'Output1')
 i.enable_rollmode(roll=True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###');
-m.enable_rollmode('roll', true)
+m = MokuPIDController('192.168.###.###');
+m.set_monitor(1, 'Output1');
+m.enable_rollmode('roll', true);
 ```
 </code-block>
 
@@ -47,13 +50,16 @@ m.enable_rollmode('roll', true)
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"roll":true}'\
-        http://<ip>/api/lockinamp/enable_rollmode
+        http://<ip>/api/pidcontroller/enable_rollmode
 ```
 </code-block>
 
 </code-group>
 
 ### Sample response
+
 ```json
-{"Roll mode":"true"}
+{
+  "roll": true
+}
 ```
