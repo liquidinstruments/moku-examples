@@ -1,5 +1,5 @@
 ---
-additional_doc: When successful, returns the log file name and the configuration the session is requested with.
+additional_doc: Returns the computed name and full path of the log file. This can be used later when downloading the file.
 description: "Start the data logging session to file. "
 method: post
 name: start_logging
@@ -28,21 +28,13 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
-- default: Normal
-  description: Acquisition mode
-  name: mode
-  param_range: Normal, Precision, DeepMemory, PeakDetect
-  type: string
-  unit: null
-- default: 1000
-  description: Acquisition rate
-  name: rate
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
   param_range: null
-  type: integer
-  unit: Hz
+  type: boolean
+  unit: null
 summary: start_logging
-group: Logger
-
 ---
 
 <headers/>
@@ -51,7 +43,7 @@ Log files can be downloaded to local machine using [download_files](../static/do
 
 
 ::: warning Caution
-It is recommended to track the progress of data logging session before relinquishing the ownership [logging_progress](logging_progress.md).
+To ensure a complete data logging session, it is recommended to track the progress using [logging_progress](logging_progress.md).
 :::
 
 <parameters/>
@@ -67,9 +59,6 @@ i = DigitalFilterBox('192.168.###.###')
 
 ### Configure instrument to desired state
 
-# set probe points
-i.set_monitor(1, "Input1")
-
 # start logging session and read the file name from response
 response = json.loads(i.start_logging(duration=10))
 i.start_logging(duration=10, comments="Sample_script")
@@ -83,10 +72,8 @@ i.download("persist", file_name, f"~/Desktop/{file_name}")
 <code-block title="MATLAB">
 ```matlab
 m = MokuDigitalFilterBox('192.168.###.###');
-%%% Configure instrument to desired state
 
-% set probe points
-m.set_monitor(1, "Input1");
+%%% Configure instrument to desired state
 
 % start logging session and download file to local directory
 response = jsondecode(m.start_logging('duration',10));
@@ -95,27 +82,26 @@ m.download_file('persist', response.file_name, strcat('<path to download>', ...
 ```
 </code-block>
 
+
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"duration": 10, "comments": "Example"}'\
+        --data '{"duration": 10, "comments": "Sample_script"}'\
         http://<ip>/api/digitalfilterbox/start_logging
 ```
 </code-block>
 
 </code-group>
 
-### Sample response,
+### Sample response
 ```json
 {
    "acquisition_mode":"Normal",
    "comments":"",
    "duration":10,
-   "file_name":"MokuDigitalFilterBoxData_20220408_141414.li",
-   "rate":1000.0
+   "rate":1000.0,
+   "file_name":"MokuDigitalFilterBoxData_20220301_135057.li",
+   "file_name_prefix":"MokuDataLoggerData"
 }
 ```
-
-
-

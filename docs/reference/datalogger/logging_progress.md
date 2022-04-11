@@ -84,13 +84,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-   "file_name":"MokuDataLoggerData_20210603_101533.li", // Name of the file the data is logged to
-   "file_system":"eMMC", // Target file system
-   "time_to_end":"2", // Time remaining 
-   "bytes_logged":"80", // Bytes logged
-   "time_to_start":"0", // If > 0, it is the estimated time remaining 
-                        // to begin the data logging session
-   "file_format":"Binary" // Format of the file
+   "file_name":"MokuDataLoggerData_20210603_101533.li",
+   "time_remaining":9,
+   "time_to_end":9,
+   "time_to_start":-1,
+   "words_logged":24
 }
 ```
-
