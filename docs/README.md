@@ -25,10 +25,6 @@ The Moku Scripting API for Python requires Python 3.5 or newer.
 The Moku Scripting API for MATLAB requires MATLAB 2014b or newer.
 <action-button text="Start with MATLAB" link="starting-matlab"/>
 
-### LabVIEW
-The Moku Scripting API for LabVIEW requires LabVIEW 2016 or newer.
-<action-button text="Start with LabVIEW" link="starting-labview"/>
-
 ## Features
 ### RESTful API
 The Moku Scripting API is built around a RESTful HTTP interface, allowing for access from a wide range of programming languages. It makes remote access easy, as the standard HTTP protocol is low bandwidth and commonly allowed to traverse firewalls.

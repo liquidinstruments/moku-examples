@@ -20,7 +20,7 @@ summary: sync_phase
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 # Configure the output waveform in each channel
 i.sync_phase()
 ```
@@ -28,7 +28,7 @@ i.sync_phase()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % Configure the output waveform in each channel
 m.sync_phase();
 ```
@@ -37,11 +37,10 @@ m.sync_phase();
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        -H 'Content-Type: application/json'\
-        --data '{}'\
         http://<ip>/api/awg/sync_phase
 ```
 </code-block>
 
 </code-group>
+
 

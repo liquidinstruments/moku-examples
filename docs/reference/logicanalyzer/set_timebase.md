@@ -42,15 +42,15 @@ available_on: "mokugo"
 <code-block title="Python">
 ```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
-i.set_timebase(0, 1, roll=True)
+i = LogicAnalyzer('192.168.###.###')
+i.set_timebase(-0.5, 0, roll_mode=True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLogicAnalyzer('192.168.###.###', true);
-m.set_timebase(0, 1, 'roll', 1);
+m = MokuLogicAnalyzer('192.168.###.###');
+m.set_timebase(-0.5, 0, 'roll_mode', True);
 ```
 </code-block>
 
@@ -58,9 +58,18 @@ m.set_timebase(0, 1, 'roll', 1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"t1": 0, "t2": 1, "roll": true}'\
+        --data '{"t1": -0.5, "t2": 0, "roll_mode": true}'\
         http://<ip>/api/logicanalyzer/set_timebase
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "offset": 0.25,
+  "roll_mode": true,
+  "span": 0.5
+}
+```

@@ -5,11 +5,13 @@
 %
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
-try
-    %% Connect to your Moku
-    % Connect to your Moku by its IP address.
-    i = MokuWaveformGenerator('192.168.###.###');
 
+%% Connect to your Moku
+% Connect to your Moku by its IP address.
+i = MokuWaveformGenerator('192.168.###.###');
+
+try
+    
     %% Configure the instrument
     % Generate a sine wave on Channel 1
     % 0.5Vpp, 1MHz, 0V offset

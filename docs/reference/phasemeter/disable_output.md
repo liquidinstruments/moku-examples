@@ -32,9 +32,9 @@ available_on: "mokupro"
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
+from moku.instruments import Phasemeter
 
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+i = Phasemeter('192.168.###.###')
 # Disable Out 1
 i.disable_output(channel=1)
 
@@ -43,7 +43,7 @@ i.disable_output(channel=1)
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', false);
+i = MokuPhasemeter('192.168.###.###');
 % Disable Out 1
 i.disable_output(1);
 

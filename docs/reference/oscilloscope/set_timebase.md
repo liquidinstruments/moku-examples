@@ -1,5 +1,4 @@
 ---
-additional_doc: null
 description: Set the left- and right-hand span for the time axis. Units are seconds
   relative to the trigger point.
 method: post
@@ -37,6 +36,7 @@ summary: set_timebase
 <code-block title="Python">
 ```python
 from moku.instruments import Oscilloscope
+i = Oscilloscope('192.168.###.###')
 # Configure the instrument
 # View +- 1 ms i.e. trigger in the centre
 i.set_timebase(-1e-3, 1e-3)
@@ -45,7 +45,7 @@ i.set_timebase(-1e-3, 1e-3)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuOscilloscope('192.168.###.###');
 %% Configure the instrument
 % View +- 1 ms i.e. trigger in the centre
 m.set_timebase(-1e-3, 1e-3);
@@ -62,3 +62,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "offset": 0.0,
+  "span": 0.002
+}
+```

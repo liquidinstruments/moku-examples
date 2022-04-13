@@ -60,6 +60,14 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: 1MOhm
+  description: Waveform load
+  name: load
+  param_range:
+   mokugo: 1MOhm
+   mokupro: 50Ohm, 1MOhm
+  type: string
+  unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
@@ -95,11 +103,11 @@ Values will be normalized to the range [-1.0, +1.0] and then scaled to the desir
 ```python
 import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
-
 t = np.linspace(0, 1, 100)
 sq_wave = np.array([-1.0 if x < 0.5 else 1.0 for x in t])
-
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+# x = np.linspace(-np.pi, np.pi, 100)
+# sine_wave = np.sin(x)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave), 
     frequency=10e3, amplitude=1)
 ```
@@ -111,7 +119,7 @@ i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
 % Prepare a square waveform to be generated
 t = linspace(0,1,100);
 square_wave = sign(sin(2*pi*t));
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % Configure the output waveform in each channel
 % Channel 1: sampling rate of 125 MSa/s, square wave, 1kHz, 1Vpp.
 m.generate_waveform(1, "125", square_wave, 1e6, 1);
@@ -140,3 +148,15 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "amplitude": 1.0,
+  "frequency": 10000.0,
+  "interpolation": 0,
+  "offset": 0.0,
+  "phase": 0.0,
+  "sample_rate": "125Ms"
+}
+```

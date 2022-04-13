@@ -14,12 +14,13 @@ group: Embedded Waveform Generator
 
 <code-group>
 <code-block title="Python">
-```python{10}
+```python
 from moku.instruments import Oscilloscope
 # Configure the instrument
 # Generate a sine wave on Channel 1
 # 1Vpp, 10kHz, 0V offset
-i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3);
+i = Oscilloscope('192.168.###.###')
+i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3)
 
 # Generate a square wave on Channel 2
 # 1Vpp, 10kHz, 0V offset, 50% duty cycle
@@ -29,8 +30,8 @@ i.sync_output_phase()
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{10}
-m = MokuOscilloscope('192.168.###.###', true);
+```matlab
+m = MokuOscilloscope('192.168.###.###');
 %% Configure the instrument
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset

@@ -54,7 +54,7 @@ group: PID Controller
 <code-block title="Python">
 ```python
 from moku.instruments import LockInAmp
-i = LockInAmp('192.168.###.###', force_connect=False)
+i = LockInAmp('192.168.###.###')
 i.set_by_frequency(prop_gain=-10)
 i.use_pid(True)
 ```
@@ -62,7 +62,7 @@ i.use_pid(True)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLockInAmp('192.168.###.###', true);
+m = MokuLockInAmp('192.168.###.###');
 m.set_by_frequency('prop_gain', -10);
 m.use_pid(true);
 ```
@@ -78,3 +78,14 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "diff_crossover": 16000.0,
+  "diff_saturation": 15.0,
+  "int_crossover": 310.0,
+  "int_saturation": 40.0,
+  "prop_gain": -10.0
+}
+```

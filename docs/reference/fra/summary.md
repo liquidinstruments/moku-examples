@@ -20,14 +20,14 @@ summary: summary
 <code-block title="Python">
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 print(i.summary())
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 disp(m.summary());
 ```
 </code-block>
@@ -36,14 +36,13 @@ disp(m.summary());
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{}'\
         http://<ip>/api/fra/summary
 ```
 </code-block>
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```plaintext
 Moku:Go Frequency Response Analyzer

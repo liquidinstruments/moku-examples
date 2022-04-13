@@ -17,14 +17,14 @@ summary: summary
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 print(i.summary())
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 disp(m.summary());
 ```
 </code-block>
@@ -32,15 +32,13 @@ disp(m.summary());
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        -H 'Content-Type: application/json'\
-        --data '{}'\
         http://<ip>/api/awg/summary
 ```
 </code-block>
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```plaintext
 Moku:Go Arbitrary Waveform Generator

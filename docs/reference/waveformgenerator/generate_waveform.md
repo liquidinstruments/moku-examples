@@ -97,10 +97,10 @@ summary: generate_waveform
 
 <code-group>
 <code-block title="Python">
-```python{4-7}
+```python
 from moku.instruments import WaveformGenerator
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+i = WaveformGenerator('192.168.###.###')
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
 # Generate a square wave on channel 2, 1 Vpp, 1 kHz, 50% duty cycle
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
@@ -109,8 +109,8 @@ i.generate_waveform(channel=2, type='Square', amplitude=1.0, frequency=1e3, duty
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{2-7}
-m = MokuWaveformGenerator('192.168.###.###', false);
+```matlab
+m = MokuWaveformGenerator('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
@@ -130,3 +130,14 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "amplitude":0.5,
+  "frequency":5000.0,
+  "offset":0.0,
+  "phase":0.0,
+  "type":"Sine"
+}
+```

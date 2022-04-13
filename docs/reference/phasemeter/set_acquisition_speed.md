@@ -28,9 +28,9 @@ summary: set_acquisition_speed
 
 <code-group>
 <code-block title="Python">
-```python{5}
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+```python{6}
+from moku.instruments import Phasemeter
+i = Phasemeter'192.168.###.###')
 # Set required acquisition speed
 i.set_acquisition_speed(speed='596Hz')
 ```
@@ -38,9 +38,9 @@ i.set_acquisition_speed(speed='596Hz')
 
 <code-block title="MATLAB">
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
 # Set required acquisition speed
-i.set_acquisition_speed('596Hz');
+i.set_acquisition_speed('19.1kHz');
 ```
 </code-block>
 
@@ -48,7 +48,7 @@ i.set_acquisition_speed('596Hz');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"speed": "596Hz"}'\
+        --data '{"speed": "19.1kHz"}'\
         http://<ip>/api/phasemeter/set_acquisition_speed
 ```
 </code-block>

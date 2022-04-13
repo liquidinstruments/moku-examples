@@ -33,7 +33,7 @@ summary: disable_output
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Configure the output waveform in each channel
 i.disable_output(1)
 ```
@@ -41,7 +41,7 @@ i.disable_output(1)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Configure the output waveform in each channel
 m.disable_output(1);
 ```

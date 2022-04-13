@@ -100,7 +100,7 @@ summary: generate_waveform
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
+i = Datalogger('192.168.###.###')
 # Generate Sine wave on Output1
 i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 ```
@@ -108,7 +108,7 @@ i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###', true);
+m = MokuDatalogger('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
@@ -122,11 +122,21 @@ m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency', 1e3, 'duty', 50);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":2, "type": "Square", "amplitude": 1, "frequency": 1e3, "duty": 50}'\
+        --data '{"channel":2, "type": "Sine", "amplitude": 1, "frequency": 10e3, "duty": 50}'\
         http://<ip>/api/datalogger/generate_waveform
 ```
 </code-block>
 
 </code-group>
 
+### Sample response
+```json
+{
+ "amplitude":1.0,
+ "frequency":10000.0,
+ "offset":0.0,
+ "phase":0.0,
+ "type":"Sine"
+}
+```
 

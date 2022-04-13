@@ -24,7 +24,7 @@ parameters:
   type: string
   unit: null
 summary: set_monitor
-group: Monitors
+group: Oscilloscope
 ---
 
 <headers/>
@@ -49,7 +49,7 @@ Source signal can be one of,
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -63,7 +63,7 @@ i.set_monitor(2, 'Output2')
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
@@ -79,8 +79,16 @@ m.set_monitor(2, 'Output2')
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "source": "Output1"}'\
-        http://<ip>/api/pid/set_monitor
+        http://<ip>/api/pidcontroller/set_monitor
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+
+```json
+{
+  "source": "Output1"
+}
+```

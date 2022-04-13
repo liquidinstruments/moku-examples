@@ -27,3 +27,40 @@ summary: set_hysteresis
 
 <headers/>
 <parameters/>
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import Oscilloscope
+i = Oscilloscope('192.168.###.###')
+i.set_hysteresis("Absolute",0.1)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuOscilloscope('192.168.###.###');
+m.set_hysteresis('hysteresis_mode',"Absolute","value",0.1);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"hysteresis_mode":"Absolute","value":0.1}'\
+        http://<ip>/api/oscilloscope/set_hysteresis
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{
+  "hysteresis_mode": "Absolute",
+  "value": 0.1
+}
+```

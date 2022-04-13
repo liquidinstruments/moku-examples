@@ -28,7 +28,7 @@ summary: set_acquisition_mode
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###', force_connect=False)
+i = Datalogger('192.168.###.###')
 # Generate Sine wave on Output1
 i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 i.set_acquisition_mode(mode='Precision')
@@ -37,7 +37,7 @@ i.set_acquisition_mode(mode='Precision')
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###', true);
+m = MokuDatalogger('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
@@ -56,5 +56,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
         http://<ip>/api/datalogger/set_acquisition_mode
 ```
 </code-block>
-
 </code-group>
+
+### Sample response
+```json
+{"mode":"Precision"}
+```
+

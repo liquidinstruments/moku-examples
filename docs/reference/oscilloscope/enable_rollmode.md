@@ -22,3 +22,42 @@ summary: enable_rollmode
 
 <headers/>
 <parameters/>
+
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import Oscilloscope
+i = Oscilloscope('192.168.###.###')
+i.set_timebase(-1, 1)
+i.enable_rollmode(roll=True)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuOscilloscope('192.168.###.###');
+m.set_timebase(-1, 1);
+m.enable_rollmode('roll', true);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"roll":true}'\
+        http://<ip>/api/oscilloscope/enable_rollmode
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{
+  "roll": true
+}
+```

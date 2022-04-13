@@ -1,15 +1,6 @@
 const mokuPropAdmin = require('./sidebar-menus/moku')
+const getChildren = require('./getChildren').getChildren
 const powerSuppliesAdmin = require('./sidebar-menus/powersupplies')
-const awgAdmin = require('./sidebar-menus/awg')
-const fraAdmin = require('./sidebar-menus/fra')
-const wgAdmin = require('./sidebar-menus/wavegen')
-const specanAdmin = require('./sidebar-menus/specan')
-const laAdmin = require('./sidebar-menus/logicanalyzer')
-const liaAdmin = require('./sidebar-menus/lockinamp')
-const dlAdmin = require('./sidebar-menus/datalogger')
-const pidAdmin = require('./sidebar-menus/pid')
-const oscAdmin = require('./sidebar-menus/oscilloscope')
-const pmAdmin = require('./sidebar-menus/phasemeter')
 const staticAdmin = require('./sidebar-menus/static')
 const { children } = require('./sidebar-menus/moku')
 
@@ -39,7 +30,7 @@ module.exports = {
         smoothScroll: true,
         sidebarDepth: 3,
         nav: [
-            { text: 'API Home', link: '/'},
+            { text: 'API Home', link: '/' },
             { text: 'API Reference', link: '/reference/' },
             {
                 text: 'Examples',
@@ -56,6 +47,7 @@ module.exports = {
         sidebar: {
             '/reference': [
                 ['/', "Documentation Home"],
+                ['/reference/', "API Reference Home"],
                 {
                     title: "Core Functions",
                     collapsable: false,
@@ -72,16 +64,18 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
-                        awgAdmin,
-                        dlAdmin,
-                        fraAdmin,
-                        laAdmin,
-                        liaAdmin,
-                        oscAdmin,
-                        pmAdmin,
-                        pidAdmin,
-                        specanAdmin,
-                        wgAdmin,
+                        getChildren("Arbitrary Waveform Generator", "awg"),
+                        getChildren("Datalogger", "datalogger"),
+                        getChildren("Digital Filter Box", "dfb"),
+                        getChildren("FIR FIlter", "fir"),
+                        getChildren("Frequency Response Analyzer", "fra"),
+                        getChildren("LockIn Amplifier", "lia"),
+                        getChildren("Logic Analyzer", "logicanalyzer"),
+                        getChildren("Oscilloscope", "oscilloscope"),
+                        getChildren("Phasemeter", "phasemeter"),
+                        getChildren("PID Controller", "pid"),
+                        getChildren("Spectrum Analyzer", "specan"),
+                        getChildren("Waveform Generator", "waveformgenerator"),
                     ]
                 }
             ],
@@ -93,15 +87,16 @@ module.exports = {
                 '/examples/other-languages/'
             ],
             '/': [{
-                title: 'Getting Started',
-                collapsable: false,
-                children: [
-                    'starting-python',
-                    'starting-matlab',
-                    'starting-labview',
-                    'starting-curl',
-                    'starting-other',
-                    'ip-address']
+                    title: 'Getting Started',
+                    collapsable: false,
+                    children: [
+                        'starting-python',
+                        'starting-matlab',
+                        'starting-labview',
+                        'starting-curl',
+                        'starting-other',
+                        'ip-address'
+                    ]
                 },
                 ['/reference/', "API Reference"],
                 ['/examples/', "Examples"]

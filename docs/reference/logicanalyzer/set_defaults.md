@@ -10,24 +10,22 @@ available_on: "mokugo"
 
 <headers/>
 
-::: tip INFO
-Reference to any instrument object will always be in default state.
-:::
-
 <parameters/>
 
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
+i = LogicAnalyzer('192.168.###.###')
+i.set_defaults()
 # LogicAnalyzer reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLogicAnalyzer('192.168.###.###', true);
+m = MokuLogicAnalyzer('192.168.###.###');
+m.set_defaults();
 % LogicAnalyzer reference m is in default state
 ```
 </code-block>

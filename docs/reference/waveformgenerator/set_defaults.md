@@ -1,7 +1,7 @@
 ---
 title: set_defaults | Waveform Generator
 additional_doc: null
-description: Set the Waveform Generator to sane defaults.
+description: Set the Waveform Generator to its default state.
 method: post
 name: set_defaults
 parameters: []
@@ -9,19 +9,7 @@ summary: set_defaults
 ---
 
 
-
-
 <headers/>
-
-Default state implies,
-- Enable both output channels
-- Set output load to 1MOhm
-- Set trigger source to Internal
-
-
-::: tip INFO
-Reference to any instrument object will always be in default state.
-:::
 
 <parameters/>
 
@@ -30,14 +18,16 @@ Reference to any instrument object will always be in default state.
 ```python
 from moku.instruments import WaveformGenerator
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
-# Variable i referring to WaveformGenerator is in default state
+i = WaveformGenerator('192.168.###.###')
+i.set_defaults()
+# Variable i referring to WaveformGenerator is now in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuWaveformGenerator('192.168.###.###', true);
+m = MokuWaveformGenerator('192.168.###.###');
+m.set_defaults()
 % Variable m referring to WaveformGenerator is in default state
 ```
 </code-block>

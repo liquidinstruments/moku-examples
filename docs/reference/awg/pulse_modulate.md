@@ -1,5 +1,5 @@
 ---
-additional_doc: The Arbitrary Waveform Generator has the ability to insert a deadtime between cycles of  the look-up table. This time is specified in cycles of the waveform. During this time, the output will be held at the given dead_voltage. This allows the user to, for example, generate infrequent pulses without using space in the LUT to specify the time between, keeping the full LUT size to provide a high-resolution pulse shape.
+additional_doc: The Arbitrary Waveform Generator has the ability to insert a dead time between cycles of  the look-up table. This time is specified in cycles of the waveform. During this time, the output will be held at the given dead_voltage. This allows the user to, for example, generate infrequent pulses without using space in the LUT to specify the time between, keeping the full LUT size to provide a high-resolution pulse shape.
 description: Configures pulse modulation mode of a channel. 
 method: post
 name: pulse_modulate
@@ -43,18 +43,14 @@ summary: pulse_modulate
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
-# Configure the output waveform in each channel
-# Configure modulation on required channels
+i = ArbitraryWaveformGenerator('192.168.###.###')
+i.pulse_modulate(1, dead_cycles=2, dead_voltage=0)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
-% Configure the output waveform in each channel
-
-%% Set channel 2 to pulse mode
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 m.pulse_modulate(1,'dead_cycles',2,'dead_voltage',0);
 ```
 </code-block>
@@ -69,3 +65,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "dead_cycles":100,
+  "dead_voltage":0.5
+}
+```

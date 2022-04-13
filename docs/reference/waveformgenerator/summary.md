@@ -13,10 +13,10 @@ summary: summary
 
 <code-group>
 <code-block title="Python">
-```python{6}
+```python
 from moku.instruments import WaveformGenerator
 
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+i = WaveformGenerator('192.168.###.###')
 i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
 i.generate_waveform(channel=2, type='Sine', amplitude=1.0, frequency=1e6)
 print(i.summary())
@@ -24,8 +24,8 @@ print(i.summary())
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5}
-m = MokuWaveformGenerator('192.168.###.###', true);
+```matlab
+m = MokuWaveformGenerator('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 1Vpp, 10kHz, 0V offset
 m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
@@ -42,7 +42,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```text
 Moku:Go Waveform Generator

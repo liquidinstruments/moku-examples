@@ -34,7 +34,7 @@ try:
     # Configure the trigger to be Pin 2 with default trigger settings
     i.set_trigger(source='Pin2')
 
-    # Collecte a frame of data from all 16 pins, but only print Pin 1
+    # Collect a frame of data from all 16 pins, but only print Pin 1
     data = i.get_data()
     print(data['pin1'])
     

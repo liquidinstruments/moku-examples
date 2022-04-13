@@ -14,15 +14,15 @@ available_on: "mokupro"
 <code-group>
 <code-block title="Python">
 ```python{5}
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 print(i.summary())
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab{5}
-m = MokuPhasemeter('192.168.###.###', true);
+m = MokuPhasemeter('192.168.###.###');
 disp(m.summary())
 ```
 </code-block>
@@ -36,7 +36,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```text
     'Moku:Pro Phasemeter

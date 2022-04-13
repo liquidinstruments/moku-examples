@@ -8,21 +8,34 @@ summary: get_pins
 available_on: "mokugo"
 ---
 
+
 <headers/>
 <parameters/>
 
+#### Available states for a pin are:
+
+| State | Description             |
+| ----- |:---------------------- |
+| I     | Input                   |
+| O     | Output                  |
+| H     | High, pin is set to 1   |
+| L     | Low, pin is set to 0    |
+| X     | Off, Pin is off         |
+
+### Examples
+
 <code-group>
 <code-block title="Python">
-```python{3}
+```python
 from moku.instruments import LogicAnalyzer
-i = LogicAnalyzer('192.168.###.###', force_connect=False)
+i = LogicAnalyzer('192.168.###.###')
 i.get_pins()
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuLogicAnalyzer('192.168.###.###', true);
+m = MokuLogicAnalyzer('192.168.###.###');
 m.get_pins();
 ```
 </code-block>
@@ -38,26 +51,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```json
-{
-   "Pin 1":"I",
-   "Pin 2":"I",
-   "Pin 3":"I",
-   "Pin 4":"I",
-   "Pin 5":"O",
-   "Pin 6":"I",
-   "Pin 7":"H",
-   "Pin 8":"H",
-   "Pin 9":"I",
-   "Pin 10":"O",
-   "Pin 11":"I",
-   "Pin 12":"I",
-   "Pin 13":"I",
-   "Pin 14":"O",
-   "Pin 15":"I",
-   "Pin 16":"H",
-}
+["O","H","L","I","I","I","I","I","I","I","I","I","I","I","I","I"]
 ```
 

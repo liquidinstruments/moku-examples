@@ -60,14 +60,14 @@ summary: osc_measurement
 <code-block title="Python">
 ```python
 from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+i = Oscilloscope('192.168.###.###')
 i.osc_measurement(-5e-6, 5e-6, "Input1", "Rising", 1)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuOscilloscope('192.168.###.###');
 m.osc_measurement(-5e-6, 5e-6, "Input1", "Rising", 1)
 ```
 </code-block>
@@ -76,9 +76,20 @@ m.osc_measurement(-5e-6, 5e-6, "Input1", "Rising", 1)
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"t1": -5e-6, "t2": 5e-6, "trigger_source": "Input1", "edge": "Rising", "trigger_level": 1}'\
+        --data '{"t1": -5e-6, "t2": 5e-6, "trigger_source": "Input1", "edge": "Rising", "level": 1}'\
         http://<ip>/api/oscilloscope/osc_measurement
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "edge": "Rising",
+  "level": 1.0,
+  "offset": 0.0,
+  "span": 1e-05,
+  "trigger_source": "Input1"
+}
+```

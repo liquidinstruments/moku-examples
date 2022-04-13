@@ -31,14 +31,14 @@ Reference to any instrument object will always be in default state.
 <code-block title="Python">
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # FrequencyResponseAnalyzer reference i is in default state
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % FrequencyResponseAnalyzer reference m is in default state
 ```
 </code-block>

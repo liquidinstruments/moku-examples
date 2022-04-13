@@ -57,14 +57,14 @@ summary: set_frontend
 <code-block title="Python">
 ```python
 from moku.instruments import Oscilloscope
-i = Oscilloscope('192.168.###.###', force_connect=False)
+i = Oscilloscope('192.168.###.###')
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuOscilloscope('192.168.###.###');
 i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```
 </code-block>
@@ -79,3 +79,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "coupling": "AC",
+  "impedance": "1MOhm",
+  "range": "10Vpp"
+}
+```

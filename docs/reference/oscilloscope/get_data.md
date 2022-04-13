@@ -5,7 +5,7 @@ name: get_data
 parameters:
 - default: null
   description: Wait for a new trigger event
-  name: wait_recquire
+  name: wait_reacquire
   param_range: null
   type: boolean
   unit: null
@@ -39,7 +39,7 @@ Below are the examples on how to read the data frame,
 ```python
 from moku.instruments import Oscilloscope
 
-i = Oscilloscope('192.168.###.###', force_connect=False)
+i = Oscilloscope('192.168.###.###')
 
 data = i.get_data()
 print(data['ch1'], data['ch2'], data['time'])
@@ -49,7 +49,7 @@ print(data['ch1'], data['ch2'], data['time'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', false);
+m = MokuOscilloscope('192.168.###.###');
 data = m.get_data();
 
 disp(data.ch1);

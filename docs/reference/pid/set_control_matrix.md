@@ -41,7 +41,7 @@ summary: set_control_matrix
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 i.set_control_matrix(1, input_gain1=1, input_gain2=0)
 i.set_control_matrix(2, input_gain1=0, input_gain2=1)
 ```
@@ -49,7 +49,7 @@ i.set_control_matrix(2, input_gain1=0, input_gain2=1)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 m.set_control_matrix(1, 1, 0);
 m.set_control_matrix(2, 0, 1);
 ```
@@ -60,8 +60,16 @@ m.set_control_matrix(2, 0, 1);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "input_gain1": 1, "input_gain2": -1}'\
-        http://<ip>/api/pid/set_control_matrix
+        http://<ip>/api/pidcontroller/set_control_matrix
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "input_gain1": 1.0,
+  "input_gain2": 0.0
+}
+```

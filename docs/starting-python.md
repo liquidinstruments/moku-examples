@@ -17,7 +17,7 @@ $: python
 >>> osc = Oscilloscope('192.168.123.45')
 >>> osc.get_data()
 ```
-You should see an array of data captured from your newly-deploued Oscilloscope object. If not, please refer to the Troubleshooting below.
+You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the Troubleshooting below.
 
 ## Full Procedure
 ### 1. Check your Python Installation
@@ -29,7 +29,7 @@ Python 3.9.0
 ```
 
 ### 2. Install the `moku` Library
-At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeded by running the simple Python command listed below. If there is *no output* from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
+At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is *no output* from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
 ```
 $: pip install moku
 $: python -c 'import moku'
@@ -37,7 +37,7 @@ $:
 ```
 
 ### 3. Download the data files
-The Moku Scripting API for Pythong requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
+The Moku Scripting API for Python requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
 
 At a terminal or command prompt, issue the download command. This may take a while to complete, depending on your internet connection.
 ```
@@ -59,7 +59,7 @@ $: python
 >>> osc = Oscilloscope('192.168.123.45')
 >>> osc.get_data()
 ```
-You should see an array of data captured from your newly-deploued Oscilloscope object. If not, please refer to the Troubleshooting below.
+You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the Troubleshooting below.
 
 ## Next Steps
 Check out our [Python Examples](/examples/python/) for more inspiration. Happy Coding!
@@ -86,7 +86,7 @@ Python cannot find the newly-installed `moku` library. This commonly occurs for 
 - The `pip` command didn't complete successfully, OR
 - A problem in your Python installation means that your `pip` and `python` executables have got out of sync with each other.
 
-If you are sure that the `pip` command completed succesfully, then you can resolve the problem option by executing `pip` directly from the Python installation, rather than separately.
+If you are sure that the `pip` command completed successfully, then you can resolve the problem option by executing `pip` directly from the Python installation, rather than separately.
 ```
 $: python -m pip install moku
 $: python -c 'import moku'

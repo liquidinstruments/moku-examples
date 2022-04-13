@@ -5,11 +5,12 @@
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
 
+%% Connect to your Moku
+% Connect to your Moku and deploy the oscilloscope instrument
+i = MokuDatalogger('192.168.###.###');
+
 try
-    %% Connect to your Moku
-    % Connect to your Moku and deploy the oscilloscope instrument
-    i = MokuDatalogger('192.168.###.###');
-    
+
     % Enable precision mode
     i.set_acquisition_mode('mode','Precision');
     

@@ -11,8 +11,8 @@ parameters:
   type: string
   unit: null
 - default: null
-  description: Source for the Auxilliary LIA output
-  name: main
+  description: Source for the Auxiliary LIA output
+  name: aux
   param_range: Y, Theta, Demod, Aux, Offset, None
   type: string
   unit: null
@@ -38,7 +38,7 @@ summary: set_outputs
 <headers/>
 
 :::tip Polar converter
-If R or Theta is selected, then a Rectangular-to-Polar conveter will be engaged. The performance of this converter can be optimised by setting the expected input range, see [set_polar_mode](./set_polar_mode.md)
+If R or Theta is selected, then a Rectangular-to-Polar converter will be engaged. The performance of this converter can be optimised by setting the expected input range, see [set_polar_mode](./set_polar_mode.md)
 :::
 
 :::warning Polar/Rectangular Outputs
@@ -49,3 +49,39 @@ Only one of Polar or Rectangular outputs can be used at once. For example, it's 
 
 <parameters/>
 
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
+i.set_outputs(main="X", main_offset=1)
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuLockInAmp('192.168.###.###');
+m.set_outputs('main','X','main_offset',1);
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"main": "X", "main_offset": 1}'\
+        http://<ip>/api/lockinamp/set_outputs
+```
+</code-block>
+
+</code-group>
+
+### Sample response
+```json
+{
+  "aux_offset": 0.0,
+  "main_offset": 1.0
+}
+```

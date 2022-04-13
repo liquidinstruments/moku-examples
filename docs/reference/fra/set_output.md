@@ -49,7 +49,7 @@ Ensure the input signal passing through the device under test will not exceed th
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
 
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
 i.fra_measurement(1, input_only=True, start_frequency=100,
                   stop_frequency=20e6, averaging_cycles=1)
@@ -60,9 +60,9 @@ i.set_output(1, 0.5)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-i.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
+m.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
                   'stop_frequency', 20e6, 'averaging_cycles', 1)
 % Set output sweep amplitudes and offsets 
 m.set_output(2, 1)            
@@ -79,3 +79,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+ "amplitude":0.1,
+ "offset":0.0
+}
+```

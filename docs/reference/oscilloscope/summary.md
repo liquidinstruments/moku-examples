@@ -12,7 +12,7 @@ summary: summary
 
 <code-group>
 <code-block title="Python">
-```python{5}
+```python
 from moku.instruments import Oscilloscope
 # Configure the instrument
 i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3);
@@ -22,7 +22,7 @@ print(i.summary())
 </code-block>
 
 <code-block title="MATLAB">
-```matlab{5}
+```matlab
 m = MokuOscilloscope('192.168.###.###', true);
 %% Configure the instrument
 m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);

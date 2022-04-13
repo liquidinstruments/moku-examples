@@ -20,7 +20,7 @@ summary: summary
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -34,7 +34,7 @@ print(i.summary())
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 1 PID Controller using frequency response
 % characteristics
 % 	P = -10dB
@@ -49,13 +49,14 @@ disp(m.summary())
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        http://<ip>/api/pid/summary
+        http://<ip>/api/pidcontroller/summary
 ```
 </code-block>
 
 
 </code-group>
-Sample response,
+
+### Sample response
 
 ```plaintext
 Moku:Go PID Controller

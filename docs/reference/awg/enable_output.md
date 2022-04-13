@@ -36,20 +36,19 @@ summary: enable_output
 <code-block title="Python">
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+i = ArbitraryWaveformGenerator('192.168.###.###')
 # Configure the output waveform in each channel
-i.enable_output(1)
-i.enable_output(2, false)
+i.enable_output(1, enable=True)
+i.enable_output(2, enable=False)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###', true);
+m = MokuArbitraryWaveformGenerator('192.168.###.###');
 % Configure the output waveform in each channel
-m.enable_output(1);
-m.enable_output(2, 'enable','false');
+m.enable_output(1, 'enable', true);
+m.enable_output(2, 'enable', false);
 ```
 </code-block>
 
@@ -57,10 +56,9 @@ m.enable_output(2, 'enable','false');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":2, "enable": true}'\
+        --data '{"channel":1, "enable": true}'\
         http://<ip>/api/awg/enable_output
 ```
 </code-block>
-
 </code-group>
 

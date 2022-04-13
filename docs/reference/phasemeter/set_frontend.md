@@ -53,15 +53,17 @@ parameters:
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
+i.generate_output(channel=1, amplitude=0.5, frequency=5e3, signal='Sine')
 i.set_frontend(1, "DC", "40Vpp")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
+i.generate_output(1, 0.5, 10e3,'Sine');
 i.set_frontend(1, "DC", "40Vpp");
 ```
 </code-block>
@@ -76,3 +78,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{"Input range":"4 Vpp","Input impedance":"1 M\u03A9","Input coupling":"AC"}
+```

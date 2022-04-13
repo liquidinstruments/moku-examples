@@ -56,7 +56,7 @@ summary: enable_output
 <code-block title="Python">
 ```python
 from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+i = PIDController('192.168.###.###')
 # Configure the Channel 2 PID Controller using gain characteristics
 #   Overall Gain = 6dB
 #   I Gain       = 20dB 
@@ -69,7 +69,7 @@ i.enable_output(2, True, True)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
+m = MokuPIDController('192.168.###.###');
 % Configure the Channel 2 PID Controller using gain characteristics
 %   Overall Gain = 6dB
 %   I Gain       = 20dB 
@@ -85,8 +85,17 @@ m.enable_output(2, 'signal', True, 'output', True);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 2, "signal": true, "output": true}'\
-        http://<ip>/api/pid/enable_output
+        http://<ip>/api/pidcontroller/enable_output
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+  "enable_gain": false,
+  "output": true,
+  "signal": true
+}
+```

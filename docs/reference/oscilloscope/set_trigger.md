@@ -110,6 +110,7 @@ summary: set_trigger
 <code-block title="Python">
 ```python
 from moku.instruments import Oscilloscope
+i = Oscilloscope('192.168.###.###')
 # Configure the instrument
 # Trigger on input Channel 1, rising edge, 0V
 i.set_trigger(type="Edge", source="Input1", level=0)
@@ -118,7 +119,7 @@ i.set_trigger(type="Edge", source="Input1", level=0)
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
+m = MokuOscilloscope('192.168.###.###');
 %% Configure the instrument
 % Trigger on input Channel 1, rising edge, 0V
 m.set_trigger('type',"Edge", 'source',"Input1", 'level', 0)
@@ -135,3 +136,16 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample Response
+```json
+{
+  "auto_sensitivity": true,
+  "edge": "Rising",
+  "hf_reject": false,
+  "holdoff": 0.0,
+  "level": 0.0,
+  "noise_reject": false,
+  "nth_event": 1
+}
+```

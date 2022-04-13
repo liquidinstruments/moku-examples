@@ -6,7 +6,7 @@ name: get_data
 parameters:
 - default: null
   description: Wait for a new trigger event
-  name: wait_recquire
+  name: wait_reacquire
   param_range: null
   type: boolean
   unit: null
@@ -48,7 +48,7 @@ Below are the examples on how to read the data frame,
 <code-block title="Python">
 ```python
 from moku.instruments import FrequencyResponseAnalyzer
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+i = FrequencyResponseAnalyzer('192.168.###.###')
 
 data = i.get_data()
 # Print out the data for Channel 1
@@ -59,7 +59,7 @@ print(frame['ch1']['frequency'], frame['ch1']['magnitude'],
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuFrequencyResponseAnalyzer('192.168.###.###', false);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 data = m.get_data();
 disp(data.ch1.frequency);
 disp(data.ch1.magnitude);

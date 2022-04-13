@@ -6,7 +6,19 @@ name: get_data
 parameters:
 - default: null
   description: Wait for a new trigger event
-  name: wait_recquire
+  name: wait_reacquire
+  param_range: null
+  type: boolean
+  unit: null
+- default: dBm
+  description: Units
+  name: units
+  param_range: dBm, Vrms, Vpp, dBV
+  type: string
+  unit: null
+- default: false
+  description: PSD Units
+  name: psdUnits
   param_range: null
   type: boolean
   unit: null
@@ -16,6 +28,12 @@ parameters:
   param_range: 0 - inf
   type: number
   unit: Seconds
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
 summary: get_data
 ---
 
@@ -40,7 +58,7 @@ Below are the examples on how to read the data frame,
 ```python
 from moku.instruments import SpectrumAnalyzer
 
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 
 data = i.get_data()
 print(data['ch1'], data['ch2'], data['frequency'])
@@ -50,7 +68,7 @@ print(data['ch1'], data['ch2'], data['frequency'])
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', false);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 data = m.get_data();
 
 disp(data.ch1);

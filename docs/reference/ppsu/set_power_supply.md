@@ -74,3 +74,19 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+   "id":1,
+   "enabled":true,
+   "current_range":[0, 0.15],
+   "voltage_range":[-5, 5],
+   "set_voltage":5,
+   "set_current":0.1,
+   "actual_voltage":4.93525,
+   "actual_current":0.001582641601562518,
+   "constant_current_mode":false,
+   "constant_voltage_mode":true
+}
+```

@@ -35,15 +35,15 @@ parameters:
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuPhasemeter
-i = MokuPhasemeter('192.168.###.###', force_connect=False)
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 i.get_auto_acquired_frequency(channel=1)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-i = MokuPhasemeter('192.168.###.###', true);
+i = MokuPhasemeter('192.168.###.###');
 i.get_auto_acquired_frequency(1);
 ```
 </code-block>
@@ -51,8 +51,14 @@ i.get_auto_acquired_frequency(1);
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
+        --data '{"channel":1}'\
         http://<ip>/api/phasemeter/get_auto_acquired_frequency
 ```
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+30000000
+```

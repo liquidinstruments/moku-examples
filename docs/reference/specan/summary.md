@@ -20,14 +20,14 @@ summary: summary
 <code-block title="Python">
 ```python
 from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+i = SpectrumAnalyzer('192.168.###.###')
 print(i.summary())
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###', true);
+m = MokuSpectrumAnalyzer('192.168.###.###');
 disp(m.summary());
 ```
 </code-block>
@@ -42,7 +42,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-Sample response,
+### Sample response
 
 ```plaintext
 Moku:Go Spectrum Analyzer
