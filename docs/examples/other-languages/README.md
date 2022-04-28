@@ -7,6 +7,11 @@ For details on what each of these examples are doing, please refer to our [Getti
 
 If you don't see your language on the list, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
 
+<!-- Keep the below in alphabetical order -->
+
+## Javascript (Node.JS)
+<<< @/docs/examples/other-languages/moku-node.js
+
 ## Perl
 <<< @/docs/examples/other-languages/moku-perl.perl
 
