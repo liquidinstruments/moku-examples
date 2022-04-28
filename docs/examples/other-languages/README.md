@@ -9,6 +9,9 @@ If you don't see your language on the list, please reach out to our [Support Eng
 
 <!-- Keep the below in alphabetical order -->
 
+## Go
+<<< @/docs/examples/other-languages/go.go
+
 ## Javascript (Node.JS)
 <<< @/docs/examples/other-languages/moku-node.js
 
