@@ -12,7 +12,7 @@ If you don't see your language on the list, please reach out to our [Support Eng
 ## Go
 <<< @/docs/examples/other-languages/go.go
 
-## Javascript (Node.JS)
+## Javascript (Node.js)
 <<< @/docs/examples/other-languages/moku-node.js
 
 ## Perl
