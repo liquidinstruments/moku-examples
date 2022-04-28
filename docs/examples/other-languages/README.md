@@ -10,3 +10,6 @@ If you don't see your language on the list, please reach out to our [Support Eng
 ## Perl
 <<< @/docs/examples/other-languages/moku-perl.perl
 
+## Rust
+<<< @/docs/examples/other-languages/main.rs
+
