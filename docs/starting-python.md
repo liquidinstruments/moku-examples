@@ -93,7 +93,7 @@ $: python -c 'import moku'
 $:
 ```
 
-#### Connection to 10.1.1.1 timed out, Max retries exceeded
+#### Connection to (ip address) timed out, Max retries exceeded
 The Moku library was unable to connect to the Moku device. Ensure you have the correct IP address using the steps above.
 
 If the IP address is correct, check that the network is reachable from your computer. The easiest way to achieve this is to simply try and connect using the Moku Desktop Application.
@@ -104,6 +104,12 @@ On Windows (only, not Mac or Linux), the Moku requires a driver to be installed 
 The Moku API uses IPv6 to connect to the Moku over USB. If your computer does not have IPv6 enabled (e.g. disabled by an Administrator) then the USB connection will not be operable. Please reach out to our [Support Engineers](mailto:support@liquidinstruments.com) for guidance and other options.
 
 This extends to environments inside your computer where IPv6 may be limited, such as Microsoft Windows Subsystem for Linux v2 (WSL2). For information on possible workarounds for WSLv2 support, see the [original bug report](https://github.com/microsoft/WSL/issues/4518) and [this resulting discussion](https://github.com/microsoft/WSL/discussions/5855).
+
+#### LocationParseError/InvalidURL: Failed to parse
+This is usually seen when using USB and comes from the underlying libraries being unable to decipher the Link Local address used. This can be fixed by updating those libraries as follows.
+```
+$: python -m pip install --upgrade urllib3 requests
+```
 
 #### IPv6 (including USB) Connection Issues
 There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.
