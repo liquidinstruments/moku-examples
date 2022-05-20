@@ -9,8 +9,14 @@ If you don't see your language on the list, please reach out to our [Support Eng
 
 <!-- Keep the below in alphabetical order -->
 
+## C#
+<<< @/docs/examples/other-languages/MokuDemo.cs
+
 ## Go
 <<< @/docs/examples/other-languages/go.go
+
+## Java
+<<< @/docs/examples/other-languages/MokuDemo.java
 
 ## Javascript (Node.js)
 <<< @/docs/examples/other-languages/moku-node.js
@@ -20,4 +26,5 @@ If you don't see your language on the list, please reach out to our [Support Eng
 
 ## Rust
 <<< @/docs/examples/other-languages/main.rs
+
 

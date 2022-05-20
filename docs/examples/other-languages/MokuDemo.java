@@ -1,6 +1,6 @@
 
 /*
-    * Simple Java example on how to use the Moku REST API fir Liquid Instrument Moku Devices.
+    * Simple Java example on how to use the Moku REST API for Liquid Instrument Moku Devices.
     * IMPORTANT: Deploy the Oscilloscope through the Desktop or iPad apps before
     *        running this script in order to transfer the instrument data. See
     *        https://apis.liquidinstruments.com/starting-curl.html#first-steps
@@ -36,8 +36,8 @@ public class MokuDemo {
             System.out.println(data.get("messages"));
         }
         Object returnData = data.get("data");
-        if(returnData.getClass().getName() == "java.lang.String"){
-            return (JsonObject) Jsoner.deserialize((String)returnData);
+        if (returnData.getClass().getName() == "java.lang.String") {
+            return (JsonObject) Jsoner.deserialize((String) returnData);
         }
         return (JsonObject) returnData;
     }
@@ -100,11 +100,11 @@ public class MokuDemo {
         JsonObject frontendResponse = executeAPICall(frontendRequest, client);
         // Print the impedance deserialized from response object
         System.out.println(frontendResponse.get("impedance"));
-        
+
         /*
-        * Now that instrument is deployed, we can read out a frame of data using the
-        * get_data method which returns time series data for channels 1 & 2.
-        */
+         * Now that instrument is deployed, we can read out a frame of data using the
+         * get_data method which returns time series data for channels 1 & 2.
+         */
         JsonObject getDataRequestBody = new JsonObject().putAllChain(
                 Map.ofEntries(entry("wait_reacquire", true)));
         String getDataURI = String.format("http://%s/api/oscilloscope/get_data", ipAddress);
@@ -115,7 +115,7 @@ public class MokuDemo {
                 .POST(BodyPublishers.ofString(getDataRequestBody.toJson()))
                 .build();
         JsonObject getDataResponse = executeAPICall(getDataRequest, client);
-        System.out.println(getDataResponse.get("time"));
+        System.out.println(getDataResponse.get("ch1"));
     }
 
 }
