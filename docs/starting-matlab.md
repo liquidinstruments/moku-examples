@@ -39,7 +39,7 @@ From your MATLAB Command Window, run `help Moku`. If this command succeeds, then
 ![help Moku](./img/starting-matlab-5.png)
 
 ## 3. Find Your IP Address
-In order to connect to your Moku, you must know your device's IP Address. For full details and options, see [Finding your IP Address](ip-address).
+In order to connect to your Moku, you must know your device's IP Address. For full details and options, see [Finding your IP Address](ip-address.html).
 
 
 ## 4. Next Steps

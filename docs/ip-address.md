@@ -35,24 +35,43 @@ The Serial Number on a Moku:Go is found in three places:
 
 ## IPv6
 :::danger IPv6 Support
-IPv6, and especially IPv6 link-local addressing as used over USB, is not universally supported. As such the API cannot be used over USB in some environments without a proxy (see below). A non-exhaustive list of limited or unsupported environments is
+IPv6, and especially IPv6 link-local addressing as used when your Moku is connected over USB, is not universally supported. As such the API cannot be used over USB in some environments without a proxy (see below). A non-exhaustive list of limited of **unsupported** environments is
 - Windows Subsystem for Linux Version 2 (WSL2), as discussed with workarounds [here](https://github.com/microsoft/WSL/discussions/5855)
 - LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
-- Most [web browsers](https://support.mozilla.org/en-US/questions/1111992) (which aren't full API clients but may be occasionally useful for debugging)
+- Most [web browsers](https://support.mozilla.org/en-US/questions/1111992) (which aren't full API clients but which may be required to use Moku Cloud Compile and other features)
 
-If you require API connectivity from these environments, you must use a proxy as below, or a network connection like Ethernet or WiFi. Ethernet may be configured as a point-to-point network with Static IPs if security is a concern.
+If you require API connectivity from these environments, you must use a proxy as below, or a network connection like Ethernet or WiFi configured to use IPv4. Ethernet may be configured as a point-to-point network with Static IPs if security is a concern.
 :::
 
-:::tip Specifying IPv6 addresses
-The above unsupported environments notwithstanding, some IPv6 errors simply come from how the address is specified. For example, in Python (and many other environments) you may need to enclose the address in square brackets.
+### Specifying IPv6 Addresses
+The above unsupported environments notwithstanding, some IPv6 errors simply come from how the address is specified. One should keep the following points in mind:
+1. Most importantly **make sure your libraries are up to date**. In particular, Python parsing of these addresses was broken in some versions of `urllib3`. See [this Troubleshooting tip](starting-python.html#locationparseerror-invalidurl-failed-to-parse) for details.
+1. Enclose the IP address in square brackets: `[fe80::1:2:3:4%eth0]`
+1. If specifying the IP address on the command line, ensure those brackets are escaped if required, e.g. using single quotes in Bash: `'[fe80::1:2:3:4%eth0]'`. Windows CMD does not require escaping the brackets, and in fact will fail if you specify quotes (which will incorrectly be interpreted as part of the address)
+1. If the scope id (element after the percent sign) is numeric, e.g. on Windows, ensure that your programming language does not interpret it as a special character
+
+#### Examples
+<code-group>
+<code-block title="Python">
 ```python
 i = Oscilloscope('[fe80::1:2:3:4%eth0]')
 ```
+</code-block>
 
+<code-block title="Bash">
 ```bash
-curl https://[fe80::7269:79ff:feb9:0000%0]/api/moku/summary
+$: curl 'https://[fe80::7269:79ff:feb9:0000%0]/api/moku/summary'
+$: python my-script.py --my-moku='[fe80::7269:79ff:feb9:0000%0]'
 ```
-:::
+</code-block>
+
+<code-block title="CMD/PowerShell">
+```bash
+> curl https://[fe80::7269:79ff:feb9:0000%0]/api/moku/summary
+> python.exe my-script.py --my-moku=[fe80::7269:79ff:feb9:0000%0]
+```
+</code-block>
+</code-group>
 
 ### Configuring a Proxy
 #### Windows
