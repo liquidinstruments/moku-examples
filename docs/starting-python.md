@@ -44,14 +44,14 @@ At a terminal or command prompt, issue the download command. This may take a whi
 $: moku download
 ```
 
-### 3. Find Your IP Address
+### 4. Find Your IP Address
 For more detail and other options, see [Finding your IP Address](ip-address.html)
 
 ```
 $: moku list
 ```
 
-### 4. Run Your First Program
+### 5. Run Your First Program
 Use your IP address as found above in place of the one below.
 ```python
 $: python
