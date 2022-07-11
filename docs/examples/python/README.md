@@ -32,6 +32,38 @@ in real-time.
 
 <<< @/docs/examples/python/freq_response_analyzer_plotting.py
 
+## laser_lock_box_basic.py
+
+This example demonstrates how you can configure the Laser Lock Box 
+Instrument and monitor the signals at Input 1 and Input 2.
+
+<<< @/docs/examples/python/laser_lock_box_basic.py
+
+## laser_lock_box_plotting.py
+
+This example demonstrates how you can configure the Laser Lock Box 
+Instrument and monitor the signals at Input 1 and Input 2.
+
+<<< @/docs/examples/python/laser_lock_box_plotting.py
+
+## lock_in_amplifier_basic.py
+
+This example demonstrates how you can configure the Lock-in Amplifier
+instrument to demodulate an input signal from Input 1 with the reference
+signal from the Local Oscillator to extract the X component and generate
+a sine wave on the auxiliary output
+
+<<< @/docs/examples/python/lock_in_amplifier_basic.py
+
+## lock_in_amplifier_plotting.py
+
+This example demonstrates how you can configure the Lock-in Amplifier
+instrument to demodulate an input signal from Input 1 with the reference
+signal from the Local Oscillator to extract the X component and generate
+a sine wave on the auxiliary output
+
+<<< @/docs/examples/python/lock_in_amplifier_plotting.py
+
 ## logic_analyzer_plotting.py
 
 This example demonstrates how you can configure the Logic
@@ -52,8 +84,15 @@ to retrieve a single frame of dual-channel voltage data.
 This example demonstrates how you can configure the Oscilloscope instrument,
 and view triggered time-voltage data frames in real-time.
 
-
 <<< @/docs/examples/python/oscilloscope_plotting.py
+
+## phasemeter_basic.py
+
+This example demonstrates how you can configure the Phasemeter
+instrument to measure 4 independent signals.
+
+<<< @/docs/examples/python/phasemeter_basic.py
+
 
 ## pidcontroller_basic.py
 
@@ -75,6 +114,13 @@ in real-time.
 
 
 <<< @/docs/examples/python/pidcontroller_plotting.py
+
+## powersupply_basic.py
+
+This example will demonstrate how to configure the power supply 
+units of the Moku:Go.
+
+<<< @/docs/examples/python/power_supply_basic.py
 
 ## spectrumanalyzer_basic.py
 
@@ -106,17 +152,3 @@ to generate an amplitude modulated sine wave on Channel 1, and a sweep
 modulated sine wave on Channel 2.
 
 <<< @/docs/examples/python/waveformgenerator_modulation.py
-
-## phasemeter_basic.py
-
-This script demonstrates how to use the Phasemeter instrument to 
-retrieve data from 4 channels.
-
-<<< @/docs/examples/python/Phasemeter_basic.py
-
-## powersupply_basic.py
-
-This example will demonstrate how to configure the power supply 
-units of the Moku:Go.
-
-<<< @/docs/examples/python/power_supply_basic.py
