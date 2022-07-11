@@ -39,20 +39,19 @@ i.download("persist", file_name, "~/high_res_data.li")
 ```matlab
 % Connect to Moku
 m = MokuPIDController('192.168.###.###', false);
-data = m.get_data();
-disp(data.ch1);
-disp(data.ch2);
-disp(data.time);
+response = m.save_high_res_buffer();
+i.download("persist", response["file_name"], "./high_res_data.li")
 ```
 </code-block>
 
 <code-block title="cURL">
 ```bash
-$: curl -H 'Moku-Client-Key: <key>'\
-        -H 'Content-Type: application/json'\
-        --data '{}'\
-        http://<ip>/api/pid/get_data |
-        jq ".data.ch1"
+$: FNAME = `curl -H 'Moku-Client-Key: <key>'\
+              -H 'Content-Type: application/json'\
+              --data '{}'\
+              http://<ip>/api/oscilloscope/save_high_res_buffer |
+              jq .data.file_name`
+$: curl http://<ip>/api/persist/download/$FNAME -o $FNAME
 ```
 </code-block>
 

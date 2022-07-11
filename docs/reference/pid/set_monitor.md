@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the specified monitor channel to view the desired PID instrument
+description: Configures the specified monitor channel to view the desired PID probe point
   signal.
 method: post
 name: set_monitor

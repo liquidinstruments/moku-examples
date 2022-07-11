@@ -32,17 +32,28 @@ Ensure that there is an entry pointing to the toolbox installation location. A t
 
 ![Search Paths](./img/starting-matlab-4a.png)
 
-## 2. Test Installation
+## 2. Download the data files
+The Moku Scripting API for MATLAB requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, 
+this step is only required to be run whenever you first install or upgrade the library.
+
+From your MATLAB Command Window, issue the download command. This may take a while to complete, depending on your internet connection. 
+```
+$: moku_download(###)
+```
+
+The ### should be replaced with the current firmware version. You can find the current firmware version through the Moku: desktop app by right clicking on your Moku and hovering the mouse over 'Device info'.
+
+## 3. Test Installation
 
 From your MATLAB Command Window, run `help Moku`. If this command succeeds, then the toolbox has been successfully installed, otherwise refer to the Troubleshooting instructions below.
 
 ![help Moku](./img/starting-matlab-5.png)
 
-## 3. Find Your IP Address
+## 4. Find Your IP Address
 In order to connect to your Moku, you must know your device's IP Address. For full details and options, see [Finding your IP Address](ip-address.html).
 
 
-## 4. Next Steps
+## 5. Next Steps
 Visit our [MATLAB Examples](/examples/matlab/) for ready-to-run scripts to get started with instruments.
 
 For a full listing of all objects and methods, with example snippets for both Python and MATLAB, see our [API Reference](/reference/).
