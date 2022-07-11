@@ -6,20 +6,20 @@
 #
 # (c) 2021 Liquid Instruments Pty. Ltd.
 #
-from moku.instruments import Datalogger
+from moku.instruments import Oscilloscope
 
-# Connect to your Moku by its ip address using Datalogger('192.168.###.###')
-# or by its serial number using Datalogger(serial=123)
+# Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
+# or by its serial number using Oscilloscope(serial=123)
 # An instrument must be deployed to establish the connection with the
-# Moku, in this example we will use the Datalogger.
-i = Datalogger('192.168.###.###', force_connect=False)
+# Moku, in this example we will use the Oscilloscope.
+i = Oscilloscope('192.168.xxx.xxx', force_connect=False)
 
 try:
     # Configure Power Supply Unit 1 to 2 V and 0.1 A
     i.set_power_supply(1,enable=True,voltage=2, current=0.1)
     
     # Read the current status of Power Supply Unit 1 
-    print(i.read_power_supply(1))
+    print(i.get_power_supply(1))
 
 except Exception as e:
     print(f'Exception occurred: {e}')

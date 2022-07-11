@@ -17,7 +17,7 @@ settling_cycles = 1;
 
 %% Connect to Moku
 % Connect to your Moku using its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+i = MokuFrequencyResponseAnalyzer('192.168.xxx.xxx');
 
 try
 
@@ -27,7 +27,7 @@ try
     i.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
 
     % Configure measurement mode to In/Out
-    i.measurement_mode('input_only',false);
+    i.measurement_mode('mode','InOut');
 
     % Set sweep configuration
     i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
@@ -48,3 +48,4 @@ if ~isempty(ME)
     % End the current connection session with your Moku
     i.relinquish_ownership();
 end    
+

@@ -16,7 +16,7 @@ try
     i.set_power_supply(1,'enable',true,'voltage',2,'current',0.1);
     
     % Read the current status of Power Supply Unit 1 
-    disp(i.read_power_supply(1));
+    disp(i.get_power_supply(1));
 
 catch ME
     % End the current connection session with your Moku
