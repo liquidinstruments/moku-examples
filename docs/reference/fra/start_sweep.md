@@ -3,7 +3,20 @@ additional_doc: null
 description: Start sweeping
 method: post
 name: start_sweep
-parameters: []
+parameters:
+- default: false
+  description: If true, enables single sweep mode.
+  name: single
+  param_range: null
+  type: boolean
+  unit: null
+  warning: To avoid timeouts while reading the data, it is recommended to set the timeout parameter of `get_data` function to a value greater than the `estimated_sweep_time` which is included in the response of this function.
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
 summary: start_sweep
 ---
 
@@ -58,3 +71,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+```json
+{
+ "estimated_sweep_time": 10.492993950848678
+}
+```

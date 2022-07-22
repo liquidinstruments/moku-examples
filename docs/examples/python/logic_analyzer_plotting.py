@@ -1,46 +1,67 @@
 #
 # moku example: Basic Logic Analyzer
 #
-# This example demonstrates how you can configure the Logic
-# Analyzer instrument to retrieve a single frame of data for 
-# all 16 channels
+# This example demonstrates how to use Pattern Generator in
+# Logic Analyzer and generate and observe patterns on DIO pins.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2022 Liquid Instruments Pty. Ltd.
 #
+
 import matplotlib.pyplot as plt
 from moku.instruments import LogicAnalyzer
 
-# Connect to your Moku by its ip address using LogicAnalyzer('192.168.###.###')
+# Connect to your Moku by its ip address using
+# LogicAnalyzer('192.168.###.###')
 # or by its serial number using LogicAnalyzer(serial=123)
-i = LogicAnalyzer('10.1.111.201', force_connect=False)
+i = LogicAnalyzer('192.168.###.###')
 
 try:
-    # Configure the Logic Analyzer pins
-    i.set_pins("Pin1", 'O') # Pin 1 as output
-    i.set_pins("Pin2", 'H') # Pin 2 as High
-    i.set_pins("Pin3", 'L') # Pin 3 as Low
-    i.set_pins("Pin4", 'I') # Pin 4 as Input
-    i.set_pins("Pin5", 'X') # Pin 5 turned off
 
-    # Print the current state of the instrument
-    print(i.summary())
+    patterns = [{"pin": 1, "pattern": [1] * 1024},  # logic high
+                {"pin": 2, "pattern": [0] * 1024},  # logic low
+                {"pin": 3, "pattern": [0, 1] * 512},
+                {"pin": 4, "pattern": [1, 0] * 512}]
 
-    # Configure the output pattern for Pin 1
-    i.generate_pattern("Pin1", [1, 1, 1, 0, 0, 0, 0, 0])
+    i.set_pattern_generator(1, patterns=patterns, divider=8)
 
-    # Start the output on all pins that are set as output
-    i.start_all()
+    pin_status = [{"pin": 1, "state": "PG1"},
+                  {"pin": 2, "state": "PG1"},
+                  {"pin": 3, "state": "PG1"},
+                  {"pin": 4, "state": "PG1"}]
 
-    # Configure the trigger to be Pin 2 with default trigger settings
-    i.set_trigger(source='Pin2')
+    i.set_pins(pins=pin_status)
+    data = i.get_data(wait_reacquire=True, include_pins=[1, 2, 3, 4])
 
-    # Collect a frame of data from all 16 pins, but only print Pin 1
-    data = i.get_data()
-    print(data['pin1'])
-    
+    pin1, = plt.step(data["time"], data["pin1"])
+    pin2, = plt.step(data["time"], [i + 2 for i in data["pin2"]])
+    pin3, = plt.step(data["time"], [i + 4 for i in data["pin3"]])
+    pin4, = plt.step(data["time"], [i + 6 for i in data["pin4"]])
+
+    plt.ion()
+    plt.show()
+    plt.grid(True)
+    plt.ylim([-1, 8])
+    plt.yticks([0, 2, 4, 6], labels=["Pin1", "Pin2", "Pin3", "Pin4"])
+
+    while True:
+        data = i.get_data(wait_reacquire=True,
+                          include_pins=[1, 2, 3, 4])
+
+        pin1.set_xdata(data["time"])
+        pin2.set_xdata(data["time"])
+        pin3.set_xdata(data["time"])
+        pin4.set_xdata(data["time"])
+
+        pin1.set_ydata(data["pin1"])
+        pin2.set_ydata([i + 2 for i in data["pin2"]])
+        pin3.set_ydata([i + 4 for i in data["pin3"]])
+        pin4.set_ydata([i + 6 for i in data["pin4"]])
+
+        plt.pause(0.001)
+
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

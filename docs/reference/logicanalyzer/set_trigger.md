@@ -1,53 +1,34 @@
 ---
 additional_doc: null
-description: Sets trigger source and parameters.
+description: Configures the trigger on pin(s).
 method: post
 name: set_trigger
 available_on: "mokugo"
 parameters:
-
 - default: null
-  description: Trigger Source Pin
-  name: source
-  param_range: 1 to 16
-  type: integer
+  description: List of Pin-Trigger edge mapping
+  name: pins
+  param_range: Pin - 1 to 16; Trigger edge - Rising, Falling, Both
+  type: array
   unit: null
-- default: Edge
-  description: Trigger type
+- default: false
+  description: Toggle advanced trigger mode
   name: type
-  param_range: Edge, Pulse
-  type: string
+  param_range: null
+  type: boolean
   unit: null
 - default: Auto
   description: Trigger mode
   name: mode
-  param_range: Auto, Normal, Single
+  param_range: Auto, Normal
   type: string
   unit: null
-- default: Rising
-  description: Which edge to trigger on (edge mode only)
-  name: edge
-  param_range: Rising, Falling, Both
+- default: AND
+  description: Trigger combination
+  name: combination
+  param_range: AND, OR
   type: string
   unit: null
-- default: Positive
-  description: Trigger pulse polarity
-  name: polarity
-  param_range: Positive, Negative
-  type: string
-  unit: null
-- default: GreaterThan
-  description: Trigger pulse width condition (pulse mode only)
-  name: width_condition
-  param_range: GreaterThan, LessThan
-  type: string
-  unit: null
-- default: 0.0001
-  description: Trigger width
-  name: width
-  param_range: 26e-3 to 10
-  type: number
-  unit: Seconds
 - default: 1
   description: The number of trigger events to wait for before triggering
   name: nth_event
@@ -73,26 +54,23 @@ summary: set_trigger
 <headers/>
 <parameters/>
 
+:::tip TIP
+To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](get_data.md) method exactly once.
+:::
+
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.set_trigger(
-            source=1,         # Pin1
-            type="Edge",
-            mode="Auto",
-            edge="Rising",
-            width=0.0001,
-            holdoff=0
-)
+i.set_trigger([{"pin": 1, "edge": "Rising"}])
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_trigger(1, 'type','Edge','mode','Auto');
+m.set_trigger([struct('pin',1,'edge','Rising')]);
 ```
 </code-block>
 
@@ -100,8 +78,7 @@ m.set_trigger(1, 'type','Edge','mode','Auto');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{ "type":"Edge", "source":1, "mode":"Auto", "edge":"Rising", 
-"width":0.0001, "holdoff":0}'\
+        --data '{"pins":[{"pin":1,"edge":"Rising"}]}'\
         http://<ip>/api/logicanalyzer/set_trigger
 ```
 </code-block>
@@ -110,14 +87,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response 
 ```json
 {
-  "edge": "Rising",
-  "holdoff": 0.0,
-  "mode": "Auto",
-  "nth_event": 1,
-  "polarity": "Positive",
-  "source": "Pin1",
-  "type": "Edge",
-  "width": 0.0001,
-  "width_condition": "GreaterThan"
+  "edge":"Rising",
+  "holdoff":0.0,
+  "mode":"Auto",
+  "nth_event":1,
+  "source":"Pin1"
 }
 ```

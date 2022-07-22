@@ -4,7 +4,7 @@ description: Get a frame of the data from the instrument
 method: get
 name: get_data
 parameters: 
-- default: null
+- default: false
   description: Wait for a new trigger event
   name: wait_reacquire
   param_range: null

@@ -34,7 +34,7 @@ try
     i.set_timebase(-0.002,0.002);
     
     % Configure the trigger
-    i.set_trigger('type',"Edge", 'source',"Input1", 'level',0);
+    i.set_trigger('type',"Edge", 'source',"ProbeA", 'level',0);
     
     %% Set up plots
     % Get initial data to set up plots
@@ -62,7 +62,4 @@ catch ME
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
+i.relinquish_ownership();

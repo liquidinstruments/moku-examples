@@ -20,7 +20,7 @@ parameters:
   param_range: null
   type: integer
   unit: null
-- default: 20
+- default: undefined
   description: Overall Gain
   name: overall_gain
   param_range: null

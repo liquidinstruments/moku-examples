@@ -20,7 +20,7 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: 20
+- default: undefined
   description: Overall Gain
   name: overall_gain
   param_range: null

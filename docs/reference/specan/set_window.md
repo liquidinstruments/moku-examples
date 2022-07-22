@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Window Function
   name: window
-  param_range: BlackmanHarris, FlatTop, Hanning, Rectangular
+  param_range: BlackmanHarris, FlatTop, Rectangular, Bartlett, Hamming, Hann, Nuttall, Gaussian, Kaiser
   type: string
   unit: null
 - default: true

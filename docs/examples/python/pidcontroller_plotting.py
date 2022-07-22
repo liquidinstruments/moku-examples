@@ -8,7 +8,7 @@
 # The output response of each PID Controller channel is plotted
 # in real-time.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2022 Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 from moku.instruments import PIDController
@@ -26,12 +26,12 @@ try:
 
     # Configure the Channel 1 PID Controller using frequency response
     # characteristics
-    # 	P = -10dB
-    #	I Crossover = 100Hz
-    # 	D Crossover = 10kHz
-    # 	I Saturation = 10dB
-    # 	D Saturation = 10dB
-    # 	Double-I = OFF
+    #   P = -10dB
+    #   I Crossover = 100Hz
+    #   D Crossover = 10kHz
+    #   I Saturation = 10dB
+    #   D Saturation = 10dB
+    #   Double-I = OFF
     # Note that gains must be converted from dB first
     i.set_by_frequency(channel=1, prop_gain=-10, int_crossover=1e2,
                        diff_crossover=1e4, int_saturation=10,
@@ -48,7 +48,7 @@ try:
 
     # Set the timebase
     i.set_timebase(-1e-3, 1e-3) # +- 1msec
-    i.set_trigger(type='Edge', source='Input1', level=0)
+    i.set_trigger(type='Edge', source='ProbeA', level=0)
 
     # Enable the output channels of the PID controller
     i.enable_output(1, True, True)

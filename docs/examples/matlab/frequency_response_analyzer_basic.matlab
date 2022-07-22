@@ -17,7 +17,7 @@ settling_cycles = 1;
 
 %% Connect to Moku
 % Connect to your Moku using its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.xxx.xxx');
+i = MokuFrequencyResponseAnalyzer('192.168.###.###');
 
 try
 
@@ -44,8 +44,6 @@ catch ME
     rethrow(ME);
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end    
-
+% End the current connection session with your Moku
+i.relinquish_ownership();
+ 

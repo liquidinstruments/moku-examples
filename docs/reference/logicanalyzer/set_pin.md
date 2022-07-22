@@ -14,11 +14,11 @@ parameters:
 - default: null
   description: State of the target pin.
   name: state
-  param_range: I, O, H, L, X
+  param_range: I, PG1, PG2
   type: string
   unit: null
 - default: true
-  description: Disable all implicit conversions and coercions. Please refer to [Pin Status Definitions](README.md) for the list of available statuses
+  description: Disable all implicit conversions and coercions. 
   name: strict
   param_range: null
   type: boolean
@@ -32,7 +32,10 @@ available_on: "mokugo"
 <parameters/>
 
 Please refer to [Pin Status Definitions](README.md) for the list of available statuses
-
+:::tip Note
+set_pin only configures the state of the Pin, to generate a pattern on a pin use
+[set_pattern_generator](set_pattern_generator.md)
+:::
 ### Examples
 
 
@@ -41,14 +44,14 @@ Please refer to [Pin Status Definitions](README.md) for the list of available st
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.set_pin(1, "O")
+i.set_pin(1, "PG1")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_pin('pin',1, 'state','O');
+m.set_pin(1, 'PG1');
 ```
 </code-block>
 
@@ -63,7 +66,4 @@ $: curl -H 'Moku-Client-Key: 17ee67f8476'\
 
 </code-group>
 
-:::tip Note
-set_pin only configures the state of the Pin, to generate a pattern on a pin use
-[generate_pattern](generate_pattern.md)
-:::
+

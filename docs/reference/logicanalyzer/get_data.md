@@ -4,7 +4,7 @@ description: Get current sweep data.
 method: post
 name: get_data
 parameters:
-- default: null
+- default: false
   description: Wait for a new trigger event
   name: wait_reacquire
   param_range: null
@@ -16,6 +16,13 @@ parameters:
   param_range: 0 - inf
   type: number
   unit: Seconds
+- default: undefined
+  description: Optional list of pin numbers to filter results on
+  name: include_pins
+  param_range: 0 - inf
+  type: number
+  unit: Seconds
+  example: [1, 2, 3, 4]
 summary: get_data
 available_on: "mokugo"
 ---
@@ -37,6 +44,8 @@ Every data frame is a time series data of **1024** points with following structu
   .
   .
   "pin16":[],  // 1024 points
+  "pa1":[],  // 1024 points for Protocol Analyzer 1
+  "pa2":[],  // 1024 points for Protocol Analyzer 2
   "time":[],  // 1024 points
 }
 ```

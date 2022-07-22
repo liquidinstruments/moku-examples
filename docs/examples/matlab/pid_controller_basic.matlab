@@ -32,7 +32,4 @@ catch ME
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
+i.relinquish_ownership();

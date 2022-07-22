@@ -13,12 +13,11 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: false
-  description: If enabled, measures input signal alone. Defaults to false, which is
-    In/Out mode
-  name: input_only
-  param_range: null
-  type: boolean
+- default: InOut
+  description: Measurement mode
+  name: mode
+  param_range: In, InOut, InIn1
+  type: string
   unit: null
 - default: 0
   description: Sweep start frequency

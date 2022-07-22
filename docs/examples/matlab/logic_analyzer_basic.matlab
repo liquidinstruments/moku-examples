@@ -1,59 +1,68 @@
-%% Basic Logic Analyzer Example 
+%% Basic LogicAnalyzer Example
 %
-%  This example demonstrates how you can configure the Logic
-%  Analyzer instrument to retrieve a single frame of data for 
-%  all 16 channels
+%  This example demonstrates how you can configure the LogicAnalyzer instrument.
 %
 %  (c) 2021 Liquid Instruments Pty. Ltd.
 %
-    
+
 %% Connect to your Moku
-% Connect to your Moku by its IP address.
+% Connect to your Moku and deploy the oscilloscope instrument
 i = MokuLogicAnalyzer('192.168.###.###');
 
 try
+    patterns = [struct('pin', 1, 'pattern', repmat([1],1,1024)), ...
+        struct('pin', 2, 'pattern', repmat([0],1,1024)), ...
+        struct('pin', 3, 'pattern', repmat([1 0],1,512)), ...
+        struct('pin', 4, 'pattern', repmat([0 1],1,512))];
+    
+    
+    i.set_pattern_generator(1, patterns, 'divider', 8);
+    
+    pin_status = [struct('pin', 1, 'state', 'PG1'),...
+        struct('pin', 2, 'state', 'PG1'),...
+        struct('pin', 3, 'state', 'PG1'),...
+        struct('pin', 4, 'state', 'PG1')];
+    
+    i.set_pins(pin_status);
+    
+    data = i.get_data('wait_reacquire', true, 'include_pins', [1, 2, 3, 4]);
+    
+    tiledlayout(4,1)
+    
+    ax1 = nexttile;
+    p1 = stairs(data.time, data.pin1, 'Color','r');
+    
+    ax2 = nexttile;
+    p2 = stairs(data.time, data.pin2, 'Color','r');
+    
+    ax3 = nexttile;
+    p3 = stairs(data.time, data.pin3, 'Color','r');
+    
+    ax4 = nexttile;
+    p4 = stairs(data.time, data.pin4, 'Color','r');
+    
 
     
-    %% Configure the instrument
+    linkaxes([ax1 ax2 ax3 ax4],'xy');
     
-    % Configure the digital pins
-    % - Pin 1 as an output pin
-    % - Pin 2 as high
-    % - Pin 3 as low
-    % - Pin 4 as input
-    % - Pin 5 as input
-    % - Pin 6 as input
-    i.set_pins("Pin1", 'O');
-    i.set_pins("Pin2", 'H');
-    i.set_pins("Pin3", 'L');
-    i.set_pins("Pin4", 'I');
-    i.set_pins("Pin5", 'I');
-    i.set_pins("Pin6", 'I');
+    %% Receive and plot new data frames
+    while 1
+        data = i.get_data();
+        set(p1,'XData',data.time,'YData',data.pin1);
+        set(p2,'XData',data.time,'YData',data.pin2);
+        set(p3,'XData',data.time,'YData',data.pin3);
+        set(p4,'XData',data.time,'YData',data.pin4);
+        
+        axis tight
+        pause(0.1)
+    end
     
-    % Configure Pin 1 output pattern to [1 1 0 0]
-    i.generate_pattern('Pin1', [1 1 0 0]);
-    
-    % Start the IO pin outputs for all pins
-    i.start_all();
-    
-    % Set trigger channel as Pin 5
-    i.set_trigger("Pin5");
-    
-    % View +- 100 nanosecond i.e. trigger in the centre
-    i.set_timebase(-100e-9,100e-9,false);
-    
-    %% Retrieve data
-    % Get one frame of data for all 16 pins
-    data = i.get_data();
-
 catch ME
     % End the current connection session with your Moku
     i.relinquish_ownership();
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
 
+% End the current connection session with your Moku
+i.relinquish_ownership();

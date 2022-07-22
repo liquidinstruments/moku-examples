@@ -1,13 +1,26 @@
 ---
 additional_doc: The PLL in the LIA instrument is driven by the Moku's Input 2 and can optionally be used as a demodulation source. See `set_demodulation`.
-description: Sets the tracking bandwidth of the PLL.
+description: Sets the frequency acquisition/configuration and tracking bandwidth of the PLL.
 method: post
-name: set_pll_bandwidth
+name: set_pll
 parameters:
-- default: null
+- default: true
+  description: Auto acquire PLL frequency
+  name: auto_acquire
+  param_range: null
+  type: boolean
+  unit: null
+- default: undefined
+  description: PLL frequency
+  name: frequency
+  param_range: null
+  type: number
+  unit: Hz
+  warning: Setting frequency has no impact when auto_acquire is true
+- default: 1kHz
   description: PLL Bandwidth
   name: bandwidth
-  param_range: 10kHz, 2k5Hz, 600Hz, 150Hz, 40Hz, 10Hz
+  param_range: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
   type: string
   unit: null
 - default: true
@@ -16,7 +29,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_pll_bandwidth
+summary: set_pll
 group: Input PLL
 ---
 

@@ -3,7 +3,7 @@ description: Get single frame of the data from the instrument
 method: post
 name: get_data
 parameters:
-- default: null
+- default: false
   description: Wait for a new trigger event
   name: wait_reacquire
   param_range: null

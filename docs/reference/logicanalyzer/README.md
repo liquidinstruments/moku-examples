@@ -16,11 +16,10 @@ name as used in the URL is `logicanalyzer`.
 #### Available states for a pin are:
 
 | State | Description             |
-| ----- |:---------------------- |
+| ----- |:----------------------  |
 | I     | Input                   |
-| O     | Output                  |
-| H     | High, pin is set to 1   |
-| L     | Low, pin is set to 0    |
-| X     | Off, Pin is off         |
+| PG1   | PatternGenerator1       |
+| PG2   | PatternGenerator2       |
+
 
 <function-index/>

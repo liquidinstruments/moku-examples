@@ -4,7 +4,7 @@
 # in the PID Controller instrument. Configuration is done by specifying
 # frequency response characteristics of the controller.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2022 Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import PIDController
@@ -38,9 +38,7 @@ try:
     i.set_by_gain(channel=2, overall_gain=0, prop_gain=10, diff_gain=-5, 
         diff_corner=5e3,)
     
-    # Enable the inputs and outputs of the PID controller
-    i.enable_input(1, enabled=True)
-    i.enable_input(2, enabled=True)
+    # Enable the outputs of the PID controller
     i.enable_output(1, signal=True, output=True)
     i.enable_output(2, signal=True, output=True)
     

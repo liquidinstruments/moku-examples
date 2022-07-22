@@ -25,20 +25,21 @@ try
     i.generate_waveform(2, 'Square', 'amplitude',1, 'frequency', 1e3, 'duty', 50);
     
     % Start the data logging session of 10 second and store the file on the RAM
-    log_file = i.start_logging('duration',10);
+    logging_request = i.start_logging('duration',10);
+    log_file = logging_request.file_name;
     
     % Set up to display the logging process
     progress = i.logging_progress();
     
-    while str2double(progress.time_to_end) > 2
-        fprintf('%s seconds remaining \n',progress.time_to_end)
+    while progress.time_to_end > 1
+        fprintf('%d seconds remaining \n',progress.time_to_end)
         pause(1);
         progress = i.logging_progress();
     end
     
     % Download the log file from the Moku to "Users" folder
     % Moku:Go should be downloaded from "persist" and Moku:Pro from "ssd"
-    i.download_file2('persist',log_file,['C:\Users\' log_file]);
+    i.download_file('persist',log_file,['C:\Users\' log_file]);
 
 catch ME
     % End the current connection session with your Moku
@@ -46,7 +47,5 @@ catch ME
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
+% End the current connection session with your Moku
+i.relinquish_ownership();

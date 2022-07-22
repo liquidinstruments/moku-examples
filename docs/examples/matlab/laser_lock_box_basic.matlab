@@ -9,7 +9,7 @@
 %% Connect to your Moku
 % Connect to your Moku by its IP address and deploy the Laser Lock Box
 % instrument.
-i = MokuLaserLockBox('192.168.xxx.xxxx');
+i = MokuLaserLockBox('192.168.###.###');
 
 try
     %% Configure the instrument
@@ -49,10 +49,7 @@ catch ME
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
+i.relinquish_ownership();
 
 
 
