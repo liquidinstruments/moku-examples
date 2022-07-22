@@ -11,7 +11,7 @@
 %% Connect to your Moku
 % Connect to your Moku by its IP address and deploy the Lock-in Amplifier 
 % instrument.
-i = MokuLockInAmp('192.168.xxx.xxx');
+i = MokuLockInAmp('192.168.###.###');
 
 try
     %% Configure the instrument
@@ -73,9 +73,6 @@ catch ME
     rethrow(ME)
 end
 
-if ~isempty(ME)
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-end
+i.relinquish_ownership();
 
 

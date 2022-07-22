@@ -1,5 +1,6 @@
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const getChildren = require('./getChildren').getChildren
+const externalClockAdmin = require('./sidebar-menus/ext_clk')
 const powerSuppliesAdmin = require('./sidebar-menus/powersupplies')
 const staticAdmin = require('./sidebar-menus/static')
 const { children } = require('./sidebar-menus/moku')
@@ -54,6 +55,7 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [
                         mokuPropAdmin,
+                        externalClockAdmin,
                         staticAdmin,
                         powerSuppliesAdmin,
                     ]

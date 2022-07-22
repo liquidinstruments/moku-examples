@@ -12,7 +12,7 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: -10
+- default: undefined
   description: Proportional gain factor
   name: prop_gain
   param_range: -60 to 60

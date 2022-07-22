@@ -1,5 +1,5 @@
 ---
-description: Get all the data from the instrument
+description: Get the most recent amplitude, frequency and phase reading
 method: post
 name: get_data
 parameters:
@@ -26,28 +26,34 @@ available_on: "mokupro"
 Every time the function is called, the data will be returned in the following format
 
 ```json
-{"data":{
-  "ch1":{
-      "frequency":[],  
-      "amplitude":[],
-      "phase":[],
-      },
-  "ch2":{
-      "frequency":[],  
-      "amplitude":[],
-      "phase":[],
-      },
-  "ch3":{
-      "frequency":[],  
-      "amplitude":[],
-      "phase":[],
-      },
-  "ch4":{
-      "frequency":[],  
-      "amplitude":[],
-      "phase":[],
-      }
-}}
+{
+  "data":{
+    "ch1":{
+      "frequency":...,
+      "amplitude":...,
+      "phase":...,
+      
+    },
+    "ch2":{
+      "frequency":...,
+      "amplitude":...,
+      "phase":...,
+      
+    },
+    "ch3":{
+      "frequency":...,
+      "amplitude":...,
+      "phase":...,
+      
+    },
+    "ch4":{
+      "frequency":...,
+      "amplitude":...,
+      "phase":...,
+      
+    }
+  }
+}
 ```
 
 Below are the examples on how to read the data frame,

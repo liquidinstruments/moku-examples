@@ -4,7 +4,7 @@ description: Get current sweep data
 method: post
 name: get_data
 parameters:
-- default: null
+- default: false
   description: Wait for a new trigger event
   name: wait_reacquire
   param_range: null
@@ -26,6 +26,11 @@ summary: get_data
 <headers/>
 <parameters/>
 
+:::tip NOTE
+When the single sweep mode is enabled, it is recommended to set the `timeout` parameter to a value greater than the *estimated_sweep_time*, failing to do this will raise a timeout error. *estimated_sweep_time* is returned as part of response in `set_sweep` and `start_sweep` functions. It can also be retreived using `get_sweep` fucntion.
+:::
+
+Every data frame is of **1024** points with following structure,
 
 ```json
 "data":{

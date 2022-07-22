@@ -18,7 +18,7 @@ getters:
     unit: null
 - summary: get_sweep
   description: Get the current sweep configuration
-  additional_doc: Response includes start_frequency, stop_frequency, averaging_cycles, settling_cycles, averaging_time, settling_time, num_points, linear_scale
+  additional_doc: Response includes start_frequency, stop_frequency, averaging_cycles, settling_cycles, averaging_time, settling_time, num_points, linear_scale, estimated_sweep_time
 - summary: get_frontend
   description: Get the input impedance, coupling, and range for given input channel
   parameters:

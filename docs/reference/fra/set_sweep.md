@@ -119,12 +119,13 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 ```json
 {
-  "averaging_cycles":5,
-  "averaging_time":0.001,
-  "num_points":256,
-  "settling_cycles":5,
-  "settling_time":0.001,
-  "start_frequency":20000000.0,
+  "averaging_cycles":1,
+  "averaging_time":0.01,
+  "estimated_sweep_time":10.492993950848678,
+  "num_points":512,
+  "settling_cycles":1,
+  "settling_time":0.01,
+  "start_frequency":10000000.0,
   "stop_frequency":100.0
 }
 ```

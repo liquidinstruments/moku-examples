@@ -16,8 +16,8 @@ parameters:
       (defaults to Input1)'
   name: source
   param_range: 
-    mokugo: Input1, Input2, Output1, Output2, ProbeA, ProbeB
-    mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, ProbeA, ProbeB, ProbeC, ProbeD
+    mokugo: ProbeA, ProbeB
+    mokupro: ProbeA, ProbeB, ProbeC, ProbeD
   type: string
   unit: null
 - default: 0
@@ -29,7 +29,7 @@ parameters:
 - default: Auto
   description: Trigger mode
   name: mode
-  param_range: Auto, Normal, Single
+  param_range: Auto, Normal
   type: string
   unit: null
 - default: Rising
@@ -106,6 +106,10 @@ group: Monitors
 
 <headers/>
 <parameters/>
+
+:::tip TIP
+To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](get_data.md) method exactly once.
+:::
 
 ### Examples
 

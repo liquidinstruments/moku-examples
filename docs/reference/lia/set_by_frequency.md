@@ -4,7 +4,7 @@ description: Configure the embedded PID controller using crossover frequencies.
 method: post
 name: set_by_frequency
 parameters:
-- default: -10
+- default: undefined
   description: Proportional gain factor
   name: prop_gain
   param_range: -60 to 60

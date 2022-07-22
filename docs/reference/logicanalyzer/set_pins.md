@@ -6,7 +6,7 @@ name: set_pins
 parameters:
 
 - default: null
-  description: List of pins with corresponding states to configure
+  description: List of pins with corresponding state to configure
   name: pins
   type: array
   unit: null
@@ -27,23 +27,26 @@ available_on: "mokugo"
 
 Please refer to [Pin Status Definitions](README.md) for the list of available statuses
 
+:::tip Note
+set_pin only configures the state of the Pin, to generate a pattern on a pin use
+[set_pattern_generator](set_pattern_generator.md)
+:::
+
+
 ### Sample request,
 ```json
 [
   {
     "pin": 1,
-    "state": "O"
+    "state": "PG1"
   },
   {
     "pin": 2,
-    "state": "H"
-  },
-  {
-    "pin": 3,
-    "state": "L"
+    "state": "PG2"
   }
 ]
 ```
+
 ### Examples
 
 
@@ -52,9 +55,8 @@ Please refer to [Pin Status Definitions](README.md) for the list of available st
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-pins = [dict(pin=1, state="O"),
-        dict(pin=2, state="H"),
-        dict(pin=3, state="L")]
+pins = [dict(pin=1, state="PG1"),
+        dict(pin=2, state="PG2")]
 i.set_pins(pins)
 ```
 </code-block>
@@ -62,19 +64,10 @@ i.set_pins(pins)
 <code-block title="MATLAB">
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-% Configure pin1 to "O"
-pin1.pin = 1;
-pin1.state = 'O';
-
-% Configure pin2 to "H"
-pin2.pin = 2;
-pin2.state = 'H';
-
-% Configure pin3 to "L"
-pin3.pin = 3;
-pin3.state = 'L';
-
-m.set_pins([pin1,pin2,pin3]);
+% Configure Pin to corresponding states
+pin_status = [struct('pin', 1, 'state', 'PG1'),...
+    struct('pin', 2, 'state', 'PG2')];
+m.set_pins(pin_status);
 ```
 </code-block>
 
@@ -82,22 +75,10 @@ m.set_pins([pin1,pin2,pin3]);
 ```bash
 $: curl -H 'Moku-Client-Key: 17ee67f8476'\
         -H 'Content-Type: application/json'\
-        --data '[{"pin": 1, "state": "O"}, {"pin": 2, "state": "H"}, {"pin": 3, "state": "L"}]'\
+        --data '[{"pin": 1, "state": "PG1"}, {"pin": 2, "state": "PG2"}]'\
         http://<ip>/api/logicanalyzer/set_pins
 ```
 </code-block>
 
 </code-group>
 
-:::tip Note
-set_pin only configures the state of the Pin, to generate a pattern on a pin use
-[generate_pattern](generate_pattern.md)
-:::
-
-
-### Sample response,
-```json
-[
-  "O", "H", "L"
-]
-```

@@ -5,8 +5,8 @@ description: Lockin Amplifier  - getter functions
 getters: 
 - summary: get_aux_output
   description: Get the current amplitude and frequency for auxiliary output
-- summary: get_pll_bandwidth
-  description: Get the current PLL bandwidth
+- summary: get_pll
+  description: Get the current PLL configuration
 - summary: get_filter
   description: Get the current filter parameters corner and slope
 - summary: get_gain

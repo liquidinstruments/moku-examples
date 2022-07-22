@@ -4,12 +4,11 @@ description: Toggle measurement between Input and Input/Output
 method: post
 name: measurement_mode
 parameters:
-- default: false
-  description: Set the measurement mode. If enabled, measures input signal alone.
-    Defaults to false, which is In/Out mode
-  name: input_only
-  param_range: null
-  type: boolean
+- default: InOut
+  description: Set the measurement mode.
+  name: mode
+  param_range: In, InOut, InIn1
+  type: string
   unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
@@ -34,7 +33,7 @@ from moku.instruments import FrequencyResponseAnalyzer
 
 i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
-i.fra_measurement(input_only=True)
+i.fra_measurement()
 ```
 </code-block>
 
@@ -42,7 +41,7 @@ i.fra_measurement(input_only=True)
 ```matlab
 m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-m.measurement_mode('input_only', true)
+m.measurement_mode()
 ```
 </code-block>
 
@@ -50,7 +49,7 @@ m.measurement_mode('input_only', true)
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"input_only": true}'\
+        --data '{}'\
         http://<ip>/api/fra/measurement_mode
 ```
 </code-block>
