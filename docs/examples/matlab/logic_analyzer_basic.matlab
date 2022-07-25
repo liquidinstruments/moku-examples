@@ -6,7 +6,7 @@
 %
 
 %% Connect to your Moku
-% Connect to your Moku and deploy the oscilloscope instrument
+% Connect to your Moku and deploy the Logic Analyzer instrument
 i = MokuLogicAnalyzer('192.168.###.###');
 
 try
