@@ -1,3 +1,4 @@
+const mimAdmin = require('./sidebar-menus/mim')
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const getChildren = require('./getChildren').getChildren
 const externalClockAdmin = require('./sidebar-menus/ext_clk')
@@ -58,9 +59,9 @@ module.exports = {
                         externalClockAdmin,
                         staticAdmin,
                         powerSuppliesAdmin,
+                        mimAdmin
                     ]
                 },
-
                 {
                     title: "Instruments",
                     collapsable: false,
