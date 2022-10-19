@@ -2,9 +2,9 @@
 additional_doc: null
 description: Check if the Moku is using the external reference clock
 method: get
-name: using_external_clock
+name: get_external_clock
 parameters: []
-summary: using_external_clock
+summary: get_external_clock
 available_on: "mokupro"
 ---
 
@@ -24,8 +24,8 @@ available_on: "mokupro"
 from moku.instruments import Oscilloscope
 
 i = Oscilloscope('192.168.###.###', force_connect=False)
-# Here you can access the using_external_clock function
-i.using_external_clock()
+# Here you can access the get_external_clock function
+i.get_external_clock()
 ```
 </code-block>
 
@@ -33,15 +33,15 @@ i.using_external_clock()
 ```matlab
 m = MokuOscilloscope('192.168.###.###', false);
 
-% Here you can access the using_external_clock function
-m.using_external_clock()
+% Here you can access the get_external_clock function
+m.get_external_clock()
 ```
 </code-block>
 
 <code-block title="cURL">
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        http://<ip>/api/moku/using_external_clock
+        http://<ip>/api/moku/get_external_clock
 ```
 </code-block>
 

@@ -3,15 +3,15 @@ additional_doc: When using either of the clients, user can access this function 
                 instrument reference.
 description: Enable/Disable the external reference clock on the Moku
 method: post
-name: enable_external_clock
+name: set_external_clock
 parameters:
 - default: true
   description: Boolean flag representing the desired state of the clock
-  name: external
+  name: enable
   param_range: null
   type: boolean
   unit: null
-summary: enable_external_clock
+summary: set_external_clock
 available_on: "mokupro"
 ---
 
@@ -31,8 +31,8 @@ available_on: "mokupro"
 from moku.instruments import Oscilloscope
 
 i = Oscilloscope('192.168.###.###', force_connect=False)
-# Here you can access the enable_external_clock function
-i.enable_external_clock()
+# Here you can access the set_external_clock function
+i.set_external_clock()
 ```
 </code-block>
 
@@ -40,8 +40,8 @@ i.enable_external_clock()
 ```matlab
 m = MokuOscilloscope('192.168.###.###', false);
 
-% Here you can access the enable_external_clock function
-m.enable_external_clock()
+% Here you can access the set_external_clock function
+m.set_external_clock()
 ```
 </code-block>
 
@@ -50,7 +50,7 @@ m.enable_external_clock()
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{}'\
-        http://<ip>/api/moku/enable_external_clock
+        http://<ip>/api/moku/set_external_clock
 ```
 </code-block>
 
