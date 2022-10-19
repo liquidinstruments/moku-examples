@@ -51,7 +51,7 @@ from moku.instruments import ArbitraryWaveformGenerator
 
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
 # Here you can access the set_power_supply function
-i.set_power_supply(1, enable=True, voltage=5, current=0.2)
+i.set_power_supply(1, enable=True, voltage=5, current=0.1)
 ```
 </code-block>
 
@@ -60,7 +60,7 @@ i.set_power_supply(1, enable=True, voltage=5, current=0.2)
 m = MokuOscilloscope('192.168.###.###', false);
 
 % Here you can access the set_power_supply function
-m.set_power_supply(1, 'enable', 'true', 'voltage', 5, 'current', 0.2)
+m.set_power_supply(1, 'enable', 'true', 'voltage', 5, 'current', 0.1)
 ```
 </code-block>
 
@@ -68,8 +68,8 @@ m.set_power_supply(1, 'enable', 'true', 'voltage', 5, 'current', 0.2)
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"id": 1, "enable": true, "voltage": 5, "current": 0.2}'\
-        http://<ip>/api/datalogger/set_acquisition_mode
+        --data '{"id": 1, "enable": true, "voltage": 5, "current": 0.1}'\
+        http://<ip>/api/datalogger/set_power_supply
 ```
 </code-block>
 
