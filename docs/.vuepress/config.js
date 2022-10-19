@@ -67,6 +67,7 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [
                         getChildren("Arbitrary Waveform Generator", "awg"),
+                        getChildren("Cloud Compile", "cloudcompile"),
                         getChildren("Datalogger", "datalogger"),
                         getChildren("Digital Filter Box", "dfb"),
                         getChildren("FIR FIlter", "fir"),
