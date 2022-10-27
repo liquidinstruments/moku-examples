@@ -16,7 +16,6 @@ summary: summary
 from moku.instruments import MultiInstrument, CloudCompile
 m = MultiInstrument('192.168.###.###', platform_id=2)
 cc = m.set_instrument(1, CloudCompile)
-# set instrument in slot 2
 # set connections
 cc.summary()
 ```
@@ -26,7 +25,6 @@ cc.summary()
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 cc = m.set_instrument(1, MokuCloudCompile);
-% set instrument in slot 2
 % set connections
 cc.summary();
 ```

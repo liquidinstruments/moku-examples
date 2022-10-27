@@ -12,11 +12,18 @@ parameters:
     mokupro: 1, 2, 3, 4
   type: integer
   unit: null
+- default: null
+  description: Interpolation state
+  name: enable
+  param_range: True, False
+  type: bool
+  unit: null
 summary: set_interpolation
 ---
 
-
 <headers/>
+
+Interpolation is generally preferred for connections to Analog I/O (ADCs and DACs), but not when connected to a Digital I/O port.
 
 <parameters/>
 
@@ -36,7 +43,6 @@ cc.set_interpolation(1, True)
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 cc = m.set_instrument(1, MokuCloudCompile);
-% set instrument in slot 2
 % set connections
 cc.set_interpolation(1, true);
 ```

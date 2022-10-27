@@ -18,13 +18,10 @@ parameters:
 summary: set_controls
 ---
 
-
-
 <headers/>
 <parameters/>
 
 ### Examples
-
 
 <code-group>
 <code-block title="Python">
@@ -32,7 +29,6 @@ summary: set_controls
 from moku.instruments import MultiInstrument, CloudCompile
 m = MultiInstrument('192.168.###.###', platform_id=2)
 cc = m.set_instrument(1, CloudCompile)
-# set instrument in slot 2
 # set connections
 controls = {"controls": [
     {"idx": 0, "value": 32836},
@@ -49,7 +45,6 @@ cc.set_controls(controls)
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 cc = m.set_instrument(1, MokuCloudCompile);
-% set instrument in slot 2
 % set connections
 % TODO
 ```

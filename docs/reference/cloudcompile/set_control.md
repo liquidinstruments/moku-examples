@@ -1,13 +1,13 @@
 ---
 additional_doc: null
-description: Set a control register value for the given id.
+description: Set a control register value
 method: post
 name: set_control
 parameters:
 - default: null
-  description: Target control register id
+  description: Target control register number
   name: idx
-  param_range: 1 to 16
+  param_range: 0 to 15
   type: integer
   unit: null
 - default: null
@@ -38,7 +38,6 @@ summary: set_control
 from moku.instruments import MultiInstrument, CloudCompile
 m = MultiInstrument('192.168.###.###', platform_id=2)
 cc = m.set_instrument(1, CloudCompile)
-# set instrument in slot 2
 # set connections
 cc.set_control(2, 156)
 ```
@@ -48,7 +47,6 @@ cc.set_control(2, 156)
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 cc = m.set_instrument(1, MokuCloudCompile);
-% set instrument in slot 2
 % set connections
 cc.set_control(2, 156);
 ```
