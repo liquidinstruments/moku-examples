@@ -29,7 +29,11 @@ Number of inputs and outputs for a given slot are instrument dependent, you must
 
 To connect `Input1` of the Moku to the first input of the instrument running in `Slot1` request will look something like 
 `{"source":"Input1", "destination":"Slot1InA"}`. Similarly, to connect output of instrument running in `Slot2` to `Output1` request will be
-`{"source":"Slot2OutA", "destination":"Output1"}`
+`{"source":"Slot2OutA", "destination":"Output1"}`.
+
+One source may be routed to multiple destinations, however each destination has a single source. The connections are applied in the order they appear in the request, so an attempt to specify multiple sources for a destination will silently succeed with the destination connected to the last source specified.
+
+Signals are not explicitly routed to and from busses in the way they can be in the Moku Application. Busses are allocated behind the scenes if the library detects that they are required.
 
 ### Examples
 
