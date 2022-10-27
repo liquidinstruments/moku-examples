@@ -1,5 +1,5 @@
 ---
-title: Starting MiM
+title: Getting Started with Multi-instrument Mode
 ---
 
 # Starting with Multi-instrument Mode
@@ -16,8 +16,12 @@ There are several steps required in order to use MiM:
 
 Depending on which programming language you choose, each step may look a little different.
 
+:::tip MATLAB, LabVIEW
+Multi-instrument Mode is available in MATLAB and LabVIEW, however documentation for these environments is still under development.
+:::
+
 ## Selecting the Multi-instrument Mode Configuration
-The configuration is parameterized by the number of slots you wish to have. At present, Moku:Go supports only 1 or 2 slots; Moku:Pro only supports 1 or 4. Specifying `1` is equivalent to disabling Multi-instrument Mode.
+The configuration is parameterized by the number of slots you wish to have. At present, Moku:Go supports only 1 or 2 slots; Moku:Pro only supports 1 or 4. Specifying "1" is equivalent to disabling Multi-instrument Mode.
 
 If using the REST API directly, the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
 
@@ -41,9 +45,9 @@ curl -H 'Moku-Client-Key: <key>' http://<ip>/api/moku/platform/2
 </code-group>
 
 ## Loading Instruments to Slots
-When interacting with an instrument directly from the REST API, the path to the instrument is prefixed with the slot in to which it has been put. For example, if you have Waveform Generators in both slots `1` and `2`, then you would use the paths `api/slot1/waveformgenerator/generate_waveform` and `api/slot2/waveformgenerator/generate_waveform` to configure waveforms on the individual instruments. To trigger the load of an instrument to a slot, you just need to `GET` the instrument's base path, e.g. a `GET` to `http://<ip>/api/slot1/waveformgenerator` will trigger the load of a Waveform Generator instrument in to Slot 1.
+If using our packaged drivers, like for Python, then the loading and addressing of instruments in specific slots is taken care of by the library, simply request an instrument object from the `MultiInstrument` class as below rather than creating one directly.
 
-If using our packaged drivers, like for Python, then this implementation detail is hidden from you and you simply must request an instrument object from the `MultiInstrument` class rather than creating one directly.
+When interacting with an instrument directly from the REST API, the path to the instrument is prefixed with the slot in to which it has been put. For example, if you have Waveform Generators in both slots `1` and `2`, then generating waveforms from each of the two instruments would use the paths `/api/slot1/waveformgenerator/generate_waveform` and `/api/slot2/waveformgenerator/generate_waveform`. To trigger the load of an instrument to a slot, you just need to `GET` the instrument's base path, e.g. a `GET` to `http://<ip>/api/slot1/waveformgenerator` will trigger the load of a Waveform Generator instrument in to Slot 1.
 
 <code-group>
 
@@ -121,3 +125,9 @@ curl -H 'Moku-Client-Key: <key>' http://<ip>/api/mim/set_frontend -d '{channel: 
 </code-block>
 
 </code-group>
+
+## Next Steps
+
+The instruments can now be controlled in the same way as usual. If using a packaged driver like Python, just ensure that you use the instrument object that is returned from the MiM connection, rather than creating a new one. If using the REST API directly, make sure to specify the slot in the URL.
+
+Connection, front-end, output and DIO settings can all be changed dynamically without interrupting the running instruments. New instruments can be loaded in to slots using the procedure above without interrupting the instruments in other slots.
