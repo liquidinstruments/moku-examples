@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: ssd, persist
+  param_range: ssd, persist, bitstream
   type: string
   unit: null
 - default: null
@@ -29,13 +29,21 @@ summary: upload_file
 <headers/>
 
 
-User can upload files to files to **persist** or **ssd** directories. If using the
+User can upload files to files to **bitstream**, **persist** or **ssd** directories. If using the
 REST API directly, these directories form the group name in the URL and the filename
 follows the upload command; e.g. `/api/persist/upload/<filename>`. No Client Key is
 required (ownership doesn't need to be taken).
 
 When using either of the clients, user can access this function directly from
 instrument reference.
+
+#### bitstream Directory
+Used for instrument logic. This is the destination to which one must upload Moku Cloud Compile
+bitstreams before they can be deployed.
+
+#### persist, ssd Directories
+Data Logger output directory and general storage. It's rare that the user will want to load
+files in to these locations, but the function is supported if required.
 
 <parameters/>
 
