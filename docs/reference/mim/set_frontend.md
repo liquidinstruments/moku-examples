@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configure the multi instrument mode frontend
+description: Configure the Analog front-end settings of the Moku when in Multi-instrument Mode.
 method: post
 name: set_frontend
 parameters:
@@ -46,10 +46,14 @@ summary: set_frontend
 
 <headers/>
 
+When in Multi-instrument Mode, the instruments themselves cannot configure the front-end settings of the Moku. For example, the Oscilloscope instrument is no longer in control of the input attenuation/range, as that input may be shared by multiple instruments.
+
+When in Multi-instrument Mode, the user must use this `set_frontend` function rather than the ones "typically" found in the namespaces of individual instruments.
+
 <parameters/>
 
-:::tip NOTE
-It is required to connect frontend to a slot before configuring it. Read [set_connections](set_connections.md)
+:::tip Make Connections First
+You must connect an Input (i.e. ADC) to an instrument before configuring its settings. See [set_connections](set_connections.md) for details of making the connection.
 :::
 
 ### Examples

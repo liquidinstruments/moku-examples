@@ -1,15 +1,15 @@
 ---
-title: Multi-instrument mode
+title: Multi-instrument Mode
 prev: false
 ---
 
-Multi-instrument mode
+Multi-instrument Mode
 ===========================
 
-Multi-instrument Mode allows you to run 2 instruments (Moku:Go) or 4 instruments (Moku:Pro) simultaneously, 
-with full access to the platform’s analog front-end, internal inputs, and back panel triggering.
+Multi-instrument Mode allows you to run several instruments simultaneously. Each instrument may be connected to other instruments, or to external I/O such as ADCs, DACs and Digital I/O as supported by the hardware.
 
-If you are directly using the RESTful API (e.g. using cURL), the namespace to use 
-in the URL is `mim`.
+For an introduction to using Multi-instrument Mode APIs, see our [Getting Started Guide to MiM](../../starting-mim.md).
+
+If you are directly using the RESTful API (e.g. using cURL), the namespace to use in the URL is `mim`.
 
 <function-index/>

@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Connects the instrument running in one slot with frontend, relays or instrument running in another slot.
+description: Connects the instrument to other instruments, or to external I/O.
 method: post
 name: set_connections
 parameters:
@@ -8,8 +8,8 @@ parameters:
   description: List of map of source and destination points
   name: connections
   param_range: 
-    mokugo: Input1, Input2, Output1, Output2, DIO
-    mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4
+    mokugo: Source [Input1, Input2, DIO, SlotXOutY]; Destination [Output1, Output2, DIO, SlotXInY]
+    mokupro: Source [Input1, Input2, Input3, Input4, SlotXInY]; Destination [Output1, Output2, Output3, Output4, SloutXOutY]
   type: array
   unit: null
 summary: set_connections
@@ -17,12 +17,15 @@ summary: set_connections
 
 <headers/>
 
-:::tip INFO
-Number of inputs and outputs for a given slot are instrument dependent, it is required to configure the instrument in slot before calling this method
+:::tip Incremental Use
+The connection action is *incremental*. That is, each connection specified in this function is made in addition to (or in replacement of) an existing connection. There is no way to remove a connection except by replacing it with something else.
+:::
+
+:::tip Set Instruments First
+Number of inputs and outputs for a given slot are instrument dependent, you must set up the instruments in the target slots before calling this method. See [Getting Started with MiM](../../starting-mim.md) for details.
 :::
 
 <parameters/>
-
 
 To connect `Input1` of the Moku to the first input of the instrument running in `Slot1` request will look something like 
 `{"source":"Input1", "destination":"Slot1InA"}`. Similarly, to connect output of instrument running in `Slot2` to `Output1` request will be
@@ -56,10 +59,11 @@ m.set_connections(connections=connections)
 # You should create a JSON file with the data content rather than passing
 # arguments on the CLI as the lookup data is necessarily very large
 $: cat request.json
-{
- 
-}
-$: curl -H 'Moku-Client-Key: <key>'        -H 'Content-Type: application/json'        --data @request.json        
+[{source: "InputA", destination: "Slot1InA"}]
+$: curl -H 'Moku-Client-Key: <key>' \
+    -H 'Content-Type: application/json' \
+    --data @request.json \
+    http://<ip>/api/mim/set_connections
 ```
 </code-block>
 

@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configure the output relays
+description: Configure the Output gain settings
 method: post
 name: set_output
 parameters:
@@ -13,7 +13,7 @@ parameters:
 - default: 
   description: Target channel
   name: channel
-  param_range: 
+  param_range: 1, 2, 3, 4
   type: integer
   unit: 
 - default: 
@@ -23,15 +23,19 @@ parameters:
   type: 
   unit: 
 summary: set_output
+available_on: "mokupro"
 ---
-
 
 <headers/>
 
+When in Multi-instrument Mode, the instruments themselves cannot configure the output gain settings of the Moku. For example, the Waveform Generator instrument is no longer in control of the output gain, as the user may dynamically change the mapping between Waveform Generator output channel and the physical DAC (or not connect it to a DAC at all).
+
+When in Multi-instrument Mode, the user must use this `set_output` function rather than the ones "typically" found in the namespaces of individual instruments.
+
 <parameters/>
 
-:::tip NOTE
-It is required to connect output(s) to a slot before configuring it. Read [set_connections](set_connections.md)
+:::tip Make Connections First
+You must connect an Output (i.e. DAC) to an instrument before configuring its settings. See [set_connections](set_connections.md) for details of making the connection.
 :::
 
 

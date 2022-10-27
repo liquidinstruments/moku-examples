@@ -1,21 +1,21 @@
 ---
-additional_doc: null
+additional_doc: 
 description: Configure the Digital IO direction
 method: post
 name: set_dio
 parameters:
-- default: 0
-  description: List of 16 DIO directions, one for each pin. Where, 0 represents In and 1 represents Out
-  name: direction
-  param_range: 0, 1
-  type: array
-  unit: null
-- default: undefined
-  description: A map or list of map of pin and direction to configure. 
+- default: nil
+  description: A list of maps of pin and direction to configure. Must not be specified at the same time as `direction`
   name: direction_map
-  param_range: 
+  param_range: "[{pin: 'PinX', direction: 'In'/'Out'}]"
   type: array
   unit: 
+- default: nil
+  description: List of 16 DIO directions, one for each pin. Where, 0 represents In and 1 represents Out. Must not be specified at the same time as `direction_map`.
+  name: direction
+  param_range: "[0/1, ...]"
+  type: array
+  unit: null
 - default: True
   description: Disable all implicit conversions and coercions.
   name: strict
@@ -28,6 +28,14 @@ available_on: "mokugo"
 
 
 <headers/>
+
+Digital I/O is configured for Input or Output at the pin level. To use DIO with Multi-instrument mode, the user must complete three steps:
+1. Set up the required instrument in the target slot,
+2. Configure inputs and/or outputs of that slot to be connected to the Digital I/O, and
+3. Configure the direction of the Digital I/O pins individually to meet the needs of the instrument.
+
+The instrument itself cannot govern the pin direction. Pins default to inputs. Pin direction is generally specified using the `direction_map` parameter below which accepts a list of one or more maps, each map sets the direction of a single pin. This can get cumbersome, so a convenience parameter `direction` exists which simply takes a list of exactly 16 0s and 1s, corresponding to input or output (respectively) for each of the 16 pins in the DIO block.
+
 <parameters/>
 
 :::tip NOTE
