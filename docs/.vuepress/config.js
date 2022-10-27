@@ -98,6 +98,7 @@ module.exports = {
                         'starting-matlab',
                         'starting-labview',
                         'starting-curl',
+                        'starting-mim',
                         'starting-other',
                         'ip-address'
                     ]
