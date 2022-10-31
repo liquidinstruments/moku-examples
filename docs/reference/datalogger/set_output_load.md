@@ -34,15 +34,15 @@ available_on: "mokupro"
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###')
+from moku.instruments import Datalogger
+i = Datalogger('192.168.###.###')
 i.set_output_load(1, "1MOhm")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
+m = MokuDatalogger('192.168.###.###');
 m.set_output_load(1, '1MOhm');
 ```
 </code-block>
@@ -52,7 +52,7 @@ m.set_output_load(1, '1MOhm');
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel":1,"load":"1MOhm"}'\
-        http://<ip>/api/awg/set_output_load
+        http://<ip>/api/datalogger/set_output_load
 ```
 </code-block>
 

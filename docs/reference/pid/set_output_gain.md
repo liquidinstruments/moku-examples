@@ -2,7 +2,7 @@
 additional_doc: null
 description: Configures the output load on a given channel.
 method: post
-name: set_output_load
+name: set_output_gain
 parameters:
 - default: null
   description: Target output channel to generate waveform on
@@ -10,10 +10,10 @@ parameters:
   param_range:  1, 2, 3, 4
   type: integer
   unit: null
-- default: null
-  description: Waveform load
-  name: load
-  param_range: 50Ohm, 1MOhm
+- default: 0dB
+  description: Output gain
+  name: gain
+  param_range: 0dB, 14dB
   type: string
   unit: null
 - default: true
@@ -22,7 +22,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_output_load
+summary: set_output_gain
 available_on: "mokupro"
 ---
 
@@ -34,16 +34,16 @@ available_on: "mokupro"
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###')
-i.set_output_load(1, "1MOhm")
+from moku.instruments import PIDController
+i = PIDController('192.168.###.###')
+i.set_output_gain(1, "1MOhm")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
-m.set_output_load(1, '1MOhm');
+m = MokuPIDController('192.168.###.###');
+m.set_output_gain(1, '1MOhm');
 ```
 </code-block>
 
@@ -52,7 +52,7 @@ m.set_output_load(1, '1MOhm');
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel":1,"load":"1MOhm"}'\
-        http://<ip>/api/awg/set_output_load
+        http://<ip>/api/pidcontroller/set_output_gain
 ```
 </code-block>
 

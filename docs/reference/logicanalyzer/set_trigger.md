@@ -13,7 +13,7 @@ parameters:
   unit: null
 - default: false
   description: Toggle advanced trigger mode
-  name: type
+  name: advanced
   param_range: null
   type: boolean
   unit: null

@@ -22,6 +22,17 @@ getters:
   description: Get the current sample rate
 - summary: get_sources
   description: Get the status and source for every available channel
+- summary: get_timebase
+  description: Get the configured timebase
+- summary: get_output_load
+  description: Get the output load for a given output channel
+  parameters:
+  - default: null
+    description: Target channel
+    name: channel
+    param_range: 1, 2, 3, 4
+    type: integer
+    unit: null
 
 ---
 <headers/>

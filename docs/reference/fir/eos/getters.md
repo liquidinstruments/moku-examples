@@ -7,6 +7,8 @@ getters:
   description: Get the current acquisition mode
 - summary: get_samplerate
   description: Get the current sample rate
+- summary: get_timebase
+  description: Get the configured timebase
 ---
 <headers/>
 <getters/>
