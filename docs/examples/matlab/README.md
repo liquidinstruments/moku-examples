@@ -38,6 +38,23 @@ sidebarDepth: 1
 ### logicanalyzer_basic.m
 <<< @/docs/examples/matlab/logic_analyzer_basic.matlab
 
+## Multi-instrument Mode
+### mim_wg_osc.m
+
+Multi-instrument Mode on Moku:Go (two-slot), deploying the Waveform Generator
+and Oscilloscope at once. This example is easily ported to Moku:Pro by changing
+the "platform_id" to one supported by that hardware.
+
+<<< @/docs/examples/matlab/mim_wg_osc.matlab
+
+### mim_wg_sa.m
+
+Multi-instrumemt Mode on Moku:Go (two slot), deploying the Waveform Generator
+and Spectrum Analyzer at once. This example is easily ported to Moku:Pro by changing
+the "platform_id" to one supported by that hardware.
+
+<<< @/docs/examples/matlab/mim_wg_sa.matlab
+
 ## Oscilloscope
 ### oscilloscope_basic.m
 <<< @/docs/examples/matlab/oscilloscope_basic.matlab

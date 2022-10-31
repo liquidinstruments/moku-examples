@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument
 from moku.instruments import Oscilloscope, WaveformGenerator
 
-m = MultiInstrument("10.1.111.85", force_connect=True, platform_id=2)
+m = MultiInstrument('192.168.###.###', platform_id=2)
 try:
     wg = m.set_instrument(1, WaveformGenerator)
     osc = m.set_instrument(2, Oscilloscope)

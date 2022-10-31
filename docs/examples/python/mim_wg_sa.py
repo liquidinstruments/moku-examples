@@ -3,15 +3,13 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument
 from moku.instruments import SpectrumAnalyzer, WaveformGenerator
 
-m = MultiInstrument("10.1.111.85", platform_id=2, force_connect=True)
+m = MultiInstrument("192.168.###.###", platform_id=2)
 try:
     w = m.set_instrument(1, WaveformGenerator)
     s = m.set_instrument(2, SpectrumAnalyzer)
 
     connections = [dict(source="Input1", destination="Slot1InA"),
-                   dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot1OutA", destination="Slot2InB"),
-                   dict(source="Slot2OutA", destination="Output1")]
+                   dict(source="Slot1OutA", destination="Slot2InA")]
 
     print(m.set_connections(connections=connections))
 
@@ -23,7 +21,6 @@ try:
     plt.ion()
     plt.show()
     plt.grid(b=True)
-    # plt.ylim([-2, 2])
     plt.autoscale(axis='x', tight=True)
 
     # Get an initial frame of data to set any frame-specific plot parameters
