@@ -54,7 +54,17 @@ m.set_connections(connections=connections)
 
 <code-block title="MATLAB">
 ```matlab
-
+m = MokuMultiInstrument('192.168.###.###', 2);
+%% Configure the instruments
+% WaveformGenrator in slot1
+wg = m.set_instrument(1, @MokuWaveformGenerator);
+osc = m.set_instrument(2, @MokuOscilloscope);
+% configure routing
+connections = [struct('source', 'Input1', 'destination', 'Slot1InA');
+            struct('source', 'Slot1OutA', 'destination', 'Slot2InA');
+            struct('source', 'Slot1OutA', 'destination', 'Slot2InB');
+            struct('source', 'Slot2OutA', 'destination', 'Output1')];
+m.set_connections(connections);
 ```
 </code-block>
 
@@ -63,7 +73,7 @@ m.set_connections(connections=connections)
 # You should create a JSON file with the data content rather than passing
 # arguments on the CLI as the lookup data is necessarily very large
 $: cat request.json
-[{source: "InputA", destination: "Slot1InA"}]
+{'connections':[{source: "InputA", destination: "Slot1InA"}]}
 $: curl -H 'Moku-Client-Key: <key>' \
     -H 'Content-Type: application/json' \
     --data @request.json \
@@ -72,5 +82,3 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-block>
 
 </code-group>
-
-### Sample response

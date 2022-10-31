@@ -61,25 +61,39 @@ You must connect an Input (i.e. ADC) to an instrument before configuring its set
 <code-group>
 <code-block title="Python">
 ```python
+from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
 
+m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
+wg = m.set_instrument(1, WaveformGenerator)
+osc = m.set_instrument(2, Oscilloscope)
+m.set_frontend(1, "1MOhm", "DC", "0dB")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
+m = MokuMultiInstrument('10.1.111.210', 2, true);
+%% Configure the instruments
+% WaveformGenrator in slot1
+% SpectrumAnalyzer in slot2
+wg = m.set_instrument(1, @MokuWaveformGenerator);
+sa = m.set_instrument(2, @MokuSpectrumAnalyzer);
 
+% configure routing
+connections = [struct('source', 'Input1', 'destination', 'Slot1InA');
+            struct('source', 'Slot1OutA', 'destination', 'Slot2InA')];
+m.set_connections(connections);
+% configure frontend
+m.set_frontend(1, '1MOhm', 'DC', '0dB');
 ```
 </code-block>
 
 <code-block title="cURL">
 ```bash
-# You should create a JSON file with the data content rather than passing
-# arguments on the CLI as the lookup data is necessarily very large
-$: cat request.json
-{
- 
-}
-$: curl -H 'Moku-Client-Key: <key>'        -H 'Content-Type: application/json'        --data @request.json        
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "attenuation": "0dB"}'\
+        http://<ip>/api/mim/set_frontend
 ```
 </code-block>
 

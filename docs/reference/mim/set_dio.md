@@ -7,7 +7,7 @@ parameters:
 - default: nil
   description: A list of maps of pin and direction to configure. Must not be specified at the same time as `direction`
   name: direction_map
-  param_range: "[{pin: 'PinX', direction: 'In'/'Out'}]"
+  param_range: "[{pin: 1, direction: 1}]"
   type: array
   unit: 
 - default: nil
@@ -47,13 +47,28 @@ It is required to connect DIO to a slot before configuring it. Read [set_connect
 <code-group>
 <code-block title="Python">
 ```python
+from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
 
+m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
+wg = m.set_instrument(1, WaveformGenerator)
+osc = m.set_instrument(2, Oscilloscope)
+m.set_dio(direction=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
-
+m = MokuMultiInstrument('10.1.111.210', 2, true);
+%% Configure the instruments
+% WaveformGenrator in slot1
+% SpectrumAnalyzer in slot2
+wg = m.set_instrument(1, @MokuWaveformGenerator);
+sa = m.set_instrument(2, @MokuSpectrumAnalyzer);
+% configure routing
+connections = [struct('source', 'Slot1InA', 'destination', 'DIO');
+            struct('source', 'Slot1OutA', 'destination', 'Slot2InA')];
+m.set_connections(connections);
+m.set_dio('direction', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
 ```
 </code-block>
 
@@ -63,12 +78,13 @@ It is required to connect DIO to a slot before configuring it. Read [set_connect
 # arguments on the CLI as the lookup data is necessarily very large
 $: cat request.json
 {
- 
+  'direction_map':[{'pin':1,'direction':1}]
 }
-$: curl -H 'Moku-Client-Key: <key>'        -H 'Content-Type: application/json'        --data @request.json        
+$: curl -H 'Moku-Client-Key: <key>' \
+    -H 'Content-Type: application/json' \
+    --data @request.json \
+    http://<ip>/api/mim/set_dio
 ```
 </code-block>
 
 </code-group>
-
-### Sample response
