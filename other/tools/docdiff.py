@@ -19,7 +19,7 @@ INSTRUMENTS_MAP = dict(phasemeter="phasemeter", fra="fra",
                        pidcontroller="pid", awg="awg")
 
 
-# Vuepress docs are organized in a well defines directory structure,
+# Vuepress docs are organized in a well defined directory structure,
 # each instrument may have,
 #   instrument/
 #       *.md #All of core instrument methods
