@@ -31,12 +31,14 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-- default: null
+- default: false
   description: If applicable, enable the hardware's output gain stage (high output range)
   name: enable_gain
   param_range: null
   type: boolean
   unit: null
+  deprecated: true
+  deprecated_text: enable_gain is deprecated, use set_output_gain to configure output gain
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

@@ -22,6 +22,18 @@ parameters:
   param_range: null
   type: string
   unit: null
+- default: Normal
+  description: Acqusition mode
+  name: mode
+  param_range: Normal, Precision, DeepMemory, PeakDetect
+  type: string
+  unit: null
+- default: 1000
+  description: Acqusition rate
+  name: rate
+  param_range: null
+  type: integer
+  unit: null
 - default: 0
   description: Delay the logging session by 'n' seconds
   name: delay

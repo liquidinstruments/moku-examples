@@ -10,7 +10,17 @@
               </label>
               <span class="parameter-types"> {{ p.type }}</span>
               <span class="parameter-obligation" v-if="p.default == null"> required</span>
+              <warn-deprecated v-if="p.deprecated === true"/>
             </div>
+            <div v-if="typeof p.deprecated_text !== 'undefined'">
+              <div class="danger custom-block">
+              <p class="custom-block-title">Parameter Deprecation</p>
+                <p>
+                  {{ p.deprecated_text }}
+                </p>
+              </div>
+            </div>
+            <div v-else>
             <div class="parameter-description">
               <div>
                   {{ p.description }}
@@ -34,6 +44,7 @@
                   {{ p.warning }}
                 </p>
               </div>
+            </div>
             </div>
           </div>
         </div>

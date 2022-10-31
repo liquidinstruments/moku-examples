@@ -1,3 +1,4 @@
+const mimAdmin = require('./sidebar-menus/mim')
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const getChildren = require('./getChildren').getChildren
 const externalClockAdmin = require('./sidebar-menus/ext_clk')
@@ -58,15 +59,16 @@ module.exports = {
                         externalClockAdmin,
                         staticAdmin,
                         powerSuppliesAdmin,
+                        mimAdmin
                     ]
                 },
-
                 {
                     title: "Instruments",
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
                         getChildren("Arbitrary Waveform Generator", "awg"),
+                        getChildren("Cloud Compile", "cloudcompile"),
                         getChildren("Datalogger", "datalogger"),
                         getChildren("Digital Filter Box", "dfb"),
                         getChildren("FIR FIlter", "fir"),
@@ -96,6 +98,7 @@ module.exports = {
                         'starting-matlab',
                         'starting-labview',
                         'starting-curl',
+                        'starting-mim',
                         'starting-other',
                         'ip-address'
                     ]

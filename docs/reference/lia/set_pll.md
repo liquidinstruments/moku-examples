@@ -17,6 +17,13 @@ parameters:
   type: number
   unit: Hz
   warning: Setting frequency has no impact when auto_acquire is true
+- default: 1
+  description: Frequency multiplier
+  name: frequency_multiplier
+  param_range: null
+  type: number
+  unit: null
+  warning: Setting frequency has no impact when auto_acquire is true
 - default: 1kHz
   description: PLL Bandwidth
   name: bandwidth

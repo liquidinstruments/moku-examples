@@ -12,7 +12,7 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: 1MOhm
+- default: null
   description: Impedance
   name: impedance
   param_range:

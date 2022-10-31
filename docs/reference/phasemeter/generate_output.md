@@ -24,6 +24,12 @@ parameters:
   param_range: 1e-3 to 100e6
   type: number
   unit: Hz
+- default: 1
+  description: Frequency multiplier
+  name: frequency
+  param_range: null
+  type: number
+  unit: null
 - default: 0
   description: Phase offset of the wave
   name: phase
@@ -37,14 +43,14 @@ parameters:
   type: boolean
   unit: null
 - default: Sine
-  description: (Upcoming) Type of output signal
+  description: Type of output signal
   name: signal
-  param_range: Sine, Phase
+  param_range: Sine, Phase, FrequencyOffset, Amptitude
   type: string
   unit: null
 - default: 0.001
-  description: (Upcoming) Phase scaling (only used when the output signal is set to Phase)
-  name: phase_scaling
+  description: Configures Frequency Offset Scaling (or) Phase Scaling (or) Amplitude scaling, based on the type of output signal. 
+  name: scaling
   param_range: 10e-9 to 100e3
   type: number
   unit: V/cyc

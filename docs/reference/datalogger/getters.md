@@ -18,6 +18,15 @@ getters:
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
+- summary: get_output_load
+  description: Get the output load for a given output channel
+  parameters:
+  - default: null
+    description: Target channel
+    name: channel
+    param_range: 1, 2, 3, 4
+    type: integer
+    unit: null
 
 ---
 <headers/>
