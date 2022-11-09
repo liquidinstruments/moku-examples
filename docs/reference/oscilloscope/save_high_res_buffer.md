@@ -38,9 +38,9 @@ i.download("persist", file_name, "~/high_res_data.li")
 <code-block title="MATLAB">
 ```matlab
 % Connect to Moku
-m = MokuPIDController('192.168.###.###', false);
+m = MokuOscilloscope('192.168.###.###', false);
 response = m.save_high_res_buffer();
-i.download("persist", response["file_name"], "./high_res_data.li")
+m.download_file('persist', response.file_name, './high_res_data.li')
 ```
 </code-block>
 

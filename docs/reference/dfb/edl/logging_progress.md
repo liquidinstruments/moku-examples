@@ -63,7 +63,7 @@ m.start_logging('duration',10);
 % Track the progress of data logging session
 is_logging = true;
 while is_logging
-    progress = jsondecode(m.logging_progress());
+    progress = m.logging_progress();
     is_logging = progress.time_to_end > 1;
     pause(1);
 end

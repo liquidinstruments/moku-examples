@@ -76,7 +76,7 @@ m = MokuDatalogger('192.168.###.###');
 %%% Configure instrument to desired state
 
 % start logging session and download file to local directory
-response = jsondecode(m.start_logging('duration',10));
+response = m.start_logging('duration',10);
 m.download_file('persist', response.file_name, strcat('<path to download>', ...
     response.file_name));
 ```

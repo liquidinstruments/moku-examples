@@ -60,7 +60,7 @@ i.set_power_supply(1, enable=True, voltage=5, current=0.1)
 m = MokuOscilloscope('192.168.###.###', false);
 
 % Here you can access the set_power_supply function
-m.set_power_supply(1, 'enable', 'true', 'voltage', 5, 'current', 0.1)
+m.set_power_supply(1, 'enable', true, 'voltage', 5, 'current', 0.1)
 ```
 </code-block>
 

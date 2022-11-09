@@ -41,7 +41,7 @@ i.download("persist", file_name, "~/high_res_data.li")
 % Connect to Moku
 m = MokuFIRFilterBox('192.168.###.###');
 % Configure instrument to desired state
-result = jsondecode(m.save_high_res_buffer());
+result = m.save_high_res_buffer();
 m.download_file('persist', response.file_name, strcat('<path to download>', ...
     response.file_name));
 ```
