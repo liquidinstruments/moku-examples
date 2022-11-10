@@ -71,7 +71,7 @@ i = PIDController('192.168.###.###')
 i.set_monitor(1, "Input1")
 
 # start logging session and read the file name from response
-response = json.loads(i.start_logging(duration=10))
+response = i.start_logging(duration=10)
 i.start_logging(duration=10, comments="Sample_script")
 file_name = response["file_name"]
 

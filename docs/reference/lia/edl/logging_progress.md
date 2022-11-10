@@ -31,12 +31,13 @@ To convert .li binary formatted log files, use liconverter windows app
 <code-group>
 <code-block title="Python">
 ```python
+import time
 from moku.instruments import LockInAmp
 i = LockInAmp('192.168.###.###')
 # Configure instrument to desired state
 
 # Start the logging session...
-result = json.loads(i.start_logging(duration=10))
+result = i.start_logging(duration=10)
 file_name = result['file_name']
 
 # Track the progress of data logging session
@@ -45,7 +46,7 @@ while is_logging:
     # Wait for the logging session to progress by sleeping 0.5sec
     time.sleep(0.5)
     # Get current progress percentage and print it out
-    progress = json.loads(i.logging_progress())
+    progress = i.logging_progress()
     remaining_time = int(progress['time_to_end'])
     is_logging = remaining_time > 1
 

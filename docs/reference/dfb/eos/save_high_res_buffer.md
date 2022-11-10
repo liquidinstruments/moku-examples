@@ -29,7 +29,7 @@ from moku.instruments import DigitalFilterBox
 
 i = DigitalFilterBox('192.168.###.###')
 # Configure instrument to desired state
-response = json.loads(i.save_high_res_buffer(comments="Test"))
+response = i.save_high_res_buffer(comments="Test")
 file_name = response["file_name"]
 i.download("persist", file_name, "~/high_res_data.li")
 
