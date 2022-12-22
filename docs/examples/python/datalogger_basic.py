@@ -43,7 +43,7 @@ try:
         print(f"Remaining time {remaining_time} seconds")
 
     # Download log from Moku, use liconverter to convert this .li file to .csv
-    i.download("persist", logFile, os.path.join(os.getcwd(), logFile))
+    i.download("persist", logFile, os.path.join(os.getcwd(), logFile['file_name']))
     print("Downloaded log file to local directory.")
 
 except Exception as e:
