@@ -4,26 +4,26 @@ title: Getting Started with Multi-instrument Mode
 
 # Starting with Multi-instrument Mode
 
-Multi-instrument Mode (MiM) allows a user to use more than one instrument simultaneously on the Moku platform. Depending on the hardware and instrument combination, different instrument counts and capabilities are available in this mode. For example, Moku:Go supports two instruments simultaneously while Moku:Pro supports four; Moku:Pro's Lock-in Amplifier retains full functionality while Moku:Go's loses extras like the PID Controller.
+Multi-instrument Mode (MiM) allows a user to use more than one instrument simultaneously on the Moku platform. Depending on the hardware and instrument combination, different instrument counts and capabilities are available in this mode. For example, Moku:Go supports two instruments simultaneously while Moku:Pro supports four; the Moku:Pro Lock-in Amplifier loses the PID Controller Moku:Go's also loses the Phase Locked Loop external reference option.
 
 There are several steps required in order to use MiM:
 
 1. Select the Multi-instrument Mode configuration you wish to use
 2. Load instruments in to one or more of the slots
-3. Configure connections between the instruments, each other and external I/O
+3. Configure connections from each instrument to other instruments and/or external I/O
 4. Configure the external I/O (i.e. ADCs, DACs and/or Digital I/O) with the correct settings for gain, direction, impedance etc.
 
 
 Depending on which programming language you choose, each step may look a little different.
 
-:::tip MATLAB, LabVIEW
-Multi-instrument Mode is available in MATLAB and LabVIEW, however documentation for these environments is still under development.
+:::tip MATLAB, LabVIEW Support
+Multi-instrument Mode is available through all of our APIs, including MATLAB and LabVIEW. This guide currently covers Python and cURL usage, with more language examples coming soon.
 :::
 
 ## Selecting the Multi-instrument Mode Configuration
 The configuration is parameterized by the number of slots you wish to have. At present, Moku:Go supports only 1 or 2 slots; Moku:Pro only supports 1 or 4. Specifying "1" is equivalent to disabling Multi-instrument Mode.
 
-If using the REST API directly, the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
+If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
 
 <code-group>
 
