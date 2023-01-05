@@ -30,8 +30,8 @@ parameters:
   description: Input attenuation
   name: attenuation
   param_range: 
-    mokugo: 0dB, -14dB
-    mokupro: -20dB, -40dB
+    mokugo: 0dB, 14dB
+    mokupro: 20dB, 40dB
   type: string
   unit: null
 - default: true
