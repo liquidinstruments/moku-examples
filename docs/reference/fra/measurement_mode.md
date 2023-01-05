@@ -33,7 +33,7 @@ from moku.instruments import FrequencyResponseAnalyzer
 
 i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
-i.fra_measurement()
+i.measurement_mode('In')
 ```
 </code-block>
 
@@ -41,7 +41,7 @@ i.fra_measurement()
 ```matlab
 m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-m.measurement_mode()
+m.measurement_mode('In')
 ```
 </code-block>
 
@@ -49,9 +49,14 @@ m.measurement_mode()
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{}'\
+        --data '{'In'}'\
         http://<ip>/api/fra/measurement_mode
 ```
 </code-block>
 
 </code-group>
+
+### Sample Response
+```json
+{'mode': 'In'}
+```
