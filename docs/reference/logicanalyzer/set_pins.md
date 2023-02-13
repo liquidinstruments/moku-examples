@@ -25,7 +25,7 @@ available_on: "mokugo"
 <headers/>
 <parameters/>
 
-Please refer to [Pin Status Definitions](README.md) for the list of available statuses
+Please refer to [Pin Status Definitions](README.md)  and [Output override Definitions](README.md) for the list of available statuses
 
 :::tip Note
 set_pin only configures the state of the Pin, to generate a pattern on a pin use
@@ -38,11 +38,14 @@ set_pin only configures the state of the Pin, to generate a pattern on a pin use
 [
   {
     "pin": 1,
-    "state": "PG1"
+    "state": "PG1",
+    "override": "X"
   },
   {
     "pin": 2,
-    "state": "PG2"
+    "state": "PG2",
+    "override": "X"
+
   }
 ]
 ```

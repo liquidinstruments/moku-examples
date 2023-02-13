@@ -20,6 +20,16 @@ name as used in the URL is `logicanalyzer`.
 | I     | Input                   |
 | PG1   | PatternGenerator1       |
 | PG2   | PatternGenerator2       |
+| X     | Removes Pin             |
+
+#### Available output overrides for a pin are:
+
+| State | Description             |
+| ----- |:----------------------  |
+| H     | High                    |
+| L     | Low                     |
+| X     | Off                     |
+
 
 
 <function-index/>
