@@ -19,7 +19,7 @@ parameters:
   unit: null
 - default: X
   description: Outout override for the target pin.
-  name: override
+  name: state
   param_range: X, L, H
   type: string
   unit: null
