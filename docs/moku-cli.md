@@ -6,12 +6,12 @@
 
 Moku CLI (`mokucli`) is a command line utility to quickly access various features of the Moku hardware.
 
-The latest packages are available to download from, [Software & Packages](https://www.liquidinstruments.com/resources/software/)
+Latest packages are available to download from, [Software & Packages](https://www.liquidinstruments.com/resources/software/). The installation wizard will configure everything needed to launch the CLI successfully.
 
-While the installation wizard configures everything required to launch the CLI successfully, in a few cases, customers are required to manually add an environment variable or update the $PATH variable based on the operating system. Setting `MOKU_CLI_PATH` with the absolute path to the installed CLI as an environment variable should fix such issues.
+Linux users can either create a symbolic link in the `/usr/local/bin` directory or set `MOKU_CLI_PATH` environment variable to the absolute path of `mokucli`.
 
-:::tip
-Moku CLI is evolving and is subject to change, it is recommended to always install the latest package.
+:::warning
+Moku CLI is evolving and is subject to change.
 :::
 
 **Usage**:
@@ -22,23 +22,23 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 
 **Options**:
 
-* `--version`
-* `--install-completion`: Install completion for the current shell.
+* `--version` : Display the version and exit
+* `--install-completion`: Install auto completion for the current shell.
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
 * `--help`: Show this message and exit.
 
 **Commands**:
 
 * `calibration`: Calibrate the Moku
-* `convert`: Convert Liquid Instruments binary file to...
-* `diagnostics`: Run diagnostics on the given Moku and report...
+* `convert`: Convert Liquid Instruments binary file to CSV, NPY or MAT
+* `diagnostics`: Run diagnostics on the given Moku and report the results
 * `files`: List, download and delete files from the Moku
-* `license`
-* `list`: Search for the mokus on network and display...
+* `license`: List, fetch and reload the license entitlements
+* `list`: Search for the mokus on network
 * `proxy`: Run a proxy from local machine to the Moku
-* `stream`: Stream the LI binary data from Moku onto a...
+* `stream`: Stream the LI binary data from Moku onto network port or a file
 
-## `mokucli calibration`
+## `mokucli calibration` 
 
 Calibrate the Moku
 

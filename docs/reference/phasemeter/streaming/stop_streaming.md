@@ -17,9 +17,9 @@ summary: stop_streaming
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Datalogger
+from moku.instruments import Phasemeter
 import time
-i = Datalogger('192.168.###.###')
+i = Phasemeter('192.168.###.###')
 # Generate a waveform on output channel
 i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 i.start_streaming(duration=10)
@@ -30,7 +30,7 @@ i.stop_streaming()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###');
 % Generate a waveform on output channels
 m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
 m.start_streaming('duration', 10);
@@ -43,7 +43,7 @@ m.stop_streaming()
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         --data '{}'\
-        http://<ip>/api/datalogger/stop_streaming
+        http://<ip>/api/phasemeter/stop_streaming
 ```
 </code-block>
 </code-group>

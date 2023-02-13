@@ -32,9 +32,9 @@ Examples,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Datalogger
+from moku.instruments import Phasemeter
 
-i = Datalogger('192.168.###.###')
+i = Phasemeter('192.168.###.###')
 i.start_streaming(duration=10)
 data = i.get_chunk()
 
@@ -43,7 +43,7 @@ data = i.get_chunk()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###');
 m.start_streaming('duration', 10);
 data = m.get_chunk();
 ```

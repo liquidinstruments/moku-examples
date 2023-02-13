@@ -32,9 +32,10 @@ Examples,
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Datalogger
+from moku.instruments import DigitalFilterBox
 
-i = Datalogger('192.168.###.###')
+i = DigitalFilterBox('192.168.###.###')
+# configure instrument
 i.start_streaming(duration=10)
 data = i.get_chunk()
 
@@ -43,7 +44,8 @@ data = i.get_chunk()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
+m = MokuDigitalFilterBox('192.168.###.###');
+% configure instrument
 m.start_streaming('duration', 10);
 data = m.get_chunk();
 ```

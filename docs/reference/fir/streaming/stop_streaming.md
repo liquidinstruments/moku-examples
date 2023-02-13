@@ -17,11 +17,10 @@ summary: stop_streaming
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import Datalogger
+from moku.instruments import FIRFilterBox
 import time
-i = Datalogger('192.168.###.###')
-# Generate a waveform on output channel
-i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
+i = FIRFilterBox('192.168.###.###')
+# Configure instrument
 i.start_streaming(duration=10)
 time.sleep(5) # Abort the streaming session after 5 seconds
 i.stop_streaming()
@@ -30,9 +29,8 @@ i.stop_streaming()
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
-% Generate a waveform on output channels
-m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
+m = MokuFIRFilterBox('192.168.###.###');
+% Configure instrument
 m.start_streaming('duration', 10);
 pause(5) % Abort the streaming session after 5 seconds
 m.stop_streaming()
@@ -43,7 +41,7 @@ m.stop_streaming()
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         --data '{}'\
-        http://<ip>/api/datalogger/stop_streaming
+        http://<ip>/api/firfilter/stop_streaming
 ```
 </code-block>
 </code-group>

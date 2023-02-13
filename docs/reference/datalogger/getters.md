@@ -18,7 +18,7 @@ getters:
     unit: null
 - summary: get_samplerate
   description: Get the current rate at which samples are acquired
-- summary: get_streamstatus
+- summary: get_stream_status
   description: Get the streaming session status, including memory usage, state and error information
 - summary: get_output_load
   description: Get the output load for a given output channel

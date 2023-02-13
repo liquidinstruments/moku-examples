@@ -10,6 +10,18 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
+- default: Normal
+  description: Acqusition mode
+  name: mode
+  param_range: Normal, Precision, DeepMemory, PeakDetect
+  type: string
+  unit: null
+- default: 1000
+  description: Acqusition rate
+  name: rate
+  param_range: null
+  type: integer
+  unit: null
 summary: start_streaming
 ---
 
@@ -23,8 +35,8 @@ summary: start_streaming
 <code-block title="Python">
 ```python
 import json
-from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###')
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
 
 ### Configure instrument to desired state
 
@@ -38,7 +50,7 @@ while True:
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
+m = MokuLockInAmp('192.168.###.###');
 
 %%% Configure instrument to desired state
 
@@ -58,7 +70,7 @@ end
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"duration": 10}'\
-        http://<ip>/api/datalogger/start_streaming
+        http://<ip>/api/lockinamp/start_streaming
 ```
 </code-block>
 

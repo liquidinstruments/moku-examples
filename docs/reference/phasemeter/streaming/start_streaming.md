@@ -23,8 +23,8 @@ summary: start_streaming
 <code-block title="Python">
 ```python
 import json
-from moku.instruments import Datalogger
-i = Datalogger('192.168.###.###')
+from moku.instruments import Phasemeter
+i = Phasemeter('192.168.###.###')
 
 ### Configure instrument to desired state
 
@@ -38,7 +38,7 @@ while True:
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuDatalogger('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###');
 
 %%% Configure instrument to desired state
 
@@ -58,7 +58,7 @@ end
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"duration": 10}'\
-        http://<ip>/api/datalogger/start_streaming
+        http://<ip>/api/phasemeter/start_streaming
 ```
 </code-block>
 
