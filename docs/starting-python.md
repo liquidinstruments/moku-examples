@@ -112,7 +112,7 @@ $: python -m pip install --upgrade urllib3 requests
 ```
 
 :::warning Windows
-On Windows, there is a small chance that the specific IPv6 address used by the Moku can trigger a [bug in a core Python library](https://github.com/psf/requests/issues/6282), leading to an `InvalidURL` error. If the above steps don't help, the work-around is to replace the `%` character in the IP address with the sequence `%2525`. For example, if the original IP address ended in `023e%61`:
+On Windows, there is a small chance that the specific IPv6 address used by the Moku can trigger a [bug in a core Python library](https://github.com/psf/requests/issues/6282), leading to an `InvalidURL` error. If the above steps don't help, the work-around is to replace the `%` character in the IP address with the sequence `%2525` (i.e. a doubly-escaped percent character). For example, if the original IP address ended in `023e%61`:
 
 ```python
 o = Oscilloscope('[fe80:0000:0000:0000:7269:79ff:feb9:023e%252561]')
@@ -121,3 +121,11 @@ o = Oscilloscope('[fe80:0000:0000:0000:7269:79ff:feb9:023e%252561]')
 
 #### IPv6 (including USB) Connection Issues
 There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.
+
+
+#### Access Requests.session
+The connection to the Moku device uses the Python `requests` module internally. To configure request session attributes, for example custom proxy or authentication parameters, prepend `session_` to the Session attribute and pass it to the instrument constructor. For example, `trust_env` can be configured as `session_trust_env`.
+
+```python
+o = Oscilloscope("192.168.###.###", session_trust_env=False)
+```

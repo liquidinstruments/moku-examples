@@ -17,6 +17,12 @@ parameters:
   param_range: I, PG1, PG2
   type: string
   unit: null
+- default: X
+  description: Outout override for the target pin.
+  name: state
+  param_range: X, L, H
+  type: string
+  unit: null
 - default: true
   description: Disable all implicit conversions and coercions. 
   name: strict
@@ -31,7 +37,7 @@ available_on: "mokugo"
 <headers/>
 <parameters/>
 
-Please refer to [Pin Status Definitions](README.md) for the list of available statuses
+Please refer to [Pin Status Definitions](README.md) and [Output override Definitions](README.md) for the list of available statuses
 :::tip Note
 set_pin only configures the state of the Pin, to generate a pattern on a pin use
 [set_pattern_generator](set_pattern_generator.md)

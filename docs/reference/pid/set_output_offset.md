@@ -15,7 +15,9 @@ parameters:
 - default: null
   description: Output DC offset
   name: offset
-  param_range: -5 to 5
+  param_range:
+    mokugo: -2.5 to 2.5
+    mokupro: -1 to 1
   type: number
   unit: V
 - default: true
@@ -70,10 +72,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 </code-group>
 
-### Sample response,
-
+### Sample response
 ```json
-{
-  "offset": 1.0
-}
+{"offset": 1.0}
 ```

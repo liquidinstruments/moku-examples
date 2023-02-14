@@ -13,6 +13,17 @@ sidebarDepth: 1
 ### datalogger_basic.m
 <<< @/docs/examples/matlab/datalogger_basic.matlab
 
+## Data Streaming
+
+### datalogger_streaming.m
+
+<<<@/docs/examples/matlab/datalogger_streaming.matlab
+
+### lock_in_amplifier_streaming.m
+
+<<<@/docs/examples/matlab/lock_in_amplifier_streaming.matlab
+
+
 ## Frequency Response Analyzer
 ### frequency_response_analyzer_basic.m
 <<< @/docs/examples/matlab/frequency_response_analyzer_basic.matlab

@@ -16,7 +16,7 @@ parameters:
 - default: null
   description: Waveform type
   name: type
-  param_range: Off, Sine, Square, Ramp, Pulse, DC
+  param_range: Off, Sine, Square, Ramp, Pulse, DC, Noise
   type: string
   unit: null
 - default: 1

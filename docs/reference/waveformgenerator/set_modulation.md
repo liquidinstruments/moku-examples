@@ -17,7 +17,7 @@ parameters:
 - default: null
   description: Modulation type
   name: type
-  param_range: Amplitude, Frequency, Phase
+  param_range: Amplitude, Frequency, Phase, PulseWidth
   type: string
   unit: null
 - default: null

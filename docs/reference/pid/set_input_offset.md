@@ -15,7 +15,9 @@ parameters:
 - default: null
   description: Output DC offset
   name: offset
-  param_range: -5 to 5
+  param_range:
+    mokugo: -2.5 to 2.5
+    mokupro: -1 to 1
   type: number
   unit: V
 - default: true
@@ -66,16 +68,14 @@ m.set_input_offset(1, 'offset', 2);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 2}'\
+        --data '{"channel": 1, "offset": 1}'\
         http://<ip>/api/pidcontroller/set_input_offset
 ```
 </code-block>
 
 </code-group>
 
-### Sample response,
+### Sample response
 ```json
-{
-  "offset": 2.0
-}
+{"offset": 1.0}
 ```

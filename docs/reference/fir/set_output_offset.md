@@ -15,7 +15,9 @@ parameters:
 - default: null
   description: Output DC offset
   name: offset
-  param_range: -5 to 5
+  param_range:
+    mokugo: -2.5 to 2.5
+    mokupro: -1 to 1
   type: number
   unit: V
 - default: true
@@ -47,8 +49,8 @@ i.set_output_offset(1, offset=5)
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###');
 % Configure instrument to desired state
-% Set output offset to 5VDC
-m.set_output_offset(1, 'offset', 5);
+% Set output offset to 1VDC
+m.set_output_offset(1, 'offset', 1);
 ```
 </code-block>
 
@@ -56,10 +58,15 @@ m.set_output_offset(1, 'offset', 5);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 5}'\
+        --data '{"channel": 1, "offset": 1}'\
         http://<ip>/api/pid/set_output_offset
 ```
 </code-block>
 
 
 </code-group>
+
+### Sample response
+```json
+{"offset": 1.0}
+```

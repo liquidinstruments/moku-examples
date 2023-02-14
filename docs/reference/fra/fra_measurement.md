@@ -78,7 +78,7 @@ from moku.instruments import FrequencyResponseAnalyzer
 
 i = FrequencyResponseAnalyzer('192.168.###.###')
 # Measure input signal on channel 1
-i.fra_measurement(1, input_only=True, start_frequency=100, 
+i.fra_measurement(1, mode="InOut", start_frequency=100, 
                   stop_frequency=20e6, averaging_duration=1, 
                   averaging_cycles=1, output_amplitude=0.001)
 ```
@@ -88,7 +88,7 @@ i.fra_measurement(1, input_only=True, start_frequency=100,
 ```matlab
 m = MokuFrequencyResponseAnalyzer('192.168.###.###');
 % Measure input signal on channel 1
-m.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
+m.fra_measurement(1, 'mode', 'InOut', 'start_frequency', 100,
                   'stop_frequency', 20e6, 'averaging_duration', 1,
                   'averaging_cycles', 1, 'output_amplitude', 0.001)
 ```
@@ -98,7 +98,7 @@ m.fra_measurement(1, 'input_only', true, 'start_frequency', 100,
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "input_only": true, "start_frequency": 100, "stop_frequency": 20e6,"averaging_duration": 1,"averaging_cycles": 1, "output_amplitude":0.001}'\
+        --data '{"channel": 1, "mode": "InOut", "start_frequency": 100, "stop_frequency": 20e6,"averaging_duration": 1,"averaging_cycles": 1, "output_amplitude":0.001}'\
         http://<ip>/api/fra/fra_measurement
 ```
 </code-block>
@@ -107,11 +107,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ### Sample response
 ```json
-{
-  "averaging_cycles":5,
-  "averaging_duration":0.001,
-  "output_amplitude":1.0,
-  "start_frequency":20000000.0,
-  "stop_frequency":100.0}
-}
+{'averaging_cycles': 1, 'averaging_duration': 1.0, 'mode': 'InOut',
+  'output_amplitude': 0.002, 'start_frequency': 100.0, 
+  'stop_frequency': 20000000.0}
+
 ```

@@ -25,8 +25,8 @@ try
     i.generate_output(2, 'Sine', 'amplitude',0.5, 'phase_locked',true);
     % Configure Output channel 3 and 4 to generate measured phase at a
     % scaling of 1 V/cycle and 10 V/cycle respectively
-    i.generate_output(3, 'Phase','phase_scaling',1);
-    i.generate_output(4, 'Phase','phase_scaling',10);
+    i.generate_output(3, 'Phase','scaling',1);
+    i.generate_output(4, 'Phase','scaling',10);
     
     % Set the acquisition speed to 596Hz for all channels
     i.set_acquisition_speed('596Hz');

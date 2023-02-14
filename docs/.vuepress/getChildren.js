@@ -4,7 +4,8 @@ const glob = require('glob');
 
 const subDirExpected = [
     { name: 'edl', display: 'Datalogger' },
-    { name: 'eos', display: 'Oscilloscope' }
+    { name: 'eos', display: 'Oscilloscope' },
+    { name: 'streaming', display: 'Streaming' }
 ];
 
 const isDirSupported = function(name) {

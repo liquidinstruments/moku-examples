@@ -100,7 +100,8 @@ module.exports = {
                         'starting-curl',
                         'starting-mim',
                         'starting-other',
-                        'ip-address'
+                        'ip-address',
+                        'moku-cli'
                     ]
                 },
                 ['/reference/', "API Reference"],
