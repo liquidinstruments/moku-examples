@@ -3,7 +3,7 @@ additional_doc: null
 description: Save the streaming session to a file
 method: null
 name: stream_to_file
-parameters: null
+parameters: []
 summary: stream_to_file
 ---
 

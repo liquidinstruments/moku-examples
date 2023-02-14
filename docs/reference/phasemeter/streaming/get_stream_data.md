@@ -3,7 +3,7 @@ additional_doc: null
 description: Get the converted data stream
 method: null
 name: get_stream_data
-parameters: null
+parameters: []
 summary: get_stream_data
 ---
 
