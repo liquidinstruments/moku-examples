@@ -4,30 +4,36 @@
 
 ## Introduction
 
-Moku CLI (`mokucli`) is a command line utility to quickly access various features of the Moku hardware.
+Moku CLI (`mokucli`) is a command line utility to quickly access various features of the Moku hardware. It is also used internally by various client driver packages for functions such as decoding data streams.
 
-Latest packages are available to download from, [Software & Packages](https://www.liquidinstruments.com/resources/software/). The installation wizard will configure everything needed to launch the CLI successfully.
-
-Linux users can either create a symbolic link in the `/usr/local/bin` directory or set `MOKU_CLI_PATH` environment variable to the absolute path of `mokucli`.
+The latest packages are available to download from [Utilities](https://www.liquidinstruments.com/software/utilities/). The installation wizard will configure everything needed to launch the CLI successfully.
 
 :::warning
-Moku CLI is evolving and is subject to change.
+Moku CLI commands are evolving and subject to change. It is not recommended to script your interactions with this utility.
 :::
 
-**Usage**:
+### Search path
+When using the installers above for Windows or Mac, the `mokucli` will be discoverable from any client driver package, e.g. MATLAB or Python.
+
+For **Linux**, the user must manually either
+
+1. Create a symbolic link to `mokucli` in the `/usr/local/bin` directory, or
+2. Set `MOKU_CLI_PATH` environment variable to the absolute path of `mokucli`.
+
+## Usage
 
 ```console
 $ mokucli [OPTIONS] COMMAND [ARGS]...
 ```
 
-**Options**:
+### Options
 
 * `--version` : Display the version and exit
 * `--install-completion`: Install auto completion for the current shell.
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
 * `--help`: Show this message and exit.
 
-**Commands**:
+### Commands
 
 * `calibration`: Calibrate the Moku
 * `convert`: Convert Liquid Instruments binary file to CSV, NPY or MAT
@@ -40,19 +46,23 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 
 ## `mokucli calibration` 
 
-Calibrate the Moku
+Recalibrate the Moku.
 
-**Usage**:
+:::warning Advanced users only
+Using this command, it is possible to uncalibrate your Moku and introduce arbitrary errors in your measurements. Use with extreme caution.
+:::
+
+### Usage
 
 ```console
 $ mokucli calibration [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+### Options
 
 * `--filter [ADC|DAC|PPSU|PMIC|ALL]`: Filter the calibration result  [default: ALL]
 * `--update TEXT`: Update the calibration coefficients
@@ -62,22 +72,22 @@ $ mokucli calibration [OPTIONS] IP_ADDRESS
 
 Convert Liquid Instruments binary file to other formats
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli convert [OPTIONS] SOURCE
 ```
 
-**Arguments**:
+### Arguments
 
 * `SOURCE`: [required]
 
-**Options**:
-
+### Options 
 * `--format [csv|npy|mat]`: [default: csv]
 * `--help`: Show this message and exit.
 
-**Example**:
+### Examples
+
 ```bash
 # Convert .li file to csv
 $: mokucli convert MokuDataLoggerData_20230114_142326.li 
@@ -94,17 +104,17 @@ Writing "MokuDataLoggerData_20230114_142326.npy"...
 
 Run diagnostics on the given Moku and report the results
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli diagnostics [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+### Options
 
 * `--results PATH`: Directory to save results to as a JSON  [default: .]
 * `--help`: Show this message and exit.
@@ -113,23 +123,24 @@ $ mokucli diagnostics [OPTIONS] IP_ADDRESS
 
 List, download and delete files from the Moku
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli files [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+### Options
 
 * `--action [LIST|DOWNLOAD|DELETE]`: Action to perform  [default: LIST]
 * `--name TEXT`: Filter to apply
 * `--help`: Show this message and exit.
 
-**Example**:
+### Examples
+
 ```bash
 # list files on the moku
 $: mokucli files 192.168.#.#
@@ -151,60 +162,63 @@ Downloading MokuLockInAmplifierData_20230207_071706.li
 
 ## `mokucli license`
 
-**Usage**:
+::: warning Beta
+This functionality is currently in beta and subject to change.
+:::
+
+### Usage
 
 ```console
 $ mokucli license [OPTIONS] COMMAND [ARGS]...
 ```
-
-**Options**:
+### Options
 
 * `--help`: Show this message and exit.
 
-**Commands**:
+### Commands
 
-* `fetch`: Fetch the latest license file
-* `list`: List available licenses
-* `update`: Update license on the Moku
+* `fetch`: Fetch the latest license file from the Liquid Instruments license server and save it locally
+* `list`: List available licenses for a Moku
+* `update`: Update license on the Moku with one stored locally
 
 ### `mokucli license fetch`
 
-Fetch the latest license file
+Fetch the latest license file for a Moku device from the Liquid Instruments license server and save locally.
 
-**Usage**:
+#### Usage
 
 ```console
 $ mokucli license fetch [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+#### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+#### Options
 
 * `--path PATH`: Directory to save the license file  [default: .]
 * `--help`: Show this message and exit.
 
 ### `mokucli license list`
 
-List available licenses
+List available licenses for the given Moku device.
 
-**Usage**:
+#### Usage
 
 ```console
 $ mokucli license list [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+#### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+#### Options
 
 * `--help`: Show this message and exit.
 
-**Examples**:
+#### Examples
 ```bash
 $: mokucli license list 192.168.*.*
 Entitlements
@@ -216,38 +230,38 @@ FIR Filter Builder
 ```
 ### `mokucli license update`
 
-Update license on the Moku
+Update license on the Moku with the latest from the Liquid Instruments license server, or one stored locally. The local file has typically been retrieved using a previous `moku license fetch`.
 
-**Usage**:
+#### Usage
 
 ```console
 $ mokucli license update [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+#### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+#### Options
 
-* `--filename PATH`: Path to the license file
+* `--filename PATH`: Path to the license file. If no file is given, the license server is queried.
 * `--help`: Show this message and exit.
 
 ## `mokucli list`
 
 Search for the mokus on network and display the results
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli list [OPTIONS]
 ```
 
-**Options**:
+### Options
 
 * `--help`: Show this message and exit.
   
-**Example**:
+### Examples
 ```bash
 $: mokucli list
 Name                 Serial  HW     FW     IP                  
@@ -257,24 +271,25 @@ MokuGo-000016        16      Go     576    10.1.111.145
 
 ## `mokucli proxy`
 
-Run a proxy from local machine to the Moku
+Run a proxy from local machine to the Moku. The proxied Moku is available on `localhost` using IPv4. This is useful when the actual connection to the Moku uses IPv6 but you wish to use a tool without native IPv6 support. A common example is accessing the Moku web interface when the Moku is connected over USB.
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli proxy [OPTIONS] IP_ADDRESS
 ```
 
-**Arguments**:
+### Arguments
 
 * `IP_ADDRESS`: IP Address of the Moku  [required]
 
-**Options**:
+### Options
 
 * `--port INTEGER`: Local port, typically a number between 1024 and 65535 on which nothing else is running  [default: 8090]
 * `--help`: Show this message and exit.
 
-**Example**:
+### Example
+
 ```bash
 $: mokucli proxy 192.168.1.1
 Running a proxy from 192.168.1.1 to localhost:8090
@@ -282,25 +297,25 @@ Running a proxy from 192.168.1.1 to localhost:8090
 
 ## `mokucli stream`
 
-Stream the LI binary data from Moku onto a local network port
+Stream the LI binary data from Moku onto a local network port, `stdout`, or to a file. This is commonly used inside client packages, or for languages without dedicated client packages, to receive Data Logger streams and make the decoded data available for easy consumption.
 
-**Usage**:
+### Usage
 
 ```console
 $ mokucli stream [OPTIONS]
 ```
 
-**Options**:
+### options
 
 * `--ip-address TEXT`: IP address of the Moku
 * `--stream-id TEXT`: Stream ID, this is part of `start_streaming` response.
 * `--target TEXT`: Target to write data to, port, file, stdout
     * PORT : Local port, typically a number between 1024 and 65535 on which nothing else is running
-    * FILE: A valid file name with one of `[csv, mat, npy]` as extensions. File will always be created in the current working directory
+    * FILE: A valid file name with one of `[csv, mat, npy]` as extensions. File will always be created in the current working directory.
     * STDOUT: Prints the converted stream to console
 * `--help`: Show this message and exit.
 
-**Example**:
+### Examples
 ```bash
 # stream to TCP port 8005
 $: mokucli --ip-address=192.168.1.1 --stream-id=logsink0 --target=8005
