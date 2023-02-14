@@ -124,7 +124,7 @@ There are some environmental limitations when using IPv6, including using the Mo
 
 
 #### Access Requests.session
-To configure any underlying session attributes, append `session_` to the actual attribute and pass it to the instrument constructor. For example, `trust_env` can be configured as `session_trust_env`.
+The connection to the Moku device uses the Python `requests` module internally. To configure request session attributes, for example custom proxy or authentication parameters, prepend `session_` to the Session attribute and pass it to the instrument constructor. For example, `trust_env` can be configured as `session_trust_env`.
 
 ```python
 o = Oscilloscope("192.168.###.###", session_trust_env=False)
