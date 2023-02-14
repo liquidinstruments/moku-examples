@@ -123,8 +123,8 @@ o = Oscilloscope('[fe80:0000:0000:0000:7269:79ff:feb9:023e%252561]')
 There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.
 
 
-#### Disable default session proxies
-There may be a case where the default proxies set on the device are interrupting the API calls made to the Moku, in such cases, you can disable the usage of default proxies by passing additional argument to the instrument constructor. Infact, you can configure any property of the underlying `session` object by appending `session_` to the property name and passing it to the instrument constructor.
+#### Access Requests.session
+To configure any underlying session attributes, append `session_` to the actual attribute and pass it to the instrument constructor. For example, `trust_env` can be configured as `session_trust_env`.
 
 ```python
 o = Oscilloscope("192.168.###.###", session_trust_env=False)
