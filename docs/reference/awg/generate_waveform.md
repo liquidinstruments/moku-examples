@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -19,6 +20,7 @@ parameters:
   name: sample_rate
   param_range:  
    mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms, 15.625Ms
+   mokulab: Auto, 1Gs, 500Ms, 250Ms, 125Ms
    mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms 
   type: string
   unit: MS/s
@@ -33,6 +35,7 @@ parameters:
   name: frequency
   param_range: 
    mokugo: 1e-3 to 10e6
+   mokulab: 1e-3 to 10e6
    mokupro: 1e-3 to 250e6
   type: number
   unit: Hz
@@ -65,6 +68,7 @@ parameters:
   name: load
   param_range:
    mokugo: 1MOhm
+   mokulab: 50Ohm, 1MOhm
    mokupro: 50Ohm, 1MOhm
   type: string
   unit: null
@@ -83,6 +87,13 @@ summary: generate_waveform
 <headers/>
 
 The maximum number of points depends on the sample rate:
+
+For Moku:Lab
+- 8,192 at 1Gs
+- 16,384 at 500Ms
+- 32,768 at 250Ms
+- 65,536 at 125Ms 
+
 For Moku:Pro
 - 16,384 at 1.25 GS/s
 - 32,768 at 625 MS/s
