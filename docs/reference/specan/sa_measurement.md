@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -18,6 +19,7 @@ parameters:
   name: frequency1
   param_range:
    mokugo: 0 to 30e6
+   mokulab: 0 to 250e6
    mokupro: 0 to 300e6 
   type: number
   unit: Hz
@@ -26,6 +28,7 @@ parameters:
   name: frequency2
   param_range:
    mokugo: 0 to 30e6
+   mokulab: 0 to 250e6
    mokupro: 0 to 300e6
   type: number
   unit: Hz
