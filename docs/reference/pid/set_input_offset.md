@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -17,6 +18,7 @@ parameters:
   name: offset
   param_range:
     mokugo: -2.5 to 2.5
+    mokulab: -1 to 1
     mokupro: -1 to 1
   type: number
   unit: V
