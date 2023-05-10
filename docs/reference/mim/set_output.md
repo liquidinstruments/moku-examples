@@ -23,7 +23,7 @@ parameters:
   type: 
   unit: 
 summary: set_output
-available_on: "mokupro"
+available_on: "Moku:Pro, Moku:Lab"
 ---
 
 <headers/>

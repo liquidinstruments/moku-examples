@@ -4,7 +4,6 @@ description: Get the auto acquired frequency of a channel
 method: get
 name: get_auto_acquired_frequency
 summary: get_auto_acquired_frequency
-available_on: "mokupro"
 
 parameters:
 - default: null

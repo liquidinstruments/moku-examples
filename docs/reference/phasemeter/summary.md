@@ -5,7 +5,7 @@ method: get
 name: summary
 parameters: []
 summary: summary
-available_on: "mokupro"
+available_on: "Moku:Pro, Moku:Lab"
 ---
 
 <headers/>

@@ -4,7 +4,7 @@ description: Get current state of a Digital I/O pin
 method: post
 name: get_pin
 summary: get_pin
-available_on: "mokugo"
+available_on: "Moku:Go"
 parameters:
 - default: null
   description: Target pin to get the state

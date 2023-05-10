@@ -18,7 +18,6 @@ parameters:
   type: boolean
   unit: null
 summary: disable_output
-available_on: "mokupro"
 ---
 
 

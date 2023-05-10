@@ -3,7 +3,7 @@ additional_doc: null
 description: Configures the trigger on pin(s).
 method: post
 name: set_trigger
-available_on: "mokugo"
+available_on: "Moku:Go"
 parameters:
 - default: null
   description: List of Pin-Trigger edge mapping

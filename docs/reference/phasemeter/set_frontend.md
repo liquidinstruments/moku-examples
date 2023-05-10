@@ -4,7 +4,6 @@ description: Configures the input impedance, coupling, and range for each channe
 method: post
 name: set_frontend
 summary: set_frontend
-available_on: "mokupro"
 
 parameters:
 - default: null

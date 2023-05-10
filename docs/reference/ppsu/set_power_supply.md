@@ -29,7 +29,7 @@ parameters:
   type: number
   unit: null
 summary: set_power_supply
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>

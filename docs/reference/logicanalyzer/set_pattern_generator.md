@@ -54,7 +54,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_pattern_generator
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>

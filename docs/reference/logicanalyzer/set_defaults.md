@@ -5,7 +5,7 @@ method: post
 name: set_defaults
 parameters: []
 summary: set_defaults
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>

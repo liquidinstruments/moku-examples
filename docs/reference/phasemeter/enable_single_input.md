@@ -17,7 +17,6 @@ parameters:
   type: boolean
   unit: null
 summary: enable_single_input
-available_on: "mokupro"
 ---
 
 <headers/>

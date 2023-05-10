@@ -18,7 +18,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_pins
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

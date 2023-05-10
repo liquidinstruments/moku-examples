@@ -17,7 +17,6 @@ parameters:
   type: boolean
   unit: null
 summary: enable_freewheeling
-available_on: "mokupro"
 ---
 
 <headers/>

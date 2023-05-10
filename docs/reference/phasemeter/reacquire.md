@@ -5,7 +5,6 @@ method: post
 name: reacquire
 parameters: []
 summary: reacquire
-available_on: "mokupro"
 ---
 
 <headers/>

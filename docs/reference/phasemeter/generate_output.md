@@ -66,7 +66,6 @@ parameters:
   type: boolean
   unit: null
 summary: generate_output 
-available_on: "mokupro"
 ---
 
 
