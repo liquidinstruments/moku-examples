@@ -11,6 +11,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -19,6 +20,7 @@ parameters:
   name: source 
   param_range: 
     mokugo: Input1, Input2, Output1, Output2, Internal
+    mokulab: Input1, Input2, Output1, Output2, Internal
     mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal
   type: string
   unit: null
@@ -27,7 +29,8 @@ parameters:
   name: stop_frequency
   param_range:
    mokugo: 1e-3 to 20e6
-   mokupro: 1e-3 to 50e6
+   mokulab: 1e-3 to 100e6
+   mokupro: 1e-3 to 150e6
   type: number
   unit: Hz
 - default: 1
@@ -41,6 +44,7 @@ parameters:
   name: trigger_level
   param_range:
    mokugo: -5 to 5
+   mokulab: -5 to 5
    mokupro: -20 to 20
   type: number
   unit: V
