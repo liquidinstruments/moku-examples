@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -17,6 +18,7 @@ parameters:
   name: source
   param_range: 
     mokugo: None, Input1, Input2, Output1, Output2
+    mokulab: None, Input1, Input2, Output1, Output2
     mokupro: None, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4
   type: string
   unit: null

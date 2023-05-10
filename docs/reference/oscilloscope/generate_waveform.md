@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -23,6 +24,7 @@ parameters:
   name: amplitude
   param_range: 
    mokugo: 2e-3 to 10
+   mokulab: 2e-3 to 4
    mokupro: 1e-3 to 10
   type: number
   unit: V
@@ -31,6 +33,7 @@ parameters:
   name: frequency
   param_range:
    mokugo: 1e-3 to 20e6
+   mokuglab: 1e-3 to 250e6
    mokupro: 1e-3 to 500e6
   type: number
   unit: Hz
@@ -69,6 +72,7 @@ parameters:
   name: edge_time
   param_range: 
    mokugo: 16e-9 to pulse width
+   mokulab: 4e-9 to pulse width
    mokupro: 2e-9 to pulse width
   type: number
   unit: null
@@ -77,6 +81,7 @@ parameters:
   name: pulse_width
   param_range: 
    mokugo: 16e-9 to waveform period
+   mokulab: 4e-9 to waveform period
    mokupro: 2e-9 to waveform period
   type: number
   unit: Seconds
