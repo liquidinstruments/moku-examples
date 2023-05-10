@@ -50,7 +50,7 @@ parameters:
 - default: Sine
   description: Type of output signal
   name: signal
-  param_range: Sine, Phase, FrequencyOffset, Amptitude
+  param_range: Sine, Phase, FrequencyOffset, Amplitude
   type: string
   unit: null
 - default: 0.001
