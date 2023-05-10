@@ -9,6 +9,7 @@ parameters:
   name: sample_rate
   param_range: 
    mokugo: 10 to 1e6
+   mokulab: 10 to 2.5e5
    mokupro: 10 to 10e6
   type: number
   unit: null
