@@ -102,7 +102,8 @@ module.exports = {
                         'starting-mim',
                         'starting-other',
                         'ip-address',
-                        'moku-cli'
+                        'moku-cli',
+                        'download-bitstreams'
                     ]
                 },
                 ['/reference/', "API Reference"],
