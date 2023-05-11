@@ -40,9 +40,6 @@ The Scripting API is not currently able to update the firmware on Moku devices. 
 ### File Conversion
 The LI File Converter application is available with installation of the Moku Desktop software or as a standalone application. Conversion cannot currently be done through the Scripting API.
 
-### Moku:Pro Instrument Support
-Some instruments outside the Moku:Pro Base Bundle are not currently supported by the Scripting API. We're currently working to address this, however if you have a specific need, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
-
 ### Other Languages
 The Moku Scripting API is built around an HTTP/REST interface. This allows easy interfacing from any programming language, however full documentation of this REST interface is still underway. If you have specific needs, again, reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
 
