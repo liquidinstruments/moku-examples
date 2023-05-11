@@ -20,8 +20,8 @@ parameters:
   description: Output Gain
   name: output_gain
   param_range: 0dB, 14dB
-  type: 
-  unit: 
+  type: string
+  unit: dB
 summary: set_output
 available_on: "Moku:Pro, Moku:Lab"
 ---
