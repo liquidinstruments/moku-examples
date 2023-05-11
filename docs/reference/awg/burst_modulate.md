@@ -43,7 +43,7 @@ parameters:
    mokupro: -20 to 20
   type: number
   unit: V
-- default: 10Vpp for Go and 400mVpp for Pro
+- default: undefined
   description: Input Range
   name: input_range
   param_range: 
