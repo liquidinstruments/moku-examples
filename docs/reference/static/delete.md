@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: bitstreams, persist
+  param_range: bitstreams, persist, media
   type: string
   unit: null
 - default: null
@@ -22,7 +22,7 @@ parameters:
 <headers/>
 
 
-User can delete files from **ssd** and **persist** directories. If using the
+User can delete files from **ssd**, **persist** and **media** directories. If using the
 REST API directly, these directories form the group name in the URL and the filename
 follows the delete command; e.g. `/api/persist/delete/<filename>`. No Client Key is
 required (ownership doesn't need to be taken).
