@@ -18,7 +18,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-- default: 30e6
+- default: 1e6
   description: Frequency of the input signal
   name: frequency
   param_range: 1e3 to 300e6

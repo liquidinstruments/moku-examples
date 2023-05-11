@@ -18,7 +18,7 @@ parameters:
   param_range: 1e-3 to 10
   type: number
   unit: Vpp
-- default: 10000
+- default: 1e6
   description: Waveform frequency
   name: frequency
   param_range: 1e-3 to 100e6
