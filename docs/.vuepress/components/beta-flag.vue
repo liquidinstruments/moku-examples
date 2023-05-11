@@ -1,0 +1,1 @@
+<template> <Badge class="beta" type="warning">Beta</Badge> </template>

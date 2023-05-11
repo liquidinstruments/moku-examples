@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      {{ $frontmatter.summary }}
+      {{ $frontmatter.summary }} <beta-flag v-if="$frontmatter.mark_as_beta === true"/>
       <Badge v-if="$frontmatter.available_on" :text="$frontmatter.available_on" type="warn" />
     </h1>
     <span class="description">{{ $frontmatter.description }}</span>
