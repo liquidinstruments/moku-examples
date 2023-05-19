@@ -34,7 +34,7 @@ parameters:
   param_range: 
     mokugo: 0dB, 14dB
     mokulab: 0dB, 20dB
-    mokupro: 20dB, 40dB
+    mokupro: 0dB, 20dB, 40dB
   type: string
   unit: null
 - default: true

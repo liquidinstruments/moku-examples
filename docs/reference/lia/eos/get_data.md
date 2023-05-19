@@ -1,5 +1,5 @@
 ---
-additional_doc: In the PID instrument, the frame comes from the Monitor subsystem. See `set_monitor`.
+additional_doc: In the LIA instrument, the frame comes from the Monitor subsystem. See `set_monitor`.
 description: Get a frame of the data from the instrument
 method: get
 name: get_data
