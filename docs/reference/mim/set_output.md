@@ -23,7 +23,7 @@ parameters:
   type: string
   unit: dB
 summary: set_output
-available_on: "Moku:Pro, Moku:Lab"
+available_on: "Moku:Pro"
 ---
 
 <headers/>
@@ -46,7 +46,7 @@ You must connect an Output (i.e. DAC) to an instrument before configuring its se
 ```python
 from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
 
-m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
+m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=4)
 wg = m.set_instrument(1, WaveformGenerator)
 osc = m.set_instrument(2, Oscilloscope)
 connections = [dict(source="Input1", destination="Slot1InA"),
