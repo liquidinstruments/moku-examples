@@ -62,7 +62,7 @@ parameters:
   param_range:    
    mokugo: -5 to 5
    mokulab: -2 to 2
-   mokupro: -50 to 50
+   mokupro: -5 to 5
   type: number
   unit: null
 - default: 0

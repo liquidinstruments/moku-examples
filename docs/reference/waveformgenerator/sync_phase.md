@@ -1,7 +1,7 @@
 ---
 title: sync_phase | Waveform Generator
-additional_doc: The phase of both channels is reset to their respective phase offset values
-description: Synchronize the phase of both output channels. 
+additional_doc: The phase of all channels is reset to their respective phase offset values
+description: Synchronize the phase of all output channels. 
 method: get
 name: sync_phase
 parameters: []

@@ -6,7 +6,7 @@ prev: false
 WaveformGenerator Instrument
 ============================
 
-Supports the generation of Sine, Square and Ramp waves. 
+Supports the generation of Sine, Square and Ramp, Pulse, Noise and DC waves. 
 
 - The output waveforms can also be frequency, phase or amplitude modulated. 
 
