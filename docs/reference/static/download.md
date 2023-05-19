@@ -30,7 +30,7 @@ summary: download_file
 <headers/>
 
 
-User can download files from **logs**, **ssd**, **media** and **persist** directories. If using the
+User can download files from **bitstreams**, **logs**, **ssd**, **media** and **persist** directories. If using the
 REST API directly, these directories form the group name in the URL and the filename
 follows the download command; e.g. `/api/persist/download/<filename>`. No Client Key is
 required (ownership doesn't need to be taken).

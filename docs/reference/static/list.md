@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: bitstreams, logs, persist, media
+  param_range: bitstreams, ssd, logs, persist, media
   type: string
   unit: null
 summary: list_files
@@ -17,7 +17,7 @@ summary: list_files
 <headers/>
 
 
-User can list files from **ssd**, **logs**, **media** and **persist** directories. If using the
+User can list files from **bitstreams**, **ssd**, **logs**, **persist** and **media** directories. If using the
 REST API directly, these directories form the group name in the URL; e.g. `/api/persist/list`.
 No Client Key is required (ownership doesn't need to be taken).
 

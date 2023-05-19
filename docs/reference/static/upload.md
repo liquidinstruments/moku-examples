@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target directory to access
   name: target
-  param_range: ssd, persist, bitstream, media
+  param_range: bitstream, ssd, logs, persist, media
   type: string
   unit: null
 - default: null
@@ -29,7 +29,7 @@ summary: upload_file
 <headers/>
 
 
-User can upload files to files to **bitstream**, **persist**, **media** or **ssd** directories. If using the
+User can upload files to files to **bitstream**, **ssd**, **logs**, **persist** or **media** directories. If using the
 REST API directly, these directories form the group name in the URL and the filename
 follows the upload command; e.g. `/api/persist/upload/<filename>`. No Client Key is
 required (ownership doesn't need to be taken).
