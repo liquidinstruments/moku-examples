@@ -25,7 +25,7 @@ parameters:
   type: string
   unit: MS/s
 - default: null
-  description: Lookup table coefficients. The entries of the LUT are normalized to range [-1.0, 1.0]; if the LUT entries are identically zero then it remains unchanged.
+  description: Lookup table voltage values. The entries of the LUT are normalized to range [-1.0, 1.0]; if the LUT entries are identically zero then it remains unchanged.
   name: lut_data
   param_range: array of -inf, inf
   type: array
@@ -88,16 +88,16 @@ summary: generate_waveform
 
 The maximum number of points depends on the sample rate:
 
+For Moku:Pro
+- 16,384 at 1.25 GS/s
+- 32,768 at 625 MS/s
+- 65,536 at 312.5 MS/s
+
 For Moku:Lab
 - 8,192 at 1Gs
 - 16,384 at 500Ms
 - 32,768 at 250Ms
 - 65,536 at 125Ms 
-
-For Moku:Pro
-- 16,384 at 1.25 GS/s
-- 32,768 at 625 MS/s
-- 65,536 at 312.5 MS/s
 
 For Moku:Go
 - 8,192 at 125 MS/s
