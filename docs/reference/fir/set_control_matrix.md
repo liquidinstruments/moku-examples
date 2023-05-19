@@ -2,7 +2,7 @@
 additional_doc: NOTE Interface currently only supports using the first two FIR loops which are
     paired with the first two ADC channels, e.g. Moku:Pro's third and fourth loops and ADC3, ADC4
     cannot yet be used through this API.
-description: Set the linear combination of ADC input signals for a given PID channel.
+description: Set the linear combination of ADC input signals for a given FIR channel.
 method: post
 name: set_control_matrix
 parameters:

@@ -19,8 +19,8 @@ summary: summary
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import PIDController
-i = PIDController('192.168.###.###', force_connect=False)
+from moku.instruments import FIRFilterBox
+i = FIRFilterBox('192.168.###.###', force_connect=False)
 # Configure the Channel 1 PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -34,8 +34,8 @@ print(i.summary())
 
 <code-block title="MATLAB">
 ```matlab
-m = MokuPIDController('192.168.###.###', true);
-% Configure the Channel 1 PID Controller using frequency response
+m = MokuFIRFilterBox('192.168.###.###', true);
+% Configure the Channel 1 FIRFilterBox using frequency response
 % characteristics
 % 	P = -10dB
 m.set_by_frequency(1, 'prop_gain', -20);
@@ -58,6 +58,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 Sample response,
 
 ```plaintext
+This needs to be updated!!!!! for FIRFilterBox
 Moku:Go PID Controller
 Input 1 - DC coupling, 0 dB attenuation
 Input 2 - DC coupling, 0 dB attenuation

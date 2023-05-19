@@ -16,7 +16,7 @@ parameters:
 - default: null
   description: Input gain
   name: gain
-  param_range: -5 to 5
+  param_range: -40 to 40
   type: number
   unit: dB
 - default: true

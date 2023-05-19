@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configure the selected PID controller using crossover frequencies.
+description: Configure the FIR filter frequency response.
 method: post
 name: set_by_frequency
 parameters:
