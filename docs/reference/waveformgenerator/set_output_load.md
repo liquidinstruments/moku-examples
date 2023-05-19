@@ -9,7 +9,7 @@ parameters:
   name: channel
   param_range:
    mokulab: 1, 2,
-   mokupor: 1, 2, 3, 4
+   mokupro: 1, 2, 3, 4
   type: integer
   unit: null
 - default: null
