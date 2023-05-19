@@ -1,6 +1,6 @@
 ---
 additional_doc: To use customer coefficients see  `set_custom_filter`
-description: Configure the Infinite Impulse Response filter with one of available filter shape and type
+description: Configure the infinite impulse response filter with one of available filter shape and type
 method: post
 name: set_filter
 parameters:
