@@ -33,22 +33,21 @@ parameters:
   type: number
   unit: Hz
 - default: Auto
-  description: Desired resolution bandwidth (Hz)
+  description: Resolution bandwidth mode
   name: rbw
   param_range: Auto, Manual, Minimum
   type: string
   unit: null
 - default: 5000
-  description: RBW value (only in manual mode)
+  description: Desired RBW value (only in manual mode)
   name: rbw_value
   param_range: null
   type: number
-  unit: null
+  unit: Hz
 - default: BlackmanHarris
   description: Window Function
-      to BlackmanHarris)'
   name: window
-  param_range: BlackmanHarris, FlatTop, Hanning, Rectangular
+  param_range: BlackmanHarris, FlatTop, Rectangular, Bartlett, Hamming, Hann, Nuttall, Gaussian, Kaiser
   type: string
   unit: null
 - default: true

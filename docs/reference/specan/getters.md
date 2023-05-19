@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Spectrum Analyzer supports following getter functions.
-description: Getters
+name: getters
+description: Spectrum Analyzer - getter functions
 getters:
 - summary: get_frontend
   description: Get the input impedance, coupling, and range for given input channel

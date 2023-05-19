@@ -6,17 +6,17 @@ method: post
 name: set_rbw
 parameters:
 - default: null
-  description: Desired resolution bandwidth (Hz)
+  description: Resolution bandwidth mode
   name: mode
   param_range: Auto, Manual, Minimum
   type: string
   unit: null
 - default: 5000
-  description: RBW value (only in manual mode)
+  description: Desired RBW value (only in manual mode)
   name: rbw_value
   param_range: null
   type: number
-  unit: null
+  unit: Hz
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
