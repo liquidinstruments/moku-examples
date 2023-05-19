@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Toggle measurement between Input and Input/Output
+description: Toggle measurement between Input, Input/Output and Input/Input1
 method: post
 name: measurement_mode
 parameters:
