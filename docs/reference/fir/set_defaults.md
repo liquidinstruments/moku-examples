@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the the FIR filter to sane defaults.
+description: Set the the FIR filter to its default state.
 method: post
 name: set_defaults
 parameters: []
