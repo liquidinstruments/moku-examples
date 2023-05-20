@@ -33,7 +33,7 @@ parameters:
   name: frequency
   param_range:
    mokugo: 1e-3 to 20e6
-   mokuglab: 1e-3 to 250e6
+   mokulab: 1e-3 to 250e6
    mokupro: 1e-3 to 500e6
   type: number
   unit: Hz
