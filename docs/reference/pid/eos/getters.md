@@ -1,5 +1,5 @@
 ---
-additional_doc: Along with regular configuration methods, Digital Filter Box - Monitor supports following getter functions.
+additional_doc: Along with regular configuration methods, PID Controller - Monitor supports following getter functions.
 name: getters
 description: PID Controller - Oscilloscope - getter functions
 getters: 

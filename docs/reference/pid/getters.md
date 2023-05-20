@@ -4,7 +4,7 @@ name: getters
 description: PID Controller - getter functions
 getters: 
 - summary: get_control_matrix
-  description: Get the linear combination of ADC input signals for a given DFB channel.
+  description: Get the linear combination of ADC input signals for a given PID channel.
   parameters:
   - default: null
     description: Target channel
