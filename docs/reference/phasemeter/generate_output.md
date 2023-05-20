@@ -9,19 +9,28 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range: 1, 2, 3, 4
+  param_range: 
+   mokugo: 1, 2
+   mokulab: 1, 2
+   mokupro: 1, 2, 3, 4 
   type: integer
   unit: null
 - default: 1
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: 1e-3 to 10
+  param_range: 
+   mokugo:  1e-3 to 5
+   mokulab: 1e-3 to 2
+   mokupro: 1e-3 to 10
   type: number
   unit: Vpp
 - default: 1e6
   description: Waveform frequency
   name: frequency
-  param_range: 1e-3 to 100e6
+  param_range: 
+   mokugo:  1e-3 to 20e6
+   mokulab: 1e-3 to 250e6
+   mokupro: 1e-3 to 500e6 Amplitude 0 - 2Vpp, 1e-3 to 100e6 Amplitude > 2Vpp
   type: number
   unit: Hz
 - default: 1

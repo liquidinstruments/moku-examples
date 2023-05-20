@@ -16,7 +16,6 @@ parameters:
   type: number
   unit: Seconds
 summary: get_data
-available_on: "mokupro"
 ---
 
 

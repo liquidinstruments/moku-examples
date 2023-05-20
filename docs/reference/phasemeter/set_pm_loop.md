@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and range for each channel
+description: Configures the frequency and bandwidth of the PLL for each channel
 method: post
 name: set_pm_loop
 summary: Sets Phasemeter loop parameters
@@ -9,7 +9,10 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range: 1, 2, 3, 4
+  param_range:
+   mokugo: 1, 2
+   mokulab: 1, 2
+   mokupro: 1, 2, 3, 4
   type: integer
   unit: null
 - default: false
@@ -21,13 +24,19 @@ parameters:
 - default: 1e6
   description: Frequency of the input signal
   name: frequency
-  param_range: 1e3 to 300e6
+  param_range:
+   mokugo: 1e3 to 30e6
+   mokulab: 1e3 to 200e6
+   mokupro: 1e3 to 300e6 
   type: number
   unit: Hz
 - default: 1kHz
   description: Bandwidth of the phase-locked loop
   name: bandwidth
-  param_range: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
+  param_range: 
+   mokugo: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
+   mokulab: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
+   mokupro: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
   type: number
   unit: Hz
 - default: true

@@ -9,13 +9,19 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range: 1, 2, 3, 4
+  param_range:
+   mokugo: 1, 2
+   mokulab: 1, 2
+   mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: 1MOhm
+- default: null
   description: Impedance
   name: impedance
-  param_range: 50Ohm, 1MOhm
+  param_range:
+   mokugo: 1MOhm
+   mokulab: 50Ohm, 1MOhm
+   mokupro: 50Ohm, 1MOhm
   type: string
   unit: null
 - default: null
@@ -27,7 +33,10 @@ parameters:
 - default: null
   description: Input Range
   name: range
-  param_range: 400mVpp, 4Vpp, 40Vpp
+  param_range: 
+   mokugo: 10Vpp, 50Vpp
+   mokulab: 1Vpp, 10Vpp
+   mokupro: 400mVpp, 4Vpp, 40Vpp 
   type: string
   unit: null
 - default: true
