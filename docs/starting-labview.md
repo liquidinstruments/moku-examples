@@ -129,7 +129,7 @@ Congratulations! You are now ready to run your first LabVIEW Moku project. We ho
 
 This is a VI Snippet of the Oscilloscope example, it can be used directly if you have the LabVIEW Driver installed. To use the snippet, right-click and save the image, then drag the image file onto your LabVIEW diagram to use. 
 
-### 5. Instrument Examples
+## Instrument Examples
 You can find example code for many of the instruments in the LabVIEW examples folder under the Liquid Instruments folder.  You can also access the example files through the NI Example Finder. Switch to the directory structure view, then look for the Liquid Instruments Moku folder.
 
 ![Examples](./img/starting-labview-01-V3.png)
