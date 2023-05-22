@@ -5,7 +5,7 @@ name: Multi-instrument
 description: Laser Lock Box in multi-instrument context
 ---
 
-FIR Filter Builder - Multi-instrument mode
+Laser Lock Box - Multi-instrument mode
 =====================================================
 
 To configure LLB in multi-instrument mode, 
