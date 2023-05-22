@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the Laser Lock Box to sane defaults.
+description: Set the Laser Lock Box to to its default state.
 method: post
 name: set_defaults
 parameters: []

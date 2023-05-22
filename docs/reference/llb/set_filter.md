@@ -18,7 +18,7 @@ parameters:
   name: shape
   type: string
   unit: null
-  param_range: Lowpass, Highpass, Bandpass, Bandstop
+  param_range: Lowpass, Bandstop
 - default: Butterworth
   description: IIR Filter type
   name: type

@@ -15,6 +15,7 @@ getters:
     description: Target channel
     name: channel
     param_range:
+     mokulab: 1, 2
      mokugo: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
@@ -37,6 +38,7 @@ getters:
     description: Target channel
     name: channel
     param_range:
+     mokulab: 1, 2
      mokugo: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer

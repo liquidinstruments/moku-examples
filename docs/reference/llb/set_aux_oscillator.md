@@ -13,7 +13,7 @@ parameters:
 - default: 1e6
   description: Frequency of the auxiliary oscillator
   name: frequency
-  param_range: 1 mHz to 30 MHz
+  param_range: 1 mHz to 300 MHz
   type: integer
   unit: Hz
 - default: 0.5
@@ -36,6 +36,7 @@ parameters:
   unit: null
 summary: set_aux_oscillator
 mark_as_beta: true
+available_on: "Moku:Pro"
 ---
 
 <headers/>

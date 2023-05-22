@@ -13,6 +13,10 @@ parameters:
 - default: 1000000
   description: Frequency of internally-generated demod source
   name: frequency
+  param_range:
+   mokupro: 1 mHz to 600 MHz
+   mokulab: 1 mHz to 200 MHz
+   mokugo: 1 mHz to 20 MHz
   type: number
   unit: Hz
 - default: 0
