@@ -9,6 +9,9 @@ If you don't see your language on the list, please reach out to our [Support Eng
 
 <!-- Keep the below in alphabetical order -->
 
+## C++
+<<< @/docs/examples/other-languages/MokuDemo.cpp
+
 ## C#
 <<< @/docs/examples/other-languages/MokuDemo.cs
 

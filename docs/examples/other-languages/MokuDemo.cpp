@@ -151,18 +151,6 @@ int main()
             auto result = httpPost(curl, buildURL("slot1/oscilloscope/set_frontend"), frontendRequest);
             std::cout << result << std::endl;
         }
-        /*
-         * As you can see, all responses from the Moku are formatted as a JSON
-         * dictionary
-         * with four properties. `success` can be true or false depending whether what
-         * you asked for was valid. It it's true, `data` contains the value(s) you asked
-         * for.
-         * If it's false then `code` and `messages` tell you why.
-         *
-         * The first time you access an instrument's resource, that instrument is
-         * deployed.
-         * Here we set the Oscilloscope frontend, implicitly deploying it first.
-         */
 
         {
             // Get data
