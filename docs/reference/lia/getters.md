@@ -1,7 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Lockin Amplifier supports following getter functions.
 name: getters
-description: Lockin Amplifier  - getter functions
+description: Lock-in Amplifier  - getter functions
 getters: 
 - summary: get_aux_output
   description: Get the current amplitude and frequency for auxiliary output
@@ -25,6 +25,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null

@@ -3,12 +3,12 @@ additional_doc: null
 description: Configures the trigger on pin(s).
 method: post
 name: set_trigger
-available_on: "mokugo"
+available_on: "Moku:Go"
 parameters:
 - default: null
   description: List of Pin-Trigger edge mapping
   name: pins
-  param_range: Pin - 1 to 16; Trigger edge - Rising, Falling, Both
+  param_range: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both
   type: array
   unit: null
 - default: false

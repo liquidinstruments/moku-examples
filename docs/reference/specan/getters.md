@@ -1,6 +1,7 @@
 ---
 additional_doc: Along with regular configuration methods, Spectrum Analyzer supports following getter functions.
-description: Getters
+name: getters
+description: Spectrum Analyzer - getter functions
 getters:
 - summary: get_frontend
   description: Get the input impedance, coupling, and range for given input channel
@@ -10,6 +11,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null

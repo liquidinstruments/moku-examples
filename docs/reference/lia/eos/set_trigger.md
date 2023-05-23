@@ -1,5 +1,5 @@
 ---
-additional_doc: On the PID instrument, the trigger refers to the Monitor unit. See `set_monitor`.
+additional_doc: On the LIA instrument, the trigger refers to the Monitor unit. See `set_monitor`.
 description: Sets trigger source and parameters.
 method: post
 name: set_trigger
@@ -11,12 +11,12 @@ parameters:
   param_range: Edge, Pulse
   type: string
   unit: null
-- default: Input1
+- default: ProbeA
   description: Trigger Source
-      (defaults to Input1)'
   name: source
   param_range: 
     mokugo: ProbeA, ProbeB
+    mokulab: ProbeA, ProbeB
     mokupro: ProbeA, ProbeB, ProbeC, ProbeD
   type: string
   unit: null

@@ -24,7 +24,7 @@ parameters:
   unit: Seconds
   example: [1, 2, 3, 4]
 summary: get_data
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

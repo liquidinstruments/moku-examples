@@ -11,6 +11,7 @@ path_parameters:
   param_range: 
    mokugo: 1, 2
    mokupro: 1, 4
+   mokulab: 1, 2
   type: integer
   unit: null
 summary: platform

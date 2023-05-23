@@ -15,6 +15,7 @@ parameters:
   name: source
   param_range: 
     mokugo: ChannelA, ChannelB, Input1, Input2, Output1, Output2
+    mokulab: ChannelA, ChannelB, Input1, Input2, Output1, Output2, External
     mokupro: ChannelA, ChannelB, ChannelC, ChannelD, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
   type: string
   unit: null
@@ -23,6 +24,7 @@ parameters:
   name: level
   param_range:
     mokugo: -5 to 5
+    mokulab: -5 to 5
     mokupro: -20 to 20
   type: number
   unit: V
@@ -51,6 +53,7 @@ parameters:
   name: width
   param_range: 
     mokugo: 480e-9 to 10
+    mokulab: 184e-9 to 10
     mokupro: 24.51e-6 to 10
   type: number
   unit: Seconds

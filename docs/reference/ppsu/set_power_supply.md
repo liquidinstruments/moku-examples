@@ -21,20 +21,20 @@ parameters:
   name: voltage
   param_range: null
   type: number
-  unit: null
+  unit: Volts
 - default: 0.1
   description: Current set point
   name: current
   param_range: null
   type: number
-  unit: null
+  unit: Amps
 summary: set_power_supply
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>
 
-Once a load is connected, the power supply operates either at the set current or set voltage, whichever reaches the set point first. set_power_supply returns the same response as [read_power_supply](./read_power_supply.md)
+Once a load is connected, the power supply operates either at the current set point or the voltage set point, whichever set point is reached first. set_power_supply returns the same response as [read_power_supply](./read_power_supply.md)
 
 <parameters/>
 

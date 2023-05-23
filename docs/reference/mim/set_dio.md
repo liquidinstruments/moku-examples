@@ -23,7 +23,7 @@ parameters:
   type: boolean
   unit: 
 summary: set_dio
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

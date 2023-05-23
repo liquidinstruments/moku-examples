@@ -5,10 +5,11 @@ method: post
 name: set_connections
 parameters:
 - default: 
-  description: List of map of source and destination points
+  description: List of maps of source and destination points
   name: connections
   param_range: 
     mokugo: Source [Input1, Input2, DIO, SlotXOutY]; Destination [Output1, Output2, DIO, SlotXInY]
+    mokulab: Source [Input1, Input2, SlotXOutY]; Destination [Output1, Output2, SlotXInY]
     mokupro: Source [Input1, Input2, Input3, Input4, SlotXInY]; Destination [Output1, Output2, Output3, Output4, SloutXOutY]
   type: array
   unit: null

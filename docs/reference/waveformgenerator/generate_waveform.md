@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -60,7 +61,8 @@ parameters:
   name: dc_level
   param_range:    
    mokugo: -5 to 5
-   mokupro: -50 to 50
+   mokulab: -2 to 2
+   mokupro: -5 to 5
   type: number
   unit: null
 - default: 0
@@ -68,6 +70,7 @@ parameters:
   name: edge_time
   param_range: 
    mokugo: 16e-9 to pulse width
+   mokulab: 4e-9 to pulse width
    mokupro: 4e-9 to pulse width  
   type: number
   unit: null

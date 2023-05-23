@@ -1,6 +1,6 @@
 ---
 additional_doc: When using Python or MATLAB clients, user can access this function directly from the instrument object.
-description: Get serial of the Moku
+description: Get serial number of the Moku
 method: get
 name: serial_number
 parameters: []

@@ -9,13 +9,14 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
 - default: null
   description: Input gain
   name: gain
-  param_range: -5 to 5
+  param_range: -40 to 40
   type: number
   unit: dB
 - default: true

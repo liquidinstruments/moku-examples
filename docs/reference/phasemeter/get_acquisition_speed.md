@@ -5,7 +5,6 @@ method: get
 name: get_acquisition_speed
 parameters: []
 summary: get_acquisition_speed
-available_on: "mokupro"
 ---
 
 

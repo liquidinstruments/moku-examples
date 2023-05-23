@@ -15,8 +15,8 @@ summary: summary
 <code-group>
 <code-block title="Python">
 ```python
-from moku.instruments import MokuLockInAmp
-i = MokuLockInAmp('192.168.###.###')
+from moku.instruments import LockInAmp
+i = LockInAmp('192.168.###.###')
 print(i.summary())
 ```
 </code-block>

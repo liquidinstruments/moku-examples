@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -18,6 +19,7 @@ parameters:
   name: frequency1
   param_range:
    mokugo: 0 to 30e6
+   mokulab: 0 to 250e6
    mokupro: 0 to 300e6 
   type: number
   unit: Hz
@@ -26,26 +28,26 @@ parameters:
   name: frequency2
   param_range:
    mokugo: 0 to 30e6
+   mokulab: 0 to 250e6
    mokupro: 0 to 300e6
   type: number
   unit: Hz
 - default: Auto
-  description: Desired resolution bandwidth (Hz)
+  description: Resolution bandwidth mode
   name: rbw
   param_range: Auto, Manual, Minimum
   type: string
   unit: null
 - default: 5000
-  description: RBW value (only in manual mode)
+  description: Desired RBW value (only in manual mode)
   name: rbw_value
   param_range: null
   type: number
-  unit: null
+  unit: Hz
 - default: BlackmanHarris
   description: Window Function
-      to BlackmanHarris)'
   name: window
-  param_range: BlackmanHarris, FlatTop, Hanning, Rectangular
+  param_range: BlackmanHarris, FlatTop, Rectangular, Bartlett, Hamming, Hann, Nuttall, Gaussian, Kaiser
   type: string
   unit: null
 - default: true

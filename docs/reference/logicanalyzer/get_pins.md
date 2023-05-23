@@ -5,7 +5,7 @@ method: post
 name: get_pins
 parameters: []
 summary: get_pins
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

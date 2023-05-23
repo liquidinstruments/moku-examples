@@ -13,6 +13,19 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
+     mokupro: 1, 2, 3, 4
+    type: integer
+    unit: null
+- summary: get_output_load
+  description: Get output amplitude and offset for the given channel
+  parameters:
+  - default: null
+    description: Target channel
+    name: channel
+    param_range:
+     mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -27,6 +40,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null

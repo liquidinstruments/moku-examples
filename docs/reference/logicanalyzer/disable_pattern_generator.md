@@ -11,7 +11,7 @@ parameters:
   type: integer
   unit: null
 summary: disable_pattern_generator
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>

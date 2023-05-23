@@ -5,7 +5,7 @@ method: post
 name: set_controls
 parameters:
 - default: null
-  description: List of map of control ID and value
+  description: List of maps of control ID and value
   name: controls
   type: array
   unit: null

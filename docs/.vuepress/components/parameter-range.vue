@@ -7,8 +7,9 @@ export default {
       var children = [];
       children.push(title(h, ""));
       children.push(h("table", { class: "parameter-range-table" }, [
+        type_and_range(h, "Moku:Lab", props.range.mokulab, "tr-lab"),
         type_and_range(h, "Moku:Go", props.range.mokugo, "tr-go"),
-        type_and_range(h, "Moku:Pro", props.range.mokupro, "tr-pro")
+        type_and_range(h, "Moku:Pro", props.range.mokupro, "tr-pro"),
       ]));
       return h("div", { class: "param-range-container"  }, [h("code", children)]);
     } 
@@ -44,10 +45,5 @@ function type_and_range(h, title, text, className) {
   border:none
   margin: 1em
 
-.tr-go td
-    background-color: lighten($accentColor, 80%)
-
-.tr-pro td
-  background-color: lighten($textColor, 80%)
 
 </style>

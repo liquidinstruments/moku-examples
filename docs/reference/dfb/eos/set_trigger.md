@@ -17,6 +17,7 @@ parameters:
   name: source
   param_range: 
     mokugo: ProbeA, ProbeB
+    mokulab: ProbeA, ProbeB
     mokupro: ProbeA, ProbeB, ProbeC, ProbeD
   type: string
   unit: null

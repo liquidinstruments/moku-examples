@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -24,6 +25,7 @@ parameters:
   name: start_frequency
   param_range: 
    mokugo: 10e-3 to 20e6
+   mokulab: 10e-3 to 200e6
    mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
@@ -32,6 +34,7 @@ parameters:
   name: stop_frequency
   param_range: 
    mokugo: 10e-3 to 20e6
+   mokulab: 10e-3 to 200e6
    mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
@@ -52,6 +55,7 @@ parameters:
   name: output_amplitude 
   param_range: 
    mokugo: 2e-3 to 10
+   mokulab: 2e-3 to 4
    mokupro: 1e-3 to 10
   type: number
   unit: Vpp

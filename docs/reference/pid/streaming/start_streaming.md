@@ -23,6 +23,7 @@ parameters:
   type: integer
   unit: Hz
 summary: start_streaming
+group: Streaming
 ---
 
 <headers/>

@@ -9,6 +9,7 @@ parameters:
   name: start_frequency
   param_range: 
    mokugo: 10e-3 to 20e6
+   mokulab: 10e-3 to 200e6
    mokupro: 10e-3 to 300e6
   type: number
   unit: Hz
@@ -17,6 +18,7 @@ parameters:
   name: stop_frequency
   param_range: 
    mokugo: 10e-3 to 20e6
+   mokulab: 10e-3 to 200e6
    mokupro: 10e-3 to 300e6
   type: number
   unit: Hz

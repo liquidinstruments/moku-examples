@@ -1,5 +1,5 @@
 ---
-additional_doc: On the PID instrument, the trigger refers to the Monitor unit. See `set_monitor`.
+additional_doc: On the FIR instrument, the trigger refers to the Monitor unit. See `set_monitor`.
 description: Sets trigger source and parameters.
 method: post
 name: set_trigger
@@ -17,6 +17,7 @@ parameters:
   name: source
   param_range: 
     mokugo: ProbeA, ProbeB
+    mokulab: ProbeA, ProbeB
     mokupro: ProbeA, ProbeB, ProbeC, ProbeD
   type: string
   unit: null

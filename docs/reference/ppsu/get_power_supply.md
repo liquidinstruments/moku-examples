@@ -12,7 +12,7 @@ parameters:
   type: integer
   unit: null
 summary: get_power_supply
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

@@ -9,27 +9,41 @@ parameters:
 - default: null
   description: Target channel
   name: channel
-  param_range: 1, 2, 3, 4
+  param_range: 
+   mokugo: 1, 2
+   mokulab: 1, 2
+   mokupro: 1, 2, 3, 4 
   type: integer
   unit: null
 - default: 1
   description: Waveform peak-to-peak amplitude
   name: amplitude
-  param_range: 1e-3 to 10
+  param_range: 
+   mokugo:  1e-3 to 5
+   mokulab: 1e-3 to 2
+   mokupro: 1e-3 to 10
   type: number
   unit: Vpp
-- default: 10000
+- default: 1e6
   description: Waveform frequency
   name: frequency
-  param_range: 1e-3 to 100e6
+  param_range: 
+   mokugo:  1e-3 to 20e6
+   mokulab: 1e-3 to 250e6
+   mokupro: 1e-3 to 500e6 Amplitude 0 - 2Vpp, 1e-3 to 100e6 Amplitude > 2Vpp
   type: number
   unit: Hz
 - default: 1
   description: Frequency multiplier
-  name: frequency
+  name: frequency_multiplier
   param_range: null
   type: number
   unit: null
+- default: 0
+  description: Output voltage offset
+  name: offset
+  param_range: null
+  type: number
 - default: 0
   description: Phase offset of the wave
   name: phase
@@ -45,7 +59,7 @@ parameters:
 - default: Sine
   description: Type of output signal
   name: signal
-  param_range: Sine, Phase, FrequencyOffset, Amptitude
+  param_range: Sine, Phase, FrequencyOffset, Amplitude
   type: string
   unit: null
 - default: 0.001
@@ -61,7 +75,6 @@ parameters:
   type: boolean
   unit: null
 summary: generate_output 
-available_on: "mokupro"
 ---
 
 
@@ -80,7 +93,7 @@ i = Phasemeter('192.168.###.###')
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
 # Generate a sine wave on channel 2, 1 Vpp, 1 MHz
 i.generate_output(channel=1, amplitude=0.5, frequency=5e3, signal='Sine')
-i.generate_output(channel=2,  amplitude=1.0, frequency=1e6, signal='Sine')
+i.generate_output(channel=2, amplitude=1.0, frequency=1e6, signal='Sine')
 ```
 </code-block>
 
@@ -89,11 +102,11 @@ i.generate_output(channel=2,  amplitude=1.0, frequency=1e6, signal='Sine')
 i = MokuPhasemeter('192.168.###.###');
 % Generate a sine wave on Channel 1
 % 0.5 Vpp, 10 kHz
-i.generate_output(1, 0.5, 10e3,'Sine');
+i.generate_output(1, 'Sine', 'amplitude', 0.5, 'frequency', 10e3);
 
 % Generate a sine wave on Channel 2
 % 1 Vpp, 1 MHz
-i.generate_output(2, 1, 1e6,'Sine');
+i.generate_output(2, 'Sine', 'amplitude', 1, 'frequency', 1e6);
 ```
 </code-block>
 

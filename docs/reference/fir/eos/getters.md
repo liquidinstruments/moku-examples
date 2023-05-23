@@ -1,5 +1,5 @@
 ---
-additional_doc: Along with regular configuration methods, Digital Filter Box - Monitor supports following getter functions.
+additional_doc: Along with regular configuration methods, FIR Filter Builder - Monitor supports following getter functions.
 name: Osc Getters
 description: Getters
 getters: 

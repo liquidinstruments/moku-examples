@@ -3,7 +3,6 @@ additional_doc: null
 description: Sets the phase wrap function on the phasemeter
 method: post
 name: set_phase_wrap
-available_on: "mokupro"
 parameters:
 - default: null
   description: Phase wrap point

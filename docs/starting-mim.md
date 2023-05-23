@@ -21,7 +21,14 @@ Multi-instrument Mode is available through all of our APIs, including MATLAB and
 :::
 
 ## Selecting the Multi-instrument Mode Configuration
-The configuration is parameterized by the number of slots you wish to have. At present, Moku:Go supports only 1 or 2 slots; Moku:Pro only supports 1 or 4. Specifying "1" is equivalent to disabling Multi-instrument Mode.
+The configuration is parameterized by the number of slots you wish to have. Specifying "1" is equivalent to disabling Multi-instrument Mode.
+
+|    Device    | Slots Available |
+|:------------:|:--------------:|
+|  Moku:Go     |      1, 2      |
+|  Moku:Lab    |      1, 2      |
+|  Moku:Pro    |    1, 4        |
+
 
 If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
 
@@ -113,14 +120,14 @@ See also the documentation for the Multi-instrument Mode versions of [set_fronte
 <code-block title="Python">
 ```python
 mim.set_output(1, '14dB')
-mim.set_frontend(1, impedance="50R", attenuation="0dB", coupling="DC")
+mim.set_frontend(1, impedance="50Ohm", attenuation="0dB", coupling="DC")
 ```
 </code-block>
 
 <code-block title="cURL">
 ```bash
 curl -H 'Moku-Client-Key: <key>' http://<ip>/api/mim/set_output -d '{channel: 1, gain: "14dB"}'
-curl -H 'Moku-Client-Key: <key>' http://<ip>/api/mim/set_frontend -d '{channel: 1, impedance: "50R", attenuation: "0dB", coupling: "DC"}'
+curl -H 'Moku-Client-Key: <key>' http://<ip>/api/mim/set_frontend -d '{channel: 1, impedance: "50Ohm", attenuation: "0dB", coupling: "DC"}'
 ```
 </code-block>
 

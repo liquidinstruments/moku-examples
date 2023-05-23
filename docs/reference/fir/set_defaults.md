@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the PID Controller to sane defaults.
+description: Set the the FIR filter to its default state.
 method: post
 name: set_defaults
 parameters: []
@@ -14,7 +14,7 @@ Default state implies,
 
 - Enable output on both channels
 - Set Input Coupling to DC
-- Set Input Range to 10Vpp
+
 
 
 ::: tip INFO

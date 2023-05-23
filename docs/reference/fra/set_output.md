@@ -9,13 +9,17 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
 - default: null
-  description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to between -1 V and 1 V above 1 MHz)
+  description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to between -2 V and 2 V above 100 MHz)
   name: amplitude
-  param_range: -5 to 5
+  param_range:
+   mokugo: -5 to 5
+   mokulab: -2 to 2
+   mokupro: -10 to 10, -2 to 2 > 100 MHz
   type: number
   unit: V
 - default: 0

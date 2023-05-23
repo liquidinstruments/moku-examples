@@ -4,13 +4,14 @@ name: getters
 description: PID Controller - getter functions
 getters: 
 - summary: get_control_matrix
-  description: Get the linear combination of ADC input signals for a given DFB channel.
+  description: Get the linear combination of ADC input signals for a given PID channel.
   parameters:
   - default: null
     description: Target channel
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -22,6 +23,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -33,6 +35,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -44,6 +47,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -55,6 +59,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
@@ -66,6 +71,7 @@ getters:
     name: channel
     param_range:
      mokugo: 1, 2
+     mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null

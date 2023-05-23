@@ -7,7 +7,7 @@ parameters:
 - default: Normal
   description: Acquisition Mode
   name: mode
-  param_range: Normal, Precision, PeakDetect
+  param_range: Normal, Precision, PeakDetect, DeepMemory
   type: string
   unit: null
 - default: true

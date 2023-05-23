@@ -11,6 +11,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -25,6 +26,7 @@ parameters:
   name: source
   param_range: 
     mokugo: Input1, Input2, Output1, Output2, Internal
+    mokulab: Input1, Input2, Output1, Output2, Internal
     mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal
   type: string
   unit: null
@@ -41,7 +43,8 @@ parameters:
   name: frequency
   param_range:
    mokugo: 0 to 5e6
-   mokupro: 0 50 125e6
+   mokulab: 0 to 62.5e6
+   mokupro: 0 t0 125e6
   type: number
   unit: Hz
 - default: true

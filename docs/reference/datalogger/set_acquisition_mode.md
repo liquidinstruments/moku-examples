@@ -1,13 +1,16 @@
 ---
 additional_doc: Precision mode is also known as decimation, it samples at the full rate and averages        excess data points to improve precision. Normal mode works by direct down sampling,     throwing away extra data points.
-description: Changes acquisition mode between 'Normal' and 'Precision'. 
+description: Changes acquisition mode between 'Normal', 'Precision' and 'PeakDetect'. 
 method: post
 name: set_acquisition_mode
 parameters:
 - default: Normal
   description: Acquisition Mode
   name: mode
-  param_range: Normal, Precision, PeakDetect
+  param_range: 
+   mokulab: Normal, Precision
+   mokugo: Normal, Precision, PeakDetect
+   mokupro: Normal, Precision, PeakDetect
   type: string
   unit: null
 - default: true

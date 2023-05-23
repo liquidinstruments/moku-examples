@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configure the selected PID controller using crossover frequencies.
+description: Configure the FIR filter frequency response.
 method: post
 name: set_by_frequency
 parameters:
@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -18,8 +19,9 @@ parameters:
   type: number
   unit: Hz
   param_range: 
-    mokugo: 3.906MHz, 488.3kHz, 61.04kHz
-    mokupro: 39.06MHz, 4.883MHz, 305.2kHz
+    mokugo: 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz, 61.04kHz, 30.52kHz
+    mokulab: 15.63MHz, 7.813MHz, 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz
+    mokupro: 39.06MHz, 19.53MHz, 9.766MHz, 4.883MHz, 2.441MHz, 1.221MHz, 610.4kHz, 305.2kHz
 - default: 201
   description: Coefficient or tap count
   name: coefficient_count

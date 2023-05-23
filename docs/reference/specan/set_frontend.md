@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -18,6 +19,7 @@ parameters:
   name: impedance
   param_range:
    mokugo: 1MOhm
+   mokulab: 50Ohm, 1MOhm
    mokupro: 50Ohm, 1MOhm
   type: string
   unit: null
@@ -32,6 +34,7 @@ parameters:
   name: range
   param_range:
    mokugo: 10Vpp, 50Vpp
+   mokulab: 1Vpp, 10Vpp
    mokupro: 400mVpp, 4Vp, 40Vpp
   type: string
   unit: null

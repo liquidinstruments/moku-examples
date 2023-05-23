@@ -1,5 +1,5 @@
 ---
-description: Digital Filter Box - Streaming - getter functions
+description: FIR Filter Builder - Streaming - getter functions
 name: getters
 getters: 
 - summary: get_stream_status

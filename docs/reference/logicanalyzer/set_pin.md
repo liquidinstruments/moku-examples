@@ -30,7 +30,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_pin
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 

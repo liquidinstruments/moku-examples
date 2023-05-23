@@ -73,6 +73,7 @@ module.exports = {
                         getChildren("Digital Filter Box", "dfb"),
                         getChildren("FIR FIlter", "fir"),
                         getChildren("Frequency Response Analyzer", "fra"),
+                        getChildren("Laser Lock Box", "llb"),
                         getChildren("LockIn Amplifier", "lia"),
                         getChildren("Logic Analyzer", "logicanalyzer"),
                         getChildren("Oscilloscope", "oscilloscope"),
@@ -101,7 +102,8 @@ module.exports = {
                         'starting-mim',
                         'starting-other',
                         'ip-address',
-                        'moku-cli'
+                        'moku-cli',
+                        'download-bitstreams'
                     ]
                 },
                 ['/reference/', "API Reference"],

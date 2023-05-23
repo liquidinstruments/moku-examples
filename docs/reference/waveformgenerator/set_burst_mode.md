@@ -10,6 +10,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -18,6 +19,7 @@ parameters:
   name: source
   param_range: 
     mokugo: Input1, Input2, Output1, Output2, Internal
+    mokulab: Input1, Input2, Output1, Output2, Internal, External
     mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal, External
   type: string
   unit: null
@@ -32,6 +34,7 @@ parameters:
   name: trigger_level
   param_range: 
     mokugo: -5 to 5
+    mokulab: -5 to 5
     mokupro: -20 to 20
   type: number
   unit: V
@@ -54,6 +57,15 @@ parameters:
   param_range: null
   type: number
   unit: null
+- default: undefined
+  description: Input Range
+  name: input_range
+  param_range: 
+   mokugo: 10Vpp, 50Vpp
+   mokulab: 10Vpp, 1Vpp
+   mokupro: 400mVpp, 4Vpp, 40Vpp 
+  type: string
+  unit: Vpp
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

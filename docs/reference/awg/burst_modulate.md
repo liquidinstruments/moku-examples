@@ -9,6 +9,7 @@ parameters:
   name: channel
   param_range:
    mokugo: 1, 2
+   mokulab: 1, 2
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
@@ -17,6 +18,7 @@ parameters:
   name: trigger_source
   param_range: 
     mokugo: Input1, Input2
+    mokulab: Input1, Input2, External
     mokupro: Input1, Input2, Input3, Input4, External  
   type: string
   unit: null
@@ -37,14 +39,16 @@ parameters:
   name: trigger_level
   param_range: 
    mokugo: -5 to 5
+   mokulab: -5 to 5
    mokupro: -20 to 20
   type: number
   unit: V
-- default: 10Vpp for Go and 400mVpp for Pro
+- default: undefined
   description: Input Range
   name: input_range
   param_range: 
    mokugo: 10Vpp, 50Vpp
+   mokulab: 10Vpp, 1Vpp
    mokupro: 400mVpp, 4Vpp, 40Vpp 
   type: string
   unit: Vpp

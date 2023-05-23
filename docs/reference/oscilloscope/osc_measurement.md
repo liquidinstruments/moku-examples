@@ -24,6 +24,7 @@ parameters:
   name: trigger_source
   param_range: 
     mokugo: Input1, Input2, Output1, Output2
+    mokulab: Input1, Input2, Output1, Output2, External
     mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External  
   type: string
   unit: null
@@ -39,6 +40,7 @@ parameters:
   name: level
   param_range: 
     mokugo: -5 to 5
+    mokulab: -5 to 5
     mokupro: -20 to 20
   type: number
   unit: V

@@ -6,7 +6,7 @@ additional_doc: When using either of the clients, user can access this function 
 name: get_power_supplies
 parameters: []
 summary: get_power_supplies
-available_on: "mokugo"
+available_on: "Moku:Go"
 ---
 
 <headers/>

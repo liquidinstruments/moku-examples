@@ -3,7 +3,6 @@ additional_doc: null
 description: Sets the acquisition speed of the instrument
 method: post
 name: set_acquisition_speed
-available_on: "mokupro"
 parameters:
 - default: null
   description: Target samples per second 

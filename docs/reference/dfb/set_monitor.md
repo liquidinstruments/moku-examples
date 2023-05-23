@@ -5,12 +5,6 @@ description: Configures the specified monitor channel to view the desired digita
 method: post
 name: set_monitor
 parameters:
-- default: true
-  description: Disable all implicit conversions and coercions.
-  name: strict
-  param_range: null
-  type: boolean
-  unit: null
 - default: null
   description: Monitor channel
   name: monitor_channel
@@ -22,8 +16,15 @@ parameters:
   name: source
   param_range: 
     mokugo: None, Input1, Filter1, Output1, Input2, Filter2, Output2
+    mokulab: None, Input1, Filter1, Output1, Input2, Filter2, Output2
     mokupro: None, Input1, Filter1, Output1, Input2, Filter2, Output2, Input3, Filter3, Output3, Input4, Filter4, Output4
   type: string
+  unit: null
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
   unit: null
 summary: set_monitor
 group: Oscilloscope

@@ -3,7 +3,6 @@ additional_doc: null
 description: Sets the auto-reset function on the phasemeter
 method: post
 name: set_auto_reset
-available_on: "mokupro"
 parameters:
 - default: null
   description: Phase reset point
