@@ -7,10 +7,7 @@
       placeholder="Enter firmware version"
     />
     <button class="bitstream-button" @click.prevent="constructBitstreamsURL">
-      Bitstreams
-    </button>
-    <button class="bitstream-button" @click="constructChecksumURL">
-      Checksum
+      Download Bitstreams
     </button>
   </div>
 </template>
@@ -23,24 +20,15 @@ export default {
     };
   },
   methods: {
-    formattedUrl() {
+    constructBitstreamsURL() {
       if (this.firmwareVer === "") {
         alert("Enter a valid firmware version number");
         return;
       }
-      return (
+      const baseURL =
         "https://updates.liquidinstruments.com/static/mokudata-" +
-        this.firmwareVer
-      );
-    },
-
-    constructBitstreamsURL() {
-      const baseURL = this.formattedUrl();
-      if (baseURL) window.open(baseURL + ".tar.gz");
-    },
-
-    constructChecksumURL() {
-      const baseURL = this.formattedUrl() + ".md5";
+        this.firmwareVer +
+        ".tar.gz";
       window.open(baseURL);
     },
   },
