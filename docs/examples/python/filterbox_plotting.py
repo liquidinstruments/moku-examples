@@ -1,18 +1,19 @@
 #
 # Python moku example: Plotting Digital Filter Box
 #
-# This example demonstrates how you can configure the Digital 
-# Filter Box instrument to filter two signals from inputs mixer
-# with a lowpass Butterworth filter and a highpass Elliptic filter.
-# The anticipated outcome is the occurrence of low-frequency noise
-# in the output of the lowpass filter and high-frequency noise
-# in the output of the highpass filter.
+# This example demonstrates how you can configure the Digital
+# Filter Box instrument to filter and display two signals. Filter
+# 1 takes its input from Input1 and applies a lowpass Butterworth
+# filter. Filter 2 takes its input from Input1 + Input2 and applies
+# a highpass Elliptic filter. The output of both filters are then
+# displayed on the plot.
 #
 # (c) 2023 Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt
 
+from moku import MokuException
 from moku.instruments import DigitalFilterBox
 
 # Connect to your Moku by its ip address using
@@ -22,14 +23,13 @@ i = DigitalFilterBox('192.168.2.125', force_connect=True)
 
 try:
     # SetChannel 1 and 2 to DC coupled, 1 Mohm impedance, and
-    # 400 mVpp range on Moku:Pro
-    # 1 Vpp range on Moku:Lab
-    # 10 Vpp range on Moku:Go
+    # default input range (400 mVpp range on Moku:Pro, 1 Vpp
+    # range on Moku:Lab, 10 Vpp range on Moku:Go)
     i.set_frontend(1, coupling='DC', impedance='1MOhm',
                    attenuation='0dB')
     i.set_frontend(2, coupling='DC', impedance='1MOhm',
                    attenuation='0dB')
-    
+
     # Channel1 signal: Input 1
     # Channel2 signal: Input 1 + Input 2
     i.set_control_matrix(1, input_gain1=1, input_gain2=0)
@@ -39,22 +39,22 @@ try:
     # Channel1 is a 8th-order Butterworth lowpass filter
     # Channel2 is a 8th-order Elliptic highpass filter
     # 3.906 MHz is for Moku:Go
-    # Please change sampling rate accordingly
+    # Please change sampling rate for other Moku devices.
     i.set_filter(1, "3.906MHz", shape="Lowpass", 
                  type="Butterworth", low_corner=1e3,
                  order=8)
     i.set_filter(2, "3.906MHz", shape="Highpass", 
                  type="Elliptic",high_corner=100e3,
                  order=8)
-    
+
     # Monitor ProbeA: Filter Channel1 output
     # Monitor ProbeB: Filter Channel2 output
     i.set_monitor(1, "Output1")
     i.set_monitor(2, "Output2")
 
     # Enable Digital Filter Box output ports
-    i.enable_output(1,signal=True,output=True)
-    i.enable_output(2,signal=True,output=True)
+    i.enable_output(1, signal=True, output=True)
+    i.enable_output(2, signal=True, output=True)
 
     # View +- 0.5 ms i.e. trigger in the centre
     i.set_timebase(-0.5e-3, 0.5e-3)
@@ -86,11 +86,10 @@ try:
             line1.set_xdata(data['time'])
             line2.set_xdata(data['time'])
             plt.pause(0.001)
-
-except Exception as e:
-    i.stop_streaming()
-    print(f'Exception occurred: {e}')
+except MokuException as e:
+    print("Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device.")
+    raise e
 finally:
-    # Close the connection to the Moku device
-    # This ensures network resources are released correctly
+    # Releasing ownership of the Moku allows other users to connect
+    # to it without forcing a takeover.
     i.relinquish_ownership()
