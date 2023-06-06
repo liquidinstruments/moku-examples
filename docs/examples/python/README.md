@@ -41,6 +41,13 @@ Datalogger in slot1 and Lockin Amplifier in slot2.
 
 <<< @/docs/examples/python/mim_dl_lia_streaming.py
 
+## Digital Filter Box
+
+This example demonstrates how you can configure the Digital Filter Box instrument 
+to filter and display two signals.
+
+<<< @/docs/examples/python/digital_filter_box_plotting.py
+
 ## Frequency Response Analyzer
 ### freq_response_analyzer_basic.py
 
