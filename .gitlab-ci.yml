@@ -1,5 +1,6 @@
-image: node:10.22.0
-pages:
+build-pages:
+  image: node:16
+  stage: build
   cache:
     paths:
       - node_modules/
@@ -7,6 +8,7 @@ pages:
     - npm install
     - npm run docs:build
   artifacts:
+    expose_as: 'REST Documentation'
     paths:
       - public
   variables:
@@ -14,3 +16,13 @@ pages:
     BASE_PATH: "/$CI_PROJECT_NAME/$CI_COMMIT_BRANCH/"
   except:
     - master
+deploy_staging:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  environment:
+    name: staging
+    url: https://staging.documentation.liquidinstruments.com
+  script:
+    - aws s3 cp public s3://$S3_BUCKET_NAME --recursive
+  only:
+    - next-spk
