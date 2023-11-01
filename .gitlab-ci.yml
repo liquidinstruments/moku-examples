@@ -25,4 +25,4 @@ deploy_staging:
   script:
     - aws s3 cp public s3://$S3_BUCKET_NAME --recursive
   only:
-    - next-spk
+    - next
