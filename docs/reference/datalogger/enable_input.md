@@ -1,24 +1,23 @@
 ---
 additional_doc: null
-deprecated: true
-deprecated_msg: This method is deprecated and will be removed soon. Please use [set_output_termination](./set_output_termination)
-description: Configures the output load on a given channel.
+description: Enable or disable the Datalogger channel input(s).
 method: post
-name: set_output_load
+name: enable_input
 parameters:
 - default: null
-  description: Target output channel to generate waveform on
+  description: Target channel
   name: channel
   param_range:
+   mokugo: 1, 2
    mokulab: 1, 2
-   mokupro: 1, 2, 3, 4  
+   mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: null
-  description: Waveform load
-  name: load
-  param_range: 50Ohm, 1MOhm
-  type: string
+- default: True
+  description: Enable/Disable input signal
+  name: enable
+  param_range: null
+  type: boolean
   unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
@@ -26,12 +25,12 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: set_output_load
-available_on: "Moku:Pro, Moku:Lab"
+summary: enable_input
 ---
 
 <headers/>
 <parameters/>
+
 
 ### Examples
 
@@ -40,14 +39,16 @@ available_on: "Moku:Pro, Moku:Lab"
 ```python
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###')
-i.set_output_load(1, "1MOhm")
+# Enable Input Signal
+i.enable_input(1, True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-m.set_output_load(1, '1MOhm');
+% Enable Input Signal
+m.enable_input(1, true)
 ```
 </code-block>
 
@@ -55,9 +56,16 @@ m.set_output_load(1, '1MOhm');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":1,"load":"1MOhm"}'\
-        http://<ip>/api/datalogger/set_output_load
+        --data '{"channel": 2, "enabled": true}'\
+        http://<ip>/api/datalogger/enable_input
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "enable": true
+}
+```

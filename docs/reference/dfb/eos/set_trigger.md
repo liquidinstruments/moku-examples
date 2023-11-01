@@ -77,6 +77,12 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: 1e-3
+  description: Absolute hysteresis value
+  name: hysteresis
+  param_range: 1e-4 to 1
+  type: number
+  unit: V
 - default: false
   description: Configure the Oscilloscope with a small amount of hysteresis to prevent
     repeated triggering due to noise

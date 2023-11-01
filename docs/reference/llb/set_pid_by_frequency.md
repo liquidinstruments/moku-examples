@@ -49,6 +49,12 @@ parameters:
   param_range: -60 to 60
   type: number
   unit: dB
+- default: false
+  description: Invert PID
+  name: invert
+  param_range: null
+  type: number
+  unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
