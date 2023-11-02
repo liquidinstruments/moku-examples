@@ -18,13 +18,25 @@ getters:
     type: integer
     unit: null
 - summary: get_output_load
-  description: Get output amplitude and offset for the given channel
+  description: Get output load
   parameters:
   - default: null
     description: Target channel
     name: channel
     param_range:
-     mokugo: 1, 2
+     mokulab: 1, 2
+     mokupro: 1, 2, 3, 4
+    type: integer
+    unit: null
+    deprecated: true
+    deprecated_text: get_output_load is deprecated, use get_output_termination to get the output termination
+- summary: get_output_termination
+  description: Get output termination
+  parameters:
+  - default: null
+    description: Target channel
+    name: channel
+    param_range:
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
     type: integer

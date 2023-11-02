@@ -10,11 +10,17 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: false
+  description: Wait until entire frame is available
+  name: wait_complete
+  param_range: null
+  type: boolean
+  unit: null
 - default: 60
   description: Timeout for trigger event if wait_reacquire is true
   name: timeout
   param_range: 0 - inf
-  type: number
+  type: integer
   unit: Seconds
 summary: get_data
 ---
