@@ -21,7 +21,6 @@ getters:
   deprecated: true
   deprecated_msg: This method is deprecated and will be removed soon. Use **get_output_termination** instead.
   description: Get the output load for a given output channel
-  description: Get output load
   parameters:
   - default: null
     description: Target channel
