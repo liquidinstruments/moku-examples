@@ -7,7 +7,7 @@ parameters:
 - default: null
   description: Target samples per second 
   name: speed
-  param_range: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
+  param_range: 30Hz, 37Hz, 119Hz, 150Hz, 477Hz,  596Hz, 1.9kHz, 2.4kHz, 15.2kHz, 19.1kHz, 122kHz, 152kHz
   type: string
   unit: null
 - default: true
@@ -29,7 +29,7 @@ summary: set_acquisition_speed
 <code-block title="Python">
 ```python{6}
 from moku.instruments import Phasemeter
-i = Phasemeter'192.168.###.###')
+i = Phasemeter('192.168.###.###')
 # Set required acquisition speed
 i.set_acquisition_speed(speed='596Hz')
 ```

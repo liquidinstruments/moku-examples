@@ -9,12 +9,14 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+  deprecated: true
 - default: 60
   description: Timeout for trigger event if wait_reacquire is true
   name: timeout
   param_range: 0 - inf
   type: number
   unit: Seconds
+  deprecated: true
 summary: get_data
 ---
 
