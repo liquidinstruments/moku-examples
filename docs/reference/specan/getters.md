@@ -22,7 +22,7 @@ getters:
 - summary: get_window
   description: Get the currently configured window function
 - summary: get_output_termination
-  description: Get output termination
+  description: Get the output termination for a given output channel
   parameters:
   - default: null
     description: Target channel

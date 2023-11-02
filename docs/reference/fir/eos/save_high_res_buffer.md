@@ -11,10 +11,10 @@ parameters:
   type: string
   unit: null
 - default: 60
-  description: Wait for n seconds before trigger event happens to save the buffer
+  description: Timeout for trigger event if wait_reacquire is true
   name: timeout
   param_range: 0 - inf
-  type: integer
+  type: number
   unit: Seconds
 summary: save_high_res_buffer
 group: Monitors

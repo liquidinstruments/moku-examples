@@ -10,20 +10,14 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
-- default: null
+- default: undefined
   description: Target samples per second (For Moku:Pro, the maximum sampling rate is limited to 5MSa/s for 2 channel logging and 1.25MSa/s for 3 and 4 channel logging)
   name: sample_rate
   param_range: 
    mokugo: 10 to 1e6
-   mokulab: 10 to 2.5e5
+   mokulab: 10 to 1e6
    mokupro: 10 to 10e6
   type: number
-  unit: null
-- default: true
-  description: Disable all implicit conversions and coercions.
-  name: strict
-  param_range: null
-  type: boolean
   unit: null
 summary: start_streaming
 ---
@@ -31,6 +25,10 @@ summary: start_streaming
 <headers/>
 
 <parameters/>
+
+::: tip
+The **samplerate** parameter here does exactly the same thing as [set_samplerate](./set_samplerate), just in a more convenient way.
+:::
 
 ### Examples
 

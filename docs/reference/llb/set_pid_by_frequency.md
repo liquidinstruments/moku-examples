@@ -50,10 +50,10 @@ parameters:
   type: number
   unit: dB
 - default: false
-  description: Invert PID output
+  description: Invert PID
   name: invert
   param_range: null
-  type: boolean
+  type: number
   unit: null
 - default: true
   description: Disable all implicit conversions and coercions.

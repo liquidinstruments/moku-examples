@@ -13,7 +13,7 @@ build-pages:
       - public
   variables:
     BUILD_DIR: $CI_COMMIT_BRANCH
-    BASE_PATH: "/$CI_PROJECT_NAME/$CI_COMMIT_BRANCH/"
+    BASE_PATH: "/"
   except:
     - master
 deploy_staging:
@@ -23,6 +23,6 @@ deploy_staging:
     name: staging
     url: https://staging.documentation.liquidinstruments.com
   script:
-    - aws s3 cp public s3://$S3_BUCKET_NAME --recursive
+    - aws s3 cp public/s3/ s3://$S3_BUCKET_NAME --recursive
   only:
     - next

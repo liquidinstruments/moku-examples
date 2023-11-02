@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the output load on a given channel.
+description: Configures the output termination on a given channel.
 method: post
 name: set_output_termination
 parameters:
@@ -13,8 +13,8 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Output termination
-  name: load
+  description: Waveform termination
+  name: termination
   param_range: 50Ohm, HiZ
   type: string
   unit: null
@@ -27,7 +27,6 @@ parameters:
 summary: set_output_termination
 available_on: "Moku:Pro, Moku:Lab"
 ---
-
 <headers/>
 <parameters/>
 
@@ -53,7 +52,7 @@ m.set_output_termination(1, 'HiZ');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":1,"load":"HiZ"}'\
+        --data '{"channel":1,"termination":"HiZ"}'\
         http://<ip>/api/spectrumanalyzer/set_output_termination
 ```
 </code-block>

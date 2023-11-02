@@ -10,7 +10,7 @@ parameters:
   type: boolean
   unit: null
 - default: false
-  description: Wait until entire frame is available
+  description: Wait until complete frame is available
   name: wait_complete
   param_range: null
   type: boolean

@@ -71,12 +71,12 @@ parameters:
   param_range: 1e-9 to 10
   type: number
   unit: Seconds
-- default: 0.001
-  description: Absolute hysteresis around trigger
+- default: 1e-3
+  description: Absolute hysteresis value
   name: hysteresis
-  param_range: null
+  param_range: 1e-4 to 1
   type: number
-  unit: Seconds
+  unit: V
 - default: true
   description: Configure auto or manual hysteresis for noise rejection.
   name: auto_sensitivity

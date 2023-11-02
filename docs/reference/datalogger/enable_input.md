@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Enable an input channel
+description: Enable or disable the Datalogger channel input(s).
 method: post
 name: enable_input
 parameters:
@@ -13,8 +13,8 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: true
-  description: Flag to enable or disable channel.
+- default: True
+  description: Enable/Disable input signal
   name: enable
   param_range: null
   type: boolean
@@ -28,29 +28,27 @@ parameters:
 summary: enable_input
 ---
 
-
-
-
-
 <headers/>
 <parameters/>
+
+
+### Examples
 
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-
 i = Datalogger('192.168.###.###')
-# Disable channel 1
-i.enable_input(1)
+# Enable Input Signal
+i.enable_input(1, True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-% Disable channel 1
-m.enable_input(1);
+% Enable Input Signal
+m.enable_input(1, true)
 ```
 </code-block>
 
@@ -58,9 +56,16 @@ m.enable_input(1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1}'\
+        --data '{"channel": 2, "enabled": true}'\
         http://<ip>/api/datalogger/enable_input
 ```
 </code-block>
 
 </code-group>
+
+### Sample response,
+```json
+{
+  "enable": true
+}
+```

@@ -1,5 +1,7 @@
 ---
 additional_doc: null
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use **hysteresis** parameter in [set_trigger](./set_trigger)
 description: Configures the hysteresis around trigger point.
 method: post
 name: set_hysteresis
