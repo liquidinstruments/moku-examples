@@ -21,6 +21,17 @@ getters:
   description: Get the current frequency span, frequency1 and frequency2
 - summary: get_window
   description: Get the currently configured window function
+- summary: get_output_termination
+  description: Get output termination
+  parameters:
+  - default: null
+    description: Target channel
+    name: channel
+    param_range:
+     mokulab: 1, 2
+     mokupro: 1, 2, 3, 4
+    type: integer
+    unit: null
 ---
 <headers/>
 <getters/>

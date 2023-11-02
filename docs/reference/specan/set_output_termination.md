@@ -1,0 +1,61 @@
+---
+additional_doc: null
+description: Configures the output load on a given channel.
+method: post
+name: set_output_termination
+parameters:
+- default: null
+  description: Target output channel to generate waveform on
+  name: channel
+  param_range:
+   mokulab: 1, 2
+   mokupro: 1, 2, 3, 4  
+  type: integer
+  unit: null
+- default: null
+  description: Output termination
+  name: load
+  param_range: 50Ohm, HiZ
+  type: string
+  unit: null
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
+summary: set_output_termination
+available_on: "Moku:Pro, Moku:Lab"
+---
+
+<headers/>
+<parameters/>
+
+### Examples
+
+<code-group>
+<code-block title="Python">
+```python
+from moku.instruments import SpectrumAnalyzer
+i = SpectrumAnalyzer('192.168.###.###')
+i.set_output_termination(1, "HiZ")
+```
+</code-block>
+
+<code-block title="MATLAB">
+```matlab
+m = MokuSpectrumAnalyzer('192.168.###.###');
+m.set_output_termination(1, 'HiZ');
+```
+</code-block>
+
+<code-block title="cURL">
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel":1,"load":"HiZ"}'\
+        http://<ip>/api/spectrumanalyzer/set_output_termination
+```
+</code-block>
+
+</code-group>
