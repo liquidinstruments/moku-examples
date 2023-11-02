@@ -10,6 +10,12 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+- default: false
+  description: Wait until entire frame is available
+  name: wait_complete
+  param_range: null
+  type: boolean
+  unit: null
 - default: 60
   description: Timeout for trigger event if wait_reacquire is true
   name: timeout
@@ -24,7 +30,7 @@ parameters:
   unit: Seconds
   example: [1, 2, 3, 4]
 summary: get_data
-available_on: "Moku:Go"
+group: Oscilloscope
 ---
 
 

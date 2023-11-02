@@ -11,7 +11,6 @@ parameters:
   type: integer
   unit: null
 summary: restart_pattern
-available_on: "Moku:Go"
 ---
 
 <headers/>

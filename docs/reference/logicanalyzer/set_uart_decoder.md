@@ -2,7 +2,7 @@
 additional_doc: null
 description: Configure decoder on the given channel
 method: post
-name: set_decoder
+name: set_uart_decoder
 parameters:
 - default: null
   description: Id of channel to configure decoder on
@@ -11,20 +11,13 @@ parameters:
   type: integer
   unit: null
 - default: null
-  description: Type of protocol to configure
-  name: protocol
-  param_range: UART, SPI, I2C
-  type: string
-  unit: null
-
-- default: null
-  description: Pin number to configure as a data pin
-  name: data_pin
+  description: Bit number to configure as a data pin
+  name: data_bit
   param_range: 1 to 16
-  type: number
+  type: integer
   unit: null
 - default: undefined
-  description: Bit order for UART/SPI. When undefined, sets LSB for UART and MSB for SPI 
+  description: Bit order for UART
   name: lsb_first
   param_range: null
   type: boolean
@@ -33,13 +26,13 @@ parameters:
   description: Number of data bits. Cannot be more than 8 if parity bit is enabled
   name: data_width
   param_range: 5 to 9
-  type: number
+  type: integer
   unit: null
 - default: 1
   description: Number of stop bits.
   name: uart_stop_width
   param_range: 1 to 2
-  type: number
+  type: integer
   unit: null
 - default: None
   description: Parity for UART.
@@ -51,39 +44,15 @@ parameters:
   description: UART baud rate.
   name: uart_baud_rate
   param_range: 1 to 2e6
-  type: number
+  type: integer
   unit: baud
-- default: undefined
-  description: Pin number to send clock signal. Only for SPI/I2C
-  name: clock_pin
-  param_range: 1 to 16
-  type: number
-  unit: null
-- default: undefined
-  description: Chip select for SPI protocol
-  name: spi_cs
-  param_range: 1 to 16
-  type: number
-  unit: null
-- default: 0
-  description: Clock Polarity (1 for High and 0 for Low) for SPI protocol
-  name: spi_cpol
-  param_range: 0 to 1
-  type: number
-  unit: null
-- default: 0
-  description: Clock Phase (1 for trailing edge and 0 for leading edge) for SPI protocol
-  name: spi_cpha
-  param_range: 0 to 1
-  type: number
-  unit: null
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
   param_range: null
   type: boolean
   unit: null
-summary: set_decoder
+summary: set_uart_decoder
 ---
 
 <headers/>
@@ -101,7 +70,8 @@ patterns = [{"pin": 2, "pattern": [0, 1, 0, 1]}]
 # Configure PG1 to generate pattern on pin2
 i.set_pattern_generator(1, patterns=patterns, divider=12)
 i.set_pin(2, "PG1")
-i.set_decoder(1, "UART", 2)
+i.set_uart_decoder(1, data_bit=1, lsb_first=False,data_width=8,uart_stop_width=1,
+                   uart_parity='None',uart_baud_rate=9600)
 ```
 </code-block>
 
@@ -112,7 +82,8 @@ patterns=[struct('pin',1,'pattern',[0,1,0,1])];
 % Configure PG1 to generate pattern on pin2
 m.set_pattern_generator(1, 'patterns', patterns, 'divider', 12);
 m.set_pin(2, "PG1");
-m.set_decoder(1, "UART", 2);
+m.set_uart_decoder(1, 'data_bit', 2, 'lsb_first', false, 'data_width', 8,...
+                  'uart_stop_width', 1, 'uart_parity','None','uart_baud_rate',9600);
 ```
 </code-block>
 
@@ -122,8 +93,9 @@ m.set_decoder(1, "UART", 2);
 # rather than passing on the command line
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":1,"protocol":"UART","data_pin":2}'\
-        http://<ip>/api/logicanalyzer/set_decoder
+        --data '{"channel":1,"data_bit":2, "lsb_first":false, "data_width":8,
+                  "uart_stop_width":1, "uart_parity":"None", "uart_baud_rate":9600}'\
+        http://<ip>/api/logicanalyzer/set_uart_decoder
 ```
 </code-block>
 
@@ -133,12 +105,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-  "data_pin":"pin2",
-  "data_width":8,
-  "lsb_first":true,
-  "protocol":"UART",
-  "uart_baud_rate":9600,
-  "uart_parity":"None",
-  "uart_stop_width":1
+  "data_bit": 1,
+  "data_width": 8, 
+  "lsb_first": false, 
+  "protocol": "UART", 
+  "uart_baud_rate": 9600, 
+  "uart_parity": "None", 
+  "uart_stop_width": 1
 }
 ```
