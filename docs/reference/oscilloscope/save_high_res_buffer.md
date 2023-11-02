@@ -10,6 +10,12 @@ parameters:
   param_range: null
   type: string
   unit: null
+- default: 60
+  description: Wait for n seconds before trigger event happens to save the buffer
+  name: timeout
+  param_range: 0 - inf
+  type: integer
+  unit: Seconds
 summary: save_high_res_buffer
 ---
 <headers/>
