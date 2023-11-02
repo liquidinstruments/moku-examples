@@ -1,58 +1,51 @@
 ---
 additional_doc: null
-description: Disable an input channel
+description: Configures the output load on a given channel.
 method: post
-name: disable_channel
+name: set_output_termination
 parameters:
 - default: null
-  description: Target channel
+  description: Target output channel to generate waveform on
   name: channel
   param_range:
-   mokugo: 1, 2
    mokulab: 1, 2
-   mokupro: 1, 2, 3, 4
+   mokupro: 1, 2, 3, 4  
   type: integer
   unit: null
-- default: true
-  description: Flag to enable or disable channel.
-  name: disable
-  param_range: null
-  type: boolean
+- default: null
+  description: Output termination
+  name: load
+  param_range: 50Ohm, HiZ
+  type: string
   unit: null
-  deprecated: true
-  deprecated_text: disable_channel is deprecated, use enable_input to enable input signal
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
   param_range: null
   type: boolean
   unit: null
-summary: disable_channel
+summary: set_output_termination
+available_on: "Moku:Pro, Moku:Lab"
 ---
-
-
-
-
 
 <headers/>
 <parameters/>
+
+### Examples
 
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import Datalogger
-
 i = Datalogger('192.168.###.###')
-# Disable channel 1
-i.disable_channel(1)
+i.set_output_termination(1, "HiZ")
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-% Disable channel 1
-m.disable_channel(1);
+m.set_output_termination(1, 'HiZ');
 ```
 </code-block>
 
@@ -60,8 +53,8 @@ m.disable_channel(1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1}'\
-        http://<ip>/api/datalogger/disable_channel
+        --data '{"channel":1,"load":"HiZ"}'\
+        http://<ip>/api/datalogger/set_output_termination
 ```
 </code-block>
 

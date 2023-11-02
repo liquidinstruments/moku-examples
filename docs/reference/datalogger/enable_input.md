@@ -1,8 +1,8 @@
 ---
 additional_doc: null
-description: Disable an input channel
+description: Enable an input channel
 method: post
-name: disable_channel
+name: enable_input
 parameters:
 - default: null
   description: Target channel
@@ -15,19 +15,17 @@ parameters:
   unit: null
 - default: true
   description: Flag to enable or disable channel.
-  name: disable
+  name: enable
   param_range: null
   type: boolean
   unit: null
-  deprecated: true
-  deprecated_text: disable_channel is deprecated, use enable_input to enable input signal
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
   param_range: null
   type: boolean
   unit: null
-summary: disable_channel
+summary: enable_input
 ---
 
 
@@ -44,7 +42,7 @@ from moku.instruments import Datalogger
 
 i = Datalogger('192.168.###.###')
 # Disable channel 1
-i.disable_channel(1)
+i.enable_input(1)
 ```
 </code-block>
 
@@ -52,7 +50,7 @@ i.disable_channel(1)
 ```matlab
 m = MokuDatalogger('192.168.###.###');
 % Disable channel 1
-m.disable_channel(1);
+m.enable_input(1);
 ```
 </code-block>
 
@@ -61,7 +59,7 @@ m.disable_channel(1);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1}'\
-        http://<ip>/api/datalogger/disable_channel
+        http://<ip>/api/datalogger/enable_input
 ```
 </code-block>
 

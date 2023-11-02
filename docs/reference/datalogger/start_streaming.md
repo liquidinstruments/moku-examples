@@ -10,6 +10,21 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
+- default: null
+  description: Target samples per second (For Moku:Pro, the maximum sampling rate is limited to 5MSa/s for 2 channel logging and 1.25MSa/s for 3 and 4 channel logging)
+  name: sample_rate
+  param_range: 
+   mokugo: 10 to 1e6
+   mokulab: 10 to 2.5e5
+   mokupro: 10 to 10e6
+  type: number
+  unit: null
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
 summary: start_streaming
 ---
 
@@ -29,7 +44,7 @@ i = Datalogger('192.168.###.###')
 ### Configure instrument to desired state
 
 # start logging session and read the file name from response
-response = i.start_streaming(duration=10)
+response = i.start_streaming(duration=10,sample_rate=100e3)
 while True:
   i.get_stream_data()
 
@@ -42,7 +57,7 @@ m = MokuDatalogger('192.168.###.###');
 
 %%% Configure instrument to desired state
 
-m.start_streaming('duration', 10)
+m.start_streaming('duration', 10, 'sample_rate', 100e3)
 
 
 while true
@@ -57,7 +72,7 @@ end
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"duration": 10}'\
+        --data '{"duration": 10, "sample_rate": 100e3}'\
         http://<ip>/api/datalogger/start_streaming
 ```
 </code-block>
