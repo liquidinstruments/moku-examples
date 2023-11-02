@@ -11,6 +11,8 @@ parameters:
   param_range: Absolute, Relative
   type: string
   unit: null
+  deprecated: true
+  deprecated_text: set_hysteresis is deprecated, use `hysteresis` parameter of `set_trigger` instead.
 - default: 0
   description: Hysteresis around trigger
   name: value
