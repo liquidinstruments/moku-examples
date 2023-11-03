@@ -30,7 +30,6 @@ parameters:
   unit: Seconds
   example: [1, 2, 3, 4]
 summary: get_data
-group: Oscilloscope
 ---
 
 

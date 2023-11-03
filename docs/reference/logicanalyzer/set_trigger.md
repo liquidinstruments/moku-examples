@@ -11,7 +11,7 @@ parameters:
   type: array
   unit: null
   deprecated: true
-  deprecated_text: Use sources to configure trigger sources
+  deprecated_msg: pins is deprecated and will be removed in future releases. Please use **sources** instead
 - default: null
   description: List of Pin-Trigger edge mapping
   name: sources
@@ -25,6 +25,7 @@ parameters:
   type: boolean
   unit: null
   deprecated: true
+  deprecated_msg: advanced is deprecated, it will have no impact and will be removed in future releases
 - default: Auto
   description: Trigger mode
   name: mode
@@ -56,7 +57,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_trigger
-group: Oscilloscope
 ---
 
 

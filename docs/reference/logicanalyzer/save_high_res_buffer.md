@@ -17,7 +17,6 @@ parameters:
   type: number
   unit: Seconds
 summary: save_high_res_buffer
-group: Oscilloscope
 ---
 <headers/>
 

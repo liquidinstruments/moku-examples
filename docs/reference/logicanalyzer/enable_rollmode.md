@@ -18,7 +18,6 @@ parameters:
   type: boolean
   unit: null
 summary: enable_rollmode
-group: Oscilloscope
 ---
 
 <headers/>

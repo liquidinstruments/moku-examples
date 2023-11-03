@@ -31,7 +31,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_timebase
-group: Oscilloscope
 ---
 
 
