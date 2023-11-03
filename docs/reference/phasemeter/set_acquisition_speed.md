@@ -7,7 +7,10 @@ parameters:
 - default: null
   description: Target samples per second 
   name: speed
-  param_range: 30Hz, 37Hz, 119Hz, 150Hz, 477Hz,  596Hz, 1.9kHz, 2.4kHz, 15.2kHz, 19.1kHz, 122kHz, 152kHz
+  param_range: 
+    mokugo: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz, 122kHz
+    mokulab: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz
+    mokupro: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
   type: string
   unit: null
 - default: true
