@@ -20,8 +20,6 @@ parameters:
   param_range: 50Ohm, 1MOhm
   type: string
   unit: null
-  deprecated: true
-  deprecated_text: set_output_load is deprecated, use set_output_termination to set output termination
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

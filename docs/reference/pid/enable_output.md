@@ -39,7 +39,6 @@ parameters:
   type: boolean
   unit: null
   deprecated: true
-  deprecated_text: enable_gain is deprecated, use set_output_gain to configure output gain
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

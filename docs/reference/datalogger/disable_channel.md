@@ -21,8 +21,6 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-  deprecated: true
-  deprecated_text: disable_channel is deprecated, use enable_input to enable input signal
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict
