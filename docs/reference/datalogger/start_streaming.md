@@ -19,6 +19,12 @@ parameters:
    mokupro: 10 to 10e6
   type: number
   unit: null
+- default: true
+  description: Disable all implicit conversions and coercions.
+  name: strict
+  param_range: null
+  type: boolean
+  unit: null
 summary: start_streaming
 ---
 

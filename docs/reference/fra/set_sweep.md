@@ -53,8 +53,13 @@ parameters:
   type: integer
   unit: null
 - default: false
+  description: Enable/disable dynamic amplitude
+  name: dynamic_amplitude
+  param_range: null
+  type: boolean
+  unit: null
+- default: false
   description: Enables linear scale. If set to false scale is set to logarithmic.
-    Defaults to false
   name: linear_scale
   param_range: null
   type: boolean
