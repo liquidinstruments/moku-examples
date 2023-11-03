@@ -12,15 +12,7 @@
               <span class="parameter-obligation" v-if="p.default == null"> required</span>
               <warn-deprecated v-if="p.deprecated === true"/>
             </div>
-            <div v-if="typeof p.deprecated_text !== 'undefined'">
-              <div class="danger custom-block">
-              <p class="custom-block-title">Parameter Deprecation</p>
-                <p>
-                  {{ p.deprecated_text }}
-                </p>
-              </div>
-            </div>
-            <div v-else>
+            <p v-if="p.deprecated_msg" class="parameter-deprecation-msg" v-html="formatMarkdown(p.deprecated_msg)"></p> 
             <div class="parameter-description">
               <div>
                   {{ p.description }}
@@ -45,14 +37,24 @@
                 </p>
               </div>
             </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+<script>
 
+import markdownIt from 'markdown-it';
+export default {
+  methods: {
+    formatMarkdown(data) {
+      const md = new markdownIt();
+      return md.render(data);
+    },
+  },
+}
+</script>
 <style>
 h3 {
   margin-bottom: 0;
@@ -128,11 +130,21 @@ h3 {
 }
 
 .parameter-obligation {
-  position: absolute;
   font-size: 11.2px;
   color: red;
   padding: 0.25rem 0.5rem;
   font-weight: 400;
+}
+
+.parameter-deprecation-msg{
+  background-color: #fce1e3;
+  border-color: #da5961;
+  color:#da5961;
+  font-weight: 350;
+  padding: 0.25rem;
+	padding: 0.1rem 1.5rem;
+	border-left-width: 0.5rem;
+	border-left-style: solid;
 }
 </style>
 
