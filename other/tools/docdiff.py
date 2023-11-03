@@ -18,6 +18,7 @@ INSTRUMENTS_MAP = dict(phasemeter="phasemeter", fra="fra",
                        digitalfilterbox="dfb",
                        pidcontroller="pid", awg="awg")
 
+IGNORE_METHODS = ["set_register", "get_register", "get_stream_header"]
 
 # Vuepress docs are organized in a well defined directory structure,
 # each instrument may have,
@@ -72,10 +73,12 @@ class SpecParser:
         paths = self.spec.get('paths')
         operations = []
         for p in paths.keys():
-            if p.split('/')[2] == group:
-                method_definition = dict(name=p.split('/')[3])
-                method_definition.update(self.parse(paths[p]))
-                operations.append(method_definition)
+            if len(p.split('/')) == 5 and p.split('/')[3] == group:
+                name=p.split('/')[4]
+                if name not in IGNORE_METHODS: 
+                    method_definition = dict(name=name)
+                    method_definition.update(self.parse(paths[p]))
+                    operations.append(method_definition)
         return operations
 
     def get_instruments(self):
@@ -140,6 +143,11 @@ class SpecParser:
             if os.path.exists(eos_dir):
                 instr_methods.extend(
                     self._read_method_and_parameters(eos_dir))
+            # read streaming files...
+            es_dir = os.path.join(instr_dir, 'streaming')
+            if os.path.exists(es_dir):
+                instr_methods.extend(
+                    self._read_method_and_parameters(es_dir))
             return instr_methods
         raise Exception("Cannot find instrument directory")
 
