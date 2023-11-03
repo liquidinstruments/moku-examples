@@ -9,12 +9,17 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+  deprecated: true
+  deprecated_msg: wait_reacquire is deprecated. It has no impact and will be removed in future releases.
 - default: 60
   description: Timeout for trigger event if wait_reacquire is true
   name: timeout
   param_range: 0 - inf
   type: number
   unit: Seconds
+  deprecated: true
+  deprecated_msg: timeout is deprecated. It has no impact and will be removed in future releases.
+
 summary: get_data
 ---
 

@@ -3,9 +3,11 @@
     <div v-for="g in $frontmatter.getters">
       <h2>
         {{ g.summary }}
+        <Badge v-if="g.deprecated" text="deprecated" type="error" />
       </h2>
       <span class="description">{{ g.description }}</span>
       <p class="additional-doc">{{ g.additional_doc }}</p>
+      <p v-if="g.deprecated_msg" class="getter-deprecation-msg" v-html="formatMarkdown(g.deprecated_msg)"></p> 
       <div v-if="g.parameters && g.parameters.length">
         <h3>Parameters</h3>
         <section class="parameters-section">
@@ -65,7 +67,18 @@
     </div>
   </div>
 </template>
+<script>
 
+import markdownIt from 'markdown-it';
+export default {
+  methods: {
+    formatMarkdown(data) {
+      const md = new markdownIt();
+      return md.render(data);
+    },
+  },
+}
+</script>
 <style scoped>
 .description {
   font-size: 1rem;
@@ -158,5 +171,16 @@ h3 {
   color: red;
   padding: 0.25rem 0.5rem;
   font-weight: 400;
+}
+
+.getter-deprecation-msg {
+  background-color: #fce1e3;
+  border-color: #da5961;
+  color:#da5961;
+  font-weight: 350;
+  padding: 0.25rem;
+	padding: 0.1rem 1.5rem;
+	border-left-width: 0.5rem;
+	border-left-style: solid;
 }
 </style>

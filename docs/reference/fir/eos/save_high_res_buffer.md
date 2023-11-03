@@ -10,6 +10,12 @@ parameters:
   param_range: null
   type: string
   unit: null
+- default: 60
+  description: Timeout for trigger event if wait_reacquire is true
+  name: timeout
+  param_range: 0 - inf
+  type: number
+  unit: Seconds
 summary: save_high_res_buffer
 group: Monitors
 ---

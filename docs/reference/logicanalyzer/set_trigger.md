@@ -3,11 +3,18 @@ additional_doc: null
 description: Configures the trigger on pin(s).
 method: post
 name: set_trigger
-available_on: "Moku:Go"
 parameters:
 - default: null
   description: List of Pin-Trigger edge mapping
   name: pins
+  param_range: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both
+  type: array
+  unit: null
+  deprecated: true
+  deprecated_msg: pins is deprecated and will be removed in future releases. Please use **sources** instead
+- default: null
+  description: List of Pin-Trigger edge mapping
+  name: sources
   param_range: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both
   type: array
   unit: null
@@ -17,6 +24,8 @@ parameters:
   param_range: null
   type: boolean
   unit: null
+  deprecated: true
+  deprecated_msg: advanced is deprecated, it will have no impact and will be removed in future releases
 - default: Auto
   description: Trigger mode
   name: mode
@@ -87,10 +96,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response 
 ```json
 {
-  "edge":"Rising",
   "holdoff":0.0,
   "mode":"Auto",
-  "nth_event":1,
-  "source":"Pin1"
+  "nth_event":1
 }
 ```

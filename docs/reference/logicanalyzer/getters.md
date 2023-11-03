@@ -3,6 +3,8 @@ additional_doc: Along with regular configuration methods, Logic Analyzer support
 name: getters
 description: Logic Analyzer -  getter functions
 getters: 
+- summary: get_analog_mode
+  description: Gets the threshold voltages of converting analog inputs to digital.
 - summary: get_decoder
   description: Gets the decoder configuration for the given ID.
   parameters:
@@ -21,11 +23,39 @@ getters:
     param_range: 1, 2
     type: integer
     unit: null
+- summary: get_pin
+  description: Gets the the states of Logic Analyzer's digital pins.
+  deprecated: true
+  deprecated_msg: get_pin is deprecated, use **get_pin_mode** to get the state of digital pins
+  parameters:
+  - default: null
+    description: Target pin
+    name: channel
+    param_range:
+     mokugo: 1 to 16
+    type: integer
+    unit: null
+- summary: get_pins
+  description: Gets the the states of Logic Analyzer's digital pins.
+  deprecated: true
+  deprecated_msg: get_pins is deprecated, use **get_pin_mode** to get the state of digital pins
+- summary: get_pin_mode
+  description: Gets the state of Logic Analyzer's digital pin.
+  parameters:
+  - default: null
+    description: Target pin
+    name: pin
+    param_range:
+     mokugo: 1 to 16
+    type: integer
+    unit: null
+- summary: get_source
+  description: Gets the type of Logic Analyzer's input source.
+- summary: get_timebase
+  description: Gets the span and offset for the configured timebase
 - summary: get_trigger
   description: Gets the current trigger configuration.
   additional_doc: Response includes edge, holdoff, mode, nth_event, polarity, source, type, width, width_condition
-- summary: get_timebase
-  description: Gets the span and offset for the configured timebase
 ---
 <headers/>
 <getters/>

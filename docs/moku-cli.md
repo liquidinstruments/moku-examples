@@ -35,38 +35,12 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 
 ### Commands
 
-* `calibration`: Calibrate the Moku
 * `convert`: Convert Liquid Instruments binary file to CSV, NPY or MAT
-* `diagnostics`: Run diagnostics on the given Moku and report the results
 * `files`: List, download and delete files from the Moku
 * `license`: List, fetch and reload the license entitlements
 * `list`: Search for the mokus on network
 * `proxy`: Run a proxy from local machine to the Moku
 * `stream`: Stream the LI binary data from Moku onto network port or a file
-
-## `mokucli calibration` 
-
-Recalibrate the Moku.
-
-:::warning Advanced users only
-Using this command, it is possible to uncalibrate your Moku and introduce arbitrary errors in your measurements. Use with extreme caution.
-:::
-
-### Usage
-
-```console
-$ mokucli calibration [OPTIONS] IP_ADDRESS
-```
-
-### Arguments
-
-* `IP_ADDRESS`: IP Address of the Moku  [required]
-
-### Options
-
-* `--filter [ADC|DAC|PPSU|PMIC|ALL]`: Filter the calibration result  [default: ALL]
-* `--update TEXT`: Update the calibration coefficients
-* `--help`: Show this message and exit.
 
 ## `mokucli convert`
 
@@ -99,25 +73,6 @@ $: mokucli convert MokuDataLoggerData_20230114_142326.li --format=npy
 Writing "MokuDataLoggerData_20230114_142326.npy"...
 [===========================================================================]
 ```
-
-## `mokucli diagnostics`  <Badge text="Moku:Pro"/>
-
-Run diagnostics on the given Moku and report the results
-
-### Usage
-
-```console
-$ mokucli diagnostics [OPTIONS] IP_ADDRESS
-```
-
-### Arguments
-
-* `IP_ADDRESS`: IP Address of the Moku  [required]
-
-### Options
-
-* `--results PATH`: Directory to save results to as a JSON  [default: .]
-* `--help`: Show this message and exit.
 
 ## `mokucli files`
 

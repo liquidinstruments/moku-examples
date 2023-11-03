@@ -16,6 +16,12 @@ parameters:
   param_range: null
   type: array
   unit: null
+- default: null
+  description: List of pin/bit to override map, where pin should be a valid pin number and override should be a list of Logic high(1) and Logic low(0)
+  name: overrides
+  param_range: null
+  type: array
+  unit: null
 - default: undefined
   description: Rate at which the information is transferred.
   name: baud_rate
@@ -54,7 +60,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_pattern_generator
-available_on: "Moku:Go"
 ---
 
 <headers/>

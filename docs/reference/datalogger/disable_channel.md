@@ -1,5 +1,7 @@
 ---
 additional_doc: null
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use [enable_input](./enable_input)
 description: Disable an input channel
 method: post
 name: disable_channel
@@ -25,7 +27,7 @@ parameters:
   param_range: null
   type: boolean
   unit: null
-summary: disable_output
+summary: disable_channel
 ---
 
 
