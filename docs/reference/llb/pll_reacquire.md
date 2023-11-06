@@ -6,7 +6,7 @@ name: pll_reacquire
 parameters: []
 summary: pll_reacquire
 group: Input PLL
-mark_as_beta: true
+
 ---
 
 <headers/>

@@ -32,7 +32,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_custom_filter
-mark_as_beta: true
+
 ---
 <headers/>
 <parameters/>

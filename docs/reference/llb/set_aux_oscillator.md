@@ -35,7 +35,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_aux_oscillator
-mark_as_beta: true
+
 available_on: "Moku:Pro"
 ---
 

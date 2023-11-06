@@ -2,7 +2,7 @@
 additional_doc: Along with regular configuration methods,  Laser Lock Box supports following getter functions.
 summary: Laser Lock Box - getter functions
 name: getters
-mark_as_beta: true
+
 getters: 
 - summary: get_aux_oscillator
   description: Get the current state of auxiliary oscillator

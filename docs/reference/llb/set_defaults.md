@@ -5,7 +5,7 @@ method: post
 name: set_defaults
 parameters: []
 summary: set_defaults
-mark_as_beta: true
+
 ---
 
 <headers/>

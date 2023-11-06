@@ -17,7 +17,7 @@ parameters:
   type: boolean
   unit: null
 summary: enable_conditional_trigger
-mark_as_beta: true
+
 ---
 
 <headers/>

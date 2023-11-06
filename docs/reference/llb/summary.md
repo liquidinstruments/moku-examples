@@ -5,7 +5,7 @@ method: get
 name: summary
 parameters: []
 summary: summary
-mark_as_beta: true
+
 ---
 
 

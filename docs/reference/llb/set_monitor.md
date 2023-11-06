@@ -28,7 +28,7 @@ parameters:
   unit: null
 summary: set_monitor
 group: Oscilloscope
-mark_as_beta: true
+
 ---
 <headers/>
 

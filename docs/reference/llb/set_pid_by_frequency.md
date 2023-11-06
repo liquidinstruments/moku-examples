@@ -62,7 +62,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_pid_by_frequency
-mark_as_beta: true
+
 ---
 <headers/>
 <parameters/>

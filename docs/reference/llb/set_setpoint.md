@@ -17,7 +17,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_setpoint
-mark_as_beta: true
+
 ---
 <headers/>
 

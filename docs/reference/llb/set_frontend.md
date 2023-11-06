@@ -41,7 +41,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_frontend
-mark_as_beta: true
+
 ---
 
 

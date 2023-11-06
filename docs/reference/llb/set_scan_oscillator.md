@@ -41,7 +41,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_scan_oscillator
-mark_as_beta: true
+
 ---
 <headers/>
 

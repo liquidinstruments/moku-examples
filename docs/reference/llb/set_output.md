@@ -38,7 +38,7 @@ parameters:
   type: boolean
   unit: null
 summary: set_output
-mark_as_beta: true
+
 ---
 <headers/>
 <parameters/>

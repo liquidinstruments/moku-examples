@@ -38,7 +38,7 @@ parameters:
   unit: null
 summary: set_pll
 group: Input PLL
-mark_as_beta: true
+
 ---
 
 <headers/>
