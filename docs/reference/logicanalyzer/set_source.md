@@ -18,7 +18,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_source
-available_on: "Moku:Go"
 ---
 
 <headers/>

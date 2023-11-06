@@ -35,8 +35,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_aux_oscillator
-
-available_on: "Moku:Pro"
 ---
 
 <headers/>

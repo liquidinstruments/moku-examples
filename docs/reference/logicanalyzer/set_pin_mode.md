@@ -24,7 +24,6 @@ parameters:
   type: boolean
   unit: null
 summary: set_pin_mode
-available_on: "Moku:Go"
 ---
 
 <headers/>
