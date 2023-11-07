@@ -47,7 +47,7 @@ summary: get_data
 <parameters/>
 
 
-Returns a frame of dual-channel frequency spectrum data (amplitude vs frequency in Hz). Every data frame is of **1024** points with following structure
+Returns a frame of dual-channel frequency spectrum data (amplitude vs frequency in Hz). Every data frame has the following structure. Please note that the number of data points for each frame can be any number between **512** and **1024**.
 
 ```json
 "data":{
