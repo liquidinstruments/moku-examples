@@ -2,6 +2,8 @@
 additional_doc: null
 description: Configures the hysteresis around trigger point.
 method: post
+deprecated: true
+deprecated_msg: set_hysteresis is deprecated, use `hysteresis` parameter of [set_trigger](./set_trigger.md) instead.
 name: set_hysteresis
 parameters:
 

@@ -17,9 +17,9 @@ This library only supports interactions with Moku:Go and Moku:Pro. To command or
 ## Common Parameters
 
 ### Force Connect
-Force Connect can be set whenever an instrument object is created, or as a parameter to [claim_ownership](moku/claim_ownership). When `true`, the connection will succeed even if the Moku is currently being accessed by someone else, `false` will return an error in this case. This is the programmatic equivalent of the Moku: App "This Moku is currently in use..." dialog.
+Force Connect can be set whenever an instrument object is created, or as a parameter to [claim_ownership](moku/claim_ownership.md). When `true`, the connection will succeed even if the Moku is currently being accessed by someone else, `false` will return an error in this case. This is the programmatic equivalent of the Moku: App "This Moku is currently in use..." dialog.
 
-In order to correctly track ownership, it is important that API users always finish their sessions with [relinquish_ownership](moku/relinquish_ownership), including from error paths where applicable.
+In order to correctly track ownership, it is important that API users always finish their sessions with [relinquish_ownership](moku/relinquish_ownership.md), including from error paths where applicable.
 
 <code-group>
 <code-block title="Python">

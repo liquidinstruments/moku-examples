@@ -13,7 +13,7 @@ summary: get_stream_data
 <parameters/>
 
 :::warning Not a HTTP endpoint
-This method is available only with Python and MATLAB clients. It uses [mokucli](../../moku-cli.md) to stream LI binary data to csv or other possible formats.
+This method is available only with Python and MATLAB clients. It uses [mokucli](../../../moku-cli.md) to stream LI binary data to csv or other possible formats.
 :::
 
 

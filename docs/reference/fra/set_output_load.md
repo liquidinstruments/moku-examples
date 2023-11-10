@@ -1,7 +1,7 @@
 ---
 additional_doc: null
 deprecated: true
-deprecated_msg: This method is deprecated and will be removed soon. Please use [set_output_termination](./set_output_termination)
+deprecated_msg: This method is deprecated and will be removed soon. Please use [set_output_termination](./set_output_termination.md)
 description: Configures the output load on a given channel.
 method: post
 name: set_output_load
