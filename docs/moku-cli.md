@@ -35,7 +35,7 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 
 ### Commands
 
-* `convert`: Convert Liquid Instruments binary file to CSV, NPY or MAT
+* `convert`: Convert Liquid Instruments binary file to CSV, NPY, MAT and HDF5
 * `files`: List, download and delete files from the Moku
 * `license`: List, fetch and reload the license entitlements
 * `list`: Search for the mokus on network
@@ -57,7 +57,7 @@ $ mokucli convert [OPTIONS] SOURCE
 * `SOURCE`: [required]
 
 ### Options 
-* `--format [csv|npy|mat]`: [default: csv]
+* `--format [csv|npy|mat|hdf5]`: [default: csv]
 * `--help`: Show this message and exit.
 
 ### Examples
