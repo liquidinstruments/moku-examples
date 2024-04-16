@@ -74,8 +74,8 @@ class SpecParser:
         operations = []
         for p in paths.keys():
             if len(p.split('/')) == 5 and p.split('/')[3] == group:
-                name=p.split('/')[4]
-                if name not in IGNORE_METHODS: 
+                name = p.split('/')[4]
+                if name not in IGNORE_METHODS:
                     method_definition = dict(name=name)
                     method_definition.update(self.parse(paths[p]))
                     operations.append(method_definition)
@@ -161,12 +161,17 @@ class SpecParser:
             local_methods = self.get_methods_from_local_repo(
                 docs_path)
             doc_methods = [x[0] for x in local_methods]
-            result[k]["missing_methods"] = list(
+            missing_methods = list(
                 set(required_methods).difference(doc_methods))
-            result[k]["missing_params"] = self.param_differences(
+            missing_params = self.param_differences(
                 local_methods,
                 set(required_methods).intersection(doc_methods),
                 required)
+            if missing_methods:
+                result[k]["missing_methods"] = missing_methods
+
+            if missing_params:
+                result[k]["missing_methods"] = missing_params
 
         return result
 
