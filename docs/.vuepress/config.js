@@ -80,6 +80,7 @@ module.exports = {
                         getChildren("Phasemeter", "phasemeter"),
                         getChildren("PID Controller", "pid"),
                         getChildren("Spectrum Analyzer", "specan"),
+                        getChildren("Time & Frequency Analyzer", "tfa"),
                         getChildren("Waveform Generator", "waveformgenerator"),
                     ]
                 }
