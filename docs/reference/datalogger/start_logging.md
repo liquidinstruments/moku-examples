@@ -28,6 +28,21 @@ parameters:
   param_range: null
   type: integer
   unit: Seconds
+- default: undefined
+  description: Trigger Source
+  name: trigger_source
+  param_range: 
+    mokugo: Input1, Input2
+    mokulab: Input1, Input2, External
+    mokupro: Input1, Input2, Input3, Input4, External
+  type: string
+  unit: null
+- default: 0
+  description: Trigger level
+  name: trigger_level
+  param_range: -5 to 5
+  type: number
+  unit: V
 - default: true
   description: Disable all implicit conversions and coercions.
   name: strict

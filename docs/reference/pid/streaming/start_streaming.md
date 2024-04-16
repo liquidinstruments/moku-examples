@@ -22,6 +22,21 @@ parameters:
   param_range: null
   type: integer
   unit: Hz
+- default: undefined
+  description: Trigger Source
+  name: trigger_source
+  param_range: 
+    mokugo: ProbeA, ProbeB
+    mokulab: ProbeA, ProbeB, External
+    mokupro: ProbeA, ProbeB, ProbeC, ProbeD, External
+  type: string
+  unit: null
+- default: 0
+  description: Trigger level
+  name: trigger_level
+  param_range: -5 to 5
+  type: number
+  unit: V
 summary: start_streaming
 group: Streaming
 ---
