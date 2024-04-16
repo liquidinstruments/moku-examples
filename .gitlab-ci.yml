@@ -13,8 +13,26 @@ build-pages:
       - public
   variables:
     BUILD_DIR: $CI_COMMIT_BRANCH
-    BASE_PATH: "/"
+    BASE_PATH: "/$CI_COMMIT_BRANCH"
   except:
+    - master
+build-main-docs:
+  image: node:16
+  stage: build
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run docs:build
+  artifacts:
+    expose_as: 'REST Documentation'
+    paths:
+      - public
+  variables:
+    BUILD_DIR: $CI_COMMIT_BRANCH
+    BASE_PATH: "/"
+  only:
     - master
 deploy_staging:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -23,6 +41,16 @@ deploy_staging:
     name: staging
     url: https://staging.documentation.liquidinstruments.com
   script:
-    - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME --recursive
+    - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME/$CI_COMMIT_BRANCH/ --recursive
   only:
     - next
+deploy_main:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  environment:
+    name: production
+    url: https://apisliquidinstruments.com
+  script:
+    - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME/ --recursive
+  only:
+    - master
