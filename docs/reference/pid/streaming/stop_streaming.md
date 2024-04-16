@@ -5,7 +5,7 @@ method: post
 name: stop_streaming
 parameters: []
 summary: stop_streaming
-group: Streaming
+group: Data Streaming
 ---
 
 

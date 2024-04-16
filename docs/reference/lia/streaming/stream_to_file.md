@@ -5,6 +5,7 @@ method: null
 name: stream_to_file
 parameters: []
 summary: stream_to_file
+group: Data Streaming
 ---
 
 

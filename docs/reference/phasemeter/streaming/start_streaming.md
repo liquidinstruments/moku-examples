@@ -11,6 +11,7 @@ parameters:
   type: integer
   unit: Seconds
 summary: start_streaming
+group: Data Streaming
 ---
 
 <headers/>

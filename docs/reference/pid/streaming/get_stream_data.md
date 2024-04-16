@@ -5,7 +5,7 @@ method: null
 name: get_stream_data
 parameters: []
 summary: get_stream_data
-group: Streaming
+group: Data Streaming
 ---
 
 

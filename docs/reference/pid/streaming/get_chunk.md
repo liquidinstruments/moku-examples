@@ -10,7 +10,7 @@ parameters:
   type: string
   unit: null
 summary: get_chunk
-group: Streaming
+group: Data Streaming
 ---
 
 

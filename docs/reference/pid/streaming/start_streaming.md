@@ -38,7 +38,7 @@ parameters:
   type: number
   unit: V
 summary: start_streaming
-group: Streaming
+group: Data Streaming
 ---
 
 <headers/>
