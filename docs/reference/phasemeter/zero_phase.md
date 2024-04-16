@@ -1,10 +1,8 @@
 ---
 additional_doc: null
-description: Disable an input channel
-deprecated: true
-deprecated_msg: This method is deprecated and will be removed soon. Use **enable_input** instead.
+description: Zeroes the phase on given Phasemeter channel.
 method: post
-name: disable_input
+name: zero_phase
 parameters:
 - default: null
   description: Target channel
@@ -15,38 +13,30 @@ parameters:
    mokupro: 1, 2, 3, 4
   type: integer
   unit: null
-- default: true
-  description: Disable all implicit conversions and coercions.
-  name: strict
-  param_range: null
-  type: boolean
-  unit: null
-summary: disable_input
+summary: zero_phase
 ---
-
-
-
-
 
 <headers/>
 <parameters/>
+
+
+### Examples
 
 <code-group>
 <code-block title="Python">
 ```python
 from moku.instruments import Phasemeter
-
 i = Phasemeter('192.168.###.###')
-# Disable channel 1
-i.disable_input(1)
+# Enable Input Signal
+i.zero_phase(1, True)
 ```
 </code-block>
 
 <code-block title="MATLAB">
 ```matlab
 m = MokuPhasemeter('192.168.###.###');
-% Disable channel 1
-m.disable_input(1);
+% Enable Input Signal
+m.zero_phase(1, true)
 ```
 </code-block>
 
@@ -54,9 +44,10 @@ m.disable_input(1);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1}'\
-        http://<ip>/api/phasemeter/disable_input
+        --data '{"channel": 2, "enabled": true}'\
+        http://<ip>/api/phasemeter/zero_phase
 ```
 </code-block>
 
 </code-group>
+
