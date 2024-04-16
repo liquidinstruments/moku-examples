@@ -3,7 +3,7 @@ additional_doc: null
 description: Get the status of logging session if active
 method: post
 name: logging_progress
-parameters:
+parameters: []
 summary: logging_progress
 ---
 

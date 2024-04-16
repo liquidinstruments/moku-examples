@@ -3,7 +3,7 @@ additional_doc: null
 description: Reset the Time Interval Analyzer to default state
 method: post
 name: set_defaults
-parameters:
+parameters: []
 summary: set_defaults
 ---
 

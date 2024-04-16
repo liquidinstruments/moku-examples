@@ -3,7 +3,7 @@ additional_doc: null
 description: Returns a short summary of current instrument state
 method: get
 name: summary
-parameters:
+parameters: []
 summary: summary
 ---
 

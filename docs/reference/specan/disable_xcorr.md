@@ -3,6 +3,7 @@ additional_doc: Disabling the cross correlation functionality will prevent the g
 description: Disable cross correlation.
 method: post
 name: disable_xcorr
+parameters: []
 summary: disable_xcorr
 ---
 

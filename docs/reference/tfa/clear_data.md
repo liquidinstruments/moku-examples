@@ -3,7 +3,7 @@ additional_doc: Clears all previously acquired data and resets acquisition perio
 description: Clear statistics and histogram data
 method: post
 name: clear_data
-parameters:
+parameters: []
 summary: clear_data
 ---
 
