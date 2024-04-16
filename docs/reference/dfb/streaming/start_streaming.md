@@ -11,13 +11,13 @@ parameters:
   type: integer
   unit: Seconds
 - default: Normal
-  description: Acqusition mode
+  description: Acquisition mode
   name: mode
   param_range: Normal, Precision, DeepMemory, PeakDetect
   type: string
   unit: null
 - default: 1000
-  description: Acqusition rate
+  description: Acquisition rate
   name: rate
   param_range: null
   type: integer

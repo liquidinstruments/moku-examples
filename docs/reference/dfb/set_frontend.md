@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and attenutation for each channel.
+description: Configures the input impedance, coupling, and attenuation for each channel.
 method: post
 name: set_frontend
 parameters:

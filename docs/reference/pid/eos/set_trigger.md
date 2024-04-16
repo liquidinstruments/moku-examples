@@ -91,7 +91,7 @@ parameters:
   type: boolean
   unit: null
 - default: false
-  description: Configure the trigger signal to pass through a low pass filter to smooths
+  description: Configure the trigger signal to pass through a low pass filter to smooth
     out the noise
   name: hf_reject
   param_range: null

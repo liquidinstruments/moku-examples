@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Synchronize the phase of both output channels.
+description: Synchronize the phase of output channels.
 method: post
 name: sync_output_phase
 parameters: []

@@ -19,7 +19,7 @@ group: Data Streaming
 
 :::tip
 
-This method returns the data in the LI binary format. If you are using Python or MATLAB package use [get_stream_data](get_stream_data.md) to get the conveted stream
+This method returns the data in the LI binary format. If you are using Python or MATLAB package use [get_stream_data](get_stream_data.md) to get the converted stream
 
 :::
 
