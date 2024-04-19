@@ -49,7 +49,7 @@ deploy_main:
   stage: deploy
   environment:
     name: production
-    url: https://apisliquidinstruments.com
+    url: https://apis.liquidinstruments.com
   script:
     - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME/ --recursive
   only:
