@@ -1,6 +1,6 @@
 # Downloading bitstreams
 
-Bitstreams contain the instrument logic and are released with each firmware update. To download the bitstreams using the **Python** client, simply run the command `moku download --fw-ver=<fw_version>`. In **MATLAB**, you can use the function `moku_download(<fw_version>)` to achieve the same.
+Bitstreams contain the instrument logic and are released with each firmware update. To download the bitstreams using the **Python** client, simply run the command `moku download --fw_ver=<fw_version>`. In **MATLAB**, you can use the function `moku_download(<fw_version>)` to achieve the same.
 
 If you need to manually download the bitstreams or utilize the REST interface directly, follow the steps below:
 
