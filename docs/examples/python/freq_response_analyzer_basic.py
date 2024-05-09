@@ -30,7 +30,7 @@ try:
 
     # Get a single sweep frame. This will block until the sweep is complete,
     # beware if your range includes low frequencies!
-    frame = i.get_data()
+    frame = i.get_data(wait_complete=True)
 
     # Print out the data for Channel 1
     print(frame['ch1']['frequency'], frame['ch1']['magnitude'],
