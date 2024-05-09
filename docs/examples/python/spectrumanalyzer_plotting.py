@@ -33,7 +33,7 @@ try:
     line2, = plt.plot([])
     plt.ion()
     plt.show()
-    plt.grid(b=True)
+    plt.grid(visible=True)
     plt.ylim([-2, 2])
     plt.autoscale(axis='x', tight=True)
 

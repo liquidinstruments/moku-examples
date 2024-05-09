@@ -67,7 +67,7 @@ try:
 
     plt.ion()
     plt.show()
-    plt.grid(b=True)
+    plt.grid(visible=True)
 
     # Retrieves and plot new data
     while True:

@@ -28,7 +28,7 @@ try:
     # Set up the plotting parameters
     plt.ion()
     plt.show()
-    plt.grid(b=True)
+    plt.grid(visible=True)
     plt.ylim([-1, 1])
 
     line1, = plt.plot([])

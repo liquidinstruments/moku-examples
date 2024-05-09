@@ -20,7 +20,7 @@ try:
     line1, = plt.plot([])
     plt.ion()
     plt.show()
-    plt.grid(b=True)
+    plt.grid(visible=True)
     plt.autoscale(axis='x', tight=True)
 
     # Get an initial frame of data to set any frame-specific plot parameters
