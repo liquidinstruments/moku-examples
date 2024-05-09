@@ -70,7 +70,7 @@ try:
 
     # Configure labels for axes
     ax = plt.gca()
-    ax.legend(handles=[line1, line2])
+    ax.legend(handles=[line1, line2], loc=1)
     plt.xlabel("Time [Second]")
     plt.ylabel("Amplitude [Volt]")
 
