@@ -34,7 +34,7 @@ try:
     plt.ion()
     plt.show()
     plt.grid(visible=True)
-    plt.ylim([-2, 2])
+    plt.ylim([-120, 20])
     plt.autoscale(axis='x', tight=True)
 
     # Get an initial frame of data to set any frame-specific plot parameters
