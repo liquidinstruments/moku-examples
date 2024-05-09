@@ -32,15 +32,15 @@ try:
     logFile = i.start_logging(duration=10)
 
     # Track progress percentage of the data logging session
-    is_logging = True
-    while is_logging:
+    complete = False
+    while complete is False:
         # Wait for the logging session to progress by sleeping 0.5sec
         time.sleep(0.5)
         # Get current progress percentage and print it out
         progress = i.logging_progress()
-        remaining_time = int(progress['time_to_end'])
-        is_logging = remaining_time > 1
-        print(f"Remaining time {remaining_time} seconds")
+        complete = progress['complete']
+        if 'time_remaining' in progress:
+            print(f"Remaining time {progress['time_remaining']} seconds")
 
     # Download log from Moku, use liconverter to convert this .li file to .csv
     i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), logFile['file_name']))
