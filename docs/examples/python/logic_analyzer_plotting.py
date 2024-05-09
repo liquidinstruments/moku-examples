@@ -24,12 +24,10 @@ try:
 
     i.set_pattern_generator(1, patterns=patterns, divider=8)
 
-    pin_status = [{"pin": 1, "state": "PG1"},
-                  {"pin": 2, "state": "PG1"},
-                  {"pin": 3, "state": "PG1"},
-                  {"pin": 4, "state": "PG1"}]
-
-    i.set_pins(pins=pin_status)
+    i.set_pin_mode(pin=1, state="PG1")
+    i.set_pin_mode(pin=2, state="PG1")
+    i.set_pin_mode(pin=3, state="PG1")
+    i.set_pin_mode(pin=4, state="PG1")
     data = i.get_data(wait_reacquire=True, include_pins=[1, 2, 3, 4])
 
     pin1, = plt.step(data["time"], data["pin1"])
