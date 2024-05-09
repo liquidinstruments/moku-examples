@@ -15,22 +15,22 @@ from moku.instruments import LockInAmp
 i = LockInAmp('192.168.xxx.xxx', force_connect=False)
 
 try:
-    # SetChannel 1 and 2 to DC coupled, 1 Mohm impedance, and 400 mVpp range
-    i.set_frontend(1, coupling='DC', impedance='1MOhm',attenuation='0dB')
-    i.set_frontend(2, coupling='DC', impedance='1MOhm',attenuation='0dB')
+    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
+    i.set_frontend(1, coupling='DC', impedance='1MOhm', attenuation='0dB')
+    i.set_frontend(2, coupling='DC', impedance='1MOhm', attenuation='0dB')
 
     # Configure the demodulation signal to Local oscillator with 1 MHz and
     # 0 degrees phase shift
-    i.set_demodulation('Internal',frequency=1e6,phase=0)
+    i.set_demodulation('Internal', frequency=1e6, phase=0)
 
     # Set low pass filter to 1 kHz corner frequency with 6 dB/octave slope
-    i.set_filter(1e3,slope='Slope6dB')
+    i.set_filter(1e3, slope='Slope6dB')
 
     # Configure output signals
-    # X component to Output 1 
+    # X component to Output 1
     # Aux oscillator signal to Output 2 at 1 MHz 500 mVpp
-    i.set_outputs('X','Aux')
-    i.set_aux_output(1e6,0.5)
+    i.set_outputs('X', 'Aux')
+    i.set_aux_output(1e6, 0.5)
 
 except Exception as e:
     print(f'Exception occurred: {e}')

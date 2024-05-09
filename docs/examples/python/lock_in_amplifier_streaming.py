@@ -19,7 +19,7 @@ from moku.instruments import LockInAmp
 i = LockInAmp('192.168.xxx.xxx', force_connect=False)
 
 try:
-    # SetChannel 1 and 2 to DC coupled, 1 Mohm impedance, and
+    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
     # 400 mVpp range
     i.set_frontend(1, coupling='DC', impedance='1MOhm',
                    attenuation='0dB')
