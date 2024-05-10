@@ -31,17 +31,17 @@ try:
                        diff_crossover=1e4, int_saturation=10,
                        diff_saturation=10)
 
-    #  Configure PID Control loop 2 using gain 
+    # Configure PID Control loop 2 using gain
     #   Proportional gain = 10
     #   Differentiator gain = -5
     #   Differentiator gain corner = 5 kHz
-    i.set_by_gain(channel=2, overall_gain=0, prop_gain=10, diff_gain=-5, 
-        diff_corner=5e3,)
-    
+    i.set_by_gain(channel=2, overall_gain=0, prop_gain=10, diff_gain=-5,
+                  diff_corner=5e3)
+
     # Enable the outputs of the PID controller
     i.enable_output(1, signal=True, output=True)
     i.enable_output(2, signal=True, output=True)
-    
+
 except Exception as e:
     print(f'Exception occurred: {e}')
 finally:
