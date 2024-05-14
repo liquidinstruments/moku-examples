@@ -22,7 +22,7 @@ from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure event detectors
 # configure interval analyzers
-# retreive data 
+# retrieve data 
 data = i.get_data()
 # resets histogram and statistics
 i.clear_data()
@@ -36,7 +36,7 @@ i.clear_data()
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % configure event detectors
 % configure interval analyzers
-% retreive data 
+% retrieve data 
 m.get_data()
 % resets histogram and statistics
 m.clear_data()

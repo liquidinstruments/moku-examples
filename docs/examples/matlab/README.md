@@ -60,7 +60,7 @@ the "platform_id" to one supported by that hardware.
 
 ### mim_wg_sa.m
 
-Multi-instrumemt Mode on Moku:Go (two slot), deploying the Waveform Generator
+Multi-instrument Mode on Moku:Go (two slot), deploying the Waveform Generator
 and Spectrum Analyzer at once. This example is easily ported to Moku:Pro by changing
 the "platform_id" to one supported by that hardware.
 

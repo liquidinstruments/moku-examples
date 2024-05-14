@@ -18,7 +18,7 @@ parameters:
   type: string
   unit: null
 - default: X
-  description: Outout override for the target pin.
+  description: Output override for the target pin.
   name: override
   param_range: X, L, H
   type: string

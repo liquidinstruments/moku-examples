@@ -49,7 +49,7 @@ parameters:
 - default: None
   description: Window function
   name: window
-  param_range: None, Bartlett, Hanning, Hamming, Blackman, Nuttall, Tukey, Kaiser
+  param_range: None, Bartlett, Hann, Hamming, Blackman, Nuttall, Tukey, Kaiser
   type: string
   unit: null
 - default: 50

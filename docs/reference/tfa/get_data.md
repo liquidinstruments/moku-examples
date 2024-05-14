@@ -33,8 +33,8 @@ summary: get_data
 from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # Configure event detectors
-# Configure intera analyzers
-# retreive data 
+# Configure interval analyzers
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -45,8 +45,8 @@ data = i.get_data()
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % Configure event detectors
-% Configure inteval analyzers
-% retreive data 
+% Configure interval analyzers
+% retrieve data 
 m.get_data()
 ```
 

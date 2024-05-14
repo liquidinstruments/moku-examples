@@ -40,7 +40,7 @@ from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure histogram span to 1 second
 i.set_histogram(start_time=0, stop_time=1)
-# retreive data 
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -52,7 +52,7 @@ data = i.get_data()
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % configure histogram span to 1 second
 m.set_histogram(0, 1)
-% retreive data 
+% retrieve data 
 m.get_data()
 ```
 

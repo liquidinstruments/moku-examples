@@ -34,7 +34,7 @@ from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure linear interpolation
 i.set_interpolation('Linear')
-# retreive data 
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -44,9 +44,9 @@ data = i.get_data()
 
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
-% configure Linea interpolation
+% configure Linear interpolation
 m.set_interpolation('Linear')
-% retreive data 
+% retrieve data 
 m.get_data()
 ```
 </code-block>

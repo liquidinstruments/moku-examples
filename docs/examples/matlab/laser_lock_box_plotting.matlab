@@ -15,9 +15,9 @@ try
     %% Configure the instrument
     
     % Configure the frontend
-    % Channel 1 DC coupled, 1 Mohm impedance, and 400 mVpp range
+    % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range
     i.set_frontend(1, 'DC', '1MOhm','0dB');
-    % Channel 2 DC coupled, 1 Mohm impedance, and 4 Vpp range
+    % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range
     i.set_frontend(2, 'DC', '1MOhm','-20dB');
     
     % Configure the scan oscillator to a 10 Hz 500 mVpp positive ramp
@@ -33,10 +33,10 @@ try
     i.set_filter('shape','Lowpass','low_corner',100e3,'order',4);
     
     % Set the fast PID controller to -10 dB proportional gain and
-    % intergrator crossover frequency at 3 kHz
+    % integrator crossover frequency at 3 kHz
     i.set_pid_by_frequency(1,-10,'int_crossover',3e3);
     % Set the slow PID controller to -10 dB proportional gain and
-    % intergrator crossover frequency at 50 Hz
+    % integrator crossover frequency at 50 Hz
     i.set_pid_by_frequency(2,-10,'int_crossover',50);
     
     % Enable the output channels

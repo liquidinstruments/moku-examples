@@ -62,7 +62,7 @@ m.set_output(1, "0dB")
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 2);
  %% Configure the instruments
- % WaveformGenrator in slot1
+ % WaveformGenerator in slot1
  wg = m.set_instrument(1, @MokuWaveformGenerator);
  osc = m.set_instrument(2, @MokuOscilloscope);
  % configure routing
