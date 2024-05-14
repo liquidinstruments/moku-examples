@@ -57,7 +57,7 @@ i = TimeFrequencyAnalyzer('192.168.###.###')
 i.set_event_detector(1, source="Input1", threshold=0.1, edge="Rising")
 # Configure event detector 2
 i.set_event_detector(2, source="Input2", threshold=0.1, edge="Falling")
-# retreive data 
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -71,7 +71,7 @@ m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 i.set_event_detector(1, 'Input1', 'threshold', '0.1', 'edge', 'Rising')
 % Configure event detector 2
 i.set_event_detector(2, 'Input2', 'threshold', '0.1', 'edge', 'Falling')
-% retreive data 
+% retrieve data 
 m.get_data()
 ```
 
@@ -86,7 +86,7 @@ $: cat request.json
 {
     "id":1,
     "source":"Input1",
-    "threshl":0.1,
+    "threshold":0.1,
     "edge":"Falling"
 }
 $: curl -H 'Moku-Client-Key: <key>' \

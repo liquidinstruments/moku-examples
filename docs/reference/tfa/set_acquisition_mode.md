@@ -20,7 +20,7 @@ parameters:
   type: string
   unit: 
 - default: 
-  description: Acquition threshold
+  description: Acquisition threshold
   name: gate_threshold
   param_range: 
   type: number
@@ -45,13 +45,13 @@ summary: set_acquisition_mode
 
 <parameters/>
 
-### Windowed acquisiton
+### Windowed acquisition
 Windowed acquisition counts events within each window period, and resets at the end of each window
 period. Windowed proves a balance of averaging for noise reduction and the ability to respond when
 the signal changes.
-### Continuous acquisiton
+### Continuous acquisition
 Events are being registered continuously during intervals.
-### Gated acquisiton
+### Gated acquisition
 Similar to windowed acquisition, statistics, count output and histogram counts are reset at the end of
 each gate period. In gated acquisition mode, the beginning of the acquisition period is triggered by the
 gate input signal. The gate input source can be any of the Moku device input channels, or by external
@@ -71,7 +71,7 @@ i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure interval analyzers
 # configure acquisition mode
 i.set_acquisition_mode(mode="Continuous")
-# retreive data 
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -85,7 +85,7 @@ m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % configure interval analyzers
 % configure acquisition mode
 m.set_acquisition_mode('Continuous')
-% retreive data 
+% retrieve data 
 m.get_data()
 ```
 

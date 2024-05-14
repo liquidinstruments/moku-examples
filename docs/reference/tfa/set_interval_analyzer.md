@@ -52,7 +52,7 @@ from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure interval analyzers
 i.set_interval_analyzer(1, 1, 1)
-# retreive data 
+# retrieve data 
 data = i.get_data()
 ```
 
@@ -64,7 +64,7 @@ data = i.get_data()
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % configure interval analyzers
 m.set_interval_analyzer(1, 1, 1)
-% retreive data 
+% retrieve data 
 m.get_data()
 ```
 

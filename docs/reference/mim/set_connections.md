@@ -10,7 +10,7 @@ parameters:
   param_range: 
     mokugo: Source [Input1, Input2, DIO, SlotXOutY]; Destination [Output1, Output2, DIO, SlotXInY]
     mokulab: Source [Input1, Input2, SlotXOutY]; Destination [Output1, Output2, SlotXInY]
-    mokupro: Source [Input1, Input2, Input3, Input4, SlotXInY]; Destination [Output1, Output2, Output3, Output4, SloutXOutY]
+    mokupro: Source [Input1, Input2, Input3, Input4, SlotXInY]; Destination [Output1, Output2, Output3, Output4, SlotXOutY]
   type: array
   unit: null
 summary: set_connections
@@ -57,7 +57,7 @@ m.set_connections(connections=connections)
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 2);
 %% Configure the instruments
-% WaveformGenrator in slot1
+% WaveformGenerator in slot1
 wg = m.set_instrument(1, @MokuWaveformGenerator);
 osc = m.set_instrument(2, @MokuOscilloscope);
 % configure routing

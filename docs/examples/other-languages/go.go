@@ -1,5 +1,5 @@
 // Simple example of interacting with a Moku REST API from Go.
-// This prioritises simplicity over, e.g. type safety so request bodies are formed
+// This prioritizes simplicity over, e.g. type safety so request bodies are formed
 // as string and returns are unmarshalled to maps rather than structs.
 
 package main

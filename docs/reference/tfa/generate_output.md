@@ -70,7 +70,7 @@ i.generate_output(channel=1, signal_type="Interval", scaling=0, zero_point=0)
 i.generate_output(channel=1, signal_type="Count", scaling=0)
 # configure event detectors
 # configure interval analyzers
-# retreive data
+# retrieve data
 data = i.get_data()
 ```
 
@@ -86,7 +86,7 @@ m.generate_output(1, 'Interval', 0, 'zero_point', 0)
 m.generate_output(1, 'Count', 0)
 % configure event detectors
 % configure interval analyzers
-% retreive data
+% retrieve data
 m.get_data()
 ```
 

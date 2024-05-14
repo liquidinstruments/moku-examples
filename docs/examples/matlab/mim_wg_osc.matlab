@@ -8,13 +8,13 @@
 %
 
 %% Connect to your Moku
-% Configure multi-instrument with platofrm_id 2
+% Configure multi-instrument with platform_id 2
 m = MokuMultiInstrument('192.168.###.###', 2);
 
 try
 
     %% Configure the instruments
-    % WaveformGenrator in slot1
+    % WaveformGenerator in slot1
     % Oscilloscope in slot2
     wg = m.set_instrument(1, @MokuWaveformGenerator);
     osc = m.set_instrument(2, @MokuOscilloscope);

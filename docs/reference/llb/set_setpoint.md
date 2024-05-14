@@ -5,7 +5,7 @@ method: post
 name: set_setpoint
 parameters:
 - default: null
-  description: setoint voltage
+  description: setpoint voltage
   name: setpoint
   param_range: -1 to 1
   type: integer

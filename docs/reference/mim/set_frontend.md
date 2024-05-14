@@ -77,7 +77,7 @@ m.set_frontend(1, "1MOhm", "DC", "0dB")
 ```matlab
 m = MokuMultiInstrument('10.1.111.210', 2, true);
 %% Configure the instruments
-% WaveformGenrator in slot1
+% WaveformGenerator in slot1
 % SpectrumAnalyzer in slot2
 wg = m.set_instrument(1, @MokuWaveformGenerator);
 sa = m.set_instrument(2, @MokuSpectrumAnalyzer);
