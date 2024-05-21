@@ -32,11 +32,13 @@ try:
 
     m.set_connections(connections=connections)
 
-    # Configure the instruments to a ramp wave and square wave with equal
-    # frequencies and sync the phases
+    # Configure the Oscilloscope to generate a ramp wave and square wave with
+    # equal frequencies, then sync the phases
     osc.generate_waveform(1, 'Square', amplitude=1, frequency=1e3, duty=50)
     osc.generate_waveform(2, 'Ramp', amplitude=1, frequency=1e3, symmetry=50)
     osc.sync_output_phase()
+
+    # Set the time span to cover four cycles of the waveforms
     osc.set_timebase(-2e-3, 2e-3)
 
     # Retrieve data
@@ -54,6 +56,6 @@ try:
     plt.show()
 
 except Exception as e:
-    print(e)
+    print(f'Exception occurred: {e}')
 finally:
     m.relinquish_ownership()

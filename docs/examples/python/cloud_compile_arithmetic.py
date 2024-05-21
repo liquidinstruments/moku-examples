@@ -15,7 +15,7 @@ from moku.instruments import MultiInstrument, CloudCompile, Oscilloscope
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
 # or by its serial number using MultiInstrument(serial=123)
-m = MultiInstrument('10.1.111.254', platform_id=2)
+m = MultiInstrument('192.168.###.###', platform_id=2)
 
 try:
     # Set the instruments and upload Cloud Compile bitstreams from your device
@@ -32,8 +32,8 @@ try:
 
     m.set_connections(connections=connections)
 
-    # Configure the instruments to a ramp wave and square wave with equal
-    # frequencies and sync the phases
+    # Configure the Oscilloscope to generate a ramp wave and square wave with
+    # equal frequencies, then sync the phases
     osc.generate_waveform(1, 'Square', amplitude=50e-3,
                           frequency=1e3, duty=50)
     osc.generate_waveform(2, 'Ramp', amplitude=50e-3,
@@ -44,7 +44,6 @@ try:
     osc.set_timebase(-2e-3, 2e-3)
     osc.set_trigger(type="Edge", edge="Rising", level=0,
                     mode="Normal", source="ChannelB")
-    osc.set_hysteresis(hysteresis_mode='Absolute', value=1e-3)
 
     # Set up the plotting figure
     fig, axs = plt.subplots(3, sharex=True)
@@ -64,6 +63,7 @@ try:
     data = osc.get_data(wait_reacquire=True)
     axs[1].plot(data['time'], data['ch1'], color='b')
     axs[1].grid(visible=True)
+    axs[1].set_ylabel("Amplitude [Volt]")
     axs[1].set_title('Subtract - 0b01')
 
     mcc.set_control(1, 0b10)
@@ -72,10 +72,12 @@ try:
     axs[2].grid(visible=True)
     axs[2].set_title('Multiply - 0b10')
 
+    # Configure labels for axes
+    plt.xlabel("Time [Second]")
     plt.tight_layout()
     plt.show()
 
 except Exception as e:
-    print(e)
+    print(f'Exception occurred: {e}')
 finally:
     m.relinquish_ownership()

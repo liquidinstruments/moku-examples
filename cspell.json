@@ -82,6 +82,7 @@
     "semilogx",
     "setenv",
     "setpoint",
+    "sharex",
     "Sinc",
     "Sinewave",
     "specan",
