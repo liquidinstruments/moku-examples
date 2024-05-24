@@ -18,12 +18,10 @@ try
     
     i.set_pattern_generator(1, patterns, 'divider', 8);
     
-    pin_status = [struct('pin', 1, 'state', 'PG1'),...
-        struct('pin', 2, 'state', 'PG1'),...
-        struct('pin', 3, 'state', 'PG1'),...
-        struct('pin', 4, 'state', 'PG1')];
-    
-    i.set_pins(pin_status);
+    i.set_pin_mode(1, "PG1");
+    i.set_pin_mode(2, "PG1");
+    i.set_pin_mode(3, "PG1");
+    i.set_pin_mode(4, "PG1");
     
     data = i.get_data('wait_reacquire', true, 'include_pins', [1, 2, 3, 4]);
     
