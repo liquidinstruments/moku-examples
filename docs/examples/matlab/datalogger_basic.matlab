@@ -31,8 +31,8 @@ try
     % Set up to display the logging process
     progress = i.logging_progress();
     
-    while progress.time_to_end > 1
-        fprintf('%d seconds remaining \n',progress.time_to_end)
+    while progress.complete < 1
+        fprintf('%d seconds remaining \n',progress.time_remaining)
         pause(1);
         progress = i.logging_progress();
     end
