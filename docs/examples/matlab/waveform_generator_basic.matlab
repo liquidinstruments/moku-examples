@@ -18,7 +18,7 @@ try
     i.generate_waveform(1, 'Sine','amplitude', 0.5, 'frequency',1e6,'offset',0);
     % Generate a square wave on Channel 2
     % 1Vpp, 10kHz, 0V offset, 50% duty cycle
-    i.generate_waveform(2, 'Sine', 'amplitude',1,'frequency', 10e3, 'duty', 50);
+    i.generate_waveform(2, 'Square', 'amplitude',1,'frequency',10e3, 'duty',50);
 
     % Phase sync between the two channels
     i.sync_phase();
