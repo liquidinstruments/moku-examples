@@ -15,8 +15,8 @@ try
     % range
     i.set_frontend(1,'50Ohm','DC','4Vpp');
     i.set_frontend(2,'50Ohm','DC','4Vpp');
-    i.set_frontend(1,'50Ohm','DC','4Vpp');
-    i.set_frontend(2,'50Ohm','DC','4Vpp');
+    i.set_frontend(3,'50Ohm','DC','4Vpp');
+    i.set_frontend(4,'50Ohm','DC','4Vpp');
     
     % Configure Output channel 1 to generate sine waves at 1 Vpp, 2 MHz
     i.generate_output(1, 'Sine', 'amplitude',1, 'frequency',2e6);
