@@ -11,6 +11,21 @@ This example demonstrates how you can generate and output arbitrary waveforms us
 
 <<< @/docs/examples/python/arbitrarywavegen_basic.py
 
+## Cloud Compile
+### cloud_compile_adder.py
+
+This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the 
+[Adder example](https://gitlab.com/liquidinstruments/cloud-compile/examples/-/tree/main/adder)
+
+<<< @/docs/examples/python/cloud_compile_adder.py
+
+### cloud_compile_arithmetic.py
+
+This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the 
+[Arithmetic Unit example](https://gitlab.com/liquidinstruments/cloud-compile/examples/-/tree/main/arithmetic_unit)
+
+<<< @/docs/examples/python/cloud_compile_arithmetic.py
+
 ## Data Logger
 ### datalogger_basic.py
 
