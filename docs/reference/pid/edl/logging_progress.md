@@ -14,13 +14,16 @@ This method returns a dictionary to track the progress of data logging session. 
 Log files can be downloaded to local machine using [download_files](../../static/download.md)
 
 Refer to,
-- **time_to_end** → Estimated time remaining
-- **time_to_start** → Time remaining to start the requested session
-- **bytes_logged** → Bytes logged to file
+- **running** → Boolean of running status
+- **complete** → Boolean of completion status
+- **message** → Message of waiting for delay or trigger signal
+- **time_remaining** → Estimated time remaining
+- **samples_logged** → Number of samples logged to file
+- **file_name** → File name of logged file on the device
 
 
 ::: tip INFO
-To convert .li binary formatted log files, use liconverter windows app
+To convert .li binary formatted log files, use liconverter windows app or [mokucli convert](../../moku-cli.md#mokucli-convert)
 :::
 
 
@@ -40,15 +43,16 @@ i = PIDController('192.168.###.###')
 result = i.start_logging(duration=10)
 file_name = result['file_name']
 
-# Track the progress of data logging session
-is_logging = True
-while is_logging:
+# Track progress percentage of the data logging session
+complete = False
+while complete is False:
     # Wait for the logging session to progress by sleeping 0.5sec
     time.sleep(0.5)
     # Get current progress percentage and print it out
     progress = i.logging_progress()
-    remaining_time = int(progress['time_to_end'])
-    is_logging = remaining_time > 1
+    complete = progress['complete']
+    if 'time_remaining' in progress:
+        print(f"Remaining time {progress['time_remaining']} seconds")
 
 ```
 </code-block>
@@ -61,12 +65,14 @@ m = MokuPIDController('192.168.###.###');
 % start logging session and download file to local directory
 m.start_logging('duration',10);
 
+% Set up to display the logging process
+progress = i.logging_progress();
+
 % Track the progress of data logging session
-is_logging = true;
-while is_logging
-    progress = m.logging_progress();
-    is_logging = progress.time_to_end > 1;
+while progress.complete < 1
+    fprintf('%d seconds remaining \n',progress.time_remaining)
     pause(1);
+    progress = i.logging_progress();
 end
 ```
 </code-block>
@@ -85,10 +91,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
+   "complete":False,
    "file_name":"MokuPIDControllerData_20210603_101533.li",
-   "time_remaining":9,
-   "time_to_end":9,
-   "time_to_start":-1,
-   "words_logged":24
+   "running":True,
+   "samples_logged":2238,
+   "time_remaining":2
 }
 ```
