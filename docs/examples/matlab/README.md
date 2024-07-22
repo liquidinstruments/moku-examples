@@ -24,6 +24,11 @@ sidebarDepth: 1
 <<<@/docs/examples/matlab/lock_in_amplifier_streaming.matlab
 
 
+## Digital Filter Box
+### digital_filter_box_plotting.m
+<<< @/docs/examples/matlab/digital_filter_box_plotting.matlab
+
+
 ## Frequency Response Analyzer
 ### frequency_response_analyzer_basic.m
 <<< @/docs/examples/matlab/frequency_response_analyzer_basic.matlab
