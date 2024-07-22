@@ -66,13 +66,13 @@ m = MokuLockInAmp('192.168.###.###');
 m.start_logging('duration',10);
 
 % Set up to display the logging process
-progress = i.logging_progress();
+progress = m.logging_progress();
 
 % Track the progress of data logging session
 while progress.complete < 1
     fprintf('%d seconds remaining \n',progress.time_remaining)
     pause(1);
-    progress = i.logging_progress();
+    progress = m.logging_progress();
 end
 ```
 </code-block>
