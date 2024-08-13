@@ -257,3 +257,11 @@ to generate an amplitude modulated sine wave on Channel 1, and a sweep
 modulated sine wave on Channel 2.
 
 <<< @/docs/examples/python/waveformgenerator_modulation.py
+
+### waveformgenerator_triggered.py
+
+This example demonstrates how you can use the Waveform Generator instrument
+to generate a gated sine wave on Channel 1, and a swept frequency square wave
+on Channel 2.
+
+<<< @/docs/examples/python/waveformgenerator_triggered.py
