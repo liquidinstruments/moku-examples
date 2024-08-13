@@ -56,7 +56,15 @@ Datalogger in slot1 and Lockin Amplifier in slot2.
 
 <<< @/docs/examples/python/mim_dl_lia_streaming.py
 
+### phasemeter_streaming.py
+
+This example demonstrates how you can configure the Phasemeter
+instrument to measure a signal, stream and display the results.
+
+<<< @/docs/examples/python/phasemeter_streaming.py
+
 ## Digital Filter Box
+### digital_filter_box_plotting.py
 
 This example demonstrates how you can configure the Digital Filter Box instrument 
 to filter and display two signals.
@@ -178,6 +186,12 @@ instrument to measure 4 independent signals.
 
 <<< @/docs/examples/python/phasemeter_basic.py
 
+### phasemeter_plotting.py
+
+This example demonstrates how you can configure the Phasemeter
+instrument to measure 2 independent signals and display the results in real-time.
+
+<<< @/docs/examples/python/phasemeter_plotting.py
 
 ## PID Controller
 ### pidcontroller_basic.py
