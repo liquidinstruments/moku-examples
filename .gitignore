@@ -6,3 +6,6 @@ dist/
 .idea
 public
 nlohmann
+
+# add ds store from all folders
+*.DS_Store

@@ -1,0 +1,32 @@
+{
+    "MD001": false,
+    "MD003": false,
+    "MD007": { "indent": 4 },
+    "MD010": false,
+    "MD013": false,
+    "MD014": false,
+    "MD024": false,
+    "MD025": false,
+    "MD030": { "ul_single": 3, "ul_multi": 3 },
+    "MD033": {
+        "allowed_elements": [
+            "div",
+            "headers",
+            "getters",
+            "parameters",
+            "code-group",
+            "code-block",
+            "function-index",
+            "bitstream-url",
+            "action-button",
+            "path",
+            "key",
+            "ip",
+            "beta-flag",
+            "path-parameters"
+        ]
+    },
+    "MD037": false,
+    "MD040": false,
+    "MD041": false
+}

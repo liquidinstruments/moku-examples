@@ -1,51 +1,57 @@
----
-title: "Moku API Home"
----
+# Moku Developer Documentation
 
-# Moku Scripting API
+Welcome to the Moku developer documentation. Here you'll find all you need to get started with the Moku Scripting API, Moku Cloud Compile and the Moku CLI.
 
-The Moku device family from Liquid Instruments is the next generation of Test. With the Moku Scripting API, command and control of your test has never been easier.
+<div style="display: flex; gap: 20px">
+  <div style="flex: 1">
 
-To start, install the API for [Python](starting-python.html), [MATLAB](starting-matlab.html) or [LabVIEW](starting-labview.html).
+## Rest API
 
-For Moku:Lab versions **<= 511**, please refer to our legacy APIs
-- For Python, [pymoku](https://pypi.org/project/pymoku/)
-- For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
+Everything you need to integrate your Moku into your current system with API integration for Python, MATLAB, and LabVIEW
 
+  </div>
 
-## Get Started
-### Python
-The Moku Scripting API for Python requires Python 3.5 or newer.
-<action-button text="Start with Python" link="starting-python"/>
+  <div style="flex: 1">
 
-### MATLAB
-The Moku Scripting API for MATLAB requires MATLAB 2014b or newer.
-<action-button text="Start with MATLAB" link="starting-matlab"/>
+## Moku Cloud Compile
 
-## Features
-### RESTful API
-The Moku Scripting API is built around a RESTful HTTP interface, allowing for access from a wide range of programming languages. It makes remote access easy, as the standard HTTP protocol is low bandwidth and commonly allowed to traverse firewalls.
+Code, compile, and deploy directly from your browser. Moku Cloud Compile makes FPGA programming simple with the ability to implement custom functionality to Moku:Go, Moku:Lab, and Moku:Pro.
 
-Support for the next generation of Moku products. The Scripting API supports almost all the same features of the Moku iPad and Desktop Applications; if you need something that's missing, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+  </div>
 
-Python and MATLAB libraries are provided that wrap the RESTful API in a way that feels natural to programmers of all levels.
+  <div style="flex: 1">
 
-### Device Discovery
-The Python Scripting API comes bundled with the `moku` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations.
+## Moku CLI
 
-## Known Issues
-### Firmware Updates
-The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries.
+Enable command-line access to functions like discovering Moku devices, uploading and downloading files, and converting files.
 
-### File Conversion
-The LI File Converter application is available with installation of the Moku Desktop software or as a standalone application. Conversion cannot currently be done through the Scripting API.
+  </div>
+</div>
 
-### Other Languages
-The Moku Scripting API is built around an HTTP/REST interface. This allows easy interfacing from any programming language, however full documentation of this REST interface is still underway. If you have specific needs, again, reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+## Helpful Links
 
-### USB and IPv6 Supported Environments
-You may wish to use IPv6 on your network, and it must be noted that the USB Connection uses IPv6 internally. IPv6 is not universally supported, and as such the API cannot be used over USB in some environments. A non-exhaustive list is
-- Windows Subsystem for Linux Version 2 (WSL2), as discussed with workarounds [here](https://github.com/microsoft/WSL/discussions/5855)
-- LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
+### Need help?
 
-If you require API connectivity from these environments, you must use a network connection like Ethernet or WiFi, including a point-to-point network with Static IPs if security is a concern.
+-   Contact support
+
+### Latest updates?
+
+-   See Changelog
+
+### Something's not right?
+
+-   Check system status
+
+## About Links
+
+### What is Moku
+
+The Moku device family from Liquid Instruments is the next generation of testing. With the Moku Scripting API, command and control of your test has never been easier.
+
+-   Meet the Moku family of hardware solutions.
+
+### Who is Liquid Instruments
+
+We are Liquid Instruments and want to help engineers and scientists build technology to solve the world’s greatest challenges.
+
+-   Learn more about us

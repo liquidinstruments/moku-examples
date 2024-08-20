@@ -5,10 +5,19 @@ $codeBgColor = #282c34
 
 $sidebarWidth = 25em
 
-body 
-    font-family: proxima-nova, sans-serif;
-    font-weight: 300;
-    font-style: normal;
+.theme-default-content:not(.custom)
+  max-width: 1440px;
+
+body
+  font-family: proxima-nova, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+
+p
+  max-width: 600px;
+
+h2
+  font-size: 1.5rem;
 
 .theme-code-group
     margin-top: 1.5em;
@@ -16,7 +25,7 @@ body
 div[class^="language-"]::before
 	content: '';
 
-.site-name.can-hide    
+.site-name.can-hide
     display:none;
 
 .badge-sidebar
@@ -43,3 +52,11 @@ div[class^="language-"]::before
     footer.page-edit,
     div.page-nav
       max-width: 80%
+
+.navbar
+  .links
+    flex-direction: row-reverse
+    gap: 1rem;
+
+.search-box
+  margin: 0

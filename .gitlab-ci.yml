@@ -1,36 +1,39 @@
 build-docs:
-  image: node:16
-  stage: build
-  cache:
-    paths:
-      - node_modules/
-  script:
-    - npm install
-    - npm run docs:build
-  artifacts:
-    expose_as: 'REST Documentation'
-    paths:
-      - public
-  variables:
-    BUILD_DIR: $CI_COMMIT_BRANCH
-    BASE_PATH: "/"
+    image: node:16
+    stage: build
+    cache:
+        paths:
+            - node_modules/
+    before_script:
+        - git submodule init
+        - git submodule update
+    script:
+        - npm install
+        - npm run docs:build
+    artifacts:
+        expose_as: 'REST Documentation'
+        paths:
+            - public
+    variables:
+        BUILD_DIR: $CI_COMMIT_BRANCH
+        BASE_PATH: '/'
 deploy_staging:
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  stage: deploy
-  environment:
-    name: staging
-    url: https://next.documentation.liquidinstruments.com
-  script:
-    - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME_NEXT --recursive
-  only:
-    - next
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+    stage: deploy
+    environment:
+        name: staging
+        url: https://next.documentation.liquidinstruments.com
+    script:
+        - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME_NEXT --recursive
+    only:
+        - next
 deploy_main:
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
-  stage: deploy
-  environment:
-    name: production
-    url: https://apis.liquidinstruments.com
-  script:
-    - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME/ --recursive
-  only:
-    - master
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+    stage: deploy
+    environment:
+        name: production
+        url: https://apis.liquidinstruments.com
+    script:
+        - aws s3 cp public/$CI_COMMIT_BRANCH/ s3://$S3_BUCKET_NAME/ --recursive
+    only:
+        - master

@@ -17,6 +17,7 @@
         "vuepress-plugin-versioning": "github:nonebot/vuepress-plugin-versioning"
     },
     "dependencies": {
+        "prettier": "^3.3.3",
         "vuepress-plugin-code-copy": "^1.0.6"
     }
 }
