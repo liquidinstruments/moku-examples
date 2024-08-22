@@ -1,0 +1,174 @@
+/* Global styles */
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Inter, sans-serif;
+    height: 100%;
+    color: $textColor;
+}
+
+#app {
+    background: $background;
+    overflow-x: clip;
+
+    &:has(.landing) {
+        background: #fff;
+    }
+}
+
+#app:has(.landing)::before {
+    content: '';
+    right: -25%;
+    top: -500px;
+    position: absolute;
+    width: 1000px;
+    height: 750px;
+    transform: rotate(250deg);
+    border-radius: 100px;
+    background: $gradientBlob;
+    filter: blur(100px);
+    opacity: 0.5;
+}
+
+#app,
+.theme-container {
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+/* placing overriders here; don't want to extend components for style overrides */
+.theme-container {
+    /* overflow: hidden; */
+
+    &.landing .theme-default-content:not(.custom) {
+        flex: 1;
+        max-width: $maxWidth;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &.landing .page {
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .theme-default-content:not(.custom) > *:first-child {
+        margin-top: 1.5rem;
+    }
+
+    /* Page */
+    .page-nav {
+        width: 100%;
+    }
+
+    .page-edit {
+        display: none;
+    }
+
+    /* Sidebar */
+
+    .sidebar-heading {
+        padding-left: 2rem;
+    }
+
+    .sidebar .sidebar-group a.sidebar-link,
+    .sidebar .sidebar-group .sidebar-heading {
+        font-size: 0.85rem;
+    }
+
+    .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .sidebar-group.is-sub-group > .sidebar-heading,
+    .sidebar-group a.sidebar-link {
+        padding-left: 2rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    /* Search */
+    .search-box input,
+    .search-box .suggestion a {
+        color: $textColor;
+    }
+
+    .search-box .suggestions {
+        top: 31px;
+        border: 1px solid $borderColor;
+        border-radius: 0 0 4px 4px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.theme-default-content {
+    margin-top: $headerHeight;
+    &:not(.custom) a:hover {
+        text-decoration: none;
+    }
+}
+
+.landing footer {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding: 2rem 0 0 0;
+    width: 100%;
+    p {
+        font-size: 0.8rem;
+    }
+}
+
+a {
+    color: $textColor;
+    font-weight: initial;
+
+    &.action-button.external {
+        .icon.outbound {
+            color: #fff;
+        }
+    }
+}
+
+.theme-default-content h2 {
+    font-size: 1.5rem;
+}
+
+p,
+ul,
+ol {
+    line-height: 1.5;
+}
+
+p.subtitle {
+    font-weight: 600;
+}
+
+.theme-code-group {
+    margin-top: 1.5em;
+}
+
+div[class^='language-']::before {
+    content: '';
+}
+
+.site-name.can-hide {
+    display: none;
+}
+
+.badge-sidebar {
+    font-size: 1em;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0.35rem;
+    align-self: center;
+    box-sizing: border-box;
+}

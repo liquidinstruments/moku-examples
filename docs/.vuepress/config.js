@@ -15,8 +15,15 @@ module.exports = {
         [
             'link',
             {
+                rel: 'preconnect',
+                href: 'https://rsms.me/',
+            },
+        ],
+        [
+            'link',
+            {
                 rel: 'stylesheet',
-                href: 'https://use.typekit.net/dnm2hhw.css',
+                href: 'https://rsms.me/inter/inter.css',
             },
         ],
     ],
@@ -24,6 +31,14 @@ module.exports = {
         logo: '/assets/img/logo.svg',
         smoothScroll: false,
         nav: [
+            // {
+            //     text: 'Test dropdown',
+            //     ariaLabel: 'Dropdown Menu',
+            //     items: [
+            //         { text: 'One', link: '/one/' },
+            //         { text: 'Two', link: '/two/' },
+            //     ],
+            // },
             { text: 'Rest API', link: '/api/' },
             { text: 'Moku Cloud Compile', link: '/mcc/' },
             { text: 'Moku CLI', link: '/cli/' },

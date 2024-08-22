@@ -35,4 +35,4 @@ MCC Examples are linked via git submodules. Original files are [stored here](htt
 
 ## Questions
 
--   Do we want all examples in a sinple public repo?
+-   Do we want all examples in a single public repo?

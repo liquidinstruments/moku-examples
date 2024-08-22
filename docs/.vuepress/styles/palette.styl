@@ -1,62 +1,18 @@
 $accentColor = #48b8e7
-$textColor = #2c3e50
+$textColor = #001E2F
 $borderColor = #eaecef
-$codeBgColor = #282c34
+$codeBgColor = $textColor
+$background = #FCFCFC
 
-$sidebarWidth = 25em
+$sidebarWidth = 20em
+$maxWidth = 1280px
+$maxWidthPara = 600px
+$headerHeight = 57.5938px
 
-.theme-default-content:not(.custom)
-  max-width: 1440px;
+$grad-color-1 = rgba(63, 220, 145, 0.5);
+$grad-color-2 = rgba(66, 158, 219, 1);
+$grad-color-3 = rgba(0, 126, 180, 0.7);
+$gradientBlob = linear-gradient(90deg, $grad-color-1 0%, $grad-color-2 36.46%, $grad-color-3 76.56%, $grad-color-2 100%);
 
-body
-  font-family: proxima-nova, sans-serif;
-  font-weight: 300;
-  font-style: normal;
+$gradientBlob2 = linear-gradient(-180deg, $grad-color-1 0%, $grad-color-2 36.46%, $grad-color-3 76.56%, $grad-color-2 100%);
 
-p
-  max-width: 600px;
-
-h2
-  font-size: 1.5rem;
-
-.theme-code-group
-    margin-top: 1.5em;
-
-div[class^="language-"]::before
-	content: '';
-
-.site-name.can-hide
-    display:none;
-
-.badge-sidebar
-	font-size: 1em;
-	font-weight: 600;
-	display: inline-block;
-	margin: 0.35rem;
-	align-self:center;
-	box-sizing: border-box;
-
-// Override some of the styling in the default theme, the original
-// opacity of subgroups was 0.5 and hard to read.
-.sidebar-group
-  &.is-sub-group
-    & > .sidebar-heading
-      &:not(.clickable)
-        opacity 0.9
-
-// Pages can specify pageClass: wide-page in their frontmatter to format
-// better for large code examples and the like, as opposed to scannable text
-.theme-container.wide-page
-  main
-    div.content__default,
-    footer.page-edit,
-    div.page-nav
-      max-width: 80%
-
-.navbar
-  .links
-    flex-direction: row-reverse
-    gap: 1rem;
-
-.search-box
-  margin: 0

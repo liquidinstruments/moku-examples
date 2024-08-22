@@ -66,9 +66,10 @@ Datalogger in slot1 and Lockin Amplifier in slot2.
 This example demonstrates how you can configure the Phasemeter
 instrument to measure a signal, stream and display the results.
 
-<<< @/docs/examples/python/phasemeter_streaming.py
+<<< @/docs/api/examples/python/phasemeter_streaming.py
 
 ## Digital Filter Box
+
 ### digital_filter_box_plotting.py
 
 This example demonstrates how you can configure the Digital Filter Box instrument
@@ -77,19 +78,20 @@ to filter and display two signals.
 <<< @/docs/api/examples/python/digital_filter_box_plotting.py
 
 ## FIR Filter
+
 ### fir_filter_builder_basic.py
 
-This example demonstrates how you can configure the FIR Filter instrument 
+This example demonstrates how you can configure the FIR Filter instrument
 to filter two signals.
 
-<<< @/docs/examples/python/fir_filter_builder_basic.py
+<<< @/docs/api/examples/python/fir_filter_builder_basic.py
 
 ### fir_filter_builder_plotting.py
 
-This example demonstrates how you can configure the FIR Filter instrument 
+This example demonstrates how you can configure the FIR Filter instrument
 to filter and display two signals.
 
-<<< @/docs/examples/python/fir_filter_builder_plotting.py
+<<< @/docs/api/examples/python/fir_filter_builder_plotting.py
 
 ## Frequency Response Analyzer
 
