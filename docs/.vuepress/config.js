@@ -67,8 +67,8 @@ module.exports = {
                         ['/api/getting-started/starting-python', 'Python'],
                         ['/api/getting-started/starting-matlab', 'MATLAB'],
                         ['/api/getting-started/starting-labview', 'LabVIEW'],
-                        ['/api/getting-started/starting-curl', 'Curl'],
-                        ['/api/getting-started/starting-mim', 'Mim'],
+                        ['/api/getting-started/starting-curl', 'cURL'],
+                        ['/api/getting-started/starting-mim', 'MiM'],
                         ['/api/getting-started/starting-other', 'Other'],
                         ['/api/getting-started/ip-address', 'IP Address'],
                         [

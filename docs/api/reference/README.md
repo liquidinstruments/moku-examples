@@ -14,7 +14,7 @@ This library only supports interactions with Moku:Go and Moku:Pro. To command or
 
 -   For Python, [PyMoku](https://pypi.org/project/pymoku/)
 -   For MATLAB, [MATLAB](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
-    :::
+:::
 
 ## Common Parameters
 
