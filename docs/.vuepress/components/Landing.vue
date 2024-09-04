@@ -3,7 +3,7 @@
         <div class="gradient-beam"></div>
         <img
             class="grid-pattern"
-            src="../public/assets/img/lines.svg"
+            src="../assets/img/lines.svg"
             alt="Grid pattern"
         />
 
@@ -21,7 +21,7 @@
             <div class="hero-cta">
                 <div class="hero-cta-text large">
                     <span>
-                        <PhHandWaving :size="24" color="#48b8e7" />
+                        <PhHandWaving :size="24" color="#0067FF" />
                         New to Moku?</span
                     >
                     <p>
@@ -36,7 +36,7 @@
                 <hr />
                 <div class="hero-cta-text">
                     <span>
-                        <PhInfo :size="24" color="#48b8e7" />
+                        <PhInfo :size="24" color="#0067FF" />
                         Need help?</span
                     >
                     <p>

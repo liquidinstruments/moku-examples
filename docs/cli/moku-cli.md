@@ -20,7 +20,7 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 -   `proxy`: Run a proxy from local machine to the Moku
 -   `stream`: Stream the LI binary data from Moku onto network port or a file
 
-## `mokucli convert`
+## mokucli convert
 
 Convert Liquid Instruments binary file to other formats
 
@@ -53,7 +53,7 @@ Writing "MokuDataLoggerData_20230114_142326.npy"...
 [===========================================================================]
 ```
 
-## `mokucli files`
+## mokucli files
 
 List, download and delete files from the Moku
 
@@ -94,7 +94,7 @@ Downloading MokuLockInAmplifierData_20230207_071706.li
 [##############################] Done!
 ```
 
-## `mokucli license`
+## mokucli license
 
 ::: warning Beta
 This functionality is currently in beta and subject to change.
@@ -116,7 +116,7 @@ $ mokucli license [OPTIONS] COMMAND [ARGS]...
 -   `list`: List available licenses for a Moku
 -   `update`: Update license on the Moku with one stored locally
 
-### `mokucli license fetch`
+### mokucli license fetch
 
 Fetch the latest license file for a Moku device from the Liquid Instruments license server and save locally.
 
@@ -135,7 +135,7 @@ $ mokucli license fetch [OPTIONS] IP_ADDRESS
 -   `--path PATH`: Directory to save the license file [default: .]
 -   `--help`: Show this message and exit.
 
-### `mokucli license list`
+### mokucli license list
 
 List available licenses for the given Moku device.
 
@@ -165,7 +165,7 @@ Waveform Generator
 FIR Filter Builder
 ```
 
-### `mokucli license update`
+### mokucli license update
 
 Update license on the Moku with the latest from the Liquid Instruments license server, or one stored locally. The local file has typically been retrieved using a previous `moku license fetch`.
 
@@ -185,7 +185,7 @@ $ mokucli license update [OPTIONS] IP_ADDRESS
 -   `--filename PATH`: Path to the license file. If no file is given, the license server is queried.
 -   `--help`: Show this message and exit.
 
-## `mokucli list`
+## mokucli list
 
 Search for the mokus on network and display the results
 
@@ -208,7 +208,7 @@ Name                 Serial  HW     FW     IP
 MokuGo-000016        16      Go     576    10.1.111.145
 ```
 
-## `mokucli proxy`
+## mokucli proxy
 
 Run a proxy from local machine to the Moku. The proxied Moku is available on `localhost` using IPv4. This is useful when the actual connection to the Moku uses IPv6 but you wish to use a tool without native IPv6 support. A common example is accessing the Moku web interface when the Moku is connected over USB.
 
@@ -234,7 +234,7 @@ $: mokucli proxy 192.168.1.1
 Running a proxy from 192.168.1.1 to localhost:8090
 ```
 
-## `mokucli stream`
+## mokucli stream
 
 Stream the LI binary data from Moku onto a local network port, `stdout`, or to a file. This is commonly used inside client packages, or for languages without dedicated client packages, to receive Data Logger streams and make the decoded data available for easy consumption.
 

@@ -4,7 +4,7 @@
             <component
                 :is="currentIcon"
                 :size="24"
-                color="#48b8e7"
+                color="#0067FF"
                 v-if="currentIcon"
             />
             <h3 v-if="title">{{ title }}</h3>
@@ -17,7 +17,7 @@
 <script>
 import markdownIt from 'markdown-it'
 import {
-    PhArrowsLeftRight,
+    PhPaperPlaneTilt,
     PhTerminalWindow,
     PhCloudArrowUp,
 } from 'phosphor-vue'
@@ -31,7 +31,7 @@ export default {
         },
     },
     components: {
-        PhArrowsLeftRight,
+        PhPaperPlaneTilt,
         PhTerminalWindow,
         PhCloudArrowUp,
     },
@@ -59,7 +59,7 @@ export default {
             const icons = {
                 mcc: 'PhCloudArrowUp',
                 cli: 'PhTerminalWindow',
-                api: 'PhArrowsLeftRight',
+                api: 'PhPaperPlaneTilt',
             }
             // Return the component name or null if not found
             return this.$options.components[icons[this.icon]] || null
@@ -76,6 +76,7 @@ export default {
 
 <style scoped lang="stylus">
 .card {
+    color: $textColor;
     border-radius: 1.25rem;
     flex: 1;
     display: flex;
@@ -125,5 +126,6 @@ span {
     border-bottom: 1px solid $accentColor;
     font-size: 0.9rem;
     font-weight: 600;
+    color: $accentColor;
 }
 </style>
