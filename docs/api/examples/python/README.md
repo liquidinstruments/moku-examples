@@ -200,6 +200,20 @@ instrument to measure 4 independent signals.
 
 <<< @/docs/api/examples/python/phasemeter_basic.py
 
+### phasemeter_plotting.py
+
+This example demonstrates how you can configure the Phasemeter
+instrument to measure 2 independent signals and display the results in real-time.
+
+<<< @/docs/api/examples/python/phasemeter_plotting.py
+
+### phasemeter_streaming.py
+
+This example demonstrates how you can configure the Phasemeter
+instrument to measure a signal, stream and display the results.
+
+<<< @/docs/api/examples/python/phasemeter_streaming.py
+
 ## PID Controller
 
 ### pidcontroller_basic.py
@@ -263,3 +277,12 @@ to generate an amplitude modulated sine wave on Channel 1, and a sweep
 modulated sine wave on Channel 2.
 
 <<< @/docs/api/examples/python/waveformgenerator_modulation.py
+
+
+### waveformgenerator_triggered.py
+
+This example demonstrates how you can use the Waveform Generator instrument
+to generate a gated sine wave on Channel 1, and a swept frequency square wave
+on Channel 2.
+
+<<< @/docs/api/examples/python/waveformgenerator_triggered.py
