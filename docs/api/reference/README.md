@@ -10,10 +10,10 @@ replace the Windows/Mac interface, allowing the Moku to be scripted
 tightly into your next experiment.
 
 :::tip Note
-This library only supports interactions with Moku:Go and Moku:Pro. To command or control Moku:Lab please visit
+For Moku:Lab versions <= 511, please refer to our legacy APIs
 
 -   For Python, [PyMoku](https://pypi.org/project/pymoku/)
--   For MATLAB, [MATLAB](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
+-   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
 :::
 
 ## Common Parameters
