@@ -61,8 +61,8 @@ parameters:
     - default: null
       description: Number of coefficients for the filter
       name: order
-      param_range: null
-      type: number
+      param_range: 2, 4, 6, 8
+      type: integer
       unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
