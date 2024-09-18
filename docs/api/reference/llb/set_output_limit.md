@@ -19,7 +19,7 @@ parameters:
       param_range: null
       type: boolean
       unit: null
-    - default: nullptr
+    - default: False
       description: Low voltage limit
       name: low_limit
       param_range: -5 to 5
