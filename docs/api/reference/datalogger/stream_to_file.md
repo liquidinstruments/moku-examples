@@ -25,7 +25,7 @@ Examples,
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###')
 i.start_streaming(duration=10)
-i.stream_to_file() # by default data is streamed to a csv file
+i.stream_to_file('npy') # by default data is streamed to a csv file
 ```
 
 </code-block>
@@ -35,7 +35,7 @@ i.stream_to_file() # by default data is streamed to a csv file
 ```matlab
 m = MokuDatalogger('192.168.###.###');
 m.start_streaming('duration', 10);
-m.stream_to_file() % by default data is streamed to a csv file
+m.stream_to_file('csv') % by default data is streamed to a csv file
 
 ```
 
