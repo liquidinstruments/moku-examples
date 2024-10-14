@@ -1,3 +1,3 @@
-[submodule "moku-examples"]
-	path = moku-examples
+[submodule "docs/api/moku-examples"]
+	path = docs/api/moku-examples
 	url = https://github.com/liquidinstruments/moku-examples.git
