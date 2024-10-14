@@ -6,4 +6,4 @@ Attention must be paid to data types and widths, as demonstrated in this example
 
 The Simulink file for this Square Root example can be found in [Gitlab](hhttps://gitlab.com/liquidinstruments/cloud-compile/examples/-/tree/main/hdlcoder_sqrt) and requires MATLAB, Simulink and HDL Coder licenses.
 
-![Simulink Block Diagram of the Square Root example](@mcc/hdlcoder_sqrt/sqrt.png)
+![Simulink Block Diagram of the Square Root example](@/docs/api/moku-examples/mcc/hdlcoder_sqrt/sqrt.png)

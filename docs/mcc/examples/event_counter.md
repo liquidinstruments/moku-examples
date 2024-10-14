@@ -2,7 +2,7 @@
 
 ## Register and Parameter Definition
 
-![Timing Diagram](@mcc/event_counter/waveform.png)
+![Timing Diagram](@/docs/api/moku-examples/mcc/event_counter/waveform.png)
 
 | | **Bits** ||
 | **Register** | `31-16` | `15-0` |

@@ -17,6 +17,7 @@
         "vuepress-plugin-versioning": "github:nonebot/vuepress-plugin-versioning"
     },
     "dependencies": {
+        "notebookjs": "^0.8.3",
         "phosphor-vue": "^1.4.0",
         "prettier": "^3.3.3",
         "vue": "^2.7.14",

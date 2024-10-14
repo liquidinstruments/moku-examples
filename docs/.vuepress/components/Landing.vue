@@ -83,6 +83,15 @@
                         converting files.
                     </p>
                 </card>
+
+                <card title="Moku Neural Network" icon="mnn" link="/mnn/">
+                    <p>
+                        The Moku Neural Network instrument facilitates running 
+                        feedforward, multi-layer neural networks, seamlessly 
+                        handling both serial and parallel input signals 
+                        for efficient processing.
+                    </p>
+                </card>
             </card-group>
         </section>
         <section>

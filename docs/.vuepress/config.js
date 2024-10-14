@@ -1,4 +1,4 @@
-const mimAdmin = require('./sidebar-menus/mim')
+ const mimAdmin = require('./sidebar-menus/mim')
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const getChildren = require('./getChildren').getChildren
 const externalClockAdmin = require('./sidebar-menus/ext_clk')
@@ -31,17 +31,10 @@ module.exports = {
         logo: '/assets/img/logo.svg',
         smoothScroll: false,
         nav: [
-            // {
-            //     text: 'Test dropdown',
-            //     ariaLabel: 'Dropdown Menu',
-            //     items: [
-            //         { text: 'One', link: '/one/' },
-            //         { text: 'Two', link: '/two/' },
-            //     ],
-            // },
-            { text: 'Rest API', link: '/api/' },
+            { text: 'REST API', link: '/api/' },
             { text: 'Moku Cloud Compile', link: '/mcc/' },
             { text: 'Moku CLI', link: '/cli/' },
+            { text: 'Moku Neural Network', link: '/mnn/' },
             { text: 'Forum', link: 'https://forum.liquidinstruments.com/' },
             {
                 text: 'Support',
@@ -190,6 +183,17 @@ module.exports = {
                     children: [
                         ['/cli/', 'Overview'],
                         ['/cli/moku-cli', 'Usage'],
+                    ],
+                },
+            ],
+            '/mnn/': [
+                {
+                    title: 'Moku Neural Nework',
+                    collapsable: false,
+                    initialOpenGroupIndex: 0,
+                    children: 
+                    [
+                            getChildren('Examples', '../mnn'),
                     ],
                 },
             ],

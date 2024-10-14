@@ -14,8 +14,8 @@ The example is configured for Moku:Pro's 312.5MHz clock. The divider ratios shou
 
 ## Top-Level Module
 
-<<< @/linked-mcc-examples/servo/Top.vhd
+<<< @/docs/api/moku-examples/mcc/servo/Top.vhd
 
 ## Counter/Timer Module
 
-<<< @/linked-mcc-examples/servo/Counter.vhd
+<<< @/docs/api/moku-examples/mcc/servo/Counter.vhd

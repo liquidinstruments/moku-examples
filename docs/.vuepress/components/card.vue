@@ -20,6 +20,7 @@ import {
     PhPaperPlaneTilt,
     PhTerminalWindow,
     PhCloudArrowUp,
+    PhGraph
 } from 'phosphor-vue'
 
 export default {
@@ -34,6 +35,7 @@ export default {
         PhPaperPlaneTilt,
         PhTerminalWindow,
         PhCloudArrowUp,
+        PhGraph,
     },
     props: {
         link: {
@@ -60,6 +62,7 @@ export default {
                 mcc: 'PhCloudArrowUp',
                 cli: 'PhTerminalWindow',
                 api: 'PhPaperPlaneTilt',
+                mnn: 'PhGraph',
             }
             // Return the component name or null if not found
             return this.$options.components[icons[this.icon]] || null
