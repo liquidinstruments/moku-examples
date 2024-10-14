@@ -5,6 +5,7 @@ build-docs:
         paths:
             - node_modules/
     before_script:
+        - git config --global url."https://$GITHUB_ACCESS_TOKEN@github.com".insteadOf "https://github.com"
         - git submodule init
         - git submodule update
     script:
