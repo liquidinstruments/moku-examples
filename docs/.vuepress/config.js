@@ -137,11 +137,11 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
-                        getChildren('Python', 'examples/python'),
-                        getChildren('MatLab', 'examples/matlab'),
+                        getChildren('Python', 'moku-examples/python-api'),
+                        getChildren('MatLab', 'moku-examples/matlab-api'),
                         getChildren(
                             'Other Languages',
-                            'examples/other-languages',
+                            'moku-examples/other-language-api',
                         ),
                     ],
                 },
@@ -212,7 +212,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@mcc': '../../../linked-mcc-examples',
+                '@mcc': '../api/moku-examples/mcc',
             },
         },
     },
