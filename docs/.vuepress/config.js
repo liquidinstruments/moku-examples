@@ -190,7 +190,8 @@ module.exports = {
                     initialOpenGroupIndex: 0,
                     children: 
                     [
-                        getChildren('Examples', '../mnn'),
+                        ['/mnn/', 'Overview'],
+                        getChildren('Examples', '../mnn/examples'),
                     ],
                 },
             ],
