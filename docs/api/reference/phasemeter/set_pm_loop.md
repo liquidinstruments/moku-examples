@@ -37,8 +37,8 @@ parameters:
           mokugo: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
           mokulab: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
           mokupro: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
-      type: number
-      unit: Hz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict

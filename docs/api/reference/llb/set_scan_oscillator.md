@@ -24,7 +24,7 @@ parameters:
       unit: Hz
     - default: 0.5
       description: Amplitude of the auxiliary oscillator
-      name: frequency
+      name: amplitude
       param_range: null
       type: integer
       unit: Hz

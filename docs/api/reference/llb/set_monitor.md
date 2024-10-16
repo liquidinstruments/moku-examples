@@ -15,15 +15,18 @@ parameters:
     - default: null
       description: Monitor channel
       name: monitor_channel
-      param_range: null
+      param_range:
+        mokugo: 1, 2
+        mokulab: 1, 2
+        mokupro: 1, 2, 3, 4
       type: integer
       unit: null
     - default: null
       description: Monitor channel source.
       name: source
       param_range:
-          mokulab: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2
           mokugo: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2
+          mokulab: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2
           mokupro: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2, Output3, Output4
       type: string
       unit: null

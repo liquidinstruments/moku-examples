@@ -52,8 +52,8 @@ parameters:
     - default: null
       description: Number of coefficients for the filter
       name: order
-      param_range: null
-      type: number
+      param_range: 2, 4
+      type: integer
       unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
@@ -76,7 +76,7 @@ summary: set_filter
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###')
 # Following configuration produces Chebyshev type 1 IIR filter
-i.set_filter(shape="Lowpass", type="ChebyshevI")
+i.set_filter(shape="Lowpass", type="ChebyshevI", order=4)
 ```
 
 </code-block>
@@ -86,7 +86,7 @@ i.set_filter(shape="Lowpass", type="ChebyshevI")
 ```matlab
 m = MokuLaserLockBox('192.168.###.###');
 % Following configuration produces Chebyshev type 1 IIR filter
-m.set_filter('shape', 'Lowpass', 'type', 'ChebyshevI')
+m..set_filter('shape', 'Lowpass', 'type', 'ChebyshevI', 'order', 4)
 ```
 
 </code-block>
@@ -96,7 +96,7 @@ m.set_filter('shape', 'Lowpass', 'type', 'ChebyshevI')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"type":"ChebyshevI", "shape":"Lowpass"}'\
+        --data '{"type":"ChebyshevI", "shape":"Lowpass", "order":4}'\
         http://<ip>/api/laserlockbox/set_filter
 ```
 
@@ -109,6 +109,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ```json
 {
     "low_pass_corner": 10000.0,
+    "order": 4,
     "shape": "Lowpass"
 }
 ```

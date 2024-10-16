@@ -3,7 +3,13 @@ additional_doc: null
 description: Save the streaming session to a file
 method: null
 name: stream_to_file
-parameters: []
+parameters:
+    - default: 'csv'
+      description: File type to convert to
+      name: file_name
+      param_range: null
+      type: string
+      unit: null
 summary: stream_to_file
 ---
 
@@ -14,9 +20,9 @@ summary: stream_to_file
 This method is available only with Python and MATLAB clients. It uses [mokucli](../../../cli/moku-cli) to stream LI binary data to csv or other possible formats.
 :::
 
-`stream_to_file` accepts a single parameter `file_name` which can be any valid name with one of `csv, mat, npy` as extensions.
+`stream_to_file` accepts a single parameter `file_name` which can be any valid name with one of `'csv', 'mat', 'npy'` as extensions.
 
-Examples,
+### Examples
 
 <code-group>
 <code-block title="Python">
@@ -25,7 +31,7 @@ Examples,
 from moku.instruments import Datalogger
 i = Datalogger('192.168.###.###')
 i.start_streaming(duration=10)
-i.stream_to_file() # by default data is streamed to a csv file
+i.stream_to_file('npy') # by default data is streamed to a csv file
 ```
 
 </code-block>
@@ -35,7 +41,7 @@ i.stream_to_file() # by default data is streamed to a csv file
 ```matlab
 m = MokuDatalogger('192.168.###.###');
 m.start_streaming('duration', 10);
-m.stream_to_file() % by default data is streamed to a csv file
+m.stream_to_file('csv') % by default data is streamed to a csv file
 
 ```
 
