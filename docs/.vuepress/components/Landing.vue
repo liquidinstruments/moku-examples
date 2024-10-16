@@ -119,9 +119,7 @@ import SideBar from '@theme/components/Sidebar.vue'
 import { PhInfo, PhHandWaving } from 'phosphor-vue'
 export default {
     name: 'Landing',
-
     components: { NavLink, Navbar, SideBar, PhInfo, PhHandWaving },
-
     computed: {
         data() {
             return this.$page.frontmatter
