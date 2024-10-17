@@ -63,7 +63,7 @@ Route Output C to the Digital I/O and ensure that Pins 1 and 2 are configured as
 
 The boxcar averager instrument takes two inputs: a signal input and a gate (trigger) input. It starts integrating the input signal for a certain number of samples after receiving a trigger, then sends it to a secondary integrator to average a certain number of triggers events before sending it to the output.
 
-This simple design is written directly in VHDL with hard-coded parameters. For a more featureful version that requires HDL Coder, see [HDL Coder Boxcar](hdlcoder_boxcar.md)
+This simple design is written directly in VHDL with hard-coded parameters. For a more featureful version that requires HDL Coder, see [HDL Coder Boxcar](hdlcoder.md)
 
 ## Getting Started
 

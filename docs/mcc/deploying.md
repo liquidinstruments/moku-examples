@@ -40,26 +40,7 @@ The build time depends on the hardware platform and project complexity. A simple
 
 ## Deploying
 
-With your build downloaded, the next step is to upload the design on to your Moku. The easiest way to do this is to use the Moku's built-in web interface.
-
-### Find your IP Address
-
-The Moku's IP address is on the same screen as its firmware version, see above.
-
-![ip address](./get-ip.png)
-
-### Upload in Moku's Web Interface
-
-Navigate to that IP address in your browser. For example, if you found your Moku's IP was `10.1.111.11` then visit `http://10.1.111.11`.
-
-1. Select `Registers` in the top-right. Your screen may differ, depending what is currently running on your Moku.
-2. Upload your MCC Design file in the Upload bitstream box.
-
-:::warning IPv6
-Note that this step requires that you visit your Moku's control interface in a browser. Limitations of modern browsers mean that this is not possible if you're using IPv6 "Link Local" addresses, including for example if you're connecting to your Moku over USB. For more information and possible solutions, see [the API documentation](https://apis.liquidinstruments.com/ip-address.html#ipv6)
-:::
-
-![upload](./upload.png)
+With your build downloaded, the next step is to upload the design on to your Moku.
 
 ### Deploy in Multi-Instrument Mode
 
