@@ -36,7 +36,7 @@ plt.show()
 
 
     
-![png](./Simple_sine_files/Simple_sine_5_0.png)
+![png](Simple_sine_files/Simple_sine_5_0.png)
     
 
 
@@ -2176,7 +2176,7 @@ plt.show()
 
 
     
-![png](./Simple_sine_files/Simple_sine_18_0.png)
+![png](Simple_sine_files/Simple_sine_18_0.png)
     
 
 
@@ -2201,7 +2201,7 @@ plt.show()
 
 
     
-![png](./Simple_sine_files/Simple_sine_20_1.png)
+![png](Simple_sine_files/Simple_sine_20_1.png)
     
 
 
