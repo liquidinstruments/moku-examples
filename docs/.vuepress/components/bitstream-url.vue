@@ -25,10 +25,13 @@ export default {
         alert("Enter a valid firmware version number");
         return;
       }
-      const baseURL =
+      let baseURL =
         "https://updates.liquidinstruments.com/static/mokudata-" +
         this.firmwareVer +
-        ".tar.gz";
+        ".tar";
+      if (this.firmwareVer < 600) {
+        baseURL += ".gz";
+      }
       window.open(baseURL);
     },
   },
