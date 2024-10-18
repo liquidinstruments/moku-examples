@@ -190,7 +190,12 @@ module.exports = {
                     children: 
                     [
                         ['/mnn/', 'Overview'],
-                        getChildren('Examples', '../mnn/examples'),
+                        ['/mnn/examples/Autoencoder', 'Autoencoder'],
+                        ['/mnn/examples/Classification', 'Classification'],
+                        ['/mnn/examples/Emitter_control', 'Emitter Control'],
+                        ['/mnn/examples/Signal_ID', 'Signal Identifier'],
+                        ['/mnn/examples/Simple_sine', 'Simple Sine wave'],
+                        ['/mnn/examples/Sum', 'Weighted Sum'],
                     ],
                 },
             ],
