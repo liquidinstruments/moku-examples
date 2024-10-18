@@ -22,4 +22,7 @@ project with an example template.
 
 Run your design by [building and deploying](./deploying.md) it to your Moku.
 
+<action-button text="Take me to Moku Cloud Compile" link="https://compile.liquidinstruments.com" target="_blank"/>
+<action-button text="Explore our example projects" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc" target="_blank"/>
+
 <!-- ![An image](../public/cc-icon-solid.png) -->
