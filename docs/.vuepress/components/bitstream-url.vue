@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="stylus">
 .bitstream-container {
   margin: 1em;
 }
@@ -53,7 +53,7 @@ export default {
 .bitstream-button {
   padding: 8px 16px;
   font-size: 14px;
-  background-color: #48b8e7;
+  background-color: $accentColor;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -61,6 +61,6 @@ export default {
 }
 
 .bitstream-button:hover {
-  background-color: #3a9ac6;
+  background-color: lighten($accentColor, 10%);
 }
 </style>
