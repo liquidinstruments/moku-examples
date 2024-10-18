@@ -1,5 +1,8 @@
 # Identifying a Periodic Signal
 
+<example-actions directory="neural-network" filename="Signal_ID.ipynb"/>
+
+
 In this tutorial, you will learn the fundamentals of using the provided neural network library for training a Moku Neural Network to deploy on Moku:Pro. This library uses the [Tensorflow](https://www.tensorflow.org/) implementation of [Keras](https://www.tensorflow.org/guide/keras) to instill best practices for deploying an FPGA-based neural network. In this example, we will train a basic model to analyze an input time series and identify whether the signal is a sine, square, or sawtooth wave, based on the output of three DC voltage signals. 
 
 
@@ -149,131 +152,52 @@ quant_mod.construct_model(model_definition, show_summary=True)
 history = quant_mod.fit_model(epochs=1000, es_config={'monitor': 'val_loss', 'patience':20}, validation_split=0.1)
 ```
 
+```
+**Model: "functional_4"**
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "functional_4"</span>
-</pre>
+| Layer (type)                   | Output Shape            | Param #       |
+|--------------------------------|-------------------------|---------------|
+| input_layer_4 (InputLayer)     | (None, 100)             | 0             |
+| dense_20 (Dense)               | (None, 100)             | 10,100        |
+| output_clip_layer_20           | (None, 100)             | 0             |
+| dense_21 (Dense)               | (None, 64)              | 6,464         |
+| output_clip_layer_21           | (None, 64)              | 0             |
+| dense_22 (Dense)               | (None, 32)              | 2,080         |
+| output_clip_layer_22           | (None, 32)              | 0             |
+| dense_23 (Dense)               | (None, 8)               | 264           |
+| output_clip_layer_23           | (None, 8)               | 0             |
+| dense_24 (Dense)               | (None, 3)               | 27            |
+| output_clip_layer_24           | (None, 3)               | 0             |
 
+**Total params:** 18,935 (73.96 KB)
+**Trainable params:** 18,935 (73.96 KB)
+**Non-trainable params:** 0 (0.00 B)
 
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ input_layer_4 (<span style="color: #0087ff; text-decoration-color: #0087ff">InputLayer</span>)      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">100</span>)            │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_20 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">100</span>)            │        <span style="color: #00af00; text-decoration-color: #00af00">10,100</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ output_clip_layer_20            │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">100</span>)            │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-│ (<span style="color: #0087ff; text-decoration-color: #0087ff">OutputClipLayer</span>)               │                        │               │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_21 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">64</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">6,464</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ output_clip_layer_21            │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">64</span>)             │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-│ (<span style="color: #0087ff; text-decoration-color: #0087ff">OutputClipLayer</span>)               │                        │               │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_22 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">2,080</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ output_clip_layer_22            │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)             │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-│ (<span style="color: #0087ff; text-decoration-color: #0087ff">OutputClipLayer</span>)               │                        │               │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_23 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">8</span>)              │           <span style="color: #00af00; text-decoration-color: #00af00">264</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ output_clip_layer_23            │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">8</span>)              │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-│ (<span style="color: #0087ff; text-decoration-color: #0087ff">OutputClipLayer</span>)               │                        │               │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_24 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">3</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">27</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ output_clip_layer_24            │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">3</span>)              │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
-│ (<span style="color: #0087ff; text-decoration-color: #0087ff">OutputClipLayer</span>)               │                        │               │
-└─────────────────────────────────┴────────────────────────┴───────────────┘
-</pre>
+```
 
 
+```
+Value for restore missing. Using default:False.
 
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">18,935</span> (73.96 KB)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">18,935</span> (73.96 KB)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
-</pre>
-
-
-
-    Value for restore missing. Using default:False.
-
-
-    Epoch 1/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 1ms/step - loss: 0.1282 - val_loss: 0.0222
-    Epoch 2/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 913us/step - loss: 0.0184 - val_loss: 0.0132
-    Epoch 3/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 905us/step - loss: 0.0120 - val_loss: 0.0110
-    Epoch 4/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 922us/step - loss: 0.0105 - val_loss: 0.0102
-    Epoch 5/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 910us/step - loss: 0.0100 - val_loss: 0.0101
-    Epoch 6/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 918us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 7/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 900us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 8/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 925us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 9/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 925us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 10/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 901us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 11/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 904us/step - loss: 0.0099 - val_loss: 0.0100
-    Epoch 12/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 910us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 13/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 895us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 14/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 900us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 15/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 905us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 16/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 900us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 17/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 18/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 19/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 930us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 20/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 901us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 21/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 899us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 22/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 898us/step - loss: 0.0099 - val_loss: 0.0100
-    Epoch 23/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 904us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 24/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 905us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 25/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 929us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 26/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 913us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 27/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 905us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 28/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 898us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 29/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 943us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 30/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 927us/step - loss: 0.0099 - val_loss: 0.0101
-    Epoch 31/1000
-    [1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 907us/step - loss: 0.0099 - val_loss: 0.0100
-
+Epoch 1/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 1ms/step - loss: 0.1282 - val_loss: 0.0222
+Epoch 2/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 913us/step - loss: 0.0184 - val_loss: 0.0132
+Epoch 3/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 905us/step - loss: 0.0120 - val_loss: 0.0110
+Epoch 4/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 922us/step - loss: 0.0105 - val_loss: 0.0102
+Epoch 5/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 910us/step - loss: 0.0100 - val_loss: 0.0101
+Epoch 6/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 918us/step - loss: 0.0099 - val_loss: 0.0101
+.
+.
+.
+.
+Epoch 31/1000
+[1m704/704[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 907us/step - loss: 0.0099 - val_loss: 0.0100
+```
 
 
 ```python
@@ -303,36 +227,38 @@ for i in range(0,10):
     print(preds[0])
 ```
 
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 21ms/step
-    [0 1 0]
-    [0.11678687 0.909822   0.04604319]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 16ms/step
-    [1 0 0]
-    [0.87811184 0.06365319 0.11598239]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
-    [0 1 0]
-    [0.11678687 0.909822   0.04604319]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 15ms/step
-    [0 0 1]
-    [0.1189811  0.06365319 0.8774995 ]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
-    [0 1 0]
-    [0.11678687 0.909822   0.04604319]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 20ms/step
-    [0 0 1]
-    [0.1189811  0.06365319 0.8774995 ]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 13ms/step
-    [0 0 1]
-    [0.1189811  0.06365319 0.8774995 ]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
-    [1 0 0]
-    [0.87811184 0.06365319 0.11598239]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
-    [0 0 1]
-    [0.1189811  0.06365319 0.8774995 ]
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 16ms/step
-    [0 1 0]
-    [0.11678687 0.909822   0.04604319]
+```
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 21ms/step
+[0 1 0]
+[0.11678687 0.909822   0.04604319]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 16ms/step
+[1 0 0]
+[0.87811184 0.06365319 0.11598239]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
+[0 1 0]
+[0.11678687 0.909822   0.04604319]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 15ms/step
+[0 0 1]
+[0.1189811  0.06365319 0.8774995 ]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
+[0 1 0]
+[0.11678687 0.909822   0.04604319]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 20ms/step
+[0 0 1]
+[0.1189811  0.06365319 0.8774995 ]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 13ms/step
+[0 0 1]
+[0.1189811  0.06365319 0.8774995 ]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
+[1 0 0]
+[0.87811184 0.06365319 0.11598239]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step
+[0 0 1]
+[0.1189811  0.06365319 0.8774995 ]
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 16ms/step
+[0 1 0]
+[0.11678687 0.909822   0.04604319]
+```
 
 
 # Step 3: Save the model to disk for use in the Moku Neural Network instrument.
