@@ -18,6 +18,10 @@ For Moku:Lab versions **<= 511**, please refer to our legacy APIs
 ### Python
 
 The Moku Scripting API for Python requires Python 3.5 or newer.
+
+:::warning
+Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. [Read more](/api/getting-started/starting-python#important-notice-breaking-changes-in-firmware-600)
+:::
 <action-button text="Start with Python" link="/api/getting-started/starting-python"/>
 
 ### MATLAB

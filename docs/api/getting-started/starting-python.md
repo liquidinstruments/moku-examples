@@ -157,3 +157,22 @@ The connection to the Moku device uses the Python `requests` module internally. 
 ```python
 o = Oscilloscope("192.168.###.###", session_trust_env=False)
 ```
+
+#### Breaking changes with firmware version 600
+
+## Important Notice: Breaking Changes in Firmware 600
+
+Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. If you encounter the following error:
+
+```python
+>>> i = Oscilloscope('192.168.###.###', force_connect=True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  ...
+  File "moku/__init__.py", line 45, in __init__
+    if int(props['firmware']) < MIN_COMPAT_FW:
+       ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '600.0'
+```
+
+This indicates that you are using an older version of the client package. To resolve this issue, please ensure you have the latest version installed.
