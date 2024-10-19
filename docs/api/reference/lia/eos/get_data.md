@@ -16,6 +16,12 @@ parameters:
       param_range: null
       type: boolean
       unit: null
+    - default: false
+      description: When set to True, it returns both the raw data for channels and the computed measurements
+      name: measurements
+      param_range: null
+      type: boolean
+      unit: null
     - default: 60
       description: Timeout for trigger event if wait_reacquire is true
       name: timeout

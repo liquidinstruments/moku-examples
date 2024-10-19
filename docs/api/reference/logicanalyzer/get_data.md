@@ -29,6 +29,12 @@ parameters:
       type: number
       unit: Seconds
       example: [1, 2, 3, 4]
+    - default: false
+      description: When set to True, it returns both the raw data for channels and the computed measurements
+      name: measurements
+      param_range: null
+      type: boolean
+      unit: null
 summary: get_data
 ---
 

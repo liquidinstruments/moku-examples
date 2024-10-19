@@ -25,7 +25,7 @@ parameters:
           mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms
       type: string
       unit: MS/s
-    - default: null
+    - default: undefined
       description: Lookup table voltage values. The entries of the LUT are normalized to range [-1.0, 1.0]; if the LUT entries are identically zero then it remains unchanged.
       name: lut_data
       param_range: array of -inf, inf

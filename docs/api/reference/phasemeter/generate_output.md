@@ -69,6 +69,12 @@ parameters:
       param_range: 10e-9 to 100e3
       type: number
       unit: V/cyc
+    - default: undefined
+      description: Output range
+      name: output_range
+      param_range: 2Vpp, 10Vpp
+      type: string
+      unit:
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict

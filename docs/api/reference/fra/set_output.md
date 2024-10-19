@@ -13,6 +13,12 @@ parameters:
           mokupro: 1, 2, 3, 4
       type: integer
       unit: null
+    - default: true
+      description: Enable/disable amplitude on the given channel.
+      name: enable_amplitude
+      param_range: null
+      type: boolean
+      unit: null
     - default: null
       description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to between -2 V and 2 V above 100 MHz)
       name: amplitude
@@ -22,6 +28,12 @@ parameters:
           mokupro: -10 to 10, -2 to 2 > 100 MHz
       type: number
       unit: V
+    - default: true
+      description: Enable/disable offset on the given channel.
+      name: enable_offset
+      param_range: null
+      type: boolean
+      unit: null
     - default: 0
       description: DC offset applied to the waveform (For Moku:Pro, the output voltage is limited to between -1 V and 1 V above 1 MHz)
       name: offset

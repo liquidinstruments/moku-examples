@@ -34,6 +34,12 @@ parameters:
       param_range: 0 - inf
       type: number
       unit: Seconds
+    - default: false
+      description: When set to True, it returns both the raw data for channels and the computed measurements
+      name: measurements
+      param_range: null
+      type: boolean
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict

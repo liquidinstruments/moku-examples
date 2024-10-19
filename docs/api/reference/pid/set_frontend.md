@@ -28,13 +28,24 @@ parameters:
       param_range: AC, DC
       type: string
       unit: null
-    - default: null
+    - default: undefined
       description: Input Range
       name: range
       param_range:
           mokugo: 10Vpp, 50Vpp
           mokulab: 1Vpp, 10Vpp
           mokupro: 400mVpp, 4Vpp, 40Vpp
+      type: string
+      unit: null
+      deprecated: true
+      deprecated_msg: range is deprecated and will be removed in future releases. Please use **attenuation** instead
+    - default: null
+      description: Input attenuation
+      name: attenuation
+      param_range:
+          mokugo: 0dB, -14dB
+          mokulab: 0dB, -20dB
+          mokupro: 0dB, -20dB, -40dB
       type: string
       unit: null
     - default: true
