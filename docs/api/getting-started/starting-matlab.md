@@ -59,7 +59,7 @@ In order to connect to your Moku, you must know your device's IP Address. For fu
 
 ## 5. Next Steps
 
-Visit our [MATLAB Examples](../examples/matlab/) for ready-to-run scripts to get started with instruments.
+Visit our [MATLAB Examples](/api/moku-examples/matlab-api/) for ready-to-run scripts to get started with instruments.
 
 For a full listing of all objects and methods, with example snippets for both Python and MATLAB, see our [API Reference](../reference/).
 
