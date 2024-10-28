@@ -35,7 +35,7 @@ The Moku Scripting API for MATLAB requires MATLAB 2014b or newer.
 
 The Moku Scripting API is built around a RESTful HTTP interface, allowing for access from a wide range of programming languages. It makes remote access easy, as the standard HTTP protocol is low bandwidth and commonly allowed to traverse firewalls.
 
-Support for the next generation of Moku products. The Scripting API supports almost all the same features of the Moku iPad and Desktop Applications; if you need something that's missing, please reach out to our [Support Engineers](mailto:support@liquidinstruments.com).
+Support for the next generation of Moku products. The Scripting API supports almost all the same features of the Moku iPad and Desktop Applications; if you need something that's missing, visit the [Knowledge Base](https://knowledge.liquidinstruments.com/) for further information and support.
 
 Python and MATLAB libraries are provided that wrap the RESTful API in a way that feels natural to programmers of all levels.
 
