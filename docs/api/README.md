@@ -6,7 +6,7 @@ title: 'Moku API Home'
 
 The Moku device family from Liquid Instruments is the next generation of Test. With the Moku Scripting API, command and control of your test has never been easier.
 
-To start, install the API for [Python](../api/getting-started/starting-python), [MATLAB](../api/getting-started/starting-matlab) or [LabVIEW](../api/getting-started/starting-labview).
+To start, install the API for [Python](getting-started/starting-python), [MATLAB](getting-started/starting-matlab) or [LabVIEW](getting-started/starting-labview).
 
 For Moku:Lab versions **<= 511**, please refer to our legacy APIs
 
@@ -20,7 +20,7 @@ For Moku:Lab versions **<= 511**, please refer to our legacy APIs
 The Moku Scripting API for Python requires Python 3.5 or newer.
 
 :::warning
-Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. [Read more](/api/getting-started/starting-python#important-notice-breaking-changes-in-firmware-600)
+Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. [Read more](getting-started/starting-python.html#important-notice-breaking-changes-in-firmware-600)
 :::
 <action-button text="Start with Python" link="/api/getting-started/starting-python"/>
 
