@@ -27,8 +27,8 @@ parameters:
       type: string
       unit: null
     - default: null
-      description: Input attenuation
-      name: attenuation
+      description: Input gain
+      name: gain
       param_range:
           mokugo: 0dB, -14dB
           mokupro: 0dB, -20dB, -40dB
@@ -71,7 +71,7 @@ m.set_frontend(1, "AC", "1MOhm", "0dB");```
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "0dB"}'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "gain": "0dB"}'\
         http://<ip>/api/laserlockbox/set_frontend
 ````
 
