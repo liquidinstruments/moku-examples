@@ -21,6 +21,13 @@ parameters:
       param_range: null
       type: number
       unit: Seconds
+    - default: 1024
+      description:
+          Length of the frame to retrieve through get_data()
+      name: frame_length
+      param_range: 128, 256, 512, 1024, 2048, 4096, 8192, 16384
+      type: integer
+      unit: points
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
