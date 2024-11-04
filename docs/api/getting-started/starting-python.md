@@ -76,7 +76,7 @@ You should see an array of data captured from your newly-deployed Oscilloscope o
 
 ## Next Steps
 
-Check out our [Python Examples](../examples/python/) for more inspiration. Happy Coding!
+Check out our [Python Examples](/api/moku-examples/python-api/) for more inspiration. Happy Coding!
 
 ## Troubleshooting
 
