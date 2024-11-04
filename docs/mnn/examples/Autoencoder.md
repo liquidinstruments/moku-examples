@@ -1381,26 +1381,26 @@ save_linn(quant_mod, input_channels=1, output_channels=1, file_name='autoencoder
 
 With this adjusted model, we can now de-noise some signals on a moku device. This shows an example simulation of producing, de-noising and viewing a periodic signal using a Moku:Pro in multi-instrument mode. 
 
-![](./Autoencoder_Screenshots/MIM_Setup.png "Multi Instrument Mode Setup")
+![](./Autoencoder_files/MIM_Setup.png "Multi Instrument Mode Setup")
 
 Using multi-instrument mode, we can simulate a real-world signal with variable amounts of noise. We start by configuring a waveform generator to produce a periodic signal and some Gaussian noise. 
 
-![](./Autoencoder_Screenshots/Waveform_Generator_Sine.png "Waveform Generator Producing a Sine Wave and Gaussian Noise")
+![](./Autoencoder_files/Waveform_Generator_Sine.png "Waveform Generator Producing a Sine Wave and Gaussian Noise")
 
 We can use the control matrix in the PID isntrument to linearly combine the noise and signal, allowing us to significantly increase the amplitude of the noise relative to the underlying signal. Only `Out A` of the PID is used in this example. The red trace shows the incoming noiseless sine wave, and the blue trace shows the signal after noise was added to it. 
 
-![](./Autoencoder_Screenshots/PID_Setup.png "PID Controller Adding a Linear Combination of Two Inputs")
+![](./Autoencoder_files/PID_Setup.png "PID Controller Adding a Linear Combination of Two Inputs")
 
 We connect this noisy periodic signal to the input of the neural network instrument, with the adjusted model loaded as our network configuration. 
 
-![](./Autoencoder_Screenshots/Neural_Network_Setup.png "Neural Network Loaded with Autoencoder Configuration")
+![](./Autoencoder_files/Neural_Network_Setup.png "Neural Network Loaded with Autoencoder Configuration")
 
 Finally, we can view the original waveform, noise, noisy waveform, and output of the network using an oscilloscope instrument. The resulting network output works reasonably effectively as a denoised version of the original signal. These four signals are shown in order as the red (original waveform), blue (gaussian noise), green (noisy waveform) and yellow (de-noised signal) traces below. 
 
-![](./Autoencoder_Screenshots/Sine_Results.png "Autoencoder De-Noising Sinusoidal Signal")
+![](./Autoencoder_files/Sine_Results.png "Autoencoder De-Noising Sinusoidal Signal")
 
 This works on a variety of periodic waveforms, including sine waves, triangle waves, and a cardiac waveform as a few examples. The same experiment repeated with triangle and cardiac waveforms is shown below, just requiring a reconfiguration of the waveform generator instrument to produce the desired noiselss signal. 
 
-![](./Autoencoder_Screenshots/Triangle_Results.png "Autoencoder De-Noising Triangular Signal")
+![](./Autoencoder_files/Triangle_Results.png "Autoencoder De-Noising Triangular Signal")
 
-![](./Autoencoder_Screenshots/Cardiac_Results.png "Autoencoder De-Noising Cardiac Signal")
+![](./Autoencoder_files/Cardiac_Results.png "Autoencoder De-Noising Cardiac Signal")
