@@ -175,7 +175,7 @@ module.exports = {
                 {
                     title: 'Moku CLI',
                     collapsable: false,
-                    initialOpenGroupIndex: 0,
+                    initialOpenGroupIndex: -1,
                     children: [
                         ['/cli/', 'Overview'],
                         ['/cli/moku-cli', 'Usage'],
@@ -190,6 +190,21 @@ module.exports = {
                     children: 
                     [
                         ['/mnn/', 'Overview'],
+                    ],
+                },
+                {
+                    title: 'The LinnModel class',
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [
+                        ['/mnn/linnmodel-class/linnmodel', 'LinnModel class'],
+                    ],
+                },
+                {
+                    title: 'Examples',
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [
                         ['/mnn/examples/Autoencoder', 'Autoencoder'],
                         ['/mnn/examples/Classification', 'Classification'],
                         ['/mnn/examples/Emitter_control', 'Emitter Control'],
