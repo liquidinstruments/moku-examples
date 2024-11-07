@@ -205,6 +205,7 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
+                        ['/mnn/examples/', 'Overview'],
                         ['/mnn/examples/Autoencoder', 'Autoencoder'],
                         ['/mnn/examples/Classification', 'Classification'],
                         ['/mnn/examples/Emitter_control', 'Emitter Control'],
