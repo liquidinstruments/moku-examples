@@ -6,30 +6,6 @@ The LinnModel class contains methods to construct, train and output a Liquid Ins
 linn_model = LinnModel()
 ```
 
-## construct_model method
-
-```python
-Model.construct_model(
-        layer_definition=list,
-        optimizer="adam",
-        loss="mse",
-        metrics=(),
-)
-```
-
-Construct the model to be used by the rest of the functions in this class.
-
-
-### Parameters
-- **layer_definition:** a list of tuples of the form `(layer_width, activation)` which defines the model. `(layer_width,)` can be used to signify a linear (identity) activation function.
-- **optimizer:** optimizer fed to the keras compile option.
-- **loss:** loss function fed to the keras compile option.
-- **metrics:** metrics for the model to track during training.
-
-### Returns
-
-None.
-
 
 ## set_training_data method
 
@@ -56,6 +32,32 @@ Set the training data to be used by the model and automatically scale them to us
 
 None.
 
+## construct_model method
+
+```python
+Model.construct_model(
+        layer_definition=list,
+        optimizer="adam",
+        loss="mse",
+        metrics=(),
+)
+```
+
+Construct the model to be used by the rest of the functions in this class.
+
+The `layer_definition` should include the output layer with an appropriate activation function, however the input layer is inferred from the training data set. For this reason, `set_training_data` should be called before `construct_model`.
+
+
+### Parameters
+- **layer_definition:** a list of tuples of the form `(layer_width, activation)` which defines the model. `(layer_width,)` can be used to signify a linear (identity) activation function.
+- **optimizer:** optimizer fed to the keras compile option.
+- **loss:** loss function fed to the keras compile option.
+- **metrics:** metrics for the model to track during training.
+
+### Returns
+
+None.
+
 
 ## fit_model method
 
@@ -69,7 +71,7 @@ Model.fit_model(
 )
 ```
 
-Fit the model according to the data that is stored in the training inputs and outputs. `set_training_data()` and `construct_model()` must be called prior to calling `Model.fit_model()` to set the model parameters.
+Fit the model according to the data that is stored in the training inputs and outputs. `set_training_data` and `construct_model` must be called prior to calling `fit_model` to set the model parameters.
 
 ### Parameters
 - **epochs:** (int) number of epochs to train for.
@@ -94,12 +96,12 @@ Model.predict(
 )
 ```
 
-Generates model predictions for given inputs, with optional scaling based on training settings.
+Generates model predictions for given inputs, with optional scaling based on training settings. Must be called after the model has been `fit`.
 
 ### Parameters
 - **inputs:** The input data to be run through the model.
-- **scale:** Whether the data should be scaled at the input. Scaling will ensure the model inputs are scaled as set in set_training_data and `scale = None` will scale data if trained with scaling.
-- **unscale_output:** Whether the data should be unscaled at the output. Unscaling will ensure the model outputs are scaled as set in set_training_data and `unscale = None` will unscale data if trained with unscaling.
+- **scale:** Whether the data should be scaled at the input to match the training data. Passing `None` (the default) will scale the data for prediction if and only if the training data was also scaled.
+- **unscale_output:** Whether the data should be unscaled at the output to match the training data. Passing `None` (the default) will scale the prediction results if and only if the training results were also
 - **keras_kwargs:** parameters to be passed to thhe keras predict function if needed.
 
 ### Returns
@@ -124,8 +126,6 @@ Converts a `LinnModel` into the `.linn` format required for execution on the Mok
 
 *Parallel mode:* If `input_channels` > 1, the number of inputs to the model must match `input_channels`, providing simultaneous samples from each instrument input.
 
-This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](/mnn/examples/Autoencoder), where the network is trained to produce 32 de-noised outputs but the final output in hardware is the last value.
-
 
 
 ### Arguments
@@ -133,7 +133,7 @@ This is useful when training a network which produces multiple outputs during tr
 - **input_channels:** An integer of the number of instrument inputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'input_channels' and the number of input neurons in the model.
 - **output_channels:** An integer of the number of instrument outputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'output_channels' and the number of output neurons in the model.
 - **kwargs:** (Optional).
-    - **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network.
+    - **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](/mnn/examples/Autoencoder), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
 
 ### Returns
 
@@ -151,7 +151,8 @@ save_linn(
 )
 ```
 
-Converts a Keras model which is suitable for execution on the Moku Neural Network Instrument into the `.linn` format and saves it to a file.
+Converts a Keras model which is suitable for execution on the Moku Neural Network Instrument into the `.linn` format and saves it to a file suitable for loading in the Moku app. This is similar to `get_linn` but saves, insead of returns the data structure.
+
 
 ### Arguments
 - **model:** (keras.models.Model) The 'LinnModel' instance or a compatible Keras model.
@@ -159,10 +160,8 @@ Converts a Keras model which is suitable for execution on the Moku Neural Networ
 - **output_channels:** An integer of the number of instrument outputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'output_channels' and the number of output neurons in the model.
 - **file_name:** Name of output `.linn` file, requires `.linn` extension.
 - **kwargs:** (Optional).
-    - **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network.
+    - **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](/mnn/examples/Autoencoder), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
 
 ### Returns
 
 None. 
-
-save_linn() saves the result to a .linn file for loading in to the Neural Network instrument. This is similar to get_linn() but saves, insead of returns the data structure.
