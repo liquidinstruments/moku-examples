@@ -9,3 +9,6 @@ nlohmann
 
 # add ds store from all folders
 *.DS_Store
+
+docs/.vuepress/.cache
+docs/.vuepress/.temp
