@@ -31,8 +31,8 @@ group: PID Controller
 ```python
 from moku.instruments import LockInAmp
 i = LockInAmp('192.168.###.###')
-i.set_by_frequency(prop_gain=-10)
 i.use_pid("Main")
+i.set_by_frequency(prop_gain=-10)
 
 ```
 
@@ -42,8 +42,8 @@ i.use_pid("Main")
 
 ```matlab
 m = MokuLockInAmp('192.168.###.###');
-m.set_by_frequency('prop_gain',10);
 m.use_pid('channel',"Main");
+m.set_by_frequency('prop_gain',10);
 ```
 
 </code-block>
