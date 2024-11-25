@@ -1,3 +1,20 @@
+%% Example: Data Acquisition with Deep Memory Mode in the Moku Oscilloscope
+%
+% This example demonstrates how to acquire data using the deep memory mode in the Moku Oscilloscope.
+%
+% The 'save_high_res_buffer' command stores high-resolution channel buffer data in Moku's internal storage.
+%
+% Ensure that deep memory mode is enabled using the 'set_acquisition_mode' command before exporting high-res data.
+%
+% Logged data files can be retrieved from the following storage locations:
+%   - 'persist' for Moku:Go
+%   - 'tmp' for Moku:Lab
+%   - 'ssd' for Moku:Pro
+% Update the 'download_file' command accordingly to match the correct storage location.
+%
+% The parameters in the 'set_frontend' command should be configured to align with the specific hardware (Moku:Go, Moku:Lab, or Moku:Pro).
+
+
 NUM_FRAMES = 1;
 
 i = MokuOscilloscope('XXX.XXX.X.XXX', true); % Connect to your moku device by its IP address
