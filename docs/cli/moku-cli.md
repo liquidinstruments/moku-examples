@@ -14,6 +14,7 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 ## Commands
 
 -   `convert`: Convert Liquid Instruments binary file to CSV, NPY, MAT and HDF5
+-   `download`: Download bitstreams for a given firmware version
 -   `files`: List, download and delete files from the Moku
 -   `license`: List, fetch and reload the license entitlements
 -   `list`: Search for the mokus on network
@@ -50,6 +51,35 @@ Writing "MokuDataLoggerData_20230114_142326.csv"...
 # Convert .li file to npy
 $: mokucli convert MokuDataLoggerData_20230114_142326.li --format=npy
 Writing "MokuDataLoggerData_20230114_142326.npy"...
+[===========================================================================]
+```
+
+## mokucli download
+
+Download bitstreams for a given firmware version
+
+### Usage
+
+```console
+$ mokucli download [OPTIONS] FW_VER
+```
+
+### Arguments
+
+-   `FW_VER`: \[required\]
+
+### Options
+
+-   `--help`: Show this message and exit.
+-   `target PATH`: File path to download bitstreams to  \[default: .\]
+-   `force / --no-force`: Force rewrite by ignoring checksum  \[default: no-force\]
+
+### Examples
+
+```bash
+# download bitstreams for firmware version 600
+$: mokucli download 600
+Downloading latest instruments for firmware version 600...
 [===========================================================================]
 ```
 
