@@ -33,11 +33,10 @@ $ mokucli convert [OPTIONS] SOURCE
 
 ### Arguments
 
--   `SOURCE`: [required]
+-   `SOURCE`: \[required\]
 
 ### Options
 
--   `--format [csv|npy|mat|hdf5]`: [default: csv]
 -   `--help`: Show this message and exit.
 
 ### Examples
@@ -95,11 +94,11 @@ $ mokucli files [OPTIONS] IP_ADDRESS
 
 ### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 ### Options
 
--   `--action [LIST|DOWNLOAD|DELETE]`: Action to perform [default: LIST]
+-   `--action [LIST|DOWNLOAD|DELETE]`: Action to perform \[default: LIST\]
 -   `--name TEXT`: Filter to apply
 -   `--help`: Show this message and exit.
 
@@ -158,11 +157,11 @@ $ mokucli license fetch [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
--   `--path PATH`: Directory to save the license file [default: .]
+-   `--path PATH`: Directory to save the license file \[default: .\]
 -   `--help`: Show this message and exit.
 
 ### mokucli license list
@@ -177,7 +176,7 @@ $ mokucli license list [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
@@ -208,7 +207,7 @@ $ mokucli license update [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
@@ -250,11 +249,11 @@ $ mokucli proxy [OPTIONS] IP_ADDRESS
 
 ### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 ### Options
 
--   `--port INTEGER`: Local port, typically a number between 1024 and 65535 on which nothing else is running [default: 8090]
+-   `--port INTEGER`: Local port, typically a number between 1024 and 65535 on which nothing else is running \[default: 8090\]
 -   `--help`: Show this message and exit.
 
 ### Example
