@@ -3,30 +3,31 @@
 The **Moku Neural Network** enables the deployment of real-time deep learning algorithms directly within your test instruments. Unlike traditional machine learning models that require extensive training and specialized knowledge, the Moku Neural Network offers a flexible, FPGA-based architecture designed for low-latency inference. This allows for efficient, real-time processing without the long training times typically associated with neural networks.
 
 The Moku Neural Network is optimized for tasks like:
-- Closed-loop control
-- Noise filtering
-- Signal classification
-- Accuracy detection
-- Quadrant sensor control
+
+-   Closed-loop control
+-   Noise filtering
+-   Signal classification
+-   Accuracy detection
+-   Quadrant sensor control
 
 ## Neural Network Applications
 
 Here are some practical applications where the Moku Neural Network can be used:
 
-- **Signal Classification**: Helps in identifying patterns in noisy signals, making real-time data processing more accurate and reliable.
-- **Quadrant Photodiode Sensing**: Enhances your photodiode-based systems for accurate light detection, essential for various optical setups.
-- **Building a Neural Network**: You can construct a neural network using Python, and then deploy it directly to the Moku platform.
-
+-   **Signal Classification**: Helps in identifying patterns in noisy signals, making real-time data processing more accurate and reliable.
+-   **Quadrant Photodiode Sensing**: Enhances your photodiode-based systems for accurate light detection, essential for various optical setups.
+-   **Building a Neural Network**: You can construct a neural network using Python, and then deploy it directly to the Moku platform.
 
 ## Getting Started
 
 ### 1. Requirements
-- [Python](https://www.python.org) >= **3.9**.
-- Your Moku connected to the same network as your computer.
-- Internet access.
 
+-   [Python](https://www.python.org) >= **3.9**.
+-   Your Moku connected to the same network as your computer.
+-   Internet access.
 
 ### 2. Check your Python Installation
+
 At a command prompt (e.g. cmd.exe, Windows Terminal, MacOS Terminal) check your Python version. It should be greater than or equal to 3.9.0.
 
 ```
@@ -34,12 +35,12 @@ $ python --version
 Python 3.9.0
 ```
 
-
 ### 3. upgrade or install the `moku` Library and install Neural Network dependencies
 
 It is recommended to do your Moku Neural Network development in a virtual environment, see Python's guide to [installing virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/). Once you have activated your project's venv, continue installing the `moku` Library.
 
 **To upgrade** your installed `moku` Library enter the following command in a terminal.
+
 ```
 $ pip install --upgrade moku
 ```
@@ -52,12 +53,15 @@ $ python -c 'import moku'
 ```
 
 Then install the Moku Neural Network instrument and it's machine learning dependencies with:
+
 ```
 $ pip install 'moku[neuralnetwork]'
 ```
 
 ### 4. Find Your IP Address
+
 The IP address of your Moku: device can be found with
+
 ```
 $ moku list
 Name                 Serial  HW     FW     IP                  
@@ -67,16 +71,18 @@ MokuPro-001234        1234    Pro    600    fe80::94db:946e:8d4e:129e
 
 ### 5. Install Python dependencies for examples
 
-- Numpy
-- Ipykernel
-- Matplotlib
-- Tqdm
-- SciPy
+-   Numpy
+-   Ipykernel
+-   Matplotlib
+-   Tqdm
+-   SciPy
 
-These dependences are to run our [Examples](examples/Autoencoder), but are not needed to build a network. Check that each dependency is installed by running `pip list` in your terminal to view all installed packages. Or install with:
+These dependences are to run our [Examples](./examples/), but are not needed to build a network. Check that each dependency is installed by running `pip list` in your terminal to view all installed packages. Or install with:
+
 ```
 $ pip install numpy ipykernel matplotlib tqdm scipy
 ```
 
 ### 6. Start scripting
-You are now ready to start scripting your own neural network. Check out our [Examples](examples/Autoencoder) for more inspiration. Happy Coding!
+
+You are now ready to start scripting your own neural network. Check out our [Examples](./examples/) for more inspiration. Happy Coding!

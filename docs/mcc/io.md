@@ -1,6 +1,6 @@
 # Input and Output
 
-The MCC design, as defined in the [Entity wrapper](./wrapper.md), has four 16-bit inputs and four 16-bit outputs (`InputA-D` and `OutputA-D` respectively). These signals can be routed to come to/from physical ADC/DAC channels on the hardware, Digital I/O where supported, or from other instruments in the Multi-instrument configuration.
+The MCC design, as defined in the [Entity wrapper](./wrapper), has four 16-bit inputs and four 16-bit outputs (`InputA-D` and `OutputA-D` respectively). These signals can be routed to come to/from physical ADC/DAC channels on the hardware, Digital I/O where supported, or from other instruments in the Multi-instrument configuration.
 
 ## Clk and Reset
 
@@ -55,4 +55,4 @@ The Digital I/O block does not have automatic detection of driving sources, the 
 If you attempt to drive a value to a pin configured as an input, that action is silently ignored. If you read in from a pin that's configured as an output, the operation succeeds and simply gives you the current logical value of the pin.
 :::
 
-There is an [example available](examples/dio.md) for more information. Digital I/O is also used to drive the sync signals in the [VGA Example](examples/vga_display.md)
+There is an [example available](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/DIO) for more information. Digital I/O is also used to drive the sync signals in the [VGA Example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/VGA_Display)

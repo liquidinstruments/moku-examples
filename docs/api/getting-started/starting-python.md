@@ -76,7 +76,7 @@ You should see an array of data captured from your newly-deployed Oscilloscope o
 
 ## Next Steps
 
-Check out our [Python Examples](/api/moku-examples/python-api/) for more inspiration. Happy Coding!
+Check out our [Python Examples](../moku-examples/python-api) for more inspiration. Happy Coding!
 
 ## Troubleshooting
 
@@ -148,7 +148,7 @@ o = Oscilloscope('[fe80:0000:0000:0000:7269:79ff:feb9:023e%252561]')
 
 #### IPv6 (including USB) Connection Issues
 
-There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](./ip-address.md#ipv6) for more information.
 
 #### Access Requests.session
 
