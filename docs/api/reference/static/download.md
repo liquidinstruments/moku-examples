@@ -7,7 +7,10 @@ parameters:
     - default: null
       description: Target directory to access
       name: target
-      param_range: bitstreams, logs, persist, ssd, media
+      param_range: 
+          mokugo: persist, bitstreams, logs, tmp
+          mokulab: media, bitstreams, logs, tmp
+          mokupro: ssd, bitstreams, logs, tmp, persist
       type: string
       unit: null
     - default: null
@@ -28,15 +31,11 @@ summary: download_file
 
 <headers/>
 
-User can download files from **bitstreams**, **logs**, **ssd**, **media** and **persist** directories. If using the
-REST API directly, these directories form the group name in the URL and the filename
-follows the download command; e.g. `/api/persist/download/<filename>`. No Client Key is
-required (ownership doesn't need to be taken).
+User can download files from **bitstreams**, **logs**, **ssd**, **media** and **persist** directories. If using the REST API directly, these directories form the group name in the URL and the filename follows the download command; e.g. `/api/persist/download/<filename>`. No Client Key is required (ownership doesn't need to be taken).
 
-When using either of the clients, user can access this function directly from
-instrument reference.
+When using either of the clients, user can access this function directly from instrument reference.
 
-Log files downloaded from persist (Moku:Go), media (Moku:Lab) or ssd (Moku:Pro) will be in _.li format, which can then be converted to _.csv, _.mat, or _.npy using LI File Converter.
+Log files downloaded from `persist` (Moku:Go), `media` (Moku:Lab) or `ssd` (Moku:Pro) will be in _.li format, which can then be converted to _.csv, _.mat, or _.npy using LI File Converter.
 
 If you experience issues converting log files with the MATLAB API, please use **download_file2** method with the same parameters.
 
