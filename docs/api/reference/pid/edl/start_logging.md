@@ -61,10 +61,10 @@ group: Logger
 
 <headers/>
 
-Log files can be downloaded to local machine using [download_files](../../static/download.md).
+Log files can be downloaded to local machine using [download_files](../../static/download).
 
 ::: warning Caution
-It is recommended to track the progress of data logging session before relinquishing the ownership [logging_progress](logging_progress.md).
+It is recommended to track the progress of data logging session before relinquishing the ownership [logging_progress](logging_progress).
 :::
 
 <parameters/>

@@ -21,7 +21,7 @@ summary: save_high_res_buffer
 
 <headers/>
 
-Once completed you can download the file from the device using [download_files](../static/download.md).
+Once completed you can download the file from the device using [download_files](../static/download).
 <parameters/>
 
 Below are the examples on how to save the high resolution data to a file,

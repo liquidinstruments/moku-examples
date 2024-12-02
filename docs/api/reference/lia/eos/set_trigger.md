@@ -112,7 +112,7 @@ group: Monitors
 <parameters/>
 
 :::tip TIP
-To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](get_data.md) method exactly once.
+To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](./get_data) method exactly once.
 :::
 
 ### Examples

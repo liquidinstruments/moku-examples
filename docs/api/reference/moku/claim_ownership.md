@@ -29,7 +29,7 @@ summary: Claim the ownership of Moku
 <parameters/>
 
 :::warning REST API Only
-This operation is called implicitly from Python and MATLAB libraries when the instrument objects are created. The user only needs to call this themselves if they're using the REST API directly. Refer to the [REST Getting Started Guide](../../../../docs/api/getting-started/starting-curl) for more information.
+This operation is called implicitly from Python and MATLAB libraries when the instrument objects are created. The user only needs to call this themselves if they're using the REST API directly. Refer to the [REST Getting Started Guide](../../getting-started/starting-curl) for more information.
 :::
 
 <code-group>
