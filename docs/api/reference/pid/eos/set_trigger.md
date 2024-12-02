@@ -12,12 +12,11 @@ parameters:
       unit: null
     - default: Input1
       description: Trigger Source
-          (defaults to Input1)'
       name: source
       param_range:
           mokugo: ProbeA, ProbeB
-          mokulab: ProbeA, ProbeB
-          mokupro: ProbeA, ProbeB, ProbeC, ProbeD
+          mokulab: ProbeA, ProbeB, External
+          mokupro: ProbeA, ProbeB, ProbeC, ProbeD, External
       type: string
       unit: null
     - default: 0

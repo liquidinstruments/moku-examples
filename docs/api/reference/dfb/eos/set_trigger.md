@@ -10,18 +10,17 @@ parameters:
       param_range: Edge, Pulse
       type: string
       unit: null
-    - default: Input1
+    - default: ProbeA
       description: Trigger Source
-          (defaults to Input1)'
       name: source
       param_range:
           mokugo: ProbeA, ProbeB
-          mokulab: ProbeA, ProbeB
-          mokupro: ProbeA, ProbeB, ProbeC, ProbeD
+          mokulab: ProbeA, ProbeB, External
+          mokupro: ProbeA, ProbeB, ProbeC, ProbeD, External
       type: string
       unit: null
     - default: 0
-      description: Trigger level
+      description: Trigger level. Required when source is set to "External".
       name: level
       param_range: -5 to 5
       type: number
