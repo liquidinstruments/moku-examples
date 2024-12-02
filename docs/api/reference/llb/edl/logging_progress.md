@@ -11,7 +11,7 @@ summary: logging_progress
 
 This method returns a dictionary to track the progress of data logging session. Always call this method in a loop until a desired result is reached.
 
-Log files can be downloaded to local machine using [download_files](../../static/download.md)
+Log files can be downloaded to local machine using [download_files](../../static/download)
 
 Refer to,
 
@@ -23,7 +23,7 @@ Refer to,
 -   **file_name** → File name of logged file on the device
 
 ::: tip INFO
-To convert .li binary formatted log files, use liconverter windows app or [mokucli convert](../../../../cli/moku-cli.md#mokucli-convert)
+To convert .li binary formatted log files, use liconverter windows app or [mokucli convert](../../../../cli/moku-cli#mokucli-convert)
 :::
 
 <parameters/>

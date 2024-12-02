@@ -29,7 +29,7 @@ The configuration is parameterized by the number of slots you wish to have. Spec
 | Moku:Lab |      1, 2       |
 | Moku:Pro |      1, 4       |
 
-If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
+If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl) for more information.
 
 <code-group>
 
@@ -86,7 +86,7 @@ curl -H 'Moku-Client-Key: <key>' http://<ip>/api/slot2/oscilloscope
 
 Connections are specified as a list of maps, where each map specifies a `source` and `destination` pair. The following examples set up a routing from Input1 (ADC channel 1) to the first input of Slot 1, the first output of Slot 1 to the first input of Slot 2, then the first output of Slot 2 to Output1 (DAC channel 1).
 
-See also the documentation for [set_connections](../reference/mim/set_connections.md).
+See also the documentation for [set_connections](../reference/mim/set_connections).
 
 <code-group>
 
@@ -127,7 +127,7 @@ curl -H 'Moku-Client-Key: <key>' \
 
 External I/O such as ADCs, DACs and Digital I/O cannot be configured by the instruments themselves when in Multi-instrument Mode. For example, the Oscilloscope cannot set the input range, as that range might be shared by multiple instruments. As such, settings front-end (ADC) settings, output (DAC) settings, and Digital I/O directions, are all done on the Multi-instrument level. If you attempt to do these operations on an individual instrument while in Multi-instrument Mode, an error will be raised.
 
-See also the documentation for the Multi-instrument Mode versions of [set_frontend](../reference/mim/set_frontend.md), [set_output](../reference/mim/set_output.md) and [set_dio](../reference/mim/set_dio.md).
+See also the documentation for the Multi-instrument Mode versions of [set_frontend](../reference/mim/set_frontend), [set_output](../reference/mim/set_output) and [set_dio](../reference/mim/set_dio).
 
 <code-group>
 

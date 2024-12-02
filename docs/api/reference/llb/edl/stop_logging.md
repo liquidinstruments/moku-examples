@@ -11,7 +11,7 @@ group: Logger
 <headers/>
 <parameters/>
 
-Partial data log can still be downloaded to local machine using [download_files](../../static/download.md)
+Partial data log can still be downloaded to local machine using [download_files](../../static/download)
 
 ### Examples
 

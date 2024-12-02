@@ -14,7 +14,7 @@ Moku Cloud Compile instruments can only be used in Multi-instrument Mode. Refer 
 :::
 
 :::tip Loading your Bitstream
-Before you can deploy a Moku Cloud Compile instrument, you must load the bitstream that MCC has generated on to your Moku. When using the API, this can be accomplished through the [file upload](../static/upload.md) function.
+Before you can deploy a Moku Cloud Compile instrument, you must load the bitstream that MCC has generated on to your Moku. When using the API, this can be accomplished through the [file upload](../static/upload) function.
 :::
 
 <function-index/>

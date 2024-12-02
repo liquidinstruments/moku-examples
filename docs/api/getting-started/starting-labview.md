@@ -8,7 +8,7 @@ This will be an informative LabVIEW guide separated into the following parts:
 
 -   [Requirements](#requirements)
 -   [Installing LabVIEW Driver](#installing-labview-driver)
--   [Introduction to LabVIEW Palette & Simple Example](/#introduction-to-labview-palette)
+-   [Introduction to LabVIEW Palette & Simple Example](#introduction-to-the-labview-palette)
 -   [Building your first Moku LabVIEW Project](#building-your-first-labview-moku-project)
 
 ## Requirements
@@ -79,12 +79,12 @@ To use the snippet, right-click and save the image, then drag the image file ont
 This part of the documentation outlines useful steps for developing Moku projects on LabVIEW. The following example
 demonstrates how to use Moku's Oscilloscope through LabVIEW to create an output sinewave and then read and display the sinewave on a front panel graph.
 
-The VI Snippet of the example is available [here](/#_5-ready-to-run).
+The VI Snippet of the example is available [here](#_4-ready-to-run).
 
 ### 1. Begin Moku-client session
 
 To begin your LabVIEW Moku project. First, create a client session with **Open Moku VI**, enter your Moku's IP address through the
-input terminal (For details and options for finding your IP Address, see [Finding your IP Address](ip-address.md#using-the-desktop-app)).
+input terminal (For details and options for finding your IP Address, see [Finding your IP Address](./ip-address#using-the-desktop-app)).
 Then, wire the VI to **Upload Instrument VI** by connecting the client and error terminals together.
 
 Create a constant on Upload instrument VI's input terminal, and select the instrument you would like to deploy.
