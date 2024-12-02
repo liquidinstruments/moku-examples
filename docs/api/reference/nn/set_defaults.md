@@ -3,11 +3,13 @@ additional_doc: null
 description: Set the Digital filter box to its default state
 method: post
 name: set_defaults
+parameters: []
 summary: set_defaults
 available_on: 'Moku:Pro'
 ---
 
 <headers/>
+
 <parameters/>
 
 ### Examples

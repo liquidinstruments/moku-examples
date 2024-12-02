@@ -3,11 +3,13 @@ additional_doc: null
 description: Provide a description of the currently loaded network
 method: get
 name: describe_network
+parameters: []
 summary: describe_network
 available_on: 'Moku:Pro'
 ---
 
 <headers/>
+
 <parameters/>
 
 ### Examples
