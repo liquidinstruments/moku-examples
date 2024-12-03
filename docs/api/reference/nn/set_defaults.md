@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the Digital filter box to its default state
+description: Set the Neural Network to its default state
 method: post
 name: set_defaults
 parameters: []
