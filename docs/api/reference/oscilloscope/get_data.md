@@ -33,15 +33,25 @@ summary: get_data
 <headers/>
 <parameters/>
 
-Every data frame is a time series data of **1024** points with following structure
+Every data frame is a time series data of points with following structure
 
 ```json
-"data":{
-  "ch1":[],  // 1024 points
-  "ch2":[],  // 1024 points
-  "time":[],  // 1024 points
+"data": {
+  "ch1":  [],
+  "ch2":  [],
+  "time": [],
 }
 ```
+
+Each element of the data has the same length, set by the `max_length` parameter of `set_timebase` and
+defaulting to 1024 points. Note that depending on the timebase set and the hardware version, the achievable
+number of points varies. It will never be fewer than half the number of points requested, and is usually
+within a few percent of requested. This means that user code must be able to process frames whose lengths
+vary with different timebases.
+
+The returned timebase is guaranteed to include the requested timebase, but may have a small number of
+extra samples before or after again due to achievable decimation rates. If the precise bounds are important,
+the user code should trim the returned data to align with the requested timebase.
 
 Below are the examples on how to read the data frame,
 
