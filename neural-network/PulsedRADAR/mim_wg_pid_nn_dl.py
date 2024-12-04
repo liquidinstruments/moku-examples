@@ -95,7 +95,7 @@ try:
 	while(cnt <= 20):
 		# stream data for 200ms (this should get 2 full pulses based on the 10 Hz PRI)
 		dl.start_streaming(.2,trigger_source='InputB',trigger_level=.02)
-		dl.stream_to_file('dataStream'+str(cnt)+'.csv')
+		dl.stream_to_file('./dataFiles/dataStream'+str(cnt)+'.csv')
 		cnt+=1
 		mg.generate_waveform(channel=1, type='Sine', amplitude=cnt*.1, frequency=2e3)
 		time.sleep(5)
