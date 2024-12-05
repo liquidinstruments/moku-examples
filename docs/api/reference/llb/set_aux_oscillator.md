@@ -18,10 +18,10 @@ parameters:
       unit: Hz
     - default: 0.5
       description: Amplitude of the auxiliary oscillator
-      name: frequency
+      name: amplitude
       param_range: null
       type: integer
-      unit: Hz
+      unit: V
     - default: Output1
       description: Output to connect modulation signal to.
       name: source
