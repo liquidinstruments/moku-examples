@@ -35,17 +35,17 @@ parameters:
       type: string
       unit: null
     - default: undefined
-      description: Low corner frequency
+      description: Low corner frequency. The low_corner is expressed as a fraction of the sample rate. For instance, if the sample rate is 3.906 MHz and the low_corner value is 0.1, the resulting low corner frequency is 390.6 kHz.
       name: low_corner
-      param_range: null
-      type: integer
-      unit: Hz
+      param_range: 0.0001 to 0.49
+      type: number
+      unit: null
     - default: undefined
-      description: High corner frequency
+      description: High corner frequency. The high_corner is expressed as a fraction of the sample rate. For instance, if the sample rate is 3.906 MHz and the high_corner value is 0.1, the resulting high corner frequency is 390.6 kHz.
       name: high_corner
-      param_range: null
-      type: integer
-      unit: Hz
+      param_range: 0.0001 to 0.49
+      type: number
+      unit: null
     - default: None
       description: Window function
       name: window
