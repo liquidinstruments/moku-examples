@@ -7,7 +7,7 @@ import cv2
 import os
 
 image_folder = './images' #relative path to images to stitch together as a video
-video_name = '/Radar-{}.mp4'.format('Decreasing SNR')
+video_name = './Radar-{}.mp4'.format('Decreasing SNR')
 num_frames = 20
 
 
@@ -24,7 +24,7 @@ height, width, layers = frame.shape
 
 # cv2's VideoWriter object will create a frame 
 fourcc=cv2.VideoWriter_fourcc(*'mp4v')
-video = cv2.VideoWriter(image_folder + video_name, fourcc,1, (width,height))
+video = cv2.VideoWriter(video_name, fourcc,1, (width,height))
 
 # Create the video from individual images using for loop
 for image in images:

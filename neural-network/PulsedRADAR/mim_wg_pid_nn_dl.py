@@ -94,12 +94,14 @@ try:
 	# Gradually increase input pulse from .1Vpp to a max of 2Vpp 
 	while(cnt <= 20):
 		# stream data for 200ms (this should get 2 full pulses based on the 10 Hz PRI)
-		dl.start_streaming(.2,trigger_source='InputB',trigger_level=.02)
-		dl.stream_to_file('./dataFiles/dataStream'+str(cnt)+'.csv')
-		cnt+=1
-		mg.generate_waveform(channel=1, type='Sine', amplitude=cnt*.1, frequency=2e3)
+		# trigger is only used to keep all of the data files aligned in time.  Occasionally noise will result  
+		# in a failure to record data.  By adjusting cnt above you can reproduce a single data file.
+		dl.start_streaming(.2,trigger_source='InputB',trigger_level=.01)
+		dl.stream_to_file('dataStream'+str(cnt)+'.csv')
 		time.sleep(5)
 		dl.stop_streaming()
+		cnt+=1
+		mg.generate_waveform(channel=1, type='Sine', amplitude=cnt*.1, frequency=2e3)
 
 
 except Exception as e:

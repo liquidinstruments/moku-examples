@@ -21,7 +21,7 @@ cnt = 20
 while(cnt>0):
 	# The following line will read from a .csv file created by the Moku Oscilloscope
 	# This skips reading the header on the first 12 lines of the .csv
-	df = pd.read_csv("./dataFiles/dataStream" + str(cnt) + ".csv",skiprows=12)
+	df = pd.read_csv("dataStream" + str(cnt) + ".csv",skiprows=12)
 
 	# Parse the data into separate named arrays for time, reference data, noisey data, and de-noised data
 	time = df.iloc[:,0]
