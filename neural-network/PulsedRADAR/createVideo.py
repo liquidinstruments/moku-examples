@@ -1,7 +1,7 @@
 # Create a video using multiple static plots output as .png files
 #
 # (c) 2024 Liquid Instruments Pty. Ltd.
-# Last edited on 2 December 2024
+# Last edited on 10 December 2024
 
 import cv2 
 import os
@@ -13,10 +13,10 @@ num_frames = 20
 
 # Store individual frames into list
 images = []
-cnt=num_frames
-while cnt>0:
+
+for cnt in range(num_frames,0,-1):
     images.append("image"+str(cnt)+".png")
-    cnt-=1
+
 
 # Create frame dimension and store its shape dimensions
 frame = cv2.imread(os.path.join(image_folder, images[0]))

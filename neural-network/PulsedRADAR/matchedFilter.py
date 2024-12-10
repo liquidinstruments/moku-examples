@@ -4,11 +4,9 @@
 # Moku Neural Network instrument to de-noise the data.  We then apply a matched filter to the
 # non-noisy pulse, the noisy pulse, and the pulse de-noised with the autoencoder to show the value
 # of the technique.
-# NOTE: The autoencoder .linn file was created using the 
-# 
 #
 # (c) 2024 Liquid Instruments Pty. Ltd.
-# Last edited on 3 December 2024
+# Last edited on 10 December 2024
 
 
 # import the relevant libraries
@@ -16,9 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd # Pandas is used to easily read an entire .csv and parse into individual arrays
 
-cnt = 20
-
-while(cnt>0):
+for cnt in range(20,0,-1):
 	# The following line will read from a .csv file created by the Moku Oscilloscope
 	# This skips reading the header on the first 12 lines of the .csv
 	df = pd.read_csv("dataStream" + str(cnt) + ".csv",skiprows=12)
@@ -128,6 +124,3 @@ while(cnt>0):
 	plt.pause(1)
 	plt.close(fig1)
 	plt.close(fig2)
-	# plt.close(fig3)
-
-	cnt-=1

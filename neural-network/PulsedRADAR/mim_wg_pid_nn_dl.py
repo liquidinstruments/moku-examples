@@ -33,13 +33,12 @@ m = MultiInstrument('192.168.1.226', force_connect=True, platform_id=4)
 mg = WaveformGenerator('192.168.1.47', force_connect=True)
 
 try:
-	cnt = 1
 	# Configure Moku:Go to generate pulsed signal
 	# Pulse parameters are:
 		# Pulse Repetition Interval (PRI) - 10 Hz
 		# Carrier Frequency - 2kHz
 		# Will start with an output of 1Vpp and gradually decrease
-	mg.generate_waveform(channel=1, type='Sine', amplitude=cnt*.1, frequency=2e3)
+	mg.generate_waveform(channel=1, type='Sine', amplitude=.1, frequency=2e3)
 	mg.generate_waveform(channel=2, type='Pulse', pulse_width=.005, edge_time=16e-9, amplitude=1, frequency=10)
 	mg.set_modulation(channel=1, type='Amplitude', source='Output2', depth=200)
 
@@ -49,15 +48,15 @@ try:
 	nn = m.set_instrument(3, NeuralNetwork)
 	dl = m.set_instrument(4, Datalogger)
 	connections = [dict(source="Slot1OutB", destination="Slot2InB"),
-				   dict(source="Input1", destination="Slot2InA"),
-	               dict(source="Slot2OutA", destination="Slot3InA"),
-	               dict(source="Slot2OutA", destination="Slot3InB"),
-	               dict(source="Slot2OutA", destination="Slot3InC"),
-	               dict(source="Slot2OutA", destination="Slot3InD"),
-	               dict(source="Slot3OutA", destination="Slot4InD"),
-	               dict(source="Input1", destination="Slot4InB"),
-	               dict(source="Slot2OutA", destination="Slot4InC")
-	               ]
+					dict(source="Input1", destination="Slot2InA"),
+					dict(source="Slot2OutA", destination="Slot3InA"),
+					dict(source="Slot2OutA", destination="Slot3InB"),
+					dict(source="Slot2OutA", destination="Slot3InC"),
+					dict(source="Slot2OutA", destination="Slot3InD"),
+					dict(source="Slot3OutA", destination="Slot4InD"),
+					dict(source="Input1", destination="Slot4InB"),
+					dict(source="Slot2OutA", destination="Slot4InC")
+					]
 	m.set_connections(connections=connections)
 
 	# Configure Waveform Generator
@@ -70,7 +69,7 @@ try:
 	pid.set_control_matrix(channel=1, input_gain1=1, input_gain2=20)
 
 	# Configure PID Control loop 1 using frequency response characteristics
-    #   P = 0dB
+		# P = 0dB
 	pid.set_by_frequency(channel=1, prop_gain=0)
 	pid.enable_output(1, signal=True, output=True)
 	print(pid.summary())
@@ -92,7 +91,7 @@ try:
 	dl.set_acquisition_mode(mode='Normal')
 
 	# Gradually increase input pulse from .1Vpp to a max of 2Vpp 
-	while(cnt <= 20):
+	for cnt in range(1,21,1):
 		# stream data for 200ms (this should get 2 full pulses based on the 10 Hz PRI)
 		# trigger is only used to keep all of the data files aligned in time.  Occasionally noise will result  
 		# in a failure to record data.  By adjusting cnt above you can reproduce a single data file.
@@ -100,20 +99,16 @@ try:
 		dl.stream_to_file('dataStream'+str(cnt)+'.csv')
 		time.sleep(5)
 		dl.stop_streaming()
-		cnt+=1
 		mg.generate_waveform(channel=1, type='Sine', amplitude=cnt*.1, frequency=2e3)
 
-
-except Exception as e:
-	print(f'Exception occurred: {e}')
-	m.relinquish_ownership()
 finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
+	# Close the connection to the Moku device
+	# This ensures network resources and released correctly
 	mg.relinquish_ownership()
-	try:
-		m.relinquish_ownership()
-	except:
-		time.sleep(2)
-		m.relinquish_ownership()
+	m.relinquish_ownership()
+	# try:
+	# 	m.relinquish_ownership()
+	# except:
+	# 	time.sleep(2)
+	# 	m.relinquish_ownership()
 

@@ -2,13 +2,13 @@
 
 The example code in this directory is designed to highlight the following capabilities:
 
-- Application of [autoencoder](https://apis.liquidinstruments.com/mnn/examples/Autoencoder.html) Neural Network Capability
+- Application of [autoencoder](https://github.com/liquidinstruments/moku-examples/blob/main/neural-network/Autoencoder.ipynb) Neural Network Capability.  Click the link for a Jupiter Notebook demonstration.
 - Python API configuration of Neural Network and Multi Instrument Mode
 - Python ability to load and process data logger files
 - Python API configuration with multiple Moku devices
 
 ## Overview
-In this example we will use a Moku:Go running the waveform generator to first generate a pulsed waveform.  This pulsed waveform is designed to represent the type of data commonly used in RADAR applications.  The pulsed waveform will then be received by a Moku:Pro running in multi instrument mode.  We will use the control matrix within the PID controller to add noise to the waveform, the neural network instrument configured according to the [autoencoder](https://apis.liquidinstruments.com/mnn/examples/Autoencoder.html) example to de-noise the signal.  Finally we will use the data logger to store data samples in .csv format for follow on processing and analysis.
+In this example we will use a Moku:Go running the waveform generator to first generate a pulsed waveform.  This pulsed waveform is designed to represent the type of data commonly used in RADAR applications.  The pulsed waveform will then be received by a Moku:Pro running in multi instrument mode.  We will use the control matrix within the PID controller to add noise to the waveform, the neural network instrument configured according to the [autoencoder](https://github.com/liquidinstruments/moku-examples/blob/main/neural-network/Autoencoder.ipynb) example to de-noise the signal.  Finally we will use the data logger to store data samples in .csv format for follow on processing and analysis.
 
 ## Included Files
 The following files are included to aid with reproducing the results highlighted below.
@@ -51,8 +51,8 @@ As SNR decreases, we start to see false detections with the chosen threshold on 
 
 With an even further reduction in SNR, the ability to detect the pulses in the noisy signal is completely lost.  However the signal de-noised in real time through the Neural Network continues to perform well.
 
-![image](images/image3.png)
+![image](images/image6.png)
 
-Eventually a further reduction in SNR will begin to limit the performance of the de-noised signal with the Neural Network.  However, this de-noising technique does present significant improvement in performance.
+Eventually a further reduction in SNR will begin to limit the performance of the de-noised signal with the Neural Network.  However, this de-noising technique does present significant improvement in performance.  On the following plot, we start to see false detections, but the true detections are still accurate.  
 
-![image](images/image1.png)
+![image](images/image2.png)
