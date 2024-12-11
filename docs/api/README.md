@@ -8,11 +8,6 @@ The Moku device family from Liquid Instruments is the next generation of Test. W
 
 To start, install the API for [Python](getting-started/starting-python), [MATLAB](getting-started/starting-matlab) or [LabVIEW](getting-started/starting-labview).
 
-For Moku:Lab versions **<= 511**, please refer to our legacy APIs
-
--   For Python, [pymoku](https://pypi.org/project/pymoku/)
--   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
-
 ## Get Started
 
 ### Python
@@ -41,7 +36,38 @@ Python and MATLAB libraries are provided that wrap the RESTful API in a way that
 
 ### Device Discovery
 
-The Python Scripting API comes bundled with the `moku` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations.
+The Python Scripting API comes bundled with the `mokucli` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations. Read more about [mokucli](../cli).
+
+```text
+$ mokucli --help 
+Usage: mokucli [OPTIONS] COMMAND [ARGS]...
+
+  MOKU command line utlity
+
+  Version: 2.2.3
+
+  (c) Liquid Instruments 2016-2023
+
+  This CLI is evolving and subjected to change.
+
+  Read more at https://www.liquidinstruments.com/resources/software/
+
+Options:
+  --version
+  --install-completion  Install completion for the current shell.
+  --show-completion     Show completion for the current shell, to copy it or
+                        customize the installation.
+  --help                Show this message and exit.
+
+Commands:
+  convert   This command converts Liquid Instruments' binary data files...
+  download  Download bitstreams for a given firmware version
+  files
+  license
+  list      Search for the mokus on network and display the results
+  proxy     Run a proxy from local machine to the Moku
+  stream    Stream the LI binary data from Moku onto a local network port
+```
 
 ## Known Issues
 
@@ -65,3 +91,12 @@ You may wish to use IPv6 on your network, and it must be noted that the USB Conn
 -   LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
 
 If you require API connectivity from these environments, you must use a network connection like Ethernet or WiFi, including a point-to-point network with Static IPs if security is a concern.
+
+## Legacy Moku:Lab
+
+If you are using a firmware version <=511, consider upgrading to recieve the most up to date features and fixes.
+
+For Moku:Lab versions **<= 511**, please refer to our legacy APIs
+
+-   For Python, [pymoku](https://pypi.org/project/pymoku/)
+-   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)

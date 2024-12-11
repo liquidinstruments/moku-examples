@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the voltage range for a a given input
+description: Set the voltage range for a given input
 method: post
 name: set_input
 parameters:

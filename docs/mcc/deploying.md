@@ -4,10 +4,6 @@ All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Arc
 
 Once you have such an entity, you need to deploy it to your Moku. This guide will show you how.
 
-:::tip MCC Beta
-MCC is currently in Open Beta. The workflow below will change as the product approaches a full release. If you find any inconsistencies in this documentation, please ensure that your Moku Application (desktop and/or iPad) is up to date, then reach out to [Liquid Instruments Support](mailto:support@liquidinstruments.com).
-:::
-
 ## Building
 
 To build your design, you must target a particular device. A device is a combination of hardware (e.g. Moku:Pro) and firmware (e.g. version 568).

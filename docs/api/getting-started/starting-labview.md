@@ -1,8 +1,6 @@
 # Getting Started with LabVIEW
 
-The Moku Scripting API for LabVIEW includes VI’s for performing Moku instrument operations, as well as examples that
-demonstrate the use of these instruments through LabVIEW. This driver is in early access release only, please reach out to
-<support@liquidinstruments.com> for access to the LabVIEW Driver.
+The Moku Scripting API for LabVIEW includes VI’s for performing Moku instrument operations, as well as examples that demonstrate the use of these instruments through LabVIEW. Download the [VI package](https://download.liquidinstruments.com/software/labview/moku_labview_driver.vip) and follow the install instructions below.
 
 This will be an informative LabVIEW guide separated into the following parts:
 
@@ -20,8 +18,7 @@ This will be an informative LabVIEW guide separated into the following parts:
 
 ### 1. Install VI Package Manager (VIPM)
 
-VI Package Manager (VIPM) is a community and tool that manages LabVIEW Add-ons. Liquid instrument's LabVIEW Driver
-is available on VIPM. The VIPM Desktop App can be downloaded [here](https://www.vipm.io/desktop/).
+VI Package Manager (VIPM) is a community and tool that manages LabVIEW Add-ons. Liquid instrument's LabVIEW Driver is available on VIPM. The VIPM Desktop App can be downloaded [here](https://www.vipm.io/desktop/).
 
 ### 2. Install the LabVIEW Driver
 
@@ -31,8 +28,7 @@ Once VIPM is installed. Please run the VI Package file provided from us and inst
 
 ![Functions Palette](../../img/starting-labview-1-V3.png)
 
-After successfully installing our LabVIEW Driver. The Moku palette can be accessed under **Liquid Instruments Moku** in
-LabVIEW's functions palette. The Moku palette includes a **Moku folder** and a number of **Instrument folders**.
+After successfully installing our LabVIEW Driver. The Moku palette can be accessed under **Liquid Instruments Moku** in LabVIEW's functions palette. The Moku palette includes a **Moku folder** and a number of **Instrument folders**.
 
 ### 1. Moku
 
