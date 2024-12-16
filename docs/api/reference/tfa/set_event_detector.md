@@ -14,9 +14,9 @@ parameters:
       description: Event source
       name: source
       param_range:
-          mokugo: ChannelA, ChannelB, Input1, Input2, Output1, Output2
-          mokulab: ChannelA, ChannelB, Input1, Input2, Output1, Output2, External
-          mokupro: ChannelA, ChannelB, ChannelC, ChannelD, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
+          mokugo: InputA, InputB, Input1, Input2
+          mokulab: InputA, InputB, Input1, Input2, Ext.trig.
+          mokupro: InputA, InputB, Input1, Input2, Input3, Input4, Ext.trig.
       type: string
       unit:
     - default: 0
