@@ -12,10 +12,10 @@ parameters:
       unit: null
     - default: Input1
       description: Trigger Source
-          (defaults to Input1)'
       name: source
       param_range:
           mokugo: ProbeA, ProbeB
+          mokulab: ProbeA, ProbeB
           mokupro: ProbeA, ProbeB, ProbeC, ProbeD
       type: string
       unit: null
@@ -112,7 +112,7 @@ group: Monitors
 <parameters/>
 
 :::tip TIP
-To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](get_data.md) method exactly once.
+To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](./get_data) method exactly once.
 :::
 
 ### Examples

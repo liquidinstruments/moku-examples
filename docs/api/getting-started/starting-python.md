@@ -1,6 +1,6 @@
 # Getting Started with Python
 
-If at any point, your output doesn't match what's listed below, please refer to the [Troubleshooting](#troubleshooting) section
+If at any point, your output doesn't match what's listed below, please refer to the [Troubleshooting](#troubleshooting) section.
 
 ## Requirements
 
@@ -9,18 +9,17 @@ If at any point, your output doesn't match what's listed below, please refer to 
 
 ## Quickstart
 
-If you're comfortable installing Python packages, then all you need to know is in this snippet. If not, or if you run in to any trouble, please use the full steps below.
+Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the mokucli commandline tool. Then download the required firmware version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
 
 ```
-$: pip install moku
-$: moku download
-$: python
+$ mokucli download 600
+$ python
 >>> from moku.instruments import Oscilloscope
->>> osc = Oscilloscope('192.168.123.45')
+>>> osc = Oscilloscope('192.168.XXX.XX')
 >>> osc.get_data()
 ```
 
-You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the Troubleshooting below.
+You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the [Troubleshooting](#troubleshooting) section.
 
 ## Full Procedure
 
@@ -33,14 +32,18 @@ $: python --version
 Python 3.9.0
 ```
 
-### 2. Install the `moku` Library
+### 2. Install `mokucli` Library
 
-At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
+At a command prompt, install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the simple Python command listed below. If the output begins the same as the output shown below, then the installation has succeeded. Read more about Moku CLI (mokucli) command line features [here](../../cli).
 
-```
-$: pip install moku
-$: python -c 'import moku'
-$:
+```text
+$ mokucli --help
+Usage: mokucli [OPTIONS] COMMAND [ARGS]...
+
+  MOKU command line utlity
+
+  Version: X.X.X
+...
 ```
 
 ### 3. Download the data files
@@ -50,15 +53,20 @@ The Moku Scripting API for Python requires data files to be downloaded before an
 At a terminal or command prompt, issue the download command. This may take a while to complete, depending on your internet connection.
 
 ```
-$: moku download
+$: mokucli download 600
+Downloading latest instruments for firmware version 591...
+[===========================================================================]
 ```
 
 ### 4. Find Your IP Address
 
 For more detail and other options, see [Finding your IP Address](ip-address)
 
-```
-$: moku list
+```console
+$: mokucli list
+Name                 Serial  HW     FW     IP
+--------------------------------------------------------
+MokuGo-000010        10      Go     600    10.1.XXX.XXX
 ```
 
 ### 5. Run Your First Program
@@ -66,9 +74,9 @@ $: moku list
 Use your IP address as found above in place of the one below.
 
 ```python
-$: python
+$ python
 >>> from moku.instruments import Oscilloscope
->>> osc = Oscilloscope('192.168.123.45')
+>>> osc = Oscilloscope('192.168.XXX.XX')
 >>> osc.get_data()
 ```
 
@@ -76,7 +84,7 @@ You should see an array of data captured from your newly-deployed Oscilloscope o
 
 ## Next Steps
 
-Check out our [Python Examples](/api/moku-examples/python-api/) for more inspiration. Happy Coding!
+Check out our [Python Examples](../moku-examples/python-api) for more inspiration. Happy Coding!
 
 ## Troubleshooting
 
@@ -102,7 +110,7 @@ You must upgrade your Python to 3.5 or newer. See the installation instructions 
 
 #### ModuleNotFoundError: No module named 'moku'
 
-Python cannot find the newly-installed `moku` library. This commonly occurs for one of two reasons:
+If you are trying to install the `moku` Library with `pip install moku` \[depricated\] you may find that Python cannot find the newly-installed `moku` library. This commonly occurs for one of two reasons:
 
 -   The `pip` command didn't complete successfully, OR
 -   A problem in your Python installation means that your `pip` and `python` executables have got out of sync with each other.
@@ -148,7 +156,7 @@ o = Oscilloscope('[fe80:0000:0000:0000:7269:79ff:feb9:023e%252561]')
 
 #### IPv6 (including USB) Connection Issues
 
-There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](/ip-address.html#ipv6) for more information.
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](./ip-address.md#ipv6) for more information.
 
 #### Access Requests.session
 
@@ -176,3 +184,20 @@ ValueError: invalid literal for int() with base 10: '600.0'
 ```
 
 This indicates that you are using an older version of the client package. To resolve this issue, please ensure you have the latest version installed.
+
+## `moku` Library [deprecated]
+
+Previously you could download the bitstreams with the `moku` library with the following instructions. This has been deprecated and you should use the [mokucli](../../cli) commands and instructions.
+
+At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
+
+```
+$ pip install moku
+$ moku download
+$ python
+>>> from moku.instruments import Oscilloscope
+>>> osc = Oscilloscope('192.168.XXX.XX')
+>>> osc.get_data()
+```
+
+You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the Troubleshooting below.

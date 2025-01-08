@@ -14,6 +14,7 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 ## Commands
 
 -   `convert`: Convert Liquid Instruments binary file to CSV, NPY, MAT and HDF5
+-   `download`: Download bitstreams for a given firmware version
 -   `files`: List, download and delete files from the Moku
 -   `license`: List, fetch and reload the license entitlements
 -   `list`: Search for the mokus on network
@@ -32,11 +33,10 @@ $ mokucli convert [OPTIONS] SOURCE
 
 ### Arguments
 
--   `SOURCE`: [required]
+-   `SOURCE`: \[required\]
 
 ### Options
 
--   `--format [csv|npy|mat|hdf5]`: [default: csv]
 -   `--help`: Show this message and exit.
 
 ### Examples
@@ -53,6 +53,35 @@ Writing "MokuDataLoggerData_20230114_142326.npy"...
 [===========================================================================]
 ```
 
+## mokucli download
+
+Download bitstreams for a given firmware version
+
+### Usage
+
+```console
+$ mokucli download [OPTIONS] FW_VER
+```
+
+### Arguments
+
+-   `FW_VER`: \[required\]
+
+### Options
+
+-   `--help`: Show this message and exit.
+-   `target PATH`: File path to download bitstreams to  \[default: .\]
+-   `force / --no-force`: Force rewrite by ignoring checksum  \[default: no-force\]
+
+### Examples
+
+```bash
+# download bitstreams for firmware version 600
+$: mokucli download 600
+Downloading latest instruments for firmware version 600...
+[===========================================================================]
+```
+
 ## mokucli files
 
 List, download and delete files from the Moku
@@ -65,11 +94,11 @@ $ mokucli files [OPTIONS] IP_ADDRESS
 
 ### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 ### Options
 
--   `--action [LIST|DOWNLOAD|DELETE]`: Action to perform [default: LIST]
+-   `--action [LIST|DOWNLOAD|DELETE]`: Action to perform \[default: LIST\]
 -   `--name TEXT`: Filter to apply
 -   `--help`: Show this message and exit.
 
@@ -128,11 +157,11 @@ $ mokucli license fetch [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
--   `--path PATH`: Directory to save the license file [default: .]
+-   `--path PATH`: Directory to save the license file \[default: .\]
 -   `--help`: Show this message and exit.
 
 ### mokucli license list
@@ -147,7 +176,7 @@ $ mokucli license list [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
@@ -178,7 +207,7 @@ $ mokucli license update [OPTIONS] IP_ADDRESS
 
 #### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 #### Options
 
@@ -220,11 +249,11 @@ $ mokucli proxy [OPTIONS] IP_ADDRESS
 
 ### Arguments
 
--   `IP_ADDRESS`: IP Address of the Moku [required]
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
 ### Options
 
--   `--port INTEGER`: Local port, typically a number between 1024 and 65535 on which nothing else is running [default: 8090]
+-   `--port INTEGER`: Local port, typically a number between 1024 and 65535 on which nothing else is running \[default: 8090\]
 -   `--help`: Show this message and exit.
 
 ### Example

@@ -111,6 +111,7 @@ module.exports = {
                             'Logic Analyzer',
                             'reference/logicanalyzer',
                         ),
+                        getChildren('Neural Network', 'reference/nn'),
                         getChildren('Oscilloscope', 'reference/oscilloscope'),
                         getChildren('Phasemeter', 'reference/phasemeter'),
                         getChildren('PID Controller', 'reference/pid'),

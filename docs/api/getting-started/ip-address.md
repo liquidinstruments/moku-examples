@@ -53,7 +53,7 @@ If you require API connectivity from these environments, you must use a proxy as
 
 The above unsupported environments notwithstanding, some IPv6 errors simply come from how the address is specified. One should keep the following points in mind:
 
-1. Most importantly **make sure your libraries are up to date**. In particular, Python parsing of these addresses was broken in some versions of `urllib3`. See [this Troubleshooting tip](../getting-started/starting-python#locationparseerror-invalidurl-failed-to-parse) for details.
+1. Most importantly **make sure your libraries are up to date**. In particular, Python parsing of these addresses was broken in some versions of `urllib3`. See [this Troubleshooting tip](./starting-python.md#ipv6-including-usb-connection-issues) for details.
 2. Enclose the IP address in square brackets: `[fe80::1:2:3:4%eth0]`
 3. If specifying the IP address on the command line, ensure those brackets are escaped if required, e.g. using single quotes in Bash: `'[fe80::1:2:3:4%eth0]'`. Windows CMD does not require escaping the brackets, and in fact will fail if you specify quotes (which will incorrectly be interpreted as part of the address)
 4. If the scope id (element after the percent sign) is numeric, e.g. on Windows, ensure that your programming language does not interpret it as a special character

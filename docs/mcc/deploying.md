@@ -1,12 +1,8 @@
 # Deploying Your Design
 
-All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](examples/) pages.
+All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](./examples/basic) pages.
 
 Once you have such an entity, you need to deploy it to your Moku. This guide will show you how.
-
-:::tip MCC Beta
-MCC is currently in Open Beta. The workflow below will change as the product approaches a full release. If you find any inconsistencies in this documentation, please ensure that your Moku Application (desktop and/or iPad) is up to date, then reach out to [Liquid Instruments Support](mailto:support@liquidinstruments.com).
-:::
 
 ## Building
 
@@ -49,6 +45,6 @@ With your design now on your Moku, your design will now be deployed whenever you
 1. Add at least one Cloud Compile instrument to your MiM configuration
 2. Apply the settings to start your design running
 
-Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](controls.md).
+Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls).
 
 ![deploy](./deploy.png)

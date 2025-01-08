@@ -21,12 +21,16 @@ parameters:
       param_range: null
       type: number
       unit: Seconds
-    - default: 1024
+    - name: max_length
       description:
-          Length of the frame to retrieve through get_data()
-      name: frame_length
+          Requested maximum frame length. The subsequent calls to `get_data` will
+          return frames with as close to this many points as possible without going
+          over. Achievable frame lengths depend on the specific timebase and hardware
+          version, so the user code should be written to work with frame lengths
+          that change when the timebase changes.
+      type: number
+      default: 1024
       param_range: 128, 256, 512, 1024, 2048, 4096, 8192, 16384
-      type: integer
       unit: points
     - default: true
       description: Disable all implicit conversions and coercions.

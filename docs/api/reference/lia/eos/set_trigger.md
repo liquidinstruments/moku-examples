@@ -15,12 +15,12 @@ parameters:
       name: source
       param_range:
           mokugo: ProbeA, ProbeB
-          mokulab: ProbeA, ProbeB
-          mokupro: ProbeA, ProbeB, ProbeC, ProbeD
+          mokulab: ProbeA, ProbeB, External
+          mokupro: ProbeA, ProbeB, ProbeC, ProbeD, External
       type: string
       unit: null
     - default: 0
-      description: Trigger level
+      description: Trigger level. Required when source is set to "External".
       name: level
       param_range: -5 to 5
       type: number
@@ -112,7 +112,7 @@ group: Monitors
 <parameters/>
 
 :::tip TIP
-To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](get_data.md) method exactly once.
+To mimic the **Single** trigger mode, configure the trigger mode to **Normal** and call the [get_data](./get_data) method exactly once.
 :::
 
 ### Examples
