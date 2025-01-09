@@ -60,9 +60,9 @@ architectures exist, the one that is synthesized is undefined.
 
 ## Wrapper Ports
 
-The details of input, output and clock use is platform specific. For details, see [Input and Output](../mcc/io.md).
+The details of input, output and clock use is platform specific. For details, see [Input and Output](./io.md).
 
 ## Control Registers
 
 These provide control of custom designs at runtime.
-See [Control Registers](../mcc/controls.md).
+See [Control Registers](./controls.md).

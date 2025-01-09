@@ -1,6 +1,6 @@
 # Deploying Your Design
 
-All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](./examples/basic) pages.
+All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](./examples/basic.md) pages.
 
 Once you have such an entity, you need to deploy it to your Moku. This guide will show you how.
 
@@ -59,7 +59,7 @@ The Cloud Compile instrument requires a customized bitstream (please ensure that
 
 Now that your design is on your Moku, it's ready to be deployed. Utilize the MiM configuration screen to deploy your design along with any additional instruments that may be necessary. This screen allows you to set up routing between your MCC design, other instruments, and the physical input/output ports on your Moku.
 
-Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](controls.md).
+Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls.md).
 
 ![deploy-mokuapp](./deploy-mokuapp.png)
 
@@ -69,37 +69,13 @@ When swapping the customized Cloud Compile bitstreams, it's possible that the bi
 
 ![reload-bs-mokuapp](./reload-bs-mokuapp.png)
 
-### Use Moku's Web Interface
-
-#### Find your IP Address
-
-To find the IPv4 address, please follow these steps.
-
-1. Right-click on the device icon, and select **Configure device**
-2. Look for the IPv4 address under the tab of the connection being used
-
-![ip address](./get-ip.png)
-
-#### Upload in Moku's Web Interface
-
-Navigate to that IP address in your browser. For example, if you found your Moku's IP was `192.168.2.31` then visit `http://192.168.2.31`.
-
-1. Select `Registers` in the top-right. Your screen may differ, depending what is currently running on your Moku.
-2. Upload your MCC Design file in the Upload bitstream box.
-
-:::warning IPv6
-Note that this step requires that you visit your Moku's control interface in a browser. Limitations of modern browsers mean that this is not possible if you're using IPv6 "Link Local" addresses, including for example if you're connecting to your Moku over USB. For more information and possible solutions, see [the API documentation](https://apis.liquidinstruments.com/ip-address.html#ipv6)
-:::
-
-![upload](./upload.png)
-
-#### Deploy in Multi-instrument Mode
+#### Deploy in Multi-Instrument Mode
 
 With your design now on your Moku, your design will now be deployed whenever you put a "Cloud Compile" instrument in a slot in Multi-instrument Mode (MiM). Use the MiM configuration screen to deploy your design alongside any other instruments that may be required. You can also use this screen to configure routing between your MCC design and other instruments and/or the input/output ports on your Moku.
 
 1. Add at least one Cloud Compile instrument to your MiM configuration
 2. Apply the settings to start your design running
 
-Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](controls.md).
+Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls.md).
 
 ![deploy](./deploy.png)
