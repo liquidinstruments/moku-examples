@@ -155,6 +155,7 @@ module.exports = {
                         ['/mcc/slots', 'Multi-Instrument and Slots'],
                         ['/mcc/wrapper', 'Custom Wrapper'],
                         ['/mcc/support', 'Moku Library'],
+                        ['/mcc/io', 'Input and Output'],
                         ['/mcc/controls', 'Control Registers'],
                         ['/mcc/deploying', 'Deploying Your Design'],
                     ],
