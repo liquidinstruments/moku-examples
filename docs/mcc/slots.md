@@ -3,7 +3,7 @@
 With the introduction of Multi-Instrument mode in Moku the FPGA has
 been divided into isolated regions we call 'slots'. Each slot can be configured
 with an instrument such as an Oscilloscope or Waveform Generator which will run
-simultaneously and independendently. Slots can also be reconfigured to change
+simultaneously and independently. Slots can also be reconfigured to change
 their function without interrupting instruments running in other slots.
 
 Each slot has several input and output ports which can be routed to or from
@@ -26,7 +26,7 @@ system control platform.
 ## Slot Resources
 
 The FPGA resources are divided between slots and the supporting logic in the
-platform surrounding the slots.  The table below summarizes the resources availble
+platform surrounding the slots.  The table below summarizes the resources available
 to a custom design in each slot.
 
 |             | Moku:Pro (ZU9EG) | Moku:Go (ZC7020) | Moku:Lab (ZC7020) |
