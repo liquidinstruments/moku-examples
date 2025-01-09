@@ -45,6 +45,6 @@ With your design now on your Moku, your design will now be deployed whenever you
 1. Add at least one Cloud Compile instrument to your MiM configuration
 2. Apply the settings to start your design running
 
-Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls).
+Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls.md).
 
 ![deploy](./deploy.png)

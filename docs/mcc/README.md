@@ -15,12 +15,12 @@ instruments. This allows you to prototype custom designs, interact with custom
 hardware or provide bespoke functions for you specific requirements.
 
 For an overview of the concepts involed in building a system with the Moku
-see [Multi-Instrument and Slots](./slots)
+see [Multi-Instrument and Slots](./slots.md)
 
-To get started coding see [Custom Wrapper](./wrapper) or try creating a
+To get started coding see [Custom Wrapper](./wrapper.md) or try creating a
 project with an example template.
 
-Run your design by [building and deploying](./deploying) it to your Moku.
+Run your design by [building and deploying](./deploying.md) it to your Moku.
 
 <action-button text="Take me to Moku Cloud Compile" link="https://compile.liquidinstruments.com" target="_blank"/>
 <action-button text="Explore our example projects" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc" target="_blank"/>
