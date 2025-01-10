@@ -1,8 +1,8 @@
 # Control Registers
 
-The CustomWrapper provides 10 Control registers which can be used to control
-the behaviour of the custom design at runtime. The registers are labelled
-**Control0** through to **Control9** and are all 32 bit std_logic_vectors.
+The CustomWrapper provides 16 Control registers which can be used to control
+the behavior of the custom design at runtime. The registers are labelled
+**Control0** through to **Control15** and are all 32 bit std_logic_vectors.
 
 ## Type Casting
 

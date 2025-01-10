@@ -27,18 +27,30 @@ except ImportError:
 np.random.seed(0)
 ```
 
+```
+    2024-10-17 11:11:36.668437: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+    2024-10-17 11:11:36.669260: I external/local_tsl/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+    2024-10-17 11:11:36.670985: I external/local_tsl/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+    2024-10-17 11:11:36.676123: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:479] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+    2024-10-17 11:11:36.686189: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:10575] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+    2024-10-17 11:11:36.686200: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1442] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+    2024-10-17 11:11:36.693237: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+    To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+    2024-10-17 11:11:37.114003: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+```
+
 # Data Generation
 
 As an example use case, we will target a denoising application of an input signal. A useful aspect of autoencoders for this application is that we don't need to know the underlying properties of the noise-less input signal to train our autoencoder. 
 
-We will assume our input signal has some additive white noise we wish to remove from it. We will use a series of random walks as our training data set for this autoencoder. A random walk can be thought of as a summation or integral over a time period of white noise. Training an autoencoder using these random walks allows it to encode these signals in a lower dimension latent space, and then extract useful information from this latent space on real input signals after training. 
+We will start generating our training set by defining the timebase over which we expect to see the signal. We specify a width of 100 to match the maximum width of the Moku neural network input. Note that we define it in terms of 2π so that the frequency of our ringdown is conveniently defined.
 
 ```python
 # time base, width chosen to be 32
 T = np.linspace(-1, 1, 32)
 ```
 
-We define a random walk with a given step size on a given time base. To achieve this, we generate a random floating point number uniformly distributed between -1 and 1 as our starting point, and then repeatedly add another random floating point number drawn from a Gaussian distribution with zero mean, and standard deviation given by the step size. After each step is taken, we also clip the output to be between -1 and 1, as this is the allowed range of inputs for our network. 
+We define a ringdown function which will give us the signal we expect to see, this is simply a sinusoidal function with an exponentially decaying envelope. The `ring_down()` function will return two arrays for a given decay, frequency and noise. The first array is the signal without noise while the second has the noise added. In general, we may not have access to the signal without noise, however, in this case we will simply use it for illustrative purposes.
 
 ```python
 # random walk for training data
@@ -62,7 +74,7 @@ plt.show()
 
 ![png](./Autoencoder_files/Autoencoder_7_0.png)
 
-This produces a random walk with step size following a Gaussian distribution. To prepare our training data set, we take a large number of these walks, setting the standard deviation of the step size equal to 0.1. 
+Here we can see that we end up with a noisy version of the ring down signal for a specific frequency and decay. We will now generate a set of training data that we will use to train the model. To do this, we will generate a large number of noisy signals with random frequencies in the range `[3, 15]` and random decays between `[0.8, 1.5]`. We will fix the noise as having amplitude `0.2`. We will save these into an array and also keep track of the noiseless traces for comparison later.
 
 ```python
 # define the length of our training data
@@ -198,7 +210,7 @@ plt.show()
 
 # Assess the model performance
 
-Now the model has finished training we can view its performance by viewing some specific examples. We will create a sinusoidal signal and add some Gaussian noise to it
+Now the model has finished training we can view its performance by viewing some specific examples. We will pick an example from the validation set (the last 10%) to ensure our model is behaving correctly. Calling the predict method will effectively give use the denoised signal via the autoencoder.
 
 ```python
 # noisy sin
@@ -222,11 +234,13 @@ plt.plot(T_extend[:total*batch_size], preds[:, 0])
 plt.show()
 ```
 
+```
+    [1m32/32[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 840us/step
+```
+
 ![png](./Autoencoder_files/Autoencoder_23_1.png)
 
-We can also compare this to a traditional Gaussian smoothing filter to compare the performance of the autoencoder. To achieve this, we convolve the signal with a Gaussian with the appropriate standard deviation with our noisy signal. This is equivalent to passing the signal through a low pass filter. 
-
-As seen in the graphs below, the autoencoder performs comparably to the Gaussian smoothing, showing the effectiveness of the technique. 
+We can also compare this to a traditional Gaussian smoothing filter to compare the performance of the autoencoder.
 
 ```python
 # smooth the input using a Gaussian filter
@@ -260,7 +274,7 @@ plt.show()
 
 # Deploying the Network onto a Moku:Pro
 
-Now that the network has been trained, we can deploy it onto a Moku:Pro device. By saving the network with 1 input channel and 1 output channel, the network can be configured to take in 32 downsampled points of an input channel, and produce 32 points sequentially through its single output channel. We do this using the `save_linn` function:
+Now that the network has been trained, we can deploy it onto a Moku:Pro device. By saving the network with 1 input channel and 1 output channel, the network can be configured to take in 100 downsampled points of an input channel, and produce 100 points sequentially through its single output channel. We do this using the `save_linn` function:
 
 ```python
 save_linn(quant_mod, input_channels=1, output_channels=1, file_name='autoencoder.linn')

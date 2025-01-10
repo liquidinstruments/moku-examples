@@ -17,8 +17,7 @@ This example uses the clip function from the Moku Library to limit the output si
 
 # DSP example
 
-This example instantiates a DSP block using the [ScaleOffset](/mcc/support#scaleoffset) wrapper. The `Moku.Support.ScaleOffset` entity conveniently packages a DSP block with all the settings configured to compute the common `Z = X * Scale + Offset` operation, with the output properly clipped to prevent under/overflow.
-
+This example instantiates a DSP block using the [ScaleOffset](../support.md#scaleoffset) wrapper. The `Moku.Support.ScaleOffset` entity conveniently packages a DSP block with all the settings configured to compute the common `Z = X * Scale + Offset` operation, with the output properly clipped to prevent under/overflow.
 
 ## Getting Started
 

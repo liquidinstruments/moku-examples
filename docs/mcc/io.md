@@ -1,13 +1,13 @@
 # Input and Output
 
-The MCC design, as defined in the [Entity wrapper](./wrapper), has four 16-bit inputs and four 16-bit outputs (`InputA-D` and `OutputA-D` respectively). These signals can be routed to come to/from physical ADC/DAC channels on the hardware, Digital I/O where supported, or from other instruments in the Multi-instrument configuration.
+The MCC design, as defined in the [Custom Wrapper](./wrapper.md), has four 16-bit inputs and four 16-bit outputs (`InputA-D` and `OutputA-D` respectively). These signals can be routed from/to physical ADC/DAC channels on the hardware, Digital I/O where supported, or from other instruments in the Multi-instrument Mode configuration.
 
 ## Clk and Reset
 
-|       | Moku:Go     | Moku:Pro    |
-| ----- | ----------- | ----------- |
-| Clk   | 31.25MHz    | 312.5MHz    |
-| Reset | Active-High | Active-High |
+|       | Moku:Go     | Moku:Pro    | Moku:Lab    |
+| ----- | ----------- | ----------- | ----------- |
+| Clk   | 31.25MHz    | 312.5MHz    | 125MHz      |
+| Reset | Active-High | Active-High | Active-High |
 
 ## Inputs and Outputs
 
@@ -17,37 +17,33 @@ Input and Output ports on the wrapper can either be:
 -   Permanently connected to particular ADCs or DACs, or
 -   Not connected
 
-|         | Moku:Go       | Moku:Pro      |
-| ------- | ------------- | ------------- |
-| InputA  | Block Diagram | Block Diagram |
-| InputB  | Block Diagram | Block Diagram |
-| InputC  | ADC In 1      | Not Connected |
-| InputD  | ADC In 2      | Not Connected |
-| OutputA | Block Diagram | Block Diagram |
-| OutputB | Block Diagram | Block Diagram |
-| OutputC | Block Diagram | Not Connected |
-| OutputD | Not Connected | Not Connected |
+|         | Moku:Go       | Moku:Pro      | Moku:Lab      |
+| ------- | ------------- | ------------- | ------------- |
+| InputA  | Block Diagram | Block Diagram | Block Diagram |
+| InputB  | Block Diagram | Block Diagram | Block Diagram |
+| InputC  | ADC In 1      | ADC In 1      | ADC In 1      |
+| InputD  | ADC In 2      | ADC In 2      | ADC In 2      |
+| OutputA | Block Diagram | Block Diagram | Block Diagram |
+| OutputB | Block Diagram | Block Diagram | Block Diagram |
+| OutputC | Block Diagram | Block Diagram | Not Connected |
+| OutputD | Not Connected | Block Diagram | Not Connected |
 
 All Inputs and Outputs are 16-bit signed values. When the port is externally connected to Digital I/O, the signed 16-bit values should be interpreted simply as a 16-bit standard logic vector.
 
 ## Analog I/O Scaling
 
-The bits-to-volts scaling of ADCs, DACs and between instruments is as follows. This table assumes no ADC attenuation and no DAC gain is configured.
+The digital resolution refers to the voltage interpretation of digital quantities, scaled from LSBs (least significant bits) to volts, for ADCs, DACs, and other instruments. For example, with a 16-bit value representing a 10 Vpp voltage range, the digital resolution is 2^16/10 = 6553.6 LSBs/volt. The following table assumes no ADC attenuation and no DAC gain are configured.
 
-| Source/Sink      | Moku:Go bits/volt | Moku:Pro bits/volt |
-| ---------------- | ----------------- | ------------------ |
-| ADC              | 409.4             | 2270.02            |
-| DAC (50R)        | -                 | 29925.0            |
-| DAC (High-Z)     | 6550.4            | 14962.5            |
-| Inter-instrument | 13100.8           | 29925.0            |
-
-:::warning Pass-through
-Note that scaling is different depending on source. This can lead to a number of unexpected effects, for example the trivial "passthrough" instrument `OutputA <= InputA` actually scales the signal down by 16x if passed from ADC to DAC (High-Z) on Moku:Go (`6550.4 / 409.4`). This also means that the apparent signal amplitude changes depending whether the MCC design uses an ADC or another instrument as its source.
-:::
+| Source/Sink      | Moku:Go LSBs/volt | Moku:Pro LSBs/volt | Moku:Lab LSBs/volt |
+| ---------------- | ----------------- | ------------------ | ------------------ |
+| ADC              | 6550.4            | 29925.0            | 30000.0            |
+| DAC (50R)        | -                 | 29925.0            | 30000.0            |
+| DAC (High-Z)     | 6550.4            | 14962.5            | 15000.0            |
+| Inter-instrument | 6550.4            | 29925.0            | 30000.0            |
 
 ## Using Digital I/O
 
-On Moku:Go, a slot Input, Output or both may be routed to the Digital I/O block. In this case, the `Input` or `Output` signal should be interpretted as a 16-bit `std_logic_vector` or equivalent. Each bit of this vector corresponds to a digital I/O pin in the obvious way, i.e. `InputX(0)` contains the current logical value of DIO Pin 1, driving DIO Pin 16 is done by assigning a value to `OutputX(15)` (where `Input/OutputX` are the slot signals you've routed to the DIO block in the Multi-instrument Mode builder).
+On Moku:Go, a slot Input, Output or both may be routed to the Digital I/O block. In this case, the `Input` or `Output` signal should be interpreted as a 16-bit `std_logic_vector` or equivalent. Each bit of this vector corresponds to a digital I/O pin in the obvious way, i.e. `InputX(0)` contains the current logical value of DIO Pin 1, driving DIO Pin 16 is done by assigning a value to `OutputX(15)` (where `Input/OutputX` are the slot signals you've routed to the DIO block in the Multi-instrument Mode builder).
 
 The Digital I/O block does not have automatic detection of driving sources, the I/O direction for each pin must be manually configured. On the MiM Configuration screen, click the Digital I/O block and set each pin's desired driving direction.
 

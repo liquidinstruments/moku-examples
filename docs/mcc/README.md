@@ -14,8 +14,8 @@ can be deployed next to, and interact with the existing suite of Moku
 instruments. This allows you to prototype custom designs, interact with custom
 hardware or provide bespoke functions for you specific requirements.
 
-For an overview of the concepts involed in building a system with the Moku
-see [Multi-Instrument and Slots](./slots)
+For an overview of the concepts involved in building a system with the Moku
+see [Multi-Instrument and Slots](./slots.md)
 
 To get started coding see [Custom Wrapper](./wrapper) or try creating a
 project with an example template.
