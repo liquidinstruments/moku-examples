@@ -18,8 +18,8 @@ architecture MaskWrapper of CustomWrapper is
           passthrough => InputB, -- Will pass this signal through to output when mask is high
           divider => unsigned(Control0(31 downto 0)), -- Output pulse divider to control frequency
           duty => unsigned(Control1(31 downto 0)), -- Sets the duty cycle of the output pulse
-          finalOut => OutputB, -- Either 0 (when Mask is Low) or InputB (when Mask is High)
-          maskDAC => OutputC -- Mask representation output to DAC linked to OutputC in Multi-instrument Mode
+          finalOut => OutputA, -- Either 0 (when Mask is Low) or InputB (when Mask is High)
+          maskDAC => OutputB -- Mask representation output to DAC linked to OutputC in Multi-instrument Mode
       );  
       
 end architecture;
