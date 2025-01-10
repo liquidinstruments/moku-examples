@@ -10,7 +10,7 @@ summary: stop_logging
 <headers/>
 <parameters/>
 
-Partial data log can still be downloaded to local machine using [download_files](../static/download)
+Partial data log can still be downloaded to local machine using [download_files](../static/download.md)
 
 ### Examples
 

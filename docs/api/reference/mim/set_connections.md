@@ -23,7 +23,7 @@ The connection action is _incremental_. That is, each connection specified in th
 :::
 
 :::tip Set Instruments First
-Number of inputs and outputs for a given slot are instrument dependent, you must set up the instruments in the target slots before calling this method. See [Getting Started with MiM](../../getting-started/starting-mim) for details.
+Number of inputs and outputs for a given slot are instrument dependent, you must set up the instruments in the target slots before calling this method. See [Getting Started with MiM](../../getting-started/starting-mim.md) for details.
 :::
 
 <parameters/>

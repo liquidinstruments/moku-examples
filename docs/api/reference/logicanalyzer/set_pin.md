@@ -37,7 +37,7 @@ summary: set_pin
 Please refer to [Pin Status Definitions](./) and [Output override Definitions](./) for the list of available statuses
 :::tip Note
 set_pin only configures the state of the Pin, to generate a pattern on a pin use
-[set_pattern_generator](./set_pattern_generator)
+[set_pattern_generator](./set_pattern_generator.md)
 :::
 
 ### Examples

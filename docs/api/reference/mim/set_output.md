@@ -35,7 +35,7 @@ When in Multi-instrument Mode, the user must use this `set_output` function rath
 <parameters/>
 
 :::tip Make Connections First
-You must connect an Output (i.e. DAC) to an instrument before configuring its settings. See [set_connections](./set_connections) for details of making the connection.
+You must connect an Output (i.e. DAC) to an instrument before configuring its settings. See [set_connections](./set_connections.md) for details of making the connection.
 :::
 
 ### Examples

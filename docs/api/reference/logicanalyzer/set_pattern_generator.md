@@ -69,7 +69,7 @@ summary: set_pattern_generator
 :::tip NOTE
 
 -   **baud_rate** and **divider** are mutually exclusive
--   The pattern is not generated on the Pin unless the state of the pin is set to the corresponding generator, PG1 (or) PG2. Refer [set_pin](./set_pin) and [set_pins](./set_pins).
+-   The pattern is not generated on the Pin unless the state of the pin is set to the corresponding generator, PG1 (or) PG2. Refer [set_pin](./set_pin.md) and [set_pins](./set_pins.md).
 :::
 
 ### Examples
