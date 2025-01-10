@@ -18,7 +18,7 @@ This is a common source of errors. If you see responses with the code `NO_BIT_ST
 
 ## IP addresses and URLs
 
-Before you start, you must find the IP address of your Moku and confirm that you can connect to it. See [this page](ip-address) for more details.
+Before you start, you must find the IP address of your Moku and confirm that you can connect to it. See [this page](./ip-address.md) for more details.
 
 URLs in the REST API take the form
 
@@ -110,4 +110,4 @@ Check out the cURL examples for each endpoint in the [API Reference](../referenc
 
 #### IPv6 (including USB) Connection Issues
 
-There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](./ip-address#ipv6) for more information.
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](./ip-address.md#ipv6) for more information.

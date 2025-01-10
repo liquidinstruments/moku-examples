@@ -60,7 +60,7 @@ Downloading latest instruments for firmware version 591...
 
 ### 4. Find Your IP Address
 
-For more detail and other options, see [Finding your IP Address](ip-address)
+For more detail and other options, see [Finding your IP Address](./ip-address.md)
 
 ```console
 $: mokucli list
