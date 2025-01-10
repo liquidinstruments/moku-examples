@@ -131,7 +131,7 @@ Converts a `LinnModel` into the `.linn` format required for execution on the Mok
 -   **input_channels:** An integer of the number of instrument inputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'input_channels' and the number of input neurons in the model.
 -   **output_channels:** An integer of the number of instrument outputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'output_channels' and the number of output neurons in the model.
 -   **kwargs:** (Optional).
-    -   **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](../examples/Autoencoder), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
+    -   **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](../examples/Autoencoder.md), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
 
 ### Returns
 
@@ -158,7 +158,7 @@ Converts a Keras model which is suitable for execution on the Moku Neural Networ
 -   **output_channels:** An integer of the number of instrument outputs to connect to the network. Determines processing mode (serial or parallel) based on the ratio between 'output_channels' and the number of output neurons in the model.
 -   **file_name:** Name of output `.linn` file, requires `.linn` extension.
 -   **kwargs:** (Optional).
-    -   **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](../examples/Autoencoder), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
+    -   **output_mapping:** (list): A list of integers that selects which output neurons should be used as the final output of the network. This is useful when training a network which produces multiple outputs during training, but when you only need a small number of values as outputs from the instrument. See the [Autoencoder example](../examples/Autoencoder.md), where the network is trained to produce 32 de-noised outputs but the final output in hardware is only the last value.
 
 ### Returns
 
