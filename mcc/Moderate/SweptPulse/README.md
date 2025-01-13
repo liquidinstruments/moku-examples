@@ -11,12 +11,15 @@ The example code in this directory is designed to highlight the following capabi
 A swept frequency pulse is often referred to as a chirped pulse, and is commonly used in radar applications.  A chirped pulse is one where the transmitted frequency continuously changes (sweeps) throughout the duration of the pulse.  While the [Waveform Generator](https://liquidinstruments.com/products/integrated-instruments/waveform-generator/)  on the Moku allows for the creation of swept waveforms, it cannot by default create a chirped (swept waveform) pulse.  However, with MCC we can add this functionality into the Moku.  We will use the Moku in Multi-instrument Mode along with the Python API and MCC to demonstrate the added flexibility.  
 
 ## Included Files
-The following files are included to aid with reproducing the results highlighted below.
+The following files are included to aid with reproducing the results highlighted below.  Due to minor variations in required configuration, the appropriate files for each Moku instrument are stored in a separate folder.
 
-- **mim\_wg\_pid\_nn\_dl.py** will set up the Multi-instrument mode environment and record 20 samples of data with varying levels of Signal to Noise Ratio (SNR)
-- **matchedFilter.py** will apply a matched filter to each of the samples of data to allow for comparison of performance between non-noisy, noisy and de-noised signal
-- **createVideo.py** will create a video from the analyzed frames of data to show how decreasing SNR results in additional false detects and failure to detect pulse
-- **autoencoder_32.linn** is the Liquid Instruments Neural Network file that was created with the [autoencoder](https://apis.liquidinstruments.com/mnn/examples/Autoencoder.html) tutorial
+### Moku:Go
+Using the Moku:Go, we will use two separate devices to both generate the swept pulse and simultaneously observe pulse parameters on the [Oscilloscope](https://liquidinstruments.com/products/integrated-instruments/oscilloscope/) and Logic Analyzer.
+
+- **mim\_2mgo\_mcc\_la\_wg\_osc.py** will set up the Multi-instrument mode environment across two Moku:Go's
+- **pcMask601.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601  
+- **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
+- **PulseMask.vhd** is the Liquid Instruments Neural Network file that was created with the [autoencoder](https://apis.liquidinstruments.com/mnn/examples/Autoencoder.html) tutorial
 
 ## Example RADAR Pulse
 The following pulse is representative of the type of signal that would be used in a basic pulsed RADAR.  There are many more complex techniques often employed, but for purposes of this example we will stick with the basic pulsed waveform
