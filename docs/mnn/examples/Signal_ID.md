@@ -59,7 +59,7 @@ plt.show()
 
 
     
-![png](Signal_ID_files/Signal_ID_3_0.png)
+![png](./Signal_ID_files/Signal_ID_3_0.png)
     
 
 
@@ -132,7 +132,7 @@ print(answers_batched[20000,:])
 
 
     
-![png](Signal_ID_files/Signal_ID_6_3.png)
+![png](./Signal_ID_files/Signal_ID_6_3.png)
     
 
 
@@ -211,7 +211,7 @@ plt.show()
 
 
     
-![png](Signal_ID_files/Signal_ID_9_0.png)
+![png](./Signal_ID_files/Signal_ID_9_0.png)
     
 
 

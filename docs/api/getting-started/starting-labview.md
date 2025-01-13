@@ -80,7 +80,7 @@ The VI Snippet of the example is available [here](#_4-ready-to-run).
 ### 1. Begin Moku-client session
 
 To begin your LabVIEW Moku project. First, create a client session with **Open Moku VI**, enter your Moku's IP address through the
-input terminal (For details and options for finding your IP Address, see [Finding your IP Address](./ip-address#using-the-desktop-app)).
+input terminal (For details and options for finding your IP Address, see [Finding your IP Address](./ip-address.md#using-the-desktop-app)).
 Then, wire the VI to **Upload Instrument VI** by connecting the client and error terminals together.
 
 Create a constant on Upload instrument VI's input terminal, and select the instrument you would like to deploy.

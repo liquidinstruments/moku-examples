@@ -1,6 +1,8 @@
 ---
 additional_doc: null
 description: Set the state of a single digital I/O pin
+deprecated: true
+deprecated_msg: set_pin is deprecated, use [set_pin_mode](./set_pin_mode.md) instead.
 method: post
 name: set_pin
 parameters:
@@ -37,7 +39,7 @@ summary: set_pin
 Please refer to [Pin Status Definitions](./) and [Output override Definitions](./) for the list of available statuses
 :::tip Note
 set_pin only configures the state of the Pin, to generate a pattern on a pin use
-[set_pattern_generator](./set_pattern_generator)
+[set_pattern_generator](./set_pattern_generator.md)
 :::
 
 ### Examples

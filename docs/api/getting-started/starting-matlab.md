@@ -55,7 +55,7 @@ From your MATLAB Command Window, run `help Moku`. If this command succeeds, then
 
 ## 4. Find Your IP Address
 
-In order to connect to your Moku, you must know your device's IP Address. For full details and options, see [Finding your IP Address](ip-address).
+In order to connect to your Moku, you must know your device's IP Address. For full details and options, see [Finding your IP Address](./ip-address.md).
 
 ## 5. Next Steps
 
@@ -67,4 +67,4 @@ For a full listing of all objects and methods, with example snippets for both Py
 
 #### IPv6 (including USB) Connection Issues
 
-There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](ip-address#ipv6) for more information.
+There are some environmental limitations when using IPv6, including using the Moku USB interface. See [this section](./ip-address.md#ipv6) for more information.

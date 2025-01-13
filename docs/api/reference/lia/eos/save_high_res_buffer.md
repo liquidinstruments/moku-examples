@@ -22,7 +22,7 @@ group: Monitors
 
 <headers/>
 
-Once completed you can download the file from the device using [download_files](../../static/download).
+Once completed you can download the file from the device using [download_files](../../static/download.md).
 <parameters/>
 
 Below are the examples on how to save the high resolution data to a file,
