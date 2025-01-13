@@ -48,7 +48,7 @@ summary: start_streaming
 <parameters/>
 
 ::: tip
-The **sample_rate** parameter here does exactly the same thing as [set_samplerate](./set_samplerate), just in a more convenient way.
+The **sample_rate** parameter here does exactly the same thing as [set_samplerate](./set_samplerate.md), just in a more convenient way.
 :::
 
 ### Examples

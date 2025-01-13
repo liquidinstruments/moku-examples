@@ -1,6 +1,8 @@
 ---
 additional_doc: null
 description: Get current state of all Digital I/O pins
+deprecated: true
+deprecated_msg: get_pins is deprecated, use [get_pin_mode](./getters.md) instead.
 method: post
 name: get_pins
 parameters: []

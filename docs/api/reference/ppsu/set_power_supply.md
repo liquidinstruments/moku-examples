@@ -34,7 +34,7 @@ available_on: 'Moku:Go'
 
 <headers/>
 
-Once a load is connected, the power supply operates either at the current set point or the voltage set point, whichever set point is reached first. set_power_supply returns the same response as [get_power_supply](./get_power_supply)
+Once a load is connected, the power supply operates either at the current set point or the voltage set point, whichever set point is reached first. set_power_supply returns the same response as [get_power_supply](./get_power_supply.md)
 
 <parameters/>
 

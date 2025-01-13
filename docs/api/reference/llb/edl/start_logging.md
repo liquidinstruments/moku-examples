@@ -66,10 +66,10 @@ summary: start_logging
 
 <headers/>
 
-Log files can be downloaded to local machine using [download_files](../../static/download).
+Log files can be downloaded to local machine using [download_files](../../static/download.md).
 
 ::: warning Caution
-To ensure a complete data logging session, it is recommended to track the progress using [logging_progress](./logging_progress).
+To ensure a complete data logging session, it is recommended to track the progress using [logging_progress](./logging_progress.md).
 :::
 
 <parameters/>

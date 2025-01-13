@@ -39,7 +39,7 @@ The instrument itself cannot govern the pin direction. Pins default to inputs. P
 <parameters/>
 
 :::tip NOTE
-It is required to connect DIO to a slot before configuring it. Read [set_connections](./set_connections)
+It is required to connect DIO to a slot before configuring it. Read [set_connections](./set_connections.md)
 :::
 
 ### Examples
