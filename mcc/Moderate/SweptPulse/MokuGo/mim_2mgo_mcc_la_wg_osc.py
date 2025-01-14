@@ -26,10 +26,10 @@ import matplotlib.pyplot as plt
 # import time
 
 # # Establish connection to Moku:Go #1 - MCC and Logic Analyzer
-mg1 = MultiInstrument('192.168.1.37', force_connect=True, platform_id=2)
+mg1 = MultiInstrument('192.168.1.136', force_connect=True, platform_id=2)
 
 # Establish connection to Moku:Go
-mg2 = MultiInstrument('192.168.1.136', force_connect=True, platform_id=2)
+mg2 = MultiInstrument('192.168.1.37', force_connect=True, platform_id=2)
 
 try:
 	# Configure Moku:Go to generate pulsed signal with variable frequency and duty cycle
