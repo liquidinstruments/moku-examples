@@ -2,7 +2,7 @@
 additional_doc: null
 description: Set the state of a single digital I/O pin
 deprecated: true
-deprecated_msg: set_pin is deprecated, use [set_pin_mode](./set_pin_mode.md) instead.
+deprecated_msg: set_pin is deprecated, use [set_pin_mode](./set_pin_mode.html) instead.
 method: post
 name: set_pin
 parameters:

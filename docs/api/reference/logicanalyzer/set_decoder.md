@@ -2,7 +2,7 @@
 additional_doc: null
 description: Configure decoder on the given channel
 deprecated: true
-deprecated_msg: set_decoder is deprecated, use [set_uart_decoder](./set_uart_decoder.md), [set_spi_decoder](./set_spi_decoder.md) or [set_i2c_decoder](./set_i2c_decoder.md) instead.
+deprecated_msg: set_decoder is deprecated, use [set_uart_decoder](./set_uart_decoder.html), [set_spi_decoder](./set_spi_decoder.html) or [set_i2c_decoder](./set_i2c_decoder.html) instead.
 method: post
 name: set_decoder
 parameters:

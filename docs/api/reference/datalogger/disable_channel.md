@@ -1,7 +1,7 @@
 ---
 additional_doc: null
 deprecated: true
-deprecated_msg: This method is deprecated and will be removed soon. Please use [enable_input](./enable_input.md)
+deprecated_msg: This method is deprecated and will be removed soon. Please use [enable_input](./enable_input.html)
 description: Disable an input channel
 method: post
 name: disable_channel
