@@ -11,12 +11,12 @@ If there's something more you'd like to see done, please reach out on [Our Forum
 ## Python
 
 The Python examples require Python `3.5.0` or newer.
-<action-button text="Python Examples" link="python/"/>
+<action-button text="Python Examples" link="../moku-examples/python-api/"/>
 
 ## MATLAB
 
 The Moku Scripting API for MATLAB requires MATLAB R2014b or newer.
-<action-button text="MATLAB Examples" link="matlab/"/>
+<action-button text="MATLAB Examples" link="../moku-examples/matlab-api/"/>
 
 ## Other Languages
 

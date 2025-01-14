@@ -2,7 +2,7 @@
 additional_doc: null
 description: Get current state of a Digital I/O pin
 deprecated: true
-deprecated_msg: get_pin is deprecated, use [get_pin_mode](./getters.md) instead.
+deprecated_msg: get_pin is deprecated, use [get_pin_mode](./getters.html) instead.
 method: post
 name: get_pin
 summary: get_pin
