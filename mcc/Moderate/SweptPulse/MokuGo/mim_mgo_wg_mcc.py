@@ -46,6 +46,7 @@ try:
 	wg.generate_waveform(channel=1, type='Sine', amplitude=2, frequency=float(sfreq))
 	wg.set_sweep_mode(channel=1, source='InputA', trigger_level=.1, stop_frequency=float(efreq), sweep_time=float(sweepT) )
 
+	# Calculate control register values based on clock frequency of Moku:Go
 	freqControl = int(31250000/float(PRF))
 	dutyControl = int(freqControl*float(duty)/100)
 
