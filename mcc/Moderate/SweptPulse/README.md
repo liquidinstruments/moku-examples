@@ -8,54 +8,49 @@ The example code in this directory is designed to highlight the following capabi
 
 
 ## Overview
-A swept frequency pulse is often referred to as a chirped pulse, and is commonly used in radar applications.  A chirped pulse is one where the transmitted frequency continuously changes (sweeps) throughout the duration of the pulse.  While the [Waveform Generator](https://liquidinstruments.com/products/integrated-instruments/waveform-generator/)  on the Moku allows for the creation of swept waveforms, it cannot by default create a chirped (swept waveform) pulse.  However, with MCC we can add this functionality into the Moku.  We will use the Moku in Multi-instrument Mode along with the Python API and MCC to demonstrate the added flexibility.  
+A swept frequency pulse is often referred to as a chirped pulse, and is commonly used in radar applications.  A chirped pulse is one where the transmitted frequency continuously changes (sweeps) throughout the duration of the pulse.  While the [Waveform Generator](https://liquidinstruments.com/products/integrated-instruments/waveform-generator/)  on the Moku allows for the creation of swept waveforms, it cannot by default create a chirped (swept waveform) pulse.  However, with MCC we can quite easily add this functionality into the Moku.  We will use the Moku in Multi-instrument Mode along with the Python API and MCC to demonstrate the added flexibility.  
 
 ## Included Files
 The following files are included to aid with reproducing the results highlighted below.  Due to minor variations in required configuration, the appropriate files for each Moku instrument are stored in a separate folder.
 
 ### Moku:Go
-Using the Moku:Go, we will use two separate devices to both generate the swept pulse and simultaneously observe pulse parameters on the [Oscilloscope](https://liquidinstruments.com/products/integrated-instruments/oscilloscope/) and Logic Analyzer.
+Using the Moku:Go, we can use a single device to generate the swept pulse, but an additional device would be required to display the output.  The pulse timing wave will be output to channel 1 and fed back into Input A of Slot 1 to start the sweep.  The swept pulse will be output to channel 2.  The Moku:Go also has the ability to receive a reset signal and output the pulse mask to a Digital Input / Output (DIO) pin.
 
-- **mim\_2mgo\_mcc\_la\_wg\_osc.py** will set up the Multi-instrument mode environment across two Moku:Go's
-- **pcMask601.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601  
+- **mim\_mgo\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Go
+- **pcMask601.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Go  
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
-- **PulseMask.vhd** is the Liquid Instruments Neural Network file that was created with the [autoencoder](https://apis.liquidinstruments.com/mnn/examples/Autoencoder.html) tutorial
+- **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-## Example RADAR Pulse
-The following pulse is representative of the type of signal that would be used in a basic pulsed RADAR.  There are many more complex techniques often employed, but for purposes of this example we will stick with the basic pulsed waveform
+![image](images/MGo MiM Configuration.png)
 
-### Pulse parameters
-- Carrier Frequency - 2kHz
-- Pulse Width - 5ms
-- Pulse Repetition Frequency - 10Hz
+### Moku:Lab
+Using the Moku:Lab, we can use a single device to generate the swept pulse, but an additional device would be required to display the output.  The pulse timing wave will be output to channel 1 and fed back into Input A of Slot 1 to start the sweep.  The swept pulse will be output to channel 2.   
 
-### Moku:Go Configuration
-We use the Moku:Go with the to generate a waveform with the desired pulse parameters specified above.  Below is an example configuration.
-![image](images/WGConfiguration.png)
+- **mim\_mlab\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Lab
+- **pcMask601Lab.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Lab  
+- **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
+- **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-### Moku:Pro Multi-instrument Mode Configuration
-Using the Python API, we will establish the following configuration on the Moku:Pro in Multi-instrument Mode. 
+![image](images/MLab MiM Configuration.png)
 
-- Slot 1 - Waveform Generator to generate noise
-- Slot 2 - PID Controller to use control matrix to combine noise with pulsed signal
-- Slot 3 - Neural Network with previously built autoencoder *.linn file
-- Slot 4 - Data Logger used to store 0.2s snapshots of data
+### Moku:Pro
+Using the Moku:Pro, we can use the additional available slots to not only generate the swept pulse, but also display and record the signal.  As seen in the image below, the configuration is far more complex, viewing/recording can all be done with a single device.  The pulse could be output to one of the four Moku output channels if desired with a simple modification to the included API script. 
 
-![image](images/MiMConfiguration.png)
+- **mim\_mlab\_wg\_mcc\_la\_osc.py** will set up the Multi-instrument mode environment on the Moku:Pro
+- **pcMask601Pro.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Pro  
+- **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
+- **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-## Results
-With sufficient SNR, matched filters are excellent tools to identify precise location of a known pulse type within a signal.  As shown below, the signal is tough to identify visually in the presence of noise, but the matched filter can effectively pull this signal out of the noise.  The signal processed in real time with the Neural Network instrument further improves the performance of the matched filter and would allow for a lower detection threshold. 
+![image](images/MPro MiM Configuration.png)
 
-![image](images/image20.png)
+## Example Pulse
+The following pulse is representative of the type of signal that would be used in a basic swept pulse system / RADAR.  The included API scripts will allow the user to specify the pulse parameters below
 
-As SNR decreases, we start to see false detections with the chosen threshold on the noisy signal, but the de-noised signal through the Neural Network still allows for flawless identification of the pulses and would still allow for a lower detection threshold.  
+### Example Pulse parameters
+- Starting Frequency - 1kHz
+- Ending Frequency - 20kHz
+- Pulse Repetition Frequency - 100Hz
+- Duty Cycle - 20%
 
-![image](images/image9.png)
+![image](images/Results.png)
 
-With an even further reduction in SNR, the ability to detect the pulses in the noisy signal is completely lost.  However the signal de-noised in real time through the Neural Network continues to perform well.
-
-![image](images/image6.png)
-
-Eventually a further reduction in SNR will begin to limit the performance of the de-noised signal with the Neural Network.  However, this de-noising technique does present significant improvement in performance.  On the following plot, we start to see false detections, but the true detections are still accurate.  
-
-![image](images/image2.png)
