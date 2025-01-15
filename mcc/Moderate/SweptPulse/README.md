@@ -21,7 +21,7 @@ Using the Moku:Go, we can use a single device to generate the swept pulse, but a
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-![image](images/MGo MiM Configuration.png)
+![image](images/MGoMiMConfiguration.png)
 
 ### Moku:Lab
 Using the Moku:Lab, we can use a single device to generate the swept pulse, but an additional device would be required to display the output.  The pulse timing wave will be output to channel 1 and fed back into Input A of Slot 1 to start the sweep.  The swept pulse will be output to channel 2.   
@@ -31,7 +31,7 @@ Using the Moku:Lab, we can use a single device to generate the swept pulse, but 
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-![image](images/MLab MiM Configuration.png)
+![image](images/MLabMiMConfiguration.png)
 
 ### Moku:Pro
 Using the Moku:Pro, we can use the additional available slots to not only generate the swept pulse, but also display and record the signal.  As seen in the image below, the configuration is far more complex, viewing/recording can all be done with a single device.  The pulse could be output to one of the four Moku output channels if desired with a simple modification to the included API script. 
@@ -41,7 +41,7 @@ Using the Moku:Pro, we can use the additional available slots to not only genera
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 
-![image](images/MPro MiM Configuration.png)
+![image2](images/MProMiMConfiguration.png)
 
 ## Example Pulse
 The following pulse is representative of the type of signal that would be used in a basic swept pulse system / RADAR.  The included API scripts will allow the user to specify the pulse parameters below
