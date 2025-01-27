@@ -56,7 +56,7 @@ for cnt in range(20,0,-1):
 
 	plt.subplot(3, 2, 3)
 	plt.plot(time[int(time.size *.45):int(time.size *.55)], noisey[int(time.size *.45):int(time.size *.55)],linewidth=.1)
-	plt.title('Noisey Received Pulse')
+	plt.title('Noisy Received Pulse')
 	plt.xlabel('Time (s)')
 	plt.ylabel('Amplitude (V)')
 
@@ -92,7 +92,7 @@ for cnt in range(20,0,-1):
 	plt.axvline(x=time[maxCorrRef2], color='green', linestyle='--',linewidth=1)
 	plt.legend(loc=1)
 	plt.plot(time,correlationNoisey[0:time.size], linewidth=.1)
-	plt.title('Matched Filter on Noisey Received Pulse')
+	plt.title('Matched Filter on Noisy Received Pulse')
 	plt.xlabel('Time (s)')
 	plt.ylabel('Amplitude')
 
