@@ -16,8 +16,7 @@ The following files are included to aid with reproducing the results highlighted
 ### Moku:Go
 Using the Moku:Go, we can use a single device to generate the swept pulse, but an additional device would be required to display the output.  The pulse timing wave will be output to channel 1 and fed back into Input A of Slot 1 to start the sweep.  The swept pulse will be output to channel 2.  The Moku:Go also has the ability to receive a reset signal and output the pulse mask to a Digital Input / Output (DIO) pin.
 
-- **mim\_mgo\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Go
-- **pcMask601.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Go  
+- **mim\_mgo\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Go.  **You will need to edit lines 21 and 26 for the actual IP of your device and filename of the bitstream created with the following VHDL files**
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 
@@ -26,8 +25,7 @@ Using the Moku:Go, we can use a single device to generate the swept pulse, but a
 ### Moku:Lab
 Using the Moku:Lab, we can use a single device to generate the swept pulse, but an additional device would be required to display the output.  The pulse timing wave will be output to channel 1 and fed back into Input A of Slot 1 to start the sweep.  The swept pulse will be output to channel 2.   
 
-- **mim\_mlab\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Lab
-- **pcMask601Lab.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Lab  
+- **mim\_mlab\_wg\_mcc.py** will set up the Multi-instrument mode environment on the Moku:Lab.  **You will need to edit lines 21 and 26 for the actual IP of your device and filename of the bitstream created with the following VHDL files**
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 
@@ -36,8 +34,7 @@ Using the Moku:Lab, we can use a single device to generate the swept pulse, but 
 ### Moku:Pro
 Using the Moku:Pro, we can use the additional available slots to not only generate the swept pulse, but also display and record the signal.  As seen in the image below, the configuration is far more complex, viewing/recording can all be done with a single device.  The pulse could be output to one of the four Moku output channels if desired with a simple modification to the included API script. 
 
-- **mim\_mlab\_wg\_mcc\_la\_osc.py** will set up the Multi-instrument mode environment on the Moku:Pro
-- **pcMask601Pro.tar** contains the pre-built bitstreams for the custom MCC instrument on firmware version 601 for the Moku:Pro  
+- **mim\_mlab\_wg\_mcc\_la\_osc.py** will set up the Multi-instrument mode environment on the Moku:Pro.  **You will need to edit lines 30 and 34 for the actual IP of your device and filename of the bitstream created with the following VHDL files**
 - **Top.vhd** designs the entity to create a variable frequency and duty cycle pulse mask that will work in conjunction with the Waveform Generator to output a swept frequency pulse
 - **PulseMask.vhd** describes the behavior of the PulseMask entity
 

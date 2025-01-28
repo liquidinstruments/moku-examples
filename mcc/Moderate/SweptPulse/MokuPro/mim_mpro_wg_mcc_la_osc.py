@@ -27,11 +27,11 @@ from moku.instruments import CloudCompile, WaveformGenerator, Oscilloscope, Data
 import time
 
 # Establish connection to Moku:Pro
-mp = MultiInstrument('192.168.1.226', force_connect=True, platform_id=4)
+mp = MultiInstrument('192.168.X.X', force_connect=True, platform_id=4) #Edit IP for your device
 
 try:
 
-	bitstream = "./pcMask601Pro.tar"
+	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mp.set_instrument(1, WaveformGenerator)
 	mcc = mp.set_instrument(2, CloudCompile, bitstream=bitstream)
 	dl = mp.set_instrument(3, Datalogger)

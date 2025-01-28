@@ -8,7 +8,7 @@
 # To execute without change, this example will require access to a single Moku:Go  
 #	In order to display the results, you will need another oscilloscope or data logger
 
-# Date last edited - 13 Jan 2025
+# Date last edited - 28 Jan 2025
 #
 # (c) 2025 Liquid Instruments Pty. Ltd.
 
@@ -18,12 +18,12 @@ from moku.instruments import MultiInstrument
 from moku.instruments import CloudCompile, WaveformGenerator
 
 # Establish connection to Moku:Go - Waveform Generator and MCC
-mg1 = MultiInstrument('192.168.1.136', force_connect=True, platform_id=2)
+mg1 = MultiInstrument('192.168.X.X', force_connect=True, platform_id=2) #Edit IP for your device
 
 try:
 	# Configure Moku:Go to generate pulsed signal with variable frequency and duty cycle
 
-	bitstream = "./pcMask601.tar"
+	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mg1.set_instrument(1, WaveformGenerator)
 	mcc = mg1.set_instrument(2, CloudCompile, bitstream=bitstream)
 

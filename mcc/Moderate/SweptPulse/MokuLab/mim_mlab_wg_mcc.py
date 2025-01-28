@@ -18,12 +18,12 @@ from moku.instruments import MultiInstrument
 from moku.instruments import CloudCompile, WaveformGenerator
 
 # Establish connection to Moku:Lab - Waveform Generator and MCC
-mg1 = MultiInstrument('192.168.1.163', force_connect=True, platform_id=2)
+mg1 = MultiInstrument('192.168.X.X', force_connect=True, platform_id=2) #Edit IP for your device
 
 try:
 	# Configure Moku:Lab to generate pulsed signal with variable frequency and duty cycle
 
-	bitstream = "./pcMask601Lab.tar"
+	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mg1.set_instrument(1, WaveformGenerator)
 	mcc = mg1.set_instrument(2, CloudCompile, bitstream=bitstream)
 
