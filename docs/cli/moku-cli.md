@@ -15,7 +15,9 @@ $ mokucli [OPTIONS] COMMAND [ARGS]...
 
 -   `convert`: Convert Liquid Instruments binary file to CSV, NPY, MAT and HDF5
 -   `download`: Download bitstreams for a given firmware version
+-   `feature`: Check, install and upload Moku features
 -   `files`: List, download and delete files from the Moku
+-   `firmware`: Fetch and upload Moku firmware
 -   `license`: List, fetch and reload the license entitlements
 -   `list`: Search for the mokus on network
 -   `proxy`: Run a proxy from local machine to the Moku
@@ -33,10 +35,11 @@ $ mokucli convert [OPTIONS] SOURCE
 
 ### Arguments
 
--   `SOURCE`: \[required\]
+-   `SOURCE`: \[required\] Full path, relative path or filename of the .li file to convert
 
 ### Options
 
+-   `--format [csv|npy|mat|hdf5]`: File format type to convert .li to \[default: csv\]
 -   `--help`: Show this message and exit.
 
 ### Examples
@@ -48,7 +51,7 @@ Writing "MokuDataLoggerData_20230114_142326.csv"...
 [===========================================================================]
 
 # Convert .li file to npy
-$: mokucli convert MokuDataLoggerData_20230114_142326.li --format=npy
+$: mokucli convert MokuDataLoggerData_20230114_142326.li --format npy
 Writing "MokuDataLoggerData_20230114_142326.npy"...
 [===========================================================================]
 ```
@@ -65,13 +68,13 @@ $ mokucli download [OPTIONS] FW_VER
 
 ### Arguments
 
--   `FW_VER`: \[required\]
+-   `FW_VER`: Firmware version to download \[required\]
 
 ### Options
 
+-   `--target PATH`: File path to download bitstreams to  \[default: .\]
+-   `--force / --no-force`: Force rewrite by ignoring checksum  \[default: no-force\]
 -   `--help`: Show this message and exit.
--   `target PATH`: File path to download bitstreams to  \[default: .\]
--   `force / --no-force`: Force rewrite by ignoring checksum  \[default: no-force\]
 
 ### Examples
 
@@ -80,6 +83,171 @@ $ mokucli download [OPTIONS] FW_VER
 $: mokucli download 600
 Downloading latest instruments for firmware version 600...
 [===========================================================================]
+
+# download bitstreams for firmware version 600 to target
+$: mokucli download 600 --target ".\site-packages\moku\data"
+Downloading latest instruments for firmware version 600...
+[===========================================================================]
+```
+
+## mokucli feature
+
+Check, install and upload Moku features
+
+::: warning Beta
+This functionality is currently in beta and subject to change.
+:::
+
+### Usage
+
+```console
+mokucli feature [OPTIONS] COMMAND [ARGS]...
+```
+
+### Commands
+
+-   `check`: Check for new feature updates.
+-   `install`: Install an feature to a moku
+-   `upload`: Upload a software feature
+
+### Options
+
+-   `--help`: Show this message and exit.
+
+### mokucli feature check
+
+Check for new feature updates.
+
+#### Usage
+
+```console
+mokucli feature check [OPTIONS]
+```
+
+#### Options
+
+-   `-i, --ip IP_ADDR`: IP Address of the Moku
+-   `-f, --firmware, --fw TEXT`: Firmware version to check
+-   `-h, --hardware, --hw [mokugo|mokupro|mokulab]`: Hardware version to check
+-   `-o, --offline`: Don't check for feature updates from the server, just get Moku versions. Requires --ip.
+-   `-H, --patch-host URL`: The HTTP server where index.json and feature updates can be found  \[default: <http://updates.liquidinstruments.com/static/patches/>\]
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
+# check feature and firmware on a Moku device
+$: mokucli feature check --ip 192.168.1.1 --offline
+Checking for updates for Moku-Pro:
+
+Currently installed packages:
+    api-server: 3.3.2.1
+    mercury: 601.0
+
+# check for available feature and firmware updates for a Moku device
+$: mokucli feature check --ip 192.168.1.1
+Checking for updates for Moku-Pro:
+
+Currently installed packages:
+    api-server: 3.3.2.1
+    mercury: 601.0
+
+No feature updates found
+
+# check available feature and firmware updates for hardware and firmware
+$: mokucli feature check -h mokupro -f 601
+Fetching updates for firmware mokupro-601
+
+Feature updates found:
+    api-server:  3.3.2.1
+    Notes:
+         * Fix Oscilloscope frontend configuration on a running instrument
+         * Change handling of longer Oscilloscope data frames to only contain real data
+         * Make get_data timeout handling consistent throughout the communication stack
+```
+
+### mokucli feature install
+
+Install an feature to a moku
+
+#### Usage
+
+```console
+mokucli feature install [OPTIONS] IP_ADDRESS PACKAGE
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku  \[required\]
+-   `PACKAGE`: May be the name of a feature, e.g 'rest-http' to fetch from the server or the path to a file on disk 'rest-http-mokugo-3.3.1.2.hgp'  \[required\]
+
+#### Options
+
+-   `-n, --dry-run`: Don't install the feature on the device (use with --download to just fetch feature files)
+-   `-d, --download`: Download the feature updates locally for offline installation.
+-   `-H, --patch-host URL`: The HTTP server where index.json and feature updates can be found  \[default: <http://updates.liquidinstruments.com/static/patches/>\]
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
+# upload and install software feature to your Moku device
+$: mokucli feature install 192.168.1.1 api-server
+Found api-server version  3.3.2.1
+Notes:
+     * Fix Oscilloscope frontend configuration on a running instrument
+     * Change handling of longer Oscilloscope data frames to only contain real data
+     * Make get_data timeout handling consistent throughout the communication stack
+
+Uploading api-server_mokupro_601.hgp..... Done.
+Please restart the Moku to complete the update process
+
+# download a software feature locally
+$: mokucli feature install --dry-run --download 192.168.1.1 api-server
+Found api-server version  3.3.2.1
+Notes:
+     * Fix Oscilloscope frontend configuration on a running instrument
+     * Change handling of longer Oscilloscope data frames to only contain real data
+     * Make get_data timeout handling consistent throughout the communication stack
+
+Patch written to: api-server_mokupro_601.hgp
+
+To install, use:
+
+    $ mokucli feature install 192.168.1.1 api-server_mokupro_601.hgp
+
+# upload and install a local software feature to your Moku device
+$: mokucli feature install 192.168.1.1 api-server_mokupro_601.hgp
+Uploading api-server_mokupro_601.hgp..... Done.
+Please restart the Moku to complete the update process
+```
+
+### mokucli feature upload
+
+Upload a software feature
+
+#### Usage
+
+```console
+mokucli feature upload [OPTIONS] IP_ADDRESS PATH
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku  \[required\]
+-   `PATH`: Path to the .hgp file  \[required\]
+
+#### Options
+
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
+# upload a software feature to your Moku device
+$: mokucli feature upload 192.168.1.1 api-server_mokupro_601.hgp
+Uploading api-server_mokupro_601.hgp..... Done.
+Please restart the Moku to complete the update process
 ```
 
 ## mokucli files
@@ -89,38 +257,192 @@ List, download and delete files from the Moku
 ### Usage
 
 ```console
-$ mokucli files [OPTIONS] IP_ADDRESS
+$ mokucli files [OPTIONS] COMMAND [ARGS]...
 ```
 
 ### Arguments
 
 -   `IP_ADDRESS`: IP Address of the Moku \[required\]
 
+### Commands
+
+-   `delete`: Delete files from the Moku
+-   `download`: Download files from the Moku
+-   `list`: List files from the Moku
+
 ### Options
 
--   `--action [LIST|DOWNLOAD|DELETE]`: Action to perform \[default: LIST\]
+-   `--help`: Show this message and exit.
+
+### mokucli files delete
+
+Delete files from the Moku
+
+#### Usage
+
+```console
+mokucli files delete [OPTIONS] IP_ADDRESS
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
+
+#### Options
+
 -   `--name TEXT`: Filter to apply
 -   `--help`: Show this message and exit.
 
-### Examples
+#### Examples
 
 ```bash
-# list files on the moku
-$: mokucli files 192.168.#.#
-MokuLockInAmplifierData_20230207_071706.li
-MokuDataLoggerData_20230206_155539.li
+# delete all files
+$: mokucli files delete 192.168.1.1
+Deleted file MokuLockInAmplifierData_20230207_071706.li
+Deleted file MokuDataLoggerData_20230206_155539.li
 
+# delete all files where the name contains LockInAmplifier
+$: mokucli files delete 192.168.1.1 --name "*LockInAmplifier*"
+Deleted file MokuLockInAmplifierData_20230207_071706.li
+```
+
+### mokucli files download
+
+Download files from the Moku
+
+#### Usage
+
+```console
+mokucli files download [OPTIONS] IP_ADDRESS
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
+
+#### Options
+
+-   `--name TEXT`: Filter to apply
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
 # download all files
-$: mokucli files 192.168.#.# --action DOWNLOAD
+$: mokucli files download 192.168.1.1
 Downloading MokuLockInAmplifierData_20230207_071706.li
 [##############################] Done!
 Downloading MokuDataLoggerData_20230206_155539.li
 [##############################] Done!
 
 # download all files where the name contains LockInAmplifier
-$: mokucli files 192.168.#.# --action=download --name=*LockInAmp*
+$: mokucli files download 192.168.1.1 --name "*LockInAmplifier*"
 Downloading MokuLockInAmplifierData_20230207_071706.li
 [##############################] Done!
+```
+
+### mokucli files list
+
+List files from the Moku
+
+#### Usage
+
+```console
+mokucli files list [OPTIONS] IP_ADDRESS
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku \[required\]
+
+#### Options
+
+-   `--name TEXT`: Filter to apply
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
+# list all files
+$: mokucli files list 192.168.1.1
+MokuLockInAmplifierData_20230207_071706.li
+MokuDataLoggerData_20230206_155539.li
+
+# list all files where the name contains LockInAmplifier
+$: mokucli files list 192.168.1.1 --name "*LockInAmplifier*"
+MokuLockInAmplifierData_20230207_071706.li
+```
+
+## mokucli firmware
+
+Fetch and upload Moku firmware
+
+### Usage
+
+```console
+mokucli firmware [OPTIONS] COMMAND [ARGS]...
+```
+  
+### Options
+
+-   `--help`: Show this message and exit.
+
+### Commands
+
+-   `install`: Install Moku firmware updates
+
+### mokucli firmware install
+
+Install Moku firmware updates
+
+#### Usage
+
+```console
+mokucli firmware install [OPTIONS] IP_ADDRESS [FIRMWARE_REF]
+```
+
+#### Arguments
+
+-   `IP_ADDRESS`: IP Address of the Moku  \[required\]
+-   `FIRMWARE_REF`: Firmware version or .fw file path
+
+#### Options
+
+-   `-d, --download`: Save the firmware file to disk
+-   `-w, --wait SECONDS`: Wait the given number of seconds for the device to reboot. Exits with a non-zero exit code if the device is not seen within that time.  \[default: -1\]
+-   `-H, --patch-host URL`: The HTTP server where index.json and feature updates can be found  \[default: <http://updates.liquidinstruments.com/static/patches/>\]
+-   `--help`: Show this message and exit.
+
+#### Examples
+
+```bash
+# update the firmware on the Moku device
+$: mokucli firmware install 192.168.1.1 601
+You are currently running firmware 600
+Found firmware versions:
+601 - 2024-12-16
+    Bug fixes and stability improvements
+
+Installing firmware version 601
+Uploading moku.fw............................................ Done.
+Waiting for firmware to install..
+
+# update the firmware on the Moku device and download the firmware file locally
+$: mokucli firmware install --download 192.168.1.1 601
+You are currently running firmware 600
+Found firmware versions:
+601 - 2024-12-16
+    Bug fixes and stability improvements
+
+Installing firmware version 601
+File saved to: ./moku-mokupro-601.fw
+Uploading moku.fw............................................ Done.
+Waiting for firmware to install..
+
+# update the firmware on the Moku device and from the local firmware file
+$: mokucli firmware install 192.168.1.1 moku-mokupro-601.fw
+Uploading moku.fw............................................ Done.
+Waiting for firmware to install..
 ```
 
 ## mokucli license
@@ -164,6 +486,18 @@ $ mokucli license fetch [OPTIONS] IP_ADDRESS
 -   `--path PATH`: Directory to save the license file \[default: .\]
 -   `--help`: Show this message and exit.
 
+#### Examples
+
+```bash
+# save license file to local directory
+$: mokucli license fetch 192.168.1.1
+Saving license file to ./moku-0.0-000.lic
+
+# save license file to specified directory
+$: mokucli license fetch --path ./licenses 192.168.1.1
+Saving license file to ./licenses/moku-0.0-000.lic
+```
+
 ### mokucli license list
 
 List available licenses for the given Moku device.
@@ -185,7 +519,8 @@ $ mokucli license list [OPTIONS] IP_ADDRESS
 #### Examples
 
 ```bash
-$: mokucli license list 192.168.*.*
+# list available instruments for the Moku device
+$: mokucli license list 192.168.1.1
 Entitlements
 ============
 Oscilloscope
@@ -202,7 +537,6 @@ Update license on the Moku with the latest from the Liquid Instruments license s
 
 ```console
 $ mokucli license update [OPTIONS] IP_ADDRESS
-
 ```
 
 #### Arguments
@@ -214,9 +548,21 @@ $ mokucli license update [OPTIONS] IP_ADDRESS
 -   `--filename PATH`: Path to the license file. If no file is given, the license server is queried.
 -   `--help`: Show this message and exit.
 
+#### Examples
+
+```bash
+# update license on the Moku device from the license server
+$: mokucli license update 192.168.1.1
+Reloaded license on Moku 192.168.1.1
+
+# update license on the Moku device from the local license file
+$: mokucli license update --filename moku-0.0-000.lic 192.168.1.1
+Uploaded license ./moku-0.0-000.lic to Moku 192.168.1.1
+```
+
 ## mokucli list
 
-Search for the mokus on network and display the results
+Search for the Moku devices on network and display the results
 
 ### Usage
 
@@ -231,6 +577,7 @@ $ mokucli list [OPTIONS]
 ### Examples
 
 ```bash
+# list the Moku devices on your network
 $: mokucli list
 Name                 Serial  HW     FW     IP
 --------------------------------------------------------
@@ -259,6 +606,7 @@ $ mokucli proxy [OPTIONS] IP_ADDRESS
 ### Example
 
 ```bash
+# run a proxy from your local machine to your Moku device
 $: mokucli proxy 192.168.1.1
 Running a proxy from 192.168.1.1 to localhost:8090
 ```
@@ -273,7 +621,7 @@ Stream the LI binary data from Moku onto a local network port, `stdout`, or to a
 $ mokucli stream [OPTIONS]
 ```
 
-### options
+### Options
 
 -   `--ip-address TEXT`: IP address of the Moku
 -   `--stream-id TEXT`: Stream ID, this is part of `start_streaming` response.
@@ -287,9 +635,11 @@ $ mokucli stream [OPTIONS]
 
 ```bash
 # stream to TCP port 8005
-$: mokucli --ip-address=192.168.1.1 --stream-id=logsink0 --target=8005
+$: mokucli --ip-address 192.168.1.1 --stream-id logsink0 --target 8005
+
 # stream to stream_data.csv file
-$: mokucli --ip-address=192.168.1.1 --stream-id=logsink0 --target=stream_data.npy
+$: mokucli --ip-address 192.168.1.1 --stream-id logsink0 --target stream_data.npy
+
 # stream to standard out
-$: mokucli --ip-address=192.168.1.1 --stream-id=logsink0 --target=-
+$: mokucli --ip-address 192.168.1.1 --stream-id logsink0 --target -
 ```
