@@ -90,6 +90,37 @@ Downloading latest instruments for firmware version 600...
 [===========================================================================]
 ```
 
+### Finding the target path Python
+
+Find the path of your moku installation by looking at the location,
+in the example below this is the line:
+`Location: C:\Users\venv\Lib\site-packages` with `\moku\data` appended.
+You may need to manually create the data folder before downloading the
+bitstreams to this path.
+
+```bash
+# finding the target path for moku python installation
+$: pip show moku
+Name: moku
+Version: 3.3.3
+Summary: Python scripting interface to the Liquid Instruments Moku hardware
+Home-page: https://liquidinstruments.com
+Author: Liquid Instruments
+Author-email: info@liquidinstruments.com
+License: MIT
+Location: C:\Users\venv\Lib\site-packages
+Requires: requests
+Required-by:
+
+# check for or create the data folder
+$: mkdir C:\Users\venv\Lib\site-packages\moku\data
+
+# download bitstreams for firmware version 600 to target from location
+$: mokucli download 600 --target "C:\Users\venv\Lib\site-packages\moku\data"
+Downloading latest instruments for firmware version 600...
+[===========================================================================]
+```
+
 ## mokucli feature
 
 Check, install and upload Moku features
