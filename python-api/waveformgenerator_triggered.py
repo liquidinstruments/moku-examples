@@ -5,7 +5,7 @@
 # to generate a gated sine wave on Channel 1, and a swept frequency square wave
 # on Channel 2.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import WaveformGenerator

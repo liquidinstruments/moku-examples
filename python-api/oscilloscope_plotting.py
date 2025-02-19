@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Oscilloscope instrument,
 # and view triggered time-voltage data frames in real-time.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 from moku.instruments import Oscilloscope

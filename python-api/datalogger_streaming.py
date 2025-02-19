@@ -4,7 +4,7 @@
 # This example demonstrates use of the Datalogger instrument to
 # stream time-series voltage data and plot it using matplotlib
 #
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 

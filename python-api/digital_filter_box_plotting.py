@@ -8,7 +8,7 @@
 # a highpass Elliptic filter. The output of both filters are then
 # displayed on the plot.
 #
-# (c) 2023 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt

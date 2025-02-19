@@ -4,7 +4,7 @@
 # This example demonstrates how you can use the Waveform Generator
 # instrument to generate a sinewave on Channel 1 and a squarewave on Channel 2.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import WaveformGenerator
 

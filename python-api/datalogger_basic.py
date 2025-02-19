@@ -4,7 +4,7 @@
 # This example demonstrates use of the Datalogger instrument to log time-series
 # voltage data to a (Binary or CSV) file.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import os
 import time

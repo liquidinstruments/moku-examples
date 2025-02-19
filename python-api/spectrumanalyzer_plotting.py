@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Spectrum Analyzer
 # instrument and plot its spectrum data in real-time. 
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import logging
 

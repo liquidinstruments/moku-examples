@@ -6,7 +6,7 @@
 # The signal amplitude is calculated using these samples, and plotted for
 # real-time viewing.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter
