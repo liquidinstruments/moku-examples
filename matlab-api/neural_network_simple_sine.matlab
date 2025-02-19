@@ -6,7 +6,7 @@
 % viewing the output in the oscilloscope. This uses the network generated 
 % in the Simple Sine wave example.
 %
-% (c) 2024 Liquid Instruments Pty. Ltd.
+%  (c) 2025 Liquid Instruments Pty. Ltd.
 
 m = MokuMultiInstrument('10.1.XXX.XXX', 4, force_connect=true, timeout=60);
 

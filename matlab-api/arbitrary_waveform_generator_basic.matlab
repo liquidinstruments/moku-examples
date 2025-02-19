@@ -3,7 +3,7 @@
 %  This example demonstrates how you can configure the Arbitrary Waveform 
 %  Generator instrument to generate two signals. 
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) 2025 Liquid Instruments Pty. Ltd.
 %
 % 
 %% Prepare the waveforms

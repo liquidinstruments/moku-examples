@@ -3,7 +3,7 @@
 %  This example will demonstrate how to configure the power supply
 %  units of the Moku:Go.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) 2025 Liquid Instruments Pty. Ltd.
 %
 
 % Connect to your Moku by its IP address.
