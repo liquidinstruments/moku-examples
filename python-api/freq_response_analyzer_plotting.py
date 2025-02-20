@@ -5,7 +5,7 @@
 # Frequency Response Analyzer instrument, and view transfer function data
 # in real-time.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 from moku.instruments import FrequencyResponseAnalyzer

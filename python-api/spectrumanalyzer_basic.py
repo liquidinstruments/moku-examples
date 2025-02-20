@@ -4,7 +4,7 @@
 # This example demonstrates how you can use the Spectrum Analyzer instrument to
 # to retrieve a single spectrum data frame over a set frequency span.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import SpectrumAnalyzer
 

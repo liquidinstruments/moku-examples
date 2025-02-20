@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Time and Frequency Analyzer
 # instrument, and view histogram data frames in real-time.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 import numpy as np

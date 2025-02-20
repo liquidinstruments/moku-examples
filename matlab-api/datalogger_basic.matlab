@@ -2,7 +2,7 @@
 %
 %  This example demonstrates how you can configure the Datalogger instrument.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) 2025 Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku

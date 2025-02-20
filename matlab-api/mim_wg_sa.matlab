@@ -3,7 +3,7 @@
 %  This example demonstrates how you can configure the multi instrument mode
 % with Waveform Generator in slot1 and SpectrumAnalyzer in slot2
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) 2025 Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku

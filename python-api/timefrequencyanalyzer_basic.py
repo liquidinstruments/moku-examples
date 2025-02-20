@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Time and Frequency Analyzer
 # instrument, and view the statistics of the intervals.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) 2025 Liquid Instruments Pty. Ltd.
 #
 from pprint import pprint
 from moku.instruments import TimeFrequencyAnalyzer
