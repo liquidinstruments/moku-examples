@@ -131,6 +131,7 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
+			['examples/', 'Overview'],
                         getChildren('Python', 'moku-examples/python-api'),
                         getChildren('MatLab', 'moku-examples/matlab-api'),
                         getChildren(
