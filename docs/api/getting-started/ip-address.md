@@ -22,10 +22,6 @@ $: moku list
 
 ## USB Connection
 
-:::warning USB is Moku:Go Only
-The Moku:Pro doesn't yet support API over USB. Please connect using Ethernet or WiFi, and use one of the above methods to discover the IP address
-:::
-
 API support over the USB is possible as the USB link presents as an Ethernet interface. The interface is configured to have an IPv6 Link-Local address only, which can be found using any of the methods above. IPv6 support is limited in some environments, see below.
 
 <!-- Your Moku uses IPv6 over USB, it will have a pre-determined IPv6 address based on its serial number. You can find this address by entering your serial number in to the calculator below.
