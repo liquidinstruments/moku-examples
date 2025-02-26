@@ -20,4 +20,10 @@ The Moku Scripting API for MATLAB requires MATLAB R2014b or newer.
 
 ## Other Languages
 
-Other languages can use the Moku REST API directly. A range of examples have been [compiled for other languages here](../moku-examples/other-language-api).
+Other languages can use the Moku REST API directly. A range of examples have been compiled for other languages.
+<action-button text="Other Languages Examples" link="../moku-examples/other-language-api/"/>
+
+## Examples Repository
+
+You can visit our GitHub examples repository to find more examples.
+<action-button text="GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main"/>
