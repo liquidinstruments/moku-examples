@@ -27,18 +27,6 @@ getters:
      mokupro: 1, 2, 3, 4
     type: integer
     unit: null
-- summary: get_input_gain
-  description: Get the input gain for given input channel
-  parameters:
-  - default: null
-    description: Target channel
-    name: channel
-    param_range:
-     mokugo: 1, 2
-     mokulab: 1, 2
-     mokupro: 1, 2, 3, 4
-    type: integer
-    unit: null
 - summary: get_input_offset
   description: Get the input offset for given input channel
   parameters:
