@@ -33,6 +33,7 @@
     "isempty",
     "jsondecode",
     "Jsoner",
+    "keras",
     "labview",
     "laserlockbox",
     "levelname",
@@ -59,6 +60,7 @@
     "mokus",
     "Mokus",
     "netsh",
+    "neuralnetwork",
     "nexttile",
     "nonebot",
     "nullptr",
@@ -98,12 +100,14 @@
     "tiledlayout",
     "timebase",
     "timebases",
+    "Traceback",
     "Tukey",
     "UART",
     "unmarshalled",
     "unmarshalling",
     "urllib3",
     "usec",
+    "venv",
     "VIPM",
     "Vrms",
     "vuepress",
@@ -120,6 +124,12 @@
   "ignorePaths": [
     "public",
     "tools",
-    "specs"
+    "specs",
+    "*.tar",
+    "*.slx",
+    "*.xlsm",
+    "*.csv",
+    "*.mp4",
+    "*.keras"
   ]
 }
