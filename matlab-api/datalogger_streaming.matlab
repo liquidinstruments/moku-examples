@@ -3,7 +3,7 @@
 %  This example demonstrates how you can configure the Datalogger instrument,
 %  and view triggered time-voltage data stream in real-time.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku

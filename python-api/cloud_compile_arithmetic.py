@@ -5,7 +5,7 @@
 # add, subtract or multiply two input signals using the control registers
 # and output the result to the Oscilloscope.
 #
-#  (c) 2024 Liquid Instruments Pty. Ltd.
+#  (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt

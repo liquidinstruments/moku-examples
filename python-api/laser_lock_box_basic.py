@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Laser Lock Box
 # Instrument and monitor the signals at Input 1 and Input 2.
 
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import LaserLockBox

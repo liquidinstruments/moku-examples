@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Phasemeter
 # instrument to measure 4 independent signals.
 
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter

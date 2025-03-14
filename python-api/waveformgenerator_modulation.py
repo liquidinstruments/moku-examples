@@ -5,7 +5,7 @@
 # to generate an amplitude modulated sine wave on Channel 1, and a sweep
 # modulated sine wave on Channel 2.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import WaveformGenerator
 

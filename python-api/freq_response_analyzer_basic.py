@@ -5,7 +5,7 @@
 # Frequency Response Analyzer instrument, and view one frame of the transfer
 # function data.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import FrequencyResponseAnalyzer
 

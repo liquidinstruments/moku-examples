@@ -4,7 +4,7 @@
 %  instrument to retrieve a single spectrum data frame over a set frequency 
 %  span.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to the Moku

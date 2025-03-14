@@ -8,7 +8,7 @@
 # The output response of each PID Controller channel is plotted
 # in real-time.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 from moku.instruments import PIDController

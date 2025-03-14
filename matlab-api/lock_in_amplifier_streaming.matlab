@@ -5,7 +5,7 @@
 %  signal from the Local Oscillator to extract the X component and generate
 %  a sine wave on the auxiliary output
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku

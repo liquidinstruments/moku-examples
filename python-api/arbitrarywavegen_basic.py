@@ -4,7 +4,7 @@
 # This example demonstrates how you can generate and output arbitrary
 # waveforms using Moku AWG
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator

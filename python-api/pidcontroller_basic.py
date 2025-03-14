@@ -4,7 +4,7 @@
 # in the PID Controller instrument. Configuration is done by specifying
 # frequency response characteristics of the controller.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import PIDController

@@ -4,7 +4,7 @@
 % with Waveform Generator in slot1 and Oscilloscope in slot2
 %  and view triggered time-voltage data frames in real-time.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku

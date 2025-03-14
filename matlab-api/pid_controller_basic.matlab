@@ -2,7 +2,7 @@
 %
 %  This example demonstrates how you can configure the PID Controller instrument.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 % Connect to your Moku and deploy the PID controller instrument

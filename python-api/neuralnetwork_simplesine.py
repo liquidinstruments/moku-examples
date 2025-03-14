@@ -6,7 +6,7 @@
 # viewing the output in the oscilloscope. This uses the network generated 
 # in the Simple Sine wave example.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 
 import matplotlib.pyplot as plt
 

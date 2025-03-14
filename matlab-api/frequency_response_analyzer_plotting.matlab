@@ -4,7 +4,7 @@
 % Frequency Response Analyzer instrument, and view transfer function data 
 % in real-time.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Define sweep parameters here for readability

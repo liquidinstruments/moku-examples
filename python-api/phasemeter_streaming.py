@@ -5,7 +5,7 @@
 # and processes it live. The contents of each data sample are printed out,
 # along with the signal amplitude which may be calculated as A = sqrt(I^2 + Q^2).
 # 
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter

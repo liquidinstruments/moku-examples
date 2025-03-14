@@ -7,7 +7,7 @@
 % a highpass Elliptic filter. The output of both filters are then
 % displayed on the plot.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to the Moku

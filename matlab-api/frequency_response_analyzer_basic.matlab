@@ -3,7 +3,7 @@
 % This example demonstrates how you can generate output sweeps using the
 % Frequency Response Analyzer instrument and retrieve a single sweep frame.
 %
-%  (c) 2025 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Define sweep parameters here for readability

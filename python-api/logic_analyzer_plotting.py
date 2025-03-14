@@ -4,7 +4,7 @@
 # This example demonstrates how to use Pattern Generator in
 # Logic Analyzer and generate and observe patterns on DIO pins.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt

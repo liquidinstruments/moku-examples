@@ -5,7 +5,7 @@
 # Multi-Instrument mode, to add and subtract two input signals together and
 # output the result to the Oscilloscope.
 #
-#  (c) 2024 Liquid Instruments Pty. Ltd.
+#  (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt

@@ -4,7 +4,7 @@
 # This script demonstrates how to use the Oscilloscope instrument
 # to retrieve a single frame of dual-channel voltage data.
 #
-# (c) 2025 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import Oscilloscope
 
