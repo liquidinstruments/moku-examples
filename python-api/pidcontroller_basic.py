@@ -10,7 +10,8 @@
 from moku.instruments import PIDController
 
 # Connect to your Moku by its ip address using PIDController('192.168.###.###')
-i = PIDController('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = PIDController('192.168.###.###', force_connect=True)
 
 try:
     # Configures the control matrix:

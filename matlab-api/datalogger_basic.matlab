@@ -7,7 +7,8 @@
 
 %% Connect to your Moku
 % Connect to your Moku and deploy the oscilloscope instrument
-i = MokuDatalogger('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuDatalogger('192.168.###.###', force_connect=true);
 
 try
 

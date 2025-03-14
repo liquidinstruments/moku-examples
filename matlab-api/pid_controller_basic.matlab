@@ -6,7 +6,8 @@
 %
 
 % Connect to your Moku and deploy the PID controller instrument
-i = MokuPIDController('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuPIDController('192.168.###.###', force_connect=true);
 
 try
     

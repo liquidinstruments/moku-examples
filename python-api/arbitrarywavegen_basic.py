@@ -24,7 +24,8 @@ for h in np.arange(1, 15, 2):
 not_sq = not_sq / max(abs(not_sq))
 
 # Connect to your Moku by its ip address ArbitraryWaveformGenerator('192.168.###.###')
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Load and configure the waveform.

@@ -8,7 +8,8 @@
 
 %% Connect to your Moku
 % Connect to your Moku and deploy the Phasemeter instrument
-i = MokuPhasemeter('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 
 try
     % Set frontend of all input channels to 50 Ohm, DC coupled, 4 Vpp

@@ -7,7 +7,8 @@
 
 %% Connect to your Moku
 % Connect to your Moku and deploy the Logic Analyzer instrument
-i = MokuLogicAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuLogicAnalyzer('192.168.###.###', force_connect=true);
 
 try
     patterns = [struct('pin', 1, 'pattern', repmat([1],1,1024)), ...

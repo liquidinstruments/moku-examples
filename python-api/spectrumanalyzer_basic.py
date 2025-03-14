@@ -9,7 +9,8 @@
 from moku.instruments import SpectrumAnalyzer
 
 # Connect to your Moku by its ip address using SpectrumAnalyzer('192.168.###.###')
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
 
 # Deploy the Spectrum Analyzer to your Moku
 try:

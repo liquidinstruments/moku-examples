@@ -14,7 +14,8 @@ from moku.instruments import MultiInstrument, CloudCompile, Oscilloscope
 
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
-m = MultiInstrument('192.168.###.###', platform_id=2)
+# force_connect will overtake an existing connection
+m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 
 try:
     # Set the instruments and upload Cloud Compile bitstreams from your device

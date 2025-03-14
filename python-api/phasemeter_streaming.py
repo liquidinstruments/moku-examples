@@ -13,7 +13,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-i = Phasemeter('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set samplerate to 150 Hz/s

@@ -23,6 +23,7 @@ import numpy as np
 from moku.instruments import Oscilloscope
 
 # Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
+# force_connect will overtake an existing connection
 i = Oscilloscope('XXX.XXX.X.XXX', force_connect=True)
 
 NUM_FRAMES = 1  # This is the number of frames to be averaged

@@ -9,7 +9,8 @@
 %% Connect to your Moku
 % Connect to your Moku by its IP address and deploy the Laser Lock Box
 % instrument.
-i = MokuLaserLockBox('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuLaserLockBox('192.168.###.###', force_connect=true);
 
 try
     %% Configure the instrument

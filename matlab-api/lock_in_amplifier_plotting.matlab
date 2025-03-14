@@ -11,7 +11,8 @@
 %% Connect to your Moku
 % Connect to your Moku by its IP address and deploy the Lock-in Amplifier 
 % instrument.
-i = MokuLockInAmp('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuLockInAmp('192.168.###.###', force_connect=true);
 
 try
     %% Configure the instrument

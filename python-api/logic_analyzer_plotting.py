@@ -12,7 +12,8 @@ from moku.instruments import LogicAnalyzer
 
 # Connect to your Moku by its ip address using
 # LogicAnalyzer('192.168.###.###')
-i = LogicAnalyzer('192.168.###.###')
+# force_connect will overtake an existing connection
+i = LogicAnalyzer('192.168.###.###', force_connect=True)
 
 try:
 

@@ -15,7 +15,8 @@ logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s::%(message)s')
 logging.getLogger('moku_client').setLevel(logging.INFO)
 
 # Connect to your Moku by its ip address using SpectrumAnalyzer('192.168.###.###')
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
 
 try:
     # Configure the Spectrum Analyzer 

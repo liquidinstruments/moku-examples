@@ -11,7 +11,8 @@
 from moku.instruments import WaveformGenerator
 
 # Connect to your Moku by its ip address using WaveformGenerator('192.168.###.###')
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = WaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Set sine wave to channel 1 and square wave to channel 2

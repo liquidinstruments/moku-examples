@@ -11,7 +11,8 @@ from moku.instruments import Oscilloscope
 # Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
 # An instrument must be deployed to establish the connection with the
 # Moku, in this example we will use the Oscilloscope.
-i = Oscilloscope('192.168.xxx.xxx', force_connect=False)
+# force_connect will overtake an existing connection
+i = Oscilloscope('192.168.xxx.xxx', force_connect=True)
 
 try:
     # Configure Power Supply Unit 1 to 2 V and 0.1 A

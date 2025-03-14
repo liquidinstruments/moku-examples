@@ -22,7 +22,8 @@ not_square_wave = not_square_wave / max(not_square_wave);
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
    
-i = MokuArbitraryWaveformGenerator('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 
 try
  

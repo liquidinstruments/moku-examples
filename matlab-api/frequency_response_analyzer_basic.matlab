@@ -17,7 +17,8 @@ settling_cycles = 1;
 
 %% Connect to Moku
 % Connect to your Moku using its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
 
 try
 

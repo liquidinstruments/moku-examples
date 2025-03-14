@@ -10,7 +10,8 @@
 from moku.instruments import Phasemeter
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-i = Phasemeter('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range

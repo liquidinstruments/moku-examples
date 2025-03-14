@@ -8,7 +8,8 @@
 
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
-i = MokuTimeFrequencyAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuTimeFrequencyAnalyzer('192.168.###.###', force_connect=true);
 
 try
 

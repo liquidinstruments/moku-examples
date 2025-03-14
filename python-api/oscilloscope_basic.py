@@ -9,7 +9,8 @@
 from moku.instruments import Oscilloscope
 
 # Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
-i = Oscilloscope('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Oscilloscope('192.168.###.###', force_connect=True)
 
 try:
     # Set the span to from -1ms to 1ms i.e. trigger point centred

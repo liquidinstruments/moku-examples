@@ -10,6 +10,7 @@ from pprint import pprint
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Connect to your Moku by its ip address using TimeFrequencyAnalyzer('192.168.###.###')
+# force_connect will overtake an existing connection
 i = TimeFrequencyAnalyzer('192.168.###.###', force_connect=True)
 
 try:

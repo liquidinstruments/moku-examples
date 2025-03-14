@@ -12,7 +12,8 @@ import time
 from moku.instruments import Datalogger
 
 # Connect to your Moku by its ip address using Datalogger('192.168.###.###')
-i = Datalogger('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Datalogger('192.168.###.###', force_connect=True)
 
 try:
     # Configure the frontend

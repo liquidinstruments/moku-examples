@@ -9,7 +9,8 @@
 
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
-i = MokuSpectrumAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuSpectrumAnalyzer('192.168.###.###', force_connect=true);
 
 try
     

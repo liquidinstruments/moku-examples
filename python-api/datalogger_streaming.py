@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import Datalogger
 
-i = Datalogger('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Datalogger('192.168.###.###', force_connect=True)
 
 try:
     # generate a waveform on output channel 1
