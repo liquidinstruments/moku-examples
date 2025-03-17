@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from moku.instruments import Datalogger, LockInAmp, MultiInstrument
 
 # force_connect will overtake an existing connection
-i = MultiInstrument('192.168.xxx.xxx', platform_id=2, force_connect=True)
+i = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 
 try:
     dl = i.set_instrument(1, Datalogger)

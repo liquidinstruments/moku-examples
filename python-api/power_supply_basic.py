@@ -12,7 +12,7 @@ from moku.instruments import Oscilloscope
 # An instrument must be deployed to establish the connection with the
 # Moku, in this example we will use the Oscilloscope.
 # force_connect will overtake an existing connection
-i = Oscilloscope('192.168.xxx.xxx', force_connect=True)
+i = Oscilloscope('192.168.###.###', force_connect=True)
 
 try:
     # Configure Power Supply Unit 1 to 2 V and 0.1 A

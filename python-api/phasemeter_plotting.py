@@ -16,7 +16,7 @@ import numpy as np
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
 # force_connect will overtake an existing connection
-i = Phasemeter("192.168.###.###", force_connect=True)
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set samplerate to 37 Hz/s

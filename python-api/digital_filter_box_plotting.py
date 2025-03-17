@@ -19,7 +19,7 @@ from moku.instruments import DigitalFilterBox
 # Connect to your Moku by its ip address using
 # DigitalFilterBox('192.168.###.###')
 # force_connect will overtake an existing connection
-i = DigitalFilterBox('192.168.2.125', force_connect=True)
+i = DigitalFilterBox('192.168.###.###', force_connect=True)
 
 try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
