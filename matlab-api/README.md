@@ -9,6 +9,22 @@ sidebarDepth: 1
 ### arbitrary_waveform_generator_basic.m
 <<< @/docs/api/moku-examples/matlab-api/arbitrary_waveform_generator_basic.matlab
 
+## Cloud Compile
+
+### cloud_compile_adder.m
+
+This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the
+[Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/Adder)
+
+<<< @/docs/api/moku-examples/matlab-api/cloud_compile_adder.matlab
+
+### cloud_compile_arithmetic.m
+
+This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the
+[Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Moderate/ArithmeticUnit)
+
+<<< @/docs/api/moku-examples/matlab-api/cloud_compile_arithmetic.matlab
+
 ## Data Logger
 ### datalogger_basic.m
 <<< @/docs/api/moku-examples/matlab-api/datalogger_basic.matlab
