@@ -11,7 +11,8 @@ If at any point, your output doesn't match what's listed below, please refer to 
 
 Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the mokucli commandline tool. Then download the required firmware version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
 
-```
+```python
+$ pip install moku
 $ mokucli download 600
 $ python
 >>> from moku.instruments import Oscilloscope
@@ -19,7 +20,7 @@ $ python
 >>> osc.get_data()
 ```
 
-You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the [Troubleshooting](#troubleshooting) section.
+You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please follow the [Full Procedure](#full-procedure) below or refer to the [Troubleshooting](#troubleshooting) section.
 
 ## Full Procedure
 
@@ -27,20 +28,27 @@ You should see an array of data captured from your newly-deployed Oscilloscope o
 
 At a command prompt (e.g. cmd.exe, Windows Terminal, MacOS Terminal) check your Python version. It should be greater than or equal to `3.5.0`. In particular, Python 2 (e.g. `2.7.0`) is not supported.
 
-```
+```bash
 $: python --version
 Python 3.9.0
 ```
 
-### 2. Install `mokucli` Library
+### 2. Install the `moku` Library and `mokucli` Utility
 
-At a command prompt, install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the simple Python command listed below. If the output begins the same as the output shown below, then the installation has succeeded. Read more about Moku CLI (mokucli) command line features [here](../../cli).
+At a command prompt, install the `moku` library using `pip`. You can check that the installation succeeded by running the Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
 
-```text
+```bash
+$: pip install moku
+$: python -c 'import moku'
+```
+
+Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about Moku CLI (mokucli) command line features [here](../../cli).
+
+```bash
 $ mokucli --help
 Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 
-  MOKU command line utlity
+  MOKU command line utility
 
   Version: X.X.X
 ...
@@ -52,11 +60,40 @@ The Moku Scripting API for Python requires data files to be downloaded before an
 
 At a terminal or command prompt, issue the download command. This may take a while to complete, depending on your internet connection.
 
-```
+```bash
 $: mokucli download 600
-Downloading latest instruments for firmware version 591...
+Downloading latest instruments for firmware version 600...
 [===========================================================================]
 ```
+
+You may need to point directly to your installation of the `moku` package. You can do this by finding the path of your moku installation, creating a data folder and downloading the data files to this path.
+
+Find the path of your moku installation by looking at the location, in the example below this is the line: `Location: C:\Users\venv\Lib\site-packages` with `\moku\data` appended. You may need to manually create the data folder before downloading the bitstreams to this path using `mkdir`.
+
+```bash
+# finding the target path for moku python installation
+$: pip show moku
+Name: moku
+Version: 3.3.3
+Summary: Python scripting interface to the Liquid Instruments Moku hardware
+Home-page: https://liquidinstruments.com
+Author: Liquid Instruments
+Author-email: info@liquidinstruments.com
+License: MIT
+Location: C:\Users\venv\Lib\site-packages
+Requires: requests
+Required-by:
+
+# check for or create the data folder
+$: mkdir C:\Users\venv\Lib\site-packages\moku\data
+
+# download bitstreams for firmware version 600 to target from location
+$: mokucli download 600 --target "C:\Users\venv\Lib\site-packages\moku\data"
+Downloading latest instruments for firmware version 600...
+[===========================================================================]
+```
+
+If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
 
 ### 4. Find Your IP Address
 
@@ -110,17 +147,16 @@ You must upgrade your Python to 3.5 or newer. See the installation instructions 
 
 #### ModuleNotFoundError: No module named 'moku'
 
-If you are trying to install the `moku` Library with `pip install moku` \[depricated\] you may find that Python cannot find the newly-installed `moku` library. This commonly occurs for one of two reasons:
+If you are trying to install the `moku` Library with `pip install moku` you may find that Python cannot find the newly-installed `moku` library. This commonly occurs for one of two reasons:
 
 -   The `pip` command didn't complete successfully, OR
 -   A problem in your Python installation means that your `pip` and `python` executables have got out of sync with each other.
 
 If you are sure that the `pip` command completed successfully, then you can resolve the problem option by executing `pip` directly from the Python installation, rather than separately.
 
-```
+```bash
 $: python -m pip install moku
 $: python -c 'import moku'
-$:
 ```
 
 #### Connection to (ip address) timed out, Max retries exceeded
@@ -141,7 +177,7 @@ This extends to environments inside your computer where IPv6 may be limited, suc
 
 This is usually seen when using USB and comes from the underlying libraries being unable to decipher the Link Local address used. This can be fixed by updating those libraries as follows.
 
-```
+```bash
 $: python -m pip install --upgrade urllib3 requests
 ```
 
@@ -185,13 +221,13 @@ ValueError: invalid literal for int() with base 10: '600.0'
 
 This indicates that you are using an older version of the client package. To resolve this issue, please ensure you have the latest version installed.
 
-## `moku` Library [deprecated]
+## `moku download` Command [deprecated]
 
-Previously you could download the bitstreams with the `moku` library with the following instructions. This has been deprecated and you should use the [mokucli](../../cli) commands and instructions.
+Previously you could download the bitstreams with the `moku` library with the following instructions. This has been deprecated and you should use the [mokucli](../../cli/moku-cli.md#mokucli-download) commands and instructions.
 
-At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
+At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section.
 
-```
+```python
 $ pip install moku
 $ moku download
 $ python
