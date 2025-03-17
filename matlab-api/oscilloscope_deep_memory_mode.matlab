@@ -18,7 +18,7 @@
 NUM_FRAMES = 1;
 
 % force_connect will overtake an existing connection
-i = MokuOscilloscope('192.168.###.###', true, force_connect=true); % Connect to your moku device by its IP address
+i = MokuOscilloscope('192.168.###.###', force_connect=true); % Connect to your moku device by its IP address
 
 try
  
