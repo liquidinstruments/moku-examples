@@ -6,17 +6,24 @@
 %
 %  (c) Liquid Instruments Pty. Ltd.
 %
+%% Before running
+% The 'Adder' example is located at:
+% (https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/Adder)
+%
+% Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
+% contains 2 or 4 .bar files depending on Moku hardware. The bitstream path
+% should point to this unzipped folder.
 
 %% Connect to your Moku
-% Configure multi-instrument with platform_id 2
+% Connect to Moku via its IP address. Change platform_id to 2 for Moku:Lab and Moku:Go.
 % force_connect will overtake an existing connection
-m = MokuMultiInstrument('192.168.###.###', 2, force_connect=true);
+m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 
 try
     %% Configure the instruments
     % Set the instruments and upload Cloud Compile bitstreams from your device
     % to your Moku
-    bitstream = 'path/to/project/adder/bitstreams.tar';
+    bitstream = 'path/to/project/adder/unzipped_bitstream';
     mcc = m.set_instrument(1, @MokuCloudCompile, bitstream);
     osc = m.set_instrument(2, @MokuOscilloscope);
 
@@ -37,26 +44,20 @@ try
     % Set the time span to cover four cycles of the waveforms
     osc.set_timebase(-2e-3, 2e-3);
 
-    %% Set up plots
+    %% Plot the acquired data and set up plotting parameters
     % Get initial data to set up plots
-    data = osc.get_data();
+    data = osc.get_data('wait_complete', true);
 
     % Set up the plots
     figure
-    lh = plot(data.time, data.ch1, data.time, data.ch2);
+    plot(data.time, data.ch1);
+    hold on
+    plot(data.time, data.ch2);
     xlabel(gca, 'Time (sec)')
     ylabel(gca, 'Amplitude (V)')
     legend('Add', 'Subtract')
-
-    %% Receive and plot new data frames
-    while 1
-        data = osc.get_data();
-        set(lh(1), 'XData', data.time, 'YData', data.ch1);
-        set(lh(2), 'XData', data.time, 'YData', data.ch2);
-
-        axis tight
-        pause(0.1)
-    end
+    grid on;
+    axis tight;
 
 catch ME
     % End the current connection session with your Moku
