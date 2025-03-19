@@ -45,7 +45,8 @@ try:
     i.burst_modulate(channel=2, trigger_source='Input1', trigger_mode='NCycle', burst_cycles=3, trigger_level=0.1)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 
 finally:
     # Close the connection to the Moku device

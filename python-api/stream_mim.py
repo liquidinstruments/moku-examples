@@ -50,6 +50,7 @@ try:
             plt.pause(0.001)
 
 except Exception as e:
-    print(e)
+    i.relinquish_ownership()
+    raise e
 finally:
     i.relinquish_ownership()

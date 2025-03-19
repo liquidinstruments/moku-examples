@@ -50,6 +50,7 @@ try:
 
 except Exception as e:
     i.stop_streaming()
-    print(e)
+    i.relinquish_ownership()
+    raise e
 finally:
     i.relinquish_ownership()

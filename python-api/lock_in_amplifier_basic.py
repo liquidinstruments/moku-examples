@@ -33,7 +33,8 @@ try:
     i.set_aux_output(1e6, 0.5)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

@@ -87,7 +87,8 @@ try:
         ydata2 = ydata2[-1000:]
 
 except Exception as e:
-    print(f"Exception Occurred: {e}")
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

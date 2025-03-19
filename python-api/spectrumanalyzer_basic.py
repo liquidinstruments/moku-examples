@@ -24,7 +24,8 @@ try:
     print(data['ch1'], data['ch2'], data['frequency'])
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

@@ -88,6 +88,7 @@ try:
             plt.pause(0.001)
 except MokuException as e:
     print("Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device.")
+    i.relinquish_ownership()
     raise e
 finally:
     # Releasing ownership of the Moku allows other users to connect

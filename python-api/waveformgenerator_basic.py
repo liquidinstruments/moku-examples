@@ -19,7 +19,8 @@ try:
     i.generate_waveform(channel=2, type='Square', amplitude=1.0, frequency=1e3, duty=50)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly
