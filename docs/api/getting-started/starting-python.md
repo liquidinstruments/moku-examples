@@ -58,15 +58,7 @@ Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 
 The Moku Scripting API for Python requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
 
-At a terminal or command prompt, issue the download command. This may take a while to complete, depending on your internet connection.
-
-```bash
-$: mokucli download 600
-Downloading latest instruments for firmware version 600...
-[===========================================================================]
-```
-
-You may need to point directly to your installation of the `moku` package. You can do this by finding the path of your moku installation, creating a data folder and downloading the data files to this path.
+You will need to point directly to your installation of the `moku` package. You can do this by finding the path of your moku installation, creating a data folder and downloading the data files to this path.
 
 Find the path of your moku installation by looking at the location, in the example below this is the line: `Location: C:\Users\venv\Lib\site-packages` with `\moku\data` appended. You may need to manually create the data folder before downloading the bitstreams to this path using `mkdir`.
 
