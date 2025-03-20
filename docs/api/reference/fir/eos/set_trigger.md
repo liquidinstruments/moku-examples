@@ -71,9 +71,9 @@ parameters:
       type: number
       unit: Seconds
     - default: 1e-3
-      description: Absolute hysteresis value
+      description: Absolute hysteresis around trigger
       name: hysteresis
-      param_range: 1e-4 to 1
+      param_range: null
       type: number
       unit: V
     - default: true
