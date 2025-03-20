@@ -4,12 +4,13 @@
 # This example demonstrates how you can configure the Time and Frequency Analyzer
 # instrument, and view the statistics of the intervals.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 from pprint import pprint
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Connect to your Moku by its ip address using TimeFrequencyAnalyzer('192.168.###.###')
+# force_connect will overtake an existing connection
 i = TimeFrequencyAnalyzer('192.168.###.###', force_connect=True)
 
 try:
@@ -39,7 +40,8 @@ try:
     pprint(data['interval2']['statistics'])
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

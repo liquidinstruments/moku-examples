@@ -5,13 +5,14 @@
 %  signal from the Local Oscillator to extract the X component and generate
 %  a sine wave on the auxiliary output
 %
-%  (c) 2022 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku by its IP address and deploy the Lock-in Amplifier 
 % instrument.
-i = MokuLockInAmp('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuLockInAmp('192.168.###.###', force_connect=true);
 
 try
     %% Configure the instrument

@@ -4,7 +4,7 @@
 # This example demonstrates how to use Pattern Generator in
 # Logic Analyzer and generate and observe patterns on DIO pins.
 #
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt
@@ -12,7 +12,8 @@ from moku.instruments import LogicAnalyzer
 
 # Connect to your Moku by its ip address using
 # LogicAnalyzer('192.168.###.###')
-i = LogicAnalyzer('192.168.###.###')
+# force_connect will overtake an existing connection
+i = LogicAnalyzer('192.168.###.###', force_connect=True)
 
 try:
 
@@ -58,6 +59,7 @@ try:
 
 
 except Exception as e:
+    i.relinquish_ownership()
     raise e
 finally:
     # Close the connection to the Moku device

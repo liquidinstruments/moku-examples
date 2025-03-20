@@ -4,12 +4,13 @@
 % with Waveform Generator in slot1 and Oscilloscope in slot2
 %  and view triggered time-voltage data frames in real-time.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Configure multi-instrument with platform_id 2
-m = MokuMultiInstrument('192.168.###.###', 2);
+% force_connect will overtake an existing connection
+m = MokuMultiInstrument('192.168.###.###', 2, force_connect=true);
 
 try
 

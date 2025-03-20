@@ -5,13 +5,14 @@
 # to generate a gated sine wave on Channel 1, and a swept frequency square wave
 # on Channel 2.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import WaveformGenerator
 
 # Connect to your Moku by its ip address using WaveformGenerator('192.168.###.###')
-i = WaveformGenerator('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = WaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Set sine wave to channel 1 and square wave to channel 2
@@ -27,7 +28,8 @@ try:
                      sweep_time=2, trigger_level=0.1)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

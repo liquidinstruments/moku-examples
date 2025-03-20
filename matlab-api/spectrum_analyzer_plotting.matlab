@@ -4,12 +4,13 @@
 %  instrument to retrieve a single spectrum data frame over a set frequency 
 %  span.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
-i = MokuSpectrumAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuSpectrumAnalyzer('192.168.###.###', force_connect=true);
 
 try
     

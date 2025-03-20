@@ -8,7 +8,7 @@
 # a highpass Elliptic filter. The output of both filters are then
 # displayed on the plot.
 #
-# (c) 2023 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt
@@ -18,7 +18,8 @@ from moku.instruments import DigitalFilterBox
 
 # Connect to your Moku by its ip address using
 # DigitalFilterBox('192.168.###.###')
-i = DigitalFilterBox('192.168.2.125', force_connect=True)
+# force_connect will overtake an existing connection
+i = DigitalFilterBox('192.168.###.###', force_connect=True)
 
 try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
@@ -87,6 +88,7 @@ try:
             plt.pause(0.001)
 except MokuException as e:
     print("Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device.")
+    i.relinquish_ownership()
     raise e
 finally:
     # Releasing ownership of the Moku allows other users to connect

@@ -2,12 +2,13 @@
 %
 %  This example demonstrates how you can configure the Datalogger instrument.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku and deploy the oscilloscope instrument
-i = MokuDatalogger('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuDatalogger('192.168.###.###', force_connect=true);
 
 try
 

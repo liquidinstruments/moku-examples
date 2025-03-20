@@ -3,12 +3,13 @@
 %  This example demonstrates how you can configure the Oscilloscope instrument
 % to retrieve a single frame of dual-channel voltage data.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
-i = MokuOscilloscope('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuOscilloscope('192.168.###.###', force_connect=true);
 
 try
     

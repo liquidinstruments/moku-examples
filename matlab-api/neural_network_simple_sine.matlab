@@ -6,9 +6,10 @@
 % viewing the output in the oscilloscope. This uses the network generated 
 % in the Simple Sine wave example.
 %
-% (c) 2024 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 
-m = MokuMultiInstrument('10.1.XXX.XXX', 4, force_connect=true, timeout=60);
+% force_connect will overtake an existing connection
+m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true, timeout=60);
 
 wg = m.set_instrument(1, @MokuWaveformGenerator);
 nn = m.set_instrument(2, @MokuNeuralNetwork);

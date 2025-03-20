@@ -3,12 +3,13 @@
 %  This example demonstrates how you can configure the Time and Frequency Analyzer
 % instrument, and view the statistics of the intervals.
 %
-%  (c) 2024 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
-i = MokuTimeFrequencyAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuTimeFrequencyAnalyzer('192.168.###.###', force_connect=true);
 
 try
 

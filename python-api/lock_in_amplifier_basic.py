@@ -6,12 +6,13 @@
 #  signal from the Local Oscillator to extract the X component and generate
 #  a sine wave on the auxiliary output
 
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 from moku.instruments import LockInAmp
 
 # Connect to your Moku by its ip address using LockInAmp('192.168.###.###')
-i = LockInAmp('192.168.xxx.xxx', force_connect=False)
+# force_connect will overtake an existing connection
+i = LockInAmp('192.168.###.###', force_connect=True)
 
 try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
@@ -32,7 +33,8 @@ try:
     i.set_aux_output(1e6, 0.5)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

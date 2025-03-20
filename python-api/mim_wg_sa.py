@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument
 from moku.instruments import SpectrumAnalyzer, WaveformGenerator
 
-m = MultiInstrument("192.168.###.###", platform_id=2)
+# force_connect will overtake an existing connection
+m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 try:
     w = m.set_instrument(1, WaveformGenerator)
     s = m.set_instrument(2, SpectrumAnalyzer)
@@ -46,6 +47,7 @@ try:
         plt.pause(0.001)
 
 except Exception as e:
+    m.relinquish_ownership()
     raise e
 finally:
     # Close the connection to the Moku device

@@ -4,13 +4,14 @@
 # This example demonstrates use of the Datalogger instrument to
 # stream time-series voltage data and plot it using matplotlib
 #
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 
 from moku.instruments import Datalogger
 
-i = Datalogger('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Datalogger('192.168.###.###', force_connect=True)
 
 try:
     # generate a waveform on output channel 1
@@ -49,6 +50,7 @@ try:
 
 except Exception as e:
     i.stop_streaming()
-    print(e)
+    i.relinquish_ownership()
+    raise e
 finally:
     i.relinquish_ownership()

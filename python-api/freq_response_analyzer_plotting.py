@@ -5,13 +5,14 @@
 # Frequency Response Analyzer instrument, and view transfer function data
 # in real-time.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
 from moku.instruments import FrequencyResponseAnalyzer
 
 # Connect to your Moku by its ip address using FrequencyResponseAnalyzer('192.168.###.###')
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=True)
 
 # Define output sweep parameters here for readability
 f_start = 20e6  # Hz
@@ -107,7 +108,8 @@ try:
         plt.pause(0.001)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

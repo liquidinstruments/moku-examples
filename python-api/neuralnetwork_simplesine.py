@@ -6,14 +6,15 @@
 # viewing the output in the oscilloscope. This uses the network generated 
 # in the Simple Sine wave example.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 
 import matplotlib.pyplot as plt
 
 from moku.instruments import MultiInstrument
 from moku.instruments import WaveformGenerator, NeuralNetwork, Oscilloscope
 
-m = MultiInstrument('10.1.XXX.XXX', platform_id=4)
+# force_connect will overtake an existing connection
+m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
 
 try:
     # Set up MiM configuration
@@ -68,6 +69,7 @@ try:
         plt.pause(0.001)
 
 except Exception as e:
+    m.relinquish_ownership()
     raise e
 finally:
     # Close the connection to the Moku device
