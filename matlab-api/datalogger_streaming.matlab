@@ -3,12 +3,13 @@
 %  This example demonstrates how you can configure the Datalogger instrument,
 %  and view triggered time-voltage data stream in real-time.
 %
-%  (c) 2022 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
-i = MokuDatalogger('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuDatalogger('192.168.###.###', force_connect=true);
 
 try
 

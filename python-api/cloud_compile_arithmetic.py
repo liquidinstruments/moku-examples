@@ -5,7 +5,7 @@
 # add, subtract or multiply two input signals using the control registers
 # and output the result to the Oscilloscope.
 #
-#  (c) 2024 Liquid Instruments Pty. Ltd.
+#  (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt
@@ -14,7 +14,8 @@ from moku.instruments import MultiInstrument, CloudCompile, Oscilloscope
 
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
-m = MultiInstrument('192.168.###.###', platform_id=2)
+# force_connect will overtake an existing connection
+m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 
 try:
     # Set the instruments and upload Cloud Compile bitstreams from your device
@@ -77,6 +78,7 @@ try:
     plt.show()
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    m.relinquish_ownership()
+    raise e
 finally:
     m.relinquish_ownership()

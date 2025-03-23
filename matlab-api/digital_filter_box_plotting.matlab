@@ -7,12 +7,13 @@
 % a highpass Elliptic filter. The output of both filters are then
 % displayed on the plot.
 %
-%  (c) 2024 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
-i = MokuDigitalFilterBox('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuDigitalFilterBox('192.168.###.###', force_connect=true);
 
 try
     % Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and

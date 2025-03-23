@@ -4,13 +4,14 @@
 # This example demonstrates how you can configure the Phasemeter
 # instrument to measure 4 independent signals.
 
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-i = Phasemeter('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
@@ -43,7 +44,8 @@ try:
 
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

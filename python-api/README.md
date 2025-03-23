@@ -167,6 +167,13 @@ and view triggered time-voltage data frames in real-time.
 
 <<< @/docs/api/moku-examples/python-api/oscilloscope_plotting.py
 
+### oscilloscope_deep_memory_mode.py
+
+This example demonstrates how to acquire data using the deep memory mode in the
+Moku Oscilloscope.
+
+<<< @/docs/api/moku-examples/python-api/oscilloscope_deep_memory_mode.py
+
 ## Phasemeter
 
 ### phasemeter_basic.py

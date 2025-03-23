@@ -4,7 +4,7 @@
 % Frequency Response Analyzer instrument, and view transfer function data 
 % in real-time.
 %
-% (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Define sweep parameters here for readability
@@ -18,7 +18,8 @@ settling_cycles = 1;
 
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
     
 try
 

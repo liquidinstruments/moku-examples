@@ -2,12 +2,13 @@
 %
 %  This example demonstrates how you can configure the LogicAnalyzer instrument.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Connect to your Moku
 % Connect to your Moku and deploy the Logic Analyzer instrument
-i = MokuLogicAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuLogicAnalyzer('192.168.###.###', force_connect=true);
 
 try
     patterns = [struct('pin', 1, 'pattern', repmat([1],1,1024)), ...

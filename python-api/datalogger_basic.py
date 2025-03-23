@@ -4,7 +4,7 @@
 # This example demonstrates use of the Datalogger instrument to log time-series
 # voltage data to a (Binary or CSV) file.
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import os
 import time
@@ -12,7 +12,8 @@ import time
 from moku.instruments import Datalogger
 
 # Connect to your Moku by its ip address using Datalogger('192.168.###.###')
-i = Datalogger('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Datalogger('192.168.###.###', force_connect=True)
 
 try:
     # Configure the frontend
@@ -46,7 +47,8 @@ try:
     print("Downloaded log file to local directory.")
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

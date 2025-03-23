@@ -4,13 +4,14 @@
 # in the PID Controller instrument. Configuration is done by specifying
 # frequency response characteristics of the controller.
 #
-# (c) 2022 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import PIDController
 
 # Connect to your Moku by its ip address using PIDController('192.168.###.###')
-i = PIDController('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = PIDController('192.168.###.###', force_connect=True)
 
 try:
     # Configures the control matrix:
@@ -42,7 +43,8 @@ try:
     i.enable_output(2, signal=True, output=True)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

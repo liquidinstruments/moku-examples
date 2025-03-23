@@ -3,7 +3,7 @@
 % This example demonstrates how you can generate output sweeps using the
 % Frequency Response Analyzer instrument and retrieve a single sweep frame.
 %
-% (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 %% Define sweep parameters here for readability
@@ -17,7 +17,8 @@ settling_cycles = 1;
 
 %% Connect to Moku
 % Connect to your Moku using its IP address.
-i = MokuFrequencyResponseAnalyzer('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
 
 try
 

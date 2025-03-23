@@ -4,7 +4,7 @@
 # This example demonstrates how you can generate and output arbitrary
 # waveforms using Moku AWG
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
@@ -24,7 +24,8 @@ for h in np.arange(1, 15, 2):
 not_sq = not_sq / max(abs(not_sq))
 
 # Connect to your Moku by its ip address ArbitraryWaveformGenerator('192.168.###.###')
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Load and configure the waveform.
@@ -44,7 +45,8 @@ try:
     i.burst_modulate(channel=2, trigger_source='Input1', trigger_mode='NCycle', burst_cycles=3, trigger_level=0.1)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 
 finally:
     # Close the connection to the Moku device

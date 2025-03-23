@@ -3,11 +3,12 @@
 %  This example demonstrates how you can configure the PID Controller instrument,
 %  and view triggered time-voltage data frames in real-time.
 %
-%  (c) 2021 Liquid Instruments Pty. Ltd.
+%  (c) Liquid Instruments Pty. Ltd.
 %
 
 % Connect to your Moku and deploy the PID controller instrument
-i = MokuPIDController('192.168.###.###');
+% force_connect will overtake an existing connection
+i = MokuPIDController('192.168.###.###', force_connect=true);
 
 try
     

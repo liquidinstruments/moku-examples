@@ -4,7 +4,7 @@
 # This example demonstrates how you can configure the Spectrum Analyzer
 # instrument and plot its spectrum data in real-time. 
 #
-# (c) 2021 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 import logging
 
@@ -15,7 +15,8 @@ logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s::%(message)s')
 logging.getLogger('moku_client').setLevel(logging.INFO)
 
 # Connect to your Moku by its ip address using SpectrumAnalyzer('192.168.###.###')
-i = SpectrumAnalyzer('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
 
 try:
     # Configure the Spectrum Analyzer 
@@ -61,7 +62,8 @@ try:
         plt.pause(0.001)
 
 except Exception as e:
-    print(f'Exception occurred: {e}')
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

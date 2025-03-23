@@ -5,7 +5,7 @@
 # and processes it live. The contents of each data sample are printed out,
 # along with the signal amplitude which may be calculated as A = sqrt(I^2 + Q^2).
 # 
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter
@@ -13,7 +13,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-i = Phasemeter('192.168.###.###', force_connect=False)
+# force_connect will overtake an existing connection
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set samplerate to 150 Hz/s
@@ -79,8 +80,9 @@ try:
         plt.pause(0.01)
   
 except Exception as e:
-    print(f'Exception Occurred: {e}')
     plt.pause(2)
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

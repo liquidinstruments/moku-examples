@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import Datalogger, LockInAmp, MultiInstrument
 
-i = MultiInstrument('192.168.xxx.xxx', platform_id=2)
+# force_connect will overtake an existing connection
+i = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 
 try:
     dl = i.set_instrument(1, Datalogger)
@@ -49,6 +50,7 @@ try:
             plt.pause(0.001)
 
 except Exception as e:
-    print(e)
+    i.relinquish_ownership()
+    raise e
 finally:
     i.relinquish_ownership()

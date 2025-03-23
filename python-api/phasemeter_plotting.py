@@ -6,7 +6,7 @@
 # The signal amplitude is calculated using these samples, and plotted for
 # real-time viewing.
 #
-# (c) 2024 Liquid Instruments Pty. Ltd.
+# (c) Liquid Instruments Pty. Ltd.
 #
 
 from moku.instruments import Phasemeter
@@ -15,7 +15,8 @@ from time import time
 import numpy as np
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-i = Phasemeter("192.168.###.###", force_connect=True)
+# force_connect will overtake an existing connection
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
     # Set samplerate to 37 Hz/s
@@ -86,7 +87,8 @@ try:
         ydata2 = ydata2[-1000:]
 
 except Exception as e:
-    print(f"Exception Occurred: {e}")
+    i.relinquish_ownership()
+    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly
