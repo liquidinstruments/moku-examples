@@ -1,6 +1,6 @@
 %% Arithmetic Cloud Compile Example
 %
-%  This example demonstrates how you can configure Cloud Compile to chose to
+%  This example demonstrates how you can configure Cloud Compile to choose to
 % add, subtract or multiply two input signals using the control registers
 % and output the result to the Oscilloscope.
 %
@@ -8,7 +8,7 @@
 %
 %% Before running
 % The 'Arithmetic Unit' example is located at:
-% https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Moderate/ArithmeticUnit#arithmetic-unit-example)
+% (https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Moderate/ArithmeticUnit#arithmetic-unit-example)
 %
 % Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
 % contains 2 or 4 .bar files depending on Moku hardware. The bitstream path
