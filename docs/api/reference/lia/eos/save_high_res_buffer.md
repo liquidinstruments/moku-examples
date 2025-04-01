@@ -23,6 +23,7 @@ group: Monitors
 <headers/>
 
 Once completed you can download the file from the device using [download_files](../../static/download.md).
+The high resolution channel buffer will be saved to `tmp` (Moku:Lab) `persist` (Moku:Go) or `ssd` (Moku:Pro).
 <parameters/>
 
 Below are the examples on how to save the high resolution data to a file,
@@ -31,15 +32,14 @@ Below are the examples on how to save the high resolution data to a file,
 <code-block title="Python">
 
 ```python
-import json
 from moku.instruments import LockInAmp
-
 i = LockInAmp('192.168.###.###')
 # Configure instrument to desired state
+i.set_acquisition_mode(mode="DeepMemory")
 response = i.save_high_res_buffer(comments="Test")
-file_name = response["file_name"]
-i.download("persist", file_name, "~/high_res_data.li")
 
+# Download the file; "tmp" (Moku:Lab) "persist" (Moku:Go) or "ssd" (Moku:Pro).
+i.download(response["location"], response["file_name"], "~/high_res_data.li")
 ```
 
 </code-block>
@@ -50,9 +50,10 @@ i.download("persist", file_name, "~/high_res_data.li")
 % Connect to Moku
 m = MokuLockInAmp('192.168.###.###');
 % Configure instrument to desired state
+m.set_acquisition_mode('mode', 'DeepMemory')
 result = m.save_high_res_buffer();
-m.download_file('persist', response.file_name, strcat('<path to download>', ...
-    response.file_name));
+% Download the file; 'tmp' (Moku:Lab) 'persist' (Moku:Go) or 'ssd' (Moku:Pro).
+m.download_file(result.location, response.file_name, './high_res_data.li');
 ```
 
 </code-block>
@@ -69,3 +70,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "file_name": "_tmp_buffer_9cae115e-b1ad-4859-8a29-a6a8af4ab4fd_.li",
+    "location": "persist"
+}
+```

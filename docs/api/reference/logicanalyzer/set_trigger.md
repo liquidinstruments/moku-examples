@@ -15,7 +15,10 @@ parameters:
     - default: null
       description: List of Pin-Trigger edge mapping
       name: sources
-      param_range: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both
+      param_range:
+          mokugo: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
+          mokulab: Bit - 0 to 2; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
+          mokupro: Bit - 0 to 4; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
       type: array
       unit: null
     - default: false
@@ -72,7 +75,7 @@ To mimic the **Single** trigger mode, configure the trigger mode to **Normal** a
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.set_trigger([{"pin": 1, "edge": "Rising"}])
+i.set_trigger([{"pin": 1, "edge": "Rising"}], mode="Normal")
 ```
 
 </code-block>
@@ -81,7 +84,7 @@ i.set_trigger([{"pin": 1, "edge": "Rising"}])
 
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_trigger([struct('pin',1,'edge','Rising')]);
+m.set_trigger([struct('pin',1,'edge','Rising')], 'mode','Normal');
 ```
 
 </code-block>
@@ -91,7 +94,7 @@ m.set_trigger([struct('pin',1,'edge','Rising')]);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"pins":[{"pin":1,"edge":"Rising"}]}'\
+        --data '{"sources": [{"pin":1,"edge":"Rising"}], "mode": "Normal"}'\
         http://<ip>/api/logicanalyzer/set_trigger
 ```
 
