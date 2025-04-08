@@ -6,7 +6,7 @@ Once you have such an entity, you need to deploy it to your Moku. This guide wil
 
 ## Building
 
-To build your design, you must target a particular device. A device is a combination of hardware (e.g. Moku:Pro) and firmware (e.g. version 591).
+To build your design, you must target a particular device. A device is a combination of hardware (e.g. Moku:Pro) and firmware (e.g. version 601).
 
 ### Find your Firmware Version
 
@@ -18,7 +18,7 @@ On the Desktop App, right-click your Moku, select `Device Info` and note the **F
 
 In your MCC project:
 
-1. Configure **Hardware version**, **No# of slots**, and **Firmware version** (4 slots for Moku:Pro, and 2 slots for Moku:Go and Moku:Lab)
+1. Configure **Hardware version**, **Number of slots**, and **Firmware version** (4 slots for Moku:Pro, and 2 slots for Moku:Go and Moku:Lab)
 2. Build your project
 3. Expand the logs panel to view progress. When all indicators are green, click `bitstream.tar` to download the build artifact to deploy to your Moku
 
@@ -35,6 +35,8 @@ The build time depends on the hardware platform and project complexity. A simple
 With your build downloaded, the next step is to upload the design on to your Moku. The easiest way to do this is to use the Moku: App interface, but the Moku's integrated web interface is also a viable option.
 
 ### Use Moku: App Interface (for Moku: app version 3.1 or newer)
+
+![deploy](./deploy.png)
 
 #### Add Cloud Compile Instrument
 
@@ -77,5 +79,3 @@ With your design now on your Moku, your design will now be deployed whenever you
 2. Apply the settings to start your design running
 
 Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls.md).
-
-![deploy](./deploy.png)
