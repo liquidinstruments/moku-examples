@@ -1,4 +1,6 @@
-# Simple Adder Example
+# Basic Examples
+
+## Simple Adder Example
 
 This example assigns the outputs A and B as the sum and difference of the inputs A and B.
 
@@ -66,19 +68,19 @@ endmodule
 
 </code-group>
 
-# Voltage limiter example
+## Voltage limiter example
 
 This example uses the clip function from the Moku Library to limit the output signal to a set range. The upper limit of Output A is set by Control0, the lower limit of Output A is set by Control1.  The upper limit of Output B is set by Control2, the lower limit of Output B is set by Control3.  
 
 <<< @/docs/api/moku-examples/mcc/Basic/VoltageLimiter/limiter.vhd
 
-# DSP example
+## DSP example
 
 This example instantiates a DSP block using the [ScaleOffset](../support.md#scaleoffset) wrapper. The `Moku.Support.ScaleOffset` entity conveniently packages a DSP block with all the settings configured to compute the common `Z = X * Scale + Offset` operation, with the output properly clipped to prevent under/overflow.
 
-## Getting Started
+### Getting Started
 
-### Signals and Settings
+#### Signals and Settings
 
 | Port | Use |
 | --- | --- |
