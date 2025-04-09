@@ -1,7 +1,10 @@
 # Custom Wrapper
 
-The CustomWrapper entity defines the interface that custom designs need to
-implement, as well as a simple abstraction from the instrument slot.
+The CustomWrapper entity defines the interface that custom designs need to implement, as well as a simple abstraction from the instrument slot. Note when using Verilog, the wrapper needs to be declared before proceeding to define the custom architecture. For ease of use, this wrapper declaration is automatically generated whenever a new Verilog file is created.
+
+<code-group>
+
+<code-block title="VHDL">
 
 ```vhdl
 entity CustomWrapper is
@@ -43,8 +46,62 @@ entity CustomWrapper is
 end entity;
 ```
 
-Implementing the CustomWrapper interface simply requires defining an
-architecture.
+</code-block>
+
+<code-block title="Verilog">
+
+```verilog
+module CustomWrapper (
+    input wire Clk,
+    input wire Reset,
+    input wire [31:0] Sync,
+
+    input wire signed [15:0] InputA,
+    input wire signed [15:0] InputB,
+    input wire signed [15:0] InputC,
+    input wire signed [15:0] InputD,
+
+    input wire ExtTrig,
+
+    output wire signed [15:0] OutputA,
+    output wire signed [15:0] OutputB,
+    output wire signed [15:0] OutputC,
+    output wire signed [15:0] OutputD,
+
+    output wire OutputInterpA,
+    output wire OutputInterpB,
+    output wire OutputInterpC,
+    output wire OutputInterpD,
+
+    input wire [31:0] Control0,
+    input wire [31:0] Control1,
+    input wire [31:0] Control2,
+    input wire [31:0] Control3,
+    input wire [31:0] Control4,
+    input wire [31:0] Control5,
+    input wire [31:0] Control6,
+    input wire [31:0] Control7,
+    input wire [31:0] Control8,
+    input wire [31:0] Control9,
+    input wire [31:0] Control10,
+    input wire [31:0] Control11,
+    input wire [31:0] Control12,
+    input wire [31:0] Control13,
+    input wire [31:0] Control14,
+    input wire [31:0] Control15
+);
+endmodule
+```
+
+</code-block>
+
+</code-group>
+
+Implementing the CustomWrapper interface simply requires defining an architecture.
+
+<code-group>
+
+<code-block title="VHDL">
 
 ```vhdl
 architecture Behavioural of CustomWrapper is
@@ -52,6 +109,60 @@ begin
     -- Add custom code here
 end architecture;
 ```
+
+</code-block>
+
+<code-block title="Verilog">
+
+```verilog
+module CustomWrapper (
+    input wire Clk,
+    input wire Reset,
+    input wire [31:0] Sync,
+
+    input wire signed [15:0] InputA,
+    input wire signed [15:0] InputB,
+    input wire signed [15:0] InputC,
+    input wire signed [15:0] InputD,
+
+    input wire ExtTrig,
+
+    output wire signed [15:0] OutputA,
+    output wire signed [15:0] OutputB,
+    output wire signed [15:0] OutputC,
+    output wire signed [15:0] OutputD,
+
+    output wire OutputInterpA,
+    output wire OutputInterpB,
+    output wire OutputInterpC,
+    output wire OutputInterpD,
+
+    input wire [31:0] Control0,
+    input wire [31:0] Control1,
+    input wire [31:0] Control2,
+    input wire [31:0] Control3,
+    input wire [31:0] Control4,
+    input wire [31:0] Control5,
+    input wire [31:0] Control6,
+    input wire [31:0] Control7,
+    input wire [31:0] Control8,
+    input wire [31:0] Control9,
+    input wire [31:0] Control10,
+    input wire [31:0] Control11,
+    input wire [31:0] Control12,
+    input wire [31:0] Control13,
+    input wire [31:0] Control14,
+    input wire [31:0] Control15
+);
+
+  // your code goes here
+
+endmodule
+```
+
+</code-block>
+
+</code-group>
 
 ::: warning
 Only one architecture should implement CustomWrapper per project. If multiple
