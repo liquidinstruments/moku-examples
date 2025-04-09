@@ -27,7 +27,6 @@ Provided is a blank template for creating HDL files using the Moku Cloud Compile
 | Control15 | in | std_logic_vector | 31 downto 0 |
 ||
 
-
 <code-group>
 
 <code-block title=VHDL>
@@ -37,7 +36,8 @@ Provided is a blank template for creating HDL files using the Moku Cloud Compile
 </code-block>
 
 <code-block title="Verilog">
-```
+
+```verilog
 module CustomWrapper (
     input wire Clk,
     input wire Reset,
