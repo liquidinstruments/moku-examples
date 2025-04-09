@@ -15,7 +15,8 @@ OutputB is Input A - Input B;
 </code-block>
 
 <code-block title='Verilog'>
-```
+
+```verilog
 module CustomWrapper (
     input wire Clk,
     input wire Reset,
@@ -60,9 +61,11 @@ assign OutputA = InputA + InputB;
 assign OutputB = InputA - InputB;
 endmodule
 ```
+
 </code-block>
 
 </code-group>
+
 # Voltage limiter example
 
 This example uses the clip function from the Moku Library to limit the output signal to a set range. The upper limit of Output A is set by Control0, the lower limit of Output A is set by Control1.  The upper limit of Output B is set by Control2, the lower limit of Output B is set by Control3.  
@@ -76,6 +79,7 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 ## Getting Started
 
 ### Signals and Settings
+
 | Port | Use |
 | --- | --- |
 | Control0  |	Scale A |
@@ -84,6 +88,5 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 | Control3  |	Offset B |
 | Output A | 	Scaled and Offset Input A |
 | Output B | 	Scaled and Offset Input B |
-
 
 <<< @/docs/api/moku-examples/mcc/Basic/DSP/DSP.vhd
