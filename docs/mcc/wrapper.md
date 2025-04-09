@@ -168,6 +168,9 @@ endmodule
 Only one architecture should implement CustomWrapper per project. If multiple
 architectures exist, the one that is synthesized is undefined.
 :::
+:::danger DO NOT EDIT WRAPPER
+In the Verilog CustomWrapper, it is recommended to not edit the module declaration. If the module definition is changed, a bitstream may be generated. Deploying the bitstream can potentially damage the Moku device. Please include your custom code in the provided space.
+:::
 
 ## Wrapper Ports
 
