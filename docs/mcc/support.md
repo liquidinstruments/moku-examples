@@ -3,7 +3,9 @@
 The Moku library is available to provide some useful types, functions and components
 to use in your designs.  These design elements are defined in the Support package, and
 can be used in your design like this:
-
+:::warning Library limits
+The Moku library is written in VHDL, and would only support VHDL custom codes. The Support library would be made available for Verilog scripts in a future update.
+:::
 ```vhdl
 library Moku;
 use Moku.Support.clip;
