@@ -19,6 +19,10 @@ begin
 end architecture;
 ```
 
+:::warning Moku Library limits
+The Moku Library is written in VHDL, and would only support VHDL custom codes. The Moku.Support package will be made available for Verilog scripts in a future update.
+:::
+
 ## Moku.Support Functions
 
 ### sum_no_overflow
