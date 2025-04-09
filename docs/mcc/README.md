@@ -6,7 +6,7 @@ tags:
 
 # Moku Cloud Compile
 
-Welcome to the Moku Cloud Compile Beta!
+Welcome to the Moku Cloud Compile!
 
 This project is intended to open the Moku to our users by allowing them to
 design and implement their own custom functionality. These custom functions
