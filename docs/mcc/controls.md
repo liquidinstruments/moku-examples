@@ -6,8 +6,7 @@ the behavior of the custom design at runtime. The registers are labelled
 
 ## Type Casting
 
-These Controls can be assigned to various signals in a custom design and will
-often require casting to another type or resizing or both.
+These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often require casting to another type or resizing or both. When using Verilog, the casting and resizing is often implicit during the assignment and is done automatically.
 
 <code-group>
 
@@ -80,12 +79,10 @@ reg signed [12:0] A;
 reg B;
 reg unsigned [63:0] C;
 
-assign A = Control0[12:0];  \\ take 13 LSBs and verilog 
-                            \\ automatically converts to signed
-assign B = Control0[15];    \\ assigns the same control 
+assign A = $signed(Control0[12:0]);  \\ bit slicing and casting as signed
+assign B = Control0[15];    \\ can assigns the same control 
                             \\ register to another variable
-assign C = Control1;        \\ Verilog supports automatic resize 
-                            \\ function when assigning
+assign C = Control1;        \\ Automatic resized and casting when assigning
 
 endmodule
 ```
