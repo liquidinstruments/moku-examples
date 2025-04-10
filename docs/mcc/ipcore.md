@@ -1,18 +1,19 @@
 # IP Core support
 
-Moku Cloud Compile now supports the incorporation of Xilinx IP Cores into your custom design. This update adds eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, and Moku:Pro hardware. These cores are ready to instantiate and simplify common digital signal processing tasks.
-These IP cores can be instantiated either in your VHDL or Verilog codes and ease your time to write your customized blocks. The supported IP cores are as follows:
+Moku Cloud Compile also supports the inclusion of IP cores in your custom designs. These IP cores can be selected from our library of pre-compiled IP cores with the flexibility to add your own customized IP core from AMD Xilinx.
 
-|     IP Core        | Description      | Reference Link   |
+The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, and Moku:Pro hardware. These cores can be instantiated either in your VHDL or Verilog codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
+
+|     IP Core        | Description      | AMD Reference Link  |
 |-------------|-----------------|-----------------|
 | Adder/Subtractor       | Add or Subtract two numbers | [Adder/subtractor v12.0](https://docs.amd.com/v/u/en-US/pg120-c-addsub) |
-| CIC Decimation (by 8)  | Decimate the input data by a factor fo 8 |[CIC compiler v4.0](https://docs.amd.com/v/u/en-US/pg140-cic-compiler) |
+| CIC Decimation (by 8)  | Decimate the input data by a factor of 8 |[CIC compiler v4.0](https://docs.amd.com/v/u/en-US/pg140-cic-compiler) |
 | CORDIC Transformation  | Use CORDIC computation for rectangular to polar conversion |  [CORDIC v6.0](https://docs.amd.com/v/u/en-US/pg105-cordic) |
 | Counter (32-bit)          | A binary counter that counts on every clock tick |            [Binary Counter v12.0](https://docs.amd.com/v/u/en-US/pg121-c-counter-binary) |
 | FFT (1024 points) | Performs a Fast Fourier Transform of 1024-points data frame| [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft)|
 | FFT (65536 points)   | Performs a Fast Fourier Transform of 65536-points data frame | [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft)|
-| Sine Generator (48-bit) | Generates a sine wave that takes in a 48-bit frequency | [DDS Compiler v6.0](https://docs.amd.com/r/en-US/pg141-dds-compiler)|
 | FIR filter (7 coefficients) | Generates a FIR filter with 7 taps | [FIR compiler v7.2](https://docs.amd.com/r/en-US/pg149-fir-compiler)|
+| Sine Generator (48-bit) | Generates a sine wave that takes in a 48-bit frequency | [DDS Compiler v6.0](https://docs.amd.com/r/en-US/pg141-dds-compiler)|
 
 An example is shown below to use the Adder IP Core
 
@@ -94,17 +95,21 @@ endmodule
 
 </code-group>
 
-These examples are also available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/) with the template for instantiating the module in either Verilog or VHDL.
+These examples are also available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/) with the template for instantiating the module available in both VHDL and Verilog.
 
-## XCI file extension
+## Uploading your own IP core (using .xci file)
 
-In addition to the IP core library we provide, users can now add their own IP cores that are generated from AMD Xilinx Vivado and thus provides additional pathway to combine customized logic. Note that this requires the user to be using the Vivado software with the key FPGA part as shown in the Table.
+Users can also add their own IP cores that are generated from AMD Xilinx Vivado and utilize them in Moku Cloud Compile to build their customized logic. This can be done by uploading an .xci file that holds information of the desired IP core. Note that this requires the user to be using the Vivado software with the key FPGA part as shown in the Table.
 
 | Hardware platform | FPGA model number |
 |----------------|------------|
 | Moku-Go        | xc7z020clg400-1 |
 | Moku-Lab       | xc7z020clg484-3 |
 | Moku-Pro       | xczu9egffvc900-2 |
+
+:::warning Vivado compatibility
+When generating .xci file of your IP cores, please use Vivado 2022.2. Using .xci file from any other version of Vivado software can result in a failed synthesis.
+:::
 
 The below steps encapsulate the process of obtaining the necessary files from Xilinx Vivado to deploying on the Moku.
 
