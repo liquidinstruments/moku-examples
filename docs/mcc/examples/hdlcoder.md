@@ -2,6 +2,12 @@
 
 These examples were written with [Mathworks's HDL Coder](https://www.mathworks.com/products/hdl-coder.html). The generated HDL files were then compiled using Moku Cloud Compile and deployed on the device.
 
+:::tip
+You can upload multiple files to Moku Cloud Compile.
+
+![Upload files](../upload-xci.png)
+:::
+
 ## Simulink™ Boxcar averager
 
 The lock-in amplifiers and the boxcar averager are two commonly used instruments to retrieve weak repetitive signals that are buried in noises. The lock-in amplifier is designed to filter out a narrow frequency band. For signals with low duty cycles, a significant amount of signal power is filtered out at the higher harmonics. The boxcar average is designed to gate the input signal in the time domain. It creates a matched filter for the repetitive input signal.
