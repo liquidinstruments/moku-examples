@@ -17,7 +17,7 @@ Implementing the CustomWrapper interface simply requires defining an architectur
 ```vhdl
 architecture Behavioural of CustomWrapper is
 begin
-    -- Add custom code here
+    -- your code goes here
 end architecture;
 ```
 
