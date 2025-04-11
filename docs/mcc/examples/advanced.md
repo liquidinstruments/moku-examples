@@ -1,12 +1,13 @@
-# Event Counter
+# Advanced
+## Event Counter
 
 Counts the number of pulses of defined width in a period. If a count threshold is exceeded, an output flag is raised.
 
 The parameters of the pulses (minimum and maximum width, minimum height) are configurable from Control Registers, as is the overall measurement period.
 
-## Pintout and Registers
+### Pintout and Registers
 
-### Pinout
+#### Pinout
 
 | Pin | Use |
 | --- | --- |
@@ -17,27 +18,28 @@ The parameters of the pulses (minimum and maximum width, minimum height) are con
 
 The values specific output when the count is and is not exceeded are defined as constants in the code.
 
-## Registers
+### Registers
 ![Timing Diagram](./waveform.png)
 
-|              |                     **Bits**                    ||
-| **Register** | `31-16`                 | `15-0`                |
+
+| **Register** | Bits `31-16`                 | Bits `15-0`                |
 | ------------ | :---------------------: | :-------------------: |
 | Control0     |                `t1:` clock cycles               ||
 | Control1     | `tpmax` clock cycles    | `tpmin` clock cycles  |
 | Control2     | `mincount` count        | `vpmin` ADC Bits      |
 
 
+<action-button text="Link to GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/EventCounter" target="_blank"/>
 
-# VGA Waveform Display
+## VGA Waveform Display
 
 This example implements a VGA driver, designed for Moku:Go. The two analog outputs are used for two colour channels (not full RGB) while the digital pins are configured to provide the sync signals.
 
 The waveform to be displayed is captured from InputA on a rising edge with a configurable directly-downsampled decimation factor, making this effectively a very simple Oscilloscope.
 
-## Pinout and Registers
+### Pinout and Registers
 
-### Pinout
+#### Pinout
 
 | Pin | Use |
 | --- | --- |
@@ -49,26 +51,26 @@ The waveform to be displayed is captured from InputA on a rising edge with a con
 
 Route Output C to the Digital I/O and ensure that Pins 1 and 2 are configured as outputs.
 
-### Registers
+#### Registers
 
 | Register | Use |
 | --- | --- |
 | Control2 | Direct downsample decimation factor |
 
+<action-button text="Link to GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/VGA_Display" target="_blank"/>
 
+## Simple Boxcar Averager
 
-# Simple Boxcar Averager
-
-## Overview
+### Overview
 
 The boxcar averager instrument takes two inputs: a signal input and a gate (trigger) input. It starts integrating the input signal for a certain number of samples after receiving a trigger, then sends it to a secondary integrator to average a certain number of triggers events before sending it to the output.
 
-This simple design is written directly in VHDL with hard-coded parameters. For a more featureful version that requires HDL Coder, see [HDL Coder Boxcar](./hdlcoder.md) or our [example projects](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/HDLCoder/)
+This simple design is written directly in VHDL with hard-coded parameters. For a more featureful version that requires HDL Coder, see [HDL Coder Boxcar](./hdlcoder.md) or our example projects.
 
 
-## Getting Started
+### Getting Started
 
-### Signals and Settings
+#### Signals and Settings
 
 | Port | Use |
 | -- | -- |
@@ -77,8 +79,9 @@ This simple design is written directly in VHDL with hard-coded parameters. For a
 | Output A | Average Out |
 | Output B | Not Used |
 
+<action-button text="Link to GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/BoxcarAverager" target="_blank"/>
 
-# DLO Actuator Driver
+## DLO Actuator Driver
 This is a simple example of how to use the Moku:Go Digital I/O to drive an H-Bridge with PWM and decode position encoders.
 
 It takes target positions as register values and drives the actuator to those positions at a configurable speed and with
@@ -87,7 +90,9 @@ configurable overshoot to help mitigate mechanical hysteresis.
 This is part of a collaboration between Liquid Instruments and Floquet.AI.
 
 
-# DC Sequencer
+<action-button text="Link to GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/DLOActuatorDriver" target="_blank"/>
+
+## DC Sequencer
 
 A customer required a system that output a series of DC values, stepping between them based on a trigger input. Some AWG units can segment their memory and transition between segments in this way, but it is a complicated process given each segment contains a single value.
 
@@ -95,4 +100,4 @@ Using MCC, a simple sequencer was written with custom schmitt trigger logic and 
 
 The schmitt trigger levels are configurable through a Control register, the DC value sequence is hard-coded.
 
-
+<action-button text="Link to GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/DCSequencer" target="_blank"/>
