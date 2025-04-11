@@ -35,7 +35,7 @@ The values specific output when the count is and is not exceeded are defined as 
 
 This example implements a VGA driver, designed for Moku:Go. The two analog outputs are used for two color channels (not full RGB) while the digital pins are configured to provide the sync signals.
 
-The waveform to be displayed is captured from InputA on a rising edge with a configurable directly-downsampled decimation factor, making this effectively a very simple Oscilloscope.
+The waveform to be displayed is captured from Input A on a rising edge with a configurable directly-downsampled decimation factor, making this effectively a very simple Oscilloscope.
 
 ### Pinout and Registers
 

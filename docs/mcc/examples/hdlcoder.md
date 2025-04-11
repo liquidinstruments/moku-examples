@@ -87,7 +87,7 @@ Cross-correlation is a very common algorithm that is used to perform time delay 
 
 ### Overview
 
-This model generates the cross-correlation results on OutputA, and the corresponding time delays on OutputB. The cross-correlogram can be visualized on an oscilloscope with the X-Y mode.
+This model generates the cross-correlation results on Output A, and the corresponding time delays on Output B. The cross-correlogram can be visualized on an oscilloscope with the X-Y mode.
 
 ![Block diagram](./hdlcoder_xcorr_block.png)
 
