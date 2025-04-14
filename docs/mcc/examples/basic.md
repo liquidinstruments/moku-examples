@@ -4,9 +4,9 @@
 
 This example assigns the outputs A and B as the sum and difference of the inputs A and B.
 
-OutputA is Input A + Input B;
+Output A is Input A + Input B;
 
-OutputB is Input A - Input B;
+Output B is Input A - Input B;
 
 <code-group>
 
@@ -68,11 +68,15 @@ endmodule
 
 </code-group>
 
+<action-button text="Adder | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/Adder" target="_blank"/>
+
 ## Voltage limiter example
 
 This example uses the clip function from the Moku Library to limit the output signal to a set range. The upper limit of Output A is set by Control0, the lower limit of Output A is set by Control1.  The upper limit of Output B is set by Control2, the lower limit of Output B is set by Control3.  
 
 <<< @/docs/api/moku-examples/mcc/Basic/VoltageLimiter/limiter.vhd
+
+<action-button text="Voltage Limiter | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/VoltageLimiter" target="_blank"/>
 
 ## DSP example
 
@@ -82,13 +86,15 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 
 #### Signals and Settings
 
-| Port | Use |
-| --- | --- |
-| Control0  |	Scale A |
-| Control1  |	Offset A |
-| Control2  |	Scale B |
-| Control3  |	Offset B |
-| Output A | 	Scaled and Offset Input A |
-| Output B | 	Scaled and Offset Input B |
+| Port     | Use                       |
+| -------- | ------------------------- |
+| Control0 | Scale A                   |
+| Control1 | Offset A                  |
+| Control2 | Scale B                   |
+| Control3 | Offset B                  |
+| Output A | Scaled and Offset Input A |
+| Output B | Scaled and Offset Input B |
 
 <<< @/docs/api/moku-examples/mcc/Basic/DSP/DSP.vhd
+
+<action-button text="DSP | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/DSP" target="_blank"/>
