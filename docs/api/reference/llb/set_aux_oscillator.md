@@ -24,7 +24,7 @@ parameters:
       unit: V
     - default: Output1
       description: Output to connect modulation signal to.
-      name: source
+      name: output
       param_range: Output1, Output2, Output3, Output4, OutputA, OutputB
       type: string
       unit: null

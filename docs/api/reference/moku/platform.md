@@ -3,7 +3,7 @@ title: platform
 additional_doc: It is required to configure the platform to use moku in multi-instrument mode or switch back to single-instrument mode
 description: Configure the platform ID
 method: get
-name: name
+name: platform
 path_parameters:
     - default: null
       description: ID of the platform to deploy

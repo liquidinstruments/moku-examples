@@ -19,6 +19,10 @@ begin
 end architecture;
 ```
 
+:::warning Moku Library limits
+The Moku Library currently only supports VHDL. Verilog support will be available in a future update.
+:::
+
 ## Moku.Support Functions
 
 ### sum_no_overflow
