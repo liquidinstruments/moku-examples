@@ -1,6 +1,6 @@
 # Deploying Your Design
 
-All Moku Cloud Compile (MCC) modules are just VHDL entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](./examples/basic.md) pages.
+All Moku Cloud Compile (MCC) modules are either VHDL or Verilog entities that provide the Architecture of the CustomWrapper entity. For examples of what this can look like, refer to the [examples](./examples/basic.md) pages.
 
 Once you have such an entity, you need to deploy it to your Moku. This guide will show you how.
 
@@ -16,7 +16,7 @@ On the Desktop App, right-click your Moku, select `Device Info` and note the **F
 
 ### Build your Design
 
-In your MCC project:
+In your Moku Cloud Compile project:
 
 1. Configure **Hardware version**, **Number of slots**, and **Firmware version** (4 slots for Moku:Pro, and 2 slots for Moku:Go and Moku:Lab)
 2. Build your project
@@ -32,9 +32,8 @@ The build time depends on the hardware platform and project complexity. A simple
 
 ## Deploying
 
-With your build downloaded, the next step is to upload the design on to your Moku. The easiest way to do this is to use the Moku: App interface, but the Moku's integrated web interface is also a viable option.
+With your build downloaded, the next step is to upload the design on to your Moku by using the Moku App Interface as shown below:
 
-### Use Moku: App Interface (for Moku: app version 3.1 or newer)
 
 ![deploy](./deploy.png)
 
