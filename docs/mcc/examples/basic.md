@@ -12,7 +12,15 @@ Output B is Input A - Input B;
 
 <code-block title='VHDL'>
 
-<<< @/docs/api/moku-examples/mcc/Basic/Adder/Adder.vhd
+```vhdl
+-- A very simple example, simply add two inputs and route to an output.
+-- This is purely combinatorial
+architecture Behavioural of CustomWrapper is
+begin
+    OutputA <= InputA + InputB;
+    OutputB <= InputA - InputB;
+end architecture;
+```
 
 </code-block>
 
@@ -74,7 +82,30 @@ endmodule
 
 This example uses the clip function from the Moku Library to limit the output signal to a set range. The upper limit of Output A is set by Control0, the lower limit of Output A is set by Control1.  The upper limit of Output B is set by Control2, the lower limit of Output B is set by Control3.  
 
-<<< @/docs/api/moku-examples/mcc/Basic/VoltageLimiter/limiter.vhd
+```vhdl
+library IEEE;
+use IEEE.Numeric_Std.all;
+library Moku;
+use Moku.Support.clip_val;
+use Moku.Support.sum_no_overflow;
+
+architecture Behavioural of CustomWrapper is
+    signal ch1_lower : signed(15 downto 0);
+    signal ch1_upper : signed(15 downto 0);
+    signal ch2_lower : signed(15 downto 0);
+    signal ch2_upper : signed(15 downto 0);
+
+begin
+    ch1_lower <= signed(Control0(15 downto 0));
+    ch1_upper <= signed(Control1(15 downto 0));
+    ch2_lower <= signed(Control2(15 downto 0));
+    ch2_upper <= signed(Control3(15 downto 0));
+
+    -- Use library function to "clip" the value to within the upper and lower bounds
+    OutputA <= clip_val(InputA, to_integer(ch1_lower), to_integer(ch1_upper));
+    OutputB <= clip_val(InputB, to_integer(ch2_lower), to_integer(ch2_upper));
+end architecture;
+```
 
 <action-button text="Voltage Limiter | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/VoltageLimiter" target="_blank"/>
 
@@ -95,6 +126,51 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 | Output A | Scaled and Offset Input A |
 | Output B | Scaled and Offset Input B |
 
-<<< @/docs/api/moku-examples/mcc/Basic/DSP/DSP.vhd
+```vhdl
+library IEEE;
+use IEEE.Numeric_Std.all;
+
+library Moku;
+use Moku.Support.ScaleOffset;
+
+-- Instantiate a DSP block using the ScaleOffset wrapper
+architecture Behavioural of CustomWrapper is
+begin
+    -- Z = X * Scale + Offset
+    -- Offset is units of bits, scale by default runs from -1 to 1 across whatever signal width is given
+    -- Clips Z to min/max (prevents over/underflow)
+    -- Includes rounding
+    -- One Clock Cycle Delay
+    DSP: ScaleOffset
+        port map (
+            Clk => Clk,
+            Reset => Reset,
+            X => InputA,
+            Scale => signed(Control0(15 downto 0)),
+            Offset => signed(Control1(15 downto 0)),
+            Z => OutputA,
+            Valid => '1',
+            OutValid => open
+        );
+
+    -- If you want to change the range of the scale (e.g. multiply by more than 1), then set the
+    -- NORMAL_SHIFT generic. This increases the range of Scale by 2^N, so NORMAL_SHIFT=4 means that
+    -- the 16 bit scale here now covers the range -16 to 16.
+    DSP_RANGE: ScaleOffset
+        generic map (
+            NORMAL_SHIFT => 4
+        )
+        port map (
+            Clk => Clk,
+            Reset => Reset,
+            X => InputB,
+            Scale => signed(Control2(15 downto 0)),
+            Offset => signed(Control3(15 downto 0)),
+            Z => OutputB,
+            Valid => '1',
+            OutValid => open
+        );
+end architecture;
+```
 
 <action-button text="DSP | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/DSP" target="_blank"/>
