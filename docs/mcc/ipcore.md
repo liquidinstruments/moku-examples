@@ -97,7 +97,7 @@ endmodule
 
 </code-group>
 
-These examples are also available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/) with the template for instantiating the module available in both VHDL and Verilog.
+The instantiation templates for the IP cores are available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/MCCExamplesVerilog/mcc/IP%20Core%20Templates) with support for both VHDL and Verilog.
 
 ## Uploading your own IP core (using .xci file)
 
