@@ -29,10 +29,8 @@ Provided is a blank template for creating HDL files using the Moku Cloud Compile
 
 <code-group>
 
-<code-block title=VHDL>
-
+<code-block title="VHDL">
 <<< @/docs/api/moku-examples/mcc/Template/Top.vhd
-
 </code-block>
 
 <code-block title="Verilog">
