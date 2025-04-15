@@ -131,7 +131,7 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
-			['examples/', 'Overview'],
+                        ['examples/', 'Overview'],
                         getChildren('Python', 'moku-examples/python-api'),
                         getChildren('MatLab', 'moku-examples/matlab-api'),
                         getChildren(
@@ -191,10 +191,7 @@ module.exports = {
                     title: 'Moku Neural Nework',
                     collapsable: false,
                     initialOpenGroupIndex: 0,
-                    children: 
-                    [
-                        ['/mnn/', 'Overview'],
-                    ],
+                    children: [['/mnn/', 'Overview']],
                 },
                 {
                     title: 'The LinnModel class',
@@ -223,6 +220,21 @@ module.exports = {
     },
     markdown: {
         lineNumbers: true,
+        extendMarkdown: (md) => {
+
+            const fence = md.renderer.rules.fence
+            md.renderer.rules.fence = (...args) => {
+                const [tokens, idx] = args
+                const token = tokens[idx]
+
+                // Map .vhd to vhdl
+                if (token.info === 'vhd') {
+                    token.info = 'vhdl'
+                }
+
+                return fence(...args)
+            }
+        },
     },
     plugins: [
         '@vuepress/back-to-top',
