@@ -31,7 +31,7 @@ The build time depends on the hardware platform and project complexity. A simple
 ![build steps](./build.png)
 
 ::: tip Compatible Firmware and Bitstream File Extension
-The bitstreams will compile with either **.tar** or **.tar.gz** depending on the target firmware. The extension **.tar** is for firmware versions 600 onwards. The extension **.tar.gz** is for firmware versions 580 587 and 591.
+The generated bitstreams will be either in **.tar** or **.tar.gz** depending on the target firmware. The extension **.tar** is for firmware versions 600 onwards. The extension **.tar.gz** is for firmware versions 580 587 and 591.
 :::
 
 ## Deploying
