@@ -232,6 +232,10 @@ module.exports = {
                     token.info = 'vhdl'
                 }
 
+                if (token.info === 'v') {
+                    token.info = 'verilog'
+                }
+
                 return fence(...args)
             }
         },
