@@ -97,7 +97,7 @@ endmodule
 
 </code-group>
 
-These examples are also available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/) with the template for instantiating the module available in both VHDL and Verilog.
+The instantiation templates for the IP cores are available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates) with support for both VHDL and Verilog.
 
 ## Uploading your own IP core (using .xci file)
 
@@ -128,6 +128,7 @@ The below steps encapsulate the process of obtaining the necessary files from Xi
 ![Editing the XCI file in the project.](./output-dir.png)
 
 ***Optional Step:*** If the IP core utilizes user-defined coefficients using a COE file, an additional change may be required. Edit the XCI file by locating `"Coe_File"` and change the value to `"Coe_filename.coe"`, without any additional directory path.
+
 ![Adding COE details in the XCI file.](./edit-coe-in-xci.png)
 
 **Step 4:** Vivado also generates **.vho** or **.veo** files (found within the IP sources tab in Sources on Vivado) from which the instantiation template can be obtained. Use this template to assist you in including your IP core in your customized logic in Cloud Compile project.
