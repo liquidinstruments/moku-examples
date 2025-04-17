@@ -47,7 +47,7 @@ Add at least one Cloud Compile instrument to your Multi-instrument Mode (MiM) co
 1. Click on the three-dot icon
 2. Click on the **Upload bitstream** tab
 
-![upload-mokuapp](./upload-mokuapp.png)
+![upload-moku-app](./upload-mokuapp.png)
 
 #### Upload Bitstreams
 
@@ -65,13 +65,13 @@ Now that your design is on your Moku, it's ready to be deployed. Utilize the MiM
 
 Once the MiM configuration is applied, you can edit your design's Control Registers by clicking in to the deployed Cloud Compile instrument. For more information, see [Control Registers](./controls.md).
 
-![deploy-mokuapp](./deploy-mokuapp.png)
+![deploy-moku-app](./deploy-mokuapp.png)
 
 #### Reload Bitstreams
 
 When swapping the customized Cloud Compile bitstreams, it's possible that the bitstreams running on the internal FPGA may differ from those you uploaded to your Moku. This occurs because the bitstreams are uploaded but the internal FPGA isn't refreshed. To ensure that the Cloud Compile instrument running on the FPGA is up to date, please click on the **Reload bitstream** tab.
 
-![reload-bs-mokuapp](./reload-bs-mokuapp.png)
+![reload-bs-moku-app](./reload-bs-mokuapp.png)
 
 #### Deploy in Multi-Instrument Mode
 
