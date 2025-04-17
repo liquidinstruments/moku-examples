@@ -30,10 +30,13 @@ The build time depends on the hardware platform and project complexity. A simple
 
 ![build steps](./build.png)
 
+::: tip Compatible Firmware and Bitstream File Extension
+The generated bitstreams will be either in **.tar** or **.tar.gz** depending on the target firmware. The extension **.tar** is for firmware versions 600 onwards. The extension **.tar.gz** is for firmware versions 580 587 and 591.
+:::
+
 ## Deploying
 
 With your build downloaded, the next step is to upload the design on to your Moku by using the Moku App Interface as shown below:
-
 
 ![deploy](./deploy.png)
 
