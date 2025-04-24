@@ -117,7 +117,6 @@ h3 {
 }
 
 .parameter-obligation {
-  position: absolute;
   font-size: 11.2px;
   color: red;
   padding: 0.25rem 0.5rem;
