@@ -12,7 +12,9 @@
               <span class="parameter-obligation" v-if="p.default == null"> required</span>
               <warn-deprecated v-if="p.deprecated === true"/>
             </div>
-            <p v-if="p.deprecated_msg" class="parameter-deprecation-msg" v-html="formatMarkdown(p.deprecated_msg)"></p> 
+            <div v-if="p.deprecated_msg">
+              <p class="parameter-deprecation-msg" v-html="formatMarkdown(p.deprecated_msg)"></p>
+            </div>
             <div class="parameter-description">
               <div>
                   {{ p.description }}

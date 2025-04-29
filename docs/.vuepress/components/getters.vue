@@ -7,7 +7,9 @@
       </h2>
       <span class="description">{{ g.description }}</span>
       <p class="additional-doc">{{ g.additional_doc }}</p>
-      <p v-if="g.deprecated_msg" class="getter-deprecation-msg" v-html="formatMarkdown(g.deprecated_msg)"></p> 
+      <div v-if="g.deprecated_msg">
+        <p class="getter-deprecation-msg" v-html="formatMarkdown(g.deprecated_msg)"></p>
+      </div>
       <div v-if="g.parameters && g.parameters.length">
         <h3>Parameters</h3>
         <section class="parameters-section">
