@@ -11,12 +11,8 @@ body {
 }
 
 #app {
-    background: $background;
     overflow-x: clip;
 
-    &:has(.landing) {
-        background: #fff;
-    }
 }
 
 #app:has(.landing)::before {
@@ -42,7 +38,6 @@ body {
 
 /* placing overriders here; don't want to extend components for style overrides */
 .theme-container {
-    /* overflow: hidden; */
 
     &.landing .theme-default-content:not(.custom) {
         flex: 1;
@@ -59,6 +54,8 @@ body {
         flex-direction: column;
         width: 100%;
     }
+
+
 
     .theme-default-content:not(.custom) > *:first-child {
         margin-top: 1.5rem;

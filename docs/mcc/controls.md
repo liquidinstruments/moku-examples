@@ -81,7 +81,7 @@ reg signed [12:0] A;
 reg B;
 reg unsigned [63:0] C;
 
-assign A = $signed(Control0[12:0]);  // bit slicing and casting as signed
+assign A = Control0[12:0];  // bit slicing and automatic casting as signed
 assign B = Control0[15];    // can assigns the same control 
                             // register to another variable
 assign C = Control1;        // Automatic resized and casting when assigning

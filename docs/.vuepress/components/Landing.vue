@@ -57,7 +57,6 @@
         </section>
         <section>
             <h2>Documentation</h2>
-
             <card-group>
                 <card title="Rest API" icon="api" link="/api/">
                     <p>
@@ -86,15 +85,15 @@
 
                 <card title="Moku Neural Network" icon="mnn" link="/mnn/">
                     <p>
-                        The Moku Neural Network instrument facilitates running 
-                        feedforward, multi-layer neural networks, seamlessly 
-                        handling both serial and parallel input signals 
-                        for efficient processing.
+                        The Moku Neural Network instrument facilitates running
+                        feedforward, multi-layer neural networks, seamlessly
+                        handling both serial and parallel input signals for
+                        efficient processing.
                     </p>
                 </card>
             </card-group>
         </section>
-        <section>
+        <section class="about-wrapper">
             <div class="about">
                 <p>
                     At Liquid Instruments we want to help engineers and
@@ -367,6 +366,9 @@ section:has(.about) {
     }
 }
 
+.about-wrapper {
+    width: fit-content
+}
 
 .about {
     background: $textColor;
