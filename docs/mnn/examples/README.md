@@ -9,4 +9,4 @@ Here are some examples for how the Moku Neural Network can be used:
 - **[Simple Sine wave](./Simple_sine.md)**: A basic model to output a sine wave as a function of the input voltage on a given channel.
 - **[Weighed Sum](./Sum.md)**: Output a weighted sum of the input channels with an optional bias/offset.
 
-Examples are also available on [GitHub](https://github.com/liquidinstruments/moku-examples/tree/29c97736258707fba71fe3cd345c4e14ad8f8b18/neural-network).
+Examples are also available on [GitHub](https://github.com/liquidinstruments/moku-examples/tree/main/neural-network).
