@@ -10,7 +10,7 @@ Branch off `next`.
 
 Submissions are by Merge Request targeting `next`. Assignee must be the maintainer, extra reviewers are allowed if necessary. Merge Requests must be fast-forward merges at the time the MR is created.
 
-Release is by *continuous deployment*. The `next` branch is staged [here](https://next.documentation.liquidinstruments.com/). The `master` branch is deployed [here](https://apis.liquidinstruments.com).
+Release is by _continuous deployment_. The `next` branch is staged [here](https://next.documentation.liquidinstruments.com/). The `master` branch is deployed [here](https://apis.liquidinstruments.com).
 
 Jira tags in commits are recommended but not required. Multi-line commit messages are recommended but not required.
 
@@ -24,7 +24,7 @@ Jira tags in commits are recommended but not required. Multi-line commit message
 
 ### Building with Node.js >= 18
 
-If you are using a version of Node.js newer than 16 and are seeing errors when trying to build the static HTML, adding `export NODE_OPTIONS='--openssl-legacy-provider'` to your build command may help. `"docs:build": "export NODE_OPTIONS='--openssl-legacy-provider' && vuepress build docs"`
+If you are using a version of Node.js >= version 18 and are seeing errors when trying to build the static HTML build with `npm run docs:build:node>18`
 
 ### Testing the build output locally
 
