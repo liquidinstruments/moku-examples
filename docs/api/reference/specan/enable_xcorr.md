@@ -17,7 +17,7 @@ parameters:
           mokugo: Input1, Input2, InputA, InputB
           mokulab: Input1, Input2, InputA, InputB
           mokupro: Input1, Input2, Input3, Input4, InputA, InputB
-      type:
+      type: string
       unit:
     - default:
       description: Source channel B
@@ -26,7 +26,7 @@ parameters:
           mokugo: Input1, Input2, InputA, InputB
           mokulab: Input1, Input2, InputA, InputB
           mokupro: Input1, Input2, Input3, Input4, InputA, InputB
-      type:
+      type: string
       unit:
 summary: enable_xcorr
 ---
