@@ -35,7 +35,7 @@ parameters:
       description: Output range
       name: output_range
       param_range: 2Vpp, 10Vpp
-      type:
+      type: string
       unit:
     - default: False
       description: Whether to invert the output signal

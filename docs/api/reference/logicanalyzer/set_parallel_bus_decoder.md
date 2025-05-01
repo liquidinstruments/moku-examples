@@ -14,7 +14,7 @@ parameters:
       description: Sample mode
       name: sample_mode
       param_range: Rising, Falling, Both
-      type:
+      type: string
       unit:
     - default:
       description: Number of data bits
