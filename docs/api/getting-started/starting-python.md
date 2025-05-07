@@ -109,6 +109,15 @@ $ python
 >>> osc.get_data()
 ```
 
+If you are connected to your device via USB, ensure there are square brackets around the IP address, see [Specifying IPv6 Addresses](./ip-address.md#specifying-ipv6-addresses) for more details.
+
+```python
+$ python
+>>> from moku.instruments import Oscilloscope
+>>> osc = Oscilloscope('[fe80::7269:79ff:feb9:0000%0]')
+>>> osc.get_data()
+```
+
 You should see an array of data captured from your newly-deployed Oscilloscope object. If not, please refer to the Troubleshooting below.
 
 ## Next Steps
