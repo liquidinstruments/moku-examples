@@ -16,7 +16,7 @@ $ pip install moku
 $ mokucli download 600
 $ python
 >>> from moku.instruments import Oscilloscope
->>> osc = Oscilloscope('192.168.XXX.XX')
+>>> osc = Oscilloscope('192.168.###.###')
 >>> osc.get_data()
 ```
 
@@ -94,8 +94,8 @@ For more detail and other options, see [Finding your IP Address](./ip-address.md
 ```console
 $: mokucli list
 Name                 Serial  HW     FW     IP
---------------------------------------------------------
-MokuGo-000010        10      Go     600    10.1.XXX.XXX
+-----------------------------------------------------------
+MokuGo-000010        10      Go     600    192.168.###.###
 ```
 
 ### 5. Run Your First Program
@@ -105,7 +105,7 @@ Use your IP address as found above in place of the one below.
 ```python
 $ python
 >>> from moku.instruments import Oscilloscope
->>> osc = Oscilloscope('192.168.XXX.XX')
+>>> osc = Oscilloscope('192.168.###.###')
 >>> osc.get_data()
 ```
 
@@ -159,6 +159,10 @@ If you are sure that the `pip` command completed successfully, then you can reso
 $: python -m pip install moku
 $: python -c 'import moku'
 ```
+
+#### ModuleNotFoundError: No module named 'zeroconf'
+
+In a released version of the `moku` package, `zeroconf` was not included in the required packages. Try running `pip install zeroconf` to remedy the issue.
 
 #### Connection to (ip address) timed out, Max retries exceeded
 
@@ -233,7 +237,7 @@ $ pip install moku
 $ moku download
 $ python
 >>> from moku.instruments import Oscilloscope
->>> osc = Oscilloscope('192.168.XXX.XX')
+>>> osc = Oscilloscope('192.168.###.###')
 >>> osc.get_data()
 ```
 
