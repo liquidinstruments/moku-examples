@@ -147,7 +147,8 @@
     "ydata",
     "ylabel",
     "ylim",
-    "yticks"
+    "yticks",
+    "zeroconf"
   ],
   "ignorePaths": [
     "public",

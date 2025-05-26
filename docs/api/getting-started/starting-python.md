@@ -54,6 +54,12 @@ Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 ...
 ```
 
+If the output does not match above, please refer to our [Knowledge Base](https://knowledge.liquidinstruments.com/) for troubleshooting.
+
+::: tip Note
+It's important to make sure that the mokucli installation is in the same environment as, or is accessible by the moku package. Please refer to [Installation and troubleshooting of mokucli](https://knowledge.liquidinstruments.com/installation-and-troubleshooting-of-mokucli) for more information.
+:::
+
 ### 3. Download the data files
 
 The Moku Scripting API for Python requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
