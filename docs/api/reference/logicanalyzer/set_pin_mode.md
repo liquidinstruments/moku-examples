@@ -12,7 +12,7 @@ parameters:
       type: integer
       unit: null
     - default: null
-      description:
+      description: State of the target pin.
       name: state
       param_range: X, I, PG1, PG2
       type: string

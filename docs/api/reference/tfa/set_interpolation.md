@@ -8,7 +8,7 @@ parameters:
       description: Interpolation mode
       name: mode
       param_range: None, Linear
-      type:
+      type: string
       unit:
     - default: True
       description: Disable all implicit conversions and coercions.
