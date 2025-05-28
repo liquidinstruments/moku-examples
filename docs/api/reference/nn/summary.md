@@ -12,6 +12,8 @@ available_on: 'Moku:Pro, Moku:Delta'
 <headers/>
 <parameters/>
 
+### Examples
+
 <code-group>
 <code-block title="Python">
 
@@ -19,7 +21,7 @@ available_on: 'Moku:Pro, Moku:Delta'
 from moku.instruments import MultiInstrument, NeuralNetwork
 m = MultiInstrument('192.168.###.###', platform_id=4)
 nn = m.set_instrument(1, NeuralNetwork)
-print(i.summary())
+print(nn.summary())
 ```
 
 </code-block>
@@ -29,7 +31,7 @@ print(i.summary())
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 4);
 nn = m.set_instrument(1, MokuNeuralNetwork);
-nn.summary();
+disp(nn.summary())
 ```
 
 </code-block>
@@ -61,5 +63,7 @@ Layer 2: 16 neurons, activation function Tanh
 Layer 3: 2 neurons, activation function Linear
 Output A - low level -1.000 V, high level 1.000 V, output enabled
 Output B - low level -1.000 V, high level 1.000 V, output enabled
+Output C - low level -1.000 V, high level 1.000 V, output enabled
+Output D - low level -1.000 V, high level 1.000 V, output enabled
 Internal 10 MHz clock
 ```

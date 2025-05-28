@@ -27,7 +27,7 @@ print(i.summary())
 
 ```matlab
 m = MokuArbitraryWaveformGenerator('192.168.###.###');
-disp(m.summary());
+disp(m.summary())
 ```
 
 </code-block>
@@ -47,10 +47,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```plaintext
 Moku:Go Arbitrary Waveform Generator
-Output 1: Custom waveform, 100 points, Interpolation: None
-Frequency 10.000 000 kHz, amplitude 1000.0 mVpp, offset 0.000 0 V,
-phase 0.000 deg
-Output 2: Custom waveform, 100 points, Interpolation: None
-Frequency 10.000 000 kHz, amplitude 1000.0 mVpp, offset 0.000 0 V,
-phase 0.000 deg
+Output 1 (on) - Custom waveform, 100 points, Interpolation: None
+Frequency 10.000 000 kHz, amplitude 1.000 0 Vpp, offset 0.000 0 V, phase 0.000 000 deg
+Output 2 (on) - Custom waveform, 100 points, Interpolation: None
+Frequency 10.000 000 kHz, amplitude 1.000 0 Vpp, offset 0.000 0 V, phase 0.000 000 deg
 ```

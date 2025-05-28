@@ -17,14 +17,7 @@ summary: summary
 
 ```python
 from moku.instruments import FIRFilterBox
-i = FIRFilterBox('192.168.###.###', force_connect=False)
-# Configure the Channel 1 PID Controller using frequency response
-# characteristics
-#  P = -10dB
-i.set_by_frequency(channel=1, prop_gain=-10)
-# Set the probes to monitor Output 1 and Output 2
-i.set_monitor(1, 'Output1')
-i.set_monitor(2, 'Output2')
+i = FIRFilterBox('192.168.###.###', force_connect=True)
 print(i.summary())
 ```
 
@@ -34,13 +27,6 @@ print(i.summary())
 
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###', true);
-% Configure the Channel 1 FIRFilterBox using frequency response
-% characteristics
-%  P = -10dB
-m.set_by_frequency(1, 'prop_gain', -20);
-% Set the probes to monitor Output 1 and Output 2
-m.set_monitor(1, 'Output1')
-m.set_monitor(2, 'Output2')
 disp(m.summary())
 ```
 
@@ -50,20 +36,22 @@ disp(m.summary())
 
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        http://<ip>/api/pid/summary
+        http://<ip>/api/fir/summary
 ```
 
 </code-block>
 
 </code-group>
-Sample response,
+
+### Sample response
 
 ```plaintext
-This needs to be updated!!!!! for FIRFilterBox
-Moku:Go PID Controller
-Input 1 - DC coupling, 0 dB attenuation
-Input 2 - DC coupling, 0 dB attenuation
-Control matrix: 1-1 = 1, 1-2 = 0, 2-1 = 1, 2-2 = 0
-Controller 1: PID controller: proportional gain -10.0 dB, integrator crossover 100.0 Hz, differentiator crossover 10.00 kHz, integrator saturation +10.0 dB, differentiator saturation +10.0 dB, input offset 0.000 0 V, output offset 0.000 0 V
-Controller 2: PI controller: proportional gain -10.0 dB, integrator crossover 310.0 Hz, integrator saturation +40.0 dB, input offset 0.000 0 V, output offset 0.000 0 V
+Moku:Go FIR Filter Builder
+Input 1, DC coupling, 0 dB attenuation
+Input 2, DC coupling, 0 dB attenuation
+Control matrix: 1-1 = 1, 1-2 = 0, 2-1 = 0, 2-2 = 1
+Filter 1 - 390.6 kHz Lowpass, Fs = 3.906 MHz, 201 taps, Window: Blackman, input offset 0.000 V, input gain +0.0 dB
+Filter 2 - Impulse response: Gaussian, Fs = 488.3 kHz, 1,000 taps, Window: Hann, input offset 0.000 V, input gain +0.0 dB
+Output 1 - gain +0.0 dB, offset 0.000 0 V, output disabled
+Output 2 - gain +0.0 dB, offset 0.000 0 V, output disabled
 ```

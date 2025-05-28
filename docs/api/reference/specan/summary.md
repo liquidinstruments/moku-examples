@@ -27,7 +27,7 @@ print(i.summary())
 
 ```matlab
 m = MokuSpectrumAnalyzer('192.168.###.###');
-disp(m.summary());
+disp(m.summary())
 ```
 
 </code-block>
@@ -47,8 +47,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```plaintext
 Moku:Go Spectrum Analyzer
-Input 1 - DC coupling, 10 Vpp range
-Input 2 - DC coupling, 10 Vpp range
-Start freq 0 Hz, stop freq 10.000 00 MHz, RBW 48.88 kHz (Auto mode), Blackman-Harris window,
-Video filter off, no averaging
+Input 1 (on), DC coupling, 10 Vpp range
+Input 2 (off), DC coupling, 10 Vpp range
+Start freq 0 Hz, stop freq 10.000 000 MHz, RBW 48.88 kHz (Auto mode), Blackman-Harris window, Video filter off
+Averaging: 32 spectra per frame, 1 frame averages
+Output 1 (off) - 10.000 000 000 000 MHz, 1.000 Vpp
+Output 2 (off) - 20.000 000 000 000 MHz, 1.000 Vpp
 ```
