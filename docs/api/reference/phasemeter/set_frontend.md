@@ -23,6 +23,7 @@ parameters:
           mokugo: 1MOhm
           mokulab: 50Ohm, 1MOhm
           mokupro: 50Ohm, 1MOhm
+          mokudelta: 50Ohm, 1MOhm
       type: string
       unit: null
     - default: null
