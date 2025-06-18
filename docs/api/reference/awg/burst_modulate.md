@@ -51,6 +51,7 @@ parameters:
           mokugo: 10Vpp, 50Vpp
           mokulab: 10Vpp, 1Vpp
           mokupro: 400mVpp, 4Vpp, 40Vpp
+          mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
       type: string
       unit: Vpp
     - default: true
