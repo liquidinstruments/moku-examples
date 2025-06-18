@@ -10,6 +10,7 @@ export default {
         type_and_range(h, "Moku:Lab", props.range.mokulab, "tr-lab"),
         type_and_range(h, "Moku:Go", props.range.mokugo, "tr-go"),
         type_and_range(h, "Moku:Pro", props.range.mokupro, "tr-pro"),
+        type_and_range(h, "Moku:Delta", props.range.mokudelta, "tr-delta"),
       ]));
       return h("div", { class: "param-range-container"  }, [h("code", children)]);
     } 
