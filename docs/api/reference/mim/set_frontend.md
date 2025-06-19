@@ -43,6 +43,7 @@ parameters:
           mokugo: 0dB, -14dB
           mokulab: 0dB, -20dB
           mokupro: 0dB, -20dB, -40dB
+          mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit:
 summary: set_frontend
