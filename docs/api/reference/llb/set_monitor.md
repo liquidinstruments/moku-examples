@@ -19,6 +19,7 @@ parameters:
         mokugo: 1, 2
         mokulab: 1, 2
         mokupro: 1, 2, 3, 4
+        mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
@@ -28,6 +29,7 @@ parameters:
           mokugo: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2
           mokulab: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2
           mokupro: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2, Output3, Output4
+          mokudelta: None, LowpassFilter, FastPIDOutput, SlowPIDOutput, ErrorSignal, LocalOscillator, Input1, Input2, Output1, Output2, Output3, Output4
       type: string
       unit: null
 summary: set_monitor
