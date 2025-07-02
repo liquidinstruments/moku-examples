@@ -23,6 +23,7 @@ parameters:
           mokugo: 3.906MHz, 488.3kHz, 61.04kHz
           mokulab: 15.625MHz, 1.9531MHz, 122.07kHz
           mokupro: 39.06MHz, 4.883MHz, 305.2kHz
+          mokudelta: 39.06MHz, 4.883MHz, 305.2kHz
     - default: Lowpass
       description: IIR Filter shape
       name: shape

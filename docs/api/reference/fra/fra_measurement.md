@@ -29,6 +29,7 @@ parameters:
           mokugo: 10e-3 to 20e6
           mokulab: 10e-3 to 200e6
           mokupro: 10e-3 to 300e6
+          mokudelta: 10e-3 to 2e9
       type: number
       unit: Hz
     - default: 0
@@ -38,6 +39,7 @@ parameters:
           mokugo: 10e-3 to 20e6
           mokulab: 10e-3 to 200e6
           mokupro: 10e-3 to 300e6
+          mokudelta: 10e-3 to 2e9
       type: number
       unit: Hz
     - default: 0
@@ -59,6 +61,7 @@ parameters:
           mokugo: 2e-3 to 10
           mokulab: 2e-3 to 4
           mokupro: 1e-3 to 10
+          mokudelta: 1e-3 to 10 (On Moku:Delta platform, signals above 100 MHz are limited to ±500mV)
       type: number
       unit: Vpp
     - default: true

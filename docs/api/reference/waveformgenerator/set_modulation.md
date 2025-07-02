@@ -28,6 +28,7 @@ parameters:
           mokugo: Input1, Input2, Output1, Output2, Internal
           mokulab: Input1, Input2, Output1, Output2, Internal
           mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, Internal
       type: string
       unit: null
     - default: 0
@@ -46,7 +47,8 @@ parameters:
       param_range:
           mokugo: 0 to 5e6
           mokulab: 0 to 62.5e6
-          mokupro: 0 t0 125e6
+          mokupro: 0 to 125e6
+          mokudelta: 0 to 156e6
       type: number
       unit: Hz
     - default: true

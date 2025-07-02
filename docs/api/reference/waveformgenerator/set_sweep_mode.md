@@ -22,6 +22,7 @@ parameters:
           mokugo: Input1, Input2, Output1, Output2, Internal
           mokulab: Input1, Input2, Output1, Output2, Internal
           mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, Internal, Ext. trig.
       type: string
       unit: null
     - default: 30000000
@@ -31,6 +32,7 @@ parameters:
           mokugo: 1e-3 to 20e6
           mokulab: 1e-3 to 100e6
           mokupro: 1e-3 to 150e6
+          mokudelta: 1e-3 to 2e9
       type: number
       unit: Hz
     - default: 1
@@ -46,6 +48,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: true

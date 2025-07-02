@@ -17,6 +17,7 @@ parameters:
           mokugo: InputA, InputB, Input1, Input2
           mokulab: InputA, InputB, Input1, Input2, Ext.trig.
           mokupro: InputA, InputB, Input1, Input2, Input3, Input4, Ext.trig.
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Ext.trig.
       type: string
       unit:
     - default: 0

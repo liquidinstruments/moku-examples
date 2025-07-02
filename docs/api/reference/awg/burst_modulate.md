@@ -21,6 +21,7 @@ parameters:
           mokugo: Input1, Input2
           mokulab: Input1, Input2, External
           mokupro: Input1, Input2, Input3, Input4, External
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, External
       type: string
       unit: null
     - default: null
@@ -42,6 +43,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: undefined

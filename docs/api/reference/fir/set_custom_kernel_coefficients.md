@@ -23,6 +23,7 @@ parameters:
           mokugo: 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz, 61.04kHz, 30.52kHz
           mokulab: 15.63MHz, 7.813MHz, 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz
           mokupro: 39.06MHz, 19.53MHz, 9.766MHz, 4.883MHz, 2.441MHz, 1.221MHz, 610.4kHz, 305.2kHz
+          mokudelta: 39.06MHz, 19.53MHz, 9.766MHz, 4.883MHz, 2.441MHz, 1.221MHz, 610.4kHz, 305.2kHz
     - default: null
       description: Kernel coefficients for the specified filter channel
       name: coefficients
