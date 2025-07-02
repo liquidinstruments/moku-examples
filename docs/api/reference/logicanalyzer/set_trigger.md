@@ -19,6 +19,7 @@ parameters:
           mokugo: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
           mokulab: Bit - 0 to 2; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
           mokupro: Bit - 0 to 4; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
+          mokudelta: Pin - 1 to 16; Trigger edge - Ignore, High, Low, Rising, Falling, Both; (MultiInstrument; Bit - 0 to 15)
       type: array
       unit: null
     - default: false

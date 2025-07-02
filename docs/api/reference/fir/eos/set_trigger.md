@@ -17,6 +17,7 @@ parameters:
           mokugo: ProbeA, ProbeB
           mokulab: ProbeA, ProbeB, External
           mokupro: ProbeA, ProbeB, ProbeC, ProbeD, External
+          mokudelta: ProbeA, ProbeB, ProbeC, ProbeD, External
       type: string
       unit: null
     - default: 0

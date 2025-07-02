@@ -17,6 +17,7 @@ parameters:
           mokugo: ChannelA, ChannelB, Input1, Input2, Output1, Output2
           mokulab: ChannelA, ChannelB, Input1, Input2, Output1, Output2, External
           mokupro: ChannelA, ChannelB, ChannelC, ChannelD, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
+          mokudelta: ChannelA, ChannelB, ChannelC, ChannelD, ChannelE, ChannelF, ChannelG, ChannelH, Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, External
       type: string
       unit: null
     - default: 0
@@ -26,6 +27,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: Auto
@@ -56,6 +58,7 @@ parameters:
           mokugo: 480e-9 to 10
           mokulab: 184e-9 to 10
           mokupro: 24.51e-6 to 10
+          mokudelta: 164.0e-9 to 10
       type: number
       unit: Seconds
     - default: LessThan
