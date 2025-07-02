@@ -24,6 +24,7 @@ parameters:
           mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms, 15.625Ms
           mokulab: Auto, 1Gs, 500Ms, 250Ms, 125Ms
           mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms
+          mokudelta: Auto, 5Gsa, 2.5GSa, 1.25Gs, 625Ms, 312.5Ms
       type: string
       unit: MS/s
     - default: undefined
@@ -39,10 +40,11 @@ parameters:
           mokugo: 1e-3 to 10e6
           mokulab: 1e-3 to 10e6
           mokupro: 1e-3 to 250e6
+          mokudelta: 1e-3 to 2e9 (On Moku:Delta platform, sample rates over 625MSa/s are limited to ±500mV)
       type: number
       unit: Hz
     - default: null
-      description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to -1V to 1V with a sample rate of 1.25GSa/s)
+      description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to -1V to 1V with a sample rate of 1.25GSa/s. For Moku:Delta, the output voltage is limited to ±500mV with sample rates over 625MSa/s)
       name: amplitude
       param_range: 4e-3 to 10
       type: number
@@ -88,6 +90,14 @@ summary: generate_waveform
 <headers/>
 
 The maximum number of points depends on the sample rate:
+
+For Moku:Delta
+
+-   4,096 at 5 GSa/s
+-   8,192 at 2.5 GSa/s
+-   16,384 at 1.25 GS/s
+-   32,768 at 625 MS/s
+-   65,536 at 312.5 MS/s
 
 For Moku:Pro
 

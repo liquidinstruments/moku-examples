@@ -27,6 +27,7 @@ parameters:
           mokugo: 2e-3 to 10
           mokulab: 2e-3 to 4
           mokupro: 1e-3 to 10
+          mokudelta: 1e-3 to 10 (On Moku:Delta platform, signals above 100 MHz are limited to ±500mV)
       type: number
       unit: V
     - default: 10000
@@ -36,10 +37,11 @@ parameters:
           mokugo: 1e-3 to 20e6
           mokulab: 1e-3 to 100e6
           mokupro: 1e-3 to 500e6
+          mokudelta: 1e-3 to 2e9
       type: number
       unit: Hz
     - default: 0
-      description: DC offset applied to the waveform (For Moku:Pro, the output voltage is limited to between -1V and 1V above 1MHz)
+      description: DC offset applied to the waveform (For Moku:Pro, the output voltage is limited to between -1V and 1V above 1MHz. For Moku:Delta platform, signals above 100 MHz are limited to ±500mV)
       name: offset
       param_range: -5 to 5
       type: number
@@ -75,6 +77,7 @@ parameters:
           mokugo: 16e-9 to pulse width
           mokulab: 4e-9 to pulse width
           mokupro: 2e-9 to pulse width
+          mokudelta: 500e-12 to pulse width
       type: number
       unit: null
     - default: 0
@@ -84,6 +87,7 @@ parameters:
           mokugo: 16e-9 to waveform period
           mokulab: 4e-9 to waveform period
           mokupro: 2e-9 to waveform period
+          mokudelta: 500e-12 to waveform period
       type: number
       unit: null
     - default: true
