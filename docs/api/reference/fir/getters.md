@@ -13,6 +13,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_frontend
@@ -25,6 +26,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_input_gain
@@ -37,6 +39,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_input_offset
@@ -49,6 +52,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_output_offset
@@ -61,6 +65,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_output_gain
@@ -73,6 +78,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 ---
