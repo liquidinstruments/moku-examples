@@ -24,9 +24,10 @@ parameters:
       description: Waveform peak-to-peak amplitude (For Moku:Pro, the output voltage is limited to between -2 V and 2 V above 100 MHz)
       name: amplitude
       param_range:
-          mokugo: -5 to 5
-          mokulab: -2 to 2
-          mokupro: -10 to 10, -2 to 2 > 100 MHz
+          mokugo: 2e-3 to 10
+          mokulab: 2e-3 to 4
+          mokupro: 1e-3 to 10
+          mokudelta: 1e-3 to 10 (On Moku:Delta platform, signals above 100 MHz are limited to ±500mV)
       type: number
       unit: V
     - default: true
@@ -38,7 +39,11 @@ parameters:
     - default: 0
       description: DC offset applied to the waveform (For Moku:Pro, the output voltage is limited to between -1 V and 1 V above 1 MHz)
       name: offset
-      param_range: -5 to 5
+      param_range:
+          mokugo: -5 to 5
+          mokulab: -2 to 2
+          mokupro: -10 to 10, -2 to 2 > 100 MHz
+          mokudelta: -5 to 5, -499.5-3 to 499.5-3 > 100 MHz
       type: number
       unit: V
     - default: true

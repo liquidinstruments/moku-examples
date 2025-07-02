@@ -27,6 +27,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -1 to 1
           mokupro: -1 to 1
+          mokudelta: -500e-3 to 500e-3
       type: number
       unit: V
     - default: null
@@ -36,6 +37,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -1 to 1
           mokupro: -1 to 1
+          mokudelta: -500e-3 to 500e-3
       type: number
       unit: V
     - default: true
