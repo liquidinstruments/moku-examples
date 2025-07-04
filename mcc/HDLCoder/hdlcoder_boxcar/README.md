@@ -7,7 +7,7 @@ This repository is associated with the [Boxcar Averager](https://liquidinstrumen
 ### Download Control Panel and Bitstreams
 
 - The Python control panel can be found in the [Python](./python/) folder.
-- The bitstreams can be found in the [bitstreams](./bitstreams/) folder.
+- The bitstreams can be found in the [bitstreams](https://liquidinstruments.com/application-notes/building-dual-boxcar-averagers/) folder.
 
 ### Install Moku-Python package
 
