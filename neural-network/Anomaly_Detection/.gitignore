@@ -1,5 +1,0 @@
-*.png
-AD_dataset/*
-*.linn
-.ipynb_checkpoints/*
-Anomaly_Detection/*
