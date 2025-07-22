@@ -6,5 +6,9 @@ neural-network/*.linn
 neural-network/*.h5
 neural-network/*.keras
 
+# Ignore swap file and checkpoints
+neural-network/.gitignore.swp
+neural-network/.ipynb_checkpoints/
+
 # Ignore MacOS cache files
 .DS_Store
