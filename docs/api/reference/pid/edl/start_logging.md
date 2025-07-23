@@ -50,7 +50,7 @@ parameters:
       param_range: Normal, Precision, DeepMemory, PeakDetect
       type: string
       unit: null
-    - default: 1000
+    - default: undefined
       description: Acquisition rate
       name: rate
       param_range: null
