@@ -101,8 +101,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
+    "attenuation": "0dB",
     "coupling": "AC",
-    "impedance": "1MOhm",
-    "range": "10Vpp"
+    "impedance": "1MOhm"
 }
 ```

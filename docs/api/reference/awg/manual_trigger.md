@@ -18,7 +18,7 @@ summary: manual_trigger
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
 i = ArbitraryWaveformGenerator('192.168.###.###')
-i.set_burst_mode(channel=2, source='Manual', mode='Start')
+i.burst_modulate(2, "Manual", "NCycle", burst_cycles=3)
 i.manual_trigger()
 ```
 
@@ -28,7 +28,7 @@ i.manual_trigger()
 
 ```matlab
 m = MokuArbitraryWaveformGenerator('192.168.###.###');
-m.set_burst_mode(2, 'Manual', 'Start');
+m.burst_modulate(2, "Manual", "NCycle",'burst_cycles',3);
 m.manual_trigger();
 ```
 

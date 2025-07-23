@@ -128,7 +128,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
    "acquisition_mode":"Normal",
    "comments":"",
    "duration":10,
-   "rate":1000.0
+   "rate":1000.0,
    "file_name":"MokuDataLoggerData_20220301_135057.li",
    "file_name_prefix":"MokuDataLoggerData"
 }
