@@ -98,7 +98,7 @@ i.set_by_frequency(1, "3.906MHz", coefficient_count=201,
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###', true);
 % Configure frequency domain with response as Lowpass filter on FIR filter 1
-i.set_by_frequency(1, "3.906MHz", 'coefficient_count', 201, 'shape', 'Lowpass');
+m.set_by_frequency(1, "3.906MHz", 'coefficient_count', 201, 'shape', 'Lowpass');
 ```
 
 </code-block>
