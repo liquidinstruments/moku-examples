@@ -44,6 +44,12 @@ parameters:
       param_range: -5 to 5
       type: number
       unit: V
+    - default: undefined
+      description: Target samples per second
+      name: sample_rate
+      param_range: 10 to 1e6
+      type: number
+      unit: Sa/s
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
