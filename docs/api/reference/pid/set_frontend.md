@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and range for each channel.
+description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
 parameters:
@@ -14,7 +14,7 @@ parameters:
           mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
-    - default: 1MOhm
+    - default: null
       description: Impedance
       name: impedance
       param_range:
@@ -30,21 +30,19 @@ parameters:
       param_range: AC, DC
       type: string
       unit: null
-    - default: undefined
-      description: Input Range
-      name: range
+    - default: None
+      description: Input attenuation (required when gain is not set)
+      name: attenuation
       param_range:
-          mokugo: 10Vpp, 50Vpp
-          mokulab: 1Vpp, 10Vpp
-          mokupro: 400mVpp, 4Vpp, 40Vpp
-          mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
+          mokugo: 0dB, 14dB
+          mokulab: 0dB, 20dB
+          mokupro: 0dB, 20dB, 40dB
+          mokudelta: -20dB, 0dB, 20dB, 32dB
       type: string
       unit: null
-      deprecated: true
-      deprecated_msg: range is deprecated and will be removed in future releases. Please use **attenuation** instead
-    - default: null
-      description: Input attenuation
-      name: attenuation
+    - default: None
+      description: Input gain (required when attenuation is not set)
+      name: gain
       param_range:
           mokugo: 0dB, -14dB
           mokulab: 0dB, -20dB
@@ -72,7 +70,7 @@ summary: set_frontend
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
-i.set_frontend(1, "1MOhm", "AC", "10Vpp")
+i.set_frontend(1, "1MOhm", "AC", "0dB")
 ```
 
 </code-block>
@@ -81,7 +79,7 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 
 ```matlab
 i = MokuPIDController('192.168.###.###');
-i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
+i.set_frontend(1, '1MOhm', 'DC', '0dB');
 ```
 
 </code-block>
@@ -91,7 +89,7 @@ i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "0dB"}'\
         http://<ip>/api/pidcontroller/set_frontend
 ```
 

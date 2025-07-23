@@ -69,7 +69,7 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 
 ```matlab
 m = MokuOscilloscope('192.168.###.###');
-i.set_frontend(1, '1MOhm', 'DC', '10Vpp');
+m.set_frontend(1, '1MOhm', 'DC', '10Vpp');
 ```
 
 </code-block>
