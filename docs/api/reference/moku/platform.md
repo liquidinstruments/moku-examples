@@ -10,8 +10,9 @@ path_parameters:
       name: id
       param_range:
           mokugo: 1, 2
-          mokupro: 1, 4
           mokulab: 1, 2
+          mokupro: 1, 4
+          mokudelta: 1, 3, 8
       type: integer
       unit: null
 summary: platform

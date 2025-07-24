@@ -11,6 +11,7 @@ parameters:
           mokugo: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz, 122kHz
           mokulab: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz
           mokupro: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
+          mokudelta: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
       type: string
       unit: null
     - default: true

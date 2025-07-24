@@ -17,6 +17,7 @@ parameters:
           mokugo: 10 to 1e6
           mokulab: 10 to 1e6
           mokupro: 10 to 10e6
+          mokudelta: 10 to 10e6
       type: number
       unit: null
     - default: undefined
@@ -26,6 +27,7 @@ parameters:
           mokugo: Input1, Input2
           mokulab: Input1, Input2, External
           mokupro: Input1, Input2, Input3, Input4, External
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, External
       type: string
       unit: null
     - default: 0

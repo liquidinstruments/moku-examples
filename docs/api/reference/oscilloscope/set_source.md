@@ -11,6 +11,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
@@ -20,6 +21,7 @@ parameters:
           mokugo: None, Input1, Input2, Output1, Output2
           mokulab: None, Input1, Input2, Output1, Output2
           mokupro: None, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4
+          mokudelta: None, Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4
       type: string
       unit: null
     - default: true

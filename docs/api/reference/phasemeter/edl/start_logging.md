@@ -28,6 +28,12 @@ parameters:
       param_range: null
       type: integer
       unit: Seconds
+    - default: undefined
+      description: Acquisition speed (e.g. "30Hz")
+      name: acquisition_speed
+      param_range: 30Hz, 37Hz, 119Hz, 150Hz, 477Hz,  596Hz, 1.9kHz, 2.4kHz, 15.2kHz, 19.1kHz, 122kHz, 152kHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict

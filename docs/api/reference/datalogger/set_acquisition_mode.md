@@ -11,6 +11,7 @@ parameters:
           mokulab: Normal, Precision
           mokugo: Normal, Precision, PeakDetect
           mokupro: Normal, Precision, PeakDetect
+          mokudelta: Normal, Precision, PeakDetect
       type: string
       unit: null
     - default: true

@@ -35,6 +35,7 @@ parameters:
           mokugo: Input1, Input2
           mokulab: Input1, Input2, External
           mokupro: Input1, Input2, Input3, Input4, External
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, External
       type: string
       unit: null
     - default: 0
@@ -43,6 +44,12 @@ parameters:
       param_range: -5 to 5
       type: number
       unit: V
+    - default: undefined
+      description: Target samples per second
+      name: sample_rate
+      param_range: 10 to 1e6
+      type: number
+      unit: Sa/s
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -121,7 +128,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
    "acquisition_mode":"Normal",
    "comments":"",
    "duration":10,
-   "rate":1000.0
+   "rate":1000.0,
    "file_name":"MokuDataLoggerData_20220301_135057.li",
    "file_name_prefix":"MokuDataLoggerData"
 }

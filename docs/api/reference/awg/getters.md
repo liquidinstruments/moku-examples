@@ -13,6 +13,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_output_load
@@ -27,6 +28,7 @@ getters:
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 - summary: get_output_termination
@@ -38,6 +40,7 @@ getters:
     param_range:
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
+     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
     type: integer
     unit: null
 ---

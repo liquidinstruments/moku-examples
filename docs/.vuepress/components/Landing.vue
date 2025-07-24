@@ -71,7 +71,7 @@
                         Code, compile, and deploy directly from your browser.
                         Moku Cloud Compile makes FPGA programming simple with
                         the ability to implement custom functionality to
-                        Moku:Go, Moku:Lab, and Moku:Pro.Moku:Pro.
+                        Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta.
                     </p>
                 </card>
 

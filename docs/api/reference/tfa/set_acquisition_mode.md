@@ -17,6 +17,7 @@ parameters:
           mokugo: ChannelA, ChannelB, Input1, Input2, Output1, Output2
           mokulab: ChannelA, ChannelB, Input1, Input2, Output1, Output2, External
           mokupro: ChannelA, ChannelB, ChannelC, ChannelD, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
+          mokudelta: ChannelA, ChannelB, ChannelC, ChannelD, ChannelE, ChannelF, ChannelG, ChannelH, Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, External
       type: string
       unit:
     - default:

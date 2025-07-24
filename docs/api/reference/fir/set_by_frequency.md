@@ -11,6 +11,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
@@ -22,6 +23,7 @@ parameters:
           mokugo: 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz, 61.04kHz, 30.52kHz
           mokulab: 15.63MHz, 7.813MHz, 3.906MHz, 1.953MHz, 976.6kHz, 488.3kHz, 244.1kHz, 122.1kHz
           mokupro: 39.06MHz, 19.53MHz, 9.766MHz, 4.883MHz, 2.441MHz, 1.221MHz, 610.4kHz, 305.2kHz
+          mokudelta: 39.06MHz, 19.53MHz, 9.766MHz, 4.883MHz, 2.441MHz, 1.221MHz, 610.4kHz, 305.2kHz
     - default: 201
       description: Coefficient or tap count
       name: coefficient_count
@@ -96,7 +98,7 @@ i.set_by_frequency(1, "3.906MHz", coefficient_count=201,
 ```matlab
 m = MokuFIRFilterBox('192.168.###.###', true);
 % Configure frequency domain with response as Lowpass filter on FIR filter 1
-i.set_by_frequency(1, "3.906MHz", 'coefficient_count', 201, 'shape', 'Lowpass');
+m.set_by_frequency(1, "3.906MHz", 'coefficient_count', 201, 'shape', 'Lowpass');
 ```
 
 </code-block>

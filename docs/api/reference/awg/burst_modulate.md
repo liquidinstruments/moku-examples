@@ -11,15 +11,17 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
       description: Trigger source
       name: trigger_source
       param_range:
-          mokugo: Input1, Input2
-          mokulab: Input1, Input2, External
-          mokupro: Input1, Input2, Input3, Input4, External
+          mokugo: Input1, Input2, Manual
+          mokulab: Input1, Input2, External, Manual
+          mokupro: Input1, Input2, Input3, Input4, External, Manual
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, External, Manual
       type: string
       unit: null
     - default: null
@@ -41,6 +43,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: undefined
@@ -50,6 +53,7 @@ parameters:
           mokugo: 10Vpp, 50Vpp
           mokulab: 10Vpp, 1Vpp
           mokupro: 400mVpp, 4Vpp, 40Vpp
+          mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
       type: string
       unit: Vpp
     - default: true

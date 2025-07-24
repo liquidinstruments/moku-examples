@@ -11,6 +11,7 @@ parameters:
           mokugo: persist, bitstreams, logs, tmp
           mokulab: media, bitstreams, logs, tmp
           mokupro: ssd, bitstreams, logs, tmp, persist
+          mokudelta: ssd, bitstreams, logs, tmp, persist
       type: string
       unit: null
     - default: null

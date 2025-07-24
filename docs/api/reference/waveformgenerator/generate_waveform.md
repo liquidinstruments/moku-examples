@@ -12,6 +12,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
@@ -63,6 +64,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -2 to 2
           mokupro: -5 to 5
+          mokudelta: -5 to 5
       type: number
       unit: null
     - default: 0
@@ -72,6 +74,7 @@ parameters:
           mokugo: 16e-9 to pulse width
           mokulab: 4e-9 to pulse width
           mokupro: 4e-9 to pulse width
+          mokudelta: 500e-12 to pulse width
       type: number
       unit: null
     - default: 0

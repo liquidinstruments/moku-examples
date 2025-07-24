@@ -11,6 +11,7 @@ parameters:
           mokugo: 10 to 1e6
           mokulab: 10 to 2.5e5
           mokupro: 10 to 10e6
+          mokudelta: 10 to 10e6
       type: number
       unit: null
     - default: true

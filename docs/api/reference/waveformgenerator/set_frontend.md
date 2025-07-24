@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and range for each channel.
+description: Configures the input impedance, coupling, and range for each channel
 method: post
 name: set_frontend
 parameters:
@@ -14,7 +14,7 @@ parameters:
           mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
-    - default: 1MOhm
+    - default: null
       description: Impedance
       name: impedance
       param_range:
@@ -36,8 +36,8 @@ parameters:
       param_range:
           mokugo: 10Vpp, 50Vpp
           mokulab: 1Vpp, 10Vpp
-          mokupro: 400mVpp, 4Vp, 40Vpp
-          mokudelta: 100mVpp, 1Vpp, 4Vpp, 40Vpp
+          mokupro: 400mVpp, 4Vpp, 40Vpp
+          mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
       type: string
       unit: null
     - default: true
@@ -58,8 +58,10 @@ summary: set_frontend
 <code-block title="Python">
 
 ```python
-from moku.instruments import SpectrumAnalyzer
-i = SpectrumAnalyzer('192.168.###.###')
+from moku.instruments import WaveformGenerator
+i = WaveformGenerator('192.168.###.###')
+i.set_burst_mode(channel=2, source='Input1', mode='Start',
+                     trigger_level=0.4)
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 
@@ -68,8 +70,9 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuSpectrumAnalyzer('192.168.###.###');
-m.set_frontend(1, '1MOhm', 'AC', '50Vpp')
+m = MokuWaveformGenerator('192.168.###.###');
+m.set_burst_mode(2, 'Input1', 'Start', 'trigger_level', 0.4);
+m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
 ```
 
 </code-block>
@@ -79,8 +82,8 @@ m.set_frontend(1, '1MOhm', 'AC', '50Vpp')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
-        http://<ip>/api/spectrumanalyzer/set_frontend
+        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "range": "10Vpp"}'\
+        http://<ip>/api/waveformgenerator/set_frontend
 ```
 
 </code-block>

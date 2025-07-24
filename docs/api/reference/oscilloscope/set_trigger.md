@@ -7,7 +7,7 @@ parameters:
     - default: Edge
       description: Trigger type
       name: type
-      param_range: Edge, Pulse
+      param_range: Edge, Pulse, Runt
       type: string
       unit: null
     - default: Input1
@@ -17,6 +17,7 @@ parameters:
           mokugo: ChannelA, ChannelB, Input1, Input2, Output1, Output2
           mokulab: ChannelA, ChannelB, Input1, Input2, Output1, Output2, External
           mokupro: ChannelA, ChannelB, ChannelC, ChannelD, Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
+          mokudelta: ChannelA, ChannelB, ChannelC, ChannelD, ChannelE, ChannelF, ChannelG, ChannelH, Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, External
       type: string
       unit: null
     - default: 0
@@ -26,6 +27,27 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
+      type: number
+      unit: V
+    - default: 0
+      description: Low trigger level (Runt mode only)
+      name: level_low
+      param_range:
+          mokugo: -5 to 5
+          mokulab: -5 to 5
+          mokupro: -20 to 20
+          mokudelta: -20 to 20
+      type: number
+      unit: V
+    - default: 0.1
+      description: High trigger level (Runt mode only)
+      name: level_high
+      param_range:
+          mokugo: -5 to 5
+          mokulab: -5 to 5
+          mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: Auto
@@ -44,7 +66,7 @@ parameters:
       type: string
       unit: null
     - default: Positive
-      description: Trigger pulse polarity (Pulse mode only)
+      description: Trigger pulse polarity (Pulse and Runt mode)
       name: polarity
       param_range: Positive, Negative
       type: string
@@ -56,6 +78,7 @@ parameters:
           mokugo: 480e-9 to 10
           mokulab: 184e-9 to 10
           mokupro: 24.51e-6 to 10
+          mokudelta: 164.0e-9 to 10
       type: number
       unit: Seconds
     - default: LessThan
