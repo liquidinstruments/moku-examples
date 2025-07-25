@@ -71,10 +71,6 @@ model_definition = [(frame_length, 'linear')]
 quant_mod_identity.construct_model(model_definition)
 ```
 
-```
-WARNING:tensorflow:From c:\Users\miche\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\backend\tensorflow\core.py:222: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
-```
-
 At this point, the model has been constructed. Initially, the weights in the dense layer are randomly initialized and the biases start at zero. We will verify and then override these weights to turn the network into a true identity mapper.
 
 LinnModel uses Keras under the hood, so we can easily check the layer weights. The model's first layer (layers[0]) is an input layer, and the second layer (layers[1]) is our dense layer. Let's fetch the dense layer and look at its weight matrix and bias vector before configuring the identity Neural Network.

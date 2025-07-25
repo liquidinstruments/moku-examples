@@ -141,15 +141,15 @@ Data will be saved in the file: AD_dataset/data_training_7372458.csv
 Folder already exists: AD_dataset/
 ```
 
-Now, deploy the Oscilloscope instrument on your Moku. Connect to your Moku hardware by initializing a MultiInstrument with the device's IP address. In this example we use a Moku:Pro, and so we set platform_id to 4.
+Now, deploy the Oscilloscope instrument on your Moku. Connect to your Moku hardware by initializing a MultiInstrument with the device's IP address. In this example we use a Moku:Pro which has four slots available in its Multi-instrument Mode, so we set platform_id to 4.
 
 Connections in Multi-Instrument Mode are defined by an array of dictionaries. In this example, we route the signal from the analog frontend (Input 1) to the first input channel of the Oscilloscope. We also define the coupling, attenuation, and impedance of the frontend.
 
-Note: Replace '10.1.119.245' with your Moku’s IP address (and adjust platform_id if using different Moku hardware).
+Note: Replace '192.168.XX.XXX' with your Moku’s IP address (and adjust platform_id if using different Moku hardware).
 
 ```python
 # Connect to the Moku device and deploy an Oscilloscope instrument
-mim = MultiInstrument('10.1.119.245', force_connect=True, platform_id=4)
+mim = MultiInstrument('192.168.XX.XXX', force_connect=True, platform_id=4)
 osc = mim.set_instrument(4, Oscilloscope)
 
 connections = [dict(source="Input1", destination="Slot4InA")]
@@ -291,10 +291,6 @@ model_definition = [
 quant_mod.construct_model(model_definition)
 ```
 
-```
-frame length/input dimension: 100
-WARNING:tensorflow:From c:\Users\miche\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\backend\tensorflow\core.py:222: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
-```
 Now train the model on the training dataset we defined earlier. We include a 10% validation split (which comes from the training set itself) for early stopping.
 
 ```python
@@ -314,121 +310,9 @@ Epoch 2/250
 25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 6.5409e-04 - val_loss: 2.8883e-04
 Epoch 3/250
 25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 2.1046e-04 - val_loss: 6.5728e-05
-Epoch 4/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 5.0799e-05 - val_loss: 2.1085e-05
-Epoch 5/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.4292e-05 - val_loss: 1.6994e-05
-Epoch 6/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.7835e-05 - val_loss: 1.6665e-05
-Epoch 7/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.4787e-05 - val_loss: 1.6296e-05
-Epoch 8/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.7975e-05 - val_loss: 1.5801e-05
-Epoch 9/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.0365e-05 - val_loss: 1.5625e-05
-Epoch 10/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 9.7039e-06 - val_loss: 1.5155e-05
-Epoch 11/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 9.5350e-06 - val_loss: 1.4581e-05
-Epoch 12/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 9.9137e-06 - val_loss: 1.4012e-05
-Epoch 13/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.0148e-05 - val_loss: 1.3402e-05
-Epoch 14/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.1134e-05 - val_loss: 1.2680e-05
-Epoch 15/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 9.4043e-06 - val_loss: 1.1916e-05
-Epoch 16/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.2953e-05 - val_loss: 1.1168e-05
-Epoch 17/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.2701e-05 - val_loss: 1.0311e-05
-Epoch 18/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 9.0256e-06 - val_loss: 9.5096e-06
-Epoch 19/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.0628e-05 - val_loss: 8.6078e-06
-Epoch 20/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 7.2170e-06 - val_loss: 7.6696e-06
-Epoch 21/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.0654e-05 - val_loss: 6.8180e-06
-Epoch 22/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 7.2483e-06 - val_loss: 5.9443e-06
-Epoch 23/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 6.8481e-06 - val_loss: 5.1698e-06
-Epoch 24/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 5.5210e-06 - val_loss: 4.4748e-06
-Epoch 25/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 5.2451e-06 - val_loss: 3.8111e-06
-Epoch 26/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 3.8459e-06 - val_loss: 3.4560e-06
-Epoch 27/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.1066e-06 - val_loss: 2.7537e-06
-Epoch 28/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 4.6303e-06 - val_loss: 2.3208e-06
-Epoch 29/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.3269e-06 - val_loss: 1.9804e-06
-Epoch 30/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 3.3572e-06 - val_loss: 1.6821e-06
-Epoch 31/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 3.7038e-06 - val_loss: 1.4242e-06
-Epoch 32/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 2.0513e-06 - val_loss: 1.2224e-06
-Epoch 33/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.8574e-06 - val_loss: 1.0894e-06
-Epoch 34/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 2.0399e-06 - val_loss: 9.1873e-07
-Epoch 35/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.7246e-06 - val_loss: 8.3453e-07
-Epoch 36/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 2.0258e-06 - val_loss: 7.9282e-07
-Epoch 37/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.0468e-06 - val_loss: 7.2050e-07
-Epoch 38/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.0121e-06 - val_loss: 6.2446e-07
-Epoch 39/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 1.3272e-06 - val_loss: 5.5632e-07
-Epoch 40/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 8.7374e-07 - val_loss: 5.2139e-07
-Epoch 41/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 1.5157e-06 - val_loss: 5.0296e-07
-Epoch 42/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 7.7813e-07 - val_loss: 5.0497e-07
-Epoch 43/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.8862e-07 - val_loss: 5.2613e-07
-Epoch 44/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 8.6710e-07 - val_loss: 4.6760e-07
-Epoch 45/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 8.6277e-07 - val_loss: 4.4028e-07
-Epoch 46/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 6.0885e-07 - val_loss: 4.4799e-07
-Epoch 47/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 6.5383e-07 - val_loss: 4.8272e-07
-Epoch 48/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 8.2871e-07 - val_loss: 4.1005e-07
-Epoch 49/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 5.2703e-07 - val_loss: 4.0595e-07
-Epoch 50/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 4.0638e-07 - val_loss: 5.4495e-07
-Epoch 51/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 5.0017e-07 - val_loss: 5.2292e-07
-Epoch 52/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 5.3705e-07 - val_loss: 5.4037e-07
-Epoch 53/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 5.2362e-07 - val_loss: 3.9301e-07
-Epoch 54/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.7575e-07 - val_loss: 4.2096e-07
-Epoch 55/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 3.7337e-07 - val_loss: 4.2197e-07
-Epoch 56/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 2ms/step - loss: 3.9371e-07 - val_loss: 4.4283e-07
-Epoch 57/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.0926e-07 - val_loss: 3.9660e-07
-Epoch 58/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 2.8312e-07 - val_loss: 4.5293e-07
-Epoch 59/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 3.5371e-07 - val_loss: 4.3901e-07
-Epoch 60/250
-25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 4.5390e-07 - val_loss: 4.3006e-07
-Epoch 61/250
+
+[...]
+
 25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 3.8480e-07 - val_loss: 5.1594e-07
 Epoch 62/250
 25/25 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - loss: 3.4140e-07 - val_loss: 4.6303e-07
