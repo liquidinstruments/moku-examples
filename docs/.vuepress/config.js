@@ -1,4 +1,4 @@
- const mimAdmin = require('./sidebar-menus/mim')
+const mimAdmin = require('./sidebar-menus/mim')
 const mokuPropAdmin = require('./sidebar-menus/moku')
 const getChildren = require('./getChildren').getChildren
 const externalClockAdmin = require('./sidebar-menus/ext_clk')
@@ -207,9 +207,11 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [
                         ['/mnn/examples/', 'Overview'],
+                        ['/mnn/examples/Anomaly_detection', 'Anomaly Detection'],
                         ['/mnn/examples/Autoencoder', 'Autoencoder'],
                         ['/mnn/examples/Classification', 'Classification'],
                         ['/mnn/examples/Emitter_control', 'Emitter Control'],
+                        ['/mnn/examples/Identity_network', 'Identity Network'],
                         ['/mnn/examples/Signal_ID', 'Signal Identifier'],
                         ['/mnn/examples/Simple_sine', 'Simple Sine wave'],
                         ['/mnn/examples/Sum', 'Weighted Sum'],
