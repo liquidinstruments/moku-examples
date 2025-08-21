@@ -5,6 +5,8 @@ additional_doc:
 description:
     Sets up commonly used configurations in the Oscilloscope, including the
     time base, channel signal source, and trigger.
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use [set_timebase](./set_timebase.html) and [set_trigger](./set_trigger.html)
 method: post
 name: osc_measurement
 parameters:

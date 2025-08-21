@@ -4,6 +4,8 @@ description:
     Sets up commonly used configurations in the Spectrum Analyzer, including
     the frequency range, channel signal source, resolution bandwidth, and window function.
 method: post
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use [set_output_termination](./set_span.html), [set_rbw](./set_rbw.html), and [set_window](./set_window.html)
 name: sa_measurement
 parameters:
     - default: null
