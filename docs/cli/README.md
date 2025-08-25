@@ -37,10 +37,10 @@ mokucli list
 mokucli instrument download 4.0.1
 
 # Download a specific bitstream
-mokucli instrument download 4.0.1/oscilloscope --hw-version mokugo
+mokucli instrument download 4.0.1:oscilloscope --hw-version mokugo
 
 # Download features for offline installation
-mokucli feature download 4.0.1/api-server --hw-version mokupro
+mokucli feature download 4.0.1:api-server --hw-version mokupro
 ```
 
 ### Uploading Firmware
@@ -55,10 +55,10 @@ mokucli firmware upload 192.168.1.100 ./moku-mokupro-611.fw
 ### Managing Instruments on Device
 ```bash
 # Upload a bitstream to a device
-mokucli instrument upload 192.168.1.100 4.0.1/oscilloscope
+mokucli instrument upload 192.168.1.100 4.0.1:oscilloscope
 
 # Upload multiple bitstreams
-mokucli instrument upload 192.168.1.100 "4.0.1/01-*"
+mokucli instrument upload 192.168.1.100 "4.0.1:01-*"
 ```
 
 ## Command Overview
@@ -68,13 +68,14 @@ MokuCLI is organized into command groups, each serving a specific purpose:
 1. **[instrument](instrument.md)** - Manage instrument bitstreams (download to cache, upload to device, list available)
 2. **[firmware](firmware.md)** - Manage device firmware updates
 3. **[feature](feature.md)** - Manage software features and plugins (download to cache, upload to device)
-4. **[convert](convert.md)** - Convert Liquid Instruments binary data files
-5. **[download](download.md)** - Legacy bitstream download (use `instrument download`)
-6. **[list](list.md)** - Search for Moku devices on network
-7. **[files](files.md)** - Manage files on Moku devices
-8. **[license](license.md)** - Manage device licenses
-9. **[proxy](proxy.md)** - Create network proxy to device
-10. **[stream](stream.md)** - Stream binary data from device
+4. **[command](command.md)** - Execute Moku API commands directly from CLI
+5. **[convert](convert.md)** - Convert Liquid Instruments binary data files
+6. **[download](download.md)** - Legacy bitstream download (use `instrument download`)
+7. **[list](list.md)** - Search for Moku devices on network
+8. **[files](files.md)** - Manage files on Moku devices
+9. **[license](license.md)** - Manage device licenses
+10. **[proxy](proxy.md)** - Create network proxy to device
+11. **[stream](stream.md)** - Stream binary data from device
 
 For advanced configuration options, see the [Advanced Usage](advanced.md) guide.
 

@@ -16,7 +16,7 @@ $ mokucli download [OPTIONS] VERSION_SPEC...
 
 ## Arguments
 
-- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1/01-*-00', '4.0.1/01-00?-*', '4.0.1/01-[0-9]*-00' [required]
+- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier using colon separator. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:01-*-00', '4.0.1:01-00?-*', '4.0.1:01-[0-9]*-00' [required]
 
 ## Options
 
@@ -34,7 +34,7 @@ $ mokucli download [OPTIONS] VERSION_SPEC...
 mokucli download 4.0.1
 
 # Download specific bitstream
-mokucli download 4.0.1/oscilloscope --hw-version mokugo
+mokucli download 4.0.1:oscilloscope --hw-version mokugo
 
 # Download to specific directory
 mokucli download 4.0.1 --target ./bitstreams

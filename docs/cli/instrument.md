@@ -72,14 +72,14 @@ $ mokucli instrument download [OPTIONS] VERSION_SPEC...
 
 ### Arguments
 
-- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1/01-*-00', '4.0.1/01-00?-*', '4.0.1/01-[0-9]*-00' [required]
+- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier using colon separator. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:01-*-00', '4.0.1:01-00?-*', '4.0.1:01-[0-9]*-00' [required]
 
 ### Options
 
 - `--target PATH`: Directory to download bitstreams to [default: platform-specific data directory]
 - `--force / --no-force`: Force redownload even if file exists [default: no-force]
-- `--ip TEXT`: IP address of a connected Moku device (for hardware version detection)
-- `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Hardware version to use when no device is connected
+- `--ip TEXT`: IP address of a connected Moku device (for hardware version detection and auto-version detection)
+- `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Hardware version to use when no device is connected. When --ip is provided without a version, the firmware version is auto-detected from the connected device
 - `--verbose, -v`: Show detailed output for each bitstream download
 - `--help`: Show this message and exit
 
@@ -90,10 +90,10 @@ $ mokucli instrument download [OPTIONS] VERSION_SPEC...
 mokucli instrument download 4.0.1
 
 # Download specific bitstream
-mokucli instrument download 4.0.1/oscilloscope --hw-version mokugo
+mokucli instrument download 4.0.1:oscilloscope --hw-version mokugo
 
 # Download multiple bitstreams using glob patterns
-mokucli instrument download "4.0.1/01-*" --hw-version mokupro
+mokucli instrument download "4.0.1:01-*" --hw-version mokupro
 
 # Download to specific directory
 mokucli instrument download 4.0.1 --target ./bitstreams
@@ -102,7 +102,7 @@ mokucli instrument download 4.0.1 --target ./bitstreams
 mokucli instrument download 4.0.1 --ip 192.168.1.100
 
 # Force redownload
-mokucli instrument download 4.0.1/oscilloscope --force
+mokucli instrument download 4.0.1:oscilloscope --force
 ```
 
 ## mokucli instrument upload
@@ -118,7 +118,7 @@ $ mokucli instrument upload [OPTIONS] IP_ADDRESS BITSTREAM...
 ### Arguments
 
 - `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) [required]
-- `BITSTREAM`: One or more bitstreams to upload, each either a path to a bitstream file or a version/instrument identifier. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1/01-*-00', '4.0.1/01-00?-*', '4.0.1/01-[0-9]*-00' [required]
+- `BITSTREAM`: One or more bitstreams to upload, each either a path to a bitstream file or a version:instrument identifier. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:01-*-00', '4.0.1:01-00?-*', '4.0.1:01-[0-9]*-00' [required]
 
 ### Options
 
@@ -129,16 +129,16 @@ $ mokucli instrument upload [OPTIONS] IP_ADDRESS BITSTREAM...
 
 ```bash
 # Upload a single bitstream
-mokucli instrument upload 192.168.1.100 4.0.1/oscilloscope
+mokucli instrument upload 192.168.1.100 4.0.1:oscilloscope
 
 # Upload multiple bitstreams using glob patterns
-mokucli instrument upload 192.168.1.100 "4.0.1/01-*"
+mokucli instrument upload 192.168.1.100 "4.0.1:01-*"
 
 # Upload a local bitstream file
 mokucli instrument upload 192.168.1.100 ./oscilloscope.bar
 
 # Upload with verbose output
-mokucli instrument upload 192.168.1.100 4.0.1/oscilloscope -v
+mokucli instrument upload 192.168.1.100 4.0.1:oscilloscope -v
 ```
 
 ### Notes

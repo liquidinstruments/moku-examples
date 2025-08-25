@@ -28,7 +28,7 @@ $ mokucli feature upload [OPTIONS] IP_ADDRESS FEATURES...
 ### Arguments
 
 - `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) [required]
-- `FEATURES`: One or more features to upload, each either a path to a .hgp file, a version/feature identifier, or just a feature name (version taken from device). Supports versions (e.g., '4.0.1/api-server') and glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1/api-*', '4.0.1/rest-?ttp', '4.0.1/[ar]*' [required]
+- `FEATURES`: One or more features to upload, each either a path to a .hgp file, a version:feature identifier, or just a feature name (version taken from device). Supports versions (e.g., '4.0.1:api-server') and glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:api-*', '4.0.1:rest-?ttp', '4.0.1:[ar]*' [required]
 
 ### Options
 
@@ -39,7 +39,7 @@ $ mokucli feature upload [OPTIONS] IP_ADDRESS FEATURES...
 
 ```bash
 # Upload a single feature with explicit version
-mokucli feature upload 192.168.1.100 4.0.1/api-server
+mokucli feature upload 192.168.1.100 4.0.1:api-server
 
 # Upload a feature using device's version
 mokucli feature upload 192.168.1.100 api-server
@@ -48,7 +48,7 @@ mokucli feature upload 192.168.1.100 api-server
 mokucli feature upload MokuGo-000123 api-server
 
 # Upload multiple features using glob patterns
-mokucli feature upload 192.168.1.100 "4.0.1/api-*"
+mokucli feature upload 192.168.1.100 "4.0.1:api-*"
 
 # Upload a local feature file
 mokucli feature upload 192.168.1.100 ./api-server_mokupro_611.hgp
@@ -114,7 +114,7 @@ $ mokucli feature download [OPTIONS] FEATURES...
 
 ### Arguments
 
-- `FEATURES`: One or more features to download (e.g., 'api-server', '4.0.1/api-server'). Format: version/feature or just feature name (requires --ip to get version from device) [required]
+- `FEATURES`: One or more features to download (e.g., 'api-server', '4.0.1:api-server'). Format: version:feature or just feature name (requires --ip to get version from device) [required]
 
 ### Options
 
@@ -129,7 +129,7 @@ $ mokucli feature download [OPTIONS] FEATURES...
 
 ```bash
 # Download a specific feature with explicit version
-mokucli feature download 4.0.1/api-server --hw-version mokupro
+mokucli feature download 4.0.1:api-server --hw-version mokupro
 
 # Download using device's version (must specify --ip)
 mokucli feature download api-server --ip 192.168.1.100
@@ -138,13 +138,13 @@ mokucli feature download api-server --ip 192.168.1.100
 mokucli feature download api-server --ip MokuGo-000123
 
 # Download to specific directory
-mokucli feature download 4.0.1/api-server --target ./features
+mokucli feature download 4.0.1:api-server --target ./features
 
 # Force redownload
-mokucli feature download 4.0.1/api-server --force
+mokucli feature download 4.0.1:api-server --force
 
 # Download for all hardware versions
-mokucli feature download 4.0.1/api-server
+mokucli feature download 4.0.1:api-server
 ```
 
 ### Notes
