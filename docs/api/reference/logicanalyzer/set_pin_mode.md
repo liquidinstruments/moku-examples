@@ -1,7 +1,7 @@
 ---
 additional_doc: This method is unavailable for Moku:Pro and Moku:Lab because
     these models do not have digital IO port.
-description: Sets the state of Moku:Go's digital IO to either input or output
+description: Sets the state of Moku:Go and MokuLDelta digital IO to either input or output
 method: post
 name: set_pin_mode
 parameters:

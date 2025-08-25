@@ -28,7 +28,7 @@ parameters:
       type: boolean
       unit: null
 summary: set_output_load
-available_on: 'Moku:Pro, Moku:Lab'
+available_on: 'Moku:Delta, Moku:Pro, Moku:Lab'
 ---
 
 <headers/>

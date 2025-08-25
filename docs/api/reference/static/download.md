@@ -36,7 +36,7 @@ User can download files from **bitstreams**, **logs**, **ssd**, **media** and **
 
 When using either of the clients, user can access this function directly from instrument reference.
 
-Log files downloaded from `persist` (Moku:Go), `media` (Moku:Lab) or `ssd` (Moku:Pro) will be in _.li format, which can then be converted to _.csv, _.mat, or _.npy using LI File Converter.
+Log files downloaded from `persist` (Moku:Go), `media` (Moku:Lab) or `ssd` (Moku:Pro, Moku:Delta) will be in _.li format, which can then be converted to _.csv, _.mat, or _.npy using LI File Converter.
 
 If you experience issues converting log files with the MATLAB API, please use **download_file2** method with the same parameters.
 

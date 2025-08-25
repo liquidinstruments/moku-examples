@@ -3,7 +3,7 @@ title: Neural Network
 prev: false
 name: Multi-instrument
 description: Neural Network in multi-instrument context
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 # Neural Network - Multi-instrument mode

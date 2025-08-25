@@ -15,10 +15,10 @@ Features: It offers features such as frequency stabilization, phase-locking, mod
 
 If using the REST API directly, the instrument group name is `laserlockbox`.
 
-|                        | Moku:Go      | Moku:Lab      | Moku:Pro      |
-| ---------------------- | ------------ | ------------- | ------------- |
-| Maximum Output Voltage | ±5 V         | ±10 V         | ±10 V         |
-| Input Bandwidth        | DC to 60 MHz | DC to 200 MHz | DC to 750 MHz |
-| Lock Range             | ±10 MHz      | ±100 MHz      | ±400 MHz      |
+|                        | Moku:Go      | Moku:Lab      | Moku:Pro      | Moku:Delta    |
+| ---------------------- | ------------ | ------------- | ------------- | ------------- |
+| Maximum Output Voltage | ±5 V         | ±10 V         | ±10 V         | ±10 V         |
+| Input Bandwidth        | DC to 60 MHz | DC to 200 MHz | DC to 750 MHz | DC to 750 MHz |
+| Lock Range             | ±10 MHz      | ±100 MHz      | ±400 MHz      | ±400 MHz      |
 
 <function-index/>

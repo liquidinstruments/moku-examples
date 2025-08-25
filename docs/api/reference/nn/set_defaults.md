@@ -5,7 +5,7 @@ method: post
 name: set_defaults
 parameters: []
 summary: set_defaults
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>

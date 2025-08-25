@@ -23,11 +23,12 @@ Multi-instrument Mode is available through all of our APIs, including MATLAB and
 
 The configuration is parameterized by the number of slots you wish to have. Specifying "1" is equivalent to disabling Multi-instrument Mode.
 
-|  Device  | Slots Available |
-| :------: | :-------------: |
-| Moku:Go  |      1, 2       |
-| Moku:Lab |      1, 2       |
-| Moku:Pro |      1, 4       |
+|  Device    | Slots Available |
+| :--------: | :-------------: |
+| Moku:Go    |      1, 2       |
+| Moku:Lab   |      1, 2       |
+| Moku:Pro   |      1, 4       |
+| Moku:Delta |      1, 3, 8    |
 
 If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
 
