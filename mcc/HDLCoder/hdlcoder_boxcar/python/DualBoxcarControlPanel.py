@@ -43,19 +43,22 @@ description = m.describe()
 period_dict = {
     'Moku:Go': 32e-9,
     'Moku:Lab': 8e-9,
-    'Moku:Pro': 3.2e-9
+    'Moku:Pro': 3.2e-9,
+    'Moku:Delta': 3.2e-9
 }
 
 resolution_dict = {
     'Moku:Go': 1/6550.4, # 6550.4 bits/volt
     'Moku:Lab': 2/30000, # 30000  bits/volt
-    'Moku:Pro': 1/29925  # 29925  bits/volt
+    'Moku:Pro': 1/29925,  # 29925  bits/volt
+    'Moku:Delta': 1/36440  # 36440  bits/volt
 }
 
 range_dict ={
     'Moku:Go': 10,
     'Moku:Lab': 2,
-    'Moku:Pro': 2
+    'Moku:Pro': 2,
+    'Moku:Delta': 1
 }
 
 saturation_threshold = 0.95

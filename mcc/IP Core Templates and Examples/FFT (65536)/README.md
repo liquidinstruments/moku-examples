@@ -2,12 +2,12 @@
 
 FFT_65536 is a variant of FFT_1024, generated using the same IP core compiler but configured with a larger number of FFT points. Although both cores share the same foundation, FFT_65536 has distinct configuration parameters and output data formats to accommodate the increased point count. Detailed port specifications and updated signal connections are provided in Table 11, with changes highlighted. 
 
-Due to hardware resource limitations, the FFT_65536 IP core is not supported on Moku:Go or Moku:Lab and must be deployed on Moku:Pro.
+Due to hardware resource limitations, the FFT_65536 IP core is not supported on Moku:Go or Moku:Lab and must be deployed on Moku:Pro or Moku:Delta.
 The port map for the IP core can be shown as: 
 | **Port** | **Direction**  | **Use**                     |
 | -------- | -------------- | --------------------------- |
 | aclk     | Input          | Clock signal, rising edge   |
-| aresetn     | Input          | Active-Low synchronous clear (optional, always take priority over aclken). A minimum aresetn active pulse of two cycles is required.    |
+| aresetn  | Input          | Active-Low synchronous clear (optional, always take priority over aclken). A minimum aresetn active pulse of two cycles is required.    |
 | s_axis_config_tdata[39:0] | Input | TDATA for the Configuration channel. The 0th bit controls the forward or inverse FFT. And [32:1] is the scale of the output. Other bits are empty.   |
 | s_axis_config_tvalid  | Input          | TVALID for the Configuration channel. Asserted by the external block to signal that it is able to provide data.               |
 | s_axis_config_tready      |  Output  | TREADY for the Configuration channel. Asserted by the core to signal that it is ready to accept configuration data.   |

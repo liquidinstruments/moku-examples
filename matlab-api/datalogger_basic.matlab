@@ -39,7 +39,7 @@ try
     end
     
     % Download the log file from the Moku to "Users" folder
-    % Moku:Go should be downloaded from "persist" and Moku:Pro from "ssd"
+    % Moku:Go should be downloaded from "persist", and Moku:Delta and Moku:Pro from "ssd"
     i.download_file('persist',log_file,['C:\Users\' log_file]);
 
 catch ME
