@@ -6,7 +6,7 @@ The MCC design, as defined in the [Custom Wrapper](./wrapper.md), has four 16-bi
 
 |       | Moku:Go     | Moku:Pro    | Moku:Lab    | Moku:Delta  |
 | ----- | ----------- | ----------- | ----------- | ----------- |
-| Clk   | 31.25MHz    | 312.5MHz    | 125MHz      | 125MHz      |
+| Clk   | 31.25MHz    | 312.5MHz    | 125MHz      | 312.5MHz    |
 | Reset | Active-High | Active-High | Active-High | Active-High |
 
 ## Inputs and Outputs
@@ -21,20 +21,12 @@ Input and Output ports on the wrapper can either be:
 | ------- | ------------- | ------------- | ------------- | ------------- |
 | InputA  | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
 | InputB  | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
-| InputC  | ADC In 1      | ADC In 1      | ADC In 1      | Block Diagram |
-| InputD  | ADC In 2      | ADC In 2      | ADC In 2      | Block Diagram |
-| InputE  | ADC In 1      | ADC In 1      | ADC In 1      | Block Diagram |
-| InputF  | ADC In 2      | ADC In 2      | ADC In 2      | Block Diagram |
-| InputG  | ADC In 1      | ADC In 1      | ADC In 1      | Block Diagram |
-| InputH  | ADC In 2      | ADC In 2      | ADC In 2      | Block Diagram |
+| InputC  | ADC In 1      | Block Diagram | ADC In 1      | ADC In 1      |
+| InputD  | ADC In 2      | Block Diagram | ADC In 2      | ADC In 2      |
 | OutputA | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
 | OutputB | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
-| OutputC | Block Diagram | Block Diagram | Not Connected | Block Diagram |
-| OutputD | Not Connected | Block Diagram | Not Connected | Block Diagram |
-| OutputE | Not Connected | Not Connected | Not Connected | Block Diagram |
-| OutputF | Not Connected | Not Connected | Not Connected | Block Diagram |
-| OutputG | Not Connected | Not Connected | Not Connected | Block Diagram |
-| OutputH | Not Connected | Not Connected | Not Connected | Block Diagram |
+| OutputC | Block Diagram | Block Diagram | Not Connected | Not Connected |
+| OutputD | Not Connected | Block Diagram | Not Connected | Not Connected |
 
 All Inputs and Outputs are 16-bit signed values. When the port is externally connected to Digital I/O, the signed 16-bit values should be interpreted simply as a 16-bit standard logic vector.
 
@@ -44,10 +36,10 @@ The digital resolution refers to the voltage interpretation of digital quantitie
 
 | Source/Sink      | Moku:Go LSBs/volt | Moku:Pro LSBs/volt | Moku:Lab LSBs/volt | Moku:Delta LSBs/volt |
 | ---------------- | ----------------- | ------------------ | ------------------ | -------------------- |
-| ADC              | 6550.4            | 29925.0            | 30000.0            | 29925.0              |
-| DAC (50R)        | -                 | 29925.0            | 30000.0            | 29925.0              |
-| DAC (High-Z)     | 6550.4            | 14962.5            | 15000.0            | 14962.5              |
-| Inter-instrument | 6550.4            | 29925.0            | 30000.0            | 29925.0              |
+| ADC              | 6550.4            | 29925.0            | 30000.0            | 36440.0              |
+| DAC (50R)        | -                 | 29925.0            | 30000.0            | 36440.0              |
+| DAC (High-Z)     | 6550.4            | 14962.5            | 15000.0            | 18220.5              |
+| Inter-instrument | 6550.4            | 29925.0            | 30000.0            | 36440.0              |
 
 ## Using Digital I/O
 
