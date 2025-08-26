@@ -17,7 +17,7 @@ Provided is a blank template for creating HDL files using the Moku Cloud Compile
 | InputF <small><br> (Moku:Delta only) </br></small>                    | in     | signed           | 15 downto 0 |
 | InputG <small><br> (Moku:Delta only) </br></small>                    | in     | signed           | 15 downto 0 |
 | InputH <small><br> (Moku:Delta only) </br></small>                    | in     | signed           | 15 downto 0 |
-                                                                        |        |                  |             |
+|                                                                       |        |                  |             |
 | ExtTrig <small><br> (Moku:Lab, Moku:Pro and Moku:Delta) </br></small> | in     | std_logic        | -           |
 |                                                                       |
 | OutputA                                                               | out    | signed           | 15 downto 0 |
