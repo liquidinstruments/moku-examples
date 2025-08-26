@@ -11,7 +11,7 @@ parameters:
       unit: null
       param_range:
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2
     - default: null
       description: Enable or disable the output channel
       name: enabled
