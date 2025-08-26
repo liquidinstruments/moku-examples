@@ -29,11 +29,11 @@ The FPGA resources are divided between slots and the supporting logic in the
 platform surrounding the slots.  The table below summarizes the resources available
 to a custom design in each slot.
 
-|            | Moku:Delta (ZC7020) | Moku:Delta (ZC7020) | Moku:Pro (ZU9EG) | Moku:Go (ZC7020) | Moku:Lab (ZC7020) |
-| ---------- | ------------------: | ------------------: | ---------------: | ---------------: | ----------------: |
-|            |             3 Slots |             8 Slots |          4 Slots |          2 Slots |           2 Slots |
-| Core Clock |            312.5GHz |            312.5MHz |         312.5MHz |         31.25MHz |            125MHz |
-| LUT        |               50000 |               20000 |            48400 |            20000 |             19600 |
-| FF         |              100000 |               40000 |            96800 |            40000 |             39200 |
-| BRAM (36K) |                 100 |                  50 |              154 |               50 |                60 |
-| DSP        |                 500 |                 200 |              432 |              100 |               100 |
+|            | Moku:Delta (XCZU47DR) | Moku:Delta (XCZU47DR) | Moku:Pro (ZU9EG) | Moku:Go (ZC7020) | Moku:Lab (ZC7020) |
+| ---------- | --------------------: | --------------------: | ---------------: | ---------------: | ----------------: |
+|            |               3 Slots |               8 Slots |          4 Slots |          2 Slots |           2 Slots |
+| Core Clock |              312.5MHz |              312.5MHz |         312.5MHz |         31.25MHz |            125MHz |
+| LUT        |                 50000 |                 20000 |            48400 |            20000 |             19600 |
+| FF         |                100000 |                 40000 |            96800 |            40000 |             39200 |
+| BRAM (36K) |                   100 |                    50 |              154 |               50 |                60 |
+| DSP        |                   500 |                   200 |              432 |              100 |               100 |
