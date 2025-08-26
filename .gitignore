@@ -12,3 +12,6 @@ neural-network/.ipynb_checkpoints/
 
 # Ignore MacOS cache files
 .DS_Store
+
+# Ignore cspell for now
+cspell.json
