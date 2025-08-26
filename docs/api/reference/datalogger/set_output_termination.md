@@ -26,7 +26,7 @@ parameters:
       type: boolean
       unit: null
 summary: set_output_termination
-available_on: 'Moku:Pro, Moku:Lab'
+available_on: 'Moku:Pro, Moku:Lab, Moku:Delta'
 ---
 
 <headers/>

@@ -5,7 +5,7 @@ method: get
 name: get_external_clock
 parameters: []
 summary: get_external_clock
-available_on: 'Moku:Pro, Moku:Lab'
+available_on: 'Moku:Pro, Moku:Lab, Moku:Delta'
 ---
 
 <headers/>

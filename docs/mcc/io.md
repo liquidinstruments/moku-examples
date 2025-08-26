@@ -4,10 +4,10 @@ The MCC design, as defined in the [Custom Wrapper](./wrapper.md), has four 16-bi
 
 ## Clk and Reset
 
-|       | Moku:Go     | Moku:Pro    | Moku:Lab    |
-| ----- | ----------- | ----------- | ----------- |
-| Clk   | 31.25MHz    | 312.5MHz    | 125MHz      |
-| Reset | Active-High | Active-High | Active-High |
+|       | Moku:Delta  | Moku:Pro    | Moku:Lab    | Moku:Go     |
+| ----- | ----------- | ----------- | ----------- | ----------- |
+| Clk   | 312.5MHz    | 312.5MHz    | 125MHz      | 31.25MHz    |
+| Reset | Active-High | Active-High | Active-High | Active-High |
 
 ## Inputs and Outputs
 
@@ -17,16 +17,16 @@ Input and Output ports on the wrapper can either be:
 -   Permanently connected to particular ADCs or DACs, or
 -   Not connected
 
-|         | Moku:Go       | Moku:Pro      | Moku:Lab      |
-| ------- | ------------- | ------------- | ------------- |
-| InputA  | Block Diagram | Block Diagram | Block Diagram |
-| InputB  | Block Diagram | Block Diagram | Block Diagram |
-| InputC  | ADC In 1      | ADC In 1      | ADC In 1      |
-| InputD  | ADC In 2      | ADC In 2      | ADC In 2      |
-| OutputA | Block Diagram | Block Diagram | Block Diagram |
-| OutputB | Block Diagram | Block Diagram | Block Diagram |
-| OutputC | Block Diagram | Block Diagram | Not Connected |
-| OutputD | Not Connected | Block Diagram | Not Connected |
+|         | Moku:Delta    | Moku:Pro      | Moku:Lab      | Moku:Go       |
+| ------- | ------------- | ------------- | ------------- | ------------- |
+| InputA  | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
+| InputB  | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
+| InputC  | ADC In 1      | Block Diagram | ADC In 1      | ADC In 1      |
+| InputD  | ADC In 2      | Block Diagram | ADC In 2      | ADC In 2      |
+| OutputA | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
+| OutputB | Block Diagram | Block Diagram | Block Diagram | Block Diagram |
+| OutputC | Not Connected | Block Diagram | Not Connected | Block Diagram |
+| OutputD | Not Connected | Block Diagram | Not Connected | Not Connected |
 
 All Inputs and Outputs are 16-bit signed values. When the port is externally connected to Digital I/O, the signed 16-bit values should be interpreted simply as a 16-bit standard logic vector.
 
@@ -34,12 +34,12 @@ All Inputs and Outputs are 16-bit signed values. When the port is externally con
 
 The digital resolution refers to the voltage interpretation of digital quantities, scaled from LSBs (least significant bits) to volts, for ADCs, DACs, and other instruments. For example, with a 16-bit value representing a 10 Vpp voltage range, the digital resolution is 2^16/10 = 6553.6 LSBs/volt. The following table assumes no ADC attenuation and no DAC gain are configured.
 
-| Source/Sink      | Moku:Go LSBs/volt | Moku:Pro LSBs/volt | Moku:Lab LSBs/volt |
-| ---------------- | ----------------- | ------------------ | ------------------ |
-| ADC              | 6550.4            | 29925.0            | 30000.0            |
-| DAC (50R)        | -                 | 29925.0            | 30000.0            |
-| DAC (High-Z)     | 6550.4            | 14962.5            | 15000.0            |
-| Inter-instrument | 6550.4            | 29925.0            | 30000.0            |
+| Source/Sink      | Moku:Delta LSBs/volt | Moku:Pro LSBs/volt | Moku:Lab LSBs/volt | Moku:Go LSBs/volt |
+| ---------------- | -------------------- | ------------------ | ------------------ | ----------------- |
+| ADC              | 36440.0              | 29925.0            | 30000.0            | 6550.4            |
+| DAC (50R)        | 36440.0              | 29925.0            | 30000.0            | -                 |
+| DAC (High-Z)     | 18220.5              | 14962.5            | 15000.0            | 6550.4            |
+| Inter-instrument | 36440.0              | 29925.0            | 30000.0            | 6550.4            |
 
 ## Using Digital I/O
 

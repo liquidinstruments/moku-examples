@@ -4,7 +4,7 @@ Moku Cloud Compile also supports the inclusion of IP cores in your custom design
 
 ## Pre-compiled IP Cores
 
-The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, and Moku:Pro hardware. These cores can be instantiated either in your VHDL or Verilog codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
+The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These cores can be instantiated either in your VHDL or Verilog codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
 
 | Supported AMD IP Core | Description |
 |-----------------------|-------------|

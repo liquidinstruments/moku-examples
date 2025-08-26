@@ -1,7 +1,7 @@
 ---
 title: Neural Network
 prev: false
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 # Neural Network
