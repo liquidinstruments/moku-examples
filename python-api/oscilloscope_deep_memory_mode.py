@@ -10,9 +10,10 @@
 #   - 'persist' for Moku:Go
 #   - 'tmp' for Moku:Lab
 #   - 'ssd' for Moku:Pro
+#   - 'ssd' for Moku:Delta
 # Update the 'download' command accordingly to match the correct storage location.
 #
-# The parameters in the 'set_frontend' command should be configured to align with the specific hardware (Moku:Go, Moku:Lab, or Moku:Pro).
+# The parameters in the 'set_frontend' command should be configured to align with the specific hardware (Moku:Go, Moku:Lab, Moku:Pro, or Moku:Delta).
 
 
 import matplotlib.pyplot as plt

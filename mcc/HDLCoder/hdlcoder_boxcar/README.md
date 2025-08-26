@@ -41,7 +41,7 @@ BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/boxcarMokuPro.tar.gz'
 ```
 
 #### 2. Update Analog Frontend Settings
-- Moku:Lab and Moku:Pro support both `50Ohm` and `1MOhm` input impedances, while Moku:Go only supports `1MOhm`.
+- Moku:Lab, Moku:Pro and Moku:Delta support both `50Ohm` and `1MOhm` input impedances, while Moku:Go only supports `1MOhm`.
 - For additional forntend settings, please refer to the [`set_frontend`](https://apis.liquidinstruments.com/reference/mim/set_frontend.html) API documentation. 
 
 Please modify line `3 to 5` as needed:
