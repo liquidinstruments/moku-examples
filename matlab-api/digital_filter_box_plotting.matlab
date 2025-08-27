@@ -19,8 +19,8 @@ try
     % Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
     % default input range (400 mVpp range on Moku:Pro, 1 Vpp
     % range on Moku:Lab, 10 Vpp range on Moku:Go)
-    i.set_frontend(1, 'DC', '1MOhm', '0dB');
-    i.set_frontend(2, 'DC', '1MOhm', '0dB');
+    i.set_frontend(1, 'DC', '1MOhm', 'gain', '0dB');
+    i.set_frontend(2, 'DC', '1MOhm', 'gain','0dB');
 
     % Channel1 signal: Input 1
     % Channel2 signal: Input 1 + Input 2

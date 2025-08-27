@@ -17,9 +17,9 @@ try
     
     % Configure the frontend
     % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range
-    i.set_frontend(1, 'DC', '1MOhm','0dB');
+    i.set_frontend(1, 'DC', '1MOhm', 'gain', '0dB');
     % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range
-    i.set_frontend(2, 'DC', '1MOhm','-20dB');
+    i.set_frontend(2, 'DC', '1MOhm', 'gain', '-20dB');
     
     % Configure the scan oscillator to a 10 Hz 500 mVpp positive ramp
     % signal from Output 1
