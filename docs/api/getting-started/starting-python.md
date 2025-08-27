@@ -5,15 +5,16 @@ If at any point, your output doesn't match what's listed below, please refer to 
 ## Requirements
 
 -   Python 3.5+
+-   Moku CLI
 -   Knowledge of your Moku's IP Address (see below)
 
 ## Quickstart
 
-Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the mokucli commandline tool. Then download the required firmware version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
+Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the mokucli commandline tool. Then download the required MokuOS version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
 
 ```python
 $ pip install moku
-$ mokucli download 600
+$ mokucli instrument download 4.0.1
 $ python
 >>> from moku.instruments import Oscilloscope
 >>> osc = Oscilloscope('192.168.###.###')
@@ -42,15 +43,18 @@ $: pip install moku
 $: python -c 'import moku'
 ```
 
-Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about Moku CLI (mokucli) command line features [here](../../cli).
+Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about [Moku CLI (mokucli)](../../cli/) command line features.
 
 ```bash
 $ mokucli --help
-Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 
-  MOKU command line utility
+ Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 
-  Version: X.X.X
+ Moku command line utility
+
+ Version: 4.0.1
+
+ (c) Liquid Instruments 2016-2025
 ...
 ```
 
@@ -64,31 +68,14 @@ It's important to make sure that the mokucli installation is in the same environ
 
 The Moku Scripting API for Python requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
 
-You will need to point directly to your installation of the `moku` package. You can do this by finding the path of your moku installation, creating a data folder and downloading the data files to this path.
-
-Find the path of your moku installation by looking at the location, in the example below this is the line: `Location: C:\Users\venv\Lib\site-packages` with `\moku\data` appended. You may need to manually create the data folder before downloading the bitstreams to this path using `mkdir`.
+You can download the files using `mokucli instrument download`, read more about [mokucli](../../cli/instrument.md#mokucli-instrument-download).
 
 ```bash
-# finding the target path for moku python installation
-$: pip show moku
-Name: moku
-Version: 3.3.3
-Summary: Python scripting interface to the Liquid Instruments Moku hardware
-Home-page: https://liquidinstruments.com
-Author: Liquid Instruments
-Author-email: info@liquidinstruments.com
-License: MIT
-Location: C:\Users\venv\Lib\site-packages
-Requires: requests
-Required-by:
-
-# check for or create the data folder
-$: mkdir C:\Users\venv\Lib\site-packages\moku\data
-
-# download bitstreams for firmware version 600 to target from location
-$: mokucli download 600 --target "C:\Users\venv\Lib\site-packages\moku\data"
-Downloading latest instruments for firmware version 600...
-[===========================================================================]
+# download instrument bitstreams for MokuOS 4.0.1
+$: mokucli instrument download 4.0.1
+ℹ Resolved Version 4.0.1 to instruments build 18260
+  Downloading 362 bitstream(s) matching 'all'... ━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Downloaded 362/362 bitstream(s)
 ```
 
 If you see an error message, refer to the [Troubleshooting](#troubleshooting) section below.
@@ -234,7 +221,7 @@ This indicates that you are using an older version of the client package. To res
 
 ## `moku download` Command [deprecated]
 
-Previously you could download the bitstreams with the `moku` library with the following instructions. This has been deprecated and you should use the [mokucli](../../cli/moku-cli.md#mokucli-download) commands and instructions.
+Previously you could download the bitstreams with the `moku` library with the following instructions. This has been deprecated and you should use the [mokucli](../../cli/instrument.md#mokucli-instrument-download) commands and instructions.
 
 At a command prompt, install the `moku` library using `pip`. You can easily check that the installation succeeded by running the simple Python command listed below. If there is _no output_ from the Python command, then the installation has succeeded. If you see an error message, refer to the [Troubleshooting](#troubleshooting) section.
 
