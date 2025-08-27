@@ -2,6 +2,17 @@
 
 Manage Moku instrument bitstreams
 
+:::tip Note
+The most used command in this section will be to download the instruments for API usage.
+See [mokucli instrument download](#mokucli-instrument-download) for examples and more details
+
+```bash
+# Download all bitstreams for version 4.0.1
+mokucli instrument download 4.0.1
+```
+
+:::
+
 ## Usage
 
 ```console

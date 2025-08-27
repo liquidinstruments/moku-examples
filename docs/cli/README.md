@@ -31,11 +31,15 @@ Here are some common mokucli commands to get you started:
 mokucli list
 ```
 
-### Downloading Resources for Offline Use
+### Downloading the instruments for API Use
 ```bash
 # Download all bitstreams for version 4.0.1 to local cache
 mokucli instrument download 4.0.1
+```
 
+### Downloading Resources for Offline Use
+
+```bash
 # Download a specific bitstream
 mokucli instrument download 4.0.1:oscilloscope --hw-version mokugo
 
