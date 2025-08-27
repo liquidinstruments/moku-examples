@@ -37,7 +37,7 @@ parameters:
       type: string
       unit: null
     - default:
-      description: Input attenuation
+      description: Input attenuation (required when gain is not set)
       name: attenuation
       param_range:
           mokugo: 0dB, -14dB
@@ -46,6 +46,16 @@ parameters:
           mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit:
+    - default: None
+      description: Input gain (required when attenuation is not set)
+      name: gain
+      param_range:
+          mokugo: 0dB, -14dB
+          mokulab: 0dB, -20dB
+          mokupro: 0dB, -20dB, -40dB
+          mokudelta: 20dB, 0dB, -20dB, -32dB
+      type: string
+      unit: null
 summary: set_frontend
 ---
 
