@@ -1,5 +1,9 @@
 # Advanced Usage
 
+:::warning NOTE
+These features will only be required in complex environments or for debugging an installation. To be used at the direction of the support team. [Contact support](https://www.liquidinstruments.com/support/contact/) for further information.
+:::
+
 This guide covers advanced MokuCLI features including configuration management, custom servers, and debugging options.
 
 ## Configuration Management

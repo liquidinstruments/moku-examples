@@ -27,7 +27,7 @@ $ mokucli instrument list [OPTIONS] [SERVER]
 
 ### Arguments
 
-- `SERVER`: Server to list bitstreams from. Defaults to the default server. [default: None]
+- `SERVER`: Server to list bitstreams from. Defaults to the default server. \[default: None\]
 
 ### Options
 
@@ -72,12 +72,16 @@ $ mokucli instrument download [OPTIONS] VERSION_SPEC...
 
 ### Arguments
 
-- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier using colon separator. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:01-*-00', '4.0.1:01-00?-*', '4.0.1:01-[0-9]*-00' [required]
+- `VERSION_SPEC`: One or more versions to download (e.g., 4.0.1), optionally suffixed with a specific bitstream identifier using colon separator. \[required\]
+  - Supports glob patterns:
+    - \* (any characters) - `"4.0.1:01-*-00"`
+    - ? (single character) - `"4.0.1:01-00?-*"`
+    - \[seq\] (character set) - `"4.0.1:01-[0-9]*-00"`
 
 ### Options
 
-- `--target PATH`: Directory to download bitstreams to [default: platform-specific data directory]
-- `--force / --no-force`: Force redownload even if file exists [default: no-force]
+- `--target PATH`: Directory to download bitstreams to \[default: platform-specific data directory\]
+- `--force / --no-force`: Force redownload even if file exists \[default: no-force\]
 - `--ip TEXT`: IP address of a connected Moku device (for hardware version detection and auto-version detection)
 - `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Hardware version to use when no device is connected. When --ip is provided without a version, the firmware version is auto-detected from the connected device
 - `--verbose, -v`: Show detailed output for each bitstream download
@@ -117,8 +121,12 @@ $ mokucli instrument upload [OPTIONS] IP_ADDRESS BITSTREAM...
 
 ### Arguments
 
-- `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) [required]
-- `BITSTREAM`: One or more bitstreams to upload, each either a path to a bitstream file or a version:instrument identifier. Supports glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:01-*-00', '4.0.1:01-00?-*', '4.0.1:01-[0-9]*-00' [required]
+- `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) \[required\]
+- `BITSTREAM`: One or more bitstreams to upload, each either a path to a bitstream file or a version:instrument identifier. \[required\]
+  - Supports glob patterns:
+    - \* (any characters) - `"4.0.1:01-*-00"`
+    - ? (single character) - `"4.0.1:01-00?-*"`
+    - \[seq\] (character set) - `"4.0.1:01-[0-9]*-00"`
 
 ### Options
 

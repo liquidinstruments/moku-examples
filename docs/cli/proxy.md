@@ -46,11 +46,13 @@ The proxy command is particularly useful when:
 
 ## Output
 
+:::tip Note
+The proxy will continue running until you stop it with Ctrl+C.
+:::
+
 ```
 Running a proxy from 192.168.1.100 to localhost:8090
 ```
-
-The proxy will continue running until you stop it with Ctrl+C.
 
 ## Notes
 

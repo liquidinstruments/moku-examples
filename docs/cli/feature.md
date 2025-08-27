@@ -94,6 +94,22 @@ mokucli feature list --hw-version mokupro
 mokucli feature list --summary
 ```
 
+### Output
+
+```bash
+# List all available features
+$ mokucli feature list
+ℹ Listing features...
+ℹ Available features:
+
+api-server:
+  Version 619:
+    moku20: api-server_moku20_619.hgp
+    mokuaf: api-server_mokuaf_619.hgp
+    mokugo: api-server_mokugo_619.hgp
+    mokupro: api-server_mokupro_619.hgp
+```
+
 ## mokucli feature download
 
 Download features to the local cache for later installation

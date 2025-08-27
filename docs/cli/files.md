@@ -113,6 +113,7 @@ mokucli files delete 192.168.1.100 --name "*2022*"
 ## Notes
 
 - Files are typically data recordings from instruments (.li files)
+- Files may not always be in the .li format, for instance, if you're deleting files from an SD card mounted to a Moku:Lab, there may be existing files on the SD card that are not in the .li format
 - Downloaded files are saved to the current directory
 - The `--name` filter supports standard wildcards (* and ?)
 - Delete operations are permanent and cannot be undone
