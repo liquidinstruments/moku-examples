@@ -17,7 +17,7 @@ parameters:
       unit: null
       param_range: true, false
 summary: set_input_sample_rate
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 
 ---
 

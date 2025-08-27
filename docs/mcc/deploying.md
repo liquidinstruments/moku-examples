@@ -18,7 +18,7 @@ On the Desktop App, right-click your Moku, select `Device Info` and note the **F
 
 In your Moku Cloud Compile project:
 
-1. Configure **Hardware version**, **Number of slots**, and **Firmware version** (4 slots for Moku:Pro, and 2 slots for Moku:Go and Moku:Lab)
+1. Configure **Hardware version**, **Number of slots**, and **Firmware version** (3 or 8 slots for Moku:Delta, 4 slots for Moku:Pro, and 2 slots for Moku:Go and Moku:Lab)
 2. Build your project
 3. Expand the logs panel to view progress. When all indicators are green, click `bitstream.tar` to download the build artifact to deploy to your Moku
 

@@ -12,6 +12,7 @@ parameters:
       param_range:
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: null
@@ -27,7 +28,7 @@ parameters:
       type: boolean
       unit: null
 summary: set_output_load
-available_on: 'Moku:Pro, Moku:Lab'
+available_on: 'Moku:Pro, Moku:Lab, Moku:Delta'
 ---
 
 <headers/>

@@ -11,6 +11,7 @@ parameters:
           mokugo: 0 to 30e6
           mokulab: 0 to 250e6
           mokupro: 0 to 300e6
+          mokudelta: 0 to 2e9
       type: number
       unit: Hz
     - default: null
@@ -20,6 +21,7 @@ parameters:
           mokugo: 0 to 30e6
           mokulab: 0 to 250e6
           mokupro: 0 to 300e6
+          mokudelta: 0 to 2e9
       type: number
       unit: Hz
     - default: true

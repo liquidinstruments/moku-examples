@@ -13,7 +13,7 @@ parameters:
       type: boolean
       unit: null
 summary: set_external_clock
-available_on: 'Moku:Pro, Moku:Lab'
+available_on: 'Moku:Pro, Moku:Lab, Moku:Delta'
 ---
 
 <headers/>

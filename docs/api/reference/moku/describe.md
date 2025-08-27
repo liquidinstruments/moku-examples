@@ -2,7 +2,7 @@
 additional_doc:
     When using the Python or MATLAB clients, user can access this function directly from
     instrument reference.
-description: Returns hardware version, firmware version and API Server version
+description: Returns hardware version, mokuOS version, API Server version, and proxy version
 method: get
 name: describe
 parameters: []
@@ -53,8 +53,9 @@ Sample response,
 
 ```json
 {
-    "firmware": "xxx", //Firmware version Moku running on
-    "version": "1.3beta", //API Server version
-    "hardware": "Moku:Go"
+    "mokuOS": "4.0.1", //MokuOS version Moku running on
+    "version": "4.0.1.1", //API Server version
+    "hardware": "Moku:Go",
+    "proxy_version": "2",
 }
 ```

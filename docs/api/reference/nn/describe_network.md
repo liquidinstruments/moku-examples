@@ -5,7 +5,7 @@ method: get
 name: describe_network
 parameters: []
 summary: describe_network
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>

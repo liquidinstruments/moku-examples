@@ -37,6 +37,7 @@ None.
 ```python
 Model.construct_model(
         layer_definition=list,
+        show_summary=False,
         optimizer="adam",
         loss="mse",
         metrics=(),
@@ -50,6 +51,7 @@ The `layer_definition` should include the output layer with an appropriate activ
 ### Parameters
 
 -   **layer_definition:** a list of tuples of the form `(layer_width, activation)` which defines the model. `(layer_width,)` can be used to signify a linear (identity) activation function.
+-   **show_summary:** determines whether the model summary is displayed.
 -   **optimizer:** optimizer fed to the keras compile option.
 -   **loss:** loss function fed to the keras compile option.
 -   **metrics:** metrics for the model to track during training.

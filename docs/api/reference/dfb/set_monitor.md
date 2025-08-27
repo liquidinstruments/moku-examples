@@ -19,6 +19,7 @@ parameters:
           mokugo: None, Input1, Filter1, Output1, Input2, Filter2, Output2
           mokulab: None, Input1, Filter1, Output1, Input2, Filter2, Output2
           mokupro: None, Input1, Filter1, Output1, Input2, Filter2, Output2, Input3, Filter3, Output3, Input4, Filter4, Output4
+          mokudelta: None, Input1, Filter1, Output1, Input2, Filter2, Output2, Input3, Filter3, Output3, Input4, Filter4, Output4
       type: string
       unit: null
     - default: true

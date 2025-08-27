@@ -11,7 +11,7 @@ parameters:
       unit: null
       param_range: null
 summary: upload_network
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>

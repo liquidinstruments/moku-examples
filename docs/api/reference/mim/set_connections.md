@@ -11,6 +11,7 @@ parameters:
           mokugo: Source [Input1, Input2, DIO, SlotXOutY]; Destination [Output1, Output2, DIO, SlotXInY]
           mokulab: Source [Input1, Input2, SlotXOutY]; Destination [Output1, Output2, SlotXInY]
           mokupro: Source [Input1, Input2, Input3, Input4, SlotXInY]; Destination [Output1, Output2, Output3, Output4, SlotXOutY]
+          mokudelta: Source (Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, DIO, SlotXInY); Destination (Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, DIO, SlotXOutY)
       type: array
       unit: null
 summary: set_connections

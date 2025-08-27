@@ -36,44 +36,50 @@ Python and MATLAB libraries are provided that wrap the RESTful API in a way that
 
 ### Device Discovery
 
-The Python Scripting API comes bundled with the `mokucli` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations. Read more about [mokucli](../cli).
+The Python Scripting API requires the `mokucli` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations. Install from our [Utilities](https://www.liquidinstruments.com/software/utilities/) page and read more about [Moku CLI (mokucli)](../cli/).
 
 ```text
-$ mokucli --help 
-Usage: mokucli [OPTIONS] COMMAND [ARGS]...
+$ mokucli --help
 
-  MOKU command line utlity
+ Usage: mokucli [OPTIONS] COMMAND [ARGS]...
 
-  Version: 2.2.3
+ Moku command line utility
 
-  (c) Liquid Instruments 2016-2023
+ Version: 4.0.1
 
-  This CLI is evolving and subjected to change.
+ (c) Liquid Instruments 2016-2025
 
-  Read more at https://www.liquidinstruments.com/resources/software/
-
-Options:
-  --version
-  --install-completion  Install completion for the current shell.
-  --show-completion     Show completion for the current shell, to copy it or
-                        customize the installation.
-  --help                Show this message and exit.
-
-Commands:
-  convert   This command converts Liquid Instruments' binary data files...
-  download  Download bitstreams for a given firmware version
-  files
-  license
-  list      Search for the mokus on network and display the results
-  proxy     Run a proxy from local machine to the Moku
-  stream    Stream the LI binary data from Moku onto a local network port
+╭─ Options ─────────────────────────────────────────────────────────────────╮
+│ --version                                                                 │
+│ --install-completion          Install completion for the current shell.   │
+│ --show-completion             Show completion for the current shell, to   │
+│                               copy it or customize the installation.      │
+│ --help                        Show this message and exit.                 │
+╰───────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ────────────────────────────────────────────────────────────────╮
+│ instrument   Manage Moku instrument bitstreams                            │
+│ firmware     Fetch and upload Moku firmware                               │
+│ feature      Manage Moku features                                         │
+│ config       Configuration file management commands                       │
+│ command      Execute a single Moku API command.                           │
+│ convert      Convert Liquid Instruments binary data files to standard     │
+│              formats.                                                     │
+│ download     Download bitstreams (backward compatibility).                │
+│ list         Search for Moku devices on the local network.                │
+│ files        Manage files on Moku                                         │
+│ license      Manage Moku licenses                                         │
+│ proxy        Create a network proxy from a local IPv4 address to a Moku   │
+│              device                                                       │
+│ stream       Stream real-time data from a Moku device. This is usually    │
+│              used through a language binding, e.g. the Python API.        │
+╰───────────────────────────────────────────────────────────────────────────╯
 ```
 
 ## Known Issues
 
-### Firmware Updates
+<!-- ### Firmware Updates
 
-The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries.
+The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries. -->
 
 ### File Conversion
 

@@ -13,6 +13,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: false
@@ -28,6 +29,7 @@ parameters:
           mokugo: 1e3 to 30e6
           mokulab: 1e3 to 200e6
           mokupro: 1e3 to 300e6
+          mokudelta: 1e3 to 2e9
       type: number
       unit: Hz
     - default: 1kHz
@@ -37,6 +39,7 @@ parameters:
           mokugo: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
           mokulab: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz
           mokupro: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
+          mokudelta: 1Hz, 10Hz, 100Hz, 1kHz, 10kHz, 100kHz, 1MHz
       type: string
       unit: null
     - default: true

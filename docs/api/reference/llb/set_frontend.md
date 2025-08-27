@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the input impedance, coupling, and range for each channel.
+description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
 parameters:
@@ -9,15 +9,19 @@ parameters:
       name: channel
       param_range:
           mokugo: 1, 2
+          mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
-    - default: 1MOhm
+    - default: null
       description: Impedance
       name: impedance
       param_range:
           mokugo: 1MOhm
+          mokulab: 50Ohm, 1MOhm
           mokupro: 50Ohm, 1MOhm
+          mokudelta: 50Ohm, 1MOhm
       type: string
       unit: null
     - default: null
@@ -26,12 +30,24 @@ parameters:
       param_range: AC, DC
       type: string
       unit: null
-    - default: null
-      description: Input gain
+    - default: None
+      description: Input attenuation (required when gain is not set)
+      name: attenuation
+      param_range:
+          mokugo: 0dB, 14dB
+          mokulab: 0dB, 20dB
+          mokupro: 0dB, 20dB, 40dB
+          mokudelta: -20dB, 0dB, 20dB, 32dB
+      type: string
+      unit: null
+    - default: None
+      description: Input gain (required when attenuation is not set)
       name: gain
       param_range:
           mokugo: 0dB, -14dB
+          mokulab: 0dB, -20dB
           mokupro: 0dB, -20dB, -40dB
+          mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit: null
     - default: true

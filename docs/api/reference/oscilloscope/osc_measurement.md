@@ -5,6 +5,8 @@ additional_doc:
 description:
     Sets up commonly used configurations in the Oscilloscope, including the
     time base, channel signal source, and trigger.
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use [set_timebase](./set_timebase.html) and [set_trigger](./set_trigger.html)
 method: post
 name: osc_measurement
 parameters:
@@ -29,6 +31,7 @@ parameters:
           mokugo: Input1, Input2, Output1, Output2
           mokulab: Input1, Input2, Output1, Output2, External
           mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, External
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, External
       type: string
       unit: null
     - default: null
@@ -46,6 +49,7 @@ parameters:
           mokugo: -5 to 5
           mokulab: -5 to 5
           mokupro: -20 to 20
+          mokudelta: -20 to 20
       type: number
       unit: V
     - default: true

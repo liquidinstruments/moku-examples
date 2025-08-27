@@ -23,7 +23,7 @@ group: Monitors
 <headers/>
 
 Once completed you can download the file from the device using [download_files](../../static/download.md).
-The high resolution channel buffer will be saved to `tmp` (Moku:Lab) `persist` (Moku:Go) or `ssd` (Moku:Pro).
+The high resolution channel buffer will be saved to `tmp` (Moku:Lab) `persist` (Moku:Go) or `ssd` (Moku:Pro, Moku:Delta).
 <parameters/>
 
 Below are the examples on how to save the high resolution data to a file,
@@ -38,7 +38,7 @@ i = LaserLockBox('192.168.###.###')
 i.set_acquisition_mode(mode="DeepMemory")
 response = i.save_high_res_buffer(comments="Test")
 
-# Download the file; "tmp" (Moku:Lab) "persist" (Moku:Go) or "ssd" (Moku:Pro).
+# Download the file; "tmp" (Moku:Lab) "persist" (Moku:Go) or "ssd" (Moku:Pro, Moku:Delta).
 i.download(response["location"], response["file_name"], "~/high_res_data.li")
 ```
 
@@ -52,7 +52,7 @@ m = MokuLaserLockBox('192.168.###.###');
 % Configure instrument to desired state
 m.set_acquisition_mode('mode', 'DeepMemory')
 result = m.save_high_res_buffer();
-% Download the file; 'tmp' (Moku:Lab) 'persist' (Moku:Go) or 'ssd' (Moku:Pro).
+% Download the file; 'tmp' (Moku:Lab) 'persist' (Moku:Go) 'ssd' (Moku:Pro, Moku:Delta).
 m.download_file(result.location, response.file_name, './high_res_data.li');
 ```
 

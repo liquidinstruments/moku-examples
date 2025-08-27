@@ -13,17 +13,23 @@ parameters:
     - default:
       description: Target channel
       name: channel
-      param_range: 1, 2, 3, 4
+      param_range:
+          mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit:
     - default:
       description: Output Gain
       name: output_gain
-      param_range: 0dB, 14dB
+      param_range:
+          mokugo: 
+          mokulab: 
+          mokupro: 0dB, 14dB
+          mokudelta: 0dB, 20dB
       type: string
       unit: dB
 summary: set_output
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>

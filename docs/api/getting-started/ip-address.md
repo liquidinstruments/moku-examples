@@ -1,6 +1,6 @@
 # Finding Your IP Address
 
-There are many ways to find your Moku's IP Address. You may use the Desktop App (if installed) or the Moku CLI tool (bundled with the Moku Scripting API for Python). Additionally, if you're using the USB Connection to your Moku, the IP Address can be calculated based on the serial number.
+There are many ways to find your Moku's IP Address. You may use the [Desktop App](https://liquidinstruments.com/products/download/) (if installed) or the [Moku CLI]((../../cli/)) tool ([Utilities](https://www.liquidinstruments.com/software/utilities/)). Additionally, if you're using the USB Connection to your Moku, the IP Address can be calculated based on the serial number.
 
 ## Using the Desktop App
 
@@ -10,14 +10,13 @@ There are many ways to find your Moku's IP Address. You may use the Desktop App 
 
 ## Moku CLI
 
-:::tip Python Only
+<!-- :::tip Python Only
 The `moku` Command Line Utility is installed as part of the Moku Scripting API for Python. If you're using MATLAB then you may choose to install the Python library additionally, or use one of the other methods listed on this page
-:::
-
-At a terminal or command prompt, use the Moku CLI tool to list all the Moku devices your computer can see.
+::: -->
+Install [mokucli](../../cli/) from our [Utilities](https://www.liquidinstruments.com/software/utilities/) page. At a terminal or command prompt, use the Moku CLI tool to list all the Moku devices your computer can see.
 
 ```
-$: moku list
+$: mokucli list
 ```
 
 ## USB Connection

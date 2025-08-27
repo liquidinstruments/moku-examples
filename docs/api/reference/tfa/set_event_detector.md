@@ -17,6 +17,7 @@ parameters:
           mokugo: InputA, InputB, Input1, Input2
           mokulab: InputA, InputB, Input1, Input2, Ext.trig.
           mokupro: InputA, InputB, Input1, Input2, Input3, Input4, Ext.trig.
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Ext.trig.
       type: string
       unit:
     - default: 0
@@ -31,6 +32,12 @@ parameters:
       param_range: Rising, Falling , Both
       type: string
       unit:
+    - default: 0.0
+      description: The duration to hold-off trigger post trigger event
+      name: holdoff
+      param_range: 0 to 1
+      type: number
+      unit: s
     - default: True
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -67,9 +74,9 @@ data = i.get_data()
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % Configure event detector 1
-i.set_event_detector(1, 'Input1', 'threshold', '0.1', 'edge', 'Rising')
+m.set_event_detector(1, 'Input1', 'threshold', '0.1', 'edge', 'Rising')
 % Configure event detector 2
-i.set_event_detector(2, 'Input2', 'threshold', '0.1', 'edge', 'Falling')
+m.set_event_detector(2, 'Input2', 'threshold', '0.1', 'edge', 'Falling')
 % retrieve data
 m.get_data()
 ```

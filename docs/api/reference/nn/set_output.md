@@ -9,7 +9,9 @@ parameters:
       name: channel
       type: integer
       unit: null
-      param_range: 1, 2, 3, 4
+      param_range:
+          mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2
     - default: null
       description: Enable or disable the output channel
       name: enabled
@@ -35,7 +37,7 @@ parameters:
       unit: null
       param_range: true, false
 summary: set_output
-available_on: 'Moku:Pro'
+available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>

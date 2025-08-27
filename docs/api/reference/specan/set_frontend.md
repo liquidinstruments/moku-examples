@@ -11,6 +11,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
       type: integer
       unit: null
     - default: 1MOhm
@@ -20,6 +21,7 @@ parameters:
           mokugo: 1MOhm
           mokulab: 50Ohm, 1MOhm
           mokupro: 50Ohm, 1MOhm
+          mokudelta: 50Ohm, 1MOhm
       type: string
       unit: null
     - default: null
@@ -35,6 +37,7 @@ parameters:
           mokugo: 10Vpp, 50Vpp
           mokulab: 1Vpp, 10Vpp
           mokupro: 400mVpp, 4Vp, 40Vpp
+          mokudelta: 100mVpp, 1Vpp, 4Vpp, 40Vpp
       type: string
       unit: null
     - default: true
