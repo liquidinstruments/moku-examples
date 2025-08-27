@@ -10,7 +10,7 @@ If at any point, your output doesn't match what's listed below, please refer to 
 
 ## Quickstart
 
-Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the mokucli commandline tool. Then download the required MokuOS version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
+Download the mokucli installer from [Utilities](https://www.liquidinstruments.com/software/utilities/) and follow the installer prompts to install the [mokucli](../../cli/) commandline tool. Then download the required MokuOS version as below, you can easily check that the installation succeeded by running the simple Python command listed below.
 
 ```python
 $ pip install moku

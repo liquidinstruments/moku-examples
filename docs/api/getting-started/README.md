@@ -9,4 +9,4 @@ This section will help you get started with the Moku API. This section outlines 
 -   **[MIM](./starting-mim.md)**: Multi-instrument Mode (MiM) allows a user to use more than one instrument simultaneously on the Moku platform, available to use on any API platform.
 -   **[Other](./starting-other.md)**: Other languages are available to use Moku scripting API.
 -   **[IP Address](./ip-address.md)**: How to find your IP address with USC connection, [mokucli](../../cli/) and IPv6.
--   **[Download Bitstreams](./download-bitstreams.md)**: To manually download the instrument bitstreams, including updating to the latest firmware.
+-   **[Download Bitstreams](./download-bitstreams.md)**: To manually download the instrument bitstreams, including updating to the latest MokuOS.

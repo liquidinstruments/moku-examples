@@ -1,15 +1,15 @@
 # Downloading bitstreams
 
-Bitstreams contain the instrument logic and are released with each firmware update. To download the bitstreams using the **Python** client, simply run the command `moku download --fw_ver=<fw_version>`. In **MATLAB**, you can use the function `moku_download(<fw_version>)` to achieve the same.
+Bitstreams contain the instrument logic and are released with each MokuOS update. To download the bitstreams using [Moku CLI](../../cli/), download the mokucli installer from our [Utilities](https://www.liquidinstruments.com/software/utilities/) page, install Moku CLI, then run the command `mokucli instrument download <MokuOS_version>`.
 
-If you need to manually download the bitstreams or utilize the REST interface directly, follow the steps below:
+```bash
+$ mokucli instrument download 4.0.1
+ℹ Resolved Version 4.0.1 to instruments build 18260
+  Downloading 362 bitstream(s) matching 'all'... ━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Downloaded 362/362 bitstream(s)
+```
 
--   Enter the firmware version in the provided field.
--   Click the "Download Bitstreams" button to initiate the download.
-
-<bitstream-url></bitstream-url>
-
-Once the file is downloaded, you can extract its contents by unzipping the tarball. Inside the extracted files, you will find directories containing the bitstreams for different hardware platforms.
+For further documentation, see the [mokucli docs](../../cli/instrument.md#mokucli-instrument-download)
 
 ## MOKU_DATA_PATH
 
@@ -50,3 +50,20 @@ For MATLAB:
     ```shell
     setenv('MOKU_DATA_PATH', '/path/to/extracted/bitstreams/mokudata-<fw_version>')
     ```
+
+## Legacy options
+
+:::danger Legacy: For versions before MokuOS 4.0.1
+These are legacy options, they will not work for newer versions of MokuOS
+:::
+
+To download the bitstreams using the **Python** client, simply run the command `moku download --fw_ver=<fw_version>`. In **MATLAB**, you can use the function `moku_download(<fw_version>)` to achieve the same.
+
+If you need to manually download the bitstreams or utilize the REST interface directly, follow the steps below:
+
+-   Enter the firmware version in the provided field.
+-   Click the "Download Bitstreams" button to initiate the download.
+
+<bitstream-url></bitstream-url>
+
+Once the file is downloaded, you can extract its contents by unzipping the tarball. Inside the extracted files, you will find directories containing the bitstreams for different hardware platforms.

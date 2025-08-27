@@ -77,9 +77,9 @@ $ mokucli --help
 
 ## Known Issues
 
-### Firmware Updates
+<!-- ### Firmware Updates
 
-The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries.
+The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries. -->
 
 ### File Conversion
 
