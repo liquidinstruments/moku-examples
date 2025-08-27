@@ -182,6 +182,13 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [
                         ['/cli/', 'Overview'],
+                    ],
+                },
+                {
+                    title: 'Usage',
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [
                         ['/cli/instrument', 'instrument'],
                         ['/cli/firmware', 'firmware'],
                         ['/cli/feature', 'feature'],
