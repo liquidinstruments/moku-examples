@@ -23,7 +23,7 @@ Refer to,
 -   **file_name** → File name of logged file on the device
 
 ::: tip INFO
-To convert .li binary formatted log files, use liconverter windows app or [mokucli convert](../../../cli/moku-cli.md#mokucli-convert)
+To convert .li binary formatted log files, use liconverter windows app or [mokucli convert](../../../cli/convert.md)
 :::
 
 <parameters/>
