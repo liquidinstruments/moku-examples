@@ -36,7 +36,7 @@ Python and MATLAB libraries are provided that wrap the RESTful API in a way that
 
 ### Device Discovery
 
-The Python Scripting API comes bundled with the `mokucli` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations. Install from our [Utilities](https://www.liquidinstruments.com/software/utilities/) page and read more about [mokucli](../cli/).
+The Python Scripting API requires the `mokucli` command line tool for device discovery. Quickly find and connect to the right device without worrying about network configurations. Install from our [Utilities](https://www.liquidinstruments.com/software/utilities/) page and read more about [Moku CLI (mokucli)](../cli/).
 
 ```text
 $ mokucli --help

@@ -11,7 +11,9 @@ $ mokucli instrument download 4.0.1
 
 For further documentation, see the [mokucli docs](../../cli/instrument.md#mokucli-instrument-download)
 
-## MOKU_DATA_PATH
+## Advanced
+
+### Custom data location
 
 To manually download and provide bitstreams to Python and MATLAB clients, you can set the `MOKU_DATA_PATH` environment variable.
 
