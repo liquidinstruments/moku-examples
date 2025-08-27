@@ -21,7 +21,11 @@ parameters:
     - default:
       description: Output Gain
       name: output_gain
-      param_range: 0dB, 14dB
+      param_range:
+          mokugo: 
+          mokulab: 
+          mokupro: 0dB, 14dB
+          mokudelta: 0dB, 20dB
       type: string
       unit: dB
 summary: set_output
