@@ -6,7 +6,7 @@ Download bitstreams to the local cache for later installation
 This is a legacy command maintained for backward compatibility. Please use `mokucli instrument download` instead.
 :::
 
-This command downloads instrument bitstreams to your local cache for offline installation or bulk deployment. The downloaded bitstreams can be installed later using `mokucli upload` or `mokucli instrument upload`.
+This command downloads instrument bitstreams to your local cache for offline installation or bulk deployment. The downloaded bitstreams can be installed later using `mokucli instrument upload` or `mokucli upload` (deprecated).
 
 ## Usage
 
@@ -39,6 +39,9 @@ mokucli download 4.0.1:oscilloscope --hw-version mokugo
 # Download to specific directory
 mokucli download 4.0.1 --target ./bitstreams
 ```
+
+## Output
+
 
 ## Migration Guide
 

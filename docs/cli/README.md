@@ -58,12 +58,14 @@ mokucli firmware upload 192.168.1.100 ./moku-mokupro-611.fw
 
 ### Managing Instruments on Device
 ```bash
-# Upload a bitstream to a device
+# Upload a single instrument oscilloscope to a device
 mokucli instrument upload 192.168.1.100 4.0.1:oscilloscope
 
-# Upload multiple bitstreams
+# Upload multiple bitstreams, this uploads all downloaded single instruments
 mokucli instrument upload 192.168.1.100 "4.0.1:01-*"
 ```
+
+For more details on the supported syntax, see the [`mokucli instrument upload` documentation](./instrument.md#mokucli-instrument-upload)
 
 ## Command Overview
 
@@ -72,7 +74,7 @@ MokuCLI is organized into command groups, each serving a specific purpose:
 1. **[instrument](instrument.md)** - Manage instrument bitstreams (download to cache, upload to device, list available)
 2. **[firmware](firmware.md)** - Manage device firmware updates
 3. **[feature](feature.md)** - Manage software features and plugins (download to cache, upload to device)
-4. **[command](command.md)** - Execute Moku API commands directly from CLI
+<!-- 4. **[command](command.md)** - Execute Moku API commands directly from CLI -->
 5. **[convert](convert.md)** - Convert Liquid Instruments binary data files
 6. **[download](download.md)** - Legacy bitstream download (use `instrument download`)
 7. **[list](list.md)** - Search for Moku devices on network
@@ -85,9 +87,9 @@ For advanced configuration options, see the [Advanced Usage](advanced.md) guide.
 
 ## Download and Install Workflow
 
-MokuCLI follows a two-step workflow for managing resources:
+MokuCLI follows a two-step workflow for managing resources (firmware, instruments, features such as rest-api):
 
-1. **Download** - Resources (instruments, features, firmware) are first downloaded to your local cache
+1. **Download** - Resources are first downloaded to your local cache
 2. **Install/Upload** - Resources are then installed from the local cache to Moku devices
 
 This approach enables:

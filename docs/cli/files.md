@@ -46,6 +46,19 @@ mokucli files list 192.168.1.100 --name "*LockInAmplifier*"
 mokucli files list 192.168.1.100 --name "MokuDataLogger*2023*"
 ```
 
+### Output
+
+```bash
+# list all files
+$: mokucli files list 192.168.1.1
+MokuLockInAmplifierData_20230207_071706.li
+MokuDataLoggerData_20230206_155539.li
+
+# list all files where the name contains LockInAmplifier
+$: mokucli files list 192.168.1.1 --name "*LockInAmplifier*"
+MokuLockInAmplifierData_20230207_071706.li
+```
+
 ## mokucli files download
 
 Download files from the Moku device
@@ -81,6 +94,10 @@ mokucli files download 192.168.1.100 --name "MokuDataLogger*2023*"
 ## mokucli files delete
 
 Delete files from the Moku device
+
+:::danger Warning
+Delete operations are permanent and cannot be undone
+:::
 
 ### Usage
 

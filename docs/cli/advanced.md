@@ -47,6 +47,29 @@ mokucli config which
 mokucli config print
 ```
 
+### Output
+
+```bash
+# Create and save default configuration
+$ mokucli config create --save
+✓ Configuration saved to: C:\Users\user\AppData\Roaming\Moku\mokucli.yaml
+
+# Check configuration file location
+$ mokucli config which
+C:\Users\user\AppData\Roaming\Moku\mokucli.yaml
+
+# View current configuration
+$ mokucli config print
+✓ Configuration from: C:\Users\user\AppData\Roaming\Moku\mokucli.yaml
+
+  1 servers:
+  2   default:
+  3     type: http
+  4     url: https://updates.liquidinstruments.com/static/
+  5 data_dir: C:\Users\user\AppData\Roaming\Moku\data
+  6
+```
+
 ## Configuration File Format
 
 The configuration file uses YAML format with the following structure:
@@ -77,21 +100,27 @@ servers:
 Servers can be either HTTP or S3 type:
 
 #### HTTP Server
+
 ```yaml
-server-name:
-  type: http
-  url: https://example.com/path/
+servers:
+  ...
+  server-name:
+    type: http
+    url: https://example.com/path/
 ```
 
 #### S3 Server
+
 ```yaml
-server-name:
-  type: s3
-  endpoint: s3.example.com
-  bucket: bucket-name
-  access_key: ACCESS_KEY
-  secret_key: SECRET_KEY
-  secure: true  # Use HTTPS
+servers:
+  ...
+  server-name:
+    type: s3
+    endpoint: s3.example.com
+    bucket: bucket-name
+    access_key: ACCESS_KEY
+    secret_key: SECRET_KEY
+    secure: true  # Use HTTPS
 ```
 
 ## Using Custom Servers

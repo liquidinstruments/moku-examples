@@ -41,6 +41,13 @@ The converted file will be created in the same directory as the source file with
 - `.mat` for MATLAB format
 - `.hdf5` for HDF5 format
 
+```bash
+# Convert .li file to NumPy format
+$ mokucli convert MokuDataLoggerData_20230114_142326.li --format npy
+[===========================================================================]
+Done.
+```
+
 ## Notes
 
 - This tool converts Liquid Instruments binary data files (.li) recorded by Moku devices
