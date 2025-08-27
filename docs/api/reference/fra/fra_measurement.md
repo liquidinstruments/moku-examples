@@ -1,5 +1,7 @@
 ---
 additional_doc: null
+deprecated: true
+deprecated_msg: This method is deprecated and will be removed soon. Please use [set_sweep](./set_sweep.html) and [set_output](./set_output.html)
 description:
     Sets up commonly used configurations in the Frequency Response Analyzer,
     including the frequency range, averaging, and swept sine amplitude.
