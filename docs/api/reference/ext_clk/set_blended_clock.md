@@ -8,13 +8,13 @@ name: set_blended_clock
 parameters:
     - default: null
       description: Enable external reference
-      name: ext_ref_enable
+      name: freq_ref_enable
       param_range: null
       type: boolean
       unit: null
     - default: false
       description: External reference frequency
-      name: ext_ref_frequency
+      name: freq_ref_frequency
       param_range: 10MHz, 100MHz
       type: string
       unit: null
@@ -56,7 +56,7 @@ Changes to the external frequency reference will not take effect until after you
 ```python
 i = Oscilloscope('192.168.###.###', force_connect=False)
 # Here you can access the set_blended_clock function
-i.set_blended_clock(ext_ref_enable=True, ext_ref_frequency='100MHz',
+i.set_blended_clock(freq_ref_enable=True, freq_ref_frequency='100MHz',
                     sync_ref_enable=False, sync_ref_source='GNSS')
 ```
 
@@ -68,7 +68,7 @@ i.set_blended_clock(ext_ref_enable=True, ext_ref_frequency='100MHz',
 m = MokuOscilloscope('192.168.###.###', false);
 
 % Here you can access the set_blended_clock function
-m.set_blended_clock('ext_ref_enable',true, 'ext_ref_frequency','100MHz', ...
+m.set_blended_clock('freq_ref_enable',true, 'freq_ref_frequency','100MHz', ...
                     'sync_ref_enable',false, 'sync_ref_source','GNSS')
 
 ```
@@ -80,7 +80,7 @@ m.set_blended_clock('ext_ref_enable',true, 'ext_ref_frequency','100MHz', ...
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"ext_ref_enable": true, "ext_ref_frequency": "100MHz", "sync_ref_enable": false, "sync_ref_source": "GNSS"}'\
+        --data '{"freq_ref_enable": true, "freq_ref_frequency": "100MHz", "sync_ref_enable": false, "sync_ref_source": "GNSS"}'\
         http://<ip>/api/moku/set_blended_clock
 ```
 
