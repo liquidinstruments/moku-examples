@@ -48,7 +48,7 @@ try
     % View +- 1 ms i.e. trigger in the centre
     i.set_timebase(-1e-3,1e-3);
     
-    i.start_streaming('duration', 10);
+    i.start_streaming('duration', 10, 'rate',1e3);
     %% Set up plots
     % Get initial data to set up plots
     data = i.get_stream_data();
@@ -70,11 +70,14 @@ try
     end
 
 catch ME
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-    rethrow(ME)
+    if strcmp(ME.message, 'End of stream')
+        disp('Streaming session complete!');
+    else
+        i.stop_streaming();
+        % End the current connection session with your Moku
+        i.relinquish_ownership();
+        rethrow(ME)
+    end
 end
 
 i.relinquish_ownership();
-
-

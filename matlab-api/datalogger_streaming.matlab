@@ -21,7 +21,9 @@ try
     % 1Vpp, 20kHz, 0V offset, 50% duty cycle
     i.generate_waveform(2, 'Square', 'amplitude', 1, 'frequency', 20e3, 'duty', 50);
     
-    i.start_streaming('duration', 30);
+    % Start the data streaming session of 30 second and
+    % set the sample rate to 1 kSa/s
+    i.start_streaming('duration', 30, 'sample_rate',1e3);
 
   
     %% Set up plots
@@ -45,10 +47,14 @@ try
     end
 
 catch ME
-    i.stop_streaming();
-    % End the current connection session with your Moku
-    i.relinquish_ownership();
-    rethrow(ME)
+    if strcmp(ME.message, 'End of stream')
+        disp('Streaming session complete!');
+    else
+        i.stop_streaming();
+        % End the current connection session with your Moku
+        i.relinquish_ownership();
+        rethrow(ME)
+    end
 end
 
 i.relinquish_ownership();
