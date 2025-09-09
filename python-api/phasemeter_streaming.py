@@ -17,9 +17,6 @@ import matplotlib.pyplot as plt
 i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
-    # Set samplerate to 150 Hz/s
-    i.set_acquisition_speed(speed='150Hz')
-
     # Set channel 1 to DC coupled, 1 MOhm impedance, and 4Vpp range
     i.set_frontend(1, coupling='DC', impedance='1MOhm', range='4Vpp')
 
@@ -29,9 +26,10 @@ try:
     # Get auto acquired frequency for channel 1
     i.get_auto_acquired_frequency(channel=1)
 
+    # Set samplerate to 150 Hz/s
     # Stop and existing streaming session and start a new one for 30s
     i.stop_streaming()
-    i.start_streaming(duration=30)
+    i.start_streaming(duration=30, acquisition_speed='150Hz')
 
     # Set up the figure for plotting
     plt.ion()
@@ -80,11 +78,13 @@ try:
         plt.pause(0.01)
   
 except Exception as e:
-    plt.pause(2)
-    i.relinquish_ownership()
-    raise e
+    if str(e) == "End of stream":
+        print("Streaming session complete!")
+    else:
+        i.stop_streaming()
+        i.relinquish_ownership()
+        raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly
-    i.stop_streaming()
     i.relinquish_ownership()

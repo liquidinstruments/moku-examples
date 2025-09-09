@@ -19,26 +19,26 @@ settling_cycles = 1;
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
 % force_connect will overtake an existing connection
-i = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
     
 try
 
     %% Configure the instrument
     % Set output sweep amplitudes and offsets
-    i.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
-    i.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
+    m.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
+    m.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
 
     % Configure the measurement mode to In/Out
-    i.measurement_mode('mode','InOut');
+    m.measurement_mode('mode','InOut');
 
     % Set output sweep configuration
-    i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
+    m.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
         'averaging_time',averaging_time, 'averaging_cycles',averaging_cycles, ...
         'settling_time', settling_time, 'settling_cycles',settling_cycles);
 
     %% Set up plots
     % Get initial data to set up plots
-    data = i.get_data();
+    data = m.get_data();
 
     % Set up the plots
     figure;
@@ -57,7 +57,7 @@ try
 
     %% Receive and plot new data frames
     while 1
-        data = i.get_data();
+        data = m.get_data();
         set(ms(1),'XData',data.ch1.frequency,'YData',data.ch1.magnitude);
         set(ms(2),'XData',data.ch2.frequency,'YData',data.ch2.magnitude);
         set(ps(1),'XData',data.ch1.frequency,'YData',data.ch1.phase);
@@ -68,9 +68,9 @@ try
     end
 
 catch ME
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
-i.relinquish_ownership();
+m.relinquish_ownership();
 

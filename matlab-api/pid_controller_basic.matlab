@@ -7,30 +7,30 @@
 
 % Connect to your Moku and deploy the PID controller instrument
 % force_connect will overtake an existing connection
-i = MokuPIDController('192.168.###.###', force_connect=true);
+m = MokuPIDController('192.168.###.###', force_connect=true);
 
 try
     
     %% Configure the PID controller
     % Configure the control matrix
-    i.set_control_matrix(1,1,0);
-    i.set_control_matrix(2,0,1);
+    m.set_control_matrix(1,1,0);
+    m.set_control_matrix(2,0,1);
     % Enable all input and output channels
-    i.enable_input(1,true);
-    i.enable_input(2,true);
-    i.enable_output(1,true,true);
-    i.enable_output(2,true,true);
+    m.enable_input(1,true);
+    m.enable_input(2,true);
+    m.enable_output(1,true,true);
+    m.enable_output(2,true,true);
     
     % Configure controller 1 by gain
-    i.set_by_gain(1,'prop_gain',10, 'diff_gain',-5,'diff_corner',5e3 );
+    m.set_by_gain(1,'prop_gain',10, 'diff_gain',-5,'diff_corner',5e3 );
     % Configure controller 2 by frequency
-    i.set_by_frequency(2, 'prop_gain', -5, 'int_crossover',100, 'int_saturation',10);
+    m.set_by_frequency(2, 'prop_gain', -5, 'int_crossover',100, 'int_saturation',10);
     
   
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
-i.relinquish_ownership();
+m.relinquish_ownership();

@@ -79,9 +79,12 @@ try:
             plt.pause(0.001)
 
 except Exception as e:
-    i.stop_streaming()
-    i.relinquish_ownership()
-    raise e
+    if str(e) == "End of stream":
+        print("Streaming session complete!")
+    else:
+        i.stop_streaming()
+        i.relinquish_ownership()
+        raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

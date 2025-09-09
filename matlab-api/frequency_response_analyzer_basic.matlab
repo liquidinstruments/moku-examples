@@ -18,33 +18,33 @@ settling_cycles = 1;
 %% Connect to Moku
 % Connect to your Moku using its IP address.
 % force_connect will overtake an existing connection
-i = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
+m = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
 
 try
 
     %% Configure the instrument
     % Set output sweep amplitudes and offsets
-    i.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
-    i.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
+    m.set_output(1, 1,'offset',0); % Channel 1, 1Vpp, 0V offset
+    m.set_output(2, 1,'offset',0); % Channel 2, 1Vpp, 0V offset
 
     % Configure measurement mode to In/Out
-    i.measurement_mode('mode','InOut');
+    m.measurement_mode('mode','InOut');
 
     % Set sweep configuration
-    i.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
+    m.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
         'averaging_time',averaging_time, 'averaging_cycles',averaging_cycles, ...
         'settling_time', settling_time, 'settling_cycles',settling_cycles);
 
     %% Get data from Moku
     % Get a single sweep frame from the Moku 
-    data = i.get_data();
+    data = m.get_data();
 
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME);
 end
 
 % End the current connection session with your Moku
-i.relinquish_ownership();
+m.relinquish_ownership();
  

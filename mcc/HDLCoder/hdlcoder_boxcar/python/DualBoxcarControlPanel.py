@@ -77,8 +77,8 @@ connections = [dict(source="Input1", destination="Slot1InA"),
                 dict(source="Slot1OutB", destination="Slot2InB")]
 m.set_connections(connections=connections)
 
-print(m.set_frontend(1, INPUT_IMPEDANCE, COUPLING, ATTENUATION))
-print(m.set_frontend(2, INPUT_IMPEDANCE, COUPLING, ATTENUATION))
+print(m.set_frontend(1, INPUT_IMPEDANCE, COUPLING, attenuation=ATTENUATION))
+print(m.set_frontend(2, INPUT_IMPEDANCE, COUPLING, attenuation=ATTENUATION))
 
 osc.set_trigger(type='Edge', source='ChannelB', level=0.4)
 osc.set_timebase(INITIAL_NEGATIVE_TIME*ns,INITIAL_POSITIVE_TIME*ns) 

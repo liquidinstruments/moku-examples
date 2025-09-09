@@ -29,7 +29,7 @@ try
     m.set_connections(connections);
 
     % configure frontend
-    m.set_frontend(1, "1MOhm", "DC", "0dB");
+    m.set_frontend(1, "1MOhm", "DC", 'gain', "0dB");
 
     %% Configure waveform generator
     % generate waveform

@@ -18,13 +18,13 @@ try:
 
     dl.generate_waveform(1, "Sine", frequency=1000)
 
-    dl.start_streaming(10)
+    dl.start_streaming(duration=10, sample_rate=100)
 
     dl.stream_to_file()
 
     lia.set_monitor(1, "Input1")
 
-    lia.start_streaming(10)
+    lia.start_streaming(duration=10, rate=1e3)
 
     plt.ion()
     plt.show()
@@ -50,7 +50,10 @@ try:
             plt.pause(0.001)
 
 except Exception as e:
-    i.relinquish_ownership()
-    raise e
+    if str(e) == "End of stream":
+        print("Streaming session complete!")
+    else:
+        i.relinquish_ownership()
+        raise e
 finally:
     i.relinquish_ownership()
