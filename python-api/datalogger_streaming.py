@@ -21,10 +21,8 @@ try:
     i.enable_input(2, enable=False)
 
     # set the sample rate to 10KSa/s
-    i.set_samplerate(10e3)
-
     # stream the data for 10 seconds..
-    i.start_streaming(10)
+    i.start_streaming(duration=10, sample_rate=10e3)
 
     # Set up the plotting parameters
     plt.ion()
@@ -49,8 +47,11 @@ try:
             plt.pause(0.001)
 
 except Exception as e:
-    i.stop_streaming()
-    i.relinquish_ownership()
-    raise e
+    if str(e) == "End of stream":
+        print("Streaming session complete!")
+    else:
+        i.stop_streaming()
+        i.relinquish_ownership()
+        raise e
 finally:
     i.relinquish_ownership()
