@@ -4,8 +4,8 @@
 
 The CustomWrapper entity defines the interface that custom designs need to implement, as well as a simple abstraction from the instrument slot. Note when using Verilog, the wrapper needs to be declared before proceeding to define the custom architecture. For ease of use, this wrapper declaration is automatically generated whenever a new Verilog file is created.
 
-:::warning
-In the Verilog CustomWrapper, it is recommended not to modify the module declaration. While a bitstream may still be generated if the module definition is changed, it might not behave as expected.
+::: warning Verilog Custom Wrapper
+It is recommended not to modify the Verilog module declaration. While a bitstream may still be generated if the module definition is changed, it might not behave as expected.
 :::
 
 Implementing the CustomWrapper interface simply requires defining an architecture.
@@ -77,7 +77,7 @@ endmodule
 
 ## CustomWrapper Architecture
 
-::: warning
+:::warning Wrapper Implementation
 Only one architecture should implement CustomWrapper per project. If multiple
 architectures exist, the one that is synthesized is undefined.
 :::
