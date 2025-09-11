@@ -59,8 +59,13 @@ summary: set_frontend
 
 ```python
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###')
-i.burst_modulate(2, "Input1", "NCycle", burst_cycles=3, trigger_level=0.1)
+# Connect to your Moku
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
+
+# As input channels are only used when there is a modulation, we will use burst mode in this example
+# Add burst modualtion to waveform on channel 1, triggering on Input 1 at 0.1V level for 3 cycles
+i.burst_modulate(1, "Input1", "NCycle", burst_cycles=3, trigger_level=0.1)
+# Set Input 1 to 1Mohm, AC coupled, 10Vpp input range
 i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 ```
 
@@ -69,8 +74,13 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
+% Connect to your Moku
+m = MokuArbitraryWaveformGenerator('192.168.###.###', formce_connect=true);
+
+% As input channels are only used when there is a modulation, we will use burst mode in this example
+% Add burst modualtion to waveform on channel 1, triggering on Input 1 at 0.1V level for 3 cycles
 m.burst_modulate(2, "Input1", "NCycle",'burst_cycles',3,'trigger_level',0.1);
+% Set Input 1 to 1Mohm, AC coupled, 10Vpp input range
 m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
 ```
 
