@@ -19,10 +19,10 @@ parameters:
       description: Trigger source
       name: source
       param_range:
-          mokugo: Input1, Input2, Output1, Output2, Internal, Manual
-          mokulab: Input1, Input2, Output1, Output2, Internal, Manual
-          mokupro: Input1, Input2, Input3, Input4, Output1, Output2, Output3, Output4, Internal, Manual
-          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, Internal, Ext. trig., Manual
+          mokugo: Input1, Input2, Output1, Output2, InputA, Internal, Manual
+          mokulab: Input1, Input2, Output1, Output2, InputA, Internal, External, Manual
+          mokupro: Input1, Input2, Input3, Input4, InputA, InputB, Output1, Output2, Output3, Output4, OutputA, OutputB, Internal, External, Manual
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, OutputA, OutputB, Internal, External, Manual
       type: string
       unit: null
     - default: 30000000
