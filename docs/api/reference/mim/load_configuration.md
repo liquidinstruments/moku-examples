@@ -42,10 +42,11 @@ m = MultiInstrument('192.168.###.###', force_connect=True)
 # Load the saved configuration of Multi-instrument Mode from a .mokuconf file
 m.load_configuration(filename="mim_state.mokuconf")
 
-# To load the instrument settings, set instruments in the slots, then use load_settings
+# To load the instrument settings, set instruments in the
+# slots, then use load_settings
 wg = m.set_instrument(1, WaveformGenerator)
 osc = m.set_instrument(2, Oscilloscope)
-# Load the settings
+# Load the instrument settings
 wg.load_settings(filename="wg_state.mokuconf")
 osc.load_settings(filename="osc_state.mokuconf")
 ```
@@ -61,10 +62,11 @@ m = MokuMultiInstrument('192.168.###.###', force_connect=true);
 % Load the saved configuration of Multi-instrument Mode from a .mokuconf file
 m.load_configuration('mim_state.mokuconf');
 
-% To load the instrument settings, set instruments in the slots, then use load_settings
+% To load the instrument settings, set instruments in the
+% slots, then use load_settings
 wg = m.set_instrument(1, @MokuWaveformGenerator);
 osc = m.set_instrument(2, @MokuOscilloscope);
-% Load the settings
+% Load the instrument settings
 wg.load_settings('wg_state.mokuconf');
 osc.load_settings('osc_state.mokuconf');
 ```
