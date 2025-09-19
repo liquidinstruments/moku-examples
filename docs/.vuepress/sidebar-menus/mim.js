@@ -3,6 +3,8 @@ module.exports = {
     collapsable: true,
     children: [
         ['/api/reference/mim/', 'Overview'],
+        ['/api/reference/mim/load_configuration', 'load_configuration'],
+        ['/api/reference/mim/save_configuration', 'save_configuration'],
         ['/api/reference/mim/set_connections', 'set_connections'],
         ['/api/reference/mim/set_dio', 'set_dio'],
         ['/api/reference/mim/set_frontend', 'set_frontend'],
