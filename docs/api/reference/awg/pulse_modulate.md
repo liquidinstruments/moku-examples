@@ -77,7 +77,7 @@ square_wave = sign(sin(2*pi*t));
 m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 % Configure the output waveform in each channel
 % Channel 1: sampling rate of 125 MSa/s, square wave, 1kHz, 1Vpp.
-m.generate_waveform(1, "125", square_wave, 1e6, 1);
+m.generate_waveform(1, "125Ms", square_wave, 1e6, 1);
 % Add a pulse modulation to channel 1, with 2 dead cycles at 0V between each cycle of the waveform
 m.pulse_modulate(1,'dead_cycles',2,'dead_voltage',0);
 ```
