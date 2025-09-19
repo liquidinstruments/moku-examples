@@ -51,7 +51,7 @@ m.set_monitor(1, 'Filter1');
 m.set_monitor(2, 'Output1');
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

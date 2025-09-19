@@ -46,7 +46,7 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 m.burst_modulate(2, "Input1", "NCycle",'burst_cycles',3,'trigger_level',0.1);
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

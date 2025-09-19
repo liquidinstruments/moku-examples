@@ -51,7 +51,7 @@ m.generate_waveform(1, 'Sine','amplitude', 1, 'frequency',1000,'offset',0.2);
 m.generate_waveform(2, 'Square', 'amplitude',1,'frequency', 10e3, 'duty', 50);
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

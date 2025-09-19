@@ -49,7 +49,7 @@ m.set_span(10, 10e6);
 m.set_window('BlackmanHarris');
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

@@ -60,7 +60,7 @@ connections = [struct('source', 'Input1', 'destination', 'Slot1InA');
 m.set_connections(connections);
 
 % Save the current settings of Multi-instrument Mode
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

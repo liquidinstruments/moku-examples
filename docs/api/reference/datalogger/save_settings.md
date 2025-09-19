@@ -49,7 +49,7 @@ m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
 m.set_acquisition_mode('mode', 'Precision');
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

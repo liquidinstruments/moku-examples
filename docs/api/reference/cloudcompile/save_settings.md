@@ -42,7 +42,7 @@ cc = m.set_instrument(1, MokuCloudCompile);
 % set connections
 cc.set_control(2, 156);
 % Save the current settings of the instrument
-cc.save_settings("instrument_state.mokuconf");
+cc.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>
@@ -55,3 +55,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
         --data '{"filename": "instrument_state.mokuconf"}'\
         http://<ip>/api/slot1/cloudcompile/save_settings
 ```
+
+</code-block>
+
+</code-group>

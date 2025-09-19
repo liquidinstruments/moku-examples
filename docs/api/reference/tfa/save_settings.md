@@ -49,7 +49,7 @@ m.set_event_detector(1, 'Input1', 'threshold', '0.1', 'edge', 'Rising');
 m.set_event_detector(2, 'Input2', 'threshold', '0.1', 'edge', 'Falling');
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

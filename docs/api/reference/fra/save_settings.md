@@ -58,7 +58,7 @@ m.set_sweep('start_frequency', 10e6, 'stop_frequency', 100, 'num_points', 512, .
     'settling_time', 10e-3, 'settling_cycles', 1);
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

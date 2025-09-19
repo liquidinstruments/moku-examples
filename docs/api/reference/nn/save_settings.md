@@ -49,7 +49,7 @@ nn = m.set_instrument(1, MokuNeuralNetwork);
 nn.set_input_sample_rate(300);
 
 % Save the current settings of the instrument
-nn.save_settings("instrument_state.mokuconf");
+nn.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

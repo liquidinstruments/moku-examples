@@ -42,7 +42,7 @@ i.load_settings(filename="instrument_state.mokuconf")
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 
 % Load the saved settings of the instrument from a .mokuconf file
-m.load_settings("instrument_state.mokuconf");
+m.load_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

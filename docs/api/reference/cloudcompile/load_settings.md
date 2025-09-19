@@ -42,7 +42,7 @@ m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 cc = m.set_instrument(1, MokuCloudCompile);
 
 % Load the saved settings of the instrument from a .mokuconf file
-cc.load_settings("instrument_state.mokuconf");
+cc.load_settings('instrument_state.mokuconf');
 ```
 
 </code-block>
@@ -55,3 +55,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
         --data '{"filename": "instrument_state.mokuconf"}'\
         http://<ip>/api/slot1/cloudcompile/load_settings
 ```
+
+</code-block>
+
+</code-group>

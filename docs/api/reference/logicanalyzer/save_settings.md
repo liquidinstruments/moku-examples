@@ -45,7 +45,7 @@ m = MokuLogicAnalyzer('192.168.###.###', force_connect=true);
 m.set_timebase(-5e-3, 5e-3, 'roll_mode', false);
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

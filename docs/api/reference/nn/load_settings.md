@@ -48,7 +48,7 @@ m = MokuMultiInstrument('192.168.###.###', 'platform_id', 4);
 nn = m.set_instrument(1, MokuNeuralNetwork);
 
 % Load the saved settings of the instrument from a .mokuconf file
-nn.load_settings("instrument_state.mokuconf");
+nn.load_settings('instrument_state.mokuconf');
 ```
 
 </code-block>

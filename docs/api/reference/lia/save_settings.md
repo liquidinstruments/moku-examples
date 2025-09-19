@@ -45,7 +45,7 @@ m = MokuLockInAmp('192.168.###.###', force_connect=true);
 m.set_filter('corner_frequency',100,'slope','Slope6dB');
 
 % Save the current settings of the instrument
-m.save_settings("instrument_state.mokuconf");
+m.save_settings('instrument_state.mokuconf');
 ```
 
 </code-block>
