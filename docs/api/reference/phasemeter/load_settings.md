@@ -5,7 +5,7 @@ method: post
 name: load_settings
 parameters:
     - default: null
-      description: The path to load the `.mokuconf` file to.
+      description: The path to load the `.mokuconf` file from.
       name: filename
       param_range: null
       type: string
