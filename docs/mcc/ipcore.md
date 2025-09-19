@@ -6,16 +6,16 @@ Moku Cloud Compile also supports the inclusion of IP cores in your custom design
 
 The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These cores can be instantiated either in your VHDL or Verilog codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
 
-| Supported AMD IP Core | Description |
-|-----------------------|-------------|
-| Adder/Subtractor <small><br> [Adder/subtractor v12.0](https://docs.amd.com/v/u/en-US/pg120-c-addsub) </br></small>         | Add or Subtract two numbers                                   |
-| CIC Decimation (by 8) <small><br> [CIC compiler v4.0](https://docs.amd.com/v/u/en-US/pg140-cic-compiler) </br></small>     | Decimate the input data by a factor of 8                      |
-| CORDIC Transformation <small><br> [CORDIC v6.0](https://docs.amd.com/v/u/en-US/pg105-cordic) </br></small>                 | Use CORDIC computation for rectangular to polar conversion    |
-| Counter (32-bit) <small><br> [Binary Counter v12.0](https://docs.amd.com/v/u/en-US/pg121-c-counter-binary) </br></small>   | A binary counter that counts on every clock tick              |
-| FFT (1024 points) <small><br> [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft) </br></small>    | Performs a Fast Fourier Transform of 1024-points data frame   |
-| FFT (65536 points) <small><br> [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft) </br></small>   | Performs a Fast Fourier Transform of 65536-points data frame  |
-| FIR filter (7 coefficients) <small><br> [FIR compiler v7.2](https://docs.amd.com/r/en-US/pg149-fir-compiler) </br></small> | Generates a FIR filter with 7 taps                            |
-| Sine Generator (48-bit) <small><br> [DDS Compiler v6.0](https://docs.amd.com/r/en-US/pg141-dds-compiler) </br></small>     | Generates a sine wave that takes in a 48-bit frequency        |
+| Supported AMD IP Core | Description | Template and Example |
+|-----------------------|-------------| :------------------: |
+| Adder/Subtractor <small><br> [Adder/subtractor v12.0](https://docs.amd.com/v/u/en-US/pg120-c-addsub) </br></small>         | Add or Subtract two numbers                                  |  <action-button text="Adder/Subtractor" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/Adder_Subtractor" target="_blank"/>  |
+| CIC Decimation (by 8) <small><br> [CIC compiler v4.0](https://docs.amd.com/v/u/en-US/pg140-cic-compiler) </br></small>     | Decimate the input data by a factor of 8                     |    <action-button text="CIC Decimation" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/CICDec_3Ord_x8" target="_blank"/>    |
+| CORDIC Transformation <small><br> [CORDIC v6.0](https://docs.amd.com/v/u/en-US/pg105-cordic) </br></small>                 | Use CORDIC computation for rectangular to polar conversion   |   <action-button text="CORDIC" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/CORDIC%20Transformation" target="_blank"/>    |
+| Counter (32-bit) <small><br> [Binary Counter v12.0](https://docs.amd.com/v/u/en-US/pg121-c-counter-binary) </br></small>   | A binary counter that counts on every clock tick             |       <action-button text="Counter" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/Counter(32-bit)" target="_blank"/>       |
+| FFT (1024 points) <small><br> [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft) </br></small>    | Performs a Fast Fourier Transform of 1024-points data frame  |                <action-button text="FFT 1024" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/FFT%20(1024)"/>                |
+| FFT (65536 points) <small><br> [Fast Fourier Transform Core v9.1](https://docs.amd.com/r/en-US/pg109-xfft) </br></small>   | Performs a Fast Fourier Transform of 65536-points data frame |       <action-button text="FFT 65536" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/FFT%20(65536)" target="_blank"/>       |
+| FIR filter (7 coefficients) <small><br> [FIR compiler v7.2](https://docs.amd.com/r/en-US/pg149-fir-compiler) </br></small> | Generates a FIR filter with 7 taps                           | <action-button text="FIR Filter" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/FIR%20(7%20coefficients)" target="_blank"/> |
+| Sine Generator (48-bit) <small><br> [DDS Compiler v6.0](https://docs.amd.com/r/en-US/pg141-dds-compiler) </br></small>     | Generates a sine wave that takes in a 48-bit frequency       |     <action-button text="Sine Gen" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/IP%20Core%20Templates%20and%20Examples/SineGen%20(48-bit)" target="_blank"/>     |
 
 An example is shown below to use the Adder IP Core
 
@@ -105,9 +105,10 @@ Users can also add their own IP cores that are generated from AMD Xilinx Vivado�
 
 | Hardware platform | FPGA model number |
 |----------------|------------|
-| Moku-Go        | xc7z020clg400-1 |
-| Moku-Lab       | xc7z020clg484-3 |
-| Moku-Pro       | xczu9egffvc900-2 |
+| Moku:Go        | xc7z020clg400-1 |
+| Moku:Lab       | xc7z020clg484-3 |
+| Moku:Pro       | xczu9egffvc900-2 |
+| Moku:Delta     | xczu47dr-fsvg1517-2-e |
 
 :::warning Vivado™ compatibility
 When generating the **.xci** file of your IP cores, please use Vivado 2022.2™. Using an **.xci** file from any other version of Vivado software can result in a failed synthesis.
