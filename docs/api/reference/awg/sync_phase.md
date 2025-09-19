@@ -26,11 +26,12 @@ sq_wave = np.array([-1.0 if x < 0.5 else 1.0 for x in t])
 # Connect to your Moku
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
 # Configure the output waveform in both channels
-# Sampling rate of 125 MSa/s, square wave, 1MHz, 1Vpp.
+# Auto sampling rate, square wave, 1MHz, 1Vpp.
 i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
     frequency=1e6, amplitude=1)
 i.generate_waveform(channel=2, sample_rate='Auto', lut_data=list(sq_wave),
     frequency=1e6, amplitude=1)
+
 # Synchronize the phase between the two channels
 i.sync_phase()
 ```
@@ -49,9 +50,9 @@ square_wave = sign(sin(2*pi*t));
 % Connect to your Moku
 m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 % Configure the output waveform in both channels
-% Sampling rate of 125 MSa/s, square wave, 1MHz, 1Vpp.
-m.generate_waveform(1, "125", square_wave, 1e6, 1);
-m.generate_waveform(2, "125", square_wave, 1e6, 1);
+% Auto sampling rate, square wave, 1MHz, 1Vpp.
+m.generate_waveform(1, "Auto", square_wave, 1e6, 1);
+m.generate_waveform(2, "Auto", square_wave, 1e6, 1);
 
 % Synchronize the phase between the two channels
 m.sync_phase();
