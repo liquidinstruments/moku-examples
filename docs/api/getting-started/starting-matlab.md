@@ -38,7 +38,7 @@ Ensure that there is an entry pointing to the toolbox installation location. A t
 
 ### Install the `mokucli` Utility
 
-Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about [Moku CLI (mokucli)](../../cli/) command line features.
+Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can confirm that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about [Moku CLI (mokucli)](../../cli/) command line features.
 
 ```bash
 $ mokucli --help
@@ -53,7 +53,7 @@ $ mokucli --help
 ...
 ```
 
-If the output does not match above, please refer to our [Knowledge Base](https://knowledge.liquidinstruments.com/) for troubleshooting.
+If the output does not match above, please refer to our [Knowledge Base](https://knowledge.liquidinstruments.com/installation-and-troubleshooting-of-mokucli) for troubleshooting.
 
 ::: tip Note
 It's important to make sure that the mokucli installation is in the same environment as, or is accessible by the moku package. Please refer to [Installation and troubleshooting of mokucli](https://knowledge.liquidinstruments.com/installation-and-troubleshooting-of-mokucli) for more information.
@@ -66,14 +66,14 @@ The Moku Scripting API for MATLAB requires data files to be downloaded before an
 You can download the files using `mokucli instrument download`, read more about [mokucli](../../cli/instrument.md#mokucli-instrument-download).
 
 ```bash
-# download instrument bitstreams for MokuOS 4.0.1
-$: mokucli instrument download 4.0.1
-ℹ Resolved Version 4.0.1 to instruments build 18260
+# download instrument bitstreams for MokuOS 4.0.3
+$: mokucli instrument download 4.0.3
+ℹ Resolved Version 4.0.3 to instruments build 18673
   Downloading 362 bitstream(s) matching 'all'... ━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ✓ Downloaded 362/362 bitstream(s)
 ```
 
-The `4.0.1` should be replaced with the current Moku OS version. You can find the current Moku OS version through the Moku: desktop app by right clicking on your Moku and hovering the mouse over 'Device info'.
+The `4.0.3` should be replaced with the current Moku OS version. You can find the current Moku OS version through the Moku: desktop app by right clicking on your Moku and hovering the mouse over 'Device info'.
 
 ## 3. Test Installation
 
