@@ -36,16 +36,44 @@ Ensure that there is an entry pointing to the toolbox installation location. A t
 
 ## 2. Download the data files
 
-The Moku Scripting API for MATLAB requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed,
-this step is only required to be run whenever you first install or upgrade the library.
+### Install the `mokucli` Utility
 
-From your MATLAB Command Window, issue the download command. This may take a while to complete, depending on your internet connection.
+Install `mokucli` by downloading the installer from [Utilities](https://www.liquidinstruments.com/software/utilities/). You can easily check that the installation succeeded by running the command listed below from your command line. If the output begins the same as the output shown below, then the installation has succeeded. Read more about [Moku CLI (mokucli)](../../cli/) command line features.
 
+```bash
+$ mokucli --help
+
+ Usage: mokucli [OPTIONS] COMMAND [ARGS]...
+
+ Moku command line utility
+
+ Version: 4.0.1
+
+ (c) Liquid Instruments 2016-2025
+...
 ```
-$: moku_download(###)
+
+If the output does not match above, please refer to our [Knowledge Base](https://knowledge.liquidinstruments.com/) for troubleshooting.
+
+::: tip Note
+It's important to make sure that the mokucli installation is in the same environment as, or is accessible by the moku package. Please refer to [Installation and troubleshooting of mokucli](https://knowledge.liquidinstruments.com/installation-and-troubleshooting-of-mokucli) for more information.
+:::
+
+### Download the data files
+
+The Moku Scripting API for MATLAB requires data files to be downloaded before any program can be run. These data files may be several hundred megabytes. Please ensure you have a suitable internet connection before you proceed, this step is only required to be run whenever you install or upgrade the library.
+
+You can download the files using `mokucli instrument download`, read more about [mokucli](../../cli/instrument.md#mokucli-instrument-download).
+
+```bash
+# download instrument bitstreams for MokuOS 4.0.1
+$: mokucli instrument download 4.0.1
+ℹ Resolved Version 4.0.1 to instruments build 18260
+  Downloading 362 bitstream(s) matching 'all'... ━━━━━━━━━━━━━━━━━ 100% 0:00:00
+✓ Downloaded 362/362 bitstream(s)
 ```
 
-The ### should be replaced with the current firmware version. You can find the current firmware version through the Moku: desktop app by right clicking on your Moku and hovering the mouse over 'Device info'.
+The `4.0.1` should be replaced with the current Moku OS version. You can find the current Moku OS version through the Moku: desktop app by right clicking on your Moku and hovering the mouse over 'Device info'.
 
 ## 3. Test Installation
 
