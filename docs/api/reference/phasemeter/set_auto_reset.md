@@ -29,7 +29,7 @@ summary: set_auto_reset
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 i.set_auto_reset(value='2pi')
 ```
 
@@ -38,7 +38,7 @@ i.set_auto_reset(value='2pi')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###');
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 i.set_auto_reset('2pi');
 ```
 

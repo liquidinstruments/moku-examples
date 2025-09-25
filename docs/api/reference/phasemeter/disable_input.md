@@ -34,7 +34,7 @@ summary: disable_input
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Disable channel 1
 i.disable_input(1)
 ```
@@ -44,7 +44,7 @@ i.disable_input(1)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Disable channel 1
 m.disable_input(1);
 ```

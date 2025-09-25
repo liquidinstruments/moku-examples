@@ -32,7 +32,7 @@ group: Data Streaming
 ```python
 import json
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 ### Configure instrument to desired state
 
@@ -48,7 +48,7 @@ while True:
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
 %%% Configure instrument to desired state
 

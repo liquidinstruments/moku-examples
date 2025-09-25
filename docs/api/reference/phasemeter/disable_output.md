@@ -31,7 +31,7 @@ summary: disable_output
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Disable Out 1
 i.disable_output(channel=1)
 
@@ -42,7 +42,7 @@ i.disable_output(channel=1)
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###');
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Disable Out 1
 i.disable_output(1);
 

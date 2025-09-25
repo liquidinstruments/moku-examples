@@ -60,7 +60,7 @@ parameters:
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 100 Hz.
 i.set_pm_loop(1, auto_acquire=False, frequency=1e6, bandwidth='100Hz')
 ```
@@ -70,7 +70,7 @@ i.set_pm_loop(1, auto_acquire=False, frequency=1e6, bandwidth='100Hz')
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###');
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 100 Hz.
 i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','100Hz');
 ```

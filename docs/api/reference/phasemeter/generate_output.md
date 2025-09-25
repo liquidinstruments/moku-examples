@@ -98,7 +98,7 @@ summary: generate_output
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
 # Generate a sine wave on channel 2, 1 Vpp, 1 MHz
 i.generate_output(channel=1, amplitude=0.5, frequency=5e3, signal='Sine')
@@ -110,7 +110,7 @@ i.generate_output(channel=2, amplitude=1.0, frequency=1e6, signal='Sine')
 <code-block title="MATLAB">
 
 ```matlab{2-8}
-i = MokuPhasemeter('192.168.###.###');
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Generate a sine wave on Channel 1
 % 0.5 Vpp, 10 kHz
 i.generate_output(1, 'Sine', 'amplitude', 0.5, 'frequency', 10e3);

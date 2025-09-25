@@ -24,7 +24,7 @@ Examples,
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 i.start_streaming(duration=10)
 i.stream_to_file() # by default data is streamed to a csv file
 ```
@@ -34,7 +34,7 @@ i.stream_to_file() # by default data is streamed to a csv file
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 m.start_streaming('duration', 10);
 m.stream_to_file() % by default data is streamed to a csv file
 

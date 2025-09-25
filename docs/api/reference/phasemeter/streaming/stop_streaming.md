@@ -19,7 +19,7 @@ group: Data Streaming
 ```python
 from moku.instruments import Phasemeter
 import time
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Generate a waveform on output channel
 i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
 i.start_streaming(duration=10)
@@ -32,7 +32,7 @@ i.stop_streaming()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Generate a waveform on output channels
 m.generate_waveform(1, 'Sine', 'amplitude',1, 'frequency',10e3);
 m.start_streaming('duration', 10);

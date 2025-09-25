@@ -17,7 +17,7 @@ summary: summary
 
 ```python{5}
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 print(i.summary())
 ```
 
@@ -26,7 +26,7 @@ print(i.summary())
 <code-block title="MATLAB">
 
 ```matlab{5}
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 disp(m.summary())
 ```
 

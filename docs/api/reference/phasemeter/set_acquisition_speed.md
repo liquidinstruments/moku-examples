@@ -33,7 +33,7 @@ summary: set_acquisition_speed
 
 ```python{6}
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Set required acquisition speed
 i.set_acquisition_speed(speed='596Hz')
 ```
@@ -43,7 +43,7 @@ i.set_acquisition_speed(speed='596Hz')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###');
+i = MokuPhasemeter('192.168.###.###', force_connect=true);
 # Set required acquisition speed
 i.set_acquisition_speed('19.1kHz');
 ```

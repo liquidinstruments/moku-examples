@@ -39,7 +39,7 @@ summary: enable_input
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Enable Input Signal
 i.enable_input(1, True)
 ```
@@ -49,7 +49,7 @@ i.enable_input(1, True)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Enable Input Signal
 m.enable_input(1, true)
 ```

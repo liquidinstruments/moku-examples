@@ -16,7 +16,7 @@ summary: sync_output_phase
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 i.sync_output_phase()
 ```
 
@@ -25,7 +25,7 @@ i.sync_output_phase()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 m.sync_output_phase();
 ```
 
