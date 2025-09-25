@@ -8,7 +8,7 @@
 %% Connect to your Moku
 % Connect to your Moku and deploy the Logic Analyzer instrument
 % force_connect will overtake an existing connection
-i = MokuLogicAnalyzer('192.168.###.###', force_connect=true);
+m = MokuLogicAnalyzer('192.168.###.###', force_connect=true);
 
 try
     patterns = [struct('pin', 1, 'pattern', repmat([1],1,1024)), ...
@@ -17,14 +17,14 @@ try
         struct('pin', 4, 'pattern', repmat([0 1],1,512))];
     
     
-    i.set_pattern_generator(1, patterns, 'divider', 8);
+    m.set_pattern_generator(1, patterns, 'divider', 8);
     
-    i.set_pin_mode(1, "PG1");
-    i.set_pin_mode(2, "PG1");
-    i.set_pin_mode(3, "PG1");
-    i.set_pin_mode(4, "PG1");
+    m.set_pin_mode(1, "PG1");
+    m.set_pin_mode(2, "PG1");
+    m.set_pin_mode(3, "PG1");
+    m.set_pin_mode(4, "PG1");
     
-    data = i.get_data('wait_reacquire', true, 'include_pins', [1, 2, 3, 4]);
+    data = m.get_data('wait_reacquire', true, 'include_pins', [1, 2, 3, 4]);
     
     tiledlayout(4,1)
     
@@ -46,7 +46,7 @@ try
     
     %% Receive and plot new data frames
     while 1
-        data = i.get_data();
+        data = m.get_data();
         set(p1,'XData',data.time,'YData',data.pin1);
         set(p2,'XData',data.time,'YData',data.pin2);
         set(p3,'XData',data.time,'YData',data.pin3);
@@ -58,10 +58,10 @@ try
     
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
 
 % End the current connection session with your Moku
-i.relinquish_ownership();
+m.relinquish_ownership();

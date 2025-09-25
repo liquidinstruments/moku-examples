@@ -18,8 +18,6 @@ i = Datalogger('192.168.###.###', force_connect=True)
 try:
     # Configure the frontend
     i.set_frontend(channel=1, impedance='1MOhm', coupling="AC", range="10Vpp")
-    # Log 100 samples per second
-    i.set_samplerate(100)
 
     i.set_acquisition_mode(mode='Precision')
 
@@ -27,9 +25,10 @@ try:
     i.generate_waveform(channel=1, type='Sine', amplitude=1,
                         frequency=10e3)
     
+    # Log 100 samples per second
     # Stop an existing log, if any, then start a new one. 10 seconds of both
     # channels
-    logFile = i.start_logging(duration=10)
+    logFile = i.start_logging(duration=10, sample_rate=100)
 
     # Track progress percentage of the data logging session
     complete = False

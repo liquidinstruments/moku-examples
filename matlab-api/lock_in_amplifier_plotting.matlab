@@ -12,45 +12,45 @@
 % Connect to your Moku by its IP address and deploy the Lock-in Amplifier 
 % instrument.
 % force_connect will overtake an existing connection
-i = MokuLockInAmp('192.168.###.###', force_connect=true);
+m = MokuLockInAmp('192.168.###.###', force_connect=true);
 
 try
     %% Configure the instrument
     
     % Configure the frontend
     % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range
-    i.set_frontend(1, 'DC', '1MOhm','0dB');
+    m.set_frontend(1, 'DC', '1MOhm', 'gain', '0dB');
     % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range
-    i.set_frontend(2, 'DC', '1MOhm','-20dB');
+    m.set_frontend(2, 'DC', '1MOhm', 'gain', '-20dB');
     
     % Configure the demodulation signal to Local oscillator with 1 MHz and
     % 0 degrees phase shift
-    i.set_demodulation('Internal','frequency',1e6,'phase',0);
+    m.set_demodulation('Internal','frequency',1e6,'phase',0);
     
     % Set low pass filter to 1 kHz corner frequency with 6 dB/octave slope
-    i.set_filter(1e3,'slope','Slope6dB');
+    m.set_filter(1e3,'slope','Slope6dB');
     
     % Configure output signals
     % X component to Output 1 
     % Aux oscillator signal to Output 2 at 1 MHz 500 mVpp
-    i.set_outputs('X','Aux');
-    i.set_aux_output(1e6,0.5);
+    m.set_outputs('X','Aux');
+    m.set_aux_output(1e6,0.5);
     
     %% Set up signal monitoring
     % Configure monitor points to Input 1 and main output
-    i.set_monitor(1,'Input1');
-    i.set_monitor(2,'MainOutput');
+    m.set_monitor(1,'Input1');
+    m.set_monitor(2,'MainOutput');
     
     % Configure the trigger conditions
     % Trigger on Probe A, rising edge, 0V
-    i.set_trigger('type','Edge', 'source','ProbeA', 'level',0);
+    m.set_trigger('type','Edge', 'source','ProbeA', 'level',0);
     
     % View +- 1 ms i.e. trigger in the centre
-    i.set_timebase(-1e-3,1e-3);
+    m.set_timebase(-1e-3,1e-3);
     
     %% Set up plots
     % Get initial data to set up plots
-    data = i.get_data();
+    data = m.get_data();
     
     % Set up the plots
     figure
@@ -60,7 +60,7 @@ try
     
     %% Receive and plot new data frames
     while 1
-        data = i.get_data();
+        data = m.get_data();
         set(lh(1),'XData',data.time,'YData',data.ch1);
         set(lh(2),'XData',data.time,'YData',data.ch2);
     
@@ -70,10 +70,10 @@ try
 
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
-i.relinquish_ownership();
+m.relinquish_ownership();
 
 

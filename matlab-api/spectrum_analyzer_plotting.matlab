@@ -10,7 +10,7 @@
 %% Connect to the Moku
 % Connect to your Moku by its IP address.
 % force_connect will overtake an existing connection
-i = MokuSpectrumAnalyzer('192.168.###.###', force_connect=true);
+m = MokuSpectrumAnalyzer('192.168.###.###', force_connect=true);
 
 try
     
@@ -18,21 +18,21 @@ try
     
     % Generate a sine wave on Channel 1
     % 1Vpp, 1MHz, 0V offset
-    i.sa_output(1, 1, 1e6);
+    m.sa_output(1, 1, 1e6);
     % Generate a sine wave on Channel 2
     % 2Vpp, 50kHz, 0V offset
-    i.sa_output(2, 2, 50e3);
+    m.sa_output(2, 2, 50e3);
     
     % Configure the measurement span to from 10Hz to 10MHz
-    i.set_span(10,10e6);
+    m.set_span(10,10e6);
     % Use Blackman Harris window
-    i.set_window('BlackmanHarris');
+    m.set_window('BlackmanHarris');
     % Set resolution bandwidth to automatic
-    i.set_rbw('Auto');
+    m.set_rbw('Auto');
     
     %% Retrieve data
     % Get one frame of spectrum data
-    data = i.get_data();
+    data = m.get_data();
     
     % Set up the plots
     figure
@@ -42,7 +42,7 @@ try
     
     %% Receive and plot new data frames
     while 1
-        data = i.get_data();
+        data = m.get_data();
     
         set(lh(1),'XData',data.frequency,'YData',data.ch1);
         set(lh(2),'XData',data.frequency,'YData',data.ch2);
@@ -53,9 +53,9 @@ try
 
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
-i.relinquish_ownership();
+m.relinquish_ownership();
 

@@ -52,6 +52,7 @@ try:
     ax_1 = plt.gca()
     ax_1.set_xlabel('Frequency (Hz)')
     ax_1.set_ylabel('Magnitude (dB)')
+    ax_1.grid(True)
 
     # Set up the phase plot
     plt.subplot(212)
@@ -64,10 +65,10 @@ try:
     ax_2 = plt.gca()
     ax_2.set_xlabel('Frequency (Hz)')
     ax_2.set_ylabel('Phase (Cycles)')
+    ax_2.grid(True)
 
     plt.ion()
     plt.show()
-    plt.grid(visible=True)
 
     # Retrieves and plot new data
     while True:

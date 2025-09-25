@@ -9,7 +9,7 @@
 %% Connect to your Moku
 % Connect to your Moku by its IP address.
 % force_connect will overtake an existing connection
-i = MokuTimeFrequencyAnalyzer('192.168.###.###', force_connect=true);
+m = MokuTimeFrequencyAnalyzer('192.168.###.###', force_connect=true);
 
 try
 
@@ -18,27 +18,27 @@ try
     % Set the event detectors
     % Set Event A to detect rising edge events on Input 1 at 0V
     % Set Event B to detect rising edge events on Input 2 at 0V
-    i.set_event_detector(1, 'Input1', 'threshold',0, 'edge','Rising');
-    i.set_event_detector(2, 'Input2', 'threshold',0, 'edge','Rising');
+    m.set_event_detector(1, 'Input1', 'threshold',0, 'edge','Rising');
+    m.set_event_detector(2, 'Input2', 'threshold',0, 'edge','Rising');
 
     % Set the interpolation to Linear
-    i.set_interpolation('Linear');
+    m.set_interpolation('Linear');
 
     % Set acquisition mode to a 100ms Window
-    i.set_acquisition_mode('Windowed', 'window_length',100e-3);
+    m.set_acquisition_mode('Windowed', 'window_length',100e-3);
 
     % Set the histogram to 8ns span centred around 2us
-    i.set_histogram(1.996e-6, 2.004e-6);
+    m.set_histogram(1.996e-6, 2.004e-6);
 
     % Set the interval analyzers
     % Set Interval A to start at Event A and stop at Event A
     % Set Interval B to start at Event B and stop at Event B
-    i.set_interval_analyzer(1, 1, 1);
-    i.set_interval_analyzer(2, 2, 2);
+    m.set_interval_analyzer(1, 1, 1);
+    m.set_interval_analyzer(2, 2, 2);
 
     %% Retrieve data
     % Get initial data to set up plots
-    data = i.get_data();
+    data = m.get_data();
 
     % Set up the plots
     figure
@@ -50,7 +50,7 @@ try
 
     %% Receive and plot new data frames
     while 1
-        data = i.get_data();
+        data = m.get_data();
         set(lh(1),'YData',data.interval1.histogram.data);
         set(lh(2),'YData',data.interval2.histogram.data);
 
@@ -60,8 +60,8 @@ try
 
 catch ME
     % End the current connection session with your Moku
-    i.relinquish_ownership();
+    m.relinquish_ownership();
     rethrow(ME)
 end
 
-i.relinquish_ownership();
+m.relinquish_ownership();
