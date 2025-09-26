@@ -16,9 +16,23 @@ summary: sync_phase
 <code-block title="Python">
 
 ```python
+import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###')
-# Configure the output waveform in each channel
+
+# Generate the square wave array
+t = np.linspace(0, 1, 100)
+sq_wave = np.array([-1.0 if x < 0.5 else 1.0 for x in t])
+
+# Connect to your Moku
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
+# Configure the output waveform in both channels
+# Auto sampling rate, square wave, 1MHz, 1Vpp.
+i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
+    frequency=1e6, amplitude=1)
+i.generate_waveform(channel=2, sample_rate='Auto', lut_data=list(sq_wave),
+    frequency=1e6, amplitude=1)
+
+# Synchronize the phase between the two channels
 i.sync_phase()
 ```
 
@@ -27,8 +41,20 @@ i.sync_phase()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
-% Configure the output waveform in each channel
+%% Prepare the waveforms
+% Prepare a square waveform to be generated
+t = linspace(0,1,100);
+square_wave = sign(sin(2*pi*t));
+
+%% Moku configuration
+% Connect to your Moku
+m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
+% Configure the output waveform in both channels
+% Auto sampling rate, square wave, 1MHz, 1Vpp.
+m.generate_waveform(1, "Auto", square_wave, 1e6, 1);
+m.generate_waveform(2, "Auto", square_wave, 1e6, 1);
+
+% Synchronize the phase between the two channels
 m.sync_phase();
 ```
 

@@ -44,8 +44,21 @@ summary: pulse_modulate
 <code-block title="Python">
 
 ```python
+import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
-i = ArbitraryWaveformGenerator('192.168.###.###')
+
+# Generate the square wave array with 100 points, half of the cycle is at -1.0 and the other half at 1.0
+t = np.linspace(0, 1, 100)
+sq_wave = np.array([-1.0 if x < 0.5 else 1.0 for x in t])
+
+# Connect to your Moku
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
+
+# Generate the square wave output Channel 1 at 10 kHz with an amplitude of 1 Vpp
+i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
+    frequency=10e3, amplitude=1)
+
+# Add a pulse modulation to channel 1, with 2 dead cycles at 0V between each cycle of the waveform
 i.pulse_modulate(1, dead_cycles=2, dead_voltage=0)
 ```
 
@@ -54,7 +67,18 @@ i.pulse_modulate(1, dead_cycles=2, dead_voltage=0)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
+%% Prepare the waveforms
+% Prepare a square waveform to be generated
+t = linspace(0,1,100);
+square_wave = sign(sin(2*pi*t));
+
+%% Configure your Moku
+% Connect to your Moku and deploy the Arbitrary Waveform Generator
+m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
+% Configure the output waveform in each channel
+% Channel 1: sampling rate of 125 MSa/s, square wave, 1kHz, 1Vpp.
+m.generate_waveform(1, "125Ms", square_wave, 1e6, 1);
+% Add a pulse modulation to channel 1, with 2 dead cycles at 0V between each cycle of the waveform
 m.pulse_modulate(1,'dead_cycles',2,'dead_voltage',0);
 ```
 

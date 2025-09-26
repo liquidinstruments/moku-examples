@@ -21,7 +21,7 @@ parameters:
           \ chosen. This is correct in almost all circumstances."
       name: sample_rate
       param_range:
-          mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms, 15.625Ms
+          mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms
           mokulab: Auto, 1Gs, 500Ms, 250Ms, 125Ms
           mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms
           mokudelta: Auto, 5Gsa, 2.5GSa, 1.25Gs, 625Ms, 312.5Ms
@@ -95,29 +95,28 @@ For Moku:Delta
 
 -   4,096 at 5 GSa/s
 -   8,192 at 2.5 GSa/s
--   16,384 at 1.25 GS/s
--   32,768 at 625 MS/s
--   65,536 at 312.5 MS/s
+-   16,384 at 1.25 GSa/s
+-   32,768 at 625 MSa/s
+-   65,536 at 312.5 MSa/s
 
 For Moku:Pro
 
--   16,384 at 1.25 GS/s
--   32,768 at 625 MS/s
--   65,536 at 312.5 MS/s
+-   16,384 at 1.25 GSa/s
+-   32,768 at 625 MSa/s
+-   65,536 at 312.5 MSa/s
 
 For Moku:Lab
 
--   8,192 at 1Gs
--   16,384 at 500Ms
--   32,768 at 250Ms
--   65,536 at 125Ms
+-   8,192 at 1 GSa/s
+-   16,384 at 500 MSa/s
+-   32,768 at 250 MSa/s
+-   65,536 at 125 MSa/s
 
 For Moku:Go
 
--   8,192 at 125 MS/s
--   16,384 at 62.5 MS/s
--   32,768 at 31.25 MS/s
--   65,536 at 15.625 MS/s
+-   16,384 at 125 MSa/s
+-   32,768 at 62.5 MSa/s
+-   65,536 at 31.25 MSa/s
 
 Values will be normalized to the range [-1.0, +1.0] and then scaled to the desired amplitude and offset.
 
@@ -132,13 +131,15 @@ Values will be normalized to the range [-1.0, +1.0] and then scaled to the desir
 ```python
 import numpy as np
 from moku.instruments import ArbitraryWaveformGenerator
+
 t = np.linspace(0, 1, 100)
 sq_wave = np.array([-1.0 if x < 0.5 else 1.0 for x in t])
-# x = np.linspace(-np.pi, np.pi, 100)
-# sine_wave = np.sin(x)
-i = ArbitraryWaveformGenerator('192.168.###.###')
+
+i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
+# Configure the output waveform in each channel
+# Channel 1: auto sampling rate, square wave, 1MHz, 1Vpp.
 i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
-    frequency=10e3, amplitude=1)
+    frequency=1e6, amplitude=1)
 ```
 
 </code-block>
@@ -150,10 +151,10 @@ i.generate_waveform(channel=1, sample_rate='Auto', lut_data=list(sq_wave),
 % Prepare a square waveform to be generated
 t = linspace(0,1,100);
 square_wave = sign(sin(2*pi*t));
-m = MokuArbitraryWaveformGenerator('192.168.###.###');
+m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 % Configure the output waveform in each channel
-% Channel 1: sampling rate of 125 MSa/s, square wave, 1kHz, 1Vpp.
-m.generate_waveform(1, "125", square_wave, 1e6, 1);
+% Channel 1: auto sampling rate, square wave, 1MHz, 1Vpp.
+m.generate_waveform(1, "Auto", square_wave, 1e6, 1);
 ```
 
 </code-block>
@@ -192,6 +193,6 @@ $: curl -H 'Moku-Client-Key: <key>'\
     "interpolation": 0,
     "offset": 0.0,
     "phase": 0.0,
-    "sample_rate": "125Ms"
+    "sample_rate": "Auto"
 }
 ```
