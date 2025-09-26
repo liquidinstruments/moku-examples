@@ -38,10 +38,10 @@ speed = i.get_acquisition_speed()
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
 % Request the acquisition speed of the Phasemeter
-speed = i.get_acquisition_speed()
+speed = m.get_acquisition_speed()
 
 ```
 

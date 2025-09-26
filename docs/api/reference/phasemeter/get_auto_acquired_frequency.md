@@ -39,8 +39,8 @@ i.get_auto_acquired_frequency(channel=1)
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
-i.get_auto_acquired_frequency(1);
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.get_auto_acquired_frequency(1);
 ```
 
 </code-block>

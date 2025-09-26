@@ -27,8 +27,8 @@ i.reacquire()
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
-i.reacquire();
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.reacquire();
 ```
 
 </code-block>

@@ -39,8 +39,8 @@ i.enable_single_input()
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
-i.enable_single_input();
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.enable_single_input();
 ```
 
 </code-block>

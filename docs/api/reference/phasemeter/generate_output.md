@@ -110,14 +110,14 @@ i.generate_output(channel=2, amplitude=1.0, frequency=1e6, signal='Sine')
 <code-block title="MATLAB">
 
 ```matlab{2-8}
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Generate a sine wave on Channel 1
 % 0.5 Vpp, 10 kHz
-i.generate_output(1, 'Sine', 'amplitude', 0.5, 'frequency', 10e3);
+m.generate_output(1, 'Sine', 'amplitude', 0.5, 'frequency', 10e3);
 
 % Generate a sine wave on Channel 2
 % 1 Vpp, 1 MHz
-i.generate_output(2, 'Sine', 'amplitude', 1, 'frequency', 1e6);
+m.generate_output(2, 'Sine', 'amplitude', 1, 'frequency', 1e6);
 
 ```
 

@@ -42,7 +42,7 @@ i.save_settings(filename="instrument_state.mokuconf")
 m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 100 Hz.
-i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','100Hz');
+m.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','100Hz');
 
 % Save the current settings of the instrument
 m.save_settings('instrument_state.mokuconf');

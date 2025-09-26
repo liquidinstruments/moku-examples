@@ -43,9 +43,9 @@ i.set_acquisition_speed(speed='596Hz')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 # Set required acquisition speed
-i.set_acquisition_speed('19.1kHz');
+m.set_acquisition_speed('19.1kHz');
 ```
 
 </code-block>

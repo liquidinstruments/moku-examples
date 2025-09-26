@@ -70,9 +70,9 @@ i.set_pm_loop(1, auto_acquire=False, frequency=1e6, bandwidth='100Hz')
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Configure Channel 1 to no auto acquire, signal frequency at 1 MHz, bandwidth of 100 Hz.
-i.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','100Hz');
+m.set_pm_loop(1,'auto_acquire',false,'frequency',1e6,'bandwidth','100Hz');
 ```
 
 </code-block>

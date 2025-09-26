@@ -38,8 +38,8 @@ i.set_phase_wrap(value='2pi')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
-i.set_phase_wrap('value', '2pi');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.set_phase_wrap('value', '2pi');
 ```
 
 </code-block>

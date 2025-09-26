@@ -38,8 +38,8 @@ i.set_auto_reset(value='2pi')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###', force_connect=true);
-i.set_auto_reset('2pi');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.set_auto_reset('2pi');
 ```
 
 </code-block>
