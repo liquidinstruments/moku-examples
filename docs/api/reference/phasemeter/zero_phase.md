@@ -28,7 +28,7 @@ summary: zero_phase
 ```python
 from moku.instruments import Phasemeter
 i = Phasemeter('192.168.###.###', force_connect=True)
-# Enable Input Signal
+# Sets Input 1 phase to zero
 i.zero_phase(1, True)
 ```
 
@@ -38,7 +38,7 @@ i.zero_phase(1, True)
 
 ```matlab
 m = MokuPhasemeter('192.168.###.###', force_connect=true);
-% Enable Input Signal
+% Sets Input 1 phase to zero
 m.zero_phase(1, true)
 ```
 

@@ -40,9 +40,10 @@ i = Phasemeter('192.168.###.###', force_connect=True)
 
 ### Configure instrument to desired state
 
-# start logging session and read the file name from response
+# Start streaming session for 10 seconds
 response = i.start_streaming(duration=10)
 while True:
+  # Retrieve the streamed data frame
   i.get_stream_data()
 
 ```
@@ -54,11 +55,11 @@ while True:
 ```matlab
 m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
-%%% Configure instrument to desired state
-
+% Start streaming session for 10 seconds
 m.start_streaming('duration', 10)
 
 while true
+% Retrieve the streamed data frame
 m.get_stream_data()
 end
 

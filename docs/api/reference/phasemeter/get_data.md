@@ -67,7 +67,11 @@ from moku.instruments import Phasemeter
 
 i = Phasemeter('192.168.###.###', force_connect=True)
 
+# Configure instrument to desired state
+# Request the latest measurement frame
 data = i.get_data()
+
+# Inspect selected fields from the response
 print(data['ch1']['phase'], data['ch2']['frequency'])
 
 ```
@@ -78,8 +82,12 @@ print(data['ch1']['phase'], data['ch2']['frequency'])
 
 ```matlab
 m = MokuPhasemeter('192.168.###.###', force_connect=true);
+
+%%% Configure instrument to desired state
+% Request the latest measurement frame
 data = m.get_data();
 
+% Inspect selected fields from the response
 disp(data.ch1.phase);
 disp(data.ch2.frequency);
 disp(data.time);
