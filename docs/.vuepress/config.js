@@ -255,6 +255,10 @@ module.exports = {
                     token.info = 'verilog'
                 }
 
+                if (token.info === 'm') {
+                    token.info = 'matlab'
+                }
+
                 return fence(...args)
             }
         },
