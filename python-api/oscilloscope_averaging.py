@@ -12,7 +12,7 @@ import numpy as np
 
 
 
-osc=Oscilloscope('192.168.2.191', force_connect=True)
+osc=Oscilloscope('192.168.XX.XX', force_connect=True)
 
 try:
     ## Set frontend settings
