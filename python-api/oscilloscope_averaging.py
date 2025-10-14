@@ -12,7 +12,7 @@ import numpy as np
 
 
 
-osc=Oscilloscope('192.168.XX.XX', force_connect=True)
+osc=Oscilloscope('192.168.2.191', force_connect=True)
 
 try:
     ## Set frontend settings
@@ -87,10 +87,6 @@ try:
 
     plt.ioff()
     plt.show()
-
-except Exception as e:
-    osc.relinquish_ownership()
-    raise e
 
 finally:
     osc.relinquish_ownership()
