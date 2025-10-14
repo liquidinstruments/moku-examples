@@ -3,6 +3,7 @@
 Author: Tranter Tech
 Date: 2024
 """
+
 import numpy as np
 
 
@@ -12,10 +13,11 @@ class QuantumEmitter:
 
     This simulator is used in the Emitter_control.ipynb example
     """
+
     def __init__(self, wavelength, waist):
         self.wavelength = wavelength
         self.w0 = waist
-        self.zr = np.pi * self.w0 ** 2 / self.wavelength
+        self.zr = np.pi * self.w0**2 / self.wavelength
 
         self.X = None
         self.Y = None
@@ -51,18 +53,19 @@ class QuantumEmitter:
         """
         self.X = X
         self.Y = Y
-        self.e_target = self.get_field(X, Y, 1e-10,
-                                       (0, 0, self.new_scale(self.angles[0]), self.new_scale(self.angles[1])))
-        self.e_target = np.abs(self.e_target)**2
+        self.e_target = self.get_field(
+            X, Y, 1e-10, (0, 0, self.new_scale(self.angles[0]), self.new_scale(self.angles[1]))
+        )
+        self.e_target = np.abs(self.e_target) ** 2
 
     def get_overlap(self):
         # return the approximate overlap of the two beams
-        return (self.e_target*self.e_current).sum() / (self.e_target**2).sum()
+        return (self.e_target * self.e_current).sum() / (self.e_target**2).sum()
 
     def get_counts(self):
         # turn the overlap into a count value, clip it to avoid the approximation error
         # assume we're returning a 16-bit integer
-        return np.clip(int(self.get_overlap() * 2 ** 16), 0, 2**16)
+        return np.clip(int(self.get_overlap() * 2**16), 0, 2**16)
 
     def time_step(self, offsets, shears, angles):
         """
@@ -128,13 +131,13 @@ class QuantumEmitter:
         :return:
         """
         E0 = 1  # amplitude, set to 1 for simplicity
-        k = np.pi * 2 / self.wavelength     # the k-vector or wave vector
-        Rz = z * (1 + (self.zr / z) ** 2)   # the radius of curvature
+        k = np.pi * 2 / self.wavelength  # the k-vector or wave vector
+        Rz = z * (1 + (self.zr / z) ** 2)  # the radius of curvature
 
         # the three terms of the calculation that are multiplied together
         t1 = E0 * (self.w0 / self.w(z))
-        t2 = np.exp(-(x ** 2 + y ** 2) / self.w(z) ** 2)
-        t3 = np.exp(1j * (k * z - np.arctan(z / self.zr) + (k * (x ** 2 + y ** 2)) / (2 * Rz)))
+        t2 = np.exp(-(x**2 + y**2) / self.w(z) ** 2)
+        t3 = np.exp(1j * (k * z - np.arctan(z / self.zr) + (k * (x**2 + y**2)) / (2 * Rz)))
 
         # return the complex electric field
         return t1 * t2 * t3
@@ -146,9 +149,9 @@ class QuantumEmitter:
         :param theta: the angle between the normal z axis and other relevant axis (x or y)
         :return: the factor by which to distort the beam
         """
-        eps = np.pi/2 - theta
+        eps = np.pi / 2 - theta
         x = 2 * np.sin(eps) / w
-        return 2*np.sqrt(x**2 + (w/2)**2)
+        return 2 * np.sqrt(x**2 + (w / 2) ** 2)
 
     def new_scale(self, theta):
         """

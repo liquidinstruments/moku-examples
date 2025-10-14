@@ -4,12 +4,9 @@
 # network to modify actuator inputs to account for nonlinearity
 
 # %%
-import os
 
-import h5py
-import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import dblquad
+import numpy as np
 from scipy.special import erf
 
 from moku.nn import LinnModel, save_linn
@@ -19,11 +16,13 @@ from moku.nn import LinnModel, save_linn
 # Step 1: Generate the actuator response (we can also use this as our training data)
 # ---
 
-def actuator_response(x):
-    return erf(2*x)
 
-nPts   = 2**10 # Investigate how model fit depends on amount of data supplied and training ratio
-input  = np.linspace( -1, 1, nPts)
+def actuator_response(x):
+    return erf(2 * x)
+
+
+nPts = 2**10  # Investigate how model fit depends on amount of data supplied and training ratio
+input = np.linspace(-1, 1, nPts)
 output = actuator_response(input)
 # plt.figure()
 # plt.plot(input, output)
@@ -31,9 +30,9 @@ output = actuator_response(input)
 # plt.ylabel('Output')
 # plt.title('Actuator response')
 
-#Observe actuator output for a typical input
-phase    = np.linspace(0, 3 * 2 * np.pi, nPts)
-desired  = np.sin(phase)
+# Observe actuator output for a typical input
+phase = np.linspace(0, 3 * 2 * np.pi, nPts)
+desired = np.sin(phase)
 achieved = actuator_response(desired)
 # plt.figure()
 # plt.plot(phase, desired, label='Desired')
@@ -44,14 +43,13 @@ achieved = actuator_response(desired)
 # plt.legend()
 
 
-
 # %%
 # ---
 # Step 2: Train a neural network to compensate for the nonlinearity
 # ---
 
 # Reshape the inputs, ready for training. Each `data point' is one input and one output
-input.shape  = [nPts, 1]
+input.shape = [nPts, 1]
 output.shape = [nPts, 1]
 
 # Build the neural network model. Skip the I/O scaling as the data are already pretty good for training,
@@ -62,10 +60,15 @@ output.shape = [nPts, 1]
 linn_model = LinnModel()
 linn_model.set_training_data(output, input, scale=False)
 
-#Try different models
-#model_definition = [ (1, 'linear')] # The most basic linear model. Can't cope with nonlinearity
-model_definition = [ (16, 'relu'), (16, 'relu'), (16, 'relu'), (1, 'linear')] # ReLU activation works well in this example
-#model_definition = [ (100, 'relu'), (100, 'relu'), (100, 'relu'), (100, 'relu'), (100, 'relu')] # Biggest Moku can fit, can overfit!
+# Try different models
+# model_definition = [ (1, 'linear')] # The most basic linear model. Can't cope with nonlinearity
+model_definition = [
+    (16, 'relu'),
+    (16, 'relu'),
+    (16, 'relu'),
+    (1, 'linear'),
+]  # ReLU activation works well in this example
+# model_definition = [ (100, 'relu'), (100, 'relu'), (100, 'relu'), (100, 'relu'), (100, 'relu')] # Biggest Moku can fit, can overfit!
 
 linn_model.construct_model(model_definition)
 
@@ -100,10 +103,10 @@ nn_out2 = linn_model.predict(input)
 
 fig, axs = plt.subplots(2)
 fig.suptitle('Linearisation')
-axs[0].plot(input, input,label='Ideal actuator')
-axs[0].plot(input,actuator_response(nn_out2),'--',label='Linearised')
+axs[0].plot(input, input, label='Ideal actuator')
+axs[0].plot(input, actuator_response(nn_out2), '--', label='Linearised')
 axs[0].legend()
-axs[1].plot(input-actuator_response(nn_out2),label='Ideal - Linearised')
+axs[1].plot(input - actuator_response(nn_out2), label='Ideal - Linearised')
 axs[1].legend()
 
 # %%
@@ -115,12 +118,14 @@ nn_out3 = linn_model.predict(desired_reshaped)
 fig2, axs2 = plt.subplots(2)
 axs2[0].plot(phase, desired, label='Desired')
 axs2[0].plot(phase, achieved, label='W/o correction')
-axs2[0].plot(phase, actuator_response(nn_out3),'--', label='W/ NN correction')
+axs2[0].plot(phase, actuator_response(nn_out3), '--', label='W/ NN correction')
 axs2[0].set_ylabel('Output')
 fig2.suptitle('Actuator output')
 axs2[0].legend()
 
-axs2[1].plot(phase, desired_reshaped-actuator_response(nn_out3), label='Desired - W/ NN correction')
+axs2[1].plot(
+    phase, desired_reshaped - actuator_response(nn_out3), label='Desired - W/ NN correction'
+)
 axs2[1].set_xlabel('Time')
 axs2[1].legend()
 plt.show()

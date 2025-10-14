@@ -20,8 +20,9 @@ try:
 
     # Configure the scan oscillator to a 10 Hz 500 mVpp positive ramp
     # signal from Output 1
-    i.set_scan_oscillator(enable=True, shape='PositiveRamp',
-                          frequency=10, amplitude=0.5, output='Output1')
+    i.set_scan_oscillator(
+        enable=True, shape='PositiveRamp', frequency=10, amplitude=0.5, output='Output1'
+    )
 
     # Configure the demodulation signal to Local oscillator with 1 MHz and
     # 0 degrees phase shift

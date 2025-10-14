@@ -8,6 +8,7 @@
 #
 
 import matplotlib.pyplot as plt
+
 from moku.instruments import LaserLockBox
 
 # Connect to your Moku by its ip address using LaserLockBox('192.168.###.###')
@@ -21,8 +22,9 @@ try:
 
     # Configure the scan oscillator to a 10 Hz 500 mVpp positive ramp
     # signal from Output 1
-    i.set_scan_oscillator(enable=True, shape='PositiveRamp',
-                          frequency=10, amplitude=0.5, output='Output1')
+    i.set_scan_oscillator(
+        enable=True, shape='PositiveRamp', frequency=10, amplitude=0.5, output='Output1'
+    )
 
     # Configure the demodulation signal to Local oscillator with 1 MHz and
     # 0 degrees phase shift
@@ -66,8 +68,8 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

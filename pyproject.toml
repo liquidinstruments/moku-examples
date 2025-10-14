@@ -1,0 +1,55 @@
+[project]
+name = "moku-examples"
+description = "Moku examples for Python API, MATLAB API, and other languages"
+version = "1.0.0"
+requires-python = ">= 3.8"
+dependencies = [
+    "moku >=3.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "opencv-stubs",  # Type stubs for opencv-python
+]
+
+[tool.ruff]
+line-length = 99
+target-version = "py39"
+
+[tool.ruff.lint]
+# Enable some basic rules but avoid being too strict for examples
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+]
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "E731",  # Lambda assignment (sometimes useful for register calculations)
+    "F841",  # Unused variables (common in examples)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # Allow unused imports in __init__.py
+"**/examples/*" = ["F841"]  # Allow unused variables in examples
+"python-api/*" = ["F841"]  # Allow unused variables in examples
+"neural-network/*" = ["F841"]  # Allow unused variables in examples
+
+[tool.ruff.format]
+quote-style = "preserve"  # Preserve existing quote style (allows single quotes)
+
+[tool.ruff.lint.isort]
+required-imports = []  # No specific required imports
+combine-as-imports = true  # Combine multiple imports from same module
+force-single-line = false  # Allow multi-line imports
+force-sort-within-sections = true  # Sort imports within sections
+known-first-party = ["moku"]  # Identify moku as first-party for proper sectioning
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = false  # More lenient for examples
+ignore_missing_imports = true  # Ignore missing type stubs for examples
+show_error_codes = true

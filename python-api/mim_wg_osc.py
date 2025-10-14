@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 
-from moku.instruments import MultiInstrument
-from moku.instruments import Oscilloscope, WaveformGenerator
+from moku.instruments import MultiInstrument, Oscilloscope, WaveformGenerator
 
 # force_connect will overtake an existing connection
 m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
@@ -9,10 +8,12 @@ try:
     wg = m.set_instrument(1, WaveformGenerator)
     osc = m.set_instrument(2, Oscilloscope)
 
-    connections = [dict(source="Input1", destination="Slot1InA"),
-                   dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot1OutA", destination="Slot2InB"),
-                   dict(source="Slot2OutA", destination="Output1")]
+    connections = [
+        dict(source="Input1", destination="Slot1InA"),
+        dict(source="Slot1OutA", destination="Slot2InA"),
+        dict(source="Slot1OutA", destination="Slot2InB"),
+        dict(source="Slot2OutA", destination="Output1"),
+    ]
 
     print(m.set_connections(connections=connections))
 
@@ -27,8 +28,8 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

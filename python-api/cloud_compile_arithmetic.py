@@ -10,7 +10,7 @@
 
 import matplotlib.pyplot as plt
 
-from moku.instruments import MultiInstrument, CloudCompile, Oscilloscope
+from moku.instruments import CloudCompile, MultiInstrument, Oscilloscope
 
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
@@ -25,25 +25,24 @@ try:
     osc = m.set_instrument(2, Oscilloscope)
 
     # Configure the connections
-    connections = [dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot2OutB", destination="Slot2InB"),
-                   dict(source="Slot2OutA", destination="Slot1InA"),
-                   dict(source="Slot2OutB", destination="Slot1InB")]
+    connections = [
+        dict(source="Slot1OutA", destination="Slot2InA"),
+        dict(source="Slot2OutB", destination="Slot2InB"),
+        dict(source="Slot2OutA", destination="Slot1InA"),
+        dict(source="Slot2OutB", destination="Slot1InB"),
+    ]
 
     m.set_connections(connections=connections)
 
     # Configure the Oscilloscope to generate a ramp wave and square wave with
     # equal frequencies, then sync the phases
-    osc.generate_waveform(1, 'Square', amplitude=50e-3,
-                          frequency=1e3, duty=50)
-    osc.generate_waveform(2, 'Ramp', amplitude=50e-3,
-                          frequency=1e3, symmetry=50)
+    osc.generate_waveform(1, 'Square', amplitude=50e-3, frequency=1e3, duty=50)
+    osc.generate_waveform(2, 'Ramp', amplitude=50e-3, frequency=1e3, symmetry=50)
     osc.sync_output_phase()
 
     # Set the time span to cover four cycles of the waveforms
     osc.set_timebase(-2e-3, 2e-3)
-    osc.set_trigger(type="Edge", edge="Rising", level=0,
-                    mode="Normal", source="ChannelB")
+    osc.set_trigger(type="Edge", edge="Rising", level=0, mode="Normal", source="ChannelB")
 
     # Set up the plotting figure
     fig, axs = plt.subplots(3, sharex=True)

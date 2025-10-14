@@ -7,6 +7,7 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 import numpy as np
+
 from moku.instruments import ArbitraryWaveformGenerator
 
 # Generate a signal that the Arbitrary Waveform Generator should generate on the output
@@ -29,11 +30,12 @@ i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Load and configure the waveform.
-    i.generate_waveform(channel=1, sample_rate='Auto',
-                        lut_data=list(sq_wave), frequency=10e3,
-                        amplitude=1)
-    i.generate_waveform(channel=2, sample_rate='Auto', lut_data=list(not_sq),
-                        frequency=10e3, amplitude=1)
+    i.generate_waveform(
+        channel=1, sample_rate='Auto', lut_data=list(sq_wave), frequency=10e3, amplitude=1
+    )
+    i.generate_waveform(
+        channel=2, sample_rate='Auto', lut_data=list(not_sq), frequency=10e3, amplitude=1
+    )
 
     # Set channel 1 to pulse mode
     # 2 dead cycles at 0Vpp
@@ -42,7 +44,13 @@ try:
     # Set Channel 2 to burst mode
     # Burst mode triggering from Input 1 at 0.1 V
     # 3 cycles of the waveform will be generated every time it is triggered
-    i.burst_modulate(channel=2, trigger_source='Input1', trigger_mode='NCycle', burst_cycles=3, trigger_level=0.1)
+    i.burst_modulate(
+        channel=2,
+        trigger_source='Input1',
+        trigger_mode='NCycle',
+        burst_cycles=3,
+        trigger_level=0.1,
+    )
 
 except Exception as e:
     i.relinquish_ownership()

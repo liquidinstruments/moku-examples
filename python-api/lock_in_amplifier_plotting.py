@@ -10,6 +10,7 @@
 #
 
 import matplotlib.pyplot as plt
+
 from moku.instruments import LockInAmp
 
 # Connect to your Moku by its ip address using LockInAmp('192.168.###.###')
@@ -58,8 +59,8 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

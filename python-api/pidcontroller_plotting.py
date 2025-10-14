@@ -11,6 +11,7 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
+
 from moku.instruments import PIDController
 
 # Connect to your Moku by its ip address using PIDController('192.168.###.###')
@@ -33,9 +34,14 @@ try:
     #   D Saturation = 10dB
     #   Double-I = OFF
     # Note that gains must be converted from dB first
-    i.set_by_frequency(channel=1, prop_gain=-10, int_crossover=1e2,
-                       diff_crossover=1e4, int_saturation=10,
-                       diff_saturation=10)
+    i.set_by_frequency(
+        channel=1,
+        prop_gain=-10,
+        int_crossover=1e2,
+        diff_crossover=1e4,
+        int_saturation=10,
+        diff_saturation=10,
+    )
 
     # Configure the Channel 2 PID Controller using gain characteristics
     #   Overall Gain = 6dB
@@ -66,8 +72,8 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

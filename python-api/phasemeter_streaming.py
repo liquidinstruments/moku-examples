@@ -4,13 +4,14 @@
 # This example starts a 30-second network stream of Channel 1 Phasemeter data
 # and processes it live. The contents of each data sample are printed out,
 # along with the signal amplitude which may be calculated as A = sqrt(I^2 + Q^2).
-# 
+#
 # (c) Liquid Instruments Pty. Ltd.
 #
 
-from moku.instruments import Phasemeter
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+
+from moku.instruments import Phasemeter
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
 # force_connect will overtake an existing connection
@@ -44,7 +45,7 @@ try:
     a_ax.set_ylabel("Amplitude (Vrms)")
     p_ax.set_ylabel("Phase (cyc)")
     p_ax.set_xlabel("Time (s)")
-    
+
     (line1,) = f_ax.plot([])
     (line2,) = f_ax.plot([])
     (line3,) = a_ax.plot([])
@@ -66,7 +67,7 @@ try:
         time_span += data['time']
         frequency += data['ch1_frequency']
         set_freq_ += data['ch1_set_frequency']
-        amplitude += list(np.sqrt(np.array(data['ch1_i'])**2+np.array(data['ch1_q'])**2))
+        amplitude += list(np.sqrt(np.array(data['ch1_i']) ** 2 + np.array(data['ch1_q']) ** 2))
         phase_cyc += data['ch1_phase']
         line1.set_data(time_span, frequency)
         line2.set_data(time_span, set_freq_)
@@ -76,7 +77,7 @@ try:
             ax.relim()
             ax.autoscale_view()
         plt.pause(0.01)
-  
+
 except Exception as e:
     if str(e) == "End of stream":
         print("Streaming session complete!")

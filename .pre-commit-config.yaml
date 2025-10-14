@@ -1,0 +1,21 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: ruff-check
+        name: ruff-check
+        entry: uvx ruff check --fix python-api/ neural-network/
+        language: system
+        pass_filenames: false
+        always_run: true
+    -   id: ruff-format
+        name: ruff-format
+        entry: uvx ruff format python-api/ neural-network/
+        language: system
+        pass_filenames: false
+        always_run: true
+    -   id: mypy
+        name: mypy
+        entry: mypy --no-install-types --explicit-package-bases python-api/ neural-network/
+        language: system
+        pass_filenames: false
+        always_run: true

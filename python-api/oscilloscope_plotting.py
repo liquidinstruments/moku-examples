@@ -7,6 +7,7 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
+
 from moku.instruments import Oscilloscope
 
 # Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
@@ -14,7 +15,7 @@ from moku.instruments import Oscilloscope
 i = Oscilloscope('192.168.###.###', force_connect=True)
 
 try:
-    # Trigger on input Channel 1, rising edge, 0V 
+    # Trigger on input Channel 1, rising edge, 0V
     i.set_trigger(type='Edge', source='Input1', level=0)
 
     # View +-5usec, i.e. trigger in the centre
@@ -29,7 +30,6 @@ try:
     # Set the data source of Channel 2 to the generated output sinewave
     i.set_source(2, 'Input2')
 
-
     # Get initial data frame to set up plotting parameters. This can be done
     # once if we know that the axes aren't going to change (otherwise we'd do
     # this in the loop)
@@ -42,8 +42,8 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()
@@ -59,7 +59,7 @@ try:
         line1.set_xdata(data['time'])
         line2.set_xdata(data['time'])
         plt.pause(0.001)
-        
+
 except Exception as e:
     i.relinquish_ownership()
     raise e

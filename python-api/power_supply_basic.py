@@ -1,5 +1,5 @@
 #
-# moku example: Basic Programmable Power Supply Unit 
+# moku example: Basic Programmable Power Supply Unit
 #
 #  This example will demonstrate how to configure the power supply
 #  units of the Moku:Go.
@@ -16,9 +16,9 @@ i = Oscilloscope('192.168.###.###', force_connect=True)
 
 try:
     # Configure Power Supply Unit 1 to 2 V and 0.1 A
-    i.set_power_supply(1,enable=True,voltage=2, current=0.1)
-    
-    # Read the current status of Power Supply Unit 1 
+    i.set_power_supply(1, enable=True, voltage=2, current=0.1)
+
+    # Read the current status of Power Supply Unit 1
     print(i.get_power_supply(1))
 
 except Exception as e:

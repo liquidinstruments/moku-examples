@@ -9,10 +9,12 @@ try:
     dl = i.set_instrument(1, Datalogger)
     lia = i.set_instrument(2, LockInAmp)
 
-    connections = [dict(source="Input1", destination="Slot1InA"),
-                   dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot1OutA", destination="Slot2InB"),
-                   dict(source="Slot2OutA", destination="Output1")]
+    connections = [
+        dict(source="Input1", destination="Slot1InA"),
+        dict(source="Slot1OutA", destination="Slot2InA"),
+        dict(source="Slot1OutA", destination="Slot2InB"),
+        dict(source="Slot2OutA", destination="Output1"),
+    ]
 
     i.set_connections(connections=connections)
 
@@ -31,8 +33,8 @@ try:
     plt.grid(visible=True)
     plt.ylim([-1, 1])
 
-    line1, = plt.plot([])
-    line2, = plt.plot([])
+    (line1,) = plt.plot([])
+    (line2,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

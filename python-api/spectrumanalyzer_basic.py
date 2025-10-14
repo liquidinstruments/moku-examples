@@ -14,7 +14,7 @@ i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
 
 # Deploy the Spectrum Analyzer to your Moku
 try:
-    # Configure the Spectrum Analyzer 
+    # Configure the Spectrum Analyzer
     i.set_span(0, 10e6)
     i.set_rbw('Auto')  # Auto-mode
 

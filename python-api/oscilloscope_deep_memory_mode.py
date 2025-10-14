@@ -16,9 +16,10 @@
 # The parameters in the 'set_frontend' command should be configured to align with the specific hardware (Moku:Go, Moku:Lab, Moku:Pro, or Moku:Delta).
 
 
-import matplotlib.pyplot as plt
 import os
 import time
+
+import matplotlib.pyplot as plt
 import numpy as np
 
 from moku.instruments import Oscilloscope
@@ -28,15 +29,19 @@ from moku.instruments import Oscilloscope
 i = Oscilloscope('192.168.###.###', force_connect=True)
 
 NUM_FRAMES = 1  # This is the number of frames to be averaged
-FILE_PATH = "C:/Users/XXXX/Downloads" # Please replace with your own FILE_PATH
+FILE_PATH = "C:/Users/XXXX/Downloads"  # Please replace with your own FILE_PATH
 
 try:
-    # Set the data source of Channel 1 to be Input 1   
-    i.set_frontend(1,'50Ohm','DC','400mVpp')
-    i.set_sources([{"channel": 1, "source": "Input1"},
-                   {"channel": 2, "source": "None"},
-                   {"channel": 3, "source": "None"},
-                   {"channel": 4, "source": "None"}])
+    # Set the data source of Channel 1 to be Input 1
+    i.set_frontend(1, '50Ohm', 'DC', '400mVpp')
+    i.set_sources(
+        [
+            {"channel": 1, "source": "Input1"},
+            {"channel": 2, "source": "None"},
+            {"channel": 3, "source": "None"},
+            {"channel": 4, "source": "None"},
+        ]
+    )
 
     i.set_trigger(mode='Normal', type='Edge', source='Input1', level=0)
     i.set_timebase(-5e-3, 20e-3)
@@ -56,22 +61,22 @@ try:
             ch1 = data_ch1
         else:
             ch1 = ch1 + data_ch1
-            
+
         # (Optional) Delete the downloaded and converted files
         os.remove(temp_filename + ".npy")
         os.remove(temp_filename + ".li")
         os.remove(temp_filename + ".txt")
-    
+
     time_column = file['Time (s)']
 
     # plot the average of all acquired high-res frames
-    plt.plot(time_column, ch1/NUM_FRAMES)
+    plt.plot(time_column, ch1 / NUM_FRAMES)
     plt.grid(visible=True)
-    
+
     # Configure labels and ranges for axes
     ax = plt.gca()
-    ax.set_xlim([time_column[0], time_column[-1]])
-    ax.set_ylim([-1, 1])
+    ax.set_xlim((time_column[0], time_column[-1]))
+    ax.set_ylim((-1, 1))
     ax.set_xlabel("Time (s)")
     ax.set_ylabel("Voltage (V)")
     plt.show()

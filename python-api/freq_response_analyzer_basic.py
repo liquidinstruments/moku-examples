@@ -15,9 +15,15 @@ i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=True)
 
 try:
     # Configure output sweep parameters (100Hz-20MHz)
-    i.set_sweep(start_frequency=20e6, stop_frequency=100, num_points=256,
-                averaging_time=1e-3, averaging_cycles=5, settling_cycles=5,
-                settling_time=1e-3)
+    i.set_sweep(
+        start_frequency=20e6,
+        stop_frequency=100,
+        num_points=256,
+        averaging_time=1e-3,
+        averaging_cycles=5,
+        settling_cycles=5,
+        settling_time=1e-3,
+    )
 
     # Configure output sweep amplitudes
     # Channel 1 - 0.1Vpp
@@ -33,12 +39,10 @@ try:
     frame = i.get_data(wait_complete=True)
 
     # Print out the data for Channel 1
-    print(frame['ch1']['frequency'], frame['ch1']['magnitude'],
-          frame['ch1']['phase'])
+    print(frame['ch1']['frequency'], frame['ch1']['magnitude'], frame['ch1']['phase'])
 
     # Print out the data for Channel 2
-    print(frame['ch2']['frequency'], frame['ch2']['magnitude'],
-          frame['ch2']['phase'])
+    print(frame['ch2']['frequency'], frame['ch2']['magnitude'], frame['ch2']['phase'])
 
 except Exception as e:
     i.relinquish_ownership()

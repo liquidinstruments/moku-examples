@@ -16,16 +16,21 @@ i = WaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Set sine wave to channel 1 and square wave to channel 2
-    i.generate_waveform(channel=1, type='Sine',
-                        amplitude=1, frequency=10)
-    i.generate_waveform(channel=2, type='Square',
-                        amplitude=1, frequency=500, duty=50)
+    i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10)
+    i.generate_waveform(channel=2, type='Square', amplitude=1, frequency=500, duty=50)
 
     # Activate burst trigger for output 1 and sweep trigger for output 2
-    i.set_burst_mode(channel=1, source='Internal', mode='Gated',
-                     burst_period=2, trigger_level=0.5, burst_duration=0.1)
-    i.set_sweep_mode(channel=2, source='Internal', stop_frequency=10,
-                     sweep_time=2, trigger_level=0.1)
+    i.set_burst_mode(
+        channel=1,
+        source='Internal',
+        mode='Gated',
+        burst_period=2,
+        trigger_level=0.5,
+        burst_duration=0.1,
+    )
+    i.set_sweep_mode(
+        channel=2, source='Internal', stop_frequency=10, sweep_time=2, trigger_level=0.1
+    )
 
 except Exception as e:
     i.relinquish_ownership()

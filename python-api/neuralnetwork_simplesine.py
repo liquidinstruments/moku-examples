@@ -2,16 +2,15 @@
 # moku example: Neural Network
 #
 # This script demonstrates how to use the Neural Network instrument to generate
-# a ramp wave and process it through the uploaded neural network, finally 
-# viewing the output in the oscilloscope. This uses the network generated 
+# a ramp wave and process it through the uploaded neural network, finally
+# viewing the output in the oscilloscope. This uses the network generated
 # in the Simple Sine wave example.
 #
 # (c) Liquid Instruments Pty. Ltd.
 
 import matplotlib.pyplot as plt
 
-from moku.instruments import MultiInstrument
-from moku.instruments import WaveformGenerator, NeuralNetwork, Oscilloscope
+from moku.instruments import MultiInstrument, NeuralNetwork, Oscilloscope, WaveformGenerator
 
 # force_connect will overtake an existing connection
 m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
@@ -22,11 +21,13 @@ try:
     nn = m.set_instrument(2, NeuralNetwork)
     osc = m.set_instrument(3, Oscilloscope)
 
-    connections = [dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot1OutA", destination="Slot2InB"),
-                   dict(source="Slot1OutB", destination="Slot2InC"),
-                   dict(source="Slot1OutB", destination="Slot2InD"),
-                   dict(source="Slot2OutA", destination="Slot3InA")]
+    connections = [
+        dict(source="Slot1OutA", destination="Slot2InA"),
+        dict(source="Slot1OutA", destination="Slot2InB"),
+        dict(source="Slot1OutB", destination="Slot2InC"),
+        dict(source="Slot1OutB", destination="Slot2InD"),
+        dict(source="Slot2OutA", destination="Slot3InA"),
+    ]
 
     print(m.set_connections(connections=connections))
 
@@ -53,7 +54,7 @@ try:
     plt.ylim([-1, 1])
     plt.xlim([data['time'][0], data['time'][-1]])
 
-    line, = plt.plot([])
+    (line,) = plt.plot([])
 
     # Configure labels for axes
     ax = plt.gca()

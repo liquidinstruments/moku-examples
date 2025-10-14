@@ -22,9 +22,8 @@ try:
     i.set_acquisition_mode(mode='Precision')
 
     # Generate Sine wave on Output1
-    i.generate_waveform(channel=1, type='Sine', amplitude=1,
-                        frequency=10e3)
-    
+    i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10e3)
+
     # Log 100 samples per second
     # Stop an existing log, if any, then start a new one. 10 seconds of both
     # channels

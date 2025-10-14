@@ -9,10 +9,12 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 
-from moku.instruments import Phasemeter
-import matplotlib.pyplot as plt
 from time import time
+
+import matplotlib.pyplot as plt
 import numpy as np
+
+from moku.instruments import Phasemeter
 
 # Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
 # force_connect will overtake an existing connection

@@ -8,6 +8,7 @@
 #
 import matplotlib.pyplot as plt
 import numpy as np
+
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Connect to your Moku by its ip address using TimeFrequencyAnalyzer('192.168.###.###')
@@ -36,7 +37,6 @@ try:
     i.set_interval_analyzer(1, start_event_id=1, stop_event_id=1)
     i.set_interval_analyzer(2, start_event_id=2, stop_event_id=2)
 
-
     # Get initial data frame to set up plotting parameters. This can be done
     # once if we know that the axes aren't going to change (otherwise we'd do
     # this in the loop)
@@ -46,7 +46,7 @@ try:
     t0 = data['interval1']['histogram']['t0']
     dt = data['interval1']['histogram']['dt']
     length = 1024
-    x = np.linspace(start=t0, stop=t0 + dt*1023, num=1024)
+    x = np.linspace(start=t0, stop=t0 + dt * 1023, num=1024)
 
     plt.ion()
     plt.show()
@@ -54,8 +54,12 @@ try:
     plt.ylim([0, 600])
     plt.xlim([1.996e-6, 2.004e-6])
 
-    line1 = plt.bar(x, height=data['interval1']['histogram']['data'], width=dt, align='edge', alpha=0.8)
-    line2 = plt.bar(x, height=data['interval2']['histogram']['data'], width=dt, align='edge', alpha=0.8)
+    line1 = plt.bar(
+        x, height=data['interval1']['histogram']['data'], width=dt, align='edge', alpha=0.8
+    )
+    line2 = plt.bar(
+        x, height=data['interval2']['histogram']['data'], width=dt, align='edge', alpha=0.8
+    )
 
     # Configure labels for axes
     ax = plt.gca()

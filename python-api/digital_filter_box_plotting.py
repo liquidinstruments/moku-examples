@@ -25,10 +25,8 @@ try:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
     # default input range (400 mVpp range on Moku:Pro, 1 Vpp
     # range on Moku:Lab, 10 Vpp range on Moku:Go)
-    i.set_frontend(1, coupling='DC', impedance='1MOhm',
-                   attenuation='0dB')
-    i.set_frontend(2, coupling='DC', impedance='1MOhm',
-                   attenuation='0dB')
+    i.set_frontend(1, coupling='DC', impedance='1MOhm', attenuation='0dB')
+    i.set_frontend(2, coupling='DC', impedance='1MOhm', attenuation='0dB')
 
     # Channel1 signal: Input 1
     # Channel2 signal: Input 1 + Input 2
@@ -40,12 +38,8 @@ try:
     # Channel2 is a 8th-order Elliptic highpass filter
     # 3.906 MHz is for Moku:Go
     # Please change sampling rate for other Moku devices.
-    i.set_filter(1, "3.906MHz", shape="Lowpass",
-                 type="Butterworth", low_corner=1e3,
-                 order=8)
-    i.set_filter(2, "3.906MHz", shape="Highpass",
-                 type="Elliptic", high_corner=100e3,
-                 order=8)
+    i.set_filter(1, "3.906MHz", shape="Lowpass", type="Butterworth", low_corner=1e3, order=8)
+    i.set_filter(2, "3.906MHz", shape="Highpass", type="Elliptic", high_corner=100e3, order=8)
 
     # Monitor ProbeA: Filter Channel1 output
     # Monitor ProbeB: Filter Channel2 output
@@ -65,8 +59,8 @@ try:
     plt.grid(visible=True)
     plt.ylim([-0.01, 0.01])
 
-    line1, = plt.plot([], label="Lowpass Filter Output")
-    line2, = plt.plot([], label="Highpass Filter Output")
+    (line1,) = plt.plot([], label="Lowpass Filter Output")
+    (line2,) = plt.plot([], label="Highpass Filter Output")
 
     # Configure labels for axes
     ax = plt.gca()
@@ -87,7 +81,9 @@ try:
             line2.set_xdata(data['time'])
             plt.pause(0.001)
 except MokuException as e:
-    print("Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device.")
+    print(
+        "Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device."
+    )
     i.relinquish_ownership()
     raise e
 finally:

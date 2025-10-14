@@ -8,6 +8,7 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 import matplotlib.pyplot as plt
+
 from moku.instruments import FrequencyResponseAnalyzer
 
 # Connect to your Moku by its ip address using FrequencyResponseAnalyzer('192.168.###.###')
@@ -32,10 +33,15 @@ try:
     i.set_output(2, amp_ch2)
 
     # Set the sweep configuration
-    i.set_sweep(start_frequency=f_start, stop_frequency=f_end,
-                num_points=sweep_length, averaging_time=averaging_time,
-                settling_time=settling_time, averaging_cycles=averaging_cycles,
-                settling_cycles=settling_cycles)
+    i.set_sweep(
+        start_frequency=f_start,
+        stop_frequency=f_end,
+        num_points=sweep_length,
+        averaging_time=averaging_time,
+        settling_time=settling_time,
+        averaging_cycles=averaging_cycles,
+        settling_cycles=settling_cycles,
+    )
 
     # Start the output sweep in loop mode
     i.start_sweep()
@@ -44,11 +50,11 @@ try:
     plt.subplot(211)
     if log_scale:
         # Plot log x-axis if frequency sweep scale is logarithmic
-        line1, = plt.semilogx([])
-        line2, = plt.semilogx([])
+        (line1,) = plt.semilogx([])
+        (line2,) = plt.semilogx([])
     else:
-        line1, = plt.plot([])
-        line2, = plt.plot([])
+        (line1,) = plt.plot([])
+        (line2,) = plt.plot([])
     ax_1 = plt.gca()
     ax_1.set_xlabel('Frequency (Hz)')
     ax_1.set_ylabel('Magnitude (dB)')
@@ -57,11 +63,11 @@ try:
     # Set up the phase plot
     plt.subplot(212)
     if log_scale:
-        line3, = plt.semilogx([])
-        line4, = plt.semilogx([])
+        (line3,) = plt.semilogx([])
+        (line4,) = plt.semilogx([])
     else:
-        line3, = plt.plot([])
-        line4, = plt.plot([])
+        (line3,) = plt.plot([])
+        (line4,) = plt.plot([])
     ax_2 = plt.gca()
     ax_2.set_xlabel('Frequency (Hz)')
     ax_2.set_ylabel('Phase (Cycles)')

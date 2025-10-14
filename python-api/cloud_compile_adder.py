@@ -10,7 +10,7 @@
 
 import matplotlib.pyplot as plt
 
-from moku.instruments import MultiInstrument, CloudCompile, Oscilloscope
+from moku.instruments import CloudCompile, MultiInstrument, Oscilloscope
 
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
@@ -25,10 +25,12 @@ try:
     osc = m.set_instrument(2, Oscilloscope)
 
     # Configure the connections
-    connections = [dict(source="Slot1OutA", destination="Slot2InA"),
-                   dict(source="Slot1OutB", destination="Slot2InB"),
-                   dict(source="Slot2OutA", destination="Slot1InA"),
-                   dict(source="Slot2OutB", destination="Slot1InB")]
+    connections = [
+        dict(source="Slot1OutA", destination="Slot2InA"),
+        dict(source="Slot1OutB", destination="Slot2InB"),
+        dict(source="Slot2OutA", destination="Slot1InA"),
+        dict(source="Slot2OutB", destination="Slot1InB"),
+    ]
 
     m.set_connections(connections=connections)
 

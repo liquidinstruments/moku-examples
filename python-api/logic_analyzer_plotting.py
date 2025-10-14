@@ -8,6 +8,7 @@
 #
 
 import matplotlib.pyplot as plt
+
 from moku.instruments import LogicAnalyzer
 
 # Connect to your Moku by its ip address using
@@ -16,11 +17,12 @@ from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###', force_connect=True)
 
 try:
-
-    patterns = [{"pin": 1, "pattern": [1] * 1024},  # logic high
-                {"pin": 2, "pattern": [0] * 1024},  # logic low
-                {"pin": 3, "pattern": [0, 1] * 512},
-                {"pin": 4, "pattern": [1, 0] * 512}]
+    patterns = [
+        {"pin": 1, "pattern": [1] * 1024},  # logic high
+        {"pin": 2, "pattern": [0] * 1024},  # logic low
+        {"pin": 3, "pattern": [0, 1] * 512},
+        {"pin": 4, "pattern": [1, 0] * 512},
+    ]
 
     i.set_pattern_generator(1, patterns=patterns, divider=8)
 
@@ -30,10 +32,10 @@ try:
     i.set_pin_mode(pin=4, state="PG1")
     data = i.get_data(wait_reacquire=True, include_pins=[1, 2, 3, 4])
 
-    pin1, = plt.step(data["time"], data["pin1"])
-    pin2, = plt.step(data["time"], [i + 2 for i in data["pin2"]])
-    pin3, = plt.step(data["time"], [i + 4 for i in data["pin3"]])
-    pin4, = plt.step(data["time"], [i + 6 for i in data["pin4"]])
+    (pin1,) = plt.step(data["time"], data["pin1"])
+    (pin2,) = plt.step(data["time"], [i + 2 for i in data["pin2"]])
+    (pin3,) = plt.step(data["time"], [i + 4 for i in data["pin3"]])
+    (pin4,) = plt.step(data["time"], [i + 6 for i in data["pin4"]])
 
     plt.ion()
     plt.show()
@@ -42,8 +44,7 @@ try:
     plt.yticks([0, 2, 4, 6], labels=["Pin1", "Pin2", "Pin3", "Pin4"])
 
     while True:
-        data = i.get_data(wait_reacquire=True,
-                          include_pins=[1, 2, 3, 4])
+        data = i.get_data(wait_reacquire=True, include_pins=[1, 2, 3, 4])
 
         pin1.set_xdata(data["time"])
         pin2.set_xdata(data["time"])

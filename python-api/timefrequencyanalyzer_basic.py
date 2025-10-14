@@ -7,6 +7,7 @@
 # (c) Liquid Instruments Pty. Ltd.
 #
 from pprint import pprint
+
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Connect to your Moku by its ip address using TimeFrequencyAnalyzer('192.168.###.###')
