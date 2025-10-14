@@ -2,7 +2,7 @@
 name = "moku-examples"
 description = "Moku examples for Python API, MATLAB API, and other languages"
 version = "1.0.0"
-requires-python = ">= 3.8"
+requires-python = ">= 3.9"
 dependencies = [
     "moku >=3.0.0"
 ]
