@@ -9,6 +9,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+    "mypy",  # Type checker for pre-commit hooks
     "opencv-stubs",  # Type stubs for opencv-python
 ]
 

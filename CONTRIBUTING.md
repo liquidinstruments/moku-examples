@@ -36,24 +36,9 @@ Thank you for your interest in contributing to the Moku Examples repository! Thi
 
 ## Development Environment Setup
 
-### 1. Install Python Dependencies
+### 1. Install uv (Recommended)
 
-Install the base Moku package and development dependencies:
-
-```bash
-# Install the Moku API
-pip install moku
-
-# Install optional dependencies for specific examples
-pip install 'moku[neuralnetwork]'  # For neural network examples
-
-# Install development dependencies (type stubs, etc.)
-pip install -e ".[dev]"
-```
-
-### 2. Install uv/uvx (Recommended)
-
-We use `uvx` (part of the `uv` toolchain) to run linting and type-checking tools in the pre-commit hooks. This ensures consistent tool versions without polluting your global Python environment.
+We use `uv` for fast, reliable Python package management and `uvx` to run linting and type-checking tools in the pre-commit hooks. This ensures consistent tool versions without polluting your global Python environment.
 
 #### What is uv?
 
@@ -95,12 +80,60 @@ uvx --version
 
 Both commands should show version information (e.g., `uv 0.5.0`).
 
-#### Why use uv/uvx?
+### 2. Install Python Dependencies
 
+Install the project dependencies using `uv sync`:
+
+```bash
+# Sync all dependencies including dev dependencies
+uv sync --all-extras
+
+# Or sync with specific extras only
+uv sync --extra dev  # Just dev dependencies
+uv sync --extra neuralnetwork  # For neural network examples
+```
+
+**What does `uv sync` do?**
+- Creates a virtual environment (`.venv`) if one doesn't exist
+- Installs all project dependencies from `pyproject.toml`
+- Creates/updates `uv.lock` for reproducible builds
+- Much faster than traditional pip workflows
+
+**Activating the virtual environment:**
+After running `uv sync`, activate the virtual environment:
+```bash
+# macOS/Linux
+source .venv/bin/activate
+
+# Windows
+.venv\Scripts\activate
+```
+
+Or use `uv run` to run commands directly in the virtual environment without activating:
+```bash
+uv run python python-api/oscilloscope_basic.py
+uv run pre-commit run --all-files
+```
+
+**Note:** If you prefer using pip:
+```bash
+# Install the Moku API
+pip install moku
+
+# Install optional dependencies for specific examples
+pip install 'moku[neuralnetwork]'  # For neural network examples
+
+# Install development dependencies (type stubs, etc.)
+pip install -e ".[dev]"
+```
+
+#### Why use uv?
+
+- **Speed**: Much faster than traditional pip-based workflows (10-100x faster)
+- **Reliability**: Better dependency resolution and reproducible installs
 - **Isolation**: Tools run in isolated environments without conflicting with your project dependencies
-- **Speed**: Much faster than traditional pip-based workflows
-- **Consistency**: Everyone uses the same tool versions specified in the hooks
-- **Convenience**: No need to manually install ruff, mypy, etc.
+- **Consistency**: Everyone uses the same tool versions
+- **Convenience**: Automatic virtual environment management
 
 ### 3. Install Pre-commit Hooks
 
@@ -108,6 +141,12 @@ We use pre-commit hooks to maintain code quality. **This step is required for al
 
 #### Install pre-commit
 
+Using `uv` (recommended):
+```bash
+uv tool install pre-commit
+```
+
+Or using `pip`:
 ```bash
 pip install pre-commit
 ```
@@ -139,6 +178,16 @@ pre-commit run --files python-api/oscilloscope_basic.py
 
 The pre-commit hooks use `ruff` and `mypy`, which are installed automatically via `uvx` when the hooks run. However, you can install them locally for IDE integration:
 
+Using `uv` (recommended):
+```bash
+# Install ruff for linting and formatting
+uv tool install ruff
+
+# Install mypy for type checking (already included in dev dependencies)
+# Type stubs are included in the dev extras via uv sync
+```
+
+Or using `pip`:
 ```bash
 # Install ruff for linting and formatting
 pip install ruff
@@ -154,6 +203,13 @@ pip install opencv-stubs
 
 If you're working with notebook examples:
 
+Using `uv`:
+```bash
+uv tool install jupyter
+uv pip install notebook ipykernel
+```
+
+Or using `pip`:
 ```bash
 pip install jupyter notebook ipykernel
 ```
@@ -163,7 +219,10 @@ pip install jupyter notebook ipykernel
 Test that everything is working:
 
 ```bash
-# Run the pre-commit hooks
+# Run the pre-commit hooks (using uv run if you haven't activated the venv)
+uv run pre-commit run --all-files
+
+# Or if you've activated the virtual environment:
 pre-commit run --all-files
 
 # Should see output like:
