@@ -16,7 +16,10 @@ parameters:
     - default: 0dB
       description: Output gain
       name: gain
-      param_range: 0dB, 14dB
+      param_range: 
+          mokulab: 
+          mokupro: 0dB, 14dB
+          mokudelta: 0dB, 20dB
       type: string
       unit: null
     - default: true
@@ -40,7 +43,7 @@ available_on: 'Moku:Delta, Moku:Pro, Moku:Lab'
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
-i.set_output_gain(1, "1MOhm")
+i.set_output_gain(1, "0dB")
 ```
 
 </code-block>
@@ -49,7 +52,7 @@ i.set_output_gain(1, "1MOhm")
 
 ```matlab
 m = MokuPIDController('192.168.###.###');
-m.set_output_gain(1, '1MOhm');
+m.set_output_gain(1, '0dB');
 ```
 
 </code-block>
@@ -59,7 +62,7 @@ m.set_output_gain(1, '1MOhm');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel":1,"load":"1MOhm"}'\
+        --data '{"channel":1,"load":"0dB"}'\
         http://<ip>/api/pidcontroller/set_output_gain
 ```
 
