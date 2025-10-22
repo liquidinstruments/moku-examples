@@ -42,6 +42,10 @@ If you experience issues converting log files with the MATLAB API, please use **
 
 <parameters/>
 
+:::tip Python Support
+In Python the command is download(), MATLAB and cURL use the command download_file()
+:::
+
 Usage in clients,
 
 <code-group>
@@ -51,7 +55,7 @@ Usage in clients,
 from moku.instruments import ArbitraryWaveformGenerator
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
 # Here you can access the download_file function
-i.download_file(target='persist', file_name='sample.txt',
+i.download(target='persist', file_name='sample.txt',
     local_path="path to local directory")
 ```
 
