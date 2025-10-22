@@ -27,7 +27,7 @@ parameters:
       name: amplitude
       param_range: null
       type: integer
-      unit: Hz
+      unit: Vpp
     - default: Output1
       description: Output to connect modulation signal to.
       name: output
