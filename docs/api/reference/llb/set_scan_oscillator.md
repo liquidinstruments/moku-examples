@@ -6,7 +6,7 @@ name: set_scan_oscillator
 parameters:
     - default: true
       description: Enable or disable auxiliary oscillator
-      name: enabled
+      name: enable
       param_range: null
       type: boolean
       unit: null
@@ -55,7 +55,7 @@ summary: set_scan_oscillator
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###')
-i.set_scan_oscillator()
+i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', frequency=10, amplitude=0.5)
 ```
 
 </code-block>
@@ -64,7 +64,7 @@ i.set_scan_oscillator()
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###');
-m.set_scan_oscillator()
+m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,'amplitude',0.5,'output','Output1')
 ```
 
 </code-block>
@@ -74,7 +74,7 @@ m.set_scan_oscillator()
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"amplitude": 0.5, "enabled": True, "frequency": 1000000.0, "source": "Output1"}'\
+        --data '{"amplitude": 0.5, "enable": True, "frequency": 1000000.0, "source": "Output1"}'\
         http://<ip>/api/laserlockbox/set_scan_oscillator
 ```
 
