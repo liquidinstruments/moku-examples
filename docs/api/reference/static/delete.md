@@ -58,7 +58,7 @@ m.delete_file('persist', 'sample.txt');
 
 ```bash
 $: curl -X DELETE
-        http://<ip>/api/persist/delete/remotefile.txt
+        http://<ip>/api/persist/delete_file/remotefile.txt
 ```
 
 </code-block>

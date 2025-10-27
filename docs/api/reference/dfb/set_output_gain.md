@@ -8,10 +8,8 @@ parameters:
       description: Target channel
       name: channel
       param_range:
-          mokugo: 1, 2
-          mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4
       type: integer
       unit: null
     - default: null
@@ -40,8 +38,8 @@ summary: set_output_gain
 ```python
 from moku.instruments import DigitalFilterBox
 i = DigitalFilterBox('192.168.###.###')
-# Set output gain to 5dB
-i.set_output_gain(1, gain=5)
+# Set output gain to 0dB
+i.set_output_gain(1, 0)
 ```
 
 </code-block>
@@ -50,8 +48,8 @@ i.set_output_gain(1, gain=5)
 
 ```matlab
 m = MokuDigitalFilterBox('192.168.###.###');
-% Set output gain to 5dB
-m.set_output_offset(1, 'gain', 5);
+% Set output gain to 0dB
+m.set_output_gain(1, 0);
 ```
 
 </code-block>
@@ -61,7 +59,7 @@ m.set_output_offset(1, 'gain', 5);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "gain": 5}'\
+        --data '{"channel": 1, "gain": 0}'\
         http://<ip>/api/digitalfilterbox/set_output_gain
 ```
 

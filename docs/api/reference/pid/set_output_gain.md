@@ -8,9 +8,8 @@ parameters:
       description: Target output channel to generate waveform on
       name: channel
       param_range:
-          mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4
       type: integer
       unit: null
     - default: 0dB
