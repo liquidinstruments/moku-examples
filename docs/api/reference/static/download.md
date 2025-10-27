@@ -70,7 +70,7 @@ m.download_file('persist', 'sample.txt', 'path to local directory');
 <code-block title="cURL">
 
 ```bash
-$: curl http://<ip>/api/persist/download/remotefile.txt -o localfile.txt
+$: curl http://<ip>/api/persist/download_file/remotefile.txt -o localfile.txt
 ```
 
 </code-block>
