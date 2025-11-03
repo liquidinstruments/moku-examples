@@ -27,7 +27,7 @@ print(i.summary())
 
 ```matlab
 m = MokuDatalogger('192.168.###.###');
-disp(m.summary());
+disp(m.summary())
 ```
 
 </code-block>
@@ -47,7 +47,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```plaintext
 Moku:Go Data Logger
-Input 1 - AC coupling, 10 Vpp range
-Input 2 - DC coupling, 10 Vpp range
-Acquisition rate: 1.0000000000e+02 Hz, Precision mode
+Input 1, DC coupling, 10 Vpp range
+Input 2, DC coupling, 10 Vpp range
+Acquisition rate: 1.0000000000e+03 Hz, Precision mode
+Output 1 (off) - Sine, 10.000 000 000 000 MHz, 1.000 0 Vpp, offset 0.000 0 V, phase 0.000 000 deg
+Output 2 (off) - Ramp, 50.000 000 000 kHz, 500.0 mVpp, offset 0.000 0 V, phase 0.000 000 deg, symmetry 90.00 %
 ```

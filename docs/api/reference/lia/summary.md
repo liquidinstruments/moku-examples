@@ -27,7 +27,7 @@ print(i.summary())
 
 ```matlab
 m = MokuLockInAmp('192.168.###.###');
-disp(m.summary());
+disp(m.summary())
 ```
 
 </code-block>
@@ -49,11 +49,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 Moku:Pro Lock-In Amplifier
 Input 1, AC coupling, 1 MOhm impedance, -20 dB attenuation
 Input 2, DC coupling, 50 Ohm impedance, 0 dB attenuation
-Internal local oscillator: 1.000 000 000 000 MHz, 0.000 deg
-Lowpass filter corner frequency 100 Hz (time constant 1.59 ms), slope 6 dB \/ octave
-Main output - R signal, +10.0 dB gain, offset 1.000 0 V,
-invert off
-Auxiliary output - Theta signal, +20.0 dB gain, offset 0.000 0 V,
-invert off
+Internal demodulation: 1.000 000 000 000 MHz, 0.000 000 deg
+Lowpass filter corner frequency 100 Hz (time constant 1.59 ms), slope 6 dB / octave
+Output 1 - R signal, +10.0 dB gain, invert off, offset 1.000 0 V, 0 dB output gain, output disabled
+Output 2 - Theta signal, +20.0 dB gain, invert off, offset 0.000 0 V, 0 dB output gain, output disabled
 Internal 10 MHz clock
 ```

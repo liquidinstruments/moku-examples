@@ -10,6 +10,8 @@ summary: summary
 <headers/>
 <parameters/>
 
+### Examples
+
 <code-group>
 <code-block title="Python">
 
@@ -44,11 +46,16 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```text
-    'Moku:Pro Phasemeter
-     Input 1 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
-     Input 2 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
-     Input 3 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
-     Input 4 - DC coupling, 1 MOhm impedance, 4 Vpp range, 2.5 kHz bandwidth
-     Acquisition rate: 1.4901161194e+02 Hz
-     Internal 10 MHz clock'
+Moku:Pro Phasemeter
+(Input 1, on), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+(Input 2, on), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+(Input 3, off), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+(Input 4, off), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+Acquisition rate: 1.4901161194e+02 Hz
+Advanced settings: phase wrapping at Off, phase auto-reset at Off
+Output 1 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
+Output 2 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
+Output 3 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
+Output 4 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
+Internal 10 MHz clock
 ```

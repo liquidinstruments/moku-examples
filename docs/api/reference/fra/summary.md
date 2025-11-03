@@ -27,7 +27,7 @@ print(i.summary())
 
 ```matlab
 m = MokuFrequencyResponseAnalyzer('192.168.###.###');
-disp(m.summary());
+disp(m.summary())
 ```
 
 </code-block>
@@ -47,9 +47,13 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```plaintext
-Moku:Go Frequency Response Analyzer
-Channel A - DC coupling, 10 Vpp range, amplitude 100 mVpp, offset 0.000 0 V, phase 0.000 deg
-Channel B - DC coupling, 10 Vpp range, amplitude 100 mVpp, offset 0.000 0 V, phase 0.000 deg
-Logarithmic sweep, measuring fundamental, calibration off
-Averaging time 1.000 ms, 5 cycles; Settling time 1.000 ms, 5 cycles
+Moku:Pro Frequency Response Analyzer
+Measurement mode: In / Out (dB)
+Channel 1 (on), DC , 600 MHz , 1 MOhm , 4 Vpp, amplitude 100 mVpp (on), offset 0.000 0 V (off), output termination Hi-Z, phase 0.000 deg
+Channel 2 (on), DC , 600 MHz , 1 MOhm , 4 Vpp, amplitude 100 mVpp (on), offset 0.000 0 V (off), output termination Hi-Z, phase 0.000 deg
+Channel 3 (on), DC , 600 MHz , 1 MOhm , 4 Vpp, amplitude 100 mVpp (on), offset 0.000 0 V (off), output termination Hi-Z, phase 0.000 deg
+Channel 4 (on), DC , 600 MHz , 1 MOhm , 4 Vpp, amplitude 100 mVpp (on), offset 0.000 0 V (off), output termination Hi-Z, phase 0.000 deg
+Logarithmic sweep from 100.0000 kHz to 100.0000 Hz with 512 pts, dynamic amplitude mode off, measuring fundamental, delay compensation 250.0 ns (auto), normalization off
+Averaging time 2.00 ms, 1 cycles; Settling time 100 us, 1 cycles
+External 10 MHz clock
 ```
