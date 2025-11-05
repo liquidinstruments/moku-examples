@@ -41,7 +41,7 @@ parameters:
       type: string
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
@@ -59,7 +59,10 @@ summary: start_logging
 <code-block title="Python">
 
 ```python
-
+from moku.instruments import TimeFrequencyAnalyzer
+i = TimeFrequencyAnalyzer('192.168.###.###')
+# log events 1 and 2 for 30 seconds with a file name prefix
+i.start_logging(event_ids=[1, 2], duration=30, file_name_prefix='run1')
 ```
 
 </code-block>
@@ -67,7 +70,9 @@ summary: start_logging
 <code-block title="MATLAB">
 
 ```matlab
-
+m = MokuTimeFrequencyAnalyzer('192.168.###.###');
+% log event 1 for 60 seconds with comments
+m.start_logging([1,2], 'duration', 60, 'comments', 'run1');
 ```
 
 </code-block>
@@ -75,17 +80,26 @@ summary: start_logging
 <code-block title="cURL">
 
 ```bash
-# You should create a JSON file with the data content rather than passing
-# arguments on the CLI as the lookup data is necessarily very large
-$: cat request.json
-{
-
-}
-$: curl -H 'Moku-Client-Key: <key>'        -H 'Content-Type: application/json'        --data @request.json
+$ curl -H 'Moku-Client-Key: <key>' \
+    -H 'Content-Type: application/json' \
+    --data '{"duration": 60, "comments": "run1"}'\
+    http://<ip>/api/tfa/start_logging
 ```
 
 </code-block>
-
 </code-group>
 
 ### Sample response
+
+```json
+{
+  "Save to": 2, 
+  "Start": 0, 
+  "comments": '', 
+  "duration": 0.1, 
+  "event_indices": [1, 2], 
+  "file_name": "run1_20251105_142702.li", 
+  "file_name_prefix": "run1", 
+  "location": "ssd"
+}
+```

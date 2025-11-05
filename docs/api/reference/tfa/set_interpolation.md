@@ -11,7 +11,7 @@ parameters:
       type: string
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
@@ -71,3 +71,9 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-group>
 
 ### Sample response
+
+```json
+{
+  "mode": "Linear"
+}
+```

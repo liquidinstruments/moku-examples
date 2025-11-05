@@ -27,7 +27,7 @@ parameters:
       type: number
       unit: V
     - default: Rising
-      description: The edge chosen for event detection.The device will look for an event on the selected edge, each time the selected edge passes through the event detectors.
+      description: The edge chosen for event detection.The device will look for an event on the selected edge, each time the selected edge passes through the event detectors
       name: edge
       param_range: Rising, Falling , Both
       type: string
@@ -39,7 +39,7 @@ parameters:
       type: number
       unit: s
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean

@@ -1,5 +1,5 @@
 ---
-additional_doc: Intervals are used to calculate the Statistics, Data Logging values and Output values. The Intervals are determined between the input Events and an Interval is the time difference between two specific Events captured by the instrument
+additional_doc: Intervals are used to calculate the Statistics, Data Logging values and Output values. The Intervals are determined between the input Events and an Interval is the time difference between two specific Events captured by the instrument.
 description: Configures start and stop events for a given numerical id of interval analyzer
 method: post
 name: set_interval_analyzer
@@ -29,7 +29,7 @@ parameters:
       type: boolean
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
@@ -91,3 +91,12 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-group>
 
 ### Sample response
+
+```json
+{
+  "enable": True, 
+  "interval_id": 1, 
+  "start_event_id": 1, 
+  "stop_event_id": 1
+}
+```

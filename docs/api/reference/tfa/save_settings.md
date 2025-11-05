@@ -1,11 +1,11 @@
 ---
 additional_doc: null
-description: Save instrument settings to a file. The file name should have a `.mokuconf` extension to be compatible with other tools.
+description: Save instrument settings to a file. The file name should have a `.mokuconf` extension to be compatible with other tools
 method: post
 name: save_settings
 parameters:
     - default: null
-      description: The path to save the `.mokuconf` file to.
+      description: The path to save the `.mokuconf` file to
       name: filename
       param_range: null
       type: string
