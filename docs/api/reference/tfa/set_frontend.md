@@ -40,6 +40,16 @@ parameters:
           mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
       type: string
       unit: null
+    - default: null
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokugo: 1MHz, 30MHz
+          mokulab: 200MHz, 300MHz
+          mokupro: 300MHz, 600MHz
+          mokudelta: 1MHz, 2GHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -60,7 +70,7 @@ summary: set_frontend
 ```python
 from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
-i.set_frontend(1, "DC", "40Vpp")
+i.set_frontend(1, "1MOhm", "DC", "40Vpp", "300MHz")
 ```
 
 </code-block>
@@ -69,7 +79,7 @@ i.set_frontend(1, "DC", "40Vpp")
 
 ```matlab
 i = MokuTimeFrequencyAnalyzer('192.168.###.###');
-i.set_frontend(1, "DC", "40Vpp");
+i.set_frontend(1, "1MOhm", "DC", "40Vpp", "300MHz");
 ```
 
 </code-block>
@@ -77,9 +87,9 @@ i.set_frontend(1, "DC", "40Vpp");
 <code-block title="cURL">
 
 ```bash
-$: curl -H 'Moku-Client-Key: <key>'\
-        -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "range": "4Vpp"}'\
+$: curl -H 'Moku-Client-Key: <key>' \
+        -H 'Content-Type: application/json' \
+        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "range": "4Vpp"}' \
         http://<ip>/api/tfa/set_frontend
 ```
 
