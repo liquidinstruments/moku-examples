@@ -1,5 +1,5 @@
 ---
-additional_doc: Clears all previously acquired data and resets acquisition period, statistics, histogram and output values
+additional_doc: Clears all previously acquired data and resets acquisition period, statistics, histogram and output values.
 description: Clear statistics and histogram data
 method: post
 name: clear_data

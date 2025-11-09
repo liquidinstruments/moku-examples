@@ -1,11 +1,11 @@
 ---
-additional_doc: null
-description: Load a previously saved `.mokuconf` settings file into the instrument. To create a `.mokuconf` file, either use `save_settings` or the desktop app.
+additional_doc: To create a `.mokuconf` file, either use `save_settings` or the desktop app.
+description: Load a previously saved `.mokuconf` settings file into the instrument
 method: post
 name: load_settings
 parameters:
     - default: null
-      description: The path to load the `.mokuconf` file from.
+      description: The path to load the `.mokuconf` file from
       name: filename
       param_range: null
       type: string
