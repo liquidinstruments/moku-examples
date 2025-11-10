@@ -6,7 +6,6 @@ method: get
 name: summary
 parameters: []
 summary: summary
-available_on: 'Moku:Pro, Moku:Delta'
 ---
 
 <headers/>
