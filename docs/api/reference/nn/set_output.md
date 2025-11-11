@@ -36,10 +36,10 @@ parameters:
       type: number
       unit: V
       param_range:
-          mokugo: -2.5 to 2.475
-          mokulab: -1 to 0.99
-          mokupro: -1 to 0.99
-          mokudelta: -1 to 0.99
+          mokugo: -2.475 to 2.5 
+          mokulab: -0.99 to 1
+          mokupro: -0.99 to 1
+          mokudelta: -0.99 to 1
     - default: null
       description: Disable all implicit conversions and coercions
       name: strict

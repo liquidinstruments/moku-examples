@@ -89,7 +89,7 @@ You are now ready to start scripting your own neural network. Check out our [Exa
 
 ## Moku Device and Slots
 
-The Neural Network can be implemented on all Moku devices with the same number of layers maintained across the devices. However, the number of neurons and the maximum sampling rates would be different depending on the device and the Multi-Instrument Mode slots. These would act as the constraints when designing the Linn model. Using a Linn model on a device with neurons beyond its limit. The table below summarizes these parameters on different configurations
+The Neural Network can be implemented on all Moku devices with the same number of layers maintained across the devices. However, the number of neurons and the maximum sampling rates are different depending on the device and the Multi-Instrument Mode slots. These act as the constraints when designing the Linn model. Using a Linn model on a device with neurons beyond its limit cannot be uploaded into the instrument. The table below summarizes these parameters on different configurations
 
 
 |                             | Moku:Delta  | Moku:Delta |   Moku:Pro | Moku:Lab | Moku:Lab |    Moku:Go |    Moku:Go | 
