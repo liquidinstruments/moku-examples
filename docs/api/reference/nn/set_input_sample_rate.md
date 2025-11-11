@@ -9,7 +9,11 @@ parameters:
       name: sample_rate
       type: number
       unit: Sa/s
-      param_range: 0 to 305175.781
+      param_range: 
+          mokugo : 1 to 30517.5781
+          mokulab : 1 to 122070.312
+          mokupro : 1 to 305175.781
+          mokudelta : 1 to 305175.781
     - default: True
       description: Disable all implicit conversions and coercions
       name: strict
@@ -17,8 +21,6 @@ parameters:
       unit: null
       param_range: true, false
 summary: set_input_sample_rate
-available_on: 'Moku:Pro, Moku:Delta'
-
 ---
 
 <headers/>
