@@ -8,8 +8,33 @@
 #
 import os
 import time
-
+import subprocess
 from moku.instruments import Datalogger
+
+def convert_li(input_file, output_format="csv"):
+    """
+    Converts a  .li file to csv/npy/mat/hdf5 using mokucli.
+    
+    Args:
+        input_file (str or Path): Path of .li file
+        output_format (str): 'csv', 'npy', 'mat', o 'hdf5'
+    """
+    input_file = pathlib.Path(input_file).resolve()
+    if not input_file.exists():
+        raise FileNotFoundError(f"File non trovato: {input_file}")
+
+    # mokucli command
+    cmd = [
+        "mokucli",
+        "convert",
+        str(input_file),
+        "--format", output_format
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    if result.returncode != 0:
+        raise RuntimeError(f"Conversion error:\n{result.stderr}")
+
 
 # Connect to your Moku by its ip address using Datalogger('192.168.###.###')
 # force_connect will overtake an existing connection
@@ -40,8 +65,10 @@ try:
         if 'time_remaining' in progress:
             print(f"Remaining time {progress['time_remaining']} seconds")
 
-    # Download log from Moku, use liconverter to convert this .li file to .csv
+    # Download log from Moku
     i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), logFile['file_name']))
+    # Converts file in place to 'npy'
+    convert_li( os.path.join(os.getcwd(), logFile['file_name']), output_format = 'npy')
     print("Downloaded log file to local directory.")
 
 except Exception as e:
