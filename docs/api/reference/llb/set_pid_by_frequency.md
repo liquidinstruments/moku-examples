@@ -1,17 +1,13 @@
 ---
 additional_doc: null
-description: Configure the selected PID controller using crossover frequencies.
+description: Configure the selected PID controller using crossover frequencies. Channel 1 configures the fast controller, channel 2 configures the slow controller.
 method: post
 name: set_pid_by_frequency
 parameters:
     - default: null
       description: Target channel
       name: channel
-      param_range:
-          mokugo: 1, 2
-          mokulab: 1, 2
-          mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+      param_range: 1, 2
       type: integer
       unit: null
     - default: undefined

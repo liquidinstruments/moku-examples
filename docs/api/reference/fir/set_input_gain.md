@@ -11,7 +11,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4
       type: integer
       unit: null
     - default: null
@@ -53,7 +53,7 @@ i.set_input_gain(1, gain=5)
 m = MokuFIRFilterBox('192.168.###.###');
 % Configure instrument to desired state
 % Set input gain to 5dB
-m.set_input_offset(1, 'gain', 5);
+m.set_input_gain(1, 'gain', 5);
 ```
 
 </code-block>
