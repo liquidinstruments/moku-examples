@@ -1,6 +1,6 @@
 ---
 title: platform
-additional_doc: It is required to configure the platform to use moku in multi-instrument mode or switch back to single-instrument mode
+additional_doc: It is required to configure the platform to use moku in Multi-Instrument Mode or switch back to single-instrument mode
 description: Configure the platform ID
 method: get
 name: platform
