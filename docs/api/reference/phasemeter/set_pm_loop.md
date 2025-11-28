@@ -28,7 +28,7 @@ parameters:
       param_range:
           mokugo: 1e3 to 30e6
           mokulab: 1e3 to 200e6
-          mokupro: 1e3 to 300e6
+          mokupro: 1e3 to 600e6
           mokudelta: 1e3 to 2e9
       type: number
       unit: Hz
