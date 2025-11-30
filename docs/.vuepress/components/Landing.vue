@@ -15,7 +15,7 @@
 
                 <p>
                     Here you'll find all you need to get started with the Moku
-                    Scripting API, Moku Cloud Compile and the Moku CLI.
+                    Scripting API, Moku Compile and the Moku CLI.
                 </p>
             </div>
             <div class="hero-cta">
@@ -66,10 +66,10 @@
                     </p>
                 </card>
 
-                <card title="Moku Cloud Compile" icon="mcc" link="/mcc/">
+                <card title="Moku Compile" icon="mcc" link="/mcc/">
                     <p>
                         Code, compile, and deploy directly from your browser.
-                        Moku Cloud Compile makes FPGA programming simple with
+                        Moku Compile makes FPGA programming simple with
                         the ability to implement custom functionality to
                         Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta.
                     </p>

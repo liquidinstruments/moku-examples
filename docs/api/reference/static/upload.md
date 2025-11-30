@@ -37,7 +37,7 @@ instrument reference.
 
 #### bitstream Directory
 
-Used for instrument logic. This is the destination to which one must upload Moku Cloud Compile
+Used for instrument logic. This is the destination to which one must upload Moku Compile
 bitstreams before they can be deployed.
 
 #### persist, ssd Directories

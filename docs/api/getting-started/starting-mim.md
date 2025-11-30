@@ -1,14 +1,14 @@
 ---
-title: Getting Started with Multi-instrument Mode
+title: Getting Started with Multi-Instrument Mode
 ---
 
-# Starting with Multi-instrument Mode
+# Starting with Multi-Instrument Mode
 
-Multi-instrument Mode (MiM) allows a user to use more than one instrument simultaneously on the Moku platform. Depending on the hardware and instrument combination, different instrument counts and capabilities are available in this mode. For example, Moku:Go supports two instruments simultaneously while Moku:Pro supports four; the Moku:Pro Lock-in Amplifier loses the PID Controller Moku:Go's also loses the Phase Locked Loop external reference option.
+Multi-Instrument Mode allows a user to use more than one instrument simultaneously on the Moku platform. Depending on the hardware and instrument combination, different instrument counts and capabilities are available in this mode. For example, Moku:Go supports two instruments simultaneously while Moku:Pro supports four; the Moku:Pro Lock-in Amplifier loses the PID Controller Moku:Go's also loses the Phase Locked Loop external reference option.
 
 There are several steps required in order to use MiM:
 
-1. Select the Multi-instrument Mode configuration you wish to use
+1. Select the Multi-Instrument Mode configuration you wish to use
 2. Load instruments in to one or more of the slots
 3. Configure connections from each instrument to other instruments and/or external I/O
 4. Configure the external I/O (i.e. ADCs, DACs and/or Digital I/O) with the correct settings for gain, direction, impedance etc.
@@ -16,12 +16,12 @@ There are several steps required in order to use MiM:
 Depending on which programming language you choose, each step may look a little different.
 
 :::tip MATLAB, LabVIEW Support
-Multi-instrument Mode is available through all of our APIs, including MATLAB and LabVIEW. This guide currently covers Python and cURL usage, with more language examples coming soon.
+Multi-Instrument Mode is available through all of our APIs, including MATLAB and LabVIEW. This guide currently covers Python and cURL usage, with more language examples coming soon.
 :::
 
-## Selecting the Multi-instrument Mode Configuration
+## Selecting the Multi-Instrument Mode Configuration
 
-The configuration is parameterized by the number of slots you wish to have. Specifying "1" is equivalent to disabling Multi-instrument Mode.
+The configuration is parameterized by the number of slots you wish to have. Specifying "1" is equivalent to disabling Multi-Instrument Mode.
 
 |  Device    | Slots Available |
 | :--------: | :-------------: |
@@ -30,7 +30,7 @@ The configuration is parameterized by the number of slots you wish to have. Spec
 | Moku:Pro   |      1, 4       |
 | Moku:Delta |      1, 3, 8    |
 
-If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
+If using the REST API directly (i.e. not the Python, LabVIEW or MATLAB packages), the user is responsible for obtaining a Client Key before entering Multi-Instrument Mode. See the [REST API Getting Started Guide](./starting-curl.md) for more information.
 
 <code-group>
 
@@ -126,9 +126,9 @@ curl -H 'Moku-Client-Key: <key>' \
 
 ## Configuring External I/O
 
-External I/O such as ADCs, DACs and Digital I/O cannot be configured by the instruments themselves when in Multi-instrument Mode. For example, the Oscilloscope cannot set the input range, as that range might be shared by multiple instruments. As such, settings front-end (ADC) settings, output (DAC) settings, and Digital I/O directions, are all done on the Multi-instrument level. If you attempt to do these operations on an individual instrument while in Multi-instrument Mode, an error will be raised.
+External I/O such as ADCs, DACs and Digital I/O cannot be configured by the instruments themselves when in Multi-Instrument Mode. For example, the Oscilloscope cannot set the input range, as that range might be shared by multiple instruments. As such, settings front-end (ADC) settings, output (DAC) settings, and Digital I/O directions, are all done on the Multi-instrument level. If you attempt to do these operations on an individual instrument while in Multi-Instrument Mode, an error will be raised.
 
-See also the documentation for the Multi-instrument Mode versions of [set_frontend](../reference/mim/set_frontend.md), [set_output](../reference/mim/set_output.md) and [set_dio](../reference/mim/set_dio.md).
+See also the documentation for the Multi-Instrument Mode versions of [set_frontend](../reference/mim/set_frontend.md), [set_output](../reference/mim/set_output.md) and [set_dio](../reference/mim/set_dio.md).
 
 <code-group>
 
@@ -154,6 +154,6 @@ curl -H 'Moku-Client-Key: <key>' http://<ip>/api/mim/set_frontend -d '{channel: 
 
 ## Next Steps
 
-The instruments can now be controlled in the same way as usual. If using a packaged driver like Python, just ensure that you use the instrument object that is returned from the MiM connection, rather than creating a new one. If using the REST API directly, make sure to specify the slot in the URL.
+The instruments can now be controlled in the same way as usual. If using a packaged driver like Python, just ensure that you use the instrument object that is returned from the Multi-Instrument Mode connection, rather than creating a new one. If using the REST API directly, make sure to specify the slot in the URL.
 
 Connection, front-end, output and DIO settings can all be changed dynamically without interrupting the running instruments. New instruments can be loaded in to slots using the procedure above without interrupting the instruments in other slots.

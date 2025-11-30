@@ -39,7 +39,7 @@ IPv6, and especially IPv6 link-local addressing as used when your Moku is connec
 
 -   Windows Subsystem for Linux Version 2 (WSL2), as discussed with workarounds [here](https://github.com/microsoft/WSL/discussions/5855)
 -   LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
--   Most [web browsers](https://support.mozilla.org/en-US/questions/1111992) (which aren't full API clients but which may be required to use Moku Cloud Compile and other features)
+-   Most [web browsers](https://support.mozilla.org/en-US/questions/1111992) (which aren't full API clients but which may be required to use Moku Compile and other features)
 
 If you require API connectivity from these environments, you must use a proxy as below, or a network connection like Ethernet or WiFi configured to use IPv4. Ethernet may be configured as a point-to-point network with Static IPs if security is a concern.
 :::
