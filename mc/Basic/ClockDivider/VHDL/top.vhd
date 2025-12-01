@@ -11,7 +11,7 @@ use IEEE.Numeric_Std.all;
 -- DIO Pin 10 to Output - Will output the divided clock pulse by a factor of 6
 -- All other pins remain unused and can be configured as input or output
 
-architecture ClkDividerWrapper of CustomWrapper is
+architecture ClkDividerWrapper of CustomInstrument is
 
   begin
     U_ClkDivider1: entity WORK.ClkDivider

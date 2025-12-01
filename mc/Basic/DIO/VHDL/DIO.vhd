@@ -8,7 +8,7 @@ use IEEE.Numeric_Std.all;
 -- DIO Pin 1-8 set as Input
 -- DIO Pin 9-16 set as Output
 
-architecture Behavioural of CustomWrapper is
+architecture Behavioural of CustomInstrument is
     signal Count: unsigned(2 downto 0);
 
 begin
