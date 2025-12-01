@@ -27,7 +27,7 @@ use Moku.Support.clip;
 -- When output to a DAC, this should be appropriate for a standard
 -- servo.
 
-architecture Behavioural of CustomWrapper is
+architecture Behavioural of CustomInstrument is
     constant HI_LVL : signed(15 downto 0) := x"7FFF";
     constant LO_LVL : signed(15 downto 0) := x"0000";
     signal Value : signed(12 downto 0); -- The scaled input
@@ -41,8 +41,8 @@ begin
             Clk => Clk,
             Reset => Reset,
             X => InputA,
-            Scale => signed(Control0(15 downto 0)),
-            Offset => signed(Control1(15 downto 0)),
+            Scale => signed(Control(0)(15 downto 0)),
+            Offset => signed(Control(1)(15 downto 0)),
             Z => Value,
             Valid => Pulse50Hz,
             OutValid => open

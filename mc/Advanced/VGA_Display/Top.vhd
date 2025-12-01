@@ -6,7 +6,7 @@ use IEEE.Numeric_Std.all;
 -- Configure the output logic at the end of this module to change the pinout,
 -- including using different colour channels.
 
-architecture Behavioural of CustomWrapper is
+architecture Behavioural of CustomInstrument is
     -- This is the specification to run the screen. 640*480 75fps
     CONSTANT H_TOTAL : integer := 800;
     CONSTANT V_TOTAL : integer := 525;
@@ -51,7 +51,7 @@ begin
             DataClock => Clk, -- Running at 31.25MHz
             H_Sync => H_Sync,
             V_Sync => V_Sync,
-            InputDataDownsampling => unsigned(Control2),
+            InputDataDownsampling => unsigned(Control(2)),
             InputData => InputA,
             -- Pixel Data
             DataRed => DataRed,

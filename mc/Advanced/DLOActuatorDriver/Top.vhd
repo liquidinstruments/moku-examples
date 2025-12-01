@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.Std_Logic_1164.All;
 use IEEE.Numeric_Std.all;
 
-architecture FloquetWrapper of CustomWrapper is
+architecture FloquetWrapper of CustomInstrument is
   constant counterWidth : integer := 32;
 begin
   
@@ -12,16 +12,16 @@ begin
   )
   port map(
       clk                     =>  clk,
-      reset                   =>           Control0(0),
-      deadIntervalRun         =>  unsigned(Control1(15 downto 0)),
-      activeIntervalRun       =>  unsigned(Control1(31 downto 16)),
-      deadIntervalCorrect     =>  unsigned(Control2(15 downto 0)),
-      activeIntervalCorrect   =>  unsigned(Control2(31 downto 16)),
-      pulseNum                =>    signed(Control3(counterWidth-1 downto 0)),
-      overshootNum            =>    signed(Control4(counterWidth-1 downto 0)),
-      backPulseNum            =>  unsigned(Control5(counterWidth-1 downto 0)),
-      rangeTolerance          =>  unsigned(Control6(counterWidth-1 downto 0)),
-      waitInterval            =>  unsigned(Control7(31 downto 0)),
+      reset                   =>           Control(0)(0),
+      deadIntervalRun         =>  unsigned(Control(1)(15 downto 0)),
+      activeIntervalRun       =>  unsigned(Control(1)(31 downto 16)),
+      deadIntervalCorrect     =>  unsigned(Control(2)(15 downto 0)),
+      activeIntervalCorrect   =>  unsigned(Control(2)(31 downto 16)),
+      pulseNum                =>    signed(Control(3)(counterWidth-1 downto 0)),
+      overshootNum            =>    signed(Control(4)(counterWidth-1 downto 0)),
+      backPulseNum            =>  unsigned(Control(5)(counterWidth-1 downto 0)),
+      rangeTolerance          =>  unsigned(Control(6)(counterWidth-1 downto 0)),
+      waitInterval            =>  unsigned(Control(7)(31 downto 0)),
       encoderChA              =>  InputA(0),
       encoderChB              =>  InputA(1),
       posLimit                =>  InputA(2),
