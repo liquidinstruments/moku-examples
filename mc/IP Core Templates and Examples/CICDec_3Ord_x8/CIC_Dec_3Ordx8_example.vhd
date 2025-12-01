@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioral OF CustomWrapper IS
+ARCHITECTURE Behavioral OF CustomInstrument IS
 
 	SIGNAL s_axis_data_tready : STD_LOGIC;
 	SIGNAL s_axis_data_tdata : STD_LOGIC_VECTOR(15 DOWNTO 0);

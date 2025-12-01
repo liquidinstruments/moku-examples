@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
 
 	SIGNAL FIR_out_temp : STD_LOGIC_VECTOR(23 DOWNTO 0);
 

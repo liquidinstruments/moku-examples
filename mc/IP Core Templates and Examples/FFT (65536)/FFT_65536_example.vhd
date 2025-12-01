@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
 
 	TYPE array_tuser IS ARRAY (0 TO 19) OF signed(15 DOWNTO 0);
 
@@ -29,7 +29,7 @@ BEGIN
 		aresetn => (NOT reset) AND aresetn AND aresetn_dly,
 		-- Control FFT direction with LSB of Control1
 		-- and scale of the FFT output with Control0
-		s_axis_config_tdata => "0000000" & Control0(31 DOWNTO 0) & Control1(0),
+		s_axis_config_tdata => "0000000" & Control(0)(31 DOWNTO 0) & Control(1)(0),
 		-- Config data is always valid
 		s_axis_config_tvalid => '1',
 		-- Leave config ready signal open

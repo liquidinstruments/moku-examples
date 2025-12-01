@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioral OF CustomWrapper IS
+ARCHITECTURE Behavioral OF CustomInstrument IS
 
 	SIGNAL s_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
@@ -12,7 +12,7 @@ BEGIN
 		B => STD_LOGIC_VECTOR(InputB),
 		clk => clk,
 		-- use Control0's 0th bit to control the operation
-		add => Control0(0),
+		add => Control(0)(0),
 		-- constant high clock enable
 		ce => '1',
 		S => s_temp

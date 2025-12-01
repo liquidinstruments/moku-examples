@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
 
 	SIGNAL m_axis_data_tvalid : STD_LOGIC;
 	SIGNAL m_axis_phase_tvalid : STD_LOGIC;
@@ -13,11 +13,11 @@ BEGIN
 	PORT MAP(
 		aclk => clk,
 		-- Use the 0th bit of Control0 to reset this module
-		aresetn => NOT Control0(0),
+		aresetn => NOT Control(0)(0),
 		-- input signal is always available
 		s_axis_config_tvalid => '1',
 		-- 48-bit frequency step
-		s_axis_config_tdata => Control2(15 DOWNTO 0) & Control1,
+		s_axis_config_tdata => Control(2)(15 DOWNTO 0) & Control(1),
 
 		m_axis_data_tvalid => m_axis_data_tvalid,
 		m_axis_data_tdata => sine_temp,

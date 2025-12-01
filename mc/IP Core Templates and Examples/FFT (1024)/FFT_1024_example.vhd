@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
 
 	TYPE array_tuser IS ARRAY (0 TO 19) OF signed(15 DOWNTO 0);
 

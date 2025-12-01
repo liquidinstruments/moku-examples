@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioral OF CustomWrapper IS
+ARCHITECTURE Behavioral OF CustomInstrument IS
 
 	SIGNAL m_axis_dout_tvalid : STD_LOGIC;
 	SIGNAL tdata_temp : signed(31 DOWNTO 0);

@@ -1,6 +1,6 @@
 LIBRARY ieee;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
 
 	SIGNAL sclr_triangular : STD_LOGIC;
 	SIGNAL sclr_sawtooth : STD_LOGIC;
@@ -29,14 +29,14 @@ BEGIN
 	BEGIN
 		IF rising_edge(clk) THEN
 			-- reset
-			IF Control0(0) = '1' THEN
+			IF Control(0)(0) = '1' THEN
 				sclr_triangular <= '1';
 				up_triangular <= '1';
 			ELSE
 				-- don't clear 
 				sclr_triangular <= '0';
 				-- Control1: counter limit
-				IF q_triangular = Control1 THEN
+				IF q_triangular = Control(1) THEN
 					-- count down
 					up_triangular <= '0';
 				ELSIF q_triangular = x"00000000" THEN
@@ -64,14 +64,14 @@ BEGIN
 	BEGIN
 		IF rising_edge(clk) THEN
 			-- reset
-			IF Control0(0) = '1' THEN
+			IF Control(0)(0) = '1' THEN
 				sclr_sawtooth <= '1';
 				up_sawtooth <= '1';
 			ELSE
 				-- always count up
 				up_sawtooth <= '1';
 				-- Control2 : counter limit
-				IF q_sawtooth = Control2 THEN
+				IF q_sawtooth = Control(2) THEN
 					-- clear
 					sclr_sawtooth <= '1';
 				ELSE
