@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ARCHITECTURE HDLCoderWrapper OF CustomWrapper IS
+ARCHITECTURE HDLCoderWrapper OF CustomInstrument IS
   -- Component Declarations
 
 COMPONENT DSP -- Make sure this matches your VHDL code
@@ -38,24 +38,24 @@ BEGIN
            InputA=>InputA,
            InputB=>InputB,
            
-           TriggerLevel           =>signed(Control0(15 downto 0)),
+           TriggerLevel           =>signed(Control(0)(15 downto 0)),
            
-           TriggerDelay_0         =>signed(Control1(15 downto 0)),
-           TriggerDelayBaseline_0 =>signed(Control2(15 downto 0)),
-           GateWidth_0            =>signed(Control3(15 downto 0)),
-           AvgLength_0            =>signed(Control4(15 downto 0)),
-           Gain_0                 =>signed(Control5(31 downto 0)),
+           TriggerDelay_0         =>signed(Control(1)(15 downto 0)),
+           TriggerDelayBaseline_0 =>signed(Control(2)(15 downto 0)),
+           GateWidth_0            =>signed(Control(3)(15 downto 0)),
+           AvgLength_0            =>signed(Control(4)(15 downto 0)),
+           Gain_0                 =>signed(Control(5)(31 downto 0)),
            
-           TriggerDelay_1         =>signed(Control6(15 downto 0)),
-           TriggerDelayBaseline_1 =>signed(Control7(15 downto 0)),
-           GateWidth_1            =>signed(Control8(15 downto 0)),
-           AvgLength_1            =>signed(Control9(15 downto 0)),
-           Gain_1                 =>signed(Control10(31 downto 0)),
+           TriggerDelay_1         =>signed(Control(6)(15 downto 0)),
+           TriggerDelayBaseline_1 =>signed(Control(7)(15 downto 0)),
+           GateWidth_1            =>signed(Control(8)(15 downto 0)),
+           AvgLength_1            =>signed(Control(9)(15 downto 0)),
+           Gain_1                 =>signed(Control(10)(31 downto 0)),
            
-           OutBSwitch             =>Control15(0),
-           FlagSwitch             =>Control15(1),
-           OutASwitch             =>Control15(2),
-           AlignSwitch            =>Control15(3),
+           OutBSwitch             =>Control(15)(0),
+           FlagSwitch             =>Control(15)(1),
+           OutASwitch             =>Control(15)(2),
+           AlignSwitch            =>Control(15)(3),
            -- Averager_0 align : 1111
            -- Averager_0 avg   : 0111
            -- Averager_1 align : 1101

@@ -1,4 +1,4 @@
-ARCHITECTURE HDLCoderWrapper OF CustomWrapper IS
+ARCHITECTURE HDLCoderWrapper OF CustomInstrument IS
 -- SIGNAL Declarations
 SIGNAL ConstantHigh : std_logic            := '1'; 
  -- Component Declarations

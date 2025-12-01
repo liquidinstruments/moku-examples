@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ARCHITECTURE HDLCoderWrapper OF CustomWrapper IS
+ARCHITECTURE HDLCoderWrapper OF CustomInstrument IS
   -- Component Declarations
   
 COMPONENT DSP -- Make sure this matches your VHDL code
@@ -28,12 +28,12 @@ BEGIN
            InputA=>InputA,
            InputB=>InputB,
            
-           TriggerLevel=>signed(Control0(15 downto 0)),
-           TriggerDelay=>signed(Control1(15 downto 0)),
-           GateWidth=>signed(Control2(15 downto 0)),
-           AvgLength=>signed(Control3(15 downto 0)),
-           SwitchControl=>signed(Control4(15 downto 0)),
-           Gain=>signed(Control5(31 downto 0)),
+           TriggerLevel=>signed(Control(0)(15 downto 0)),
+           TriggerDelay=>signed(Control(1)(15 downto 0)),
+           GateWidth=>signed(Control(2)(15 downto 0)),
+           AvgLength=>signed(Control(3)(15 downto 0)),
+           SwitchControl=>signed(Control(4)(15 downto 0)),
+           Gain=>signed(Control(5)(31 downto 0)),
            
            OutputA=>OutputA,
            OutputB=>OutputB

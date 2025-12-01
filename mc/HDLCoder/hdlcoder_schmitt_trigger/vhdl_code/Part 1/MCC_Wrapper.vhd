@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ARCHITECTURE SimulinkHDLCoderWrapper OF CustomWrapper IS
+ARCHITECTURE SimulinkHDLCoderWrapper OF CustomInstrument IS
   -- Component Declarations
   COMPONENT DSP_fixpt
   PORT( Clk                               :   IN    std_logic;
