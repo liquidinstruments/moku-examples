@@ -5,7 +5,7 @@ library Moku;
 use Moku.Support.ScaleOffset;
 
 -- Instatiate a DSP block using the ScaleOffset wrapper
-architecture Behavioural of CustomWrapper is
+architecture Behavioural of CustomInstrument is
 begin
     -- Z = X * Scale + Offset
     -- Offset is units of bits, scale by default runs from -1 to 1 across whatever signal width is given
@@ -17,8 +17,8 @@ begin
             Clk => Clk,
             Reset => Reset,
             X => InputA,
-            Scale => signed(Control0(15 downto 0)),
-            Offset => signed(Control1(15 downto 0)),
+            Scale => signed(Control(0)(15 downto 0)),
+            Offset => signed(Control(1)(15 downto 0)),
             Z => OutputA,
             Valid => '1',
             OutValid => open
@@ -35,8 +35,8 @@ begin
             Clk => Clk,
             Reset => Reset,
             X => InputB,
-            Scale => signed(Control2(15 downto 0)),
-            Offset => signed(Control3(15 downto 0)),
+            Scale => signed(Control(2)(15 downto 0)),
+            Offset => signed(Control(3)(15 downto 0)),
             Z => OutputB,
             Valid => '1',
             OutValid => open

@@ -7,7 +7,7 @@
 --
 -----------------------------------------------------
 
-ARCHITECTURE HDLCoderWrapper OF CustomWrapper IS
+ARCHITECTURE HDLCoderWrapper OF CustomInstrument IS
 -- SIGNAL Declarations
 SIGNAL ConstantHigh:std_logic  :='1';
 --Component Declarations
@@ -28,7 +28,7 @@ BEGIN
            reset => reset,
            InputA=>InputA,
            InputB=>InputB,
-           Control0=>Control0(15 downto 0),
+           Control0=>Control(0)(15 downto 0),
            OutputA=>OutputA
            );
 END HDLCoderWrapper;

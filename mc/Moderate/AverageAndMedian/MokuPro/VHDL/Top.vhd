@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ARCHITECTURE Behavioural OF CustomWrapper IS
+ARCHITECTURE Behavioural OF CustomInstrument IS
   -- Component Declarations
   COMPONENT MovingAverage 
   PORT( Clk                               :   IN    std_logic;
@@ -29,8 +29,8 @@ BEGIN
               Reset    => Reset,
               InputA   => InputA(11 downto 0) & "0000",
               InputB   => InputB, 
-              Control0 => signed(Control0(15 downto 0)),
-              Control1 => signed(Control1(15 downto 0)),
+              Control0 => signed(Control(0)(15 downto 0)),
+              Control1 => signed(Control(1)(15 downto 0)),
               OutputA  => OutputA,
               OutputB  => open
             );
