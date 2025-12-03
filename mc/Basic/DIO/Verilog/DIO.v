@@ -1,41 +1,27 @@
-module CustomWrapper (
-    input wire Clk,
-    input wire Reset,
-    input wire [31:0] Sync,
+module CustomInstrument (
+    input wire clk,
+    input wire reset,
+    input wire [31:0] sync,
 
-    input wire signed [15:0] InputA,
-    input wire signed [15:0] InputB,
-    input wire signed [15:0] InputC,
-    input wire signed [15:0] InputD,
+    input wire signed [15:0] inputa,
+    input wire signed [15:0] inputb,
+    input wire signed [15:0] inputc,
+    input wire signed [15:0] inputd,
 
-    input wire ExtTrig,
+    input wire exttrig,
 
-    output wire signed [15:0] OutputA,
-    output wire signed [15:0] OutputB,
-    output wire signed [15:0] OutputC,
-    output wire signed [15:0] OutputD,
+    output wire signed [15:0] outputa,
+    output wire signed [15:0] outputb,
+    output wire signed [15:0] outputc,
+    output wire signed [15:0] outputd,
 
-    output wire OutputInterpA,
-    output wire OutputInterpB,
-    output wire OutputInterpC,
-    output wire OutputInterpD,
+    output wire outputinterpa,
+    output wire outputinterpb,
+    output wire outputinterpc,
+    output wire outputinterpd,
 
-    input wire [31:0] Control0,
-    input wire [31:0] Control1,
-    input wire [31:0] Control2,
-    input wire [31:0] Control3,
-    input wire [31:0] Control4,
-    input wire [31:0] Control5,
-    input wire [31:0] Control6,
-    input wire [31:0] Control7,
-    input wire [31:0] Control8,
-    input wire [31:0] Control9,
-    input wire [31:0] Control10,
-    input wire [31:0] Control11,
-    input wire [31:0] Control12,
-    input wire [31:0] Control13,
-    input wire [31:0] Control14,
-    input wire [31:0] Control15
+    input wire [31:0] control [0:15],
+    output wire [31:0] status[0:15]
 );
 
   
@@ -47,17 +33,17 @@ module CustomWrapper (
 
   reg [2:0] Count;
 
-  assign OutputA[0] = InputA[8]; 			// Loop back Pin 9 to Pin 1
-  assign OutputA[1] = !InputA[9]; 		// Pin 2 is the inverse of Pin 10
-  assign OutputA[2] = Count[0]; 			// Pin 3 is a clock at 15.625MHz (Moku:Go MCC core clock is 31.25MHz)				
-  assign OutputA[3] = Count[1]; 			// Pin 4 is a clock at half the rate of Pin 3
-  assign OutputA[4] = Count[2];				// and Pin 5 is half the rate again
+  assign outputa[0] = inputa[8]; 			// Loop back Pin 9 to Pin 1
+  assign outputa[1] = !inputa[9]; 		// Pin 2 is the inverse of Pin 10
+  assign outputa[2] = Count[0]; 			// Pin 3 is a clock at 15.625MHz (Moku:Go MCC core clock is 31.25MHz)				
+  assign outputa[3] = Count[1]; 			// Pin 4 is a clock at half the rate of Pin 3
+  assign outputa[4] = Count[2];				// and Pin 5 is half the rate again
 
-  assign OutputA[5] = InputA[10] & InputA[11]; 		// Logical AND
-  assign OutputA[6] = InputA[10] | InputA[11];		// Logical OR
+  assign outputa[5] = inputa[10] & inputa[11]; 		// Logical AND
+  assign outputa[6] = inputa[10] | inputa[11];		// Logical OR
 
-  always @(posedge Clk) begin
-    if (Reset == 1'b1)
+  always @(posedge clk) begin
+    if (reset == 1'b1)
       Count <= 3'b000;
     else
       Count <= Count+ 3'b001;

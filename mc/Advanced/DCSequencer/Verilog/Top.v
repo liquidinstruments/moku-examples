@@ -1,43 +1,29 @@
-module CustomWrapper (
-    input wire Clk,
-    input wire Reset,
-    input wire [31:0] Sync,
+module CustomInstrument (
+    input wire clk,
+    input wire reset,
+    input wire [31:0] sync,
 
-    input wire signed [15:0] InputA,
-    input wire signed [15:0] InputB,
-    input wire signed [15:0] InputC,
-    input wire signed [15:0] InputD,
+    input wire signed [15:0] inputa,
+    input wire signed [15:0] inputb,
+    input wire signed [15:0] inputc,
+    input wire signed [15:0] inputd,
 
-    input wire ExtTrig,
+    input wire exttrig,
 
-    output wire signed [15:0] OutputA,
-    output wire signed [15:0] OutputB,
-    output wire signed [15:0] OutputC,
-    output wire signed [15:0] OutputD,
+    output wire signed [15:0] outputa,
+    output wire signed [15:0] outputb,
+    output wire signed [15:0] outputc,
+    output wire signed [15:0] outputd,
 
-    output wire OutputInterpA,
-    output wire OutputInterpB,
-    output wire OutputInterpC,
-    output wire OutputInterpD,
+    output wire outputinterpa,
+    output wire outputinterpb,
+    output wire outputinterpc,
+    output wire outputinterpd,
 
-    input wire [31:0] Control0,
-    input wire [31:0] Control1,
-    input wire [31:0] Control2,
-    input wire [31:0] Control3,
-    input wire [31:0] Control4,
-    input wire [31:0] Control5,
-    input wire [31:0] Control6,
-    input wire [31:0] Control7,
-    input wire [31:0] Control8,
-    input wire [31:0] Control9,
-    input wire [31:0] Control10,
-    input wire [31:0] Control11,
-    input wire [31:0] Control12,
-    input wire [31:0] Control13,
-    input wire [31:0] Control14,
-    input wire [31:0] Control15
+    input wire [31:0] control [0:15],
+    output wire [31:0] status[0:15]
 );
   
-    DCSequencer D1 (Clk, Reset, InputA, Control0[31:16], Control0[15:0], OutputA, OutputB);
+    DCSequencer D1 (clk, reset, inputa, control[0][31:16], control[0][15:0], outputa, outputb);
 
 endmodule

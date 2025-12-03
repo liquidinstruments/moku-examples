@@ -24,7 +24,7 @@ ENTITY DSP IS
         reset                             :   IN    std_logic;
         InputA                            :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
         InputB                            :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
-        Control(0)                          :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
+        Control(0)                        :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
         OutputA                           :   OUT   std_logic_vector(15 DOWNTO 0)  -- int16
         );
 END DSP;
@@ -52,7 +52,7 @@ ARCHITECTURE rtl OF DSP IS
   SIGNAL Real_Divide_HDL_Optimized_out1   : std_logic_vector(31 DOWNTO 0);  -- ufix32
   SIGNAL Real_Divide_HDL_Optimized_out1_signed : signed(31 DOWNTO 0);  -- sfix32_En16
   SIGNAL Delay_out1                       : signed(31 DOWNTO 0) := to_signed(0, 32);  -- sfix32_En16
-  SIGNAL Control(0)_signed                  : signed(15 DOWNTO 0);  -- int16
+  SIGNAL Control0_signed                  : signed(15 DOWNTO 0);  -- int16
   SIGNAL Data_Type_Conversion_out1        : unsigned(15 DOWNTO 0);  -- uint16
   SIGNAL Delay1_out1                      : unsigned(15 DOWNTO 0) := to_unsigned(16#0000#, 16);  -- uint16
   SIGNAL Product_cast                     : signed(16 DOWNTO 0);  -- sfix17
@@ -83,9 +83,9 @@ BEGIN
   END PROCESS Delay_process;
 
 
-  Control(0)_signed <= signed(Control(0));
+  Control0_signed <= signed(Control(0));
 
-  Data_Type_Conversion_out1 <= unsigned(Control(0)_signed);
+  Data_Type_Conversion_out1 <= unsigned(Control0_signed);
 
   Delay1_process : PROCESS (clk)
   BEGIN

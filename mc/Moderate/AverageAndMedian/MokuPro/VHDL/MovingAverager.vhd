@@ -11,8 +11,8 @@ port (
   Reset                    : in  std_logic;
   InputA                   : in  signed(15 downto 0);
   InputB                   : in  signed(15 downto 0);
-  Control(0)                 : in  signed(15 downto 0);
-  Control(1)                 : in  signed(15 downto 0);
+  Control(0)               : in  signed(15 downto 0);
+  Control(1)               : in  signed(15 downto 0);
   OutputA                  : out signed(15 downto 0);
   OutputB                  : out signed(15 downto 0));
 end MovingAverage;
