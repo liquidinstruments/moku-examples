@@ -16,7 +16,7 @@ COMPONENT DSP
         reset                             :   IN    std_logic;
         InputA                            :   IN    signed(15 DOWNTO 0);  -- int16
         InputB                            :   IN    signed(15 DOWNTO 0);  -- int16
-        Control0                          :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
+        Control(0)                          :   IN    std_logic_vector(15 DOWNTO 0);  -- int16
         OutputA                           :   OUT   signed(15 DOWNTO 0)  -- uint16
         );
 END COMPONENT;
@@ -28,7 +28,7 @@ BEGIN
            reset => reset,
            InputA=>InputA,
            InputB=>InputB,
-           Control0=>Control(0)(15 downto 0),
+           Control(0)=>Control(0)(15 downto 0),
            OutputA=>OutputA
            );
 END HDLCoderWrapper;

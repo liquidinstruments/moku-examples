@@ -35,7 +35,7 @@ BEGIN
 			ELSE
 				-- don't clear 
 				sclr_triangular <= '0';
-				-- Control1: counter limit
+				-- Control(1): counter limit
 				IF q_triangular = Control(1) THEN
 					-- count down
 					up_triangular <= '0';
@@ -70,7 +70,7 @@ BEGIN
 			ELSE
 				-- always count up
 				up_sawtooth <= '1';
-				-- Control2 : counter limit
+				-- Control(2) : counter limit
 				IF q_sawtooth = Control(2) THEN
 					-- clear
 					sclr_sawtooth <= '1';

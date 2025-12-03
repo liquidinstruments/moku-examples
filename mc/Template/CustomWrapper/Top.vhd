@@ -10,11 +10,11 @@ begin
     -- ___ <= InputC;
     -- ___ <= InputD;
 
-    -- ___ <= Control0;
-    -- ___ <= Control1;
-    -- ___ <= Control2;
+    -- ___ <= Control(0);
+    -- ___ <= Control(1);
+    -- ___ <= Control(2);
     --      ...
-    -- ___ <= Control15;
+    -- ___ <= Control(15);
 
     -- OutputA => ___;
     -- OutputB => ___;

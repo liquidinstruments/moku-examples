@@ -7,8 +7,8 @@
 -- threshold. The cleaned trigger signal is output on
 -- DataOutB for use downstream.
 -- Configurable parameters:
---  Schmitt trigger high value (bits) = Control0(31 downto 16)
---  Schmitt trigger low value (bits) = Control0(15 downto 0)
+--  Schmitt trigger high value (bits) = Control(0)(31 downto 16)
+--  Schmitt trigger low value (bits) = Control(0)(15 downto 0)
 --  Trigger output high and low values, constants
 --  DC value sequence, array of constants
 ------------------------------------------------------

@@ -11,8 +11,8 @@ use Moku.Support.clip;
 --
 -- The input can span the entire 16 bit range and is conditioned by
 -- a DSP block with Controls 1 and 2.
--- Control0: gain of InputA, signed(15 downto 0)
--- Control1: offset of InputA, signed(15 downto 0)
+-- Control(0): gain of InputA, signed(15 downto 0)
+-- Control(1): offset of InputA, signed(15 downto 0)
 --
 -- OutputA will be a ~50Hz pulse train with the width of each pulse
 -- modulated from 500usS to 2500uS depending on InputA. The output

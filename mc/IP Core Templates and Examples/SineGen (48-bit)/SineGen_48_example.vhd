@@ -12,7 +12,7 @@ BEGIN
 	SineCosineGen : SineGen_48
 	PORT MAP(
 		aclk => clk,
-		-- Use the 0th bit of Control0 to reset this module
+		-- Use the 0th bit of Control(0) to reset this module
 		aresetn => NOT Control(0)(0),
 		-- input signal is always available
 		s_axis_config_tvalid => '1',

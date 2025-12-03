@@ -8,8 +8,8 @@ use IEEE.NUMERIC_STD.ALL;
 -- Moku should be configured as follows:
 -- DIO Pin 0 is input
 -- DIO Pin 8 is output
--- Control0 register must be non-zero integer
--- Control1 register must be non-zero integer 
+-- Control(0) register must be non-zero integer
+-- Control(1) register must be non-zero integer 
 
 architecture MaskWrapper of CustomInstrument is
   begin

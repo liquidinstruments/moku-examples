@@ -11,7 +11,7 @@ BEGIN
 		A => STD_LOGIC_VECTOR(InputA),
 		B => STD_LOGIC_VECTOR(InputB),
 		clk => clk,
-		-- use Control0's 0th bit to control the operation
+		-- use Control(0)'s 0th bit to control the operation
 		add => Control(0)(0),
 		-- constant high clock enable
 		ce => '1',

@@ -7,8 +7,8 @@ use IEEE.NUMERIC_STD.ALL;
 -- Will use the devices internal clock along with Control Register inputs to create a variable frequency and pulse width output
 -- This code will work as is on any version of the Moku.  However, there is an alternate version that also uses the DIO for the Moku:Go
 -- Moku should be configured as follows:
--- Control0 register must be non-zero integer
--- Control1 register must be non-zero integer 
+-- Control(0) register must be non-zero integer
+-- Control(1) register must be non-zero integer 
 
 architecture MaskWrapper of CustomInstrument is
   begin
