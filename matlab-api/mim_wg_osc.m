@@ -8,7 +8,7 @@
 %
 
 %% Connect to your Moku
-% Configure multi-instrument with platform_id 2
+% Configure multi-instrument with platform_id 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 2, force_connect=true);
 
