@@ -11,7 +11,7 @@ parameters:
       type: string
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
@@ -32,7 +32,7 @@ summary: set_interpolation
 from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
 # configure linear interpolation
-i.set_interpolation('Linear')
+i.set_interpolation(mode='Linear')
 # retrieve data
 data = i.get_data()
 ```
@@ -71,3 +71,9 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-group>
 
 ### Sample response
+
+```json
+{
+  "mode": "Linear"
+}
+```

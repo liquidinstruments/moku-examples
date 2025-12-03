@@ -1,5 +1,5 @@
 ---
-additional_doc: Outputs are matched to their corresponding Intervals. For example, Output 1 (or Output A) is always matched to Interval 1,and so on for all channels
+additional_doc: Outputs are matched to their corresponding Intervals. For example, Output 1 (or Output A) is always matched to Interval 1, and so on for all channels.
 description: Generate interval or count bases signal on the given output channel
 method: post
 name: generate_output
@@ -45,7 +45,7 @@ parameters:
       type: boolean
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean

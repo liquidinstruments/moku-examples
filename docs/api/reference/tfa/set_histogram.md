@@ -16,8 +16,14 @@ parameters:
       param_range:
       type: number
       unit:
+    - default: Interval
+      description: Histogram type
+      name: type
+      param_range: Interval, G2
+      type: string
+      unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
@@ -37,8 +43,8 @@ summary: set_histogram
 ```python
 from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
-# configure histogram span to 1 second
-i.set_histogram(start_time=0, stop_time=1)
+# configure histogram span to 1 second and set G2 histogram type
+i.set_histogram(start_time=0, stop_time=1, type="G2")
 # retrieve data
 data = i.get_data()
 ```
@@ -49,8 +55,8 @@ data = i.get_data()
 
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
-% configure histogram span to 1 second
-m.set_histogram(0, 1)
+% configure histogram span to 1 second and set G2 histogram type
+m.set_histogram(0, 1, "G2")
 % retrieve data
 m.get_data()
 ```
@@ -65,7 +71,8 @@ m.get_data()
 $: cat request.json
 {
     "start_time": 0,
-    "stop_time" : 1
+    "stop_time" : 1,
+    "type": "G2"
 }
 $: curl -H 'Moku-Client-Key: <key>' \
     -H 'Content-Type: application/json' \
@@ -78,3 +85,12 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-group>
 
 ### Sample response
+
+```json
+{
+    "HistogramType": 1,
+    "start_time": 0,
+    "stop_time": 1,
+    "type": "g2correlationfunction"
+}
+```

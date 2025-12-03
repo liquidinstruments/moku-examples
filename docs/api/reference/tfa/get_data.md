@@ -11,7 +11,7 @@ parameters:
       type: number
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean
