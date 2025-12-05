@@ -25,8 +25,8 @@ The configuration is parameterized by the number of slots you wish to have. Spec
 
 |  Device    | Slots Available |
 | :--------: | :-------------: |
-| Moku:Go    |      1, 2       |
-| Moku:Lab   |      1, 2       |
+| Moku:Go    |      1, 2, 3    |
+| Moku:Lab   |      1, 2, 3    |
 | Moku:Pro   |      1, 4       |
 | Moku:Delta |      1, 3, 8    |
 
