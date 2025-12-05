@@ -54,15 +54,32 @@ Provided is a blank template for creating HDL files using the Moku Compile eithe
 
 <code-group>
 
-<code-block title="VHDL">
+<code-block title="CustomWrapper VHDL">
 
 <<< @/docs/api/moku-examples/mc/Template/CustomWrapper/Top.vhd
 
 </code-block>
 
-<code-block title="Verilog">
+<code-block title="CustomWrapper Verilog">
 
 <<< @/docs/api/moku-examples/mc/Template/CustomWrapper/Top.v
+
+</code-block>
+
+</code-group>
+
+
+<code-group>
+
+<code-block title="CustomInstrument VHDL">
+
+<<< @/docs/api/moku-examples/mc/Template/CustomInstrument/Top.vhd
+
+</code-block>
+
+<code-block title="CustomInstrument Verilog">
+
+<<< @/docs/api/moku-examples/mc/Template/CustomInstrument/Top.v
 
 </code-block>
 

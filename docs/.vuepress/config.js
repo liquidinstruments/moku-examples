@@ -97,7 +97,7 @@ module.exports = {
                             'Arbitrary Waveform Generator',
                             'reference/awg',
                         ),
-                        getChildren('Moku Compile', 'reference/custominstrument'),
+                        getChildren('Custom Instrument', 'reference/custominstrument'),
                         getChildren('Datalogger', 'reference/datalogger'),
                         getChildren('Digital Filter Box', 'reference/dfb'),
                         getChildren('FIR FIlter', 'reference/fir'),
