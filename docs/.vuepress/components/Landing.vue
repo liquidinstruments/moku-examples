@@ -66,7 +66,7 @@
                     </p>
                 </card>
 
-                <card title="Moku Compile" icon="mcc" link="/mcc/">
+                <card title="Moku Compile" icon="mc" link="/mc/">
                     <p>
                         Code, compile, and deploy directly from your browser.
                         Moku Compile makes FPGA programming simple with

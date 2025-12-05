@@ -32,7 +32,7 @@ module.exports = {
         smoothScroll: false,
         nav: [
             { text: 'REST API', link: '/api/' },
-            { text: 'Moku Cloud Compile', link: '/mcc/' },
+            { text: 'Moku Compile', link: '/mc/' },
             { text: 'Moku CLI', link: '/cli/' },
             { text: 'Moku Neural Network', link: '/mnn/' },
             { text: 'Forum', link: 'https://forum.liquidinstruments.com/' },
@@ -141,25 +141,34 @@ module.exports = {
                     ],
                 },
             ],
-            '/mcc/': [
+            '/mc/': [
                 {
-                    title: 'Moku Cloud Compile',
+                    title: 'Moku Compile',
                     collapsable: false,
                     initialOpenGroupIndex: -1,
-                    children: [['/mcc/', 'Overview']],
+                    children: [['/mc/', 'Overview']]
+                },
+                {               
+                    title: 'Getting Started',
+                    collapsable: false,
+                    initialOpenGroupIndex: -1,
+                    children: [['/mc/getting-started/cloud', 'Moku Cloud Compile'],
+                               ['/mc/getting-started/deploying', 'Deploying Your Design']
+                            ],
                 },
                 {
                     title: 'Features',
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
-                        ['/mcc/slots', 'Multi-Instrument and Slots'],
-                        ['/mcc/wrapper', 'Custom Wrapper'],
-                        ['/mcc/support', 'Moku Library'],
-                        ['/mcc/ipcore', 'IP Core support'],
-                        ['/mcc/io', 'Input and Output'],
-                        ['/mcc/controls', 'Control Registers'],
-                        ['/mcc/deploying', 'Deploying Your Design'],
+                        ['/mc/slots', 'Slot Resources and Rates'],
+                        ['/mc/wrapper', 'Wrapper for Moku Compile'],
+                        ['/mc/support', 'Moku Library'],
+                        ['/mc/ipcore', 'IP Core Support'],
+                        ['/mc/io', 'Input and Output'],
+                        ['/mc/controls', 'Control Registers'],
+                        ['/mc/statusregs', 'Status Registers'],
+                        ['/mc/browser', 'Bitstream Browser']
                     ],
                 },
                 {
@@ -167,11 +176,11 @@ module.exports = {
                     collapsable: false,
                     initialOpenGroupIndex: -1,
                     children: [
-                        ['/mcc/examples/template', 'Template'],
-                        ['/mcc/examples/basic', 'Basic'],
-                        ['/mcc/examples/moderate', 'Moderate'],
-                        ['/mcc/examples/advanced', 'Advanced'],
-                        ['/mcc/examples/hdlcoder', 'HDL Coder'],
+                        ['/mc/examples/template', 'Template'],
+                        ['/mc/examples/basic', 'Basic'],
+                        ['/mc/examples/moderate', 'Moderate'],
+                        ['/mc/examples/advanced', 'Advanced'],
+                        ['/mc/examples/hdlcoder', 'HDL Coder'],
                     ],
                 },
             ],
@@ -277,7 +286,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@mcc': '../api/moku-examples/mcc',
+                '@mc': '../api/moku-examples/mc',
             },
         },
     },

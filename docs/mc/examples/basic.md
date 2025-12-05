@@ -12,13 +12,13 @@ Output B is Input A - Input B;
 
 <code-block title="VHDL">
 
-<<< @/docs/api/moku-examples/mcc/Basic/Adder/VHDL/Adder.vhd
+<<< @/docs/api/moku-examples/mc/Basic/Adder/VHDL/Adder.vhd
 
 </code-block>
 
 <code-block title="Verilog">
 
-<<< @/docs/api/moku-examples/mcc/Basic/Adder/Verilog/Adder.v
+<<< @/docs/api/moku-examples/mc/Basic/Adder/Verilog/Adder.v
 
 </code-block>
 
@@ -34,7 +34,7 @@ This example uses the clip function from the Moku Library to limit the output si
 
 <code-block title="VHDL">
 
-<<< @/docs/api/moku-examples/mcc/Basic/VoltageLimiter/limiter.vhd
+<<< @/docs/api/moku-examples/mc/Basic/VoltageLimiter/limiter.vhd
 
 </code-block>
 
@@ -63,7 +63,7 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 
 <code-block title="VHDL">
 
-<<< @/docs/api/moku-examples/mcc/Basic/DSP/DSP.vhd
+<<< @/docs/api/moku-examples/mc/Basic/DSP/DSP.vhd
 
 </code-block>
 
