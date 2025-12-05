@@ -42,7 +42,7 @@ disp(cc.summary())
 
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
-        http://<ip>/api/slot1/cloudcompile/summary
+        http://<ip>/api/slot1/custominstrument/summary
 ```
 
 </code-block>
@@ -52,7 +52,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```plaintext
-Moku:Go Cloud Compile
+Moku:Go Custom Instrument
 Register 0: 0
 Register 1: 0
 Register 2: 0

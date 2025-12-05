@@ -61,7 +61,7 @@ cc.set_control(2, 156);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"idx": 2, "value": 156}'\
-        http://<ip>/api/slot1/cloudcompile/set_control
+        http://<ip>/api/slot1/custominstrument/set_control
 ```
 
 </code-block>

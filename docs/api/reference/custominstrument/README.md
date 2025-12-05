@@ -22,7 +22,7 @@ Moku Custom Instruments can only be used in Multi-Instrument Mode. Refer to the 
 from moku.instruments import MultiInstrument, CustomInstrument
 m = MultiInstrument('192.168.###.###', platform_id=2)
 bitstream = "path/to/project/adder/bitstreams.tar.gz"
-mcc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
+mc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
 ```
 
 </code-block>
@@ -32,7 +32,7 @@ mcc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
 ```matlab
 m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 bitstream = 'path/to/project/adder/bitstreams.tar';
-mcc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
+mc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
 
 ```
 
@@ -48,7 +48,7 @@ You can load the Moku Compile generated bitstream onto your Moku either when set
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"filename": "instrument_state.mokuconf"}'\
-        http://<ip>/api/slot1/cloudcompile/load_settings
+        http://<ip>/api/slot1/custominstrument/load_settings
 ```
 
 </code-block> -->

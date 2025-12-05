@@ -1,7 +1,7 @@
 ---
-additional_doc: Along with regular configuration methods, Cloud Compile supports following getter functions.
+additional_doc: Along with regular configuration methods, Custom Instrument supports following getter functions.
 name: getters
-description: Cloud Compile - getter functions 
+description: Custom Instrument - getter functions 
 getters: 
 - summary: get_controls
   description: Get all the control register values

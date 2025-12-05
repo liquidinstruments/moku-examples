@@ -62,7 +62,7 @@ cc.set_interpolation(1, true);
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"channel": 1, "enable": true}'\
-        http://<ip>/api/slot1/cloudcompile/set_interpolation
+        http://<ip>/api/slot1/custominstrument/set_interpolation
 ```
 
 </code-block>

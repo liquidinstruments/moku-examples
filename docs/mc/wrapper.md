@@ -187,14 +187,14 @@ endmodule
 
 ## Wrapper Ports
 
-The details of input, output and clock use is platform specific. For details, see [input and output](../mcc/io.md).
+The details of input, output and clock use is platform specific. For details, see [input and output](../mc/io.md).
 
 ## Control Registers
 
 These provide control of custom designs at runtime.
-See [control registers](../mcc/controls.md).
+See [control registers](../mc/controls.md).
 
 ## Status Registers
 
 These registers can be used as indicators in custom designs during runtime.
-See [status registers](../mcc/statusregs.md).
+See [status registers](../mc/statusregs.md).

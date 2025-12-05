@@ -152,7 +152,7 @@ module.exports = {
                     title: 'Getting Started',
                     collapsable: false,
                     initialOpenGroupIndex: -1,
-                    children: [['/mc/getting-started/cloud', 'Moku Cloud Compile'],
+                    children: [['/mc/getting-started/cloud', 'Moku Compile'],
                                ['/mc/getting-started/deploying', 'Deploying Your Design']
                             ],
                 },

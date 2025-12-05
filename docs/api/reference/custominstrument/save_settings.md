@@ -55,7 +55,7 @@ cc.save_settings('instrument_state.mokuconf');
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"filename": "instrument_state.mokuconf"}'\
-        http://<ip>/api/slot1/cloudcompile/save_settings
+        http://<ip>/api/slot1/custominstrument/save_settings
 ```
 
 </code-block>

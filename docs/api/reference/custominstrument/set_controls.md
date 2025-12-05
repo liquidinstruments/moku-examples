@@ -82,7 +82,7 @@ $: cat controls.json
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data @controls.json\
-        http://<ip>/api/slot1/cloudcompile/set_controls
+        http://<ip>/api/slot1/custominstrument/set_controls
 ```
 
 </code-block>

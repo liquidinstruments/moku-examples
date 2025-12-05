@@ -51,4 +51,4 @@ The Digital I/O block does not have automatic detection of driving sources, the 
 If you attempt to drive a value to a pin configured as an input, that action is silently ignored. If you read in from a pin that's configured as an output, the operation succeeds and simply gives you the current logical value of the pin.
 :::
 
-There is an [example available](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/DIO) for more information. Digital I/O is also used to drive the sync signals in the [VGA Example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/VGA_Display)
+There is an [example available](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/DIO) for more information. Digital I/O is also used to drive the sync signals in the [VGA Example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/VGA_Display)

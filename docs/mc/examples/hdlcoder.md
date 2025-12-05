@@ -79,7 +79,7 @@ A significant improvement of SNR was observed in both time and frequency domain.
 -   Not fully test for all possible parameter inputs.
 -   No pre-trigger option.
 
-<action-button text="Boxcar | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/HDLCoder/hdlcoder_boxcar" target="_blank"/>
+<action-button text="Boxcar | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/HDLCoder/hdlcoder_boxcar" target="_blank"/>
 
 ## Simulink™ Cross-Correlator
 
@@ -106,4 +106,4 @@ This model generates the cross-correlation results on Output A, and the correspo
 
 ![Result](./hdlcoder_xcorr_result.png)
 
-<action-button text="Cross-Correlator | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/HDLCoder/hdlcoder_xcorr" target="_blank"/>
+<action-button text="Cross-Correlator | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/HDLCoder/hdlcoder_xcorr" target="_blank"/>

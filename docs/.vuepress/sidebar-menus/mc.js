@@ -2,7 +2,7 @@ module.exports = {
     title: 'Moku Compile',
     collapsable: true,
     children: [
-        ['/mc/getting-started/cloud', 'Moku Cloud Compile'],
+        ['/mc/getting-started/cloud', 'Moku Compile'],
         ['/mc/slots', 'Slot Resources and Rates'],
         ['/mc/wrapper', 'Wrapper for Moku Compile'],
         ['/mc/support', 'Moku Library'],

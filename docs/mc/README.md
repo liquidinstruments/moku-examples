@@ -22,7 +22,7 @@ With the addition of the Moku Compile, users can now include their own custom fu
 
 These pages include references to help you start [building your custom designs](./getting-started/cloud.md) with information on the available FPGA resources on each [device](./slots.md). We also provide description to help you start coding using our [Custom Wrapper](./wrapper.md) or try creating a project with an example template.
 
-<action-button text="Explore our example projects" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc" target="_blank"/>
+<action-button text="Explore our example projects" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc" target="_blank"/>
 
 
 <!-- ![An image](../public/cc-icon-solid.png) -->

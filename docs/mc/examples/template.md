@@ -56,13 +56,13 @@ Provided is a blank template for creating HDL files using the Moku Compile eithe
 
 <code-block title="VHDL">
 
-<<< @/docs/api/moku-examples/mc/Template/Top.vhd
+<<< @/docs/api/moku-examples/mc/Template/CustomWrapper/Top.vhd
 
 </code-block>
 
 <code-block title="Verilog">
 
-<<< @/docs/api/moku-examples/mc/Template/Top.v
+<<< @/docs/api/moku-examples/mc/Template/CustomWrapper/Top.v
 
 </code-block>
 

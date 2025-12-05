@@ -29,7 +29,7 @@ The values specific output when the count is and is not exceeded are defined as 
 | Control1 | `tpmax` clock cycles | `tpmin` clock cycles |
 | Control2 | `mincount` count     | `vpmin` ADC Bits     |
 
-<action-button text="Event Counter | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/EventCounter" target="_blank"/>
+<action-button text="Event Counter | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/EventCounter" target="_blank"/>
 
 ## VGA Waveform Display
 
@@ -57,7 +57,7 @@ Route Output C to the Digital I/O and ensure that Pins 1 and 2 are configured as
 | -------- | ----------------------------------- |
 | Control2 | Direct downsample decimation factor |
 
-<action-button text="VGA Display | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/VGA_Display" target="_blank"/>
+<action-button text="VGA Display | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/VGA_Display" target="_blank"/>
 
 ## Simple Boxcar Averager
 
@@ -78,7 +78,7 @@ This simple design is written directly in VHDL with hard-coded parameters. For a
 | Output A | Average Out |
 | Output B | Not Used    |
 
-<action-button text="Boxcar Averager | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/BoxcarAverager" target="_blank"/>
+<action-button text="Boxcar Averager | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/BoxcarAverager" target="_blank"/>
 
 ## DLO Actuator Driver
 
@@ -89,7 +89,7 @@ configurable overshoot to help mitigate mechanical hysteresis.
 
 This is part of a collaboration between Liquid Instruments and Floquet.AI.
 
-<action-button text="DLO Actuator Driver | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/DLOActuatorDriver" target="_blank"/>
+<action-button text="DLO Actuator Driver | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/DLOActuatorDriver" target="_blank"/>
 
 ## DC Sequencer
 
@@ -99,4 +99,4 @@ Using Moku Compile, a simple sequencer was written with custom Schmitt trigger l
 
 The Schmitt trigger levels are configurable through a Control register, the DC value sequence is hard-coded.
 
-<action-button text="DC Sequencer | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Advanced/DCSequencer" target="_blank"/>
+<action-button text="DC Sequencer | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Advanced/DCSequencer" target="_blank"/>
