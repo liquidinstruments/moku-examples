@@ -97,12 +97,3 @@ You may wish to use IPv6 on your network, and it must be noted that the USB Conn
 -   LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
 
 If you require API connectivity from these environments, you must use a network connection like Ethernet or WiFi, including a point-to-point network with Static IPs if security is a concern.
-
-## Legacy Moku:Lab
-
-If you are using a firmware version <=511, consider upgrading to recieve the most up to date features and fixes. ** how is this MokuOS? maybe MokuOS 0.5.1?**
-
-For Moku:Lab versions **<= 511**, please refer to our legacy APIs
-
--   For Python, [pymoku](https://pypi.org/project/pymoku/)
--   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
