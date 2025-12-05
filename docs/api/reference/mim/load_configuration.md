@@ -39,7 +39,7 @@ from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
 # Connect to your Moku
 m = MultiInstrument('192.168.###.###', force_connect=True)
 
-# Load the saved configuration of Multi-instrument Mode from a .mokuconf file
+# Load the saved configuration of Multi-Instrument Mode from a .mokuconf file
 m.load_configuration(filename="mim_state.mokuconf")
 
 # To load the instrument settings, set instruments in the
@@ -59,7 +59,7 @@ osc.load_settings(filename="osc_state.mokuconf")
 % Connect to your Moku
 m = MokuMultiInstrument('192.168.###.###', force_connect=true);
 
-% Load the saved configuration of Multi-instrument Mode from a .mokuconf file
+% Load the saved configuration of Multi-Instrument Mode from a .mokuconf file
 m.load_configuration('mim_state.mokuconf');
 
 % To load the instrument settings, set instruments in the

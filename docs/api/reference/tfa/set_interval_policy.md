@@ -37,8 +37,7 @@ summary: set_interval_policy
 ```python
 from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###')
-# configure interval policy to use the first start event and for the iterval to close at the end 
-of the gate period
+# configure interval policy to use the first start event and for the interval to close at the end of the gate period
 i.set_interval_policy(multiple_start_events='Use first', incomplete_intervals='Close')
 ```
 
@@ -48,7 +47,7 @@ i.set_interval_policy(multiple_start_events='Use first', incomplete_intervals='C
 
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
-% configure interval policy to use the first start event and for the iterval to close at the end of the gate period
+% configure interval policy to use the first start event and for the interval to close at the end of the gate period
 m.set_interval_policy('Use first', 'Close')
 ```
 

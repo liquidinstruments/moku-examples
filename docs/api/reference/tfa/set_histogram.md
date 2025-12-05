@@ -56,7 +56,7 @@ data = i.get_data()
 ```matlab
 m = MokuTimeFrequencyAnalyzer('192.168.###.###')
 % configure histogram span to 1 second and set G2 histogram type
-m.set_histogram(0, 1, "G2")
+m.set_histogram(0, 1, 'type', 'G2')
 % retrieve data
 m.get_data()
 ```
