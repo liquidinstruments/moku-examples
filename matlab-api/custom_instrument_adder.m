@@ -1,6 +1,6 @@
-%% Adder Cloud Compile Example
+%% Adder Custom Instrument Example
 %
-%  This example demonstrates how you can configure Cloud Compile, using
+% This example demonstrates how you can configure Custom Instrument, using
 % Multi-Instrument mode, to add and subtract two input signals together and
 % output the result to the Oscilloscope.
 %
@@ -8,10 +8,10 @@
 %
 %% Before running
 % The 'Adder' example is located at:
-% (https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/Adder)
+% (https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
 %
 % Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
-% contains 2 or 4 .bar files depending on Moku hardware. The bitstream path
+% contains 2, 3, or 4 .bar files depending on Moku hardware. The bitstream path
 % should point to this unzipped folder.
 
 %% Connect to your Moku
@@ -21,10 +21,10 @@ m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 
 try
     %% Configure the instruments
-    % Set the instruments and upload Cloud Compile bitstreams from your device
+    % Set the instruments and upload Custom Instrument bitstreams from your device
     % to your Moku
     bitstream = 'path/to/project/adder/unzipped_bitstream';
-    mcc = m.set_instrument(1, @MokuCloudCompile, bitstream);
+    mc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
     osc = m.set_instrument(2, @MokuOscilloscope);
 
     % configure routing

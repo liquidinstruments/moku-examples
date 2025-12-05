@@ -1,6 +1,6 @@
-%% Arithmetic Cloud Compile Example
+%% Arithmetic Custom Instrument Example
 %
-%  This example demonstrates how you can configure Cloud Compile to choose to
+%  This example demonstrates how you can configure Custom Instrument to choose to
 % add, subtract or multiply two input signals using the control registers
 % and output the result to the Oscilloscope.
 %
@@ -8,10 +8,10 @@
 %
 %% Before running
 % The 'Arithmetic Unit' example is located at:
-% (https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Moderate/ArithmeticUnit#arithmetic-unit-example)
+% (https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit#arithmetic-unit-example)
 %
 % Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
-% contains 2 or 4 .bar files depending on Moku hardware. The bitstream path
+% contains 2, 3, or 4 .bar files depending on Moku hardware. The bitstream path
 % should point to this unzipped folder.
 
 %% Connect to your Moku
@@ -21,10 +21,10 @@ m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 
 try
     %% Configure the instruments
-    % Set the instruments and upload Cloud Compile bitstreams from your device
+    % Set the instruments and upload Custom Instrument bitstreams from your device
     % to your Moku
     bitstream = 'path/to/project/arithmetic/unzipped_bitstream';
-    mcc = m.set_instrument(1, @MokuCloudCompile, bitstream);
+    mc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
     osc = m.set_instrument(2, @MokuOscilloscope);
 
     % configure routing
@@ -53,7 +53,7 @@ try
 
     % Set Control Register 1 to choose to add (0b00), subtract (0b01) or
     % multiply (0b10) the input signals
-    mcc.set_control(1, 0b00);
+    mc.set_control(1, 0b00);
     % Retrieve the data
     data = osc.get_data('wait_reacquire',true);
     % Plot the result and configure labels for the axes
@@ -65,7 +65,7 @@ try
     axis tight;
 
     % Repeat these steps for each option
-    mcc.set_control(1, 0b01);
+    mc.set_control(1, 0b01);
     data = osc.get_data('wait_reacquire',true);
     subtract_graph = subplot(3,1,2);
     plot(subtract_graph, data.time, data.ch1, 'LineWidth', 1.5);
@@ -74,7 +74,7 @@ try
     grid on;
     axis tight;
 
-    mcc.set_control(1, 0b10);
+    mc.set_control(1, 0b10);
     data = osc.get_data('wait_reacquire',true);
     multiply_graph = subplot(3,1,3);
     plot(multiply_graph, data.time, data.ch1, 'LineWidth', 1.5);

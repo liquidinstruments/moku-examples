@@ -1,6 +1,6 @@
 # IP Core Template
 
-This folder contains the instantiation templates for including the Moku library of pre-compiled IP cores. The different IP core are listed in [this documentation](https://apis.liquidinstruments.com/mcc/ipcore.html#pre-compiled-ip-cores), including an example of using them in a custom code. 
+This folder contains the instantiation templates for including the Moku library of pre-compiled IP cores. The different IP core are listed in [this documentation](https://apis.liquidinstruments.com/mc/ipcore.html#pre-compiled-ip-cores), including an example of using them in a custom code. 
 
 The templates are provided as .vho (compatible with VHDL scripts) and as .veo (compatible with Verilog scripts), along with information on the ports used for the IP core. To use the instantiation template, open either .vho or .veo file of the desired IP core, and copy the module or the component into the custom script. the code. This information is available as a snippet within the files as indicated below. 
 

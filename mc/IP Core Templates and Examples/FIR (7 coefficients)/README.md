@@ -1,6 +1,6 @@
 ## FIR Filter (7 Coefficients)
 
-The FIR_Filter_7coef IP core operates at the full clock rate with fixed coefficients, offering a resource-efficient solution for users who need to integrate a low-pass filter into their MCC designs without requiring additional instruments in the MiM setup. The filter coefficients are listed below along with the port definitions.
+The FIR_Filter_7coef IP core operates at the full clock rate with fixed coefficients, offering a resource-efficient solution for users who need to integrate a low-pass filter into their Moku Compile designs without requiring additional instruments in the MiM setup. The filter coefficients are listed below along with the port definitions.
 
 Filter Coefficients are: 
 | **Tap** | **Value** |

@@ -1,6 +1,6 @@
 # VHDL coding template
 
-Provided is a blank template for creating HDL files using the Moku Compile.
+Provided is a blank template for creating HDL files using Moku Compile.
 
 ## Entity Ports for CustomInstrument
 

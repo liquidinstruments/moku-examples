@@ -1,6 +1,6 @@
 # DSP example
 
-This example instantiates a DSP block using the [ScaleOffset](https://apis.liquidinstruments.com/mcc/support.html#scaleoffset) wrapper. The `Moku.Support.ScaleOffset` entity conveniently packages a DSP block with all the settings configured to compute the common `Z = X * Scale + Offset` operation, with the output properly clipped to prevent under/overflow.
+This example instantiates a DSP block using the [ScaleOffset](https://apis.liquidinstruments.com/mc/support.html#scaleoffset) wrapper. The `Moku.Support.ScaleOffset` entity conveniently packages a DSP block with all the settings configured to compute the common `Z = X * Scale + Offset` operation, with the output properly clipped to prevent under/overflow.
 
 ## Getting Started
 
