@@ -31,7 +31,7 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
                                                NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-from moku.instruments import Oscilloscope, CloudCompile, MultiInstrument
+from moku.instruments import Oscilloscope, CustomInstrument, MultiInstrument
 
 print('Connecting to Moku...')
 m = MultiInstrument(IP_ADDR, platform_id=4, force_connect=True)
@@ -67,7 +67,7 @@ resolution = resolution_dict[description['hardware']]
 range = range_dict[description['hardware']]
 
 
-mcc = m.set_instrument(1, CloudCompile, bitstream=BITSTREAMS_PATH)
+mc = m.set_instrument(1, CustomInstrument, bitstream=BITSTREAMS_PATH)
 osc = m.set_instrument(2, Oscilloscope)
 
 connections = [dict(source="Input1", destination="Slot1InA"),
@@ -129,7 +129,7 @@ def update_trg_level(event):
     quantized_text = str(trg_level_bits*resolution)
     trg_level_text.insert(tkinter.END, quantized_text)
 
-    mcc.set_control(0,trg_level_bits)
+    mc.set_control(0,trg_level_bits)
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' Volts' )
@@ -143,7 +143,7 @@ def update_trg_delay(event):
     print(quantized_text)
     trg_delay_text.insert(tkinter.END, quantized_text)
 
-    mcc.set_control(1,trg_delay_bits)
+    mc.set_control(1,trg_delay_bits)
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -156,7 +156,7 @@ def update_gate_width(event):
     quantized_text = str(gate_width_bits*period/ns)
     gate_width_text.insert(tkinter.END, quantized_text)
 
-    mcc.set_control(2,gate_width_bits)
+    mc.set_control(2,gate_width_bits)
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -164,14 +164,14 @@ def update_gate_width(event):
 #########################################################################
 def update_avg_length(event):    
     avg_length = int(float(avg_length_text.get()))
-    mcc.set_control(3,avg_length)
+    mc.set_control(3,avg_length)
 
 #########################################################################
 def update_gain(event):
     gain = float(gain_text.get())
     gain = int(gain*2**16)
 
-    mcc.set_control(5,gain)
+    mc.set_control(5,gain)
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced gain to ' + str(gain/2**16))
@@ -193,7 +193,7 @@ def auto_delay():
         trg_delay_text.delete(0, 'end')
         trg_delay_text.insert(tkinter.END, str(time_delay_bits*period/ns))
         
-        mcc.set_control(1,time_delay_bits)
+        mc.set_control(1,time_delay_bits)
     else:
         return
 
@@ -205,13 +205,13 @@ def update_mode(event):
         case 'Align':
             output_mode = 2
             ax1.set_ylabel('Pulse Input Amplitude (Volts)', color=color_ch1)
-            mcc.set_control(4,output_mode)
+            mc.set_control(4,output_mode)
             out_text.delete("1.0", "end")
             auto_button.configure(state = 'normal')
         case 'Average Output':
             output_mode = 0
             ax1.set_ylabel('Summed Pulse Amplitude (Volts)', color=color_ch1)
-            mcc.set_control(4,output_mode)
+            mc.set_control(4,output_mode)
             auto_button.configure(state = 'disabled')
             
 
@@ -356,12 +356,12 @@ warning_text.grid(row=matplot_rowspan-1, column=matplot_columnspan+1, columnspan
 
 print('Initializing...')
 
-mcc.set_control(0,int(INITIAL_TRIGGER_LEVEL/resolution) )
-mcc.set_control(1,int(INITIAL_TRIGGER_DELAY*ns/period) )
-mcc.set_control(2,int(INITIAL_GATEWIDTH*ns/period) )
-mcc.set_control(3,int(INITIAL_AVERAGE_LENGTH) )
-mcc.set_control(4,INITIAL_OUTPUT_MODE) 
-mcc.set_control(5,int(INITIAL_OUTPUT_GAIN*2**16) )
+mc.set_control(0,int(INITIAL_TRIGGER_LEVEL/resolution) )
+mc.set_control(1,int(INITIAL_TRIGGER_DELAY*ns/period) )
+mc.set_control(2,int(INITIAL_GATEWIDTH*ns/period) )
+mc.set_control(3,int(INITIAL_AVERAGE_LENGTH) )
+mc.set_control(4,INITIAL_OUTPUT_MODE) 
+mc.set_control(5,int(INITIAL_OUTPUT_GAIN*2**16) )
 
 ax1.set_ylabel('Pulse Input Amplitude (Volts)', color=color_ch1)
     

@@ -1,6 +1,6 @@
 # Example code to 
 # 1. Configure single Moku:Lab in multi-instrument mode
-# 2. Import custom MCC design that will
+# 2. Import custom Moku Compile design that will
 #	a. Create a custom frequency and duty cycle pulse
 #	b. Pass through an input to an output when the pulse is high
 # 3. Use the custom pulse to trigger swept waveform modulation
@@ -15,9 +15,9 @@
 
 # Import the needed libraries 
 from moku.instruments import MultiInstrument
-from moku.instruments import CloudCompile, WaveformGenerator
+from moku.instruments import CustomInstrument, WaveformGenerator
 
-# Establish connection to Moku:Lab - Waveform Generator and MCC
+# Establish connection to Moku:Lab - Waveform Generator and Custom Instrument
 mg1 = MultiInstrument('192.168.X.X', force_connect=True, platform_id=2) #Edit IP for your device
 
 try:
@@ -25,9 +25,9 @@ try:
 
 	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mg1.set_instrument(1, WaveformGenerator)
-	mcc = mg1.set_instrument(2, CloudCompile, bitstream=bitstream)
+	mc = mg1.set_instrument(2, CustomInstrument, bitstream=bitstream)
 
-	# Configure Moku:Lab with waveform generator and MCC in MiM
+	# Configure Moku:Lab with waveform generator and Custom Instrument in MiM
 	connections = [dict(source="Slot1OutA", destination="Slot2InA"),
 					dict(source="Slot2OutB", destination="Slot1InA"),
 					dict(source="Slot2OutA", destination="Output1"),
@@ -46,8 +46,8 @@ try:
 	freqControl = int(125000000/float(PRF))
 	dutyControl = int(freqControl*float(duty)/100)
 
-	mcc.set_control(0,freqControl)
-	mcc.set_control(1,dutyControl)
+	mc.set_control(0,freqControl)
+	mc.set_control(1,dutyControl)
 
 
 finally:

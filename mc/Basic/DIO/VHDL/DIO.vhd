@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.Std_Logic_1164.all;
 use IEEE.Numeric_Std.all;
 
--- To use this, you must configure the MCC block in the Multi-instrument Mode builder as follows:
--- MCC Slot's Input A -> DIO
--- MCC Slot's Output B -> DIO
+-- To use this, you must configure the Custom Instrument block in the Multi-instrument Mode builder as follows:
+-- Custom Instrument Slot's Input A -> DIO
+-- Custom Instrument Slot's Output B -> DIO
 -- DIO Pin 1-8 set as Input
 -- DIO Pin 9-16 set as Output
 
@@ -15,7 +15,7 @@ begin
     OutputA(0) <= InputA(8); -- Loop back Pin 9 to Pin 1
     OutputA(1) <= not InputA(9); -- Pin 2 is the inverse of Pin 10
     
-    OutputA(2) <= Count(0); -- Pin 3 is a clock at 15.625MHz (Moku:Go MCC core clock is 31.25MHz)
+    OutputA(2) <= Count(0); -- Pin 3 is a clock at 15.625MHz (Moku:Go Custom Instrument core clock is 31.25MHz)
     OutputA(3) <= Count(1); -- Pin 4 is a clock at half the rate of Pin 3
     OutputA(4) <= Count(2); -- .. and Pin 5 is half the rate again
 

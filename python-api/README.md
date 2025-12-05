@@ -11,20 +11,20 @@ This example demonstrates how you can generate and output arbitrary waveforms us
 
 <<< @/docs/api/moku-examples/python-api/arbitrarywavegen_basic.py
 
-## Cloud Compile
-### cloud_compile_adder.py
+## Custom Instrument
+### custom_instrument_adder.py
 
-This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the 
-[Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Basic/Adder)
+This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the 
+[Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
 
-<<< @/docs/api/moku-examples/python-api/cloud_compile_adder.py
+<<< @/docs/api/moku-examples/python-api/custom_instrument_adder.py
 
-### cloud_compile_arithmetic.py
+### custom_instrument_arithmetic.py
 
-This example demonstrates how you can configure Cloud Compile, using Multi-Instrument mode to run the 
-[Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mcc/Moderate/ArithmeticUnit)
+This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the 
+[Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit)
 
-<<< @/docs/api/moku-examples/python-api/cloud_compile_arithmetic.py
+<<< @/docs/api/moku-examples/python-api/custom_instrument_arithmetic.py
 
 ## Data Logger
 ### datalogger_basic.py

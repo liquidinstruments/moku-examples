@@ -1,6 +1,6 @@
 # Example code to 
 # 1. Configure Moku:Pro in multi-instrument mode
-# 2. Import custom MCC design that will
+# 2. Import custom Moku Compile design that will
 #	a. Create a custom frequency and duty cycle pulse
 #	b. Pass through an input to an output when the pulse is high
 # 3. Use the custom pulse to trigger swept waveform modulation
@@ -22,7 +22,7 @@
 
 # Import the needed libraries 
 from moku.instruments import MultiInstrument
-from moku.instruments import CloudCompile, WaveformGenerator, Oscilloscope, Datalogger
+from moku.instruments import CustomInstrument, WaveformGenerator, Oscilloscope, Datalogger
 
 import time
 
@@ -33,12 +33,12 @@ try:
 
 	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mp.set_instrument(1, WaveformGenerator)
-	mcc = mp.set_instrument(2, CloudCompile, bitstream=bitstream)
+	mc = mp.set_instrument(2, CustomInstrument, bitstream=bitstream)
 	dl = mp.set_instrument(3, Datalogger)
 	osc = mp.set_instrument(4, Oscilloscope)
 
 
-	# # Configure Moku:Pro with MCC in MiM
+	# # Configure Moku:Pro with Custom Instrument in MiM
 	connections = [dict(source="Slot1OutA", destination="Slot2InB"),
 					dict(source="Slot2OutB", destination="Slot1InA"),
 					dict(source="Slot2OutA", destination="Slot3InA"),
@@ -61,8 +61,8 @@ try:
 	freqControl = int(312500000/float(PRF))
 	dutyControl = int(freqControl*float(duty)/100)
 
-	mcc.set_control(0,freqControl)
-	mcc.set_control(1,dutyControl)
+	mc.set_control(0,freqControl)
+	mc.set_control(1,dutyControl)
 
 
 	# Set the sample rate to 500 KSa/s

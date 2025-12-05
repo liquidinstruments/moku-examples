@@ -93,7 +93,7 @@ moku-examples/
 │   ├── Autoencoder.ipynb
 │   └── ...
 ├── other-language-api/  # Examples in other languages
-└── mcc/                 # Multi-instrument Cloud Compile examples
+└── mc/                 # Multi-instrument Moku Compile examples
 ```
 
 ## Example Categories

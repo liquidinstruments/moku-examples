@@ -32,7 +32,7 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
                                                NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-from moku.instruments import Oscilloscope, CloudCompile, MultiInstrument
+from moku.instruments import Oscilloscope, CustomInstrument, MultiInstrument
 
 print('Connecting to Moku...')
 m = MultiInstrument(IP_ADDR, platform_id=NUM_OF_SLOTS, force_connect=True)
@@ -68,7 +68,7 @@ resolution = resolution_dict[description['hardware']]
 range = range_dict[description['hardware']]
 
 
-mcc = m.set_instrument(1, CloudCompile, bitstream=BITSTREAMS_PATH)
+mc = m.set_instrument(1, CustomInstrument, bitstream=BITSTREAMS_PATH)
 osc = m.set_instrument(2, Oscilloscope)
 
 connections = [dict(source="Input1", destination="Slot1InA"),
@@ -158,7 +158,7 @@ def update_trg_level(event):
     quantized_text = str(trg_level_bits*resolution)
     trg_level_text.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(0,trg_level_bits))
+    print(mc.set_control(0,trg_level_bits))
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' Volts' )
@@ -171,8 +171,8 @@ def update_gate_width(event):
     quantized_text = str(gate_width_bits*period/ns)
     gate_width_text.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(3,gate_width_bits))
-    print(mcc.set_control(8,gate_width_bits))
+    print(mc.set_control(3,gate_width_bits))
+    print(mc.set_control(8,gate_width_bits))
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -181,8 +181,8 @@ def update_gate_width(event):
 def update_avg_length(event):    
     avg_length = int(float(avg_length_text.get()))
     
-    print(mcc.set_control(4,avg_length))
-    print(mcc.set_control(9,avg_length))
+    print(mc.set_control(4,avg_length))
+    print(mc.set_control(9,avg_length))
     
     warning_text.delete("1.0", "end")
 
@@ -191,7 +191,7 @@ def update_gain_0(event):
     gain = float(gain_text_0.get())
     gain = int(gain*2**16)
 
-    print(mcc.set_control(5,gain))
+    print(mc.set_control(5,gain))
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced gain to ' + str(gain/2**16))
@@ -201,7 +201,7 @@ def update_gain_1(event):
     gain = float(gain_text_1.get())
     gain = int(gain*2**16)
 
-    print(mcc.set_control(10,gain))
+    print(mc.set_control(10,gain))
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced gain to ' + str(gain/2**16))
@@ -215,7 +215,7 @@ def update_trg_delay_0(event):
     print(quantized_text)
     trg_delay_text_0.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(1,trg_delay_bits))
+    print(mc.set_control(1,trg_delay_bits))
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -229,7 +229,7 @@ def update_trg_delay_1(event):
     print(quantized_text)
     trg_delay_text_1.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(6,trg_delay_bits))
+    print(mc.set_control(6,trg_delay_bits))
     
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )    
@@ -244,7 +244,7 @@ def update_trg_delay_baseline_0(event):
     print(quantized_text)
     trg_delay_text_baseline_0.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(2,trg_delay_bits))
+    print(mc.set_control(2,trg_delay_bits))
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -259,7 +259,7 @@ def update_trg_delay_baseline_1(event):
     print(quantized_text)
     trg_delay_text_baseline_1.insert(tkinter.END, quantized_text)
 
-    print(mcc.set_control(7,trg_delay_bits)) 
+    print(mc.set_control(7,trg_delay_bits)) 
 
     warning_text.delete("1.0", "end")
     warning_text.insert(tkinter.END, 'Coerced to ' + quantized_text + ' ns' )
@@ -276,7 +276,7 @@ def update_mode(event):
             enable_gain_0(False)
             enable_gain_1(False)
             ax1.set_ylabel('Pulse Input Amplitude (Volts)', color=color_ch1)
-            print(mcc.set_control(15,15))
+            print(mc.set_control(15,15))
             out_text_0.delete("1.0", "end")
             out_text_1.delete("1.0", "end")
 
@@ -286,7 +286,7 @@ def update_mode(event):
             enable_gain_0(True)
             enable_gain_1(False)
             ax1.set_ylabel('Summed Pulse Amplitude_0 (Volts)', color=color_ch1)
-            print(mcc.set_control(15,7)) 
+            print(mc.set_control(15,7)) 
 
         case 'Align Averager1':
             enable_averager_0(False)
@@ -294,7 +294,7 @@ def update_mode(event):
             enable_gain_0(False)
             enable_gain_1(False)
             ax1.set_ylabel('Pulse Input Amplitude (Volts)', color=color_ch1)
-            print(mcc.set_control(15,13))
+            print(mc.set_control(15,13))
             out_text_0.delete("1.0", "end")
             out_text_1.delete("1.0", "end")
             
@@ -304,7 +304,7 @@ def update_mode(event):
             enable_gain_0(False)
             enable_gain_1(True)
             ax1.set_ylabel('Summed Pulse Amplitude_1 (Volts)', color=color_ch1)
-            print(mcc.set_control(15,9))
+            print(mc.set_control(15,9))
 
         case 'Output Both':
             enable_averager_0(False)
@@ -313,7 +313,7 @@ def update_mode(event):
             enable_gain_1(True)
             ax1.set_ylabel('Summed Pulse Amplitude_0 (Volts)', color=color_ch1)
             ax2.set_ylabel('Summed Pulse Amplitude_1 (Volts)', color=color_ch2)
-            print(mcc.set_control(15,4))
+            print(mc.set_control(15,4))
             
 
 #########################################################################
@@ -321,7 +321,7 @@ def update_mode(event):
 def quit(tk_root, instrument):
     exit_event.set()
     tk_root.destroy()
-    print(mcc.get_controls())
+    print(mc.get_controls())
     instrument.relinquish_ownership()
 
 #########################################################################
@@ -529,26 +529,26 @@ tkinter.Button(root, text = "Quit", command = lambda: quit(root, m)).grid(row=ma
 ####################################################################
 print('Initializing...')
 
-mcc.set_control(0,int(INITIAL_TRIGGER_LEVEL/resolution) )
+mc.set_control(0,int(INITIAL_TRIGGER_LEVEL/resolution) )
 
-mcc.set_control(1,int(INITIAL_TRIGGER_DELAY*ns/period) )
-mcc.set_control(2,int(INITIAL_BASELINE_TRIGGER_DELAY*ns/period))
+mc.set_control(1,int(INITIAL_TRIGGER_DELAY*ns/period) )
+mc.set_control(2,int(INITIAL_BASELINE_TRIGGER_DELAY*ns/period))
 
-mcc.set_control(6,int(INITIAL_TRIGGER_DELAY*ns/period) )
-mcc.set_control(7,int(INITIAL_BASELINE_TRIGGER_DELAY*ns/period))
+mc.set_control(6,int(INITIAL_TRIGGER_DELAY*ns/period) )
+mc.set_control(7,int(INITIAL_BASELINE_TRIGGER_DELAY*ns/period))
 
-mcc.set_control(3,int(INITIAL_GATEWIDTH*ns/period) )
-mcc.set_control(8,int(INITIAL_GATEWIDTH*ns/period) )
+mc.set_control(3,int(INITIAL_GATEWIDTH*ns/period) )
+mc.set_control(8,int(INITIAL_GATEWIDTH*ns/period) )
 
-mcc.set_control(4,int(INITIAL_AVERAGE_LENGTH) )
-mcc.set_control(9,int(INITIAL_AVERAGE_LENGTH) )
+mc.set_control(4,int(INITIAL_AVERAGE_LENGTH) )
+mc.set_control(9,int(INITIAL_AVERAGE_LENGTH) )
 
-mcc.set_control(5,int(INITIAL_OUTPUT_GAIN*2**16) )
-mcc.set_control(10,int(INITIAL_OUTPUT_GAIN*2**16) )
+mc.set_control(5,int(INITIAL_OUTPUT_GAIN*2**16) )
+mc.set_control(10,int(INITIAL_OUTPUT_GAIN*2**16) )
 
-mcc.set_control(15,INITIAL_OUTPUT_SELECTION) 
+mc.set_control(15,INITIAL_OUTPUT_SELECTION) 
 
-mcc.set_control(15,15)
+mc.set_control(15,15)
 
 ax1.set_ylabel('Pulse Input Amplitude (Volts)', color=color_ch1)
 

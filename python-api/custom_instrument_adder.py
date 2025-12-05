@@ -1,7 +1,7 @@
 #
-# moku example: Adder Cloud Compile
+# moku example: Adder Custom Instrument
 #
-#  This example demonstrates how you can configure Cloud Compile, using
+# This example demonstrates how you can configure Custom Instrument, using
 # Multi-Instrument mode, to add and subtract two input signals together and
 # output the result to the Oscilloscope.
 #
@@ -10,7 +10,7 @@
 
 import matplotlib.pyplot as plt
 
-from moku.instruments import CloudCompile, MultiInstrument, Oscilloscope
+from moku.instruments import CustomInstrument, MultiInstrument, Oscilloscope
 
 # Connect to your Moku by its ip address using
 # MultiInstrument('192.168.###.###')
@@ -18,10 +18,10 @@ from moku.instruments import CloudCompile, MultiInstrument, Oscilloscope
 m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
 
 try:
-    # Set the instruments and upload Cloud Compile bitstreams from your device
+    # Set the instruments and upload Custom Instrument bitstreams from your device
     # to your Moku
     bitstream = "path/to/project/adder/bitstreams.tar.gz"
-    mcc = m.set_instrument(1, CloudCompile, bitstream=bitstream)
+    mc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
     osc = m.set_instrument(2, Oscilloscope)
 
     # Configure the connections
