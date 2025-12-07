@@ -15,7 +15,7 @@ To start, install the API for [Python](getting-started/starting-python.md), [MAT
 The Moku Scripting API for Python requires Python 3.5 or newer.
 
 :::warning
-Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. [Read more](getting-started/starting-python.md#important-notice-breaking-changes-in-firmware-600)
+Starting with MokuOS 4.0, there are some breaking changes that require you to update your Python client package to version **4.0**.
 :::
 <action-button text="Start with Python" link="/api/getting-started/starting-python"/>
 
@@ -77,9 +77,9 @@ $ mokucli --help
 
 ## Known Issues
 
-<!-- ### Firmware Updates
+<!-- ### MokuOS Updates
 
-The Scripting API is not currently able to update the firmware on Moku devices. Please use either the Moku Desktop software or iPad App. Updating firmware through the applications may also require that you update your Scripting API libraries. -->
+The Scripting API is not currently able to update the MokuOS on Moku devices. Please use either the Moku Desktop software or iPad App. Updating MokuOS through the applications may also require that you update your Scripting API libraries. -->
 
 ### File Conversion
 
@@ -97,12 +97,3 @@ You may wish to use IPv6 on your network, and it must be noted that the USB Conn
 -   LabVIEW, as discussed [here](https://forums.ni.com/t5/LabVIEW-Idea-Exchange/Native-support-for-IPv6/idi-p/1481942)
 
 If you require API connectivity from these environments, you must use a network connection like Ethernet or WiFi, including a point-to-point network with Static IPs if security is a concern.
-
-## Legacy Moku:Lab
-
-If you are using a firmware version <=511, consider upgrading to recieve the most up to date features and fixes.
-
-For Moku:Lab versions **<= 511**, please refer to our legacy APIs
-
--   For Python, [pymoku](https://pypi.org/project/pymoku/)
--   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)

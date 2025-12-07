@@ -18,7 +18,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4
       type: integer
       unit: null
     - default: null
@@ -36,7 +36,9 @@ parameters:
     - default: '0dB'
       description: If applicable, enable the hardware's output gain stage (high output range)
       name: gain_range
-      param_range: 0dB, 14dB
+      param_range:
+          mokupro: 0dB, 14dB
+          mokudelta: 0dB, 20dB
       type: string
       unit: dB
     - default: true

@@ -1,6 +1,6 @@
 # Moku API Documentation VuePress site
 
-This repo contains the documentation + examples for the Moku API, Moku Cloud Compile, Moku Neural Network, and Moku CLI.
+This repo contains the documentation + examples for the Moku API, Moku Compile, Moku Neural Network, and Moku CLI.
 
 ## Repo Vitals
 

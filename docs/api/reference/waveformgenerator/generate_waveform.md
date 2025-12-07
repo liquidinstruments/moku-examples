@@ -12,7 +12,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4, 5, 6
       type: integer
       unit: null
     - default: null
@@ -30,7 +30,11 @@ parameters:
     - default: 10000
       description: Waveform frequency
       name: frequency
-      param_range: 1e-3 to 20e6
+      param_range:
+          mokugo: 1e-3 to 20e6
+          mokulab: 1e-3 to 250e6
+          mokupro: 1e-3 to 500e6
+          mokudelta: 1e-3 to 2e9
       type: number
       unit: Hz
     - default: 0

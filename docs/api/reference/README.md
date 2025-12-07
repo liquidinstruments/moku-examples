@@ -9,13 +9,6 @@ Liquid Instruments **Moku** devices. This interface can supplement or
 replace the Windows/Mac interface, allowing the Moku to be scripted
 tightly into your next experiment.
 
-:::tip Note
-For Moku:Lab versions <= 511, please refer to our legacy APIs
-
--   For Python, [PyMoku](https://pypi.org/project/pymoku/)
--   For MATLAB, [MATLAB Legacy](https://www.liquidinstruments.com/resources/software-utilities/matlab-api/)
-:::
-
 ## Common Parameters
 
 ### Force Connect

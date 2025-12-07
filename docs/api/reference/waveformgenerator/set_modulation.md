@@ -12,7 +12,7 @@ parameters:
           mokugo: 1, 2
           mokulab: 1, 2
           mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+          mokudelta: 1, 2, 3, 4, 5, 6
       type: integer
       unit: null
     - default: null
@@ -27,8 +27,8 @@ parameters:
       param_range:
           mokugo: Input1, Input2, InputA, Output1, Output2, Internal
           mokulab: Input1, Input2, InputA, Output1, Output2, Internal
-          mokupro: Input1, Input2, Input3, Input4, InputA, InputB, Output1, Output2, Output3, Output4, OutputA, OuptuB, Internal
-          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, OutputA, OuptuB, Internal
+          mokupro: Input1, Input2, Input3, Input4, InputA, InputB, Output1, Output2, Output3, Output4, OutputA, OuptutB, Internal
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, OutputA, OuptutB, Internal
       type: string
       unit: null
     - default: 0

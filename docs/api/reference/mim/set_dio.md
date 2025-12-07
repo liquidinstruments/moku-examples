@@ -28,7 +28,7 @@ available_on: 'Moku:Go'
 
 <headers/>
 
-Digital I/O is configured for Input or Output at the pin level. To use DIO with Multi-instrument mode, the user must complete three steps:
+Digital I/O is configured for Input or Output at the pin level. To use DIO with Multi-Instrument mode, the user must complete three steps:
 
 1. Set up the required instrument in the target slot,
 2. Configure inputs and/or outputs of that slot to be connected to the Digital I/O, and

@@ -1,8 +1,7 @@
 ---
 additional_doc: null
 description:
-    Sets the left- and right-hand span for the time axis. Units are seconds
-    relative to the trigger point.
+    Sets the left- and right-hand span for the time axis. Units are seconds relative to the trigger point.
 method: post
 name: set_timebase
 parameters:
@@ -20,13 +19,15 @@ parameters:
       param_range: null
       type: number
       unit: null
-    - default: null
+    - default: false
       description: Toggle Roll Mode
       name: roll_mode
+      deprecated: true
+      deprecated_msg: This method is deprecated and will be removed soon. Use **enable_rollmode()** instead.
       param_range: null
       type: boolean
       unit: null
-    - default: true
+    - default: null
       description: Disable all implicit conversions and coercions.
       name: strict
       param_range: null
@@ -44,7 +45,7 @@ summary: set_timebase
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.set_timebase(-0.5, 0, roll_mode=True)
+i.set_timebase(-0.5, 0)
 ```
 
 </code-block>
@@ -53,7 +54,7 @@ i.set_timebase(-0.5, 0, roll_mode=True)
 
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_timebase(-0.5, 0, 'roll_mode', True);
+m.set_timebase(-0.5, 0);
 ```
 
 </code-block>
@@ -63,7 +64,7 @@ m.set_timebase(-0.5, 0, 'roll_mode', True);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"t1": -0.5, "t2": 0, "roll_mode": true}'\
+        --data '{"t1": -0.5, "t2": 0}'\
         http://<ip>/api/logicanalyzer/set_timebase
 ```
 
@@ -76,7 +77,6 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ```json
 {
     "offset": 0.25,
-    "roll_mode": true,
     "span": 0.5
 }
 ```

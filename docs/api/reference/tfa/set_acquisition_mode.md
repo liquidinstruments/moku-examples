@@ -1,6 +1,6 @@
 ---
-additional_doc: The acquisition mode of the Time & Frequency Analyzer is the acquisition of intervals, which therefore dictates how the instrument collects interval data
-description: Configures acquisition mode to determine how statistics, histograms and output signals are computed.
+additional_doc: The acquisition mode of the Time & Frequency Analyzer is the acquisition of intervals, which therefore dictates how the instrument collects interval data.
+description: Configures acquisition mode to determine how statistics, histograms and output signals are computed
 method: post
 name: set_acquisition_mode
 parameters:
@@ -33,7 +33,7 @@ parameters:
       type: number
       unit:
     - default: True
-      description: Disable all implicit conversions and coercions.
+      description: Disable all implicit conversions and coercions
       name: strict
       param_range:
       type: boolean

@@ -200,11 +200,11 @@ The connection to the Moku device uses the Python `requests` module internally. 
 o = Oscilloscope("192.168.###.###", session_trust_env=False)
 ```
 
-#### Breaking changes with firmware version 600
+#### Breaking changes with MokuOS version 3.3.1
 
-## Important Notice: Breaking Changes in Firmware 600
+## Important Notice: Breaking Changes in MokuOS version 3.3.1
 
-Starting with firmware version 600, there are some breaking changes that require you to update your Python client package to version **3.3.1**. If you encounter the following error:
+Starting with MokuOS version 3.3.1, there are some breaking changes that require you to update your Python client package to version **3.3.1**. If you encounter the following error:
 
 ```python
 >>> i = Oscilloscope('192.168.###.###', force_connect=True)
