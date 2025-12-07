@@ -52,7 +52,7 @@ connections = [dict(source="Input1", destination="Slot1InA"),
                dict(source="Slot2OutA", destination="Output1")]
 m.set_connections(connections=connections)
 
-# Save the current configuration of Multi-instrument Mode
+# Save the current configuration of Multi-Instrument Mode
 m.save_configuration(filename="mim_state.mokuconf")
 
 # Use save_settings to save the settings of the instruments in the slots
@@ -79,7 +79,7 @@ connections = [struct('source', 'Input1', 'destination', 'Slot1InA');
             struct('source', 'Slot2OutA', 'destination', 'Output1')];
 m.set_connections(connections);
 
-% Save the current configuration of Multi-instrument Mode
+% Save the current configuration of Multi-Instrument Mode
 m.save_configuration('mim_state.mokuconf');
 
 % Use save_settings to save the settings of the instruments in the slots

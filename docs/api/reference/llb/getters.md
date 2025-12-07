@@ -14,11 +14,7 @@ getters:
   - default: null
     description: Target channel
     name: channel
-    param_range:
-     mokulab: 1, 2
-     mokugo: 1, 2
-     mokupro: 1, 2, 3, 4
-     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+    param_range: 1, 2
     type: integer
     unit: null
 - summary: get_scan_oscillator
@@ -42,7 +38,7 @@ getters:
      mokulab: 1, 2
      mokugo: 1, 2
      mokupro: 1, 2, 3, 4
-     mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+     mokudelta: 1, 2, 3, 4
     type: integer
     unit: null
 - summary: get_pll

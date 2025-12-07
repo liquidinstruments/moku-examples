@@ -46,5 +46,3 @@ http:// <ip >/api/tfa/set_defaults
 </code-block>
 
 </code-group>
-
-### Sample response

@@ -34,9 +34,9 @@ available_on: 'Moku:Pro, Moku:Delta'
 
 <headers/>
 
-When in Multi-instrument Mode, the instruments themselves cannot configure the output gain settings of the Moku. For example, the Waveform Generator instrument is no longer in control of the output gain, as the user may dynamically change the mapping between Waveform Generator output channel and the physical DAC (or not connect it to a DAC at all).
+When in Multi-Instrument Mode, the instruments themselves cannot configure the output gain settings of the Moku. For example, the Waveform Generator instrument is no longer in control of the output gain, as the user may dynamically change the mapping between Waveform Generator output channel and the physical DAC (or not connect it to a DAC at all).
 
-When in Multi-instrument Mode, the user must use this `set_output` function rather than the ones "typically" found in the namespaces of individual instruments.
+When in Multi-Instrument Mode, the user must use this `set_output` function rather than the ones "typically" found in the namespaces of individual instruments.
 
 <parameters/>
 

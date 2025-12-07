@@ -4,16 +4,6 @@ description: Configure the Infinite Impulse Response filter with one of availabl
 method: post
 name: set_filter
 parameters:
-    - default: null
-      description: Target channel
-      name: channel
-      param_range:
-          mokugo: 1, 2
-          mokulab: 1, 2
-          mokupro: 1, 2, 3, 4
-          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
-      type: integer
-      unit: null
     - default: Lowpass
       description: IIR Filter shape
       name: shape

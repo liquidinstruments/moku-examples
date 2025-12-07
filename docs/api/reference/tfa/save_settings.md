@@ -1,11 +1,11 @@
 ---
-additional_doc: null
-description: Save instrument settings to a file. The file name should have a `.mokuconf` extension to be compatible with other tools.
+additional_doc: The file name should have a `.mokuconf` extension to be compatible with other tools.
+description: Save instrument settings to a file
 method: post
 name: save_settings
 parameters:
     - default: null
-      description: The path to save the `.mokuconf` file to.
+      description: The path to save the `.mokuconf` file to
       name: filename
       param_range: null
       type: string
@@ -27,9 +27,9 @@ from moku.instruments import TimeFrequencyAnalyzer
 i = TimeFrequencyAnalyzer('192.168.###.###', force_connect=True)
 
 # Configure event detector 1
-i.set_event_detector(1, source="Input1", threshold=0.1, edge="Rising")
+i.set_event_detector(channel=1, source="Input1", threshold=0.1, edge="Rising")
 # Configure event detector 2
-i.set_event_detector(2, source="Input2", threshold=0.1, edge="Falling")
+i.set_event_detector(channel=2, source="Input2", threshold=0.1, edge="Falling")
 
 # Save the current settings of the instrument
 i.save_settings(filename="instrument_state.mokuconf")

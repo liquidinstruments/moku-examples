@@ -86,3 +86,14 @@ $ pip install numpy ipykernel matplotlib tqdm scipy
 ### 6. Start scripting
 
 You are now ready to start scripting your own neural network. Check out our [Examples](./examples/) for more inspiration. Happy Coding!
+
+## Moku Device and Slots
+
+The Neural Network can be implemented on all Moku devices with the same number of layers maintained across the devices. However, the number of neurons and the maximum sampling rates are different depending on the device and the Multi-Instrument Mode slots. These act as the constraints when designing the Linn model. Using a Linn model on a device with neurons beyond its limit cannot be uploaded into the instrument. The table below summarizes these parameters on different configurations
+
+
+|                             | Moku:Delta  | Moku:Delta |   Moku:Pro | Moku:Lab | Moku:Lab |    Moku:Go |    Moku:Go | 
+| --------------------------- | ----------: | ---------: | ---------: | -------: | -------: |  --------: |  --------: | 
+|             Number of Slots |     3 Slots |    8 Slots |    4 Slots |  2 Slots |  3 Slots |    2 Slots |    3 Slots | 
+| Maximum input sampling rate |    305kSa/s |   305kSa/s |   305kSa/s | 122kSa/s | 122kSa/s | 30.5 kSa/s | 30.5 kSa/s | 
+|   Maximum neurons per layer |         100 |        100 |        100 |       80 |       50 |         80 |         50 | 

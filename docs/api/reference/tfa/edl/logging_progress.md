@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Returns current logging state.
+description: Returns current logging state
 method: get
 name: logging_progress
 parameters: []
@@ -11,7 +11,7 @@ summary: logging_progress
 
 This method returns a dictionary to track the progress of data logging session. Always call this method in a loop until a desired result is reached.
 
-Log files can be downloaded to local machine using [download_files](../../static/download.md)
+Log files can be downloaded to local machine using [download_files](../../static/download.md).
 
 Refer to,
 
@@ -103,8 +103,4 @@ $: curl -H 'Moku-Client-Key: <key>'\
    "samples_logged":2238,
    "time_remaining":2
 }
-```
-
-```
-
 ```

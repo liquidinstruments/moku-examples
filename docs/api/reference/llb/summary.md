@@ -50,20 +50,21 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
-Sample response,
+
+### Sample response
 
 ```plaintext
-Moku:Lab Laser Lock Box
-Input 1: DC coupling, 1 MOhm impedance, 0 dB attenuation, 0 dB gain
-Input 2: DC coupling, 1 MOhm impedance, 0 dB attenuation
-Demodulating using modulation signal, phase shift 0.000 000 deg
-Lowpass filter: 4th-order Butterworth Lowpass, corner frequency 1.000 MHz, sampling rate: 31.25 MHz
+Moku:Pro Laser Lock Box
+Input 1, DC , 600 MHz , 1 MOhm , 0 dB , 400 mVpp, 0 dB digital gain
+Input 2, DC , 600 MHz , 1 MOhm , 0 dB , 400 mVpp
+Demodulation: Modulation signal, phase shift 0.000 000 deg
+Lowpass filter: 4th-order Butterworth Lowpass, corner frequency 1.000 MHz, sampling rate 78.125 MHz
 Setpoint: 0.000 0 V
-Fast controller: PI controller: proportional gain -10.0 dB, integrator crossover 1.300 kHz, integrator saturation +40.0 dB
-Slow controller: PI controller: proportional gain -10.0 dB, integrator crossover 20.00 Hz, integrator saturation +40.0 dB
+Fast controller: PI controller: proportional gain -10.0 dB, integrator crossover 3.100 kHz, integrator saturation +40.0 dB, invert off
+Slow controller: PI controller: proportional gain -10.0 dB, integrator crossover 49.00 Hz, integrator saturation +40.0 dB, invert off
 Scan - Positive ramp, 10.000 000 Hz, 500 mVpp, Output 1
 Modulation - 1.000 000 000 000 MHz, 500 mVpp, Output 1
-Output 1 - control signal disabled, offset 0.000 0 V, limits disabled, output disabled
-Output 2 - control signal disabled, offset 0.000 0 V, limits disabled, output disabled
-Internal 10 MHz clock
+Output 1 - control signal disabled, offset 0.000 0 V, limits disabled, 0 dB output gain, output disabled
+Output 2 - control signal disabled, offset 0.000 0 V, limits disabled, 0 dB output gain, output disabled
+External 10 MHz clock
 ```

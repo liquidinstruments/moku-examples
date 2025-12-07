@@ -5,7 +5,7 @@ title: 'Moku CLI'
 
 # Moku CLI
 
-Moku CLI (`mokucli`) is a powerful command line utility for managing Moku hardware devices. It provides comprehensive tools for firmware updates, instrument bitstream management, feature deployment, and device administration.
+Moku CLI (`mokucli`) is a powerful command line utility for managing Moku hardware devices. It provides comprehensive tools for MokuOS updates, instrument bitstream management, feature deployment, and device administration.
 
 ## Installation
 
@@ -87,7 +87,7 @@ For advanced configuration options, see the [Advanced Usage](advanced.md) guide.
 
 ## Download and Install Workflow
 
-MokuCLI follows a two-step workflow for managing resources (firmware, instruments, features such as rest-api):
+MokuCLI follows a two-step workflow for managing resources (MokuOS, instruments, features such as rest-api):
 
 1. **Download** - Resources are first downloaded to your local cache
 2. **Install/Upload** - Resources are then installed from the local cache to Moku devices

@@ -2,7 +2,7 @@
 additional_doc:
     When using either of the clients, user can access this function directly from
     instrument reference.
-description: Enable/Disable the external reference clock on the Moku
+description: Enable/Disable the 10 MHz external reference clock on the Moku 
 method: post
 name: set_external_clock
 parameters:

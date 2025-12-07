@@ -9,8 +9,8 @@ path_parameters:
       description: ID of the platform to deploy
       name: id
       param_range:
-          mokugo: 1, 2
-          mokulab: 1, 2
+          mokugo: 1, 2, 3
+          mokulab: 1, 2, 3
           mokupro: 1, 4
           mokudelta: 1, 3, 8
       type: integer

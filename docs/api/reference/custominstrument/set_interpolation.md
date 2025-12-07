@@ -1,0 +1,70 @@
+---
+additional_doc: null
+description: Toggle the output interpolation for a given channel.
+method: post
+name: set_interpolation
+parameters:
+    - default: null
+      description: Target channel
+      name: channel
+      param_range:
+          mokugo: 1, 2
+          mokulab: 1, 2
+          mokupro: 1, 2, 3, 4
+          mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+      type: integer
+      unit: null
+    - default: null
+      description: Interpolation state
+      name: enable
+      param_range: True, False
+      type: bool
+      unit: null
+summary: set_interpolation
+---
+
+<headers/>
+
+Interpolation is generally preferred for connections to Analog I/O (ADCs and DACs), but not when connected to a Digital I/O port.
+
+<parameters/>
+
+<code-group>
+<code-block title="Python">
+
+```python
+from moku.instruments import MultiInstrument, CustomInstrument
+m = MultiInstrument('192.168.###.###', platform_id=2)
+bitstream = "path/to/project/adder/bitstreams.tar.gz"
+# set instrument in slot 1
+cc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
+# set interpolation on the first channel
+cc.set_interpolation(1, True)
+```
+
+</code-block>
+
+<code-block title="MATLAB">
+
+```matlab
+m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
+bitstream = 'path/to/project/adder/bitstreams.tar'
+cc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
+% set connections
+cc.set_interpolation(1, true);
+```
+
+</code-block>
+
+<code-block title="cURL">
+
+```bash
+$: curl -H 'Moku-Client-Key: <key>'\
+        -H 'Content-Type: application/json'\
+        --data '{"channel": 1, "enable": true}'\
+        http://<ip>/api/slot1/custominstrument/set_interpolation
+```
+
+</code-block>
+
+</code-group>

@@ -18,7 +18,7 @@ summary: summary
 ```python
 from moku.instruments import LogicAnalyzer
 i = LogicAnalyzer('192.168.###.###')
-i.set_pin("Pin1", "O")
+i.set_pin_mode(1, "PG1")
 print(i.summary())
 ```
 
@@ -28,10 +28,8 @@ print(i.summary())
 
 ```matlab
 m = MokuLogicAnalyzer('192.168.###.###');
-m.set_pin("Pin1", "O");
-m.set_pin("Pin1", "H");
-m.set_pin("Pin1", 'L');
-disp(m.summary());
+m.set_pin_mode(1, "PG1");
+disp(m.summary())
 ```
 
 </code-block>
@@ -52,25 +50,24 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 Moku:Go Logic Analyzer
-Pin 1 - Output, Clock, 31.25 MHz
-Pin 2 - Input
-Pin 3 - Input
-Pin 4 - Input
-Pin 5 - Input
-Pin 6 - Input
-Pin 7 - Input
-Pin 8 - Input
-Pin 9 - Input
-Pin 10 - Input
-Pin 11 - Input
-Pin 12 - Input
-Pin 13 - Input
-Pin 14 - Input
-Pin 15 - Input
-Pin 16 - Input
-Time span 500.0 ms,
-time offset 250.0 ms
-Edge trigger: Pin 1,
-Auto mode,
-Rising edge
+Pin 1 - Bit 0 - Output 1
+Pin 2 - Bit 1 - Input
+Pin 3 - Bit 2 - Input
+Pin 4 - Bit 3 - Input
+Pin 5 - Bit 4 - Input
+Pin 6 - Bit 5 - Input
+Pin 7 - Bit 6 - Input
+Pin 8 - Bit 7 - Input
+Pin 9 - Bit 8 - Input
+Pin 10 - Bit 9 - Input
+Pin 11 - Bit 10 - Input
+Pin 12 - Bit 11 - Input
+Pin 13 - Bit 12 - Input
+Pin 14 - Bit 13 - Input
+Pin 15 - Bit 14 - Input
+Pin 16 - Bit 15 - Input
+Time span 500.0 ms, time offset 250.0 ms
+Basic trigger, Auto mode, Pin 1, Rising edge
+Pattern Generator 1: 8 values, divider 125, baud rate 1,000,000
+Pattern Generator 2: 8 values, divider 125, baud rate 1,000,000
 ```

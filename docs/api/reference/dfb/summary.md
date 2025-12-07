@@ -24,8 +24,7 @@ i.set_filter(1, "3.906MHz", shape="Lowpass", type="ChebyshevI")
 # Set the probes to monitor Filter 1 and Output 2
 i.set_monitor(1, "Filter1")
 i.set_monitor(2, "Output1")
-i.summary()
-
+print(i.summary())
 ```
 
 </code-block>
@@ -62,10 +61,8 @@ Moku:Go Digital Filter Box
 Input 1, DC coupling, 0 dB attenuation
 Input 2, DC coupling, 0 dB attenuation
 Control matrix: 1-1 = 1, 1-2 = 0, 2-1 = 0, 2-2 = 1
-Filter 1 - 8th-order Butterworth Lowpass, corner frequency 10.00 kHz, sampling rate: 3.9063 MHz
-Input offset 0.000 V, input gain +0.0 dB
-Output gain +0.0 dB, output offset 0.000 V
-Filter 2 - 4th-order Elliptic Bandpass, corner frequencies 100.0 Hz, 10.00 kHz, sampling rate: 3.9063 MHz
-Input offset 0.000 V, input gain +0.0 dB
-Output gain +0.0 dB, output offset 0.000 V
+Filter 1 - 8th-order Chebyshev I Lowpass, corner frequency 10.00 kHz, sampling rate 3.9063 MHz, input offset 0.000 V, input gain +0.0 dB
+Filter 2 - 6th-order Elliptic Bandpass, corner frequencies 100.0 Hz, 10.00 kHz, sampling rate 3.9063 MHz, input offset 0.000 V, input gain +0.0 dB
+Output 1 - gain +0.0 dB, offset 0.000 0 V, output disabled
+Output 2 - gain +0.0 dB, offset 0.000 0 V, output disabled
 ```

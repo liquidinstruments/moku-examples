@@ -59,7 +59,7 @@ export default {
         currentIcon() {
             // Map the string prop to the corresponding component
             const icons = {
-                mcc: 'PhCloudArrowUp',
+                mc: 'PhCloudArrowUp',
                 cli: 'PhTerminalWindow',
                 api: 'PhPaperPlaneTilt',
                 mnn: 'PhGraph',

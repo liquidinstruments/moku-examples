@@ -14,10 +14,10 @@ parameters:
       description: Trigger Source
       name: source
       param_range:
-          mokugo: ProbeA, ProbeB
-          mokulab: ProbeA, ProbeB
-          mokupro: ProbeA, ProbeB, ProbeC, ProbeD
-          mokudelta: ProbeA, ProbeB, ProbeC, ProbeD, External
+          mokugo: ProbeA, ProbeB, Scan
+          mokulab: ProbeA, ProbeB, Scan
+          mokupro: ProbeA, ProbeB, ProbeC, ProbeD, Scan
+          mokudelta: ProbeA, ProbeB, ProbeC, ProbeD, Scan
       type: string
       unit: null
     - default: 0

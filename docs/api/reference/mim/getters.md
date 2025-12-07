@@ -1,7 +1,7 @@
 ---
-additional_doc: Along with regular configuration methods, Multi-instrument supports following getter functions.
+additional_doc: Along with regular configuration methods, Multi-Instrument supports following getter functions.
 name: getters
-description: Multi-instrument -  getter functions
+description: Multi-Instrument -  getter functions
 getters: 
 - summary: get_connections
   description: Get configured connections between all the available slots.

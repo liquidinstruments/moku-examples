@@ -9,7 +9,9 @@ parameters:
       name: channel
       type: integer
       unit: null
-      param_range: 
+      param_range:
+          mokugo: 1, 2
+          mokulab: 1, 2  
           mokupro: 1, 2, 3, 4
           mokudelta: 1, 2
     - default: null
@@ -17,13 +19,21 @@ parameters:
       name: low_level
       type: number
       unit: V
-      param_range: -1 to 0.99
+      param_range: 
+          mokugo: -2.5 to 2.475
+          mokulab: -1 to 0.99
+          mokupro: -1 to 0.99
+          mokudelta: -1 to 0.99
     - default: null
       description: High level
       name: high_level
       type: number
       unit: V
-      param_range: -0.99 to 1
+      param_range:
+          mokugo: -2.475 to 2.5 
+          mokulab: -0.99 to 1
+          mokupro: -0.99 to 1
+          mokudelta: -0.99 to 1
     - default: true
       description: Disable all implicit conversions and coercions
       name: strict
@@ -31,7 +41,6 @@ parameters:
       unit: null
       param_range: true, false
 summary: set_input
-available_on: 'Moku:Pro, Moku:Delta'
 
 ---
 
