@@ -8,7 +8,9 @@ module.exports = {
         ['/api/reference/moku/describe', 'describe'],
         ['/api/reference/moku/name', 'name'],
         ['/api/reference/moku/platform', 'platform'],
+        ['/api/reference/moku/reboot', 'reboot'],
         ['/api/reference/moku/relinquish_ownership', 'relinquish_ownership'],
         ['/api/reference/moku/serial_number', 'serial_number'],
+        ['/api/reference/moku/shutdown', 'shutdown'],
     ],
 }
