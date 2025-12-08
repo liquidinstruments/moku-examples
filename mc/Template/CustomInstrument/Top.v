@@ -15,11 +15,6 @@ module CustomInstrument (
     output wire signed [15:0] outputc,
     output wire signed [15:0] outputd,
 
-    output wire outputinterpa,
-    output wire outputinterpb,
-    output wire outputinterpc,
-    output wire outputinterpd,
-
     input wire [31:0] control [0:15],
     output wire [31:0] status[0:15]
 );
