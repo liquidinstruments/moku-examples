@@ -105,6 +105,7 @@ module.exports = {
                             'Frequency Response Analyzer',
                             'reference/fra',
                         ),
+                        getChildren('Gigabit Streamer', 'reference/gs'),
                         getChildren('Laser Lock Box', 'reference/llb'),
                         getChildren('LockIn Amplifier', 'reference/lia'),
                         getChildren(
