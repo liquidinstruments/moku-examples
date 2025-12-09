@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Triggers a reacquisition cycle on the embedded PLL
+description: Restarts the PLL on the external reference signal. Acquisition uses an FFT-based frequency estimate.
 method: post
 name: pll_reacquire
 parameters: []
