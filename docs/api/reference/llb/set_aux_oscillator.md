@@ -48,7 +48,7 @@ summary: set_aux_oscillator
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_aux_oscillator()
 # Set the probes to monitor Output 1 and Output 2
 i.set_monitor(1, 'Output1')
@@ -61,7 +61,7 @@ i.set_monitor(2, 'Output2')
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_aux_oscillator()
 % Set the probes to monitor Output 1 and Output 2
 m.set_monitor(1, 'Output1')

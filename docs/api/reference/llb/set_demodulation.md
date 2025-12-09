@@ -44,7 +44,7 @@ summary: set_demodulation
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_demodulation(mode="Internal",frequency=1000000,phase=0)
 ```
 
@@ -53,7 +53,7 @@ i.set_demodulation(mode="Internal",frequency=1000000,phase=0)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_demodulation('mode','Internal','frequency',1000000,'phase',0)
 ```
 

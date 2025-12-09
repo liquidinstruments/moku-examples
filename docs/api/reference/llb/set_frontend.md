@@ -65,7 +65,7 @@ summary: set_frontend
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_frontend(1, "AC", "1MOhm", "0dB")
 ```
 
@@ -74,7 +74,7 @@ i.set_frontend(1, "AC", "1MOhm", "0dB")
 <code-block title="MATLAB">
 
 ````matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_frontend(1, "AC", "1MOhm", "0dB");```
 </code-block>
 

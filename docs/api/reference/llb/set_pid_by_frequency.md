@@ -71,7 +71,7 @@ summary: set_pid_by_frequency
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###', force_connect=False)
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure the Fast PID Controller using frequency response
 # characteristics
 # 	P = -10dB
@@ -83,7 +83,7 @@ i.set_pid_by_frequency(channel=1, prop_gain=-10)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###', true);
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure the Fast PID Controller using frequency response
 % characteristics
 % 	P = -10dB

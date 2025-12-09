@@ -30,7 +30,7 @@ summary: set_setpoint
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_aux_oscillator()
 # Set the set point to 1V
 i.set_setpoint(1)
@@ -42,7 +42,7 @@ i.set_setpoint(1)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_aux_oscillator()
 % Set the set point to 1V
 m.set_setpoint(1)

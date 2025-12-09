@@ -37,7 +37,7 @@ summary: set_hysteresis
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Set instrument to desired state
 i.set_hysteresis("Absolute",1)
 ```
@@ -47,7 +47,7 @@ i.set_hysteresis("Absolute",1)
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuLaserLockBox('192.168.###.###');
+i = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Set instrument to desired state
 i.set_hysteresis('Absolute',1);
 ```

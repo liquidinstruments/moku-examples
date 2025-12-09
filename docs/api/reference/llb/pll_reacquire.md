@@ -16,7 +16,7 @@ group: Input PLL
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.pll_reacquire()
 ```
 
@@ -25,7 +25,7 @@ i.pll_reacquire()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.pll_reacquire()
 ```
 

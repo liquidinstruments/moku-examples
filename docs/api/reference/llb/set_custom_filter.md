@@ -35,7 +35,7 @@ summary: set_custom_filter
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 
 # Configure IIR filter 1 of the LLB
 
@@ -55,7 +55,7 @@ i.set_custom_filter(scaling=10, coefficients=filter_coefficients)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure IIR filter 1 of the DFB with custom coefficients
 
 % The following example array produces an 8th order Direct-form 1

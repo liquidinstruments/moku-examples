@@ -47,7 +47,7 @@ summary: set_output_limit
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_output_limit(channel=3, high_limit=1)
 ```
 
@@ -56,7 +56,7 @@ i.set_output_limit(channel=3, high_limit=1)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_output_limit(1, 'high_limit', 1);
 ```
 

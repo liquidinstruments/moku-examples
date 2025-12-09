@@ -54,7 +54,7 @@ group: Data Streaming
 ```python
 import json
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 
 ### Configure instrument to desired state
 
@@ -70,7 +70,7 @@ while True:
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 
 %%% Configure instrument to desired state
 

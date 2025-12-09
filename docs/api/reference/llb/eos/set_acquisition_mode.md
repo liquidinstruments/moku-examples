@@ -30,7 +30,7 @@ summary: set_acquisition_mode
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Set instrument to desired state
 i.set_acquisition_mode(mode="Precision")
 ```
@@ -40,7 +40,7 @@ i.set_acquisition_mode(mode="Precision")
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###', true);
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Set instrument to desired state
 m.set_acquisition_mode('mode', 'Precision')
 ```

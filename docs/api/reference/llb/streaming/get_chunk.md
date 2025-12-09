@@ -35,7 +35,7 @@ Examples,
 ```python
 from moku.instruments import LaserLockBox
 
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.start_streaming(duration=10)
 data = i.get_chunk()
 
@@ -46,7 +46,7 @@ data = i.get_chunk()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.start_streaming('duration', 10);
 data = m.get_chunk();
 ```

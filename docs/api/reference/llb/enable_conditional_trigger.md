@@ -29,7 +29,7 @@ summary: enable_conditional_trigger
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.enable_conditional_trigger()
 ```
 
@@ -38,7 +38,7 @@ i.enable_conditional_trigger()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.enable_conditional_trigger();
 ```
 

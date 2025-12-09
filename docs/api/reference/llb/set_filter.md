@@ -65,7 +65,7 @@ summary: set_filter
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Following configuration produces Chebyshev type 1 IIR filter
 i.set_filter(shape="Lowpass", type="ChebyshevI", order=4)
 ```
@@ -75,7 +75,7 @@ i.set_filter(shape="Lowpass", type="ChebyshevI", order=4)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Following configuration produces Chebyshev type 1 IIR filter
 m..set_filter('shape', 'Lowpass', 'type', 'ChebyshevI', 'order', 4)
 ```

@@ -54,7 +54,7 @@ summary: set_scan_oscillator
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', frequency=10, amplitude=0.5)
 ```
 
@@ -63,7 +63,7 @@ i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', frequ
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,'amplitude',0.5,'output','Output1')
 ```
 

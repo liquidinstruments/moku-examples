@@ -123,7 +123,7 @@ To mimic the **Single** trigger mode, configure the trigger mode to **Normal** a
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Set instrument to desired state
 # Trigger on input Channel 1, rising edge, 0V
 i.set_trigger(type="Edge", source="ProbeA", level=0)
@@ -134,7 +134,7 @@ i.set_trigger(type="Edge", source="ProbeA", level=0)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 # Set instrument to desired state
 % Trigger on input Channel 1, rising edge, 0V
 m.set_trigger('type',"Edge",'source',"ProbeA",'level',1);

@@ -51,7 +51,7 @@ summary: set_output
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure the fast controller path: 
 # connect the fast controller switch and enable the output channel
 i.set_output(1, signal=True, output=True)
@@ -66,7 +66,7 @@ i.set_output(2, signal=True, output=True)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure the fast controller path: 
 % connect the fast controller switch and enable the output channel
 m.set_output(1, 'signal', true, 'output', true);

@@ -24,7 +24,7 @@ Examples,
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.start_streaming(duration=10)
 i.stream_to_file() # by default data is streamed to a csv file
 ```
@@ -34,7 +34,7 @@ i.stream_to_file() # by default data is streamed to a csv file
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.start_streaming('duration', 10);
 m.stream_to_file() % by default data is streamed to a csv file
 
