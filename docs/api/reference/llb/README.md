@@ -14,6 +14,6 @@ If using the REST API directly, the instrument group name is `laserlockbox`.
 |                        | Moku:Go      | Moku:Lab      | Moku:Pro      | Moku:Delta  |
 | ---------------------- | ------------ | ------------- | ------------- | ----------- |
 | Maximum Output Voltage | ±5 V         | ±1 V          | ±10 V         | ±5 V        |
-| Input Bandwidth        | DC to 60 MHz | DC to 200 MHz | DC to 600 MHz | DC to 2 GHz |
+| Input Bandwidth        | DC to 30 MHz | DC to 200 MHz | DC to 600 MHz | DC to 2 GHz |
 
 <function-index/>
