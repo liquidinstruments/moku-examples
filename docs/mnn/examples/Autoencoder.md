@@ -304,11 +304,11 @@ save_linn(quant_mod, input_channels=1, output_channels=1, file_name='autoencoder
     Network latency approx. 184 cycles
 ```
 
-With this adjusted model, we can now de-noise some signals on a moku device. This shows an example simulation of producing, de-noising and viewing a periodic signal using a Moku:Pro in multi-instrument mode.
+With this adjusted model, we can now de-noise some signals on a moku device. This shows an example simulation of producing, de-noising and viewing a periodic signal using a Moku:Pro in Multi-Instrument Mode.
 
 ![](./Autoencoder_files/MIM_Setup.png "Multi Instrument Mode Setup")
 
-Using multi-instrument mode, we can simulate a real-world signal with variable amounts of noise. We start by configuring a waveform generator to produce a periodic signal and some Gaussian noise.
+Using Multi-Instrument Mode, we can simulate a real-world signal with variable amounts of noise. We start by configuring a waveform generator to produce a periodic signal and some Gaussian noise.
 
 ![](./Autoencoder_files/Waveform_Generator_Sine.png "Waveform Generator Producing a Sine Wave and Gaussian Noise")
 

@@ -10,9 +10,10 @@ parameters: []
 
 This reboots, or power cycles, your Moku remotely. 
 
-::: caution
+::: tip INFO
 This function is implimented in Python only at the moment.
 :::
+
 <parameters/>
 
 Examples:

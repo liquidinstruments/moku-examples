@@ -5,9 +5,9 @@ name: Multi-instrument
 description: Arbitrary Waveform Generator in multi-instrument context
 ---
 
-# Arbitrary Waveform Generator - Multi-instrument mode
+# Arbitrary Waveform Generator - Multi-Instrument Mode
 
-To configure Arbitrary Waveform Generator in multi-instrument mode,
+To configure Arbitrary Waveform Generator in Multi-Instrument Mode,
 
 -   Python/MATLAB clients: `m.set_instrument(<slot>, ArbitraryWaveformGenerator)`, where `m` is the `MultiInstrument` object
 -   cURL: `http://<ip>/api/<slot>/awg`
@@ -15,5 +15,5 @@ To configure Arbitrary Waveform Generator in multi-instrument mode,
 `<slot>` is required and depends on the `hardware` and `platform` combination. Read more about [slots](../../getting-started/starting-mim#selecting-the-multi-instrument-mode-configuration.md)
 
 ::: warning
-Multi-instrument mode should be enabled before configuring Arbitrary Waveform Generator in one of the slots. Read [Platform](../moku/platform.md)
+Multi-Instrument Mode should be enabled before configuring Arbitrary Waveform Generator in one of the slots. Read [Platform](../moku/platform.md)
 :::
