@@ -10,10 +10,10 @@ $ mokucli feature [OPTIONS] COMMAND [ARGS]...
 
 ## Commands
 
-- `upload`: Upload software features to a Moku device
-- `list`: List available features on a server
-- `download`: Download features for a given version
-- `install`: Alias for upload
+-   `upload`: Upload software features to a Moku device
+-   `list`: List available features on a server
+-   `download`: Download features for a given version
+-   `install`: Alias for upload
 
 ## mokucli feature upload
 
@@ -27,13 +27,13 @@ $ mokucli feature upload [OPTIONS] IP_ADDRESS FEATURES...
 
 ### Arguments
 
-- `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) [required]
-- `FEATURES`: One or more features to upload, each either a path to a .hgp file, a version:feature identifier, or just a feature name (version taken from device). Supports versions (e.g., '4.0.1:api-server') and glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:api-*', '4.0.1:rest-?ttp', '4.0.1:[ar]*' [required]
+-   `IP_ADDRESS`: IP address or hostname of Moku (e.g., 192.168.1.100, MokuGo-000092) [required]
+-   `FEATURES`: One or more features to upload, each either a path to a .hgp file, a version:feature identifier, or just a feature name (version taken from device). Supports versions (e.g., '4.0.1:api-server') and glob patterns: * (any characters), ? (single character), [seq] (character set), e.g., '4.0.1:api-*', '4.0.1:rest-?ttp', '4.0.1:[ar]*' [required]
 
 ### Options
 
-- `--verbose, -v`: Show detailed output for each feature upload
-- `--help`: Show this message and exit
+-   `--verbose, -v`: Show detailed output for each feature upload
+-   `--help`: Show this message and exit
 
 ### Examples
 
@@ -69,14 +69,14 @@ $ mokucli feature list [OPTIONS] [SERVER]
 
 ### Arguments
 
-- `SERVER`: Server to list features from. Defaults to the default server. [default: None]
+-   `SERVER`: Server to list features from. Defaults to the default server. [default: None]
 
 ### Options
 
-- `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Filter by hardware version
-- `--version TEXT`: Filter by version (e.g., '4.0.1')
-- `--summary`: Show summary of available features without listing individual files
-- `--help`: Show this message and exit
+-   `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Filter by hardware version
+-   `--version TEXT`: Filter by version (e.g., '4.0.1')
+-   `--summary`: Show summary of available features without listing individual files
+-   `--help`: Show this message and exit
 
 ### Examples
 
@@ -115,10 +115,11 @@ api-server:
 Download features to the local cache for later installation
 
 This command downloads software features to your local cache, enabling:
-- Offline installation to Moku devices
-- Bulk deployment of features across multiple devices
-- Pre-staging features before field deployment
-- Faster subsequent installations from local cache
+
+-   Offline installation to Moku devices
+-   Bulk deployment of features across multiple devices
+-   Pre-staging features before field deployment
+-   Faster subsequent installations from local cache
 
 Downloaded features are stored in the platform-specific data directory and can be installed later using `mokucli feature upload`.
 
@@ -130,16 +131,16 @@ $ mokucli feature download [OPTIONS] FEATURES...
 
 ### Arguments
 
-- `FEATURES`: One or more features to download (e.g., 'api-server', '4.0.1:api-server'). Format: version:feature or just feature name (requires --ip to get version from device) [required]
+-   `FEATURES`: One or more features to download (e.g., 'api-server', '4.0.1:api-server'). Format: version:feature or just feature name (requires --ip to get version from device) [required]
 
 ### Options
 
-- `--target PATH`: Directory to download features to [default: platform-specific data directory]
-- `--force`: Force redownload even if file exists
-- `--ip TEXT`: IP address of a connected Moku device (for version and hardware detection)
-- `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Hardware version to download. If not specified, downloads for all available hardware versions
-- `--verbose, -v`: Show detailed output for each feature download
-- `--help`: Show this message and exit
+-   `--target PATH`: Directory to download features to [default: platform-specific data directory]
+-   `--force`: Force redownload even if file exists
+-   `--ip TEXT`: IP address of a connected Moku device (for version and hardware detection)
+-   `--hw-version [mokugo|mokupro|mokulab|mokudelta]`: Hardware version to download. If not specified, downloads for all available hardware versions
+-   `--verbose, -v`: Show detailed output for each feature download
+-   `--help`: Show this message and exit
 
 ### Examples
 
@@ -165,9 +166,9 @@ mokucli feature download 4.0.1:api-server
 
 ### Notes
 
-- Features are software packages that enhance device functionality
-- The device hardware version is automatically detected when uploading
-- When no version is specified in the feature name, the device's current version is used automatically
-- If a feature is not found locally, it will be automatically downloaded before uploading
-- The device must be restarted after feature uploads to complete the update
-- Auto-download is not available for glob patterns - download them first using `feature download`
+-   Features are software packages that enhance device functionality
+-   The device hardware version is automatically detected when uploading
+-   When no version is specified in the feature name, the device's current version is used automatically
+-   If a feature is not found locally, it will be automatically downloaded before uploading
+-   The device must be restarted after feature uploads to complete the update
+-   Auto-download is not available for glob patterns - download them first using `feature download`

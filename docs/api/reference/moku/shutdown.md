@@ -1,5 +1,5 @@
 ---
-description: Powerdown the Moku.
+description: Restart the Moku.
 method: post
 name: shutdown
 summary: shutdown
@@ -8,10 +8,10 @@ parameters: []
 
 <headers/>
 
-This powers off your Moku remotely. It cannot be turned back on remotely, use 'reboot' to powercycle your Moku. 
+This powers off your Moku remotely. It cannot be turned back on remotely, use 'reboot' to restart your Moku.
 
 ::: tip INFO
-This function is implimented in Python only at the moment.
+This function is implemented in Python only at the moment.
 :::
 
 <parameters/>
@@ -25,11 +25,10 @@ Examples:
 from moku.instruments import ArbitraryWaveformGenerator
 
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
-# Shurdown the Moku
+# Shutdown the Moku
 i.shutdown()
 ```
 
 </code-block>
 
 </code-group>
-

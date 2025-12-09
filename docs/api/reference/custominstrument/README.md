@@ -13,7 +13,7 @@ If you are using the Custom Instrument instrument directly through the REST API,
 Moku Custom Instruments can only be used in Multi-Instrument Mode. Refer to the [Multi-Instrument Mode Getting Started Guide](../../getting-started/starting-mim.md) for more details.
 :::
 
-### Deploying the instrument 
+### Deploying the instrument
 
 <code-group>
 <code-block title="Python">

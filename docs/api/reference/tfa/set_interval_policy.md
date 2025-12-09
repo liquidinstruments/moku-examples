@@ -1,5 +1,5 @@
 ---
-additional_doc: For all acquisition types determine how multiple start events are handled when measuring intervals and for gated mode, select whether to discard or close the interval at the end of the gate period. 
+additional_doc: For all acquisition types determine how multiple start events are handled when measuring intervals and for gated mode, select whether to discard or close the interval at the end of the gate period.
 description: Sets how corner interval cases are handled
 method: post
 name: set_interval_policy
