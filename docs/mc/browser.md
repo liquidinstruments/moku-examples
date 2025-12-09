@@ -1,6 +1,6 @@
 # Using Bitstream Browser
 
-Instead of using the browser to download the bitstreams, you can use the Bitstream Browser embedded in the Moku application. This allows multiple devices to access the cloud server with the same account to download the required bitstreams. This is for Moku Cloud Compile and requires an Internet connection. 
+Instead of using the browser to download the bitstreams, you can use the Bitstream Browser embedded in the Moku application. This allows multiple devices to access the cloud server with the same account to download the required bitstreams. This is for Moku Cloud Compile and requires an Internet connection.
 
 ### Setting and Using API keys
 
@@ -8,7 +8,7 @@ Instead of using the browser to download the bitstreams, you can use the Bitstre
 
 ![preferences](./browser_preferences.png)
 
-**Step 2:** On the Preferences page, click on the "API Keys" tab to update the page. Click on Create API Key and fill in the name for the Key. Select the access you want with the API key. For use with Bitstream Browser, you would need to select "projects:read" and "builds:read". 
+**Step 2:** On the Preferences page, click on the "API Keys" tab to update the page. Click on Create API Key and fill in the name for the Key. Select the access you want with the API key. For use with Bitstream Browser, you would need to select "projects:read" and "builds:read".
 
 ![apikey](./creating-apikey.png)
 
@@ -16,7 +16,7 @@ Instead of using the browser to download the bitstreams, you can use the Bitstre
 
 ![apikeycopy](./apikey-copy.png)
 
-**Step 4:** After the API key is created, we can add it to the browser. Open the Moku application, and navigate to the settings icon towards the lower right side. Select "Bitstreams" from the drop-down menu to open the Moku Compile Bitstream Browser window. Alternatively you can open this Browser when loading the bitstream into Custom Instrument as shown in [here](./getting-started/deploying.md).
+**Step 4:** After the API key is created, we can add it to the browser. Open the Moku application, and navigate to the settings icon towards the lower right side. Select "Bitstreams" from the drop-down menu to open the Moku Compile Bitstream Browser window. Alternatively you can open this Browser when loading the bitstream into Custom Instrument as shown in [Deploying Your Design](./getting-started/deploying.md).
 ![bitstreambrowser](./mokuapp-browser.png)
 ![bitstreambrowserapi](./updating-api-key.png)
 

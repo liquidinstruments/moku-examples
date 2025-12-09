@@ -51,7 +51,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```text
 Moku:Pro Neural Network
-Aquisition rate: 305 kSa/s
+Acquisition rate: 305 kSa/s
 Input A - low level -1.000 V, high level 1.000 V
 Input B - low level -1.000 V, high level 1.000 V
 Input C - low level -1.000 V, high level 1.000 V

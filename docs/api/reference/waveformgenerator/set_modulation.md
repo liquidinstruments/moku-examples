@@ -27,8 +27,8 @@ parameters:
       param_range:
           mokugo: Input1, Input2, InputA, Output1, Output2, Internal
           mokulab: Input1, Input2, InputA, Output1, Output2, Internal
-          mokupro: Input1, Input2, Input3, Input4, InputA, InputB, Output1, Output2, Output3, Output4, OutputA, OuptutB, Internal
-          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, OutputA, OuptutB, Internal
+          mokupro: Input1, Input2, Input3, Input4, InputA, InputB, Output1, Output2, Output3, Output4, OutputA, OutputB, Internal
+          mokudelta: Input1, Input2, Input3, Input4, Input5, Input6, Input7, Input8, InputA, InputB, Output1, Output2, Output3, Output4, Output5, Output6, Output7, Output8, OutputA, OutputB, Internal
       type: string
       unit: null
     - default: 0

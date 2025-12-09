@@ -8,10 +8,10 @@ parameters: []
 
 <headers/>
 
-This reboots, or power cycles, your Moku remotely. 
+This reboots, or power cycles, your Moku remotely.
 
 ::: tip INFO
-This function is implimented in Python only at the moment.
+This function is implemented in Python only at the moment.
 :::
 
 <parameters/>
@@ -25,7 +25,7 @@ Examples:
 from moku.instruments import ArbitraryWaveformGenerator
 
 i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=False)
-# Shurdown the Moku
+# Reboot the Moku
 i.reboot()
 ```
 
