@@ -3,11 +3,7 @@ title: Laser Lock Box
 prev: false
 ---
 
-# Laser Lock Box <beta-flag/>
-
-:::warning
-This feature is currently in beta and under active development.
-:::
+# Laser Lock Box 
 
 The Laser Lock Box is designed to stabilize and control lasers in various applications such as atomic physics, quantum optics, spectroscopy, and metrology.
 
