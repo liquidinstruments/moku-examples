@@ -9,7 +9,7 @@ Moku CLI (`mokucli`) is a powerful command line utility for managing Moku hardwa
 
 ## Installation
 
-The latest packages are available to download from [Utilities](https://www.liquidinstruments.com/software/utilities/). The installation wizard will configure everything needed to launch the CLI successfully.
+The latest packages are available to download from [Utilities](https://www.liquidinstruments.com/software/utilities/). The installation wizard will configure everything needed to launch and update the CLI successfully.
 
 ### Search Path Configuration
 
@@ -108,3 +108,5 @@ mokucli COMMAND --help
 ```
 
 For detailed information about each command, see the individual command pages linked above.
+
+To remove mokucli, see the [Knowledge Base article](https://knowledge.liquidinstruments.com/update-mokucli-version) for removal on your operating system.
