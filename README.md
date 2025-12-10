@@ -24,7 +24,7 @@ Jira tags in commits are recommended but not required. Multi-line commit message
 
 ### Building with Node.js >= 18
 
-If you are using a version of Node.js >= version 18 and are seeing errors when trying to build the static HTML build with `npm run docs:build:node>18`
+If you are using a version of Node.js >= version 18 and are seeing errors when trying to build the static HTML, install cross-env with `npm install --save-dev cross-env` and build with `npm run docs:build:node18`
 
 ### Testing the build output locally
 
