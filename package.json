@@ -7,17 +7,19 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "docs:dev": "vuepress dev docs --host localhost",
         "docs:build": "vuepress build docs",
-        "docs:build:node>18": "export NODE_OPTIONS='--openssl-legacy-provider' && vuepress build docs"
+        "docs:build:node18": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@vuepress/plugin-back-to-top": "^1.8.2",
+        "cross-env": "^10.1.0",
         "vuepress": "^1.8.2",
         "vuepress-plugin-versioning": "github:nonebot/vuepress-plugin-versioning"
     },
     "dependencies": {
+        "cross-env": "^7.0.3",
         "notebookjs": "^0.8.3",
         "phosphor-vue": "^1.4.0",
         "prettier": "^3.3.3",
