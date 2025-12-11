@@ -4,19 +4,45 @@ export default {
   props: ["range"],
   render(h, { props }) {
     if (typeof props.range === "object") {
-      var children = [];
+      const rows = []
+
+      if (props.range.mokulab != null) {
+        rows.push(type_and_range(h, "Moku:Lab", props.range.mokulab, "tr-lab"));
+      }
+
+      if (props.range.mokugo != null) {
+        rows.push(type_and_range(h, "Moku:Go", props.range.mokugo, "tr-go"));
+      }
+
+      if (props.range.mokupro != null) {
+        rows.push(type_and_range(h, "Moku:Pro", props.range.mokupro, "tr-pro"));
+      }
+
+      if (props.range.mokudelta != null) {
+        rows.push(type_and_range(h, "Moku:Delta", props.range.mokudelta, "tr-delta"));
+      }
+
+      if (props.range.gigabitstreamer != null) {
+        rows.push(type_and_range(h, "Gigabit Streamer", props.range.gigabitstreamer, "tr-gs"));
+      }
+
+      if (props.range.gigabitstreamerplus != null) {
+        rows.push(type_and_range(h, "Gigabit Streamer+", props.range.gigabitstreamerplus, "tr-gsp"));
+      }
+
+      const children = [];
       children.push(title(h, ""));
-      children.push(h("table", { class: "parameter-range-table" }, [
-        type_and_range(h, "Moku:Lab", props.range.mokulab, "tr-lab"),
-        type_and_range(h, "Moku:Go", props.range.mokugo, "tr-go"),
-        type_and_range(h, "Moku:Pro", props.range.mokupro, "tr-pro"),
-        type_and_range(h, "Moku:Delta", props.range.mokudelta, "tr-delta"),
-      ]));
-      return h("div", { class: "param-range-container"  }, [h("code", children)]);
-    } 
-    else {
-      return h("div", { class: "param-range-container" }, 
-              [h("code", [title(h, ""), h("span", props.range)])]);
+      children.push(
+        h("table", { class: "parameter-range-table" }, rows)
+      );
+
+      return h("div", { class: "param-range-container"  }, [
+        h("code", children),
+      ]);
+    } else {
+      return h("div", { class: "param-range-container" }, [
+        h("code", [title(h, ""), h("span", props.range)]),
+      ]);
     }
   },
 };
