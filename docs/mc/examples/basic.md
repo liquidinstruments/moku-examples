@@ -24,7 +24,7 @@ Output B is Input A - Input B;
 
 </code-group>
 
-<action-button text="Adder | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder" target="_blank"/>
+<open-in-moku-compile name="Adder" githubPath="Basic/Adder" />
 
 ## Voltage limiter
 
@@ -40,7 +40,7 @@ This example uses the clip function from the Moku Library to limit the output si
 
 </code-group>
 
-<action-button text="Voltage Limiter | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/VoltageLimiter" target="_blank"/>
+<open-in-moku-compile name="Voltage limiter" githubPath="Basic/VoltageLimiter" />
 
 ## DSP
 
@@ -69,4 +69,4 @@ This example instantiates a DSP block using the [ScaleOffset](../support.md#scal
 
 </code-group>
 
-<action-button text="DSP | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/DSP" target="_blank"/>
+<open-in-moku-compile name="DSP" githubPath="Basic/DSP" />

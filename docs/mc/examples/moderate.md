@@ -4,7 +4,7 @@
 
 The examples implement a moving averager and a median filter as explained fully in the application note [Reducing noise and transients with custom real-time digital filtering](https://www.liquidinstruments.com/blog/2022/12/15/reducing-noise-and-transients-with-custom-real-time-digital-filtering/)
 
-<action-button text="Average and Median | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/AverageAndMedian" target="_blank"/>
+<open-in-moku-compile name="Moving Average and Median" githubPath="Moderate/AverageAndMedian" />
 
 ## Arithmetic Unit example
 
@@ -15,7 +15,7 @@ This arithmetic unit example can perform addition, subtraction, or multiplicatio
 -   10 represents Input A * Input B;
 -   11 will just pass Input A to Output A.
 
-<action-button text="Arithmetic Unit | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit" target="_blank"/>
+<open-in-moku-compile name="Arithmetic Unit" githubPath="Moderate/ArithmeticUnit" />
 
 ## Swept Frequency Pulse
 
@@ -24,7 +24,7 @@ The following pulse is representative of the type of signal that would be used i
 
 ![Swept Frequency Result](./swept_freq_result.png)
 
-<action-button text="Swept Pulse | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/SweptPulse" target="_blank"/>
+<open-in-moku-compile name="Swept Frequency Pulse" githubPath="Moderate/SweptPulse" />
 
 ## Input Divider
 
@@ -38,4 +38,4 @@ The quotient signal can be routed to the Moku Oscilloscope in the contiguous Slo
 
 ![CC Divider Screenshot](./screenshot.png)
 
-<action-button text="Divider | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/Divider" target="_blank"/>
+<open-in-moku-compile name="Input Divider" githubPath="Moderate/Divider" />
