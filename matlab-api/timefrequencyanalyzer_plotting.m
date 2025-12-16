@@ -27,8 +27,11 @@ try
     % Set acquisition mode to a 100ms Window
     m.set_acquisition_mode('Windowed', 'window_length',100e-3);
 
-    % Set the histogram to 8ns span centred around 2us
-    m.set_histogram(1.996e-6, 2.004e-6);
+    % Use the first start event and close the interval at the end of the gate period (arbitrary as using windowed acquisition)
+    m.set_interval_policy('Use first', 'Close');
+
+    % Set the histogram to 8ns span centred around 2us, using an interval histogram
+    m.set_histogram(1.996e-6, 2.004e-6, 'type', 'Interval');
 
     % Set the interval analyzers
     % Set Interval A to start at Event A and stop at Event A

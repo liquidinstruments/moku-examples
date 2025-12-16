@@ -27,6 +27,9 @@ try
     % Set acquisition mode to a 100ms Window
     m.set_acquisition_mode('Windowed', 'window_length',100e-3);
 
+    % Use the first start event and close the interval at the end of the gate period (arbitrary as using windowed acquisition)
+    m.set_interval_policy('Use first', 'Close');
+
     % Set the interval analyzers
     % Set Interval A to start at Event A and stop at Event A
     % Set Interval B to start at Event B and stop at Event B
