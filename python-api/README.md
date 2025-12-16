@@ -5,6 +5,7 @@ sidebarDepth: 1
 # Examples for Python
 
 ## Arbitrary Waveform Generator
+
 ### arbitrarywavegen_basic.py
 
 This example demonstrates how you can generate and output arbitrary waveforms using Moku AWG
@@ -12,21 +13,23 @@ This example demonstrates how you can generate and output arbitrary waveforms us
 <<< @/docs/api/moku-examples/python-api/arbitrarywavegen_basic.py
 
 ## Custom Instrument
+
 ### custom_instrument_adder.py
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the 
+This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
 [Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
 
 <<< @/docs/api/moku-examples/python-api/custom_instrument_adder.py
 
 ### custom_instrument_arithmetic.py
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the 
+This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
 [Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit)
 
 <<< @/docs/api/moku-examples/python-api/custom_instrument_arithmetic.py
 
 ## Data Logger
+
 ### datalogger_basic.py
 
 This example demonstrates use of the Datalogger instrument to log time-series
@@ -37,6 +40,7 @@ voltage data to a file.
 ## Data Streaming
 
 ### datalogger_streaming.py
+
 This example demonstrates use of the Datalogger instrument to stream time-series
 voltage data.
 
@@ -44,7 +48,7 @@ voltage data.
 
 ### lock_in_amplifier_streaming.py
 
-This example demonstrates use of the Lockin Amplifier instrument to demodulate Input signal with a 
+This example demonstrates use of the Lockin Amplifier instrument to demodulate Input signal with a
 reference signal from local oscillator and stream the generated waveform from auxiliary output
 
 <<< @/docs/api/moku-examples/python-api/lock_in_amplifier_streaming.py
@@ -60,12 +64,13 @@ Datalogger in slot1 and Lockin Amplifier in slot2.
 
 ### digital_filter_box_plotting.py
 
-This example demonstrates how you can configure the Digital Filter Box instrument 
+This example demonstrates how you can configure the Digital Filter Box instrument
 to filter and display two signals.
 
 <<< @/docs/api/moku-examples/python-api/digital_filter_box_plotting.py
 
 ## Frequency Response Analyzer
+
 ### freq_response_analyzer_basic.py
 
 This example demonstrates how you can generate output sweeps using the
@@ -82,22 +87,43 @@ in real-time.
 
 <<< @/docs/api/moku-examples/python-api/freq_response_analyzer_plotting.py
 
+## Gigabit Streamer
+
+### gigabit_streamer_plotting.py
+
+This example demonstrates how you can stream on a Moku in loopback,
+receiving and transmitting data using Moku Gigabit Streamer, using
+the Oscilloscope to generate and view the data in real-time.
+
+<<< @/docs/api/moku-examples/python-api/gigabit_streamer_plotting.py
+
+## Gigabit Streamer+
+
+### gigabit_streamer_plus_basic.py
+
+This example demonstrates how to transmit and receive data using
+Moku Gigabit Streamer+ in single instrument mode.
+
+<<< @/docs/api/moku-examples/python-api/gigabit_streamer_plus_basic.py
+
 ## Laser Lock Box
+
 ### laser_lock_box_basic.py
 
-This example demonstrates how you can configure the Laser Lock Box 
+This example demonstrates how you can configure the Laser Lock Box
 Instrument and monitor the signals at Input 1 and Input 2.
 
 <<< @/docs/api/moku-examples/python-api/laser_lock_box_basic.py
 
 ### laser_lock_box_plotting.py
 
-This example demonstrates how you can configure the Laser Lock Box 
+This example demonstrates how you can configure the Laser Lock Box
 Instrument and monitor the signals at Input 1 and Input 2.
 
 <<< @/docs/api/moku-examples/python-api/laser_lock_box_plotting.py
 
 ## Lock-in Amplifier
+
 ### lock_in_amplifier_basic.py
 
 This example demonstrates how you can configure the Lock-in Amplifier
@@ -117,15 +143,17 @@ a sine wave on the auxiliary output
 <<< @/docs/api/moku-examples/python-api/lock_in_amplifier_plotting.py
 
 ## Logic Analyzer
+
 ### logic_analyzer_plotting.py
 
 This example demonstrates how you can configure the Logic
-Analyzer instrument to retrieve a single frame of data for 
+Analyzer instrument to retrieve a single frame of data for
 all 16 channels
 
 <<< @/docs/api/moku-examples/python-api/logic_analyzer_plotting.py
 
 ## Multi-instrument Mode
+
 ### mim_wg_osc.py
 
 Multi-instrument Mode on Moku:Go (two-slot), deploying the Waveform Generator
@@ -143,16 +171,18 @@ the "platform_id" to one supported by that hardware.
 <<< @/docs/api/moku-examples/python-api/mim_wg_sa.py
 
 ## Neural Network
+
 ### neuralnetwork_simplesine.py
 
-This script demonstrates how to use the Neural Network instrument to generate a ramp 
-wave and process it through the uploaded neural network, finally viewing the output 
-in the oscilloscope. This uses the network generated in the 
+This script demonstrates how to use the Neural Network instrument to generate a ramp
+wave and process it through the uploaded neural network, finally viewing the output
+in the oscilloscope. This uses the network generated in the
 [Simple Sine wave example](https://apis.liquidinstruments.com/mnn/examples/Simple_sine.html)
 
 <<< @/docs/api/moku-examples/python-api/neuralnetwork_simplesine.py
 
 ## Oscilloscope
+
 ### oscilloscope_basic.py
 
 This script demonstrates how to use the Oscilloscope instrument
@@ -198,6 +228,7 @@ instrument to measure a signal, stream and display the results.
 <<< @/docs/api/moku-examples/python-api/phasemeter_streaming.py
 
 ## PID Controller
+
 ### pidcontroller_basic.py
 
 This script demonstrates how to configure one of the two PID Controllers
@@ -216,51 +247,48 @@ while Channel 2 specifies the gain characteristics.
 The output response of each PID Controller channel is plotted
 in real-time.
 
-
 <<< @/docs/api/moku-examples/python-api/pidcontroller_plotting.py
 
 ## Programmable Power Supplies
+
 ### powersupply_basic.py
 
-This example will demonstrate how to configure the power supply 
+This example will demonstrate how to configure the power supply
 units of the Moku:Go.
 
 <<< @/docs/api/moku-examples/python-api/power_supply_basic.py
 
 ## Spectrum Analyzer
+
 ### spectrumanalyzer_basic.py
 
 This example demonstrates how you can use the Spectrum Analyzer instrument to
 to retrieve a single spectrum data frame over a set frequency span.
-
 
 <<< @/docs/api/moku-examples/python-api/spectrumanalyzer_basic.py
 
 ### spectrumanalyzer_plotting.py
 
 This example demonstrates how you can configure the Spectrum Analyzer
-instrument and plot its spectrum data in real-time. 
-
+instrument and plot its spectrum data in real-time.
 
 <<< @/docs/api/moku-examples/python-api/spectrumanalyzer_plotting.py
 
 ## Time and Frequency Analyzer
+
 ### timefrequencyanalyzer_basic.py
 
 This example demonstrates how you can use the Time and Frequency Analyzer instrument to
 to retrieve and view the statistics of the intervals.
-
 
 <<< @/docs/api/moku-examples/python-api/timefrequencyanalyzer_basic.py
 
 ### timefrequencyanalyzer_plotting.py
 
 This example demonstrates how you can configure the Time and Frequency Analyzer
-instrument and plot histogram data frames in real-time. 
-
+instrument and plot histogram data frames in real-time.
 
 <<< @/docs/api/moku-examples/python-api/timefrequencyanalyzer_plotting.py
-
 
 ## Waveform Generator
 
