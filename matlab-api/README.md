@@ -61,15 +61,15 @@ This example demonstrates how you can configure Custom Instrument, using Multi-I
 
 ## Gigabit Streamer
 
-### gigabit_streamer_basic.m
+### gigabit_streamer_plotting.m
 
-<<< @/docs/api/moku-examples/matlab-api/gigabit_streamer_basic.m
+<<< @/docs/api/moku-examples/matlab-api/gigabit_streamer_plotting.m
 
 ## Gigabit Streamer+
 
-### gigabit_streamer_plus_plotting.m
+### gigabit_streamer_plus_basic.m
 
-<<< @/docs/api/moku-examples/matlab-api/gigabit_streamer_plus_plotting.m
+<<< @/docs/api/moku-examples/matlab-api/gigabit_streamer_plus_basic.m
 
 ## Laser Lock Box
 
