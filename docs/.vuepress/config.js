@@ -105,6 +105,7 @@ module.exports = {
                             'Frequency Response Analyzer',
                             'reference/fra',
                         ),
+                        getChildren('Gigabit Streamer', 'reference/gs'),
                         getChildren('Laser Lock Box', 'reference/llb'),
                         getChildren('LockIn Amplifier', 'reference/lia'),
                         getChildren(
@@ -133,7 +134,7 @@ module.exports = {
                     children: [
                         ['examples/', 'Overview'],
                         getChildren('Python', 'moku-examples/python-api'),
-                        getChildren('MatLab', 'moku-examples/matlab-api'),
+                        getChildren('MATLAB', 'moku-examples/matlab-api'),
                         getChildren(
                             'Other Languages',
                             'moku-examples/other-language-api',
@@ -148,7 +149,7 @@ module.exports = {
                     initialOpenGroupIndex: -1,
                     children: [['/mc/', 'Overview']]
                 },
-                {               
+                {
                     title: 'Getting Started',
                     collapsable: false,
                     initialOpenGroupIndex: -1,
