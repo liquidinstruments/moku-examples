@@ -35,6 +35,8 @@ To convert .li binary formatted log files, use liconverter windows app or [mokuc
 
 ```python
 import time
+import os
+
 from moku.instruments import Phasemeter
 i = Phasemeter('192.168.###.###', force_connect=True)
 
@@ -43,23 +45,23 @@ i = Phasemeter('192.168.###.###', force_connect=True)
 logFile = i.start_logging(duration=10)
 file_name = logFile['file_name']
 
-# Track progress percentage of the data logging session
+# Track the remaining time of the data logging session
 complete = False
 while complete is False:
     # Wait for the logging session to progress by sleeping 1 sec
     time.sleep(1)
-    # Get current progress percentage and print it out
+    # Get the remaining logging duration and print it out
     progress = i.logging_progress()
     complete = progress['complete']
     if 'time_remaining' in progress:
         print(f"Remaining time {progress['time_remaining']} seconds")
 
-# Download the log file from the Moku to "Users" folder locally
+# Download the log file from the Moku to the current working directory.
 # Moku:Go should be downloaded from "persist", 
 # Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
 # Use liconverter to convert this .li file to .csv
-i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), 
-           logFile['file_name']))
+i.download(target="persist", file_name=logFile['file_name'], 
+           local_path=logFile['file_name'])
 ```
 
 </code-block>
@@ -77,7 +79,7 @@ log_file = logging_request.file_name;
 % Set up to display the logging process
 progress = m.logging_progress();
 
-% Track the progress of data logging session
+% Track time remaining in data logging session
 while progress.complete < 1
     pause(1);
     fprintf('%d seconds remaining \n',progress.time_remaining)
@@ -112,12 +114,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 {
    "complete":False,
    "file_name":"MokuPhasemeterData_20210603_101533.li",
+   "message": "Logging in progress, 5 seconds remaining",
    "running":True,
    "samples_logged":2238,
-   "time_remaining":2
+   "time_remaining":5,
+   "time_to_start": 0
 }
-```
-
-```
-
 ```

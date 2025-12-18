@@ -35,8 +35,13 @@ i.start_streaming(duration=10)
 # Retrieve the streamed data frame
 data = i.get_stream_data()
 
-# Inspect the returned time and channel values
-print(data['time'], data['ch1'], data['ch2'])
+# Inspect the returned time and values for channel 1
+print(data['time'], data['ch1_frequency'], data['ch1_phase'],
+      data['ch1_i'], data['ch1_q'])
+
+# Inspect the returned time and values for channel 2
+print(data['time'], data['ch2_frequency'], data['ch2_phase'],
+      data['ch2_i'], data['ch2_q'])
 ```
 
 </code-block>

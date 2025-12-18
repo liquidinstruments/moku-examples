@@ -29,6 +29,21 @@ getters:
                 mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
             type: integer
             unit: null
+    - summary: get_auto_acquired_frequency
+      description: Get the auto-acquired frequency of the selected channel
+      parameters:
+          - default: null
+            description: Target channel
+            name: channel
+            param_range:
+                mokugo: 1, 2
+                mokulab: 1, 2
+                mokupro: 1, 2, 3, 4
+                mokudelta: 1, 2, 3, 4, 5, 6, 7, 8
+            type: integer
+            unit: null
+    - summary: get_acquisition_speed
+      description: Get the current acquisition speed
 ---
 
 <headers/>

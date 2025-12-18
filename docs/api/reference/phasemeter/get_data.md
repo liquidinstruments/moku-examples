@@ -90,7 +90,6 @@ data = m.get_data();
 % Inspect selected fields from the response
 disp(data.ch1.phase);
 disp(data.ch2.frequency);
-disp(data.time);
 
 ```
 

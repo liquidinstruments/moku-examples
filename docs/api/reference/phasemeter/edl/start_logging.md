@@ -51,7 +51,7 @@ summary: start_logging
 
 Log files can be downloaded to local machine using [download_files](../../static/download.md).
 
-::: warning Caution
+::: warning Tip
 To ensure a complete data logging session, it is recommended to track the progress using [logging_progress](./logging_progress.md).
 :::
 
@@ -64,6 +64,7 @@ To ensure a complete data logging session, it is recommended to track the progre
 
 ```python
 import time
+
 from moku.instruments import Phasemeter
 i = Phasemeter('192.168.###.###', force_connect=True)
 
@@ -72,23 +73,23 @@ i = Phasemeter('192.168.###.###', force_connect=True)
 logFile = i.start_logging(duration=10)
 file_name = logFile['file_name']
 
-# Track progress percentage of the data logging session
+# Track the remaining time of the data logging session
 complete = False
 while complete is False:
     # Wait for the logging session to progress by sleeping 1 sec
     time.sleep(1)
-    # Get current progress percentage and print it out
+    # Get the remaining logging duration and print it out
     progress = i.logging_progress()
     complete = progress['complete']
     if 'time_remaining' in progress:
         print(f"Remaining time {progress['time_remaining']} seconds")
 
-# Download the log file from the Moku to "Users" folder locally
+# Download the log file from the Moku to the current working directory.
 # Moku:Go should be downloaded from "persist", 
 # Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
 # Use liconverter to convert this .li file to .csv
-i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), 
-           logFile['file_name']))
+i.download(target="persist", file_name=logFile['file_name'], 
+           local_path=logFile['file_name'])
 ```
 
 </code-block>
@@ -140,11 +141,14 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "acquisition_mode": "Normal",
+    "Save to": 2, 
+    "Start": 0, 
     "comments": "",
     "duration": 10,
     "rate": 1000.0,
     "file_name": "MokuPhasemeterData_20220301_135057.li",
-    "file_name_prefix": "MokuDataLoggerData"
+    "file_name_prefix": "MokuDataLoggerData",
+    "location": "ssd"
 }
 ```
+

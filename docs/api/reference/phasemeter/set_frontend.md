@@ -87,7 +87,7 @@ m.set_frontend(1, "50Ohm", "DC", "4Vpp");
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "range": "4Vpp"}'\
+        --data '{"channel": 1, "coupling": "AC", "impedance": "50Ohm", "range": "4Vpp"}'\
         http://<ip>/api/phasemeter/set_frontend
 ```
 
@@ -100,7 +100,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ```json
 {
     "Input range": "4Vpp",
-    "Input impedance": "1MOhm",
+    "Input impedance": "50Ohm",
     "Input coupling": "AC"
 }
 ```
