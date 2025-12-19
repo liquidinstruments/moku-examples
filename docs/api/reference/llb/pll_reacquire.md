@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Restarts the PLL on the external reference signal. Acquisition uses an FFT-based frequency estimate.
+description: Re-starts the PLL on an external reference signal either at an auto-acquired or user-defined frequency. Auto-Acquisition uses an FFT-based frequency estimate.
 method: post
 name: pll_reacquire
 parameters: []
