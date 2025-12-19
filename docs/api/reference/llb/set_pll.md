@@ -1,5 +1,5 @@
 ---
-additional_doc: The PLL in the LIA instrument is driven by the Moku's Input 2 and can optionally be used as a demodulation source. See `set_demodulation`.
+additional_doc: The Phase-Locked Loop (PLL) in Laser Lock Box is used when demodulation is set to External (PLL) mode. See set_demodulation for more information.
 description: Sets the frequency acquisition/configuration and tracking bandwidth of the PLL.
 method: post
 name: set_pll
@@ -23,7 +23,6 @@ parameters:
       param_range: null
       type: number
       unit: null
-      warning: Setting frequency has no impact when auto_acquire is true
     - default: 1kHz
       description: PLL Bandwidth
       name: bandwidth
@@ -51,7 +50,8 @@ group: Input PLL
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-i.set_pll(frequency=1e6, bandwidth="10kHz")
+# Disable auto-acquisition, set a 1 MHz target with 10 kHz tracking bandwidth
+i.set_pll(auto_acquire=False, frequency=1e6, bandwidth="10kHz")
 ```
 
 </code-block>
@@ -60,7 +60,8 @@ i.set_pll(frequency=1e6, bandwidth="10kHz")
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-m.set_pll('frequency', 1e6, 'bandwidth','10kHz');
+% Disable auto-acquisition, set a 1 MHz target with 10 kHz tracking bandwidth
+m.set_pll('auto_acquire', false, 'frequency', 1e6, 'bandwidth', '10kHz');
 ```
 
 </code-block>
@@ -68,9 +69,10 @@ m.set_pll('frequency', 1e6, 'bandwidth','10kHz');
 <code-block title="cURL">
 
 ```bash
+# Disable auto-acquisition, set a 1 MHz target with 10 kHz tracking bandwidth
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"frequency":1e6, "bandwidth": "10kHz"}'\
+        --data '{"auto_acquire": false, "frequency": 1000000, "bandwidth": "10kHz"}'\
         http://<ip>/api/laserlockbox/set_pll_bandwidth
 ```
 
@@ -82,7 +84,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "auto_acquire": true,
+    "auto_acquire": false,
     "bandwidth": "10kHz",
     "frequency": 1000000.0,
     "frequency_multiplier": 1.0

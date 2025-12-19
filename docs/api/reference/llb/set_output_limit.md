@@ -48,7 +48,8 @@ summary: set_output_limit
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-i.set_output_limit(channel=3, high_limit=1)
+# Enable the limiter on channel 1 between -1 V and +1 V
+i.set_output_limit(channel=1, enable=True, low_limit=-1, high_limit=1)
 ```
 
 </code-block>
@@ -57,7 +58,8 @@ i.set_output_limit(channel=3, high_limit=1)
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-m.set_output_limit(1, 'high_limit', 1);
+% Enable the limiter on channel 1 between -1 V and +1 V
+m.set_output_limit(1, 'enable', true, 'low_limit', -1, 'high_limit', 1);
 ```
 
 </code-block>
@@ -65,12 +67,23 @@ m.set_output_limit(1, 'high_limit', 1);
 <code-block title="cURL">
 
 ```bash
+# Enable the limiter on channel 1 between -1 V and +1 V
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "high_limit": 2}'\
+        --data '{"channel": 1, "enable": true, "low_limit": -1, "high_limit": 1}'\
         http://<ip>/api/laserlockbox/set_output_limit
 ```
 
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "enable": true,
+    "high_limit": 1.0,
+    "low_limit": -1.0
+}
+```

@@ -55,7 +55,9 @@ summary: set_scan_oscillator
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', frequency=10, amplitude=0.5)
+# Enable the scan oscillator on Output1 with a 10 Hz positive ramp at 0.5 Vpp
+i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', 
+                      frequency=10, amplitude=0.5)
 ```
 
 </code-block>
@@ -64,7 +66,9 @@ i.set_scan_oscillator(enable=True, output='Output1', shape='PositiveRamp', frequ
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,'amplitude',0.5,'output','Output1')
+% Enable the scan oscillator on Output1 with a 10 Hz positive ramp at 0.5 Vpp
+m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,...
+                      'amplitude',0.5,'output','Output1')
 ```
 
 </code-block>
@@ -72,9 +76,11 @@ m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,'ampl
 <code-block title="cURL">
 
 ```bash
+# Enable the scan oscillator on Output1 with a 10 Hz positive ramp at 0.5 Vpp
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"amplitude": 0.5, "enable": True, "frequency": 1000000.0, "source": "Output1"}'\
+        --data '{"amplitude": 0.5, "enable": True, "frequency": 1000000.0, 
+                 "source": "Output1"}'\
         http://<ip>/api/laserlockbox/set_scan_oscillator
 ```
 
@@ -89,7 +95,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
     "amplitude": 0.5,
     "enabled": true,
     "frequency": 10.0,
-    "output": "Output1",
+    "output": "AnalogOutput1",
     "shape": "PositiveRamp"
 }
 ```

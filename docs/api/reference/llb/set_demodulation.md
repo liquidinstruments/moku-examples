@@ -45,7 +45,8 @@ summary: set_demodulation
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-i.set_demodulation(mode="Internal",frequency=1000000,phase=0)
+# Use the internally generated demodulation source at 1 MHz with zero phase offset
+i.set_demodulation(mode="Internal", frequency=1_000_000, phase=0)
 ```
 
 </code-block>
@@ -54,7 +55,8 @@ i.set_demodulation(mode="Internal",frequency=1000000,phase=0)
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-m.set_demodulation('mode','Internal','frequency',1000000,'phase',0)
+% Use the internally generated demodulation source at 1 MHz with zero phase offset
+m.set_demodulation('mode', 'Internal', 'frequency', 1e6, 'phase', 0);
 ```
 
 </code-block>
@@ -62,9 +64,10 @@ m.set_demodulation('mode','Internal','frequency',1000000,'phase',0)
 <code-block title="cURL">
 
 ```bash
+# Use the internally generated demodulation source at 1 MHz with zero phase offset
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"mode":"Internal","frequency":1000000,"phase":0}'\
+        --data '{"mode": "Internal", "frequency": 1000000, "phase": 0}'\
         http://<ip>/api/laserlockbox/set_demodulation
 ```
 
@@ -77,7 +80,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ```json
 {
     "frequency": 1000000.0,
-    "mode": "Internal",
-    "phase": 0.0
+    "phase": 0.0,
+    "source": "Internal"
 }
 ```

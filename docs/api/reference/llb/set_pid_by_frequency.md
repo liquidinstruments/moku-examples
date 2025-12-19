@@ -72,10 +72,10 @@ summary: set_pid_by_frequency
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-# Configure the Fast PID Controller using frequency response
-# characteristics
-# 	P = -10dB
-i.set_pid_by_frequency(channel=1, prop_gain=-10)
+# Configure the fast PID controller with -10 dB proportional gain,
+# a 3.1 kHz integrator crossover, and +40 dB saturation
+i.set_pid_by_frequency(channel=1, prop_gain=-10, int_crossover=3_100,
+                       int_saturation=40)
 ```
 
 </code-block>
@@ -84,10 +84,10 @@ i.set_pid_by_frequency(channel=1, prop_gain=-10)
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-% Configure the Fast PID Controller using frequency response
-% characteristics
-% 	P = -10dB
-m.set_pid_by_frequency(1, 'prop_gain', -10);
+% Configure the fast PID controller with -10 dB proportional gain,
+% a 3.1 kHz integrator crossover, and +40 dB saturation
+m.set_pid_by_frequency(1, 'prop_gain', -10, 'int_crossover', 3.1e3, ...
+                       'int_saturation', 40);
 ```
 
 </code-block>
@@ -97,7 +97,8 @@ m.set_pid_by_frequency(1, 'prop_gain', -10);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "prop_gain": -10}'\
+        --data '{"channel": 1, "prop_gain": -10, "int_crossover": 3100, 
+                 "int_saturation": 40}'\
         http://<ip>/api/laserlockbox/set_pid_by_frequency
 ```
 
@@ -109,11 +110,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "diff_crossover": 63000.0,
-    "diff_saturation": 15.0,
-    "double_int_crossover": 130.0,
-    "int_crossover": 1300.0,
+    "int_crossover": 3100.0,
     "int_saturation": 40.0,
+    "invert": false,
     "prop_gain": -10.0
 }
 ```

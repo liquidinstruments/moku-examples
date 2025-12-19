@@ -66,6 +66,7 @@ summary: set_frontend
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
+# Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
 i.set_frontend(1, "AC", "1MOhm", "0dB")
 ```
 
@@ -73,20 +74,35 @@ i.set_frontend(1, "AC", "1MOhm", "0dB")
 
 <code-block title="MATLAB">
 
-````matlab
+```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-m.set_frontend(1, "AC", "1MOhm", "0dB");```
+% Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
+m.set_frontend(1, "AC", "1MOhm", "0dB");
+```
+
 </code-block>
 
 <code-block title="cURL">
 
 ```bash
+# Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "gain": "0dB"}'\
+        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "gain": "0dB"}'\
         http://<ip>/api/laserlockbox/set_frontend
-````
+```
 
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "attenuation": "0dB",
+    "bandwidth": "600MHz",
+    "coupling": "AC",
+    "impedance": "1MOhm"
+}
+```

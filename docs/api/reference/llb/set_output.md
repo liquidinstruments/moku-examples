@@ -52,13 +52,13 @@ summary: set_output
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-# Configure the fast controller path: 
-# connect the fast controller switch and enable the output channel
-i.set_output(1, signal=True, output=True)
+# Configure the fast controller path with 0 dB gain:
+# connect the fast controller switch, enable the output channel, and keep unity gain
+i.set_output(1, signal=True, output=True, gain="0dB")
 
-# Configure the slow controller path: 
-# connect the slow controller switch and  enable the output channel
-i.set_output(2, signal=True, output=True)
+# Configure the slow controller path with 0 dB gain:
+# connect the slow controller switch, enable the output channel, and keep unity gain
+i.set_output(2, signal=True, output=True, gain="0dB")
 ```
 
 </code-block>
@@ -67,13 +67,13 @@ i.set_output(2, signal=True, output=True)
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-% Configure the fast controller path: 
-% connect the fast controller switch and enable the output channel
-m.set_output(1, 'signal', true, 'output', true);
+% Configure the fast controller path with 0 dB gain:
+% connect the fast controller switch, enable the output channel, and keep unity gain
+m.set_output(1, 'signal', true, 'output', true, 'gain', '0dB');
 
-% Configure the slow controller path: 
-% connect the slow controller switch and enable the output channel
-m.set_output(2, 'signal', true, 'output', true);
+% Configure the slow controller path with 0 dB gain:
+% connect the slow controller switch, enable the output channel, and keep unity gain
+m.set_output(2, 'signal', true, 'output', true, 'gain', '0dB');
 ```
 
 </code-block>
@@ -83,10 +83,20 @@ m.set_output(2, 'signal', true, 'output', true);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"output": True, "signal": True}'\
+        --data '{"output": true, "signal": true, "gain": "0dB"}'\
         http://<ip>/api/laserlockbox/set_output
 ```
 
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "gain_range": "0dB",
+    "output": true,
+    "signal": true
+}
+```

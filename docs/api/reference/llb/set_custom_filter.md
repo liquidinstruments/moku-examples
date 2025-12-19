@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Set the infinite impulse response filter sample rate and filter coefficients for a given filter id.
+description: Configure a custom IIR filter by supplying the output scaling and per-stage coefficients for the selected filter block.
 method: post
 name: set_custom_filter
 parameters:
@@ -44,7 +44,6 @@ i = LaserLockBox('192.168.###.###', force_connect=True)
 # of 0.2 pi rad/sample and a stopband attenuation of 40 dB.
 filter_coefficients = [
     [1.0000000000, 0.6413900006, -1.0290561741, 0.6413900006, -1.6378425857, 0.8915664128],
-    [1.0000000000, 0.5106751138, -0.7507394931, 0.5106751138, -1.4000444473, 0.6706551819],
     [1.0000000000, 0.3173108134, -0.3111365531, 0.3173108134, -1.0873085012, 0.4107935750]]
 
 i.set_custom_filter(scaling=10, coefficients=filter_coefficients)
@@ -63,7 +62,6 @@ m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % of 0.2 pi rad/sample and a stopband attenuation of 40 dB.
 filter_coefficients = [...
 1.0000000000, 0.6413900006, -1.0290561741, 0.6413900006, -1.6378425857, 0.8915664128;...
-1.0000000000, 0.5106751138, -0.7507394931, 0.5106751138, -1.4000444473, 0.6706551819;...
 1.0000000000, 0.3173108134, -0.3111365531, 0.3173108134, -1.0873085012, 0.4107935750...
 ];
 
@@ -94,14 +92,6 @@ $: cat coefficients.json
       ],
       [
          1.0000000000,
-         0.5106751138,
-         -0.7507394931,
-         0.5106751138,
-         -1.4000444473,
-         0.6706551819
-      ],
-      [
-         1.0000000000,
          0.3173108134,
          -0.3111365531,
          0.3173108134,
@@ -119,3 +109,13 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "Decimation": 2,
+    "Filter shape": 4,
+    "sample_rate": "78.125 MHz"
+}
+```
