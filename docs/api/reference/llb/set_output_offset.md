@@ -40,7 +40,7 @@ summary: set_output_offset
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-# Set output offset to 2VDC
+# Set Channel 1 output offset to 2 V
 i.set_output_offset(1, offset=2)
 ```
 
@@ -50,7 +50,7 @@ i.set_output_offset(1, offset=2)
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-% Set output offset to 2VDC
+% Set Channel 1 output offset to 2 V
 m.set_output_offset(1, 'offset', 2);
 ```
 
@@ -72,5 +72,5 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```json
-{ "offset": 1.0 }
+{ "offset": 2.0 }
 ```

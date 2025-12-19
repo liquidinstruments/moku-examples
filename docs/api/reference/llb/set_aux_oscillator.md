@@ -94,7 +94,6 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "Output channel": 64,
     "amplitude": 0.5,
     "enabled": true,
     "frequency": 1000000.0,

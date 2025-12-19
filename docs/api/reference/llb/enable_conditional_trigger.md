@@ -56,3 +56,11 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "enable": True
+}
+```
