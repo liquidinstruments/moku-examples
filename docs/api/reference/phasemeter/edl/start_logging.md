@@ -114,12 +114,11 @@ while progress.complete < 1
     progress = m.logging_progress();
 end
     
-%%% Download the log file from the Moku to "Users" folder locally
+%%% Download the log file from the Moku to the current working directory
 % Moku:Go should be downloaded from "persist", 
 % Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
 % Use liconverter to convert this .li file to .csv
-m.download_file('ssd',log_file,['C:\Users\Users' log_file]);
-
+m.download_file('ssd', logging_request.file_name, log_file);
 ```
 
 </code-block>
@@ -151,4 +150,3 @@ $: curl -H 'Moku-Client-Key: <key>'\
     "location": "ssd"
 }
 ```
-

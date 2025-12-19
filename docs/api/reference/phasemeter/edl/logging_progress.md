@@ -35,14 +35,13 @@ To convert .li binary formatted log files, use liconverter windows app or [mokuc
 
 ```python
 import time
-import os
 
 from moku.instruments import Phasemeter
 i = Phasemeter('192.168.###.###', force_connect=True)
 
 # Configure instrument to desired state
-# Start a 10s logging session
-logFile = i.start_logging(duration=10)
+# Start a 10s logging session at 150 Hz acquisition speed
+logFile = i.start_logging(duration=10, acquisition_speed="150Hz")
 file_name = logFile['file_name']
 
 # Track the remaining time of the data logging session
@@ -72,8 +71,8 @@ i.download(target="persist", file_name=logFile['file_name'],
 m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
 %%% Configure instrument to desired state
-% Start a 10s logging session
-logging_request = m.start_logging('duration',10);
+% Start a 10s logging session at 150 Hz acquisition speed
+logging_request = m.start_logging('duration',10,'acquisition_speed','150Hz');
 log_file = logging_request.file_name;
 
 % Set up to display the logging process
@@ -86,12 +85,11 @@ while progress.complete < 1
     progress = m.logging_progress();
 end
     
-%%% Download the log file from the Moku to "Users" folder locally
+%%% Download the log file from the Moku to the current working directory
 % Moku:Go should be downloaded from "persist", 
 % Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
 % Use liconverter to convert this .li file to .csv
-m.download_file('ssd',log_file,['C:\Users\Users' log_file]);
-
+m.download_file('ssd', logging_request.file_name, log_file);
 ```
 
 </code-block>
@@ -99,9 +97,14 @@ m.download_file('ssd',log_file,['C:\Users\Users' log_file]);
 <code-block title="cURL">
 
 ```bash
+# Start a 10s logging session at 150 Hz acquisition speed
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{}'\
+        --data '{"duration": 10, "acquisition_speed": "150Hz"}'\
+        http://<ip>/api/phasemeter/start_logging
+
+# Poll the logging progress
+$: curl -H 'Moku-Client-Key: <key>'\
         http://<ip>/api/phasemeter/logging_progress
 ```
 
