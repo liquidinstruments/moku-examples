@@ -88,7 +88,8 @@ m.set_frontend(1, "AC", "1MOhm", "0dB");
 # Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "gain": "0dB"}'\
+        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", 
+                 "gain": "0dB"}'\
         http://<ip>/api/laserlockbox/set_frontend
 ```
 

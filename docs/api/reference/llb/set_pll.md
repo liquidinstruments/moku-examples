@@ -1,5 +1,5 @@
 ---
-additional_doc: The Phase-Locked Loop (PLL) in Laser Lock Box is used when demodulation is set to External (PLL) mode. See set_demodulation for more information.
+additional_doc: The Phase-Locked Loop (PLL) in Laser Lock Box is used when demodulation is set to External (PLL) mode. 
 description: Sets the frequency acquisition/configuration and tracking bandwidth of the PLL.
 method: post
 name: set_pll
@@ -40,6 +40,9 @@ group: Input PLL
 ---
 
 <headers/>
+
+See [set_demodulation](./set_demodulation.md) for more information.
+
 <parameters/>
 
 ### Examples

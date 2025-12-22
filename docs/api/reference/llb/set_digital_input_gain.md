@@ -60,11 +60,3 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-block>
 
 </code-group>
-
-### Sample response
-
-```json
-{
-    "digital_gain": "+24dB"
-}
-```

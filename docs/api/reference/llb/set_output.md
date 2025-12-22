@@ -54,11 +54,11 @@ from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure the fast controller path with 0 dB gain:
 # connect the fast controller switch, enable the output channel, and keep unity gain
-i.set_output(1, signal=True, output=True, gain="0dB")
+i.set_output(1, signal=True, output=True, gain_range="0dB")
 
 # Configure the slow controller path with 0 dB gain:
 # connect the slow controller switch, enable the output channel, and keep unity gain
-i.set_output(2, signal=True, output=True, gain="0dB")
+i.set_output(2, signal=True, output=True, gain_range="0dB")
 ```
 
 </code-block>
@@ -69,11 +69,11 @@ i.set_output(2, signal=True, output=True, gain="0dB")
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure the fast controller path with 0 dB gain:
 % connect the fast controller switch, enable the output channel, and keep unity gain
-m.set_output(1, 'signal', true, 'output', true, 'gain', '0dB');
+m.set_output(1, 'signal', true, 'output', true, 'gain_range', '0dB');
 
 % Configure the slow controller path with 0 dB gain:
 % connect the slow controller switch, enable the output channel, and keep unity gain
-m.set_output(2, 'signal', true, 'output', true, 'gain', '0dB');
+m.set_output(2, 'signal', true, 'output', true, 'gain_range', '0dB');
 ```
 
 </code-block>
@@ -83,7 +83,7 @@ m.set_output(2, 'signal', true, 'output', true, 'gain', '0dB');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"output": true, "signal": true, "gain": "0dB"}'\
+        --data '{"output": true, "signal": true, "gain_range": "0dB"}'\
         http://<ip>/api/laserlockbox/set_output
 ```
 

@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the auxiliary oscillator output signal, including amplitude, frequency, and output channel. In the Moku app, this output is labelled “Modulation” and is commonly used for laser modulation.
+description: Configures the auxiliary oscillator output signal, including amplitude, frequency, and output channel.  In the Moku app, this output is labelled “Modulation” and is commonly used for laser modulation.
 method: post
 name: set_aux_oscillator
 parameters:

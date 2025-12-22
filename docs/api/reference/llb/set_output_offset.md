@@ -61,7 +61,7 @@ m.set_output_offset(1, 'offset', 2);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 1}'\
+        --data '{"channel": 1, "offset": 2}'\
         http://<ip>/api/laserlockbox/set_output_offset
 ```
 

@@ -11,7 +11,7 @@ parameters:
       type: boolean
       unit: null
     - default: PositiveRamp
-      description: Output to connect modulation signal to.
+      description: Select the scan waveform
       name: shape
       param_range: PositiveRamp, Triangle, NegativeRamp
       type: string
@@ -79,8 +79,8 @@ m.set_scan_oscillator('enable',true,'shape','PositiveRamp', 'frequency',10,...
 # Enable the scan oscillator on Output1 with a 10 Hz positive ramp at 0.5 Vpp
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"amplitude": 0.5, "enable": True, "frequency": 1000000.0, 
-                 "source": "Output1"}'\
+        --data '{"amplitude": 0.5, "enable": True, "shape": "PositiveRamp",  
+                 "frequency": 10.0, "source": "Output1"}'\
         http://<ip>/api/laserlockbox/set_scan_oscillator
 ```
 

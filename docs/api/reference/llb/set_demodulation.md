@@ -23,6 +23,7 @@ parameters:
     - default: 0
       description: Phase of internally-generated demod source
       name: phase
+      param_range: 0 to 360
       type: number
       unit: degrees
     - default: true
