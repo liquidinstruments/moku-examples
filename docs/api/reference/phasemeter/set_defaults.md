@@ -29,7 +29,7 @@ Reference to any instrument object will always be in default state.
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 # Phasemeter reference i is in default state
 ```
 
@@ -38,7 +38,7 @@ i = Phasemeter('192.168.###.###')
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 % Phasemeter reference m is in default state
 ```
 

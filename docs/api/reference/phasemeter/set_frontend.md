@@ -60,9 +60,12 @@ parameters:
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
-i.generate_output(channel=1, amplitude=0.5, frequency=5e3, signal='Sine')
-i.set_frontend(1, "DC", "40Vpp")
+
+# Connect to the target Moku; force a new session if one already exists
+i = Phasemeter('192.168.###.###', force_connect=True)
+
+# Configure channel 1 for Moku:Pro with 50 Ohm impedance, DC coupling, and a 4 Vpp range
+i.set_frontend(channel=1, impedance="50Ohm", coupling="DC", range="4Vpp")
 ```
 
 </code-block>
@@ -70,9 +73,11 @@ i.set_frontend(1, "DC", "40Vpp")
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###');
-i.generate_output(1, 0.5, 10e3,'Sine');
-i.set_frontend(1, "DC", "40Vpp");
+% Connect to the target Moku; force a new session if one already exists
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+
+% Configure channel 1 for Moku:Pro with 50 Ohm impedance, DC coupling, and a 4 Vpp range
+m.set_frontend(1, "50Ohm", "DC", "4Vpp");
 ```
 
 </code-block>
@@ -82,7 +87,7 @@ i.set_frontend(1, "DC", "40Vpp");
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", "range": "4Vpp"}'\
+        --data '{"channel": 1, "coupling": "AC", "impedance": "50Ohm", "range": "4Vpp"}'\
         http://<ip>/api/phasemeter/set_frontend
 ```
 
@@ -94,8 +99,8 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "Input range": "4 Vpp",
-    "Input impedance": "1 M\u03A9",
+    "Input range": "4Vpp",
+    "Input impedance": "50Ohm",
     "Input coupling": "AC"
 }
 ```

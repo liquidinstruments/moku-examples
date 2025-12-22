@@ -18,7 +18,7 @@ summary: reacquire
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 i.reacquire()
 ```
 
@@ -27,8 +27,8 @@ i.reacquire()
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###');
-i.reacquire();
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.reacquire();
 ```
 
 </code-block>

@@ -13,7 +13,11 @@ parameters:
     - default: undefined
       description: Acquisition speed (e.g. "30Hz")
       name: acquisition_speed
-      param_range: 30Hz, 37Hz, 119Hz, 150Hz, 477Hz,  596Hz, 1.9kHz, 2.4kHz, 15.2kHz, 19.1kHz, 122kHz, 152kHz
+      param_range:
+          mokugo: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz, 122kHz
+          mokulab: 30Hz, 119Hz, 477Hz, 1.9kHz, 15.2kHz
+          mokupro: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
+          mokudelta: 37Hz, 150Hz, 596Hz, 2.4kHz, 19.1kHz, 152kHz
       type: string
       unit: null
 summary: start_streaming
@@ -32,13 +36,14 @@ group: Data Streaming
 ```python
 import json
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 
 ### Configure instrument to desired state
 
-# start logging session and read the file name from response
+# Start streaming session for 10 seconds
 response = i.start_streaming(duration=10)
 while True:
+  # Retrieve the streamed data frame
   i.get_stream_data()
 
 ```
@@ -48,13 +53,13 @@ while True:
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
-%%% Configure instrument to desired state
-
+% Start streaming session for 10 seconds
 m.start_streaming('duration', 10)
 
 while true
+% Retrieve the streamed data frame
 m.get_stream_data()
 end
 

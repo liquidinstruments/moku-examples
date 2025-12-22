@@ -26,11 +26,22 @@ Below are the examples on how to read the data stream,
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+
+i = Phasemeter('192.168.###.###', force_connect=True)
+
+# Start streaming session for 10 seconds
 i.start_streaming(duration=10)
+
+# Retrieve the streamed data frame
 data = i.get_stream_data()
-# Print out the data
-print(data['time'], data['ch1'], data['ch2'])
+
+# Inspect the returned time and values for channel 1
+print(data['time'], data['ch1_frequency'], data['ch1_phase'],
+      data['ch1_i'], data['ch1_q'])
+
+# Inspect the returned time and values for channel 2
+print(data['time'], data['ch2_frequency'], data['ch2_phase'],
+      data['ch2_i'], data['ch2_q'])
 ```
 
 </code-block>
@@ -38,9 +49,15 @@ print(data['time'], data['ch1'], data['ch2'])
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+
+% Start streaming session for 10 seconds
 m.start_streaming('duration', 10);
+
+% Retrieve the streamed data frame
 data = m.get_stream_data();
+
+% Inspect the returned time and channel values
 disp(data.time);
 disp(data.ch1);
 disp(data.ch2);

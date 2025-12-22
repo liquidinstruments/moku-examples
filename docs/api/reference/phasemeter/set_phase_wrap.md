@@ -29,7 +29,11 @@ summary: set_phase_wrap
 
 ```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+
+i = Phasemeter('192.168.###.###', force_connect=True)
+
+# Configure instrument to desired state
+# Set the phase wrapping mode to ±2π
 i.set_phase_wrap(value='2pi')
 ```
 
@@ -38,8 +42,11 @@ i.set_phase_wrap(value='2pi')
 <code-block title="MATLAB">
 
 ```matlab{8}
-i = MokuPhasemeter('192.168.###.###');
-i.set_phase_wrap('value', '2pi');
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+
+%%% Configure instrument to desired state
+% Set the phase wrapping mode to ±2π
+m.set_phase_wrap('value', '2pi');
 ```
 
 </code-block>

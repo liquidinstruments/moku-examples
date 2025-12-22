@@ -30,7 +30,7 @@ summary: enable_single_input
 ```python
 from moku.instruments import Phasemeter
 
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 i.enable_single_input()
 ```
 
@@ -39,8 +39,8 @@ i.enable_single_input()
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPhasemeter('192.168.###.###');
-i.enable_single_input();
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
+m.enable_single_input();
 ```
 
 </code-block>

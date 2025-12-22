@@ -15,9 +15,9 @@ summary: summary
 <code-group>
 <code-block title="Python">
 
-```python{5}
+```python
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
 print(i.summary())
 ```
 
@@ -25,8 +25,8 @@ print(i.summary())
 
 <code-block title="MATLAB">
 
-```matlab{5}
-m = MokuPhasemeter('192.168.###.###');
+```matlab
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 disp(m.summary())
 ```
 
@@ -47,15 +47,15 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```text
 Moku:Pro Phasemeter
-(Input 1, on), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
-(Input 2, on), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
-(Input 3, off), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
-(Input 4, off), AC coupling, 50 Ohm impedance, 4 Vpp range, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+Input 1 (on), DC , 300 MHz , 50 Ohm , 4 Vpp, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+Input 2 (on), DC , 300 MHz , 50 Ohm , 4 Vpp, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+Input 3 (on), DC , 300 MHz , 50 Ohm , 4 Vpp, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
+Input 4 (on), DC , 300 MHz , 50 Ohm , 4 Vpp, set frequency 1.000 000 000 000 MHz, auto-acquire off, 1 kHz bandwidth
 Acquisition rate: 1.4901161194e+02 Hz
 Advanced settings: phase wrapping at Off, phase auto-reset at Off
 Output 1 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
 Output 2 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
 Output 3 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
 Output 4 (off) - Sine wave, 1.000 000 000 000 MHz, 500 mVpp, 0.000 000 deg, 0.000 0 V offset
-Internal 10 MHz clock
+External 10 MHz clock
 ```

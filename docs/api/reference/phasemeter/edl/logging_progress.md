@@ -35,25 +35,32 @@ To convert .li binary formatted log files, use liconverter windows app or [mokuc
 
 ```python
 import time
+
 from moku.instruments import Phasemeter
-i = Phasemeter('192.168.###.###')
+i = Phasemeter('192.168.###.###', force_connect=True)
+
 # Configure instrument to desired state
+# Start a 10s logging session at 150 Hz acquisition speed
+logFile = i.start_logging(duration=10, acquisition_speed="150Hz")
+file_name = logFile['file_name']
 
-# Start the logging session...
-
-result = i.start_logging(duration=10)
-file_name = result['file_name']
-
-# Track progress percentage of the data logging session
-
+# Track the remaining time of the data logging session
 complete = False
-while complete is False: # Wait for the logging session to progress by sleeping 0.5sec
-time.sleep(0.5) # Get current progress percentage and print it out
-progress = i.logging_progress()
-complete = progress['complete']
-if 'time_remaining' in progress:
-print(f"Remaining time {progress['time_remaining']} seconds")
+while complete is False:
+    # Wait for the logging session to progress by sleeping 1 sec
+    time.sleep(1)
+    # Get the remaining logging duration and print it out
+    progress = i.logging_progress()
+    complete = progress['complete']
+    if 'time_remaining' in progress:
+        print(f"Remaining time {progress['time_remaining']} seconds")
 
+# Download the log file from the Moku to the current working directory.
+# Moku:Go should be downloaded from "persist", 
+# Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
+# Use liconverter to convert this .li file to .csv
+i.download(target="persist", file_name=logFile['file_name'], 
+           local_path=logFile['file_name'])
 ```
 
 </code-block>
@@ -61,22 +68,28 @@ print(f"Remaining time {progress['time_remaining']} seconds")
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuPhasemeter('192.168.###.###');
-%%% Configure instrument to desired state
+m = MokuPhasemeter('192.168.###.###', force_connect=true);
 
-% start logging session and download file to local directory
-m.start_logging('duration',10);
+%%% Configure instrument to desired state
+% Start a 10s logging session at 150 Hz acquisition speed
+logging_request = m.start_logging('duration',10,'acquisition_speed','150Hz');
+log_file = logging_request.file_name;
 
 % Set up to display the logging process
 progress = m.logging_progress();
 
-% Track the progress of data logging session
+% Track time remaining in data logging session
 while progress.complete < 1
-fprintf('%d seconds remaining \n',progress.time_remaining)
-pause(1);
-progress = m.logging_progress();
+    pause(1);
+    fprintf('%d seconds remaining \n',progress.time_remaining)
+    progress = m.logging_progress();
 end
-
+    
+%%% Download the log file from the Moku to the current working directory
+% Moku:Go should be downloaded from "persist", 
+% Moku:Delta and Moku:Pro from "ssd", and Moku:Lab from "media'.
+% Use liconverter to convert this .li file to .csv
+m.download_file('ssd', logging_request.file_name, log_file);
 ```
 
 </code-block>
@@ -84,9 +97,14 @@ end
 <code-block title="cURL">
 
 ```bash
+# Start a 10s logging session at 150 Hz acquisition speed
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{}'\
+        --data '{"duration": 10, "acquisition_speed": "150Hz"}'\
+        http://<ip>/api/phasemeter/start_logging
+
+# Poll the logging progress
+$: curl -H 'Moku-Client-Key: <key>'\
         http://<ip>/api/phasemeter/logging_progress
 ```
 
@@ -99,12 +117,10 @@ $: curl -H 'Moku-Client-Key: <key>'\
 {
    "complete":False,
    "file_name":"MokuPhasemeterData_20210603_101533.li",
+   "message": "Logging in progress, 5 seconds remaining",
    "running":True,
    "samples_logged":2238,
-   "time_remaining":2
+   "time_remaining":5,
+   "time_to_start": 0
 }
-```
-
-```
-
 ```
