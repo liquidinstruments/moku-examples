@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
@@ -50,6 +50,13 @@ parameters:
           mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -70,7 +77,8 @@ summary: set_frontend
 ```python
 from moku.instruments import PIDController
 i = PIDController('192.168.###.###')
-i.set_frontend(1, "1MOhm", "AC", "0dB")
+# Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, and 300 MHz bandwidth
+i.set_frontend(channel=1, impedance="1MOhm", coupling="DC", range="4Vpp", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -78,8 +86,9 @@ i.set_frontend(1, "1MOhm", "AC", "0dB")
 <code-block title="MATLAB">
 
 ```matlab
-i = MokuPIDController('192.168.###.###');
-i.set_frontend(1, '1MOhm', 'DC', '0dB');
+m = MokuPIDController('192.168.###.###');
+% Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, 300 MHz bandwidth
+m.set_frontend(1, '1MOhm', 'DC', '4Vpp', 'bandwidth', '300MHz', 'strict', true);
 ```
 
 </code-block>
@@ -89,7 +98,9 @@ i.set_frontend(1, '1MOhm', 'DC', '0dB');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "0dB"}'\
+        --data '{'strict': True, 'channel': 1, 'impedance': '1MOhm',
+        'coupling': 'DC', 'range': '4Vpp', 'bandwidth': '300MHz'}'\
+
         http://<ip>/api/pidcontroller/set_frontend
 ```
 
@@ -101,8 +112,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "attenuation": "0dB",
-    "coupling": "AC",
-    "impedance": "1MOhm"
+    "bandwidth": "300MHz",
+    "coupling": "DC",
+    "impedance": "1MOhm",
+    "range": "4Vpp"
 }
 ```

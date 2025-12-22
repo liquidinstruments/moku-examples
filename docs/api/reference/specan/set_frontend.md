@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, and range for each channel.
 method: post
 name: set_frontend
@@ -40,6 +40,13 @@ parameters:
           mokudelta: 100mVpp, 1Vpp, 4Vpp, 40Vpp
       type: string
       unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -60,7 +67,8 @@ summary: set_frontend
 ```python
 from moku.instruments import SpectrumAnalyzer
 i = SpectrumAnalyzer('192.168.###.###')
-i.set_frontend(1, "1MOhm", "AC", "10Vpp")
+# Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, and 300 MHz bandwidth
+i.set_frontend(channel=1, impedance="1MOhm", coupling="DC", range="4Vpp", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -69,7 +77,8 @@ i.set_frontend(1, "1MOhm", "AC", "10Vpp")
 
 ```matlab
 m = MokuSpectrumAnalyzer('192.168.###.###');
-m.set_frontend(1, '1MOhm', 'AC', '50Vpp')
+% Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, 300 MHz bandwidth
+m.set_frontend(1, '1MOhm', 'DC', '4Vpp', 'bandwidth', '300MHz', 'strict', true);
 ```
 
 </code-block>
@@ -79,7 +88,7 @@ m.set_frontend(1, '1MOhm', 'AC', '50Vpp')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "range": "10Vpp"}'\
+        --data '{'strict': True, 'channel': 1, 'impedance': '1MOhm', 'coupling': 'DC', 'range': '4Vpp', 'bandwidth': '300MHz'}'\
         http://<ip>/api/spectrumanalyzer/set_frontend
 ```
 
@@ -91,8 +100,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "coupling": "AC",
+    "bandwidth": "300MHz",
+    "coupling": "DC",
     "impedance": "1MOhm",
-    "range": "10Vpp"
+    "range": "4Vpp"
 }
 ```

@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
@@ -46,6 +46,13 @@ parameters:
           mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -66,8 +73,8 @@ summary: set_frontend
 ```python
 from moku.instruments import LaserLockBox
 i = LaserLockBox('192.168.###.###', force_connect=True)
-# Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
-i.set_frontend(1, "AC", "1MOhm", "0dB")
+# Set Input 1 to 1 MOhm, DC coupled, 0 dB gain, and 300 MHz bandwidth
+i.set_frontend(channel=1, coupling="DC", impedance="1MOhm", gain="0dB", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -76,8 +83,9 @@ i.set_frontend(1, "AC", "1MOhm", "0dB")
 
 ```matlab
 m = MokuLaserLockBox('192.168.###.###', force_connect=true);
-% Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
-m.set_frontend(1, "AC", "1MOhm", "0dB");
+
+% Set Input 1 to 1 MOhm, DC coupled, 0 dB gain, and 300 MHz bandwidth
+m.set_frontend(1, 'DC', '1MOhm', '0dB', 'bandwidth', '300MHz', 'strict', true);
 ```
 
 </code-block>
@@ -88,8 +96,8 @@ m.set_frontend(1, "AC", "1MOhm", "0dB");
 # Configure channel 1 for AC coupling, 1 MΩ impedance, and 0 dB attenuation
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "coupling": "AC", "impedance": "1MOhm", 
-                 "gain": "0dB"}'\
+        --data '{"strict": True, "channel": 1, "impedance": "1MOhm",
+        "coupling": "DC", "gain": "0dB", "bandwidth": "300MHz"}'\
         http://<ip>/api/laserlockbox/set_frontend
 ```
 
@@ -101,9 +109,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "attenuation": "0dB",
-    "bandwidth": "600MHz",
-    "coupling": "AC",
-    "impedance": "1MOhm"
+    "bandwidth": "300MHz",
+    "coupling": "DC",
+    "impedance": "1MOhm",
+    "gain": "0dB"
 }
 ```

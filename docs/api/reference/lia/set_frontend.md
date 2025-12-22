@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
@@ -50,6 +50,13 @@ parameters:
           mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -70,7 +77,8 @@ summary: set_frontend
 ```python
 from moku.instruments import LockInAmp
 i = LockInAmp('192.168.###.###')
-i.set_frontend(1, impedance="1MOhm", coupling="AC", attenuation="14dB")
+# Set Input 1 to 1 MOhm, DC coupled, 20 dB gain, 300 MHz bandwidth
+i.set_frontend(channel=1, impedance="1MOhm", coupling="DC", attenuation="20dB", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -79,7 +87,8 @@ i.set_frontend(1, impedance="1MOhm", coupling="AC", attenuation="14dB")
 
 ```matlab
 m = MokuLockInAmp('192.168.###.###');
-m.set_frontend(1, 'DC', '1MOhm', '14dB');
+% Set Input 1 to 1 MOhm, DC coupled, 20 dB gain, 300 MHz bandwidth
+m.set_frontend(1, 'DC', '1MOhm', '20dB', 'bandwidth', '300MHz', 'strict', true);
 ```
 
 </code-block>
@@ -89,7 +98,7 @@ m.set_frontend(1, 'DC', '1MOhm', '14dB');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "attenuation": "14dB"}'\
+        --data '{"strict": True, "channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "20dB", "bandwidth": "300MHz"}'\
         http://<ip>/api/lockinamp/set_frontend
 ```
 
@@ -101,8 +110,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "attenuation": "14dB",
-    "coupling": "AC",
+    "bandwidth": "300MHz",
+    "attenuation": "20dB",
+    "coupling": "DC",
     "impedance": "1MOhm"
 }
 ```

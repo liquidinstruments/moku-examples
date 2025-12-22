@@ -4,7 +4,7 @@ name: getters
 description: Arbitrary Waveform Generator - getter functions 
 getters: 
 - summary: get_frontend
-  description: Get the input impedance, coupling, and range for given input channel
+  description: Get the input impedance, coupling, bandwidth, and range for given input channel
   parameters:
   - default: null
     description: Target channel

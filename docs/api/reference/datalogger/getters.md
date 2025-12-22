@@ -6,7 +6,7 @@ getters:
 - summary: get_acquisition_mode
   description: Get the current acquisition mode
 - summary: get_frontend
-  description: Get the input impedance, coupling, and range for given input channel
+  description: Get the input impedance, coupling, bandwidth, and range for given input channel
   parameters:
   - default: null
     description: Target channel
