@@ -20,7 +20,7 @@ Partial data log can still be downloaded to local machine using [download_files]
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###', force_connect=False)
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Generate a waveform on output channels
 # Any other settings...
 logFile = i.start_logging(duration=10, comments="Sample script")
@@ -33,7 +33,7 @@ i.stop_logging
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###', true);
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Generate a waveform on output channels
 % Any other settings...
 logFile = m.start_logging('duration', 10, 'comments', 'Sample script');

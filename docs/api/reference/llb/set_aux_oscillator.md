@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configures the auxiliary oscillator to the desired output channel
+description: Configures the auxiliary oscillator output signal, including amplitude, frequency, and output channel.  In the Moku app, this output is labelled “Modulation” and is commonly used for laser modulation.
 method: post
 name: set_aux_oscillator
 parameters:
@@ -13,19 +13,27 @@ parameters:
     - default: 1e6
       description: Frequency of the auxiliary oscillator
       name: frequency
-      param_range: 1 mHz to 300 MHz
+      param_range:
+          mokugo: 1 mHz to 20 MHz
+          mokulab: 1 mHz to 250 MHz
+          mokupro: 1 mHz to 500 MHz
+          mokudelta: 1 mHz to 2 GHz
       type: integer
       unit: Hz
     - default: 0.5
       description: Amplitude of the auxiliary oscillator
       name: amplitude
-      param_range: null
+      param_range:
+          mokugo: 2 mVpp to 10 Vpp
+          mokulab: 1 mVpp to 2 Vpp
+          mokupro: 1 mVpp to 2 Vpp
+          mokudelta: 1 mVpp to 1 Vpp
       type: integer
       unit: V
     - default: Output1
       description: Output to connect modulation signal to.
       name: output
-      param_range: Output1, Output2, Output3, Output4, OutputA, OutputB
+      param_range: Output1, Output2, Output3, Output4, OutputA, OutputB, OutputC
       type: string
       unit: null
     - default: true
@@ -48,11 +56,9 @@ summary: set_aux_oscillator
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
-i.set_aux_oscillator()
-# Set the probes to monitor Output 1 and Output 2
-i.set_monitor(1, 'Output1')
-i.set_monitor(2, 'Output2')
+i = LaserLockBox('192.168.###.###', force_connect=True)
+# Enable the auxiliary oscillator and drive Output3 at 1 MHz with 0.5 V amplitude
+i.set_aux_oscillator(enabled=True, frequency=1e6, amplitude=0.5, output='Output3')
 
 ```
 
@@ -61,11 +67,10 @@ i.set_monitor(2, 'Output2')
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
-m.set_aux_oscillator()
-% Set the probes to monitor Output 1 and Output 2
-m.set_monitor(1, 'Output1')
-m.set_monitor(2, 'Output2')
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
+% Enable the auxiliary oscillator and route 1 MHz, 0.5 V to Output3
+m.set_aux_oscillator('enabled', true, 'frequency', 1e6, 'amplitude', 0.5, ...
+                     'output', 'Output3');
 ```
 
 </code-block>
@@ -73,10 +78,12 @@ m.set_monitor(2, 'Output2')
 <code-block title="cURL">
 
 ```bash
+# Enable the auxiliary oscillator and drive Output3 at 1 MHz with 0.5 V amplitude
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "source": "Output1"}'\
-        http://<ip>/api/laserlockbox/set_monitor
+        --data '{"enabled": true, "frequency": 1000000, "amplitude": 0.5, 
+                 "output": "Output3"}'\
+        http://<ip>/api/laserlockbox/set_aux_oscillator
 ```
 
 </code-block>
@@ -87,6 +94,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "source": "Output1"
+    "amplitude": 0.5,
+    "enabled": true,
+    "frequency": 1000000.0,
+    "source": "AnalogOutput3"
 }
 ```

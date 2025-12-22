@@ -36,7 +36,7 @@ To convert .li binary formatted log files, use liconverter windows app or [mokuc
 ```python
 import time
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure instrument to desired state
 
 # Start the logging session...
@@ -61,7 +61,7 @@ print(f"Remaining time {progress['time_remaining']} seconds")
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 %%% Configure instrument to desired state
 
 % start logging session and download file to local directory

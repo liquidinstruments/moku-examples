@@ -39,8 +39,8 @@ summary: set_output_offset
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
-# Set output offset to 2VDC
+i = LaserLockBox('192.168.###.###', force_connect=True)
+# Set Channel 1 output offset to 2 V
 i.set_output_offset(1, offset=2)
 ```
 
@@ -49,8 +49,8 @@ i.set_output_offset(1, offset=2)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
-% Set output offset to 2VDC
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
+% Set Channel 1 output offset to 2 V
 m.set_output_offset(1, 'offset', 2);
 ```
 
@@ -61,7 +61,7 @@ m.set_output_offset(1, 'offset', 2);
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "offset": 1}'\
+        --data '{"channel": 1, "offset": 2}'\
         http://<ip>/api/laserlockbox/set_output_offset
 ```
 
@@ -72,5 +72,5 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```json
-{ "offset": 1.0 }
+{ "offset": 2.0 }
 ```

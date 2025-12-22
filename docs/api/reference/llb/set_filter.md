@@ -65,9 +65,9 @@ summary: set_filter
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
-# Following configuration produces Chebyshev type 1 IIR filter
-i.set_filter(shape="Lowpass", type="ChebyshevI", order=4)
+i = LaserLockBox('192.168.###.###', force_connect=True)
+# Configure a 4th-order Chebyshev Type I low-pass filter with a 10 kHz cutoff
+i.set_filter(shape="Lowpass", type="ChebyshevI", order=4, low_corner=1e4)
 ```
 
 </code-block>
@@ -75,9 +75,10 @@ i.set_filter(shape="Lowpass", type="ChebyshevI", order=4)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
-% Following configuration produces Chebyshev type 1 IIR filter
-m..set_filter('shape', 'Lowpass', 'type', 'ChebyshevI', 'order', 4)
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
+% Configure a 4th-order Chebyshev Type I low-pass filter with a 10 kHz cutoff
+m.set_filter('shape', 'Lowpass', 'type', 'ChebyshevI', 'order', 4, ...
+             'low_corner', 1e4);
 ```
 
 </code-block>
@@ -85,9 +86,11 @@ m..set_filter('shape', 'Lowpass', 'type', 'ChebyshevI', 'order', 4)
 <code-block title="cURL">
 
 ```bash
+# Configure a 4th-order Chebyshev Type I low-pass filter with a 10 kHz cutoff
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"type":"ChebyshevI", "shape":"Lowpass", "order":4}'\
+        --data '{"shape": "Lowpass", "type": "ChebyshevI", "order": 4, 
+                 "low_corner": 10000}'\
         http://<ip>/api/laserlockbox/set_filter
 ```
 
@@ -99,8 +102,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
+    "Filter shape": 0,
     "low_pass_corner": 10000.0,
     "order": 4,
-    "shape": "Lowpass"
+    "pass_band_ripple": 3.0,
+    "sample_rate": "78.125 MHz",
+    "shape": "Lowpass",
+    "type": "ChebyshevI"
 }
 ```

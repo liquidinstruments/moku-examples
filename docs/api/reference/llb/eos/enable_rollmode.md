@@ -31,7 +31,7 @@ summary: enable_rollmode
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_timebase(-1, 1)
 i.enable_rollmode(roll=True)
 ```
@@ -41,7 +41,7 @@ i.enable_rollmode(roll=True)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_timebase(-1, 1);
 m.enable_rollmode('roll', true)
 ```

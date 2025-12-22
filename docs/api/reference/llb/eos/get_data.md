@@ -52,7 +52,7 @@ Below are the examples on how to read the data frame,
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 data = i.get_data()
 print(data['ch1'], data['ch2'], data['time'])
 ```
@@ -62,7 +62,7 @@ print(data['ch1'], data['ch2'], data['time'])
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 data = m.get_data();
 disp(data.ch1);
 disp(data.ch2);

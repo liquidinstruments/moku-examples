@@ -1,13 +1,13 @@
 ---
 additional_doc: null
-description: Configure the the desired input gain
+description: Configure the digital input gain to improve measurement precision. This gain setting is only available for Input 1.
 method: post
 name: set_digital_input_gain
 parameters:
     - default: null
-      description: Input gain
+      description: Adds digital input gain
       name: digital_gain
-      param_range: 48dB, 24dB, 0dB
+      param_range: 0dB, +24dB, +48dB
       type: string
       unit: 
     - default: true
@@ -30,10 +30,9 @@ summary: set_digital_input_gain
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
-i.set_aux_oscillator()
-# Set the set point to 1V
-i.set_digital_input_gain('0dB')
+i = LaserLockBox('192.168.###.###', force_connect=True)
+# Set the digital input gain to 24 dB
+i.set_digital_input_gain('+24dB')
 
 ```
 
@@ -42,10 +41,9 @@ i.set_digital_input_gain('0dB')
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
-m.set_aux_oscillator()
-% Set the set point to 1V
-m.set_digital_input_gain('0dB')
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
+% Set the digital input gain to 24 dB
+m.set_digital_input_gain('+24dB')
 ```
 
 </code-block>
@@ -55,18 +53,10 @@ m.set_digital_input_gain('0dB')
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"digital_gain": "0dB"}'\
+        --data '{"digital_gain": "+24dB"}'\
         http://<ip>/api/laserlockbox/set_digital_input_gain
 ```
 
 </code-block>
 
 </code-group>
-
-### Sample response
-
-```json
-{
-    "digital_gain": "0dB"
-}
-```

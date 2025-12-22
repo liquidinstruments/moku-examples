@@ -10,10 +10,6 @@ summary: set_defaults
 <headers/>
 <parameters/>
 
-::: tip INFO
-Reference to any instrument object will always be in default state.
-:::
-
 ### Examples
 
 <code-group>
@@ -21,9 +17,8 @@ Reference to any instrument object will always be in default state.
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 i.set_defaults()
-# LaserLockBox reference i is in default state
 ```
 
 </code-block>
@@ -31,9 +26,8 @@ i.set_defaults()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###', true);
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 m.set_defaults();
-% LaserLockBox reference m is in default state
 ```
 
 </code-block>

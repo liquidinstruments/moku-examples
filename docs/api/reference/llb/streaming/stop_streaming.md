@@ -19,7 +19,7 @@ group: Data Streaming
 ```python
 from moku.instruments import LaserLockBox
 import time
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure instrument
 i.start_streaming(duration=10)
 time.sleep(5) # Abort the streaming session after 5 seconds
@@ -31,7 +31,7 @@ i.stop_streaming()
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure instrument
 m.start_streaming('duration', 10);
 pause(5) % Abort the streaming session after 5 seconds

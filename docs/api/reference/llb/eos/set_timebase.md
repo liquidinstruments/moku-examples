@@ -42,7 +42,7 @@ group: Monitors
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Set instrument to desired state
 # View +- 1 ms i.e. trigger in the centre
 i.set_timebase(-1e-3, 1e-3)
@@ -53,7 +53,7 @@ i.set_timebase(-1e-3, 1e-3)
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Set instrument to desired state
 % View +- 1 ms i.e. trigger in the centre
 m.set_timebase(-1e-3, 1e-3);

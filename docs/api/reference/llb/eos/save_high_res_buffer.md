@@ -33,7 +33,7 @@ Below are the examples on how to save the high resolution data to a file,
 
 ```python
 from moku.instruments import LaserLockBox
-i = LaserLockBox('192.168.###.###')
+i = LaserLockBox('192.168.###.###', force_connect=True)
 # Configure instrument to desired state
 i.set_acquisition_mode(mode="DeepMemory")
 response = i.save_high_res_buffer(comments="Test")
@@ -48,7 +48,7 @@ i.download(response["location"], response["file_name"], "~/high_res_data.li")
 
 ```matlab
 % Connect to Moku
-m = MokuLaserLockBox('192.168.###.###');
+m = MokuLaserLockBox('192.168.###.###', force_connect=true);
 % Configure instrument to desired state
 m.set_acquisition_mode('mode', 'DeepMemory')
 result = m.save_high_res_buffer();
