@@ -8,7 +8,7 @@ getters:
 - summary: get_dio
   description: Get the current DIO direction configuration.
 - summary: get_frontend
-  description: Get the input impedance, coupling, and range for given input channel
+  description: Get the input impedance, coupling, bandwidth, and range for given input channel
   parameters:
   - default: null
     description: Target channel

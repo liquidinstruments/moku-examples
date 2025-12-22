@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, gain, and attenuation for each channel.
 method: post
 name: set_frontend
@@ -13,6 +13,13 @@ parameters:
           mokupro: 1, 2, 3, 4
           mokudelta: 1, 2, 3, 4
       type: integer
+      unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
       unit: null
     - default: null
       description: Impedance
@@ -70,7 +77,8 @@ summary: set_frontend
 ```python
 from moku.instruments import FIRFilterBox
 i = FIRFilterBox('192.168.###.###')
-i.set_frontend(1, "AC", "1MOhm", "14dB")
+# Set Input 1 to 1 MOhm, DC coupled, 20 dB attenuation, 300 MHz bandwidth
+i.set_frontend(channel=1, coupling="DC", impedance="1MOhm", attenuation="20dB", bandwidth="300MHz", strict=True)```
 ```
 
 </code-block>
@@ -79,7 +87,10 @@ i.set_frontend(1, "AC", "1MOhm", "14dB")
 
 ````matlab
 m = MokuFIRFilterBox('192.168.###.###');
-m.set_frontend(1, "AC", "1MOhm", "14dB");```
+% Set Input 1 to DC coupling, 1 MOhm impedance, 20 dB attenuation and 300 MHz bandwidth
+m.set_frontend(1, 'DC', '1MOhm', '20dB', 'bandwidth', '300MHz',  'strict', true);
+```
+
 </code-block>
 
 <code-block title="cURL">
@@ -87,10 +98,21 @@ m.set_frontend(1, "AC", "1MOhm", "14dB");```
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "14dB"}'\
+        --data '{"strict": True, "channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "20dB", "bandwidth": "300MHz"}'\
         http://<ip>/api/firfilter/set_frontend
 ````
 
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    "bandwidth": "300MHz",
+    "coupling": "DC",
+    "impedance": "1MOhm",
+    "attenuation": "20dBp"
+}
+```

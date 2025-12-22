@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configure the Analog front-end settings of the Moku when in Multi-Instrument Mode.
 method: post
 name: set_frontend
@@ -46,6 +46,13 @@ parameters:
           mokudelta: 20dB, 0dB, -20dB, -32dB
       type: string
       unit:
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: None
       description: Input gain (required when attenuation is not set)
       name: gain
@@ -82,7 +89,8 @@ from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
 m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
 wg = m.set_instrument(1, WaveformGenerator)
 osc = m.set_instrument(2, Oscilloscope)
-m.set_frontend(1, "1MOhm", "DC", "0dB")
+# Set Input 1 to 1 MOhm, DC coupled, 0 dB gain, and 300 MHz bandwidth
+m.set_frontend(channel=1, impedance="1MOhm", coupling="DC", gain="0dB", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -101,8 +109,8 @@ sa = m.set_instrument(2, @MokuSpectrumAnalyzer);
 connections = [struct('source', 'Input1', 'destination', 'Slot1InA');
 struct('source', 'Slot1OutA', 'destination', 'Slot2InA')];
 m.set_connections(connections);
-% configure frontend
-m.set_frontend(1, '1MOhm', 'DC', '0dB');
+% Set Input 1 to 1 MOhm, DC coupled, 0 dB gain, and 300 MHz bandwidth
+m.set_frontend(1, '1MOhm', 'DC', '0dB', 'bandwidth', '300MHz', 'strict', true);
 
 ```
 
@@ -113,7 +121,7 @@ m.set_frontend(1, '1MOhm', 'DC', '0dB');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "attenuation": "0dB"}'\
+        --data '{"strict": True, "channel": 1, "impedance": "1MOhm", "coupling": "DC", "attenuation": "0dB", "bandwidth": "300MHz"}'\
         http://<ip>/api/mim/set_frontend
 ```
 
@@ -122,3 +130,12 @@ $: curl -H 'Moku-Client-Key: <key>'\
 </code-group>
 
 ### Sample response
+
+```json
+{
+    "bandwidth": "300MHz",
+    "coupling": "DC",
+    "impedance": "1MOhm",
+    "gain": "0dB"
+}
+```

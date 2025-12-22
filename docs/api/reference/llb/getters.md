@@ -9,7 +9,7 @@ getters:
 - summary: get_demodulation
   description: Get the current demodulation configuration
 - summary: get_frontend
-  description: Get the input impedance, coupling, and range for given input channel
+  description: Get the input impedance, coupling, bandwidth, and range for given input channel
   parameters:
   - default: null
     description: Target channel

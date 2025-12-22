@@ -1,5 +1,5 @@
 ---
-additional_doc: null
+additional_doc: Setting the bandwidth is only available on Moku:Pro. Read about [how to select the bandwidth for your application](../README.md#bandwidth)
 description: Configures the input impedance, coupling, and range for each channel
 method: post
 name: set_frontend
@@ -40,6 +40,13 @@ parameters:
           mokudelta: 100mVpp, 1Vpp, 10Vpp, 40Vpp
       type: string
       unit: null
+    - default: 300MHz
+      description: Input bandwidth
+      name: bandwidth
+      param_range:
+          mokupro: 300MHz, 600MHz
+      type: string
+      unit: null
     - default: true
       description: Disable all implicit conversions and coercions.
       name: strict
@@ -65,8 +72,8 @@ i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
 # As input channels are only used when there is a modulation, we will use burst mode in this example
 # Add burst modulation to waveform on channel 1, triggering on Input 1 at 0.1V level for 3 cycles
 i.burst_modulate(1, "Input1", "NCycle", burst_cycles=3, trigger_level=0.1)
-# Set Input 1 to 1MOhm, AC coupled, 10Vpp input range
-i.set_frontend(1, "1MOhm", "AC", "10Vpp")
+# Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, and 300 MHz bandwidth
+i.set_frontend(channel=1, impedance="1MOhm", coupling="DC", range="4Vpp", bandwidth="300MHz", strict=True)
 ```
 
 </code-block>
@@ -79,9 +86,9 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 
 % As input channels are only used when there is a modulation, we will use burst mode in this example
 % Add burst modulation to waveform on channel 1, triggering on Input 1 at 0.1V level for 3 cycles
-m.burst_modulate(2, "Input1", "NCycle",'burst_cycles',3,'trigger_level',0.1);
-% Set Input 1 to 1MOhm, AC coupled, 10Vpp input range
-m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
+m.burst_modulate(2, "Input1", "NCycle", 'burst_cycles', 3, 'trigger_level', 0.1);
+% Set Input 1 to 1 MOhm, DC coupled, 4 Vpp input range, 300 MHz bandwidth
+m.set_frontend(1, '1MOhm', 'DC', '4Vpp', 'bandwidth', '300MHz', 'strict', true);
 ```
 
 </code-block>
@@ -91,7 +98,7 @@ m.set_frontend(1, '1MOhm', 'AC', '10Vpp');
 ```bash
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
-        --data '{"channel": 1, "impedance": "1MOhm", "coupling": "AC", "range": "10Vpp"}'\
+        --data '{'strict': True, 'channel': 1, 'impedance': '1MOhm', 'coupling': 'DC', 'range': '4Vpp', 'bandwidth': '300MHz'}'\
         http://<ip>/api/awg/set_frontend
 ```
 
@@ -103,8 +110,9 @@ $: curl -H 'Moku-Client-Key: <key>'\
 
 ```json
 {
-    "coupling": "AC",
+    "bandwidth": "300MHz",
+    "coupling": "DC",
     "impedance": "1MOhm",
-    "range": "10Vpp"
+    "range": "4Vpp"
 }
 ```

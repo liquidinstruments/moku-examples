@@ -18,7 +18,7 @@ getters:
     - summary: get_polar_theta_range
       description: If polar mode is enabled,returns the current range
     - summary: get_frontend
-      description: Get the input impedance, coupling, and attenuation for given input channel
+      description: Get the input impedance, coupling, bandwidth, and attenuation for given input channel
       parameters:
           - default: null
             description: Target channel
