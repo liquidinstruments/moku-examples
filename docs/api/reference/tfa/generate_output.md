@@ -32,10 +32,12 @@ parameters:
       param_range:
       type: number
       unit:
-    - default: null
+    - default: undefined
       description: Output range
       name: output_range
-      param_range: 2Vpp, 10Vpp
+      param_range:
+          mokupro: 2Vpp, 10Vpp
+          mokudelta: 1Vpp, 10Vpp
       type: string
       unit:
     - default: False
