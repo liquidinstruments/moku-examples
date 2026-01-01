@@ -63,7 +63,11 @@ parameters:
     - default: null
       description: Number of coefficients for the filter
       name: order
-      param_range: 2, 4, 6, 8
+      param_range:
+          mokugo: 2, 4, 6, 8, 10, 12
+          mokulab: 2, 4, 6, 8, 10, 12
+          mokupro: 2, 4, 6, 8, 10, 12, 14, 16
+          mokudelta: 2, 4, 6, 8, 10, 12, 14, 16
       type: integer
       unit: null
     - default: true
