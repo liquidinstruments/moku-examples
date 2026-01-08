@@ -24,7 +24,7 @@ module CustomInstrument (
     output wire [31:0] status[0:15]
 );
   
-  MovingAverage #(.G_AVERAGE_LENGTH_LOG(10)) M1(clk, reset, inputa, inputb, c1][15:0], control[2][15:0], outputa);
+  MovingAverage #(.G_AVERAGE_LENGTH_LOG(10)) M1(clk, reset, inputa, inputb, control[1][15:0], control[2][15:0], outputa);
   MovingMedian M2(clk, reset, inputa, outputb);
   
 endmodule

@@ -9,8 +9,8 @@ ARCHITECTURE Behavioural OF CustomInstrument IS
         Reset                             :   IN    std_logic;
         InputA                            :   IN    signed(15 DOWNTO 0);
         InputB                            :   IN    signed(15 DOWNTO 0);
-        Control(0)                        :   IN    signed(15 DOWNTO 0);
-        Control(1)                        :   IN    signed(15 DOWNTO 0);
+        Control0                          :   IN    signed(15 DOWNTO 0);
+        Control1                          :   IN    signed(15 DOWNTO 0);
         OutputA                           :   OUT   signed(15 DOWNTO 0);
         OutputB                           :   OUT   signed(15 DOWNTO 0)
       );
@@ -29,8 +29,8 @@ BEGIN
               Reset    => Reset,
               InputA   => InputA(11 downto 0) & "0000",
               InputB   => InputB, 
-              Control(0) => signed(Control(0)(15 downto 0)),
-              Control(1) => signed(Control(1)(15 downto 0)),
+              Control0 => signed(Control(0)(15 downto 0)),
+              Control1 => signed(Control(1)(15 downto 0)),
               OutputA  => OutputA,
               OutputB  => open
             );
