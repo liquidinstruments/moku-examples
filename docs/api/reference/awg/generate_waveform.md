@@ -16,17 +16,18 @@ parameters:
       unit: null
     - default: null
       description:
-          "Defines the output sample rate of the AWG. If you don\u2019t specify\
-          \ a mode, the fastest output rate for the given data length will be automatically\
-          \ chosen. This is correct in almost all circumstances."
+          "Defines the output sample rate of the AWG. If `Auto` is selected,\
+          \ the fastest output rate for the given data length will be automatically\
+          \ chosen."
       name: sample_rate
+      # TO DO: SW-12143
       param_range:
           mokugo: Auto, 125Ms, 62.5Ms, 31.25Ms
           mokulab: Auto, 1Gs, 500Ms, 250Ms, 125Ms
           mokupro: Auto, 1.25Gs, 625Ms, 312.5Ms
           mokudelta: Auto, 5Gsa, 2.5GSa, 1.25Gs, 625Ms, 312.5Ms
       type: string
-      unit: MS/s
+      unit: Sa/s
     - default: undefined
       description: Lookup table voltage values. The entries of the LUT are normalized to range [-1.0, 1.0]; if the LUT entries are identically zero then it remains unchanged.
       name: lut_data
