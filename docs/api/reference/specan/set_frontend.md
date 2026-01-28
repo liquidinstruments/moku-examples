@@ -36,7 +36,7 @@ parameters:
       param_range:
           mokugo: 10Vpp, 50Vpp
           mokulab: 1Vpp, 10Vpp
-          mokupro: 400mVpp, 4Vp, 40Vpp
+          mokupro: 400mVpp, 4Vpp, 40Vpp
           mokudelta: 100mVpp, 1Vpp, 4Vpp, 40Vpp
       type: string
       unit: null

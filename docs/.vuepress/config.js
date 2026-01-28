@@ -100,7 +100,7 @@ module.exports = {
                         getChildren('Custom Instrument', 'reference/custominstrument'),
                         getChildren('Datalogger', 'reference/datalogger'),
                         getChildren('Digital Filter Box', 'reference/dfb'),
-                        getChildren('FIR FIlter', 'reference/fir'),
+                        getChildren('FIR Filter', 'reference/fir'),
                         getChildren(
                             'Frequency Response Analyzer',
                             'reference/fra',
