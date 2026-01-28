@@ -43,7 +43,7 @@ Signals are not explicitly routed to and from busses in the way they can be in t
 <code-block title="Python">
 
 ```python
-from moku.instruments import MultiInstrument
+from moku.instruments import MultiInstrument, Oscilloscope, WaveformGenerator
 m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
 wg = m.set_instrument(1, WaveformGenerator)
 osc = m.set_instrument(2, Oscilloscope)
@@ -90,3 +90,14 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-block>
 
 </code-group>
+
+### Sample response
+
+```json
+{
+    {"destination": "Slot1InA", "source": "Input1"},
+    {"destination": "Slot2InA", "source": "Slot1OutA"},
+    {"destination": "Slot2InB", "source": "Slot1OutA"},
+    {"destination": "Output1", "source": "Slot2OutA"},
+    {"destination": "DIO", "source": "Slot1OutA"}
+}
