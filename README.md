@@ -8,6 +8,8 @@ Maintainer is @ben.nizette.
 
 Branch off `next`.
 
+Style guide for customer facing text, branching and commits are found on [confluence](https://liquidinstruments.atlassian.net/wiki/x/HYCvZ).
+
 Submissions are by Merge Request targeting `next`. Assignee must be the maintainer, extra reviewers are allowed if necessary. Merge Requests must be fast-forward merges at the time the MR is created.
 
 Release is by _continuous deployment_. The `next` branch is staged [here](https://next.documentation.liquidinstruments.com/). The `master` branch is deployed [here](https://apis.liquidinstruments.com).
