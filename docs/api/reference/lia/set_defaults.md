@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Reset the Lock-In Amplifier to its default state
+description: Reset the Lock-in Amplifier to its default state
 method: post
 name: set_defaults
 parameters: []

@@ -1,7 +1,7 @@
 ---
 additional_doc:
     Select the main, auxiliary and PID controller sources to configure the outputs
-    of the Lock-In Amplifier.
+    of the Lock-in Amplifier.
 description: Configures output sources and offsets
 method: post
 name: set_outputs
