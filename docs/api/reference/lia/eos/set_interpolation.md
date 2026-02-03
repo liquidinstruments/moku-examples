@@ -26,14 +26,10 @@ summary: set_interpolation
 <code-block title="Python">
 
 ```python
-from moku.instruments import Oscilloscope
+from moku.instruments import LockInAmp
 # Configure the instrument
-i = Oscilloscope('192.168.###.###')
-i.generate_waveform(1, 'Sine', amplitude=0.5, frequency=10e3)
-i.generate_waveform(2, 'Square', amplitude=1, frequency=20e3)
+i = LockInAmp('192.168.###.###')
 
-# Set the data source of Channel 1 to be Input 1
-i.set_source(1,'Input1')
 # Set linear interpolation
 i.set_interpolation('Linear')
 ```
@@ -43,13 +39,9 @@ i.set_interpolation('Linear')
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuOscilloscope('192.168.###.###', true);
 %% Configure the instrument
-m.generate_waveform(1, 'Sine', 'amplitude',0.5, 'frequency', 10e3);
-m.generate_waveform(2, 'Square', 'amplitude',1, 'frequency',20e3, 'duty', 50);
+m = MokuLockInAmp('192.168.###.###', true);
 
-% Set the data source of Channel 1 to be Input 1
-m.set_source(1,'Input1');
 % Set linear interpolation
 m.set_interpolation('Linear')
 
@@ -63,7 +55,7 @@ m.set_interpolation('Linear')
 $: curl -H 'Moku-Client-Key: <key>'\
         -H 'Content-Type: application/json'\
         --data '{"interpolation": "Linear"}'\
-        http://<ip>/api/oscilloscope/set_interpolation
+        http://<ip>/api/lockinamp/set_interpolation
 ```
 
 </code-block>

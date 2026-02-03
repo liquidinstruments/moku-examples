@@ -40,7 +40,7 @@ parameters:
           mokudelta: 100mVpp, 1Vpp, 4Vpp, 40Vpp
       type: string
       unit: null
-    - default: 300MHz
+    - default: 600MHz
       description: Input bandwidth
       name: bandwidth
       param_range:
