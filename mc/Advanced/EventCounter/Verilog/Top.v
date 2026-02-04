@@ -23,7 +23,7 @@ module CustomInstrument (
     input wire [31:0] control [0:15],
     output wire [31:0] status[0:15]
 );
-  
-  EventCounter E1(clk, reset, inputA, control[0], control[1][15:0], control[2][15:0], control[3][15:0], control[4][15:0], cutputa, outputb);
+
+  EventCounter E1(clk, reset, inputA, control[0], control[1][15:0], control[2][15:0], control[3][15:0], control[4][15:0], outputa, outputb);
 
 endmodule
