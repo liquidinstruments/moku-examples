@@ -10,11 +10,11 @@ begin
             Reset => Reset,
 
             DataIn => InputA,
-            PeriodCounterLimit => unsigned(Control(1)),
-            PulseMin => unsigned(Control(2)(15 downto 0)),
-            PulseMax => unsigned(Control(2)(31 downto 16)),
-            Threshold => signed(Control(3)(15 downto 0)),
-            MinPulseCount => unsigned(Control(3)(31 downto 16)),
+            PeriodCounterLimit => unsigned(Control(0)),
+            PulseMin => unsigned(Control(1)(15 downto 0)),
+            PulseMax => unsigned(Control(1)(31 downto 16)),
+            Threshold => signed(Control(2)(15 downto 0)),
+            MinPulseCount => unsigned(Control(2)(31 downto 16)),
 
             DataOutA => OutputA,
             DataOutB => OutputB
