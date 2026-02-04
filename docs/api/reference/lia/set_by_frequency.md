@@ -1,6 +1,6 @@
 ---
-additional_doc: The PID must also be enabled using `use_pid`
-description: Configure the embedded PID controller using crossover frequencies.
+additional_doc: The PID must also be enabled using `use_pid`.
+description: Configure the embedded PID controller using crossover frequencies
 method: post
 name: set_by_frequency
 parameters:
