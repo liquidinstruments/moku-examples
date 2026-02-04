@@ -26,4 +26,3 @@ The values specific output when the count is and is not exceeded are defined as 
 | Control0     |                `t1:` clock cycles               ||
 | Control1     | `tpmax` clock cycles    | `tpmin` clock cycles  |
 | Control2     | `mincount` count        | `vpmin` ADC Bits      |
-

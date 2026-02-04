@@ -7,6 +7,7 @@
 -- OutB is invert of OutA
 --
 -- e.g. for pulses from min 48ns to max 99.2ns
+-- Based on the Moku:Pro, 4 Slot clock rate.
 -- Pulse_min = 0x0f
 -- Pulse_max = 0x1f
 -- PeriodCounter_limit = 0x0c35

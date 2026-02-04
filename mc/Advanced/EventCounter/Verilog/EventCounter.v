@@ -5,6 +5,7 @@
 // OutB is invert of OutA
 
 // e.g. for pulses from min 48ns to max 99.2ns
+-- Based on the Moku:Pro, 4 Slot clock rate.
 // Pulse_min = 0x0f
 // Pulse_max = 0x1f
 // PeriodCounter_limit = 0x0c35
@@ -41,7 +42,7 @@ module EventCounter (
 // Flags for trigger detection
   reg Triggered, Prev_Triggered, pulse_detected, QuantumState0;
   wire Trigger_edge;
-  
+
   always @(posedge Clk) begin
     if (Reset==1'b1) begin
       PeriodCounter<=32'd0;
@@ -61,8 +62,8 @@ module EventCounter (
       if (State==PeriodEnded)
         PulseCounter<=16'd0;
       else if (State==EventEnded & pulse_detected==1'b1)
-        PulseCounter<=PulseCounter+16'd1;        
-    end    
+        PulseCounter<=PulseCounter+16'd1;
+    end
   end
 
   // Trigger: detect both threshold and edge trigger
@@ -75,7 +76,7 @@ module EventCounter (
       Prev_Triggered<=Triggered;
     end
   end
-  
+
   assign Trigger_edge = (~Prev_Triggered) & Triggered;
 
   // Move to next state
@@ -85,7 +86,7 @@ module EventCounter (
     else
       State <= NextState;
   end
-  
+
   // Calculate next state
   always @(State or PeriodCounter or Triggered or PulseLenCounter or PulseCounter)
   begin
@@ -93,12 +94,12 @@ module EventCounter (
         WaitForEdge:begin
                       if (PeriodCounter==PeriodCounterLimit)
                         NextState<=PeriodEnded;
-                      else if (Triggered==1'b1) 
+                      else if (Triggered==1'b1)
                         NextState<=TimeEvent;
                       else
                         NextState<=WaitForEdge;
                       pulse_detected<=1'b0;
-                    end  
+                    end
         TimeEvent:begin
                       if (PeriodCounter==PeriodCounterLimit)
                         NextState<=PeriodEnded;
@@ -119,7 +120,7 @@ module EventCounter (
                         NextState<=WaitForEdge;
                         pulse_detected<=1'b0;
                       end
-                    end 
+                    end
         PeriodEnded:  begin
                         if (PulseCounter>=MinPulseCount)
                           QuantumState0<=1'b1;
