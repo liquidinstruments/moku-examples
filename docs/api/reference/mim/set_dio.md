@@ -16,20 +16,12 @@ parameters:
       param_range: '[0/1, ...]'
       type: array
       unit: null
-    - default: 1
-      description: port
-      name: port
-      param_range:
-        mokugo: 1
-        mokudelta: 1, 2
-      type: integer
-      unit: null
     - default: True
       description: Disable all implicit conversions and coercions.
       name: strict
       param_range:
       type: boolean
-      unit: null
+      unit:
 summary: set_dio
 available_on: 'Moku:Go'
 ---
@@ -56,14 +48,12 @@ It is required to connect DIO to a slot before configuring it. Read [set_connect
 <code-block title="Python">
 
 ```python
-from moku.instruments import MultiInstrument, WaveformGenerator
+from moku.instruments import MultiInstrument, WaveformGenerator, Oscilloscope
+
 m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=2)
 wg = m.set_instrument(1, WaveformGenerator)
-
-connections = [dict(source="DIO", destination="Slot1InA"),
-               dict(source="Slot1OutA", destination="DIO")]
-m.set_connections(connections=connections)
-m.set_dio(port=1, direction=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
+osc = m.set_instrument(2, Oscilloscope)
+m.set_dio(direction=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
 ```
 
 </code-block>
@@ -71,15 +61,17 @@ m.set_dio(port=1, direction=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
 <code-block title="MATLAB">
 
 ```matlab
-m = MokuMultiInstrument(192.168.###.###', 2, true);
+m = MokuMultiInstrument('10.1.111.210', 2, true);
 %% Configure the instruments
 % WaveformGenerator in slot1
+% SpectrumAnalyzer in slot2
 wg = m.set_instrument(1, @MokuWaveformGenerator);
+sa = m.set_instrument(2, @MokuSpectrumAnalyzer);
 % configure routing
-connections = [struct('source', 'DIO', 'destination', 'Slot1InA');
-            struct('source', 'Slot1OutA', 'destination', 'DIO')];
+connections = [struct('source', 'Slot1InA', 'destination', 'DIO');
+            struct('source', 'Slot1OutA', 'destination', 'Slot2InA')];
 m.set_connections(connections);
-m.set_dio('port', 1, 'direction', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
+m.set_dio('direction', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0])
 ```
 
 </code-block>
@@ -102,15 +94,3 @@ $: curl -H 'Moku-Client-Key: <key>' \
 </code-block>
 
 </code-group>
-
-### Sample response
-
-```json
-
-{
-    "strict": True,
-    "direction": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-    "direction_map": None,
-    "port": 2
-}
-```
