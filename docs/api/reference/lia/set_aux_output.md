@@ -1,8 +1,8 @@
 ---
 additional_doc:
     In addition to configuring this Auxiliary sine wave output, it must be routed to an
-    actual output channel using `set_outputs`
-description: Configures the Auxiliary sine wave generator.
+    actual output channel using `set_outputs`.
+description: Configures the Auxiliary sine wave generator
 method: post
 name: set_aux_output
 parameters:

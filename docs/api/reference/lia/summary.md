@@ -46,7 +46,7 @@ $: curl -H 'Moku-Client-Key: <key>'\
 ### Sample response
 
 ```json
-Moku:Pro Lock-In Amplifier
+Moku:Pro Lock-in Amplifier
 Input 1, AC coupling, 1 MOhm impedance, -20 dB attenuation
 Input 2, DC coupling, 50 Ohm impedance, 0 dB attenuation
 Internal demodulation: 1.000 000 000 000 MHz, 0.000 000 deg

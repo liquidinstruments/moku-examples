@@ -30,6 +30,41 @@ summary: set_demodulation
 ---
 
 <headers/>
+
+## Demodulation source descriptions
+
+### Internal
+
+The `Internal` option allows the use of the local oscillator that is generated internally. This
+oscillator utilizes the same timebase as the clock reference.
+Note: Moku devices with an external clock reference port can be synchronized with an externally
+connected device. Read more about configuring the [external reference clock](../ext_clk/README.md).
+
+### External
+
+The `External` option allows the second input channel to be used as the reference oscillator. This
+also allows non-sinusoidal references to be used as the demodulation source, and can be used
+to measure correlation or recover specific components of complex input signals. As the external
+signal can be an arbitrary shape, it cannot be used to perform dual-phase demodulation, it can
+only interrogate one quadrature, `X`.
+
+### External PLL
+
+The `External (PLL)` option allows the second input channel to be used as the reference
+oscillator for dual-phase demodulation. The option uses a digitally implemented phase-locked
+loop (PLL) to track the phase of the external reference with a user-selectable bandwidth. The
+PLL allows the instrument to generate synchronized in-phase and quadrature sinusoids at the
+same frequency, with adjustable phase and frequency multipliers. This mode enables the Lock-in
+Amplifier to recover both quadrature signals without sharing the same timebase as the external
+signal.
+
+### None
+
+The `None` option can be used to bypass the mixing operation, passing the signal directly to
+the lowpass filter. This is useful if the necessary signal extraction is done on an external system
+or another instrument in Multi-Instrument Mode, and enables modulation-free locking techniques
+such as DC locking, side-of-fringe locking, and tilt locking.
+
 <parameters/>
 
 ### Examples
