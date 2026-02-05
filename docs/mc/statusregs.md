@@ -4,7 +4,7 @@ The [CustomInstrument entity](./wrapper.html#custominstrument-architecture) prov
 
 ## Type Casting
 
-These status registers can be assigned to different internal signals or control registers to playback these values in real-time. With VHDL code, assigning to the status registers will often require casting to std_logic_vector. When using Verilog, the casting and resizing is often implicit during the assignment and is done automatically.
+These status registers can be assigned to different internal signals or control registers to playback these values in real-time. With VHDL code, assigning to the status registers will often require casting to std_logic_vector. When using Verilog (SystemVerilog), the casting and resizing is often implicit during the assignment and is done automatically.
 
 <code-group>
 
@@ -65,7 +65,7 @@ reg unsigned [63:0] B;
 
 assign Status[0][12:0] = Control[0][12:0];  // bit slicing and automatic casting as signed
 assign A = Control[1][15:0] + Control[2][15:0];
-assign Status[1][15:0] = A;    // can assigns the same control 
+assign Status[1][15:0] = A;    // can assigns the same control
                                // register to another variable
 assign Status[2] = B;          // Automatic resized and casting when assigning
 

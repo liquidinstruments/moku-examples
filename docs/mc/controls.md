@@ -1,11 +1,11 @@
 # Control Registers
 
 The [wrapper entity](./wrapper.html#custominstrument-architecture) provides 16 Control registers which can be used to control
-the behavior of the custom design at runtime. For the CustomInstrument entity, the registers are defined as an array of 32-bit std_logic_vectors. For the CustomWrapper entity, the registers are labelled **Control0** through to **Control15** and are all 32 bit std_logic_vectors. 
+the behavior of the custom design at runtime. For the CustomInstrument entity, the registers are defined as an array of 32-bit std_logic_vectors. For the CustomWrapper entity, the registers are labelled **Control0** through to **Control15** and are all 32 bit std_logic_vectors.
 
 ## Type Casting
 
-These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often require casting to another type or resizing or both. When using Verilog, the casting and resizing is often implicit during the assignment and is done automatically.
+These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often require casting to another type or resizing or both. When using Verilog (SystemVerilog), the casting and resizing is often implicit during the assignment and is done automatically.
 
 <code-group>
 
@@ -62,7 +62,7 @@ reg B;
 reg unsigned [63:0] C;
 
 assign A = control[0][12:0];  // bit slicing and automatic casting as signed
-assign B = control[0][15];    // can assigns the same control 
+assign B = control[0][15];    // can assigns the same control
                             // register to another variable
 assign C = control[1];        // Automatic resized and casting when assigning
 
@@ -148,7 +148,7 @@ reg B;
 reg unsigned [63:0] C;
 
 assign A = Control0[12:0];  // bit slicing and automatic casting as signed
-assign B = Control0[15];    // can assigns the same control 
+assign B = Control0[15];    // can assigns the same control
                             // register to another variable
 assign C = Control1;        // Automatic resized and casting when assigning
 

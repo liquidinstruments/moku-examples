@@ -20,7 +20,7 @@ end architecture;
 ```
 
 :::warning Moku Library limits
-The Moku Library currently only supports VHDL. Verilog support will be available in a future update.
+The Moku Library currently supports VHDL and Verilog (SystemVerilog).
 :::
 
 ## Moku.Support Functions

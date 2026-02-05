@@ -4,7 +4,7 @@
 From MokuOS version 4.1.1 and above, we recommend users to use CustomInstrument entity wrapper. This change mainly affect the Control register definition and the availability of Status registers. For legacy purposes, CustomWrapper is still available but will be deprecated soon.
 :::
 
-To implement your custom design, Moku Compile requires an entity to define the interface as well as a simple abstraction from the instrument slot. The wrapper is provided in both VHDL and Verilog.
+To implement your custom design, Moku Compile requires an entity to define the interface as well as a simple abstraction from the instrument slot. The wrapper is provided in both VHDL and Verilog (SystemVerilog).
 
 Note when using Verilog, the wrapper needs to be declared before proceeding to define the custom architecture. For ease of use, this wrapper declaration is automatically generated whenever a new Verilog file is created.
 

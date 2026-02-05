@@ -4,7 +4,7 @@ Moku Compile also supports the inclusion of IP cores in your custom designs. The
 
 ## Pre-compiled IP Cores
 
-The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These cores can be instantiated either in your VHDL or Verilog codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
+The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These cores can be instantiated either in your VHDL or Verilog (SystemVerilog) codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
 
 | Supported AMD IP Core | Description | Template and Example |
 |-----------------------|-------------| :------------------: |
@@ -97,7 +97,7 @@ endmodule
 
 </code-group>
 
-The instantiation templates for the IP cores are available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mc/IP%20Core%20Templates%20and%20Examples) with support for both VHDL and Verilog.
+The instantiation templates for the IP cores are available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mc/IP%20Core%20Templates%20and%20Examples) with support for both VHDL and Verilog (SystemVerilog).
 
 ## Uploading your own IP core (using .xci file)
 
