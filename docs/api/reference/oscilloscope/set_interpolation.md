@@ -1,6 +1,6 @@
 ---
 additional_doc: null
-description: Configure the interpolation mode
+description: Configures the signal source of each channel
 method: post
 name: set_interpolation
 parameters:

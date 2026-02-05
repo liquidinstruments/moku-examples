@@ -1,8 +1,8 @@
 ---
 additional_doc: Along with regular configuration methods, Custom Instrument supports following getter functions.
 name: getters
-description: Custom Instrument - getter functions
-getters:
+description: Custom Instrument - getter functions 
+getters: 
 - summary: get_controls
   description: Get all the control register values
 - summary: get_control
@@ -20,7 +20,7 @@ getters:
   - default: null
     description: Target channel
     name: channel
-    param_range:
+    param_range: 
      mokugo: 1, 2
      mokulab: 1, 2
      mokupro: 1, 2, 3, 4
