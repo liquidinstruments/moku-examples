@@ -32,13 +32,13 @@ m = MultiInstrument('192.168.###.###', platform_id=2)
 bitstream = "path/to/project/adder/bitstreams.tar.gz"
 cc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
 # set controls
-controls = {"controls": [
+controls = [
     {"idx": 0, "value": 32836},
     {"idx": 1, "value": 450},
     {"idx": 2, "value": 32},
     {"idx": 3, "value": 2048},
     {"idx": 4, "value": 2147450879}
-]}
+]
 cc.set_controls(controls)
 ```
 
@@ -51,15 +51,10 @@ m = MokuMultiInstrument('192.168.###.###', 'platform_id', 2);
 bitstream = 'path/to/project/adder/bitstreams.tar'
 cc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
 % set controls
-
-%% TO DO Fix this W.r.t MATLAB before publishing
-controls = {"controls": [
-    {"idx": 0, "value": 32836},
-    {"idx": 1, "value": 450},
-    {"idx": 2, "value": 32},
-    {"idx": 3, "value": 2048},
-    {"idx": 4, "value": 2147450879}
-]}
+controls = struct(
+      'idx', {0, 1, 2, 3, 4},
+      'value', {32836, 450, 32, 2048, 2147450879}
+)
 cc.set_controls(controls);
 ```
 
@@ -70,7 +65,8 @@ cc.set_controls(controls);
 ```bash
 $: cat controls.json
 {
-  "controls":
+  'strict': True,
+  'controls':
   [
     {"idx":0,"value":32836},
     {"idx":1,"value":450},
