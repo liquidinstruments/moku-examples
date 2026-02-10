@@ -43,8 +43,8 @@ entity CustomInstrument is
         OutputC : out signed(15 downto 0);
         OutputD : out signed(15 downto 0);
 
-        Control : in array_of_slv(0 to 15);
-        Status  : in array_of_slv(0 to 15);
+        Control : in ArrayOfSlv32(0 to 15);
+        Status : out ArrayOfSlv32(0 to 15);
     );
 end entity;
 ```
