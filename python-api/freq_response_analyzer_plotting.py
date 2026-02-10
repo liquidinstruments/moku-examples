@@ -70,7 +70,7 @@ try:
         (line4,) = plt.plot([])
     ax_2 = plt.gca()
     ax_2.set_xlabel('Frequency (Hz)')
-    ax_2.set_ylabel('Phase (Cycles)')
+    ax_2.set_ylabel('Phase (degrees)')
     ax_2.grid(True)
 
     plt.ion()
