@@ -16,7 +16,7 @@ been divided into isolated regions we call 'slots'. Each slot can be configured
 with an instrument such as an Oscilloscope or Waveform Generator which will run
 simultaneously and independently. Multi-Instrument Mode allows users of the Moku to build complete systems consisting of several instruments in flexible configurations to meet the signal processing requirements of their experiment. All of this is configurable using the Moku application or API.
 
-![An image](./multi-instrument.png)
+![An image](./images/multi-instrument.png)
 
 With the addition of the Moku Compile, users can now include their own custom functionality in this multi-instrument configuration. The Moku Compile builds custom designs through Moku Cloud Compile that can be deployed as Custom Instrument on the Moku device.
 

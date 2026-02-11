@@ -21,7 +21,7 @@ The values specific output when the count is and is not exceeded are defined as 
 
 #### Registers
 
-![Timing Diagram](./waveform.png)
+![Timing Diagram](./images/waveform.png)
 
 | Register | Bits `31-16`         | Bits `15-0`          |
 | -------- | -------------------- | -------------------- |

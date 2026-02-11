@@ -1,7 +1,9 @@
 # Control Registers
 
-The [wrapper entity](./wrapper.html#custominstrument-architecture) provides 16 Control registers which can be used to control
-the behavior of the custom design at runtime. For the CustomInstrument entity, the registers are defined as an array of 32-bit std_logic_vectors. For the CustomWrapper entity, the registers are labelled **Control0** through to **Control15** and are all 32 bit std_logic_vectors.
+The [wrapper entity](./wrapper.md#custominstrument-architecture) provides 16 Control registers which can be used to control
+the behavior of the custom design at runtime. For the CustomInstrument entity, the registers are defined as an array of
+32-bit std_logic_vectors. For the CustomWrapper entity, the registers are labelled **Control0** through to **Control15**
+and are all 32 bit std_logic_vectors.
 
 ## Type Casting
 

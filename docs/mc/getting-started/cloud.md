@@ -9,19 +9,19 @@ Open your preferred web browser and go to Moku Cloud Compile webpage. Create an 
 
 <action-button text="Login to Moku Cloud Compile" link="https://compile.liquidinstruments.com" target="_blank"/>
 
-![signing in](./signingin.png)
+![signing in](./images/signingin.png)
 
 ### Creating a project
 
 Once you have signed in, you can access the various projects in your account. Click on "Create Project" in the top-right corner and type in a name to create a new project. Alternatively, you can create a project based on the existing examples by clicking on "Import Example".
 
-![creating project](./creatingproject.png)
+![creating project](./images/creatingproject.png)
 
 ### Find your MokuOS Version
 
 To build your design, you must target a particular device. A device is a combination of hardware (e.g. Moku:Pro) and MokuOS (e.g. version 4.0.1). On the Desktop App, right-click your Moku, select `Device info` and note the **MokuOS version**. On iPad, you can see this information by long-pressing your device.
 
-![MokuOS version](./get-os.png)
+![MokuOS version](./images/get-os.png)
 
 ### Build your project
 
@@ -40,7 +40,7 @@ Trying to deploy Moku Compile bitstream on a Moku with a different MokuOS versio
 
 The build time depends on the hardware platform and project complexity. A simple project on Moku:Go will build in 3-5 minutes while Moku:Pro designs may take up to half an hour.
 
-![build steps](./build.png)
+![build steps](./images/build.png)
 
 ::: tip Compatible MokuOS and Bitstream File Extension
 The generated bitstreams will be either in **.tar** or **.tar.gz** depending on the target MokuOS. The extension **.tar** is for MokuOS versions 3.3.1 onwards. The extension **.tar.gz** is for older MokuOS versions from 3.0.0 to 3.2.0.

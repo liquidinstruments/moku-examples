@@ -118,26 +118,26 @@ The below steps encapsulate the process of obtaining the necessary files from Xi
 
 **Step 1:** In the Project Manager of Vivado, select the IP Catalog and choose the desired IP core. Set the parameters for the IP core and generate outputs. After clicking on the Generate outputs prompt, the sources will be updated with the corresponding **.xci** file with details on the file location in the Properties tab.
 
-![Process of generating IP core in Vivado](./generate-ip-core.png)
+![Process of generating IP core in Vivado](./images/generate-ip-core.png)
 
 **Step 2:** Add the XCI file with the IP name to your Moku Compile project. The files can be found in the Xilinx project directory as shown in the previous step.
 
 Upload the XCI file with the IP name found in the last step, i.e. "xbip_multadd_0.xci", and if applicable the coefficient file, i.e. "xbip_multadd_0.coe", to your Moku Compile project.
 
-![Upload the XCI and COE files to Moku Compile](./upload-xci.png)
+![Upload the XCI and COE files to Moku Compile](./images/upload-xci.png)
 
 **Step 3:** Change the output directory of your IP core by editing the XCI file.
 
 After uploading the file, edit the XCI file, i.e. "xbip_multadd_0.xci", by locating `"OUTPUTDIR"` and change the value to `"../output"`.
 
-![Editing the XCI file in the project.](./output-dir.png)
+![Editing the XCI file in the project.](./images/output-dir.png)
 
 <u>*Optional Step:*</u> If the IP core utilizes user-defined coefficients using a COE file, an additional change may be required. Edit the XCI file by locating `"Coe_File"` and change the value to `"Coe_filename.coe"`, without any additional directory path.
 
-![Adding COE details in the XCI file.](./edit-coe-in-xci.png)
+![Adding COE details in the XCI file.](./images/edit-coe-in-xci.png)
 
 **Step 4:** Vivado also generates **.vho** or **.veo** files (found within the IP sources tab in Sources on Vivado) from which the instantiation template can be obtained. Use this template to assist you in including your IP core in your customized logic in Moku Compile project.
 
-![Editing the XCI file in the project.](./edit-xci.png)
+![Editing the XCI file in the project.](./images/edit-xci.png)
 
 **Step 5:** Choose the build configuration (hardware platform, number of slots and MokuOS version) and start the build process. The process will then generate the bitstream that can then be deployed onto the Moku in the Custom Instrument slot.

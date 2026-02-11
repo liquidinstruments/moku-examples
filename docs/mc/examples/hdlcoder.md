@@ -18,7 +18,7 @@ With the help of MATLAB, Simulink, and HDL Coder, a boxcar average was built and
 
 The boxcar averager instrument takes two inputs: a signal input and a gate (trigger) input. It starts integrating the input signal for a certain number of samples after receiving a trigger, then sends it to a secondary integrator to average a certain number of triggers events before sending it to the output. The instrument can output the averaged output or direct signal feedthrough on output 1; a gate active signal or data valid signal on output 2.
 
-![Block diagram](./hdlcoder_boxcar_block.png)
+![Block diagram](./images/hdlcoder_boxcar_block.png)
 
 ### Getting Started
 
@@ -60,17 +60,17 @@ Feed signal into Input1 and trigger into Input2. Set trigger level to the approp
 
 Monitor Outputs A and B and see if the boxcar is being triggered (the blue pulse train). Once a stable trigger is established, adjust trigger delay and gate length to align the gate.
 
-![Tuning](./hdlcoder_boxcar_tuning.png)
+![Tuning](./images/hdlcoder_boxcar_tuning.png)
 
 Set OutB sel to 0 to switch that output back to output the valid window. The instrument should now output the gated signal. Then, increase the gain via integer gain and fractional gain to reduce quantization error. Further optimization can be made by adjusting the gate length, average length, and trigger delay. Please note a large average length would result in a step-like response. A LPF is recommended after the output.
 
 #### Results
 
-![Result](./hdlcoder_boxcar_result_input.png)
+![Result](./images/hdlcoder_boxcar_result_input.png)
 
 A significant improvement of SNR was observed in both time and frequency domain. Red trace was the output from boxcar and blue trace was the output from lock-in amplifier.
 
-![Result](./hdlcoder_boxcar_result.png)
+![Result](./images/hdlcoder_boxcar_result.png)
 
 ### Known Issues
 
@@ -89,7 +89,7 @@ Cross-correlation is a very common algorithm that is used to perform time delay 
 
 This model generates the cross-correlation results on Output A, and the corresponding time delays on Output B. The cross-correlogram can be visualized on an oscilloscope with the X-Y mode.
 
-![Block diagram](./hdlcoder_xcorr_block.png)
+![Block diagram](./images/hdlcoder_xcorr_block.png)
 
 ### Getting Started
 
@@ -104,6 +104,6 @@ This model generates the cross-correlation results on Output A, and the correspo
 
 #### Results
 
-![Result](./hdlcoder_xcorr_result.png)
+![Result](./images/hdlcoder_xcorr_result.png)
 
 <action-button text="Cross-Correlator | GitHub" link="https://github.com/liquidinstruments/moku-examples/tree/main/mc/HDLCoder/hdlcoder_xcorr" target="_blank"/>

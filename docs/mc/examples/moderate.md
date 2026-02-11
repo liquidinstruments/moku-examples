@@ -22,7 +22,7 @@ This arithmetic unit example can perform addition, subtraction, or multiplicatio
 A swept frequency pulse is often referred to as a chirped pulse, and is commonly used in radar applications.  A chirped pulse is one where the transmitted frequency continuously changes (sweeps) throughout the duration of the pulse.  However, with Moku Compile we can quite easily add this functionality into the Moku Waveform Generator.
 The following pulse is representative of the type of signal that would be used in a basic swept pulse system / RADAR.
 
-![Swept Frequency Result](./swept_freq_result.png)
+![Swept Frequency Result](./images/swept_freq_result.png)
 
 <open-in-moku-compile name="Swept Frequency Pulse" githubPath="Moderate/SweptPulse" />
 
@@ -34,8 +34,8 @@ Control register 0 "Control0" must be set to 1 so the Output A product is not 0.
 
 The quotient signal can be routed to the Moku Oscilloscope in the contiguous Slot for quick viewing of the signal and to check the signal is as expected;
 
-![CC Divider Setup](./setup.png)
+![CC Divider Setup](./images/setup.png)
 
-![CC Divider Screenshot](./screenshot.png)
+![CC Divider Screenshot](./images/screenshot.png)
 
 <open-in-moku-compile name="Input Divider" githubPath="Moderate/Divider" />
