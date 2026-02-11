@@ -6,6 +6,8 @@ The [CustomInstrument entity](./wrapper.html#custominstrument-architecture) prov
 
 These status registers can be assigned to different internal signals or control registers to playback these values in real-time. With VHDL code, assigning to the status registers will often require casting to std_logic_vector. When using Verilog (SystemVerilog), the casting and resizing is often implicit during the assignment and is done automatically.
 
+Status registers are of the type ArrayOfSlv32, this is an array (integer range <>) of std_logic_vector(31 downto 0).
+
 <code-group>
 
 <code-block title="VHDL">

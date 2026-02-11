@@ -5,7 +5,13 @@ the behavior of the custom design at runtime. For the CustomInstrument entity, t
 
 ## Type Casting
 
-These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often require casting to another type or resizing or both. When using Verilog (SystemVerilog), the casting and resizing is often implicit during the assignment and is done automatically.
+These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often
+require casting to another type or resizing or both. When using Verilog (SystemVerilog), the casting and resizing is
+often implicit during the assignment and is done automatically.
+
+Controls are of the type ArrayOfSlv32, this is an array (integer range <>) of std_logic_vector(31 downto 0).
+
+### CustomInstrument
 
 <code-group>
 
