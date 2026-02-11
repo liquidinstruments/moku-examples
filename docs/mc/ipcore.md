@@ -1,10 +1,17 @@
 # IP Core support
 
-Moku Compile also supports the inclusion of IP cores in your custom designs. These IP cores can be selected from our library of pre-compiled IP cores with the flexibility to add your own customized IP core from AMD Xilinx™.
+Moku Compile also supports the inclusion of IP cores in your custom designs.
+These IP cores can be selected from our library of pre-compiled IP cores with
+the flexibility to add your own customized IP core from AMD Xilinx™.
 
 ## Pre-compiled IP Cores
 
-The Moku library consists of eight pre-compiled IP cores optimized for arithmetic, filtering, waveform generation, and correlation analysis, all fully compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These cores can be instantiated either in your VHDL or Verilog (SystemVerilog) codes and simplify common digital signal processing tasks in your customized code. The supported IP cores are as follows:
+The Moku library consists of eight pre-compiled IP cores optimized for
+arithmetic, filtering, waveform generation, and correlation analysis, all fully
+compatible with Moku:Go, Moku:Lab, Moku:Pro, and Moku:Delta hardware. These
+cores can be instantiated either in your VHDL or Verilog (SystemVerilog) codes
+and simplify common digital signal processing tasks in your customized code. The
+supported IP cores are as follows:
 
 | Supported AMD IP Core | Description | Template and Example |
 |-----------------------|-------------| :------------------: |
@@ -97,47 +104,72 @@ endmodule
 
 </code-group>
 
-The instantiation templates for the IP cores are available in the [GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mc/IP%20Core%20Templates%20and%20Examples) with support for both VHDL and Verilog (SystemVerilog).
+The instantiation templates for the IP cores are available in the
+[GitHub repository](https://github.com/liquidinstruments/moku-examples/tree/main/mc/IP%20Core%20Templates%20and%20Examples)
+with support for both VHDL and Verilog (SystemVerilog).
 
 ## Uploading your own IP core (using .xci file)
 
-Users can also add their own IP cores that are generated from AMD Xilinx Vivado™ and utilize them in Moku Compile to build their customized logic. This can be done by uploading an **.xci** file that holds information of the desired IP core. Note that this requires the user to be using the Vivado software with the key FPGA part as shown in the Table.
+Users can also add their own IP cores that are generated from AMD Xilinx Vivado™
+and utilize them in Moku Compile to build their customized logic. This can be
+done by uploading an **.xci** file that holds information of the desired IP
+core. Note that this requires the user to be using the Vivado software with the
+key FPGA part as shown in the Table.
 
 | Hardware platform | FPGA model number |
-|----------------|------------|
-| Moku:Go        | xc7z020clg400-1 |
-| Moku:Lab       | xc7z020clg484-3 |
-| Moku:Pro       | xczu9egffvc900-2 |
-| Moku:Delta     | xczu47dr-fsvg1517-2-e |
+| ---------------- | ------------ |
+| Moku:Go | xc7z020clg400-1 |
+| Moku:Lab | xc7z020clg484-3 |
+| Moku:Pro | xczu9egffvc900-2 |
+| Moku:Delta | xczu47dr-fsvg1517-2-e |
 
 :::warning Vivado™ compatibility
-When generating the **.xci** file of your IP cores, please use Vivado 2022.2™. Using an **.xci** file from any other version of Vivado software can result in a failed synthesis.
+When generating the **.xci** file of your IP cores, please use Vivado 2022.2™.
+Using an **.xci** file from any other version of Vivado software can result in
+a failed synthesis.
 :::
 
-The below steps encapsulate the process of obtaining the necessary files from Xilinx Vivado™ to deploying on the Moku.
+The below steps encapsulate the process of obtaining the necessary files from
+Xilinx Vivado™ to deploying on the Moku.
 
-**Step 1:** In the Project Manager of Vivado, select the IP Catalog and choose the desired IP core. Set the parameters for the IP core and generate outputs. After clicking on the Generate outputs prompt, the sources will be updated with the corresponding **.xci** file with details on the file location in the Properties tab.
+**Step 1:** In the Project Manager of Vivado, select the IP Catalog and choose
+the desired IP core. Set the parameters for the IP core and generate outputs.
+After clicking on the Generate outputs prompt, the sources will be updated with
+the corresponding **.xci** file with details on the file location in the
+Properties tab.
 
 ![Process of generating IP core in Vivado](./images/generate-ip-core.png)
 
-**Step 2:** Add the XCI file with the IP name to your Moku Compile project. The files can be found in the Xilinx project directory as shown in the previous step.
+**Step 2:** Add the XCI file with the IP name to your Moku Compile project. The
+files can be found in the Xilinx project directory as shown in the previous step.
 
-Upload the XCI file with the IP name found in the last step, i.e. "xbip_multadd_0.xci", and if applicable the coefficient file, i.e. "xbip_multadd_0.coe", to your Moku Compile project.
+Upload the XCI file with the IP name found in the last step, i.e.
+"xbip_multadd_0.xci", and if applicable the coefficient file, i.e.
+"xbip_multadd_0.coe", to your Moku Compile project.
 
 ![Upload the XCI and COE files to Moku Compile](./images/upload-xci.png)
 
 **Step 3:** Change the output directory of your IP core by editing the XCI file.
 
-After uploading the file, edit the XCI file, i.e. "xbip_multadd_0.xci", by locating `"OUTPUTDIR"` and change the value to `"../output"`.
+After uploading the file, edit the XCI file, i.e. "xbip_multadd_0.xci", by
+locating `"OUTPUTDIR"` and change the value to `"../output"`.
 
 ![Editing the XCI file in the project.](./images/output-dir.png)
 
-<u>*Optional Step:*</u> If the IP core utilizes user-defined coefficients using a COE file, an additional change may be required. Edit the XCI file by locating `"Coe_File"` and change the value to `"Coe_filename.coe"`, without any additional directory path.
+<u>*Optional Step:*</u> If the IP core utilizes user-defined coefficients using
+a COE file, an additional change may be required. Edit the XCI file by locating
+`"Coe_File"` and change the value to `"Coe_filename.coe"`, without any
+additional directory path.
 
 ![Adding COE details in the XCI file.](./images/edit-coe-in-xci.png)
 
-**Step 4:** Vivado also generates **.vho** or **.veo** files (found within the IP sources tab in Sources on Vivado) from which the instantiation template can be obtained. Use this template to assist you in including your IP core in your customized logic in Moku Compile project.
+**Step 4:** Vivado also generates **.vho** or **.veo** files (found within the
+IP sources tab in Sources on Vivado) from which the instantiation template can
+be obtained. Use this template to assist you in including your IP core in your
+customized logic in Moku Compile project.
 
 ![Editing the XCI file in the project.](./images/edit-xci.png)
 
-**Step 5:** Choose the build configuration (hardware platform, number of slots and MokuOS version) and start the build process. The process will then generate the bitstream that can then be deployed onto the Moku in the Custom Instrument slot.
+**Step 5:** Choose the build configuration (hardware platform, number of slots
+and MokuOS version) and start the build process. The process will then generate
+the bitstream that can then be deployed onto the Moku in the Custom Instrument slot.

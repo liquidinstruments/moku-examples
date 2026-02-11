@@ -1,6 +1,7 @@
 # FPGA coding template
 
-Provided is a blank template for creating HDL files using the Moku Compile either using CustomWrapper or CustomInstrument entity
+Provided is a blank template for creating HDL files using the Moku Compile
+either using CustomWrapper or CustomInstrument entity.
 
 ## CustomInstrument Template
 

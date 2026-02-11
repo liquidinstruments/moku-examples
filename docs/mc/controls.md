@@ -1,23 +1,26 @@
 # Control Registers
 
-The [wrapper entity](./wrapper.md#custominstrument-architecture) provides 16 Control registers which can be used to control
-the behavior of the custom design at runtime. For the CustomInstrument entity, the registers are defined as an array of
-32-bit std_logic_vectors. For the CustomWrapper entity, the registers are labelled **Control0** through to **Control15**
-and are all 32 bit std_logic_vectors.
+The [wrapper entity](./wrapper.md#custominstrument-architecture) provides 16
+Control registers which can be used to control the behavior of the custom design
+at runtime. For the CustomInstrument entity, the registers are defined as an
+array of 32-bit std_logic_vectors. For the CustomWrapper entity, the registers
+are labelled **Control0** through to **Control15** and are all 32 bit std_logic_vectors.
 
 ## Type Casting
 
-These Controls can be assigned to various signals in a custom design. With VHDL code, assigning using Controls will often
-require casting to another type or resizing or both. When using Verilog (SystemVerilog), the casting and resizing is
+These Controls can be assigned to various signals in a custom design. With VHDL
+code, assigning using Controls will often require casting to another type or
+resizing or both. When using Verilog (SystemVerilog), the casting and resizing is
 often implicit during the assignment and is done automatically.
 
-Controls are of the type ArrayOfSlv32, this is an array (integer range <>) of std_logic_vector(31 downto 0).
+Controls are of the type ArrayOfSlv32, this is an array (integer range <>) of
+std_logic_vector(31 downto 0).
 
 ### CustomInstrument
 
 <code-group>
 
-<code-block title="VHDL - CustomInstrument">
+<code-block title="VHDL">
 
 ```vhdl
 -- Import libraries that contain the types we need
@@ -42,7 +45,7 @@ end architecture;
 
 </code-block>
 
-<code-block title="Verilog - CustomInstrument">
+<code-block title="Verilog">
 
 ```verilog
 module CustomWrapper (
@@ -79,12 +82,13 @@ endmodule
 
 </code-block>
 
-<!-- </code-group>
+</code-group>
 
+### CustomWrapper
 
-<code-group> -->
+<code-group>
 
-<code-block title="VHDL - CustomWrapper">
+<code-block title="VHDL">
 
 ```vhdl
 -- Import libraries that contain the types we need
@@ -109,7 +113,7 @@ end architecture;
 
 </code-block>
 
-<code-block title="Verilog - CustomWrapper">
+<code-block title="Verilog">
 
 ```verilog
 module CustomWrapper (

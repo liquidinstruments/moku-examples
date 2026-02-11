@@ -1,23 +1,42 @@
 # Wrapper for Moku Compile
 
 :::danger Wrapper changes
-From MokuOS version 4.1.1 and above, we recommend users to use CustomInstrument entity wrapper. This change mainly affect the Control register definition and the availability of Status registers. For legacy purposes, CustomWrapper is still available but will be deprecated soon.
+From MokuOS version 4.1.1 and above, we recommend users use the
+CustomInstrument entity wrapper. This change mainly affects the Control
+register definition and the availability of Status registers. For legacy
+purposes, CustomWrapper is still available but will be deprecated soon.
 :::
 
-To implement your custom design, Moku Compile requires an entity to define the interface as well as a simple abstraction from the instrument slot. The wrapper is provided in both VHDL and Verilog (SystemVerilog).
+To implement your custom design, Moku Compile requires an entity to define
+the interface and a simple abstraction from the instrument slot. The wrapper
+is provided in both VHDL and Verilog (SystemVerilog).
 
-Note when using Verilog, the wrapper needs to be declared before proceeding to define the custom architecture. For ease of use, this wrapper declaration is automatically generated whenever a new Verilog file is created.
+Note when using Verilog: the wrapper needs to be declared before defining the
+custom architecture. For ease of use, this wrapper declaration is
+automatically generated whenever a new Verilog file is created.
 
 ## Implementing the wrapper
-This wrapper is implemented either as CustomInstrument or CustomWrapper (for MokuOS versions older than 4.1.1). Implementing the wrapper interface simply requires defining an architecture using either CustomInstrument or CustomWrapper.
+
+This wrapper is implemented either as CustomInstrument or CustomWrapper
+(for MokuOS versions older than 4.1.1). Implementing the wrapper interface
+simply requires defining an architecture using either CustomInstrument or
+CustomWrapper.
 
 :::warning Wrapper Implementation
-1. Only one architecture should exist in your project, using either the CustomWrapper or CustomInstrument entity. If multiple architectures exist, the one that is synthesized could be potentially undefined.
-2. It is recommended not to modify the Verilog module declaration. While a bitstream may still be generated if the module definition is changed, it might not behave as expected.
+
+1. Only one architecture should exist in your project, using either the
+   CustomWrapper or CustomInstrument entity. If multiple architectures exist,
+   the one that is synthesized could be undefined.
+2. It is recommended not to modify the Verilog module declaration. While a
+   bitstream may still be generated if the module definition is changed, it
+   might not behave as expected.
 :::
 
 ## CustomInstrument Architecture
-For Moku devices running MokuOS versions 4.1.1 and newer, the CustomInstrument entity can be used to define the architecture. This entity allows the use of status registers for the custom designs.
+
+For Moku devices running MokuOS versions 4.1.1 and newer, the
+CustomInstrument entity can be used to define the architecture. This entity
+allows the use of status registers for Custom Instrument designs.
 
 <code-group>
 
@@ -83,7 +102,10 @@ endmodule
 
 ## CustomWrapper Architecture
 
-For Moku device running MokuOS versions 4.0.3 and older, they require the legacy CustomWrapper to be defined in the architecture. Note that this wrapper architecture will be deprecated in future. While it is currently supported, we recommend updating projects to implement the CustomInstrument.
+For Moku devices running MokuOS versions 4.0.3 and older, the legacy
+CustomWrapper must be defined in the architecture. Note that this wrapper
+architecture will be deprecated in the future. While it is currently
+supported, we recommend updating projects to implement the CustomInstrument.
 
 <code-group>
 
@@ -182,7 +204,8 @@ endmodule
 
 ## Wrapper Ports
 
-The details of input, output and clock use is platform specific. For details, see [input and output](../mc/io.md).
+The details of input, output and clock use are platform specific. For
+details, see [input and output](../mc/io.md).
 
 ## Control Registers
 

@@ -1,8 +1,8 @@
 # Moku Library
 
 The Moku library is available to provide some useful types, functions and components
-to use in your designs.  These design elements are defined in the Support package, and
-can be used in your design like this:
+to use in your designs.  These design elements are defined in the Support
+package, and can be used in your design like this:
 
 ```vhdl
 library Moku;
@@ -65,15 +65,29 @@ function or_reduce(X: std_logic_vector) return std_logic;
 
 ### ScaleOffset
 
-`ScaleOffset` and `ScaleOffset2` are wrappers for a DSP block to compute `Z = X * Scale + Offset` and `Z = (X + Y) * Scale + Offset` respectively.
+`ScaleOffset` and `ScaleOffset2` are wrappers for a DSP block to compute
+`Z = X * Scale + Offset` and `Z = (X + Y) * Scale + Offset` respectively.
 
-`Scale` can be up to 18 bits long and covers the range `-2^NORMAL_SHIFT -> 2^NORMAL_SHIFT`; i.e., `±1` with the default value of `NORMAL_SHIFT=0`. This means that if you need this block to scale *up*, then `NORMAL_SHIFT` must be set greater than 0; for example, if you need to scale up by a factor of 10x then `NORMAL_SHIFT=4` gives a range of `±16` then `Scale=0.625`, or `0x4FFF` in signed 16-bits, gives the required scale overall.
+`Scale` can be up to 18 bits long and covers the range
+`-2^NORMAL_SHIFT -> 2^NORMAL_SHIFT`; i.e., `±1` with the default value of
+`NORMAL_SHIFT=0`. This means that if you need this block to scale *up*, then
+`NORMAL_SHIFT` must be set greater than 0; for example, if you need to scale up
+by a factor of 10x then `NORMAL_SHIFT=4` gives a range of `±16` then
+`Scale=0.625`, or `0x4FFF` in signed 16-bits, gives the required scale overall.
 
-`OFFSET_SHIFT` gives the relative shift between the `Offset` field and the `X` argument. This is useful to get the `Offset` field to the same order as the `X * Scale` value.
+`OFFSET_SHIFT` gives the relative shift between the `Offset` field and the `X`
+argument. This is useful to get the `Offset` field to the same order as the
+`X * Scale` value.
 
 `ROUNDING` is on by default. Set to `0` to floor the result.
 
-The calculation can be registered at different locations to meet timing constraints. By default, the calculation is registered in the middle only, for a one clock cycle latency. This can be disabled by setting `MID_REG=0`. On the other hand, long timing paths to and from the block can be registered right at the input and/or output (`IN_REG=1` and/or `OUT_REG=1`) if required. Note that `IN_REG` and `MID_REG` are mutually exclusive and trying to set both at once will fail synthesis.
+The calculation can be registered at different locations to meet timing
+constraints. By default, the calculation is registered in the middle only.
+This gives a one clock cycle latency. This can be disabled by setting
+`MID_REG=0`. Long timing paths to and from the block can be registered right
+at the input and/or output (`IN_REG=1` and/or `OUT_REG=1`) if required.
+Note that `IN_REG` and `MID_REG` are mutually exclusive and trying to set
+both at once will fail synthesis.
 
 ```vhdl
 -- Z = X * Scale + Offset
