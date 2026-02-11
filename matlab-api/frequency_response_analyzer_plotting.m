@@ -1,7 +1,7 @@
-%% Plotting Frequency Response Analyzer Example 
+%% Plotting Frequency Response Analyzer Example
 %
 % This example demonstrates how you can generate output sweeps using the
-% Frequency Response Analyzer instrument, and view transfer function data 
+% Frequency Response Analyzer instrument, and view transfer function data
 % in real-time.
 %
 %  (c) Liquid Instruments Pty. Ltd.
@@ -20,7 +20,7 @@ settling_cycles = 1;
 % Connect to your Moku by its IP address.
 % force_connect will overtake an existing connection
 m = MokuFrequencyResponseAnalyzer('192.168.###.###', force_connect=true);
-    
+
 try
 
     %% Configure the instrument
@@ -52,7 +52,7 @@ try
     phase_graph = subplot(2,1,2);
     ps = semilogx(phase_graph, data.ch1.frequency,data.ch1.phase, data.ch2.frequency, data.ch2.phase);
     xlabel(phase_graph,'Frequency (Hz)');
-    ylabel(phase_graph,'Phase (cyc)');
+    ylabel(phase_graph,'Phase (degrees)');
     set(gca, 'XScale', 'log')
 
     %% Receive and plot new data frames
@@ -73,4 +73,3 @@ catch ME
 end
 
 m.relinquish_ownership();
-
