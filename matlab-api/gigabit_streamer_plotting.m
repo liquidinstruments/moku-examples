@@ -36,7 +36,8 @@ try
 
     %% Configure the Oscilloscope to generate and view the signal in real-time
     % Generate a 1 MHz sine wave, set trigger and timebase
-    osc.generate_waveform(1,'Sine', 'amplitude', 1, 'frequency', 1e6, 'offset', 0, 'phase', 0);
+    osc.generate_waveform(1,'Sine', 'amplitude', 1, 'frequency', 1e6,...
+        'offset', 0, 'phase', 0);
     osc.set_trigger('type', 'Edge', 'source', 'ChannelA', 'level', 0);
     osc.set_timebase(-5e-6, 5e-6);
 

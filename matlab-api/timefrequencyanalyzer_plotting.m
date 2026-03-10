@@ -27,7 +27,8 @@ try
     % Set acquisition mode to a 100ms Window
     m.set_acquisition_mode('Windowed', 'window_length',100e-3);
 
-    % Use the first start event and close the interval at the end of the gate period (arbitrary as using windowed acquisition)
+    % Use the first start event and close the interval at the end of the
+    % gate period (arbitrary as using windowed acquisition)
     m.set_interval_policy('Use first', 'Close');
 
     % Set the histogram to 8ns span centred around 2us, using an interval histogram
@@ -48,7 +49,8 @@ try
     xlabel(gca,'Time (sec)')
     ylabel(gca,'Count')
 
-    x = linspace(data.interval1.histogram.t0, data.interval1.histogram.t0 + 1023 * data.interval1.histogram.dt, 1024);
+    x = linspace(data.interval1.histogram.t0, ...
+        data.interval1.histogram.t0 + 1023 * data.interval1.histogram.dt, 1024);
     lh = bar(x, [data.interval1.histogram.data data.interval2.histogram.data]);
 
     %% Receive and plot new data frames

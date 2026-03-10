@@ -32,9 +32,10 @@ try
     m.measurement_mode('mode','InOut');
 
     % Set output sweep configuration
-    m.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, 'num_points',points, ...
+    m.set_sweep('start_frequency',f_start,'stop_frequency',f_stop, ...
         'averaging_time',averaging_time, 'averaging_cycles',averaging_cycles, ...
-        'settling_time', settling_time, 'settling_cycles',settling_cycles);
+        'settling_time', settling_time, 'settling_cycles',settling_cycles, ...
+        'num_points',points);
 
     %% Set up plots
     % Get initial data to set up plots
@@ -44,13 +45,15 @@ try
     figure;
 
     magnitude_graph = subplot(2,1,1);
-    ms = semilogx(magnitude_graph, data.ch1.frequency,data.ch1.magnitude, data.ch2.frequency, data.ch2.magnitude);
+    ms = semilogx(magnitude_graph, data.ch1.frequency,data.ch1.magnitude, ...
+        data.ch2.frequency, data.ch2.magnitude);
     xlabel(magnitude_graph,'Frequency (Hz)');
     ylabel(magnitude_graph,'Magnitude (dB)');
     set(gca, 'XScale', 'log')
 
     phase_graph = subplot(2,1,2);
-    ps = semilogx(phase_graph, data.ch1.frequency,data.ch1.phase, data.ch2.frequency, data.ch2.phase);
+    ps = semilogx(phase_graph, data.ch1.frequency,data.ch1.phase, ...
+        data.ch2.frequency, data.ch2.phase);
     xlabel(phase_graph,'Frequency (Hz)');
     ylabel(phase_graph,'Phase (degrees)');
     set(gca, 'XScale', 'log')
