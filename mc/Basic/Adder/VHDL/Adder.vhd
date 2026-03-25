@@ -1,7 +1,8 @@
--- A very simple example, simply add two inputs and route to an output.
--- This is purely combinatorial
 architecture Behavioural of CustomInstrument is
 begin
+    -- Assign sum of inputs A and B to OutputA
     OutputA <= InputA + InputB;
+
+    -- Assign difference of inputs A and B to OutputB
     OutputB <= InputA - InputB;
 end architecture;
