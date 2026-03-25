@@ -24,8 +24,10 @@ module CustomInstrument (
     output wire [31:0] status[0:15]
 );
 
-  // Assign sum of inputs to OutputA and difference of inputs to OutputB
+  // Assign sum of inputs A and B to OutputA   
   assign outputa = inputa + inputb;
+
+  // Assign difference of inputs A and B to OutputB
   assign outputb = inputa - inputb;
 
 endmodule
