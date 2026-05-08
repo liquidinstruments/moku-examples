@@ -1,90 +1,42 @@
-# Chapter 1 - Welcome to Moku Cloud Compile (MCC) 
+# Moku:Delta Gigabit Streamer Demo - Setup Guide
+*End-to-end configuration for real-time DIFI UDP capture and playback on commercially available Linux system*
 
-This project is intended to open the Moku to our users by allowing them to design and implement their own custom functionality. These custom designs can be deployed next to, and interact with the existing suite of Moku instruments using [Multi-instrument Mode](https://liquidinstruments.com/multi-instrument-mode/)(MiM). This allows you to prototype custom designs, interact with custom hardware or provide bespoke functions for your specific requirements.
+## Overview
+This guide documents the hardware, software, and OS configuration required to capture and replay Moku:Delta Gigabit Streamer data over SFP+ (10 Gigabit Ethernet) at sample rates up to 312.5 MSa/s per channel.  This demonstration is meant to introduce the basic functionality and to quickly get the user up and running with gigabit streamer.  More detailed information is available in our [Gigabit Streamer App Note](https://liquidinstruments.com/application-notes/moku-gigabit-streamer-to-host-guide/).  
 
-This tutorial will guide you through the process to develop and deploy custom functions and features in minutes, not months, and without the overhead of complex software packages.  
+The toolchain consists of two programs:
+- capture_it  — high-performance C++ UDP capture (replaces captureDataBuffer.py)
+- send_it     — real-time C++ DIFI packet transmitter with ±30 ns timing jitter
 
-```{note}
-If you are already familiar with MCC, head right to <a href="https://compile.liquidinstruments.com/" target="_blank">Cloud Compile</a>.
-```
+Both tools are built from source in a single directory and require no external libraries beyond the Linux system headers.
 
+## Example Hardware Requirements
+The setup was developed and tested on the following platform. Other x86-64 systems with a supported 10 GbE NIC will work, but IRQ affinity pin numbers and NIC interface names may differ.
 
-## Unlocking the power of user-programmable FPGAs
-Hardware description languages (HDL) like VHDL are notoriously difficult to master. However, they are essential for unlocking the computational power of field-programmable gate arrays (FPGAs) in digital design. Liquid Instruments aims to provide the power of HDL without much of the traditional burden associated with highly complex development environments.
+| Component | Description |
+|-----------|-------------|
+|System | Minisforum MS-A2 mini-PC|
+|CPU | AMD Ryzen 9 9955HX(16 cores, up to 5.4 GHz)|
+|NIC | Intel X710-DA2 10GbE SFP+ (i40e driver)|
+|Storage | 2TB NVMe SSD (> 3GB/s sustained write recommended for max rate)|
+|OS/Kernel | Ubuntu 24.04 LTS, Kernel 6.17+|
 
-### Why use FPGAs in test and measurement
-**High-speed processing:**
-FPGAs can handle high-speed data acquisition, processing, and analysis, enabling real-time testing and low-latency performance. With parallel processing, FPGAs execute multiple tasks simultaneously.
+<p align="center"> <b>Note:</b> A dedicated NIC is strongly recommended.  The interface should carry only Moku traffic; other interfaces handle management and internet access. </p>
 
-**Customization:**
-Users can design and implement custom test algorithms, protocols, and signal processing on FPGAs to tailor the hardware to specific test requirements.
+### CPU and interrupt handling
+High-rate UDP capture relies on the host CPU to receive packets, buffer incoming data, and pass samples into user space. For reliable streaming, the host system should provide sufficient processing capacity to keep up with the incoming data rate.
 
-**Flexibility:**
-FPGAs are highly flexible and can be reprogrammed to perform different tasks, a crucial benefit for test applications where requirements may evolve over time.
+In practice, this is best achieved with:
 
-**Reliability:**
-FPGAs are known for their robustness, a critical feature in applications where accuracy and repeatability are essential.
+- A multi-core CPU with good single-thread performance
+- Network interface card drivers that support receive-side scaling
+- Well-distributed interrupts to ensure processing load is shared across CPU cores
 
-### Why use MCC
-With MCC, you have the ability to add custom functionality to work in tandem with a powerful suite of test and measurement capabilities on the Moku:Go, Moku:Lab, and Moku:Pro. Additionally, Moku Cloud Compile aims to simplify FPGA programming and does not require the use of a complex development environment. Rather, MCC allows you to code, compile, and deploy directly from your browser.
+For higher-rate QSFP links, workstation- or server-class processors will likely be required to offer additional headroom, particularly for long-duration or continuous captures.
 
-```{figure} images/All3Moku.png
----
-height: 500px
-name: directive-fig
----
-Moku suite of devices
-```
+### System memory
+Buffering incoming network data relies on available system memory to absorb short packet bursts and accommodate momentary delays when writing data to disk. Providing adequate memory helps maintain continuous, loss-free streaming.
 
-Moku Cloud Compile is a powerful tool available exclusively for FPGA-based Moku devices from Liquid Instruments, allowing you to code, compile, and deploy custom algorithms.  These custom algorithms can be deployed alongside an expanding list of other software-defined test and measurement instruments, from bench essentials like an Oscilloscope and Spectrum Analyzer to advanced tools like a Lock-in Amplifier and Laser Lock Box. With MCC, it’s easy to create your own instruments, add functionality to our already extensive cabilities, build complex signal processing pipelines, or even test digital prototypes in conjunction with the existing embedded instruments.
+### Storage throughput
+Reliable storage throughput helps maintain smooth data flow throughout the capture process, the appropriate storage configuration depends on the target streaming rate and the intended capture duration. For most high-speed streaming applications, this is achieved by using storage solutions that support continuous, large-block sequential writes at the required throughput. At higher line rates, additional storage bandwidth may be beneficial, such as higher-performance devices or multiple drives operating together.
 
-## Multi-instrument and Slots
-
-With the introduction of Multi-instrument Mode in Moku the FPGA has been divided into isolated regions we call 'slots'. Each slot can be configured with an instrument such as an Oscilloscope, Waveform Generator or your own MCC design which will run simultaneously and independendently. Slots can also be reconfigured to change their function without interrupting instruments running in other slots.
-
-Each slot has several input and output ports which can be routed to or from various other locations. These sources can be the outputs of others slots or the physical ADCs of the Moku. Signals can be routed to other slots or to the DAC outputs of the Moku.
-
-Multi-instrument Mode allows users of the Moku to build complete systems consisting of several instruments in flexible configurations to meet the signal processing requirements of their experiment. All of this is configurable using the Moku Application.
-
-```{figure} images/multi_Instrument.png
----
-height: 500px
-name: directive-fig
----
-Multi-instrument Mode on Moku:Pro
-```
-
-With the addition of the Moku Cloud Compiler, users can now include their own custom functionality in a multi-instrument configuration. This drastically increases the flexibility and utility of the Moku as an experimentation and system control platform.
-
-### Slot Resources
-The FPGA resources are divided between slots and the supporting logic in the platform surrounding the slots. The table below summarizes the resources availble to a custom design in each slot.
-
-| | Moku:Pro (ZU9EG) | Moku:Go (ZC7020)	| Moku:Lab (ZC7020) |
-|---|---|---|---|
-| | 4 Slots | 2 Slots | 2 Slots |
-|Core Clock	| 312.5MHz | 31.25MHz | 125MHz |
-|LUT | 48400 | 20000 | 19600 |
-|FF | 96800 | 40000 | 39200 |
-|BRAM (36K) | 154 | 50 | 60 |
-|DSP | 432 | 100 | 100 |
-
-## FAQ
-**How does MCC work?**
-Moku Cloud Compile allows you to deploy custom DSP directly onto the Moku:Go, Moku:Lab, or Moku:Pro FPGA in Multi-instrument Mode. Write code using a web browser and compile it in the cloud; download and deploy the bitstream to your Moku device through the app.
-
-**What is HDL?**
-HDL, or hardware description language, refers to a family of programming languages used to describe digital logic circuits and program FPGAs. The most commonly used hardware description languages are VHDL and Verilog. We currently support VHDL, with Verilog support coming soon.
-
-**How long does it take to compile?**
-Although the total compilation time depends on the number of users engaged in the tool simultaneously, compilation can complete in as quickly as 15 minutes.
-
-**What hardware platforms is Moku Cloud Compile compatible with?**
-Currently Moku Cloud Compile is available on Moku:Pro, Moku:Lab, and Moku:Go running Multi-instrument Mode.
-
-**Are there any examples to reference?**
-Our team is constantly developing new content.  You are encouraged to visit the <a href="https://github.com/liquidinstruments/moku-examples" target="_blank">Liquid Instruments git repo</a> to review our extensive examples for MCC and Moku's enhanced capabilities with the APIs. 
-
-We offer a range of resources to help you get started with Moku Cloud Compile. This tutorial is designed to get you started with Moku Cloud Compile and introduce you to key functionality and some advanced considerations and concepts.  You can explore additional resources and examples on our <a href="https://compile.liquidinstruments.com/docs/" target="_blank">MCC Documentation</a> page.
-
-```{tableofcontents}
-```
