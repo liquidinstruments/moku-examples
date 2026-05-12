@@ -35,10 +35,10 @@ try
     
     % Set the fast PID controller to -10 dB proportional gain and
     % integrator crossover frequency at 3 kHz
-    m.set_pid_by_frequency(1,-10,'int_crossover',3e3);
+    m.set_pid_by_frequency(1,'prop_gain',-10,'int_crossover',3e3);
     % Set the slow PID controller to -10 dB proportional gain and
     % integrator crossover frequency at 50 Hz
-    m.set_pid_by_frequency(2,-10,'int_crossover',50);
+    m.set_pid_by_frequency(2,'prop_gain',-10,'int_crossover',50);
     
     % Enable the output channels
     m.set_output(1,true,true);
