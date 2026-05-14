@@ -10,13 +10,11 @@ The recommended sequence for best utilizing this repo is as follows:
 2. Establish static IP as described in **Transmission Configuration with Static IP Addressing** section
 3. Install software utilities as described in **Moku Streamer Utility Installation** section
 
-The toolchain for **Moku Streamer** consists of two programs and an additional utility for validation of lossless capture:
-- capture_it  — high-performance C++ UDP capture (replaces captureDataBuffer.py)
+The toolchain for **Moku Streamer** consists of two programs:
+- capture_it  — high-performance C++ UDP capture
 - send_it     — real-time C++ DIFI packet transmitter with ±30 ns timing jitter
-- validate_capture - will assist with validating your systems ability to collect lossless data up to 312.5MSa/s when used in conjunction the validation custom instrument. **NOTE** the capture_it program will report on success of lossless capture based on packet count.  
 
 All tools are built from source in a single directory.
-
 
 ---
 
