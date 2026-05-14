@@ -4,11 +4,19 @@
 ## Overview
 This guide documents the hardware, software, and OS configuration required to capture and replay Moku:Delta Gigabit Streamer.  The following procedures and configuration along with the code in this repo are validated to produce lossless collections of data over SFP+ (10 Gigabit Ethernet) at sample rates up to 312.5 MSa/s per channel.  This demonstration is meant to introduce the basic functionality and to quickly get the user up and running with gigabit streamer.  More detailed information is available in our [Gigabit Streamer App Note](https://liquidinstruments.com/application-notes/moku-gigabit-streamer-to-host-guide/).  
 
-The toolchain consists of two programs:
+The recommended sequence for best utilizing this repo is as follows:
+
+1. Setup hardware connection as listed in **Connecting the Hardware** section
+2. Establish static IP as described in **Transmission Configuration with Static IP Addressing** section
+3. Install software utilities as described in **Moku Streamer Utility Installation** section
+
+The toolchain for **Moku Streamer** consists of two programs and an additional utility for validation of lossless capture:
 - capture_it  — high-performance C++ UDP capture (replaces captureDataBuffer.py)
 - send_it     — real-time C++ DIFI packet transmitter with ±30 ns timing jitter
+- validate_capture - will assist with validating your systems ability to collect lossless data up to 312.5MSa/s when used in conjunction the validation custom instrument. **NOTE** the capture_it program will report on success of lossless capture based on packet count.  
 
-Both tools are built from source in a single directory and require no external libraries beyond the Linux system headers.
+All tools are built from source in a single directory.
+
 
 ---
 
