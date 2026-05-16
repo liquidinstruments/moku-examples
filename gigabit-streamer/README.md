@@ -6,9 +6,9 @@ This guide documents the hardware, software, and OS configuration required to ca
 
 The recommended sequence for best utilizing this repo is as follows:
 
-1. Setup hardware connection as listed in **Connecting the Hardware** section
-2. Establish static IP as described in **Transmission Configuration with Static IP Addressing** section
-3. Install software utilities as described in **Moku Streamer Utility Installation** section
+1. Setup hardware connection as listed in [Connecting the Hardware](#connecting-the-hardware) section
+3. Establish static IP as described in [Transmission Configuration with Static IP Addressing](#transmission-configuration-with-static-ip-addressing) section
+4. Install software utilities as described in [Moku Streamer Utility Installation](#moku-streamer-utility-installation) section
 
 The toolchain for **Moku Streamer** consists of two programs:
 - capture_it  — high-performance C++ UDP capture
@@ -172,6 +172,8 @@ Use cases: sensor emulation, closed-loop control testing, wideband waveform play
 The Moku does not participate in ARP and does not announce itself on the link. The host must construct packets that match the Gigabit Streamer's expected format and deliver them directly to the streaming interface.
  
 ### Host Configuration
+
+The following command line commands can be executed from the settings tab on the Moku Streamer application running on Linux.  however, they are included here for context as well.
  
 #### Host interface
  
@@ -231,5 +233,112 @@ The Moku does **not** perform rate adaptation or resampling. Apply rate control 
 **Output routing.** The output connections of the Gigabit Streamer (between the Interpolation block and the output ports) are wired automatically based on the **Vector Size** field of the received Context packet — not through the Moku App. Outputs are populated starting from Output A, then Output B, and so on.
  
 **I/Q handling (DIFI compatibility).** When a complex DIFI stream is received, the I and Q components are interpreted as two real-valued channels: **I → Output A**, **Q → Output B**.
+ 
+---
+
+## Moku Streamer Utility Installation
+
+This section will describe the process for installing the Moku Streamer application along with suggested optimization to yield maximum performance.  
+
+### Software Prerequisites
+Install the required packages with a single apt command:
+ 
+```bash
+sudo apt update
+sudo apt install -y build-essential chrony iproute2 ethtool python3-numpy cpufrequtils
+```
+ 
+Verify that g++ supports C++17:
+ 
+```bash
+g++ --version   # should be 11 or newer
+```
+ 
+---
+
+### Kernel UDP Socket Buffer Limits
+
+The default OS receive buffer cap is too small for high-rate capture. Raise it to 512 MiB and make the change persistent across reboots:
+ 
+```bash
+sudo sysctl -w net.core.rmem_max=536870912
+sudo sysctl -w net.core.rmem_default=536870912
+ 
+# Persist across reboots:
+echo 'net.core.rmem_max=536870912'    | sudo tee -a /etc/sysctl.conf
+echo 'net.core.rmem_default=536870912' | sudo tee -a /etc/sysctl.conf
+```
+
+### TAI Clock Offset (chrony)
+
+DIFI timestamps use the International Atomic Time (TAI) scale. Linux must be told the current TAI–UTC offset (37 seconds as of this writing). Edit `/etc/chrony.conf` and add the following line, then restart chrony:
+ 
+```
+leapsectz right/UTC
+```
+ 
+```bash
+sudo systemctl restart chrony
+sudo systemctl enable chrony
+```
+ 
+Verify the offset is 37 seconds:
+ 
+```bash
+python3 -c "import time; ts=time.clock_gettime(time.CLOCK_TAI); \
+ut=time.clock_gettime(time.CLOCK_REALTIME); print(f'TAI-UTC offset: {ts-ut:.0f}s')"
+```
+
+### NIC Tuning, IRQ Affinity, and CPU Governor
+
+Create `/usr/local/bin/moku-setup.sh` with the following content. This script pins the NIC interrupt to a dedicated CPU core, disables adaptive coalescing for low-latency receive, and switches all cores to the performance governor.
+ 
+```bash
+#!/bin/bash
+set -e
+NIC=enp5s0f0np0
+ 
+# ── disable adaptive interrupt coalescing ──────────────────────────────────
+ethtool -C $NIC adaptive-rx off adaptive-tx off rx-usecs 0 tx-usecs 0
+ 
+# ── pin NIC IRQ to CPU 3 (isolate from OS noise on CPUs 0-2) ───────────────
+IRQ=$(grep $NIC /proc/interrupts | head -1 | awk -F: '{print $1}' | tr -d ' ')
+if [ -n "$IRQ" ]; then
+    echo 8 > /proc/irq/$IRQ/smp_affinity   # CPU 3 = bitmask 0x8
+    echo "Pinned IRQ $IRQ to CPU 3"
+fi
+ 
+# ── performance CPU governor ────────────────────────────────────────────────
+for cpu in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
+    echo performance > $cpu
+done
+ 
+echo "moku-setup complete."
+```
+ 
+```bash
+sudo chmod +x /usr/local/bin/moku-setup.sh
+```
+ 
+To run the script automatically at boot, create a systemd service:
+ 
+```bash
+sudo tee /etc/systemd/system/moku-setup.service <<'EOF'
+[Unit]
+Description=Moku NIC + CPU tuning
+After=network.target
+ 
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/moku-setup.sh
+RemainAfterExit=yes
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+ 
+sudo systemctl daemon-reload
+sudo systemctl enable --now moku-setup.service
+```
  
 ---
