@@ -342,3 +342,139 @@ sudo systemctl enable --now moku-setup.service
 ```
  
 ---
+
+### Building the Tools
+
+Clone or copy the source files into a working directory, then build with make. The Makefile compiles both `capture_it` and `send_it` with `-O3 -std=c++17`.
+ 
+```bash
+make all       # builds capture_it and send_it
+```
+ 
+Optionally grant real-time scheduling capability so neither tool requires sudo on every run:
+ 
+```bash
+sudo make install-rt   # sets cap_sys_nice on both binaries
+```
+ 
+---
+
+### Tool Usage
+
+The following procedures will walk through using the tools via the command line and also with the Moku Streamer GUI.
+
+#### Capturing Data ('capture_it')
+
+`capture_it` uses `recvmmsg()` with `MSG_WAITFORONE` to batch-receive up to 64 packets per syscall with minimal CPU overhead. The capture timer starts on the **first received data packet**, so pre-stream wait time does not count against the duration limit.
+ 
+```bash
+# Capture until Stop or Ctrl-C:
+sudo ./capture_it --outfile capture.bin --verbose
+ 
+# Collect exactly 577,100 packets (~10 s at 20.833 MSa/s), wait up to 60 s for transmitter:
+sudo ./capture_it --outfile capture.bin --max-packets 577100 --wait-timeout 60 --verbose
+ 
+# 10-second stereo capture with explicit socket and RAM buffer sizes:
+sudo ./capture_it --outfile capture.bin --seconds 10 \
+     --socket-buffer 268435456 --ram-buffer 512 --verbose
+ 
+# Preserve full VITA-49.2 packet headers (enables timestamp recovery):
+sudo ./capture_it --outfile capture.bin --max-packets 577100 --vita49 --verbose
+```
+ 
+Key options:
+ 
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--max-packets N` | 0 (unlimited) | Stop after N data packets. Timer starts on first packet, so burst/pause captures work correctly. |
+| `--seconds F` | 0 (unlimited) | Max capture duration in seconds, measured from first packet. Acts as a safety valve alongside `--max-packets`. |
+| `--wait-timeout F` | 0 (wait forever) | Give up and exit if no packet arrives within F seconds of launch. |
+| `--socket-buffer N` | 128 MiB | OS socket receive buffer in bytes. |
+| `--ram-buffer N` | 256 MiB | Size of each RAM buffer slab. Increase for long captures. |
+| `--write-queue-depth N` | 4 | Number of filled slabs queued for the writer thread. Total RAM = (depth + 2) × ram-buffer. |
+| `--vita49` | off | Write full VITA-49.2 packets (28-byte header + payload) instead of payload-only. Allows TAI timestamp recovery in post-processing. |
+ 
+**Packet count formula** — to calculate the packet count for a desired signal duration:
+ 
+```
+1500 (MTU)
+ − 20 (IP header)
+ −  8 (UDP header)
+ − 28 (VITA-49.2 data header, 7 × 32-bit words)
+────
+1444 bytes of payload
+ ÷ 4 bytes per sample pair (2 bytes CH1 + 2 bytes CH2)
+────
+361 sample pairs per packet
+
+packets = (sample_rate_Hz × duration_s) / 361
+ 
+Examples:
+  20.833 MSA/s, 10 s  →  20,833,333 / 361 × 10  ≈  577,100 packets
+  44.643 MSA/s, 10 s  →  44,642,857 / 361 × 10  ≈  1,236,640 packets
+```
+
+#### Replaying Data ('send_it')
+ 
+`send_it` reads a binary capture file and re-transmits it as DIFI UDP packets with `clock_nanosleep` + busy-wait pacing (SCHED_FIFO, ±30 ns jitter):
+ 
+```bash
+# Standard stereo playback:
+sudo ./send_it --file capture.bin --fs 20833333 --dest 10.10.10.1
+ 
+# Playback of a VITA-49.2 format capture (strips headers automatically):
+sudo ./send_it --file capture.bin --fs 20833333 --dest 10.10.10.1 --vita49
+ 
+# Infinite loop with real-time scheduling pinned to CPU 3:
+sudo ./send_it --file capture.bin --fs 20833333 --dest 10.10.10.1 \
+     --loops 0 --rt --cpu 3
+```
+ 
+> **Note:** `--fs` must match the Moku:Delta's actual sample rate. If you observe gradual overflow or underflow, tune `--fs` by approximately 1–20 ppm until the drift disappears. A common starting point for the 10 MSa/s range is `10,080,433` rather than `10,000,000`.
+
+#### Graphical Front-End ('moku_gui.py')
+
+A tkinter-based GUI wraps both tools for day-to-day operation. Install the desktop launcher once after copying the source folder:
+ 
+```bash
+bash install_launcher.sh
+```
+ 
+Or launch directly at any time:
+ 
+```bash
+python3 moku_gui.py
+```
+ 
+The GUI provides three tabs — **Capture**, **Transmit**, and **Settings** — and exposes all commonly used flags including packet-count-based capture, VITA-49.2 mode, ARP neighbour management, and cached sudo password for real-time scheduling.
+
+### Operational Notes
+
+#### Real-Time Scheduling
+
+Both `capture_it` and `send_it` call `sched_setscheduler(SCHED_FIFO, priority 80)` and `mlockall(MCL_CURRENT | MCL_FUTURE)` at startup to prevent page faults and CPU preemption during the hot path. Always run them as root or after granting `cap_sys_nice` with `sudo make install-rt`. Pinning to a dedicated CPU core (`--cpu 3`) eliminates OS scheduler noise.
+
+#### Clock Rate Tuning
+
+The Moku:Delta's internal oscillator and the Linux system clock differ slightly (typically 1–20 ppm). This manifests as gradual overflow (`--fs` too high) or underflow (`--fs` too low) during playback with `send_it`. Tune `--fs` in steps of ~100 Hz until the drift disappears. The corrected value for a nominal 10.0806 MSa/s rate is typically around `10,080,433` Hz. Once found, the value is stable and can be hard-coded.
+
+#### One vs. Two Channels
+
+`capture_it` is agnostic to channel count — it captures raw DIFI payload bytes without interpreting the sample structure. The number of channels only matters at analysis time when de-interleaving CH1/CH2. This means the same capture binary is valid whether the Moku is streaming one or two channels.
+
+#### VITA-49.2 Capture Mode
+
+When `--vita49` is passed to `capture_it`, each record in the output file is a complete 1472-byte VITA-49.2 packet: a 28-byte header followed by 1444 bytes of payload. The header contains a TAI integer-seconds timestamp and a 64-bit fractional timestamp, allowing precise per-packet timing recovery in post-processing (e.g., MATLAB). Pass `--vita49` to `send_it` when replaying such a file; it strips the headers automatically before transmission.
+
+#### ARP Neighbor Entry
+
+The Moku:Delta is connected directly over SFP+ with no router in the path. The host OS therefore has no automatic way to learn the Moku's MAC address. A static ARP entry must be added before any traffic can flow and must be re-added after each reboot (or the moku-setup.sh service can be extended to include it):
+ 
+```bash
+sudo ip neigh replace 10.10.10.1 lladdr 70:69:79:b2:01:41 dev enp5s0f0np0
+ 
+# Verify:
+ip neigh show dev enp5s0f0np0
+```
+ 
+The MAC address and IP can also be configured and applied from the **Settings → Moku Network** section of the GUI.
