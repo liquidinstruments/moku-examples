@@ -29,7 +29,8 @@ entity BoxcarGen is
 end entity;
 
 architecture Behavioral of BoxcarGen is
-    signal counter : unsigned(G_COUNTER_WIDTH - 1 downto 0) := (others => '1');
+    signal counter : unsigned(G_COUNTER_WIDTH - 1 downto 0) := (others => '0');
+    signal is_active : std_logic := '0';
     constant ALL_OFF : std_logic_vector(G_NUM_SAMPLES - 1 downto 0) := (others => '0');
 begin
     process (clk)
@@ -39,13 +40,15 @@ begin
         variable v_current_counter_base : unsigned(G_COUNTER_WIDTH - 1 downto 0);
         variable v_boxcar_mask : std_logic_vector(G_NUM_SAMPLES - 1 downto 0);
         variable v_trg_active : std_logic;
+        variable v_curr_active : std_logic;
         variable v_base_count : unsigned(G_COUNTER_WIDTH - 1 downto 0);
     begin
         if rising_edge(clk) then
             v_boxcar_mask := (others => '0');
 
             if reset = '1' then
-                counter <= (others => '1');
+                counter <= (others => '0');
+                is_active <= '0';
                 boxcar_out <= (others => '0');
                 sample_out <= (others => (others => '0'));
             else
@@ -54,21 +57,28 @@ begin
                 --------------------------------------------------------------------------------
                 -- 1. Trigger Activation and Counter Update
                 --------------------------------------------------------------------------------
-                -- If any bit in the mask is high, we treat this frame as a "Trigger Frame"
-                if trg_mask_in /= ALL_OFF then
+                -- If any bit in the mask is high AND it is idle, accept the trigger
+                if trg_mask_in /= ALL_OFF and is_active = '0' then
                     v_trg_active := '1';
                 else
                     v_trg_active := '0';
                 end if;
 
-                -- Update the registered counter for the NEXT frame
+                v_curr_active := is_active or v_trg_active;
+
+                -- Update the registered counter and active flag for the NEXT frame
                 if v_trg_active = '1' then
+                    is_active <= '1';
                     -- The next frame will start counting from the remaining samples in this frame
                     -- e.g., if 8 samples total and trg is at index 2, 6 samples pass this cycle.
                     counter <= to_unsigned(G_NUM_SAMPLES - to_integer(trg_idx_in), G_COUNTER_WIDTH);
                     v_base_count := (others => '0'); -- Base is 0 because we calculate relative to trg_idx_in
-                elsif counter > 0 and counter < v_total_limit then
-                    counter <= counter + to_unsigned(G_NUM_SAMPLES, G_COUNTER_WIDTH);
+                elsif is_active = '1' then
+                    if counter < v_total_limit then
+                        counter <= counter + to_unsigned(G_NUM_SAMPLES, G_COUNTER_WIDTH);
+                    else
+                        is_active <= '0';
+                    end if;
                     v_base_count := counter;
                 else
                     -- Idle or Finished state
@@ -93,7 +103,7 @@ begin
                     end if;
 
                     -- Window Masking Logic
-                    if (v_curr_pos >= trg_delay_in) and (v_curr_pos < v_total_limit) then
+                    if (v_curr_active = '1') and (v_curr_pos >= trg_delay_in) and (v_curr_pos < v_total_limit) then
                         v_boxcar_mask(i) := '1';
                         sample_out(i) <= sample_in(i);
                     else
