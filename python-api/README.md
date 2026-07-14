@@ -87,6 +87,15 @@ in real-time.
 
 <<< @/docs/api/moku-examples/python-api/freq_response_analyzer_plotting.py
 
+## GenInst
+
+### geninst_oscilloscope.py
+
+This example demonstrates how you can configure GenInst using
+Multi-Instrument Mode and output the result to the Oscilloscope.
+
+<<< @/docs/api/moku-examples/python-api/geninst_oscilloscope.py
+
 ## Gigabit Streamer
 
 ### gigabit_streamer_plotting.py
