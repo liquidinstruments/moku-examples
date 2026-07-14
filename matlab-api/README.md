@@ -59,6 +59,15 @@ This example demonstrates how you can configure Custom Instrument, using Multi-I
 
 <<< @/docs/api/moku-examples/matlab-api/frequency_response_analyzer_plotting.m
 
+## GenInst
+
+### geninst_oscilloscope.m
+
+This example demonstrates how you can configure GenInst using
+Multi-Instrument Mode and output the result to the Oscilloscope.
+
+<<< @/docs/api/moku-examples/matlab-api/geninst_oscilloscope.m
+
 ## Gigabit Streamer
 
 ### gigabit_streamer_plotting.m
