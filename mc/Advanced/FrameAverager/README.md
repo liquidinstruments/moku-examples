@@ -10,7 +10,7 @@ The design processes multiple samples per FPGA clock cycle. The number of input 
 The following parameters were tested with a frame length of 16,384 clock cycles for the supported platforms and slot configurations as of Moku Compile 4.3.0.
 
 The frame size and accumulator width can be customized in [`vhdl/FrameAvg.vhd`](vhdl/FrameAvg.vhd):
-* **Frame Length**: Modify `C_FRAME_SIZE`. When changing `C_FRAME_SIZE`, ensure the address bitwidth `C_ADDR_WIDTH` is also adjusted to satisfy $$2^{\text{C\_ADDR\_WIDTH}} \ge \text{C\_FRAME\_SIZE}$$
+* **Frame Length**: Modify `C_FRAME_SIZE`. When changing `C_FRAME_SIZE`, ensure the address bitwidth `C_ADDR_WIDTH` is also adjusted to satisfy `2^C_ADDR_WIDTH >= C_FRAME_SIZE`
 * **Accumulator Bitwidth**: Modify `C_ACC_WIDTH` to accommodate the required dynamic range and prevent overflow.
 
 | Platform | Slot Configuration | Clock Rate | Sampling Rate | Min Timing Resolution | Frame Duration (16,384 cycles) | Accumulator Width |
