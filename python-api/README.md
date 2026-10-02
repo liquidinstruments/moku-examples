@@ -179,6 +179,15 @@ the "platform_id" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/python-api/mim_wg_sa.py
 
+### mim_wg_rtm_osc.py
+
+Multi-instrument Mode on a three-slot platform, deploying the Waveform Generator,
+Real Time Math and Oscilloscope at once. Real Time Math applies a gain with an
+output limit, and an offset, to the generated sine wave. Use `num_slots=4`
+on Moku:Pro.
+
+<<< @/docs/api/moku-examples/python-api/mim_wg_rtm_osc.py
+
 ## Neural Network
 
 ### neuralnetwork_simplesine.py
