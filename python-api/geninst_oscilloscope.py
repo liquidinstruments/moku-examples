@@ -9,7 +9,9 @@
 #
 
 import matplotlib.pyplot as plt
+
 from moku.instruments import GenInst, MultiInstrument, Oscilloscope
+
 # Connect to your Moku
 # Connect to Moku via its IP address. Change platform_id to:
 #   - 3, 5 or 8 for Moku:Delta, or
@@ -41,15 +43,15 @@ try:
 
     #  Setting multiple control registers
     controls = [
-    {"idx": 0, "value": 32836},
-    {"idx": 1, "value": 450},
-    {"idx": 2, "value": 32},
-    {"idx": 3, "value": 2048},
-    {"idx": 4, "value": 2147450879}
+        {"idx": 0, "value": 32836},
+        {"idx": 1, "value": 450},
+        {"idx": 2, "value": 32},
+        {"idx": 3, "value": 2048},
+        {"idx": 4, "value": 2147450879},
     ]
-    
-    gi.set_controls(controls) 
-    
+
+    gi.set_controls(controls)
+
     # Configure the Oscilloscope to generate different waveforms
     osc.generate_waveform(1, 'Sine', amplitude=1, frequency=1e3)
     osc.generate_waveform(2, 'Sine', amplitude=0.1, frequency=500)
