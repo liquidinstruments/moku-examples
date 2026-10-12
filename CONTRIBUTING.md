@@ -15,7 +15,7 @@ Thank you for your interest in contributing to the Moku Examples repository! Thi
 
 ### Prerequisites
 
-- Python 3.9 or higher
+- Python 3.11 or higher
 - Git
 - A Moku device for testing
 - Basic familiarity with the Moku API
@@ -249,7 +249,7 @@ The repository uses three pre-commit hooks:
 
 3. **mypy**: Type checking
    - Checks: Type annotations and type consistency
-   - Python version: 3.9+
+   - Python version: 3.11+
 
 ### Configuration
 
@@ -258,10 +258,10 @@ Code quality settings are defined in `pyproject.toml`. Key settings:
 ```toml
 [tool.ruff]
 line-length = 110
-target-version = "py38"
+target-version = "py311"
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.11"
 ignore_missing_imports = true  # Lenient for examples
 ```
 

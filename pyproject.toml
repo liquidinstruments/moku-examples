@@ -2,7 +2,7 @@
 name = "moku-examples"
 description = "Moku examples for Python API, MATLAB API, and other languages"
 version = "1.0.0"
-requires-python = ">= 3.9"
+requires-python = ">= 3.11"
 dependencies = [
     "moku >=3.0.0"
 ]
@@ -15,7 +15,7 @@ dev = [
 
 [tool.ruff]
 line-length = 99
-target-version = "py39"
+target-version = "py311"
 
 [tool.ruff.lint]
 # Enable some basic rules but avoid being too strict for examples
@@ -48,7 +48,7 @@ force-sort-within-sections = true  # Sort imports within sections
 known-first-party = ["moku"]  # Identify moku as first-party for proper sectioning
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.11"
 warn_return_any = false
 warn_unused_configs = true
 disallow_untyped_defs = false  # More lenient for examples
