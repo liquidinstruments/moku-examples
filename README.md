@@ -17,7 +17,7 @@ This repository contains example code for working with Moku devices, including:
 - Network connection to your Moku device
 
 ### Software
-- **For Python examples**: Python 3.9 or higher
+- **For Python examples**: Python 3.11 or higher
 - **For MATLAB examples**: MATLAB R2016b or later
 
 ## Important: Configuration Required
