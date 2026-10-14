@@ -83,7 +83,8 @@ begin
 
                     -- 2. Check for batch completion
                     -- Optimization: Check pulse_count directly to avoid adder in critical path
-                    if pulse_count >= (num_pulses_in - 1) then
+                    -- Explicitly catch num_pulses_in = 0 to prevent 65536-pulse accumulation
+                    if (num_pulses_in = 0) or (pulse_count >= (num_pulses_in - 1)) then
                         v_batch_done := true;
                     else
                         v_next_count := pulse_count + 1;
@@ -101,6 +102,7 @@ begin
 
                 if v_done_active = '1' and v_batch_done then
                     v_acc := (others => '0'); -- Reset for next batch
+                    accumulator <= (others => '0');
                     pulse_count <= (others => '0');
                 else
                     accumulator <= v_acc;
