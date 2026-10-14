@@ -15,9 +15,9 @@
 
 # Import the needed libraries 
 from moku.instruments import MultiInstrument
-from moku.instruments import CustomInstrument, WaveformGenerator
+from moku.instruments import MokuCompile, WaveformGenerator
 
-# Establish connection to Moku:Lab - Waveform Generator and Custom Instrument
+# Establish connection to Moku:Lab - Waveform Generator and Moku Compile
 mg1 = MultiInstrument('192.168.X.X', force_connect=True, platform_id=2) #Edit IP for your device
 
 try:
@@ -25,9 +25,9 @@ try:
 
 	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mg1.set_instrument(1, WaveformGenerator)
-	mc = mg1.set_instrument(2, CustomInstrument, bitstream=bitstream)
+	mc = mg1.set_instrument(2, MokuCompile, bitstream=bitstream)
 
-	# Configure Moku:Lab with waveform generator and Custom Instrument in MiM
+	# Configure Moku:Lab with waveform generator and Moku Compile in MiM
 	connections = [dict(source="Slot1OutA", destination="Slot2InA"),
 					dict(source="Slot2OutB", destination="Slot1InA"),
 					dict(source="Slot2OutA", destination="Output1"),

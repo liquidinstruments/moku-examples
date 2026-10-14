@@ -22,7 +22,7 @@
 
 # Import the needed libraries 
 from moku.instruments import MultiInstrument
-from moku.instruments import CustomInstrument, WaveformGenerator, Oscilloscope, Datalogger
+from moku.instruments import MokuCompile, WaveformGenerator, Oscilloscope, Datalogger
 
 import time
 
@@ -33,12 +33,12 @@ try:
 
 	bitstream = "./bitstreams.tar" #edit for the filename of your bitstream if different
 	wg = mp.set_instrument(1, WaveformGenerator)
-	mc = mp.set_instrument(2, CustomInstrument, bitstream=bitstream)
+	mc = mp.set_instrument(2, MokuCompile, bitstream=bitstream)
 	dl = mp.set_instrument(3, Datalogger)
 	osc = mp.set_instrument(4, Oscilloscope)
 
 
-	# # Configure Moku:Pro with Custom Instrument in MiM
+	# # Configure Moku:Pro with Moku Compile in MiM
 	connections = [dict(source="Slot1OutA", destination="Slot2InB"),
 					dict(source="Slot2OutB", destination="Slot1InA"),
 					dict(source="Slot2OutA", destination="Slot3InA"),

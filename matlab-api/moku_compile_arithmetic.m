@@ -1,8 +1,8 @@
-%% Arithmetic Custom Instrument Example
+%% Arithmetic Moku Compile Example
 %
-%  This example demonstrates how you can configure Custom Instrument to choose to
-% add, subtract or multiply two input signals using the control registers
-% and output the result to the Oscilloscope.
+%  This example demonstrates how you can configure your Moku to run a Moku Compile
+% instrument that adds, subtracts or multiplies two input signals, selected with
+% the control registers, and outputs the result to the Oscilloscope.
 %
 %  (c) Liquid Instruments Pty. Ltd.
 %
@@ -11,7 +11,7 @@
 % (https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit#arithmetic-unit-example)
 %
 % Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
-% contains 2, 3, or 4 .bar files depending on Moku hardware. The bitstream path
+% contains 2, 3, or 4 .mokuinst files depending on Moku hardware. The bitstream path
 % should point to this unzipped folder.
 
 %% Connect to your Moku
@@ -21,10 +21,10 @@ m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 
 try
     %% Configure the instruments
-    % Set the instruments and upload Custom Instrument bitstreams from your device
+    % Set the instruments and upload Moku Compile bitstreams from your device
     % to your Moku
     bitstream = 'path/to/project/arithmetic/unzipped_bitstream';
-    mc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
+    mc = m.set_instrument(1, @MokuCompile, bitstream);
     osc = m.set_instrument(2, @MokuOscilloscope);
 
     % configure routing

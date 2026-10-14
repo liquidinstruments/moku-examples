@@ -1,7 +1,7 @@
-# Custom Instrument Examples
+# Moku Compile Examples
 
-This repository holds example source files for use with Custom Instrument from
-[Liquid Instruments](https://liquidinstruments.com). Custom Instrument supports development in
+This repository holds example source files for use with Moku Compile from
+[Liquid Instruments](https://liquidinstruments.com). Moku Compile supports development in
 both VHDL and Verilog (SystemVerilog).
 
 The main Moku Compile documentation, including some further explanation of these examples and how

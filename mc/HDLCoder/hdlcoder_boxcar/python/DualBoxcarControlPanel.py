@@ -32,7 +32,7 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
                                                NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-from moku.instruments import Oscilloscope, CustomInstrument, MultiInstrument
+from moku.instruments import Oscilloscope, MokuCompile, MultiInstrument
 
 print('Connecting to Moku...')
 m = MultiInstrument(IP_ADDR, platform_id=NUM_OF_SLOTS, force_connect=True)
@@ -68,7 +68,7 @@ resolution = resolution_dict[description['hardware']]
 range = range_dict[description['hardware']]
 
 
-mc = m.set_instrument(1, CustomInstrument, bitstream=BITSTREAMS_PATH)
+mc = m.set_instrument(1, MokuCompile, bitstream=BITSTREAMS_PATH)
 osc = m.set_instrument(2, Oscilloscope)
 
 connections = [dict(source="Input1", destination="Slot1InA"),

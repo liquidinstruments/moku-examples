@@ -17,8 +17,8 @@ The following configuration will allow you to test the functionality of your Mok
 ### Signals and Settings
 | Port | Slot | Use |
 | --- | --- | --- |
-| Input A  | Slot 1 (Custom Instrument) | Reset on DIO pin 0 |
-| Output A | Slot 1 (Custom Instrument) | Divided Clock Pulse on DIO pin 8 |
+| Input A  | Slot 1 (Moku Compile) | Reset on DIO pin 0 |
+| Output A | Slot 1 (Moku Compile) | Divided Clock Pulse on DIO pin 8 |
 | Input A  | Slot 2 (Logic Analyzer) | DIO |
 
 ## Expected Results

@@ -11,21 +11,23 @@ sidebarDepth: 1
 
 <<< @/docs/api/moku-examples/matlab-api/arbitrary_waveform_generator_basic.m
 
-## Custom Instrument
+## Moku Compile
 
-### custom_instrument_adder.m
+### moku_compile_adder.m
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
+This example demonstrates how you can configure your Moku to run the
 [Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
+as a Moku Compile instrument in Multi-Instrument Mode.
 
-<<< @/docs/api/moku-examples/matlab-api/custom_instrument_adder.m
+<<< @/docs/api/moku-examples/matlab-api/moku_compile_adder.m
 
-### custom_instrument_arithmetic.m
+### moku_compile_arithmetic.m
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
+This example demonstrates how you can configure your Moku to run the
 [Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit)
+as a Moku Compile instrument in Multi-Instrument Mode.
 
-<<< @/docs/api/moku-examples/matlab-api/custom_instrument_arithmetic.m
+<<< @/docs/api/moku-examples/matlab-api/moku_compile_arithmetic.m
 
 ## Data Logger
 

@@ -1,26 +1,26 @@
 #
-# moku example: Adder Custom Instrument
+# moku example: Adder Moku Compile instrument
 #
-# This example demonstrates how you can configure Custom Instrument, using
-# Multi-Instrument mode, to add and subtract two input signals together and
-# output the result to the Oscilloscope.
+# This example demonstrates how you can configure your Moku to run a Moku Compile
+# instrument in Multi-Instrument Mode, which adds and subtracts two input signals
+# and outputs the results to the Oscilloscope.
 #
 #  (c) Liquid Instruments Pty. Ltd.
 #
 
 import matplotlib.pyplot as plt
 
-from moku.instruments import CustomInstrument, MultiInstrument, Oscilloscope
+from moku.instruments import MokuCompile, MultiInstrument, Oscilloscope
 
 # Replace with your Moku's IP address.
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
 with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
-    # Set the instruments and upload Custom Instrument bitstreams from your device
+    # Set the instruments and upload Moku Compile bitstreams from your device
     # to your Moku
     bitstream = "path/to/project/adder/bitstreams.tar.gz"
-    mc = m.set_instrument(1, CustomInstrument, bitstream=bitstream)
+    mc = m.set_instrument(1, MokuCompile, bitstream=bitstream)
     osc = m.set_instrument(2, Oscilloscope)
 
     # Configure the connections
