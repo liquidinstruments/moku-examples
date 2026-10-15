@@ -29,13 +29,13 @@ try:
     print("Successfully configured FIR input and output.")
 
     # The cutoff frequencies of the filter are defined as a fraction of the sampling rate. For example,
-    # if the sample rate is 39.06MHz and the corner frequency is set to 0.1, then the cutoff frequency is 3.906MHz.
+    # if the sample rate is 39.1 MSa/s and the corner frequency is set to 0.1, then the cutoff frequency is 3.906MHz.
 
-    # Sample Rate: 39.06 MHz
+    # Sample Rate: 39.1 MSa/s
     # SR * corner_val = corner_freq
 
-    # 39.06 MHz * 0.1 = 3.906 MHz
-    # 39.06 MHz * 0.4 = 15.624 MHz
+    # 39.06 MSa/s * 0.1 = 3.906 MHz
+    # 39.06 MSa/s * 0.4 = 15.624 MHz
 
     # Lowpass filter corner frequency
     f_low = 0.1  # 3.906 MHz
@@ -52,12 +52,12 @@ try:
     bs_high = 0.4  # 15.624 MHz
 
     # On Moku:Pro, there are four available channels, but on Moku:Lab and Go, there are only two available channels. The max sample rate
-    # for the Moku:Pro is 39.06 MHz, for the Moku:Lab it is 15.63 MHz, and for Moku:Go it is 15.63 MHz. Because of this, the corner
+    # for the Moku:Pro is 39.1 MSa/s, for the Moku:Lab it is 15.6 MSa/s, and for Moku:Go it is 15.6 MSa/s. Because of this, the corner
     # frequency calculations will look different depending on the hardware being used.
 
     i.set_by_frequency(
         channel=1,
-        sample_rate='39.06MHz',
+        sample_rate='39.1MSa/s',
         coefficient_count=201,
         shape='Lowpass',
         low_corner=f_low,
@@ -65,7 +65,7 @@ try:
     )
     i.set_by_frequency(
         channel=2,
-        sample_rate='39.06MHz',
+        sample_rate='39.1MSa/s',
         coefficient_count=201,
         shape='Highpass',
         high_corner=f_high,
@@ -73,7 +73,7 @@ try:
     )
     i.set_by_frequency(
         channel=3,
-        sample_rate='39.06MHz',
+        sample_rate='39.1MSa/s',
         coefficient_count=201,
         shape='Bandpass',
         low_corner=bp_low,
@@ -82,7 +82,7 @@ try:
     )
     i.set_by_frequency(
         channel=4,
-        sample_rate='39.06MHz',
+        sample_rate='39.1MSa/s',
         coefficient_count=201,
         shape='Bandstop',
         low_corner=bs_low,
