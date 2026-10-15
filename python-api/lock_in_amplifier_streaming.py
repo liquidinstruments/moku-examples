@@ -30,7 +30,7 @@ try:
 
     # Set low pass filter to 1 kHz corner frequency with
     # 6 dB/octave slope
-    i.set_filter(1e3, slope='Slope6dB')
+    i.set_filter(1e3, slope='6dB')
 
     # Configure output signals
     # X component to Output 1
