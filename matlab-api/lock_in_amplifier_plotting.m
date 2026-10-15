@@ -18,9 +18,9 @@ try
     %% Configure the instrument
     
     % Configure the frontend
-    % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range
+    % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range (on Moku:Pro)
     m.set_frontend(1, 'DC', '1MOhm', 'gain', '0dB');
-    % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range
+    % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range (on Moku:Pro)
     m.set_frontend(2, 'DC', '1MOhm', 'gain', '-20dB');
     
     % Configure the demodulation signal to Local oscillator with 1 MHz and

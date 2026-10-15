@@ -15,7 +15,7 @@ DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
 with LockInAmp(DEVICE_IP, force_connect=True) as i:
-    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
+    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range (on Moku:Pro)
     i.set_frontend(1, coupling='DC', impedance='1MOhm', attenuation='0dB')
     i.set_frontend(2, coupling='DC', impedance='1MOhm', attenuation='0dB')
 
