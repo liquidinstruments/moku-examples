@@ -28,7 +28,7 @@ try
     m.set_demodulation('Internal','frequency',1e6,'phase',0);
     
     % Set low pass filter to 1 kHz corner frequency with 6 dB/octave slope
-    m.set_filter(1e3,'slope','Slope6dB');
+    m.set_filter(1e3,'slope','6dB');
     
     % Configure output signals
     % X component to Output 1 
