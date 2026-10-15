@@ -30,10 +30,10 @@ from moku.instruments import (
 )
 
 # Establish connection to Moku:Pro
-m = MultiInstrument('192.168.1.226', force_connect=True, platform_id=4)
+m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=4)
 
 # Establish connection to Moku:Go
-mg = WaveformGenerator('192.168.1.47', force_connect=True)
+mg = WaveformGenerator('192.168.###.###', force_connect=True)
 
 try:
     # Configure Moku:Go to generate pulsed signal

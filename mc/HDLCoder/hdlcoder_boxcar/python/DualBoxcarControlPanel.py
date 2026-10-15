@@ -1,5 +1,5 @@
-IP_ADDR = '192.168.2.211'
-BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/FourBoxcarAveragerMokuProf_fw591.tar.gz'
+IP_ADDR = '192.168.###.###'
+BITSTREAMS_PATH = 'C:/Users/XXXX/Downloads/FourBoxcarAveragerMokuProf_fw591.tar.gz'
 ATTENUATION = '0dB'
 INPUT_IMPEDANCE = '50Ohm'
 COUPLING = 'DC'
