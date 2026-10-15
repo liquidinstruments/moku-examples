@@ -1,5 +1,5 @@
-IP_ADDR = '192.168.2.200'
-BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/boxcarMokuPro.tar.gz'
+IP_ADDR = '192.168.###.###'
+BITSTREAMS_PATH = 'C:/Users/XXXX/Downloads/boxcarMokuPro.tar.gz'
 ATTENUATION = '0dB'
 INPUT_IMPEDANCE = '50Ohm'
 COUPLING = 'DC'

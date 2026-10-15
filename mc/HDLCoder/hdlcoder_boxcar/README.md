@@ -36,8 +36,8 @@ To control your device with the Python control panel, you may need to modify a f
 Each device has a unique IP address, and the bitstreams path may vary depending on your system. Please modify `1` and `2` in the Python script to reflect your setup:
 
 ```
-IP_ADDR = '192.168.2.200'
-BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/boxcarMokuPro.tar.gz'
+IP_ADDR = '192.168.###.###'
+BITSTREAMS_PATH = 'C:/Users/XXXX/Downloads/boxcarMokuPro.tar.gz'
 ```
 
 #### 2. Update Analog Frontend Settings
