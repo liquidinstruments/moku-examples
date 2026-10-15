@@ -18,9 +18,10 @@ from moku.instruments import LockInAmp
 i = LockInAmp('192.168.###.###', force_connect=True)
 
 try:
-    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
-    i.set_frontend(1, coupling='DC', impedance='1MOhm', attenuation='0dB')
-    i.set_frontend(2, coupling='DC', impedance='1MOhm', attenuation='-20dB')
+    # Set Channel 1 to DC coupled, 1 MOhm impedance, and 400 mVpp range (on Moku:Pro)
+    i.set_frontend(1, coupling='DC', impedance='1MOhm', gain='0dB')
+    # Set Channel 2 to DC coupled, 1 MOhm impedance, and 4 Vpp range (on Moku:Pro)
+    i.set_frontend(2, coupling='DC', impedance='1MOhm', gain='-20dB')
 
     # Configure the demodulation signal to Local oscillator with 1 MHz and
     # 0 degrees phase shift
