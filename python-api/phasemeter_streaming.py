@@ -24,13 +24,14 @@ try:
     # Set auto acquired frequency for channel 1
     i.set_pm_loop(channel=1, auto_acquire=True, bandwidth='1kHz')
 
-    # Get auto acquired frequency for channel 1
-    i.get_auto_acquired_frequency(channel=1)
+    # Get the auto-acquired frequency for channel 1. get_data isn't
+    # available while streaming, so call it before streaming starts.
+    print(i.get_data()['ch1']['setpoint_frequency'])
 
-    # Set samplerate to 150 Hz/s
-    # Stop and existing streaming session and start a new one for 30s
+    # Set the acquisition rate to 149 Sa/s
+    # Stop any existing streaming session and start a new one for 30s
     i.stop_streaming()
-    i.start_streaming(duration=30, acquisition_speed='150Hz')
+    i.start_streaming(duration=30, acquisition_rate='149Sa/s')
 
     # Set up the figure for plotting
     plt.ion()

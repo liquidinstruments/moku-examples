@@ -21,8 +21,8 @@ from moku.instruments import Phasemeter
 i = Phasemeter('192.168.###.###', force_connect=True)
 
 try:
-    # Set samplerate to 37 Hz/s
-    i.set_acquisition_speed(speed="37Hz")
+    # Set the acquisition rate to 37.3 Sa/s
+    i.set_acquisition_speed(speed="37.3Sa/s")
 
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 4Vpp range
     i.set_frontend(1, coupling="DC", impedance="1MOhm", range="4Vpp")
@@ -32,10 +32,6 @@ try:
     i.generate_output(1, "Sine", amplitude=0.5, frequency=5e6)
     # Configure output channel 2 to generate sine waves at 1Vpp, 10 MHz
     i.generate_output(2, "Sine", amplitude=1, frequency=10e6)
-
-    # Get auto acquired frequency for channel 1 and 2
-    i.get_auto_acquired_frequency(channel=1)
-    i.get_auto_acquired_frequency(channel=2)
 
     # Get initial data frame to set plot bounds
     data = i.get_data()
