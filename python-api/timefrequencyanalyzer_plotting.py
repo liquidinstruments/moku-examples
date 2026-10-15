@@ -29,7 +29,7 @@ try:
     i.set_acquisition_mode(mode='Windowed', window_length=100e-3)
 
     # Use the first start event and close the interval at the end of the gate period (arbitrary as using windowed acquisition)
-    i.set_interval_policy(multiple_start_events='Use first', incomplete_intervals='Close')
+    i.set_interval_policy(multiple_start_events='UseFirst', incomplete_intervals='Close')
 
     # Set the histogram to 8ns span centred around 2us, with interval histogram type
     i.set_histogram(start_time=1.996e-6, stop_time=2.004e-6, type='Interval')
