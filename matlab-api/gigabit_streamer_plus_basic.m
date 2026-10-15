@@ -44,7 +44,7 @@ try
     m.summary
 
     % Immediately start sending data for 10 seconds
-    m.start_sending(10);
+    m.start_sending('mode', 'Manual', 'duration', 10);
 
 catch ME
     % End the current connection session with your Moku

@@ -84,8 +84,8 @@ with MultiInstrument(DEVICE_IP, force_connect=True, platform_id=3) as m:
     gs2.set_output(channel=1, enable=True, gain=0.0, offset=0.0)
     gs2.set_output(channel=2, enable=False, gain=0.0, offset=0.0)
     # Immediately start sending data for 10 seconds
-    gs1.start_sending(duration=10, delay=0)
-    gs2.start_sending(duration=10, delay=0)
+    gs1.start_sending(mode="Manual", duration=10)
+    gs2.start_sending(mode="Manual", duration=10)
 
     # Get initial data frame to set up plotting parameters. This can be done
     # once if we know that the axes aren't going to change (otherwise we'd do

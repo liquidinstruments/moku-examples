@@ -44,4 +44,4 @@ with GigabitStreamerPlus(DEVICE_IP, force_connect=True) as i:
     print(i.summary())
 
     # Immediately start sending data for 10 seconds
-    i.start_sending(duration=10)
+    i.start_sending(mode="Manual", duration=10)

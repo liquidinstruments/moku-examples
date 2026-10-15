@@ -78,8 +78,8 @@ try
     gs2.set_output(2, false, 0.0, 0.0);
 
     % Immediately start sending data for 10 seconds
-    gs1.start_sending(10);
-    gs2.start_sending(10);
+    gs1.start_sending('mode', 'Manual', 'duration', 10);
+    gs2.start_sending('mode', 'Manual', 'duration', 10);
 
     % Get initial data frame to set up plotting parameters
     data = osc.get_data();
