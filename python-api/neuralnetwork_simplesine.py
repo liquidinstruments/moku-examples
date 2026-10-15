@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument, NeuralNetwork, Oscilloscope, WaveformGenerator
 
 # force_connect will overtake an existing connection
-m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
+m = MultiInstrument('192.168.###.###', num_slots=4, force_connect=True)
 
 try:
     # Set up MiM configuration

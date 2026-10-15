@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 from moku.instruments import GenInst, MultiInstrument, Oscilloscope
 
 # Connect to your Moku
-# Connect to Moku via its IP address. Change platform_id to:
+# Connect to Moku via its IP address. Change num_slots to:
 #   - 3, 5 or 8 for Moku:Delta, or
 #   - 4 for Moku:Pro, or
 #   - 2 or 3 for Moku:Lab and Moku:Go.
 # force_connect will overtake an existing connection
 
-m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
+m = MultiInstrument('192.168.###.###', num_slots=4, force_connect=True)
 
 try:
     # Set the instruments and upload GenInst bitstreams from your device

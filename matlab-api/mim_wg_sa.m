@@ -7,7 +7,7 @@
 %
 
 %% Connect to your Moku
-% Configure multi-instrument with platform_id 2
+% Configure multi-instrument with num_slots 2
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 2, force_connect=true);
 

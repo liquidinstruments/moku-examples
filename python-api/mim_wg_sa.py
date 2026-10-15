@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument, SpectrumAnalyzer, WaveformGenerator
 
 # force_connect will overtake an existing connection
-m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
+m = MultiInstrument('192.168.###.###', num_slots=2, force_connect=True)
 try:
     w = m.set_instrument(1, WaveformGenerator)
     s = m.set_instrument(2, SpectrumAnalyzer)

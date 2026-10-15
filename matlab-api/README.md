@@ -114,7 +114,7 @@ Multi-Instrument Mode and output the result to the Oscilloscope.
 
 Multi-instrument Mode on Moku:Go (two-slot), deploying the Waveform Generator
 and Oscilloscope at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/matlab-api/mim_wg_osc.m
 
@@ -122,7 +122,7 @@ the "platform_id" to one supported by that hardware.
 
 Multi-instrument Mode on Moku:Go (two slot), deploying the Waveform Generator
 and Spectrum Analyzer at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/matlab-api/mim_wg_sa.m
 
@@ -130,7 +130,7 @@ the "platform_id" to one supported by that hardware.
 
 Multi-instrument Mode on a three-slot platform, deploying the Waveform Generator,
 Real Time Math and Oscilloscope at once. Real Time Math applies a gain with an
-output limit, and an offset, to the generated sine wave. Use platform_id 4
+output limit, and an offset, to the generated sine wave. Use num_slots 4
 on Moku:Pro.
 
 <<< @/docs/api/moku-examples/matlab-api/mim_wg_rtm_osc.m

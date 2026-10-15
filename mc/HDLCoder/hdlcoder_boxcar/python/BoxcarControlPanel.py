@@ -34,7 +34,7 @@ from matplotlib.figure import Figure
 from moku.instruments import Oscilloscope, MokuCompile, MultiInstrument
 
 print('Connecting to Moku...')
-m = MultiInstrument(IP_ADDR, platform_id=4, force_connect=True)
+m = MultiInstrument(IP_ADDR, num_slots=4, force_connect=True)
 
 print('Setting Multi-instrument Mode...')
 description = m.describe()

@@ -18,7 +18,7 @@ from moku.instruments import MultiInstrument
 from moku.instruments import MokuCompile, WaveformGenerator
 
 # Establish connection to Moku:Lab - Waveform Generator and Moku Compile
-mg1 = MultiInstrument('192.168.X.X', force_connect=True, platform_id=2) #Edit IP for your device
+mg1 = MultiInstrument('192.168.X.X', force_connect=True, num_slots=2) #Edit IP for your device
 
 try:
 	# Configure Moku:Lab to generate pulsed signal with variable frequency and duty cycle

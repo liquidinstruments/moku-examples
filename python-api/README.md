@@ -169,7 +169,7 @@ all 16 channels
 
 Multi-instrument Mode on Moku:Go (two-slot), deploying the Waveform Generator
 and Oscilloscope at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/python-api/mim_wg_osc.py
 
@@ -177,7 +177,7 @@ the "platform_id" to one supported by that hardware.
 
 Multi-instrument Mode on Moku:Go (two slot), deploying the Waveform Generator
 and Spectrum Analyzer at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/python-api/mim_wg_sa.py
 

@@ -19,9 +19,9 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import GigabitStreamer, MultiInstrument, Oscilloscope
 
-# Connect to your Moku by its ip address MultiInstrument('192.168.###.###', platform_id=3)
+# Connect to your Moku by its ip address MultiInstrument('192.168.###.###', num_slots=3)
 # force_connect will overtake an existing connection
-m = MultiInstrument("192.168.###.###", force_connect=True, platform_id=3)
+m = MultiInstrument("192.168.###.###", force_connect=True, num_slots=3)
 
 try:
     # Set up Gigabit Streamer and Oscilloscope instruments

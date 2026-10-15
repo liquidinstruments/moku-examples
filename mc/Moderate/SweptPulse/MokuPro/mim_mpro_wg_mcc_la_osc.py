@@ -27,7 +27,7 @@ from moku.instruments import MokuCompile, WaveformGenerator, Oscilloscope, Datal
 import time
 
 # Establish connection to Moku:Pro
-mp = MultiInstrument('192.168.X.X', force_connect=True, platform_id=4) #Edit IP for your device
+mp = MultiInstrument('192.168.X.X', force_connect=True, num_slots=4) #Edit IP for your device
 
 try:
 
