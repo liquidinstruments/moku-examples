@@ -6,7 +6,7 @@ from moku.instruments import Datalogger, LockInAmp, MultiInstrument
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as i:
+with MultiInstrument(DEVICE_IP, num_slots=2, force_connect=True) as i:
     try:
         dl = i.set_instrument(1, Datalogger)
         lia = i.set_instrument(2, LockInAmp)

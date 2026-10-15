@@ -10,7 +10,7 @@
 %
 
 %% Connect to your Moku
-% RTM needs three or more slots: use platform_id 3 for Moku:Go, Moku:Lab and
+% RTM needs three or more slots: use num_slots 3 for Moku:Go, Moku:Lab and
 % Moku:Delta, or 4 for Moku:Pro.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 3, force_connect=true);

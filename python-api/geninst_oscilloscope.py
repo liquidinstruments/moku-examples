@@ -16,11 +16,11 @@ from moku.instruments import GenInst, MultiInstrument, Oscilloscope
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-# Change platform_id to:
+# Change num_slots to:
 #   - 3, 5 or 8 for Moku:Delta, or
 #   - 4 for Moku:Pro, or
 #   - 2 or 3 for Moku:Lab and Moku:Go.
-with MultiInstrument(DEVICE_IP, platform_id=4, force_connect=True) as m:
+with MultiInstrument(DEVICE_IP, num_slots=4, force_connect=True) as m:
     # Set the instruments and upload GenInst bitstreams from your device
     # to your Moku
     bitstream = "path/to/geninst/bitstreams"

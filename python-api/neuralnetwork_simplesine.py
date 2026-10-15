@@ -16,7 +16,7 @@ from moku.instruments import MultiInstrument, NeuralNetwork, Oscilloscope, Wavef
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with MultiInstrument(DEVICE_IP, platform_id=4, force_connect=True) as m:
+with MultiInstrument(DEVICE_IP, num_slots=4, force_connect=True) as m:
     # Set up MiM configuration
     wg = m.set_instrument(1, WaveformGenerator)
     nn = m.set_instrument(2, NeuralNetwork)

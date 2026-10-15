@@ -30,7 +30,7 @@ from moku.instruments import (
 )
 
 # Establish connection to Moku:Pro
-m = MultiInstrument('192.168.###.###', force_connect=True, platform_id=4)
+m = MultiInstrument('192.168.###.###', force_connect=True, num_slots=4)
 
 # Establish connection to Moku:Go
 mg = WaveformGenerator('192.168.###.###', force_connect=True)

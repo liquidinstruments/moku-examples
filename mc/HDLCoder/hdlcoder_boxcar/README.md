@@ -52,10 +52,10 @@ INPUT_IMPEDANCE = '50Ohm'
 COUPLING = 'DC'
 ```
 
-Additionally, Moku:Pro uses `platform_id` of `4`, Moku:Delta uses `3` or `8` and Moku:Go and Moku:Lab `2` or `3`. For more details, please visit [Multi-instrument Mode API](https://apis.liquidinstruments.com/starting-mim.html).
+Additionally, Moku:Pro uses `num_slots` of `4`, Moku:Delta uses `3` or `8` and Moku:Go and Moku:Lab `2` or `3`. For more details, please visit [Multi-instrument Mode API](https://apis.liquidinstruments.com/starting-mim.html).
 
 ```
-m = MultiInstrument(IP_ADDR, platform_id=4, force_connect=True)
+m = MultiInstrument(IP_ADDR, num_slots=4, force_connect=True)
 ```
 
 #### 3. Change initial settings

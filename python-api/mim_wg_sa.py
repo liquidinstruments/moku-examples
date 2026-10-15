@@ -6,7 +6,7 @@ from moku.instruments import MultiInstrument, SpectrumAnalyzer, WaveformGenerato
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
+with MultiInstrument(DEVICE_IP, num_slots=2, force_connect=True) as m:
     w = m.set_instrument(1, WaveformGenerator)
     s = m.set_instrument(2, SpectrumAnalyzer)
 

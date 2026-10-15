@@ -16,7 +16,7 @@ from moku.instruments import MokuCompile, MultiInstrument, Oscilloscope
 DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
+with MultiInstrument(DEVICE_IP, num_slots=2, force_connect=True) as m:
     # Set the instruments and upload Moku Compile bitstreams from your device
     # to your Moku
     bitstream = "path/to/project/adder/bitstreams.tar.gz"

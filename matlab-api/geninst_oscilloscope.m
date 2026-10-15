@@ -9,7 +9,7 @@
 
 
 %% Connect to your Moku
-% Connect to Moku via its IP address. Change platform_id to:
+% Connect to Moku via its IP address. Change num_slots to:
 %   - 3, 5 or 8 for Moku:Delta, or
 %   - 4 for Moku:Pro, or
 %   - 2 or 3 for Moku:Lab and Moku:Go.

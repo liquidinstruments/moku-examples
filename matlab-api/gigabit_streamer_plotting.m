@@ -15,7 +15,7 @@
 
 %% Connect to your Moku
 % Connect to Moku via its IP address
-% Change platform_id to 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
+% Change num_slots to 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 3, force_connect=true);
 
