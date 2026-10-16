@@ -114,9 +114,6 @@ try:
 
         plt.pause(0.001)
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

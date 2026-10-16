@@ -46,9 +46,6 @@ try:
     i.enable_output(1, signal=True, output=True)
     i.enable_output(2, signal=True, output=True)
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

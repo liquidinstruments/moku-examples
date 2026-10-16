@@ -32,9 +32,6 @@ try:
         channel=2, source='Internal', stop_frequency=10, sweep_time=2, trigger_level=0.1
     )
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

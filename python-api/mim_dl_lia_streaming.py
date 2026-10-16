@@ -55,7 +55,6 @@ except Exception as e:
     if str(e) == "End of stream":
         print("Streaming session complete!")
     else:
-        i.relinquish_ownership()
-        raise e
+        raise
 finally:
     i.relinquish_ownership()

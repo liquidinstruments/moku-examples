@@ -51,7 +51,6 @@ except Exception as e:
         print("Streaming session complete!")
     else:
         i.stop_streaming()
-        i.relinquish_ownership()
-        raise e
+        raise
 finally:
     i.relinquish_ownership()
