@@ -38,10 +38,6 @@ try:
     # integrator crossover frequency at 50 Hz
     i.set_pid_by_frequency(2, -10, int_crossover=50)
 
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

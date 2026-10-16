@@ -83,8 +83,7 @@ except Exception as e:
         print("Streaming session complete!")
     else:
         i.stop_streaming()
-        i.relinquish_ownership()
-        raise e
+        raise
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

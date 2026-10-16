@@ -88,9 +88,6 @@ try:
         ydata1 = ydata1[-1000:]
         ydata2 = ydata2[-1000:]
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly

@@ -21,9 +21,6 @@ try:
     # Read the current status of Power Supply Unit 1
     print(i.get_power_supply(1))
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

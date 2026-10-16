@@ -80,12 +80,11 @@ try:
             line1.set_xdata(data['time'])
             line2.set_xdata(data['time'])
             plt.pause(0.001)
-except MokuException as e:
+except MokuException:
     print(
         "Couldn't configure Moku. Please check your IP address and that you've updated the script parameters (such as sampling rate) to match your device."
     )
-    i.relinquish_ownership()
-    raise e
+    raise
 finally:
     # Releasing ownership of the Moku allows other users to connect
     # to it without forcing a takeover.

@@ -44,9 +44,6 @@ try:
     i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), logFile['file_name']))
     print("Downloaded log file to local directory.")
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

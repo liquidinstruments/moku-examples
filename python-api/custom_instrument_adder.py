@@ -57,8 +57,5 @@ try:
     plt.legend(loc=0)
     plt.show()
 
-except Exception as e:
-    m.relinquish_ownership()
-    raise e
 finally:
     m.relinquish_ownership()

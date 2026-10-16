@@ -44,9 +44,6 @@ try:
     # Print out the data for Channel 2
     print(frame['ch2']['frequency'], frame['ch2']['magnitude'], frame['ch2']['phase'])
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

@@ -46,9 +46,6 @@ try:
     # Immediately start sending data for 10 seconds
     i.start_sending(duration=10)
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources and released correctly

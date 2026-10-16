@@ -32,9 +32,6 @@ try:
     i.set_outputs('X', 'Aux')
     i.set_aux_output(1e6, 0.5)
 
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
 finally:
     # Close the connection to the Moku device
     # This ensures network resources are released correctly
