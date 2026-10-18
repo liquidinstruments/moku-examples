@@ -9,11 +9,11 @@
 
 from moku.instruments import Phasemeter
 
-# Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-# force_connect will overtake an existing connection
-i = Phasemeter('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Phasemeter(DEVICE_IP, force_connect=True) as i:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
     i.set_frontend(1, coupling='DC', impedance='1MOhm', range='400mVpp')
     i.set_frontend(2, coupling='DC', impedance='1MOhm', range='400mVpp')
@@ -41,8 +41,3 @@ try:
 
     # Get all the data available from the Moku
     data = i.get_data()
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources are released correctly
-    i.relinquish_ownership()

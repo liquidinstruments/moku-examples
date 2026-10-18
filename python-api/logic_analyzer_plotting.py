@@ -11,12 +11,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import LogicAnalyzer
 
-# Connect to your Moku by its ip address using
-# LogicAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = LogicAnalyzer('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with LogicAnalyzer(DEVICE_IP, force_connect=True) as i:
     patterns = [
         {"pin": 1, "pattern": [1] * 1024},  # logic high
         {"pin": 2, "pattern": [0] * 1024},  # logic low
@@ -57,8 +56,3 @@ try:
         pin4.set_ydata([i + 6 for i in data["pin4"]])
 
         plt.pause(0.001)
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

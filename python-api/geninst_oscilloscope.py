@@ -12,16 +12,15 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import GenInst, MultiInstrument, Oscilloscope
 
-# Connect to your Moku
-# Connect to Moku via its IP address. Change platform_id to:
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
+
+# Connect to the Moku (force_connect will overtake an existing connection).
+# Change platform_id to:
 #   - 3, 5 or 8 for Moku:Delta, or
 #   - 4 for Moku:Pro, or
 #   - 2 or 3 for Moku:Lab and Moku:Go.
-# force_connect will overtake an existing connection
-
-m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
-
-try:
+with MultiInstrument(DEVICE_IP, platform_id=4, force_connect=True) as m:
     # Set the instruments and upload GenInst bitstreams from your device
     # to your Moku
     bitstream = "path/to/geninst/bitstreams"
@@ -91,6 +90,3 @@ try:
         line2.set_ydata(data['ch2'])  # Signal generated in Oscilloscope in loopback (orange)
         line2.set_xdata(data['time'])
         plt.pause(0.001)
-
-finally:
-    m.relinquish_ownership()

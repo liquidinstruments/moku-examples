@@ -11,11 +11,11 @@ import time
 
 from moku.instruments import Datalogger
 
-# Connect to your Moku by its ip address using Datalogger('192.168.###.###')
-# force_connect will overtake an existing connection
-i = Datalogger('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Datalogger(DEVICE_IP, force_connect=True) as i:
     # Configure the frontend
     i.set_frontend(channel=1, impedance='1MOhm', coupling="AC", range="10Vpp")
 
@@ -43,8 +43,3 @@ try:
     # Download log from Moku, use liconverter to convert this .li file to .csv
     i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), logFile['file_name']))
     print("Downloaded log file to local directory.")
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

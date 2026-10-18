@@ -9,11 +9,11 @@
 #
 from moku.instruments import WaveformGenerator
 
-# Connect to your Moku by its ip address using WaveformGenerator('192.168.###.###')
-# force_connect will overtake an existing connection
-i = WaveformGenerator('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with WaveformGenerator(DEVICE_IP, force_connect=True) as i:
     # Generate a sine wave on channel 1, 0.5 Vpp, 5 kHz
     # Generate a sine wave on channel 2, 1 Vpp, 1 MHz
     i.generate_waveform(channel=1, type='Sine', amplitude=0.5, frequency=5e3)
@@ -30,8 +30,3 @@ try:
     i.set_sweep_mode(
         channel=2, source='Input1', stop_frequency=10.0, sweep_time=3.0, trigger_level=0.1
     )
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

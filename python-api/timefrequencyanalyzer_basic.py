@@ -10,11 +10,11 @@ from pprint import pprint
 
 from moku.instruments import TimeFrequencyAnalyzer
 
-# Connect to your Moku by its ip address using TimeFrequencyAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = TimeFrequencyAnalyzer('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with TimeFrequencyAnalyzer(DEVICE_IP, force_connect=True) as i:
     # Set the event detectors
     # Set Event A to detect rising edge events on Input 1 at 0V
     # Set Event B to detect rising edge events on Input 2 at 0V
@@ -42,8 +42,3 @@ try:
     pprint(data['interval1']['statistics'])
     print('Interval 2:')
     pprint(data['interval2']['statistics'])
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

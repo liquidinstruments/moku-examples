@@ -12,12 +12,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import CustomInstrument, MultiInstrument, Oscilloscope
 
-# Connect to your Moku by its ip address using
-# MultiInstrument('192.168.###.###')
-# force_connect will overtake an existing connection
-m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
     # Set the instruments and upload Custom Instrument bitstreams from your device
     # to your Moku
     bitstream = "path/to/project/arithmetic/bitstreams.tar.gz"
@@ -75,6 +74,3 @@ try:
     plt.xlabel("Time [Second]")
     plt.tight_layout()
     plt.show()
-
-finally:
-    m.relinquish_ownership()

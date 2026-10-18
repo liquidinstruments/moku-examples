@@ -8,12 +8,12 @@
 #
 from moku.instruments import SpectrumAnalyzer
 
-# Connect to your Moku by its ip address using SpectrumAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-# Deploy the Spectrum Analyzer to your Moku
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with SpectrumAnalyzer(DEVICE_IP, force_connect=True) as i:
+    # Deploy the Spectrum Analyzer to your Moku
     # Configure the Spectrum Analyzer
     i.set_span(0, 10e6)
     i.set_rbw('Auto')  # Auto-mode
@@ -22,8 +22,3 @@ try:
     # two channels)
     data = i.get_data()
     print(data['ch1'], data['ch2'], data['frequency'])
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

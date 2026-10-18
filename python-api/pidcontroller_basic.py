@@ -9,11 +9,11 @@
 
 from moku.instruments import PIDController
 
-# Connect to your Moku by its ip address using PIDController('192.168.###.###')
-# force_connect will overtake an existing connection
-i = PIDController('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with PIDController(DEVICE_IP, force_connect=True) as i:
     # Configures the control matrix:
     # Channel 1: input 1 gain = 1 dB, input 2 gain = 0 dB
     # Channel 2: input 2 gain = 0 dB, input 2 gain = 1 dB
@@ -45,8 +45,3 @@ try:
     # Enable the outputs of the PID controller
     i.enable_output(1, signal=True, output=True)
     i.enable_output(2, signal=True, output=True)
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

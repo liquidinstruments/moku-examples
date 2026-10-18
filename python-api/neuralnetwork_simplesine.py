@@ -12,10 +12,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import MultiInstrument, NeuralNetwork, Oscilloscope, WaveformGenerator
 
-# force_connect will overtake an existing connection
-m = MultiInstrument('192.168.###.###', platform_id=4, force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with MultiInstrument(DEVICE_IP, platform_id=4, force_connect=True) as m:
     # Set up MiM configuration
     wg = m.set_instrument(1, WaveformGenerator)
     nn = m.set_instrument(2, NeuralNetwork)
@@ -68,8 +69,3 @@ try:
         line.set_ydata(data['ch1'])
         line.set_xdata(data['time'])
         plt.pause(0.001)
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    m.relinquish_ownership()

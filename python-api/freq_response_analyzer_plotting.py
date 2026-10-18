@@ -11,9 +11,8 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import FrequencyResponseAnalyzer
 
-# Connect to your Moku by its ip address using FrequencyResponseAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
 # Define output sweep parameters here for readability
 f_start = 20e6  # Hz
@@ -27,7 +26,8 @@ settling_time = 1e-6  # sec
 averaging_cycles = 1
 settling_cycles = 1
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with FrequencyResponseAnalyzer(DEVICE_IP, force_connect=True) as i:
     # Set the output sweep amplitudes
     i.set_output(1, amp_ch1)
     i.set_output(2, amp_ch2)
@@ -113,8 +113,3 @@ try:
         plt.draw()
 
         plt.pause(0.001)
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

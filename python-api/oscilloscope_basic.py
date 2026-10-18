@@ -8,11 +8,11 @@
 #
 from moku.instruments import Oscilloscope
 
-# Connect to your Moku by its ip address using Oscilloscope('192.168.###.###')
-# force_connect will overtake an existing connection
-i = Oscilloscope('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Oscilloscope(DEVICE_IP, force_connect=True) as i:
     # Set the span to from -1ms to 1ms i.e. trigger point centred
     i.set_timebase(-1e-3, 1e-3)
 
@@ -20,8 +20,3 @@ try:
     # of voltage per channel)
     data = i.get_data()
     print(data['ch1'], data['ch2'], data['time'])
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources are released correctly
-    i.relinquish_ownership()
