@@ -10,6 +10,9 @@ import numpy as np
 
 from moku.instruments import ArbitraryWaveformGenerator
 
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
+
 # Generate a signal that the Arbitrary Waveform Generator should generate on the output
 t = np.linspace(0, 1, 100)  # Evaluate our waveform at 100 points
 
@@ -24,11 +27,8 @@ for h in np.arange(1, 15, 2):
 
 not_sq = not_sq / max(abs(not_sq))
 
-# Connect to your Moku by its ip address ArbitraryWaveformGenerator('192.168.###.###')
-# force_connect will overtake an existing connection
-i = ArbitraryWaveformGenerator('192.168.###.###', force_connect=True)
-
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with ArbitraryWaveformGenerator(DEVICE_IP, force_connect=True) as i:
     # Load and configure the waveform.
     i.generate_waveform(
         channel=1, sample_rate='Auto', lut_data=list(sq_wave), frequency=10e3, amplitude=1
@@ -51,12 +51,3 @@ try:
         burst_cycles=3,
         trigger_level=0.1,
     )
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

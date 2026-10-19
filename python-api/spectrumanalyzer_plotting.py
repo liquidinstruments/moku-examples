@@ -12,14 +12,14 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import SpectrumAnalyzer
 
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
+
 logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s::%(message)s')
 logging.getLogger('moku_client').setLevel(logging.INFO)
 
-# Connect to your Moku by its ip address using SpectrumAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = SpectrumAnalyzer('192.168.###.###', force_connect=True)
-
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with SpectrumAnalyzer(DEVICE_IP, force_connect=True) as i:
     # Configure the Spectrum Analyzer
     i.set_span(frequency1=0, frequency2=30e3)
     i.disable_output(1)
@@ -61,11 +61,3 @@ try:
         # Redraw the lines
         plt.draw()
         plt.pause(0.001)
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

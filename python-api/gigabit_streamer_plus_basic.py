@@ -7,11 +7,11 @@
 
 from moku.instruments import GigabitStreamerPlus
 
-# Connect to your Moku via its IP address. Set force_connect=True to
-# overtake an existing connection.
-i = GigabitStreamerPlus("192.168.XXX.XXX", force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with GigabitStreamerPlus(DEVICE_IP, force_connect=True) as i:
     # Set up the Gigabit Streamer+ inputs
     i.enable_input(channel=1, enable=True)
     i.enable_input(channel=2, enable=True)
@@ -45,11 +45,3 @@ try:
 
     # Immediately start sending data for 10 seconds
     i.start_sending(duration=10)
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

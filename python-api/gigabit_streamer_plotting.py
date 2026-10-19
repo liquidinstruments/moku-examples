@@ -19,11 +19,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import GigabitStreamer, MultiInstrument, Oscilloscope
 
-# Connect to your Moku by its ip address MultiInstrument('192.168.###.###', platform_id=3)
-# force_connect will overtake an existing connection
-m = MultiInstrument("192.168.###.###", force_connect=True, platform_id=3)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with MultiInstrument(DEVICE_IP, force_connect=True, platform_id=3) as m:
     # Set up Gigabit Streamer and Oscilloscope instruments
     gs1 = m.set_instrument(1, GigabitStreamer)  # Receiving Gigabit Streamer
     osc = m.set_instrument(2, Oscilloscope)  # Oscilloscope
@@ -116,11 +116,3 @@ try:
         line2.set_ydata(data['ch2'])  # Signal generated in Oscilloscope in loopback (orange)
         line2.set_xdata(data['time'])
         plt.pause(0.001)
-
-except Exception as e:
-    m.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    m.relinquish_ownership()

@@ -11,11 +11,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import LaserLockBox
 
-# Connect to your Moku by its ip address using LaserLockBox('192.168.###.###')
-# force_connect will overtake an existing connection
-i = LaserLockBox('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with LaserLockBox(DEVICE_IP, force_connect=True) as i:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
     i.set_frontend(1, coupling='DC', impedance='1MOhm', gain='0dB')
     i.set_frontend(2, coupling='DC', impedance='1MOhm', gain='-20dB')
@@ -85,11 +85,3 @@ try:
         line1.set_xdata(data['time'])
         line2.set_xdata(data['time'])
         plt.pause(0.001)
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources are released correctly
-    i.relinquish_ownership()

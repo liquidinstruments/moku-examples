@@ -11,11 +11,11 @@ import time
 
 from moku.instruments import Datalogger
 
-# Connect to your Moku by its ip address using Datalogger('192.168.###.###')
-# force_connect will overtake an existing connection
-i = Datalogger('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Datalogger(DEVICE_IP, force_connect=True) as i:
     # Configure the frontend
     i.set_frontend(channel=1, impedance='1MOhm', coupling="AC", range="10Vpp")
 
@@ -27,7 +27,7 @@ try:
     # Log 100 samples per second
     # Stop an existing log, if any, then start a new one. 10 seconds of both
     # channels
-    logFile = i.start_logging(duration=10, sample_rate=100)
+    log_file = i.start_logging(duration=10, sample_rate=100)
 
     # Track progress percentage of the data logging session
     complete = False
@@ -41,13 +41,5 @@ try:
             print(f"Remaining time {progress['time_remaining']} seconds")
 
     # Download log from Moku, use liconverter to convert this .li file to .csv
-    i.download("persist", logFile['file_name'], os.path.join(os.getcwd(), logFile['file_name']))
+    i.download("persist", log_file['file_name'], os.path.join(os.getcwd(), log_file['file_name']))
     print("Downloaded log file to local directory.")
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

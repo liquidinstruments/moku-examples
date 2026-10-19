@@ -10,48 +10,47 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import Datalogger
 
-# force_connect will overtake an existing connection
-i = Datalogger('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
-    # generate a waveform on output channel 1
-    i.generate_waveform(1, "Sine", frequency=100)
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Datalogger(DEVICE_IP, force_connect=True) as i:
+    try:
+        # generate a waveform on output channel 1
+        i.generate_waveform(1, "Sine", frequency=100)
 
-    # disable Input2 as we want to stream data only from Input1
-    i.enable_input(2, enable=False)
+        # disable Input2 as we want to stream data only from Input1
+        i.enable_input(2, enable=False)
 
-    # set the sample rate to 10KSa/s
-    # stream the data for 10 seconds..
-    i.start_streaming(duration=10, sample_rate=10e3)
+        # set the sample rate to 10KSa/s
+        # stream the data for 10 seconds..
+        i.start_streaming(duration=10, sample_rate=10e3)
 
-    # Set up the plotting parameters
-    plt.ion()
-    plt.show()
-    plt.grid(visible=True)
-    plt.ylim([-1, 1])
+        # Set up the plotting parameters
+        plt.ion()
+        plt.show()
+        plt.grid(visible=True)
+        plt.ylim([-1, 1])
 
-    (line1,) = plt.plot([])
+        (line1,) = plt.plot([])
 
-    # Configure labels for axes
-    ax = plt.gca()
+        # Configure labels for axes
+        ax = plt.gca()
 
-    # This loops continuously updates the plot with new data
-    while True:
-        # get the chunk of streamed data
-        data = i.get_stream_data()
-        if data:
-            plt.xlim([data['time'][0], data['time'][-1]])
-            # Update the plot
-            line1.set_ydata(data['ch1'])
-            line1.set_xdata(data['time'])
-            plt.pause(0.001)
+        # This loops continuously updates the plot with new data
+        while True:
+            # get the chunk of streamed data
+            data = i.get_stream_data()
+            if data:
+                plt.xlim([data['time'][0], data['time'][-1]])
+                # Update the plot
+                line1.set_ydata(data['ch1'])
+                line1.set_xdata(data['time'])
+                plt.pause(0.001)
 
-except Exception as e:
-    if str(e) == "End of stream":
-        print("Streaming session complete!")
-    else:
-        i.stop_streaming()
-        i.relinquish_ownership()
-        raise e
-finally:
-    i.relinquish_ownership()
+    except Exception as e:
+        if str(e) == "End of stream":
+            print("Streaming session complete!")
+        else:
+            i.stop_streaming()
+            raise

@@ -11,9 +11,10 @@ import numpy as np
 
 from moku.instruments import Oscilloscope
 
-osc = Oscilloscope('192.168.XX.XX', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+with Oscilloscope(DEVICE_IP, force_connect=True) as osc:
     ## Set frontend settings
     osc.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
 
@@ -84,6 +85,3 @@ try:
 
     plt.ioff()
     plt.show()
-
-finally:
-    osc.relinquish_ownership()

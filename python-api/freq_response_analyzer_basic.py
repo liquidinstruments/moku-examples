@@ -9,11 +9,11 @@
 #
 from moku.instruments import FrequencyResponseAnalyzer
 
-# Connect to your Moku by its ip address using FrequencyResponseAnalyzer('192.168.###.###')
-# force_connect will overtake an existing connection
-i = FrequencyResponseAnalyzer('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with FrequencyResponseAnalyzer(DEVICE_IP, force_connect=True) as i:
     # Configure output sweep parameters (100Hz-20MHz)
     i.set_sweep(
         start_frequency=20e6,
@@ -43,11 +43,3 @@ try:
 
     # Print out the data for Channel 2
     print(frame['ch2']['frequency'], frame['ch2']['magnitude'], frame['ch2']['phase'])
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    i.relinquish_ownership()

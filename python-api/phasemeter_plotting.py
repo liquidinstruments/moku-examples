@@ -16,11 +16,11 @@ import numpy as np
 
 from moku.instruments import Phasemeter
 
-# Connect to your Moku by its ip address using Phasemeter('192.168.###.###')
-# force_connect will overtake an existing connection
-i = Phasemeter('192.168.###.###', force_connect=True)
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
 
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with Phasemeter(DEVICE_IP, force_connect=True) as i:
     # Set samplerate to 37 Hz/s
     i.set_acquisition_speed(speed="37Hz")
 
@@ -87,11 +87,3 @@ try:
         timestamps = timestamps[-1000:]
         ydata1 = ydata1[-1000:]
         ydata2 = ydata2[-1000:]
-
-except Exception as e:
-    i.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources are released correctly
-    i.relinquish_ownership()

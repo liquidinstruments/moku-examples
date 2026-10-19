@@ -2,9 +2,11 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import MultiInstrument, SpectrumAnalyzer, WaveformGenerator
 
-# force_connect will overtake an existing connection
-m = MultiInstrument('192.168.###.###', platform_id=2, force_connect=True)
-try:
+# Replace with your Moku's IP address.
+DEVICE_IP = '192.168.###.###'
+
+# Connect to the Moku (force_connect will overtake an existing connection).
+with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
     w = m.set_instrument(1, WaveformGenerator)
     s = m.set_instrument(2, SpectrumAnalyzer)
 
@@ -46,11 +48,3 @@ try:
         # Redraw the lines
         plt.draw()
         plt.pause(0.001)
-
-except Exception as e:
-    m.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    m.relinquish_ownership()
