@@ -28,8 +28,8 @@ m = MokuArbitraryWaveformGenerator('192.168.###.###', force_connect=true);
 try
  
     % Configure the output waveform in each channel
-    % Channel 1: sampling rate of 125 MSa/s, square wave, 1MHz, 2Vpp.
-    m.generate_waveform(1, "625Ms", square_wave, 1e6, 2);
+    % Channel 1: sampling rate of 625 MSa/s, square wave, 1MHz, 2Vpp.
+    m.generate_waveform(1, "625MSa/s", square_wave, 1e6, 2);
     % Channel 2: automatic sampling rate, use the "not_square_wave" LUT, 10
     % kHz, 1Vpp.
     m.generate_waveform(2, "Auto", not_square_wave, 10e3, 1,...
