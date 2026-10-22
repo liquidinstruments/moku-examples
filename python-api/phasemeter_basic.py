@@ -30,9 +30,6 @@ with Phasemeter(DEVICE_IP, force_connect=True) as i:
     i.generate_output(3, 'Phase', scaling=1, output_range='10Vpp')
     i.generate_output(4, 'Phase', scaling=10, output_range='10Vpp')
 
-    # Set the acquisition rate to 596 Sa/s for all channels
-    i.set_acquisition_speed('596Sa/s')
-
     # Set all input channels to 2 MHz, bandwidth 100 Hz
     i.set_pm_loop(1, auto_acquire=False, frequency=2e6, bandwidth='100Hz')
     i.set_pm_loop(2, auto_acquire=False, frequency=2e6, bandwidth='100Hz')

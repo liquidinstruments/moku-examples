@@ -21,9 +21,6 @@ DEVICE_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
 with Phasemeter(DEVICE_IP, force_connect=True) as i:
-    # Set the acquisition rate to 37.3 Sa/s
-    i.set_acquisition_speed(speed="37.3Sa/s")
-
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 4Vpp range
     i.set_frontend(1, coupling="DC", impedance="1MOhm", range="4Vpp")
     i.set_frontend(2, coupling="DC", impedance="1MOhm", range="4Vpp")
