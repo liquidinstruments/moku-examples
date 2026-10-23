@@ -101,12 +101,11 @@ begin
 
             if Control(5)(1) = '0' then
                 for k in 0 to G_NUM_SAMPLES - 1 loop
-                    -- Use delayed window to align with gain_out
+                    OutputB(k) <= (others => '0');
                     if boxcar_window(k) = '1' then
+                        -- Use delayed window to align with gain_out
                         -- if boxcar_window_d(C_WINDOW_DELAY - 1)(k) = '1' then
                         OutputB(k)(10) <= '1';
-                    else
-                        OutputB(k)(10) <= '0';
                     end if;
                 end loop;
             else
