@@ -15,10 +15,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import PIDController
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with PIDController(DEVICE_IP, force_connect=True) as i:
+with PIDController(MOKU_IP, force_connect=True) as i:
     # Configures the control matrix:
     # Channel 1: input 1 gain = 1 dB, input 2 gain = 0 dB
     # Channel 2: input 2 gain = 0 dB, input 2 gain = 1 dB

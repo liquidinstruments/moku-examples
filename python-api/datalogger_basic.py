@@ -12,10 +12,10 @@ import time
 from moku.instruments import Datalogger
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Datalogger(DEVICE_IP, force_connect=True) as i:
+with Datalogger(MOKU_IP, force_connect=True) as i:
     # Configure the frontend
     i.set_frontend(channel=1, impedance='1MOhm', coupling="AC", range="10Vpp")
 

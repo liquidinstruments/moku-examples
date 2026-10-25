@@ -8,10 +8,10 @@
 from moku.instruments import GigabitStreamerPlus
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with GigabitStreamerPlus(DEVICE_IP, force_connect=True) as i:
+with GigabitStreamerPlus(MOKU_IP, force_connect=True) as i:
     # Set up the Gigabit Streamer+ inputs
     i.enable_input(channel=1, enable=True)
     i.enable_input(channel=2, enable=True)

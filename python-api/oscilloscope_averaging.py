@@ -12,9 +12,9 @@ import numpy as np
 from moku.instruments import Oscilloscope
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
-with Oscilloscope(DEVICE_IP, force_connect=True) as osc:
+with Oscilloscope(MOKU_IP, force_connect=True) as osc:
     ## Set frontend settings
     osc.set_frontend(channel=1, impedance='50Ohm', coupling='DC', range='4Vpp')
 

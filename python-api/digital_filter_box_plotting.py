@@ -17,10 +17,10 @@ from moku import MokuException
 from moku.instruments import DigitalFilterBox
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with DigitalFilterBox(DEVICE_IP, force_connect=True) as i:
+with DigitalFilterBox(MOKU_IP, force_connect=True) as i:
     try:
         # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
         # default input range (400 mVpp range on Moku:Pro, 1 Vpp

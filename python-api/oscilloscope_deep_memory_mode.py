@@ -25,13 +25,13 @@ import numpy as np
 from moku.instruments import Oscilloscope
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 NUM_FRAMES = 1  # This is the number of frames to be averaged
 FILE_PATH = "C:/Users/XXXX/Downloads"  # Please replace with your own FILE_PATH
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Oscilloscope(DEVICE_IP, force_connect=True) as i:
+with Oscilloscope(MOKU_IP, force_connect=True) as i:
     # Set the data source of Channel 1 to be Input 1
     i.set_frontend(1, '50Ohm', 'DC', '400mVpp')
     i.set_sources(

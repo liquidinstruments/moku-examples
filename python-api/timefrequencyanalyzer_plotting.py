@@ -12,10 +12,10 @@ import numpy as np
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with TimeFrequencyAnalyzer(DEVICE_IP, force_connect=True) as i:
+with TimeFrequencyAnalyzer(MOKU_IP, force_connect=True) as i:
     # Set the event detectors
     # Set Event A to detect rising edge events on Input 1 at 0V
     # Set Event B to detect rising edge events on Input 2 at 0V

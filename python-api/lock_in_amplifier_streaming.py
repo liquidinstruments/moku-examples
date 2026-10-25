@@ -14,10 +14,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import LockInAmp
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with LockInAmp(DEVICE_IP, force_connect=True) as i:
+with LockInAmp(MOKU_IP, force_connect=True) as i:
     try:
         # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
         # 400 mVpp range (on Moku:Pro)

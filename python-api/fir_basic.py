@@ -10,12 +10,12 @@
 from moku.instruments import FIRFilterBox
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # The first step in configuring the FIR filter is to connect to your Moku using the IP address.
 # Then, configure the front end and outputs of the FIR filter.
 
-with FIRFilterBox(DEVICE_IP, force_connect=True) as i:
+with FIRFilterBox(MOKU_IP, force_connect=True) as i:
     try:
         # For Moku:Pro and Moku:Lab, the input impedance can be set to 50 Ohm
         # or 1M Ohm, but the Moku:Go can only be set to 1MOhm.

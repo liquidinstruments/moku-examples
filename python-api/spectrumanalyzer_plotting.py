@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 from moku.instruments import SpectrumAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s::%(message)s')
 logging.getLogger('moku_client').setLevel(logging.INFO)
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with SpectrumAnalyzer(DEVICE_IP, force_connect=True) as i:
+with SpectrumAnalyzer(MOKU_IP, force_connect=True) as i:
     # Configure the Spectrum Analyzer
     i.set_span(frequency1=0, frequency2=30e3)
     i.disable_output(1)

@@ -11,10 +11,10 @@
 from moku.instruments import WaveformGenerator
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with WaveformGenerator(DEVICE_IP, force_connect=True) as i:
+with WaveformGenerator(MOKU_IP, force_connect=True) as i:
     # Set sine wave to channel 1 and square wave to channel 2
     i.generate_waveform(channel=1, type='Sine', amplitude=1, frequency=10)
     i.generate_waveform(channel=2, type='Square', amplitude=1, frequency=500, duty=50)

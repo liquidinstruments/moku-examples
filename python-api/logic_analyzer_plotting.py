@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import LogicAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with LogicAnalyzer(DEVICE_IP, force_connect=True) as i:
+with LogicAnalyzer(MOKU_IP, force_connect=True) as i:
     patterns = [
         {"pin": 1, "pattern": [1] * 1024},  # logic high
         {"pin": 2, "pattern": [0] * 1024},  # logic low
