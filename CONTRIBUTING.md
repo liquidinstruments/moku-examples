@@ -383,7 +383,7 @@ Use descriptive, lowercase names with underscores:
 from moku.instruments import Oscilloscope
 
 # Configuration constants
-MOKU_IP = '192.168.1.100'  # Update with your device IP
+MOKU_IP = '192.168.1.100'  # Replace with your Moku's IP address
 SAMPLE_RATE = '1MSa/s'
 
 # Connect to device; the with block releases the Moku when it ends, even after an error
@@ -416,10 +416,10 @@ Each example should include:
 Never commit your actual device IP. Use placeholder or example IPs:
 ```python
 # ✅ Good
-MOKU_IP = '192.168.1.100'  # Update with your device IP
+MOKU_IP = '192.168.1.100'  # Replace with your Moku's IP address
 
 # ✅ Also good
-MOKU_IP = '192.168.###.###'  # Replace with your device IP
+MOKU_IP = '192.168.###.###'  # Replace with your Moku's IP address
 
 # ❌ Bad (reveals your network)
 MOKU_IP = '192.168.50.247'
