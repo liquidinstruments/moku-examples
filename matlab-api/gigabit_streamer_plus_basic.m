@@ -31,7 +31,7 @@ try
     m.set_local_network('10.10.1.1', 5000);
     % Find host or configure the host IP address, UDP port,
     % and MAC address to set the remote network
-    m.set_remote_network('168.192.XXX.XXX', 5000, 'A1:B2:C3:XX:XX:XX');
+    m.set_remote_network('192.168.XXX.XXX', 5000, 'A1:B2:C3:XX:XX:XX');
     m.set_outgoing_packets('1500bytes');
 
     % Enable outputs (channel, enable, gain, offset)
