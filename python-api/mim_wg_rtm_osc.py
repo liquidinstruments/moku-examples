@@ -12,15 +12,15 @@ import matplotlib.pyplot as plt
 
 from moku.instruments import MultiInstrument, Oscilloscope, RealTimeMath, WaveformGenerator
 
-MOKU_IP = '192.168.###.###'  # Update with your device IP
+# Replace with your Moku's IP address.
+MOKU_IP = '192.168.###.###'
 
 # RTM needs three or more slots: use 3 for Moku:Go, Moku:Lab and Moku:Delta,
 # or 4 for Moku:Pro.
 NUM_SLOTS = 3
 
-# force_connect will overtake an existing connection
-m = MultiInstrument(MOKU_IP, num_slots=NUM_SLOTS, force_connect=True)
-try:
+# Connect to the Moku (force_connect will overtake an existing connection).
+with MultiInstrument(MOKU_IP, num_slots=NUM_SLOTS, force_connect=True) as m:
     wg = m.set_instrument(1, WaveformGenerator)
     rtm = m.set_instrument(2, RealTimeMath)
     osc = m.set_instrument(3, Oscilloscope)
@@ -58,11 +58,3 @@ try:
     plt.ylabel("Amplitude (V)")
     plt.legend()
     plt.show()
-
-except Exception as e:
-    m.relinquish_ownership()
-    raise e
-finally:
-    # Close the connection to the Moku device
-    # This ensures network resources and released correctly
-    m.relinquish_ownership()
