@@ -8,7 +8,7 @@
 %
 
 %% Connect to your Moku
-% Configure multi-instrument with num_slots 2 or 3 for Moku:Lab and Moku:Go, 4 for Moku:Pro, or 3 or 8 for Moku:Delta.
+% Configure multi-instrument with num_slots 2 or 3 for Moku:Lab and Moku:Go, 4 for Moku:Pro, or 3, 5 or 8 for Moku:Delta.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 2, force_connect=true);
 

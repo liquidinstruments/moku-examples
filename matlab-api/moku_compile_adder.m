@@ -15,7 +15,7 @@
 % should point to this unzipped folder.
 
 %% Connect to your Moku
-% Connect to Moku via its IP address. Change num_slots to 2 or 3 for Moku:Lab and Moku:Go, 4 for Moku:Pro, or 3 or 8 for Moku:Delta.
+% Connect to Moku via its IP address. Change num_slots to 2 or 3 for Moku:Lab and Moku:Go, 4 for Moku:Pro, or 3, 5 or 8 for Moku:Delta.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 

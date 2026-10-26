@@ -15,7 +15,8 @@
 
 %% Connect to your Moku
 % Connect to Moku via its IP address
-% Change num_slots to 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
+% Gigabit Streamer runs on Moku:Delta in 3-slot or 5-slot Multi-Instrument Mode.
+% This example uses 3-slot mode, with Gigabit Streamer in slots 1 and 3.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 3, force_connect=true);
 
