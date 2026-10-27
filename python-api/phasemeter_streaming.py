@@ -14,10 +14,10 @@ import numpy as np
 from moku.instruments import Phasemeter
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Phasemeter(DEVICE_IP, force_connect=True) as i:
+with Phasemeter(MOKU_IP, force_connect=True) as i:
     try:
         # Set channel 1 to DC coupled, 1 MOhm impedance, and 4Vpp range
         i.set_frontend(1, coupling='DC', impedance='1MOhm', range='4Vpp')
@@ -25,13 +25,14 @@ with Phasemeter(DEVICE_IP, force_connect=True) as i:
         # Set auto acquired frequency for channel 1
         i.set_pm_loop(channel=1, auto_acquire=True, bandwidth='1kHz')
 
-        # Get auto acquired frequency for channel 1
-        i.get_auto_acquired_frequency(channel=1)
+        # Get the auto-acquired frequency for channel 1. get_data isn't
+        # available while streaming, so call it before streaming starts.
+        print(i.get_data()['ch1']['setpoint_frequency'])
 
-        # Set samplerate to 150 Hz/s
-        # Stop and existing streaming session and start a new one for 30s
+        # Set the acquisition rate to 149 Sa/s
+        # Stop any existing streaming session and start a new one for 30s
         i.stop_streaming()
-        i.start_streaming(duration=30, acquisition_speed='150Hz')
+        i.start_streaming(duration=30, acquisition_rate='149Sa/s')
 
         # Set up the figure for plotting
         plt.ion()

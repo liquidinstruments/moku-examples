@@ -28,7 +28,7 @@ This repository contains example code for working with Moku devices, including:
 
 Look for lines like:
 ```python
-MOKU_IP = '192.168.1.100'  # Update with your device IP
+MOKU_IP = '192.168.1.100'  # Replace with your Moku's IP address
 # or
 i = Oscilloscope('192.168.###.###', force_connect=True)
 ```

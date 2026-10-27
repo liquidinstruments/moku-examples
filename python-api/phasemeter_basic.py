@@ -10,10 +10,10 @@
 from moku.instruments import Phasemeter
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Phasemeter(DEVICE_IP, force_connect=True) as i:
+with Phasemeter(MOKU_IP, force_connect=True) as i:
     # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
     i.set_frontend(1, coupling='DC', impedance='1MOhm', range='400mVpp')
     i.set_frontend(2, coupling='DC', impedance='1MOhm', range='400mVpp')
@@ -27,11 +27,8 @@ with Phasemeter(DEVICE_IP, force_connect=True) as i:
     i.generate_output(2, 'Sine', amplitude=0.5, phase_locked=True)
     # Configure Output channel 3 and 4 to generate measured phase at a
     # scaling of 1 V/cycle and 10 V/cycle respectively
-    i.generate_output(3, 'Phase', scaling=1)
-    i.generate_output(4, 'Phase', scaling=10)
-
-    # Set the acquisition speed to 596Hz for all channels
-    i.set_acquisition_speed('596Hz')
+    i.generate_output(3, 'Phase', scaling=1, output_range='10Vpp')
+    i.generate_output(4, 'Phase', scaling=10, output_range='10Vpp')
 
     # Set all input channels to 2 MHz, bandwidth 100 Hz
     i.set_pm_loop(1, auto_acquire=False, frequency=2e6, bandwidth='100Hz')

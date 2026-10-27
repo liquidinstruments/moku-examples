@@ -18,9 +18,9 @@ try
     %% Configure the instrument
     
     % Configure the frontend
-    % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range
+    % Channel 1 DC coupled, 1 MOhm impedance, and 400 mVpp range (on Moku:Pro)
     m.set_frontend(1, 'DC', '1MOhm', 'gain', '0dB');
-    % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range
+    % Channel 2 DC coupled, 1 MOhm impedance, and 4 Vpp range (on Moku:Pro)
     m.set_frontend(2, 'DC', '1MOhm', 'gain', '-20dB');
     
     % Configure the demodulation signal to Local oscillator with 1 MHz and
@@ -28,7 +28,7 @@ try
     m.set_demodulation('Internal','frequency',1e6,'phase',0);
     
     % Set low pass filter to 1 kHz corner frequency with 6 dB/octave slope
-    m.set_filter(1e3,'slope','Slope6dB');
+    m.set_filter(1e3,'slope','6dB');
     
     % Configure output signals
     % X component to Output 1 

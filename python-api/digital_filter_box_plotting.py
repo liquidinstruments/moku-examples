@@ -17,10 +17,10 @@ from moku import MokuException
 from moku.instruments import DigitalFilterBox
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with DigitalFilterBox(DEVICE_IP, force_connect=True) as i:
+with DigitalFilterBox(MOKU_IP, force_connect=True) as i:
     try:
         # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and
         # default input range (400 mVpp range on Moku:Pro, 1 Vpp
@@ -36,10 +36,10 @@ with DigitalFilterBox(DEVICE_IP, force_connect=True) as i:
         # Configure Digital Filter on Channel 1 and Channel 2
         # Channel1 is a 8th-order Butterworth lowpass filter
         # Channel2 is a 8th-order Elliptic highpass filter
-        # 3.906 MHz is for Moku:Go
+        # 3.91 MSa/s is for Moku:Go
         # Please change sampling rate for other Moku devices.
-        i.set_filter(1, "3.906MHz", shape="Lowpass", type="Butterworth", low_corner=1e3, order=8)
-        i.set_filter(2, "3.906MHz", shape="Highpass", type="Elliptic", high_corner=100e3, order=8)
+        i.set_filter(1, "3.91MSa/s", shape="Lowpass", type="Butterworth", low_corner=1e3, order=8)
+        i.set_filter(2, "3.91MSa/s", shape="Highpass", type="Elliptic", high_corner=100e3, order=8)
 
         # Monitor ProbeA: Filter Channel1 output
         # Monitor ProbeB: Filter Channel2 output

@@ -11,11 +11,11 @@
 from moku.instruments import LockInAmp
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with LockInAmp(DEVICE_IP, force_connect=True) as i:
-    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range
+with LockInAmp(MOKU_IP, force_connect=True) as i:
+    # Set Channel 1 and 2 to DC coupled, 1 MOhm impedance, and 400 mVpp range (on Moku:Pro)
     i.set_frontend(1, coupling='DC', impedance='1MOhm', attenuation='0dB')
     i.set_frontend(2, coupling='DC', impedance='1MOhm', attenuation='0dB')
 
@@ -24,7 +24,7 @@ with LockInAmp(DEVICE_IP, force_connect=True) as i:
     i.set_demodulation('Internal', frequency=1e6, phase=0)
 
     # Set low pass filter to 1 kHz corner frequency with 6 dB/octave slope
-    i.set_filter(1e3, slope='Slope6dB')
+    i.set_filter(1e3, slope='6dB')
 
     # Configure output signals
     # X component to Output 1

@@ -1,5 +1,5 @@
-IP_ADDR = '192.168.2.200'
-BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/boxcarMokuPro.tar.gz'
+IP_ADDR = '192.168.###.###'
+BITSTREAMS_PATH = 'C:/Users/XXXX/Downloads/boxcarMokuPro.tar.gz'
 ATTENUATION = '0dB'
 INPUT_IMPEDANCE = '50Ohm'
 COUPLING = 'DC'
@@ -31,10 +31,10 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
                                                NavigationToolbar2Tk)
 from matplotlib.figure import Figure
-from moku.instruments import Oscilloscope, CustomInstrument, MultiInstrument
+from moku.instruments import Oscilloscope, MokuCompile, MultiInstrument
 
 print('Connecting to Moku...')
-m = MultiInstrument(IP_ADDR, platform_id=4, force_connect=True)
+m = MultiInstrument(IP_ADDR, num_slots=4, force_connect=True)
 
 print('Setting Multi-instrument Mode...')
 description = m.describe()
@@ -67,7 +67,7 @@ resolution = resolution_dict[description['hardware']]
 range = range_dict[description['hardware']]
 
 
-mc = m.set_instrument(1, CustomInstrument, bitstream=BITSTREAMS_PATH)
+mc = m.set_instrument(1, MokuCompile, bitstream=BITSTREAMS_PATH)
 osc = m.set_instrument(2, Oscilloscope)
 
 connections = [dict(source="Input1", destination="Slot1InA"),

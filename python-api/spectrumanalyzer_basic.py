@@ -9,10 +9,10 @@
 from moku.instruments import SpectrumAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with SpectrumAnalyzer(DEVICE_IP, force_connect=True) as i:
+with SpectrumAnalyzer(MOKU_IP, force_connect=True) as i:
     # Deploy the Spectrum Analyzer to your Moku
     # Configure the Spectrum Analyzer
     i.set_span(0, 10e6)

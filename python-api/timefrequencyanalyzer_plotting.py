@@ -12,10 +12,10 @@ import numpy as np
 from moku.instruments import TimeFrequencyAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with TimeFrequencyAnalyzer(DEVICE_IP, force_connect=True) as i:
+with TimeFrequencyAnalyzer(MOKU_IP, force_connect=True) as i:
     # Set the event detectors
     # Set Event A to detect rising edge events on Input 1 at 0V
     # Set Event B to detect rising edge events on Input 2 at 0V
@@ -29,7 +29,7 @@ with TimeFrequencyAnalyzer(DEVICE_IP, force_connect=True) as i:
     i.set_acquisition_mode(mode='Windowed', window_length=100e-3)
 
     # Use the first start event and close the interval at the end of the gate period (arbitrary as using windowed acquisition)
-    i.set_interval_policy(multiple_start_events='Use first', incomplete_intervals='Close')
+    i.set_interval_policy(multiple_start_events='UseFirst', incomplete_intervals='Close')
 
     # Set the histogram to 8ns span centred around 2us, with interval histogram type
     i.set_histogram(start_time=1.996e-6, stop_time=2.004e-6, type='Interval')

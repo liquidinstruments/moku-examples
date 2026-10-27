@@ -9,7 +9,7 @@
 %  (c) Liquid Instruments Pty. Ltd.
 
 % force_connect will overtake an existing connection
-m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true, timeout=60);
+m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true, read_timeout=60);
 
 wg = m.set_instrument(1, @MokuWaveformGenerator);
 nn = m.set_instrument(2, @MokuNeuralNetwork);

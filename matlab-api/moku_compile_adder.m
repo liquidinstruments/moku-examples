@@ -1,8 +1,8 @@
-%% Adder Custom Instrument Example
+%% Adder Moku Compile Example
 %
-% This example demonstrates how you can configure Custom Instrument, using
-% Multi-Instrument mode, to add and subtract two input signals together and
-% output the result to the Oscilloscope.
+% This example demonstrates how you can configure your Moku to run a Moku Compile
+% instrument in Multi-Instrument Mode, which adds and subtracts two input signals
+% and outputs the results to the Oscilloscope.
 %
 %  (c) Liquid Instruments Pty. Ltd.
 %
@@ -11,20 +11,20 @@
 % (https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
 %
 % Unzip the bitstream (.tar file) once downloaded, and the unzipped folder
-% contains 2, 3, or 4 .bar files depending on Moku hardware. The bitstream path
+% contains 2, 3, or 4 .mokuinst files depending on Moku hardware. The bitstream path
 % should point to this unzipped folder.
 
 %% Connect to your Moku
-% Connect to Moku via its IP address. Change platform_id to 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
+% Connect to Moku via its IP address. Change num_slots to 2 or 3 for Moku:Lab and Moku:Go, 4 for Moku:Pro, or 3, 5 or 8 for Moku:Delta.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 4, force_connect=true);
 
 try
     %% Configure the instruments
-    % Set the instruments and upload Custom Instrument bitstreams from your device
+    % Set the instruments and upload Moku Compile bitstreams from your device
     % to your Moku
     bitstream = 'path/to/project/adder/unzipped_bitstream';
-    mc = m.set_instrument(1, @MokuCustomInstrument, bitstream);
+    mc = m.set_instrument(1, @MokuCompile, bitstream);
     osc = m.set_instrument(2, @MokuOscilloscope);
 
     % configure routing

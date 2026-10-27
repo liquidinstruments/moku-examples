@@ -12,21 +12,23 @@ This example demonstrates how you can generate and output arbitrary waveforms us
 
 <<< @/docs/api/moku-examples/python-api/arbitrarywavegen_basic.py
 
-## Custom Instrument
+## Moku Compile
 
-### custom_instrument_adder.py
+### moku_compile_adder.py
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
+This example demonstrates how you can configure your Moku to run the
 [Adder example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Basic/Adder)
+as a Moku Compile instrument in Multi-Instrument Mode.
 
-<<< @/docs/api/moku-examples/python-api/custom_instrument_adder.py
+<<< @/docs/api/moku-examples/python-api/moku_compile_adder.py
 
-### custom_instrument_arithmetic.py
+### moku_compile_arithmetic.py
 
-This example demonstrates how you can configure Custom Instrument, using Multi-Instrument mode to run the
+This example demonstrates how you can configure your Moku to run the
 [Arithmetic Unit example](https://github.com/liquidinstruments/moku-examples/tree/main/mc/Moderate/ArithmeticUnit)
+as a Moku Compile instrument in Multi-Instrument Mode.
 
-<<< @/docs/api/moku-examples/python-api/custom_instrument_arithmetic.py
+<<< @/docs/api/moku-examples/python-api/moku_compile_arithmetic.py
 
 ## Data Logger
 
@@ -167,7 +169,7 @@ all 16 channels
 
 Multi-instrument Mode on Moku:Go (two-slot), deploying the Waveform Generator
 and Oscilloscope at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/python-api/mim_wg_osc.py
 
@@ -175,9 +177,18 @@ the "platform_id" to one supported by that hardware.
 
 Multi-instrument Mode on Moku:Go (two slot), deploying the Waveform Generator
 and Spectrum Analyzer at once. This example is easily ported to Moku:Pro by changing
-the "platform_id" to one supported by that hardware.
+the "num_slots" to one supported by that hardware.
 
 <<< @/docs/api/moku-examples/python-api/mim_wg_sa.py
+
+### mim_wg_rtm_osc.py
+
+Multi-instrument Mode on a three-slot platform, deploying the Waveform Generator,
+Real Time Math and Oscilloscope at once. Real Time Math applies a gain with an
+output limit, and an offset, to the generated sine wave. Use `num_slots=4`
+on Moku:Pro.
+
+<<< @/docs/api/moku-examples/python-api/mim_wg_rtm_osc.py
 
 ## Neural Network
 

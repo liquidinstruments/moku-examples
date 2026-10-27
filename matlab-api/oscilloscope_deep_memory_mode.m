@@ -14,7 +14,9 @@
 % Update the 'download_file' command accordingly to match the correct storage location.
 %
 % The parameters in the 'set_frontend' command should be configured to align with the specific hardware (Moku:Go, Moku:Lab, Moku:Pro, or Moku:Delta).
-
+%
+%  (c) Liquid Instruments Pty. Ltd.
+%
 
 NUM_FRAMES = 1;
 
@@ -30,10 +32,10 @@ try
     m.set_timebase(-5e-3, 5e-3);
     
     m.set_acquisition_mode('mode',"DeepMemory");
-    m.get_samplerate()
+    m.get_samplerate();
 
     % Set the data source of Channel 1 to be Input 1
-    m.set_frontend(1,'50Ohm','AC','400mVpp')
+    m.set_frontend(1,'50Ohm','AC','400mVpp');
     m.set_source(1, 'Input1');
 
     m.set_source(2, 'None');

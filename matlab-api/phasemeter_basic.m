@@ -26,11 +26,8 @@ try
     m.generate_output(2, 'Sine', 'amplitude',0.5, 'phase_locked',true);
     % Configure Output channel 3 and 4 to generate measured phase at a
     % scaling of 1 V/cycle and 10 V/cycle respectively
-    m.generate_output(3, 'Phase','scaling',1);
-    m.generate_output(4, 'Phase','scaling',10);
-    
-    % Set the acquisition speed to 596Hz for all channels
-    m.set_acquisition_speed('596Hz');
+    m.generate_output(3, 'Phase','scaling',1, 'output_range','10Vpp');
+    m.generate_output(4, 'Phase','scaling',10, 'output_range','10Vpp');
     
     % Set all input channels to 2 MHz, bandwidth 100 Hz
     m.set_pm_loop(1,'auto_acquire',false,'frequency',2e6,'bandwidth','100Hz');

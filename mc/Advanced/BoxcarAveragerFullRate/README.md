@@ -4,7 +4,7 @@
 
 This project implements a high-performance Boxcar Averager designed for the Moku platform. It achieves full-rate signal processing by enabling **multi-sample processing per clock cycle** (interlacing). This architecture allows the instrument to process every sample from the ADC without decimation, even when the FPGA fabric clock runs slower than the ADC sampling rate.
 
-> **Important**: This full-rate implementation requires the **Custom Instrument+** option on the Moku platform and is subject to **export control**.
+> **Important**: This full-rate implementation requires the **Moku Compile+** option on the Moku platform and is subject to **export control**.
 
 ## Architecture
 

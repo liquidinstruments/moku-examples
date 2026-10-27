@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import MultiInstrument, Oscilloscope, WaveformGenerator
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with MultiInstrument(DEVICE_IP, platform_id=2, force_connect=True) as m:
+with MultiInstrument(MOKU_IP, num_slots=2, force_connect=True) as m:
     wg = m.set_instrument(1, WaveformGenerator)
     osc = m.set_instrument(2, Oscilloscope)
 

@@ -15,7 +15,8 @@
 
 %% Connect to your Moku
 % Connect to Moku via its IP address
-% Change platform_id to 2 or 3 for Moku:Lab and Moku:Go, or 3 or 8 for Moku:Delta.
+% Gigabit Streamer runs on Moku:Delta in 3-slot or 5-slot Multi-Instrument Mode.
+% This example uses 3-slot mode, with Gigabit Streamer in slots 1 and 3.
 % force_connect will overtake an existing connection
 m = MokuMultiInstrument('192.168.###.###', 3, force_connect=true);
 
@@ -78,8 +79,8 @@ try
     gs2.set_output(2, false, 0.0, 0.0);
 
     % Immediately start sending data for 10 seconds
-    gs1.start_sending(10);
-    gs2.start_sending(10);
+    gs1.start_sending('mode', 'Manual', 'duration', 10);
+    gs2.start_sending('mode', 'Manual', 'duration', 10);
 
     % Get initial data frame to set up plotting parameters
     data = osc.get_data();

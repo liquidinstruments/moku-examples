@@ -10,10 +10,10 @@
 from moku.instruments import FrequencyResponseAnalyzer
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with FrequencyResponseAnalyzer(DEVICE_IP, force_connect=True) as i:
+with FrequencyResponseAnalyzer(MOKU_IP, force_connect=True) as i:
     # Configure output sweep parameters (100Hz-20MHz)
     i.set_sweep(
         start_frequency=20e6,

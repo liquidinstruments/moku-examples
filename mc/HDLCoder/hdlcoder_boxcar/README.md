@@ -36,8 +36,8 @@ To control your device with the Python control panel, you may need to modify a f
 Each device has a unique IP address, and the bitstreams path may vary depending on your system. Please modify `1` and `2` in the Python script to reflect your setup:
 
 ```
-IP_ADDR = '192.168.2.200'
-BITSTREAMS_PATH = 'C:/Users/heyan/Downloads/boxcarMokuPro.tar.gz'
+IP_ADDR = '192.168.###.###'
+BITSTREAMS_PATH = 'C:/Users/XXXX/Downloads/boxcarMokuPro.tar.gz'
 ```
 
 #### 2. Update Analog Frontend Settings
@@ -52,10 +52,10 @@ INPUT_IMPEDANCE = '50Ohm'
 COUPLING = 'DC'
 ```
 
-Additionally, Moku:Pro uses `platform_id` of `4`, Moku:Delta uses `3` or `8` and Moku:Go and Moku:Lab `2` or `3`. For more details, please visit [Multi-instrument Mode API](https://apis.liquidinstruments.com/starting-mim.html).
+Additionally, Moku:Pro uses `num_slots` of `4`, Moku:Delta uses `3`, `5` or `8` and Moku:Go and Moku:Lab `2` or `3`. For more details, please visit [Multi-instrument Mode API](https://apis.liquidinstruments.com/starting-mim.html).
 
 ```
-m = MultiInstrument(IP_ADDR, platform_id=4, force_connect=True)
+m = MultiInstrument(IP_ADDR, num_slots=4, force_connect=True)
 ```
 
 #### 3. Change initial settings

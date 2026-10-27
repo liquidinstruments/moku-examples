@@ -383,21 +383,15 @@ Use descriptive, lowercase names with underscores:
 from moku.instruments import Oscilloscope
 
 # Configuration constants
-MOKU_IP = '192.168.1.100'  # Update with your device IP
+MOKU_IP = '192.168.1.100'  # Replace with your Moku's IP address
 SAMPLE_RATE = '1MSa/s'
 
-try:
-    # Connect to device
-    osc = Oscilloscope(MOKU_IP, force_connect=True)
-
+# Connect to device; the with block releases the Moku when it ends, even after an error
+with Oscilloscope(MOKU_IP, force_connect=True) as osc:
     # Configure instrument
     osc.set_timebase(0, 1e-3)
 
     # Your example code here
-
-finally:
-    # Always close the connection
-    osc.relinquish_ownership()
 ```
 
 #### Jupyter Notebooks (.ipynb)
@@ -413,7 +407,8 @@ Each example should include:
 1. **Header comment**: Brief description and date
 2. **Inline comments**: Explain non-obvious code
 3. **Configuration section**: Clearly marked parameters users need to change
-4. **Error handling**: Use try/finally for cleanup
+4. **Connection handling**: Connect in a `with` block so the Moku is released
+   when the example ends; don't also call `relinquish_ownership()`
 5. **Output**: Print relevant information or generate plots
 
 ### IP Address Handling
@@ -421,10 +416,10 @@ Each example should include:
 Never commit your actual device IP. Use placeholder or example IPs:
 ```python
 # ✅ Good
-MOKU_IP = '192.168.1.100'  # Update with your device IP
+MOKU_IP = '192.168.1.100'  # Replace with your Moku's IP address
 
 # ✅ Also good
-MOKU_IP = '192.168.###.###'  # Replace with your device IP
+MOKU_IP = '192.168.###.###'  # Replace with your Moku's IP address
 
 # ❌ Bad (reveals your network)
 MOKU_IP = '192.168.50.247'

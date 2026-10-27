@@ -18,7 +18,7 @@ try
     % Configure the frontend
     % Channel 1 DC coupled, 10Vpp range
     m.set_frontend(1, '1MOhm', 'DC', '10Vpp');
-    % Channel 2 DC coupled, 50Vpp range
+    % Channel 2 DC coupled, 10Vpp range
     m.set_frontend(2, '1MOhm', 'DC', '10Vpp');
     
     % Configure the trigger conditions

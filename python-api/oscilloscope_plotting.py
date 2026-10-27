@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import Oscilloscope
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Oscilloscope(DEVICE_IP, force_connect=True) as i:
+with Oscilloscope(MOKU_IP, force_connect=True) as i:
     # Trigger on input Channel 1, rising edge, 0V
     i.set_trigger(type='Edge', source='Input1', level=0)
 

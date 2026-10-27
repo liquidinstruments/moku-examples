@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 from moku.instruments import Datalogger
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Datalogger(DEVICE_IP, force_connect=True) as i:
+with Datalogger(MOKU_IP, force_connect=True) as i:
     try:
         # generate a waveform on output channel 1
         i.generate_waveform(1, "Sine", frequency=100)

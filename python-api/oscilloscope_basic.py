@@ -9,10 +9,10 @@
 from moku.instruments import Oscilloscope
 
 # Replace with your Moku's IP address.
-DEVICE_IP = '192.168.###.###'
+MOKU_IP = '192.168.###.###'
 
 # Connect to the Moku (force_connect will overtake an existing connection).
-with Oscilloscope(DEVICE_IP, force_connect=True) as i:
+with Oscilloscope(MOKU_IP, force_connect=True) as i:
     # Set the span to from -1ms to 1ms i.e. trigger point centred
     i.set_timebase(-1e-3, 1e-3)
 
